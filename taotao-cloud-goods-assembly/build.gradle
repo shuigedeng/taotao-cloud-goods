@@ -1,0 +1,137 @@
+import org.apache.tools.ant.filters.ReplaceTokens
+
+apply from: rootProject.file('gradle/project-report.gradle')
+apply from: rootProject.file('gradle/git.gradle')
+apply from: rootProject.file('gradle/smart-doc.gradle')
+apply from: rootProject.file('gradle/springdoc-openapi.gradle')
+apply from: rootProject.file('gradle/docker.gradle')
+apply from: rootProject.file('gradle/google-tools-jib.gradle')
+apply from: rootProject.file('gradle/shadow.gradle')
+apply from: rootProject.file('gradle/graalvm.gradle')
+apply from: rootProject.file('gradle/swagger.gradle')
+apply from: rootProject.file('gradle/test.gradle')
+apply from: rootProject.file('gradle/mybatis-generator.gradle')
+
+dependencies {
+    implementation project(":taotao-cloud-goods-application")
+    implementation project(":taotao-cloud-goods-facade")
+    implementation project(":taotao-cloud-goods-domain")
+    implementation project(":taotao-cloud-goods-integration")
+    implementation project(":taotao-cloud-goods-infrastructure")
+    implementation project(":taotao-cloud-goods-common")
+}
+
+
+def getProperty(String key, String defaultValue) {
+    def keyValue = findProperty(key) ?: System.getenv(key)
+    if (keyValue != null) {
+        return keyValue;
+    }
+    // 加载根路径自定义配置属性
+    Properties envProps = new Properties()
+    envProps.load(new FileInputStream("${rootProject.projectDir.absolutePath}${File.separator}release.properties"))
+
+    keyValue = envProps.getProperty(key, defaultValue)
+    println("打包profile环境==============" + keyValue)
+    return keyValue
+}
+//多项目分环境打包
+//gradle构建过程中的默认任务processResources，重写
+//gradle build -x test -Pprofile=dev
+//gradle -x test clean bootJar -Pprofile=dev
+processResources {
+    doFirst {
+        //过滤器会将用 @var@ 包裹的变量，替换为指定的值。
+        filter ReplaceTokens, tokens: [activeProfile: getProperty("profile", "dev")]
+
+
+        //${profile}变量
+        //filesMatching("**/*.yml"){
+        //    expand(project.properties)
+        //}
+
+        //inputs.property('version', version)
+
+        //filesMatching("**/version.properties") {
+        //    expand version: version
+        //}
+    }
+}
+
+tasks.register('createProperties') {
+    dependsOn processResources
+    doLast {
+        def fileDir = new File("${project.layout.buildDirectory.asFile.get()}/resources/main");
+        if (fileDir.exists() && fileDir.isDirectory()) {
+            def pro = ["application.properties", "bootstrap.properties"]
+            pro.forEach(item -> {
+                new File("${project.layout.buildDirectory.asFile.get()}/resources/main/$item").withWriter { w ->
+                    def projectProperties = project.properties
+                    Properties p = new Properties()
+                    projectProperties.each { entry ->
+                        p[entry.key.toString()] = entry.value.toString()
+                    }
+
+                    p.store w, null
+                }
+            })
+        }
+    }
+}
+
+classes {
+    dependsOn 'createProperties'
+}
+
+task bootJarTest {
+    dependsOn 'clean'
+    doFirst {
+        System.setProperty("profile", "test")
+    }
+    finalizedBy("bootJar")
+}
+
+task bootJarProduction {
+    dependsOn 'clean'
+    doFirst {
+        System.setProperty("profile", "prod")
+    }
+    finalizedBy("bootJar")
+}
+
+configurations {
+    all {
+        resolutionStrategy.cacheChangingModulesFor 0, "seconds"
+        resolutionStrategy.cacheDynamicVersionsFor 0, "seconds"
+
+
+        //implementation('com.alibaba:fastjson'){
+        //    version{
+        //        strictly("1.2.12")
+        //    }
+        //}
+        //或者简写为 force 的优先级会比较高，会覆盖 strictly 策略
+        //implementation 'com.alibaba:fastjson:2.0.52!!'
+
+        resolutionStrategy {
+            //force "org.codehaus.groovy:groovy:4.0.0"
+            //force 'org.antlr:antlr4:4.13.2'
+            //force 'net.minidev:json-smart:2.5.1'
+            //todo 临时使用
+            force "io.opentelemetry:opentelemetry-api-incubator:1.40.0-alpha"
+        }
+
+        //exclude group: "log4j", module: "log4j"
+        //exclude group: "log4j", module: "slf4j-simple"
+        //exclude group: "org.slf4j", module: "slf4j-log4j12"
+        //exclude group: "org.apache.logging.log4j", module: "log4j-slf4j-impl"
+        //exclude group: "org.apache.logging.log4j", module: "log4j-to-slf4j"
+        //exclude group: "org.apache.logging.log4j", module: "log4j-api"
+        exclude group: "org.springframework.boot", module: "spring-boot-starter-tomcat"
+        exclude group: "commons-logging", module: "commons-logging"
+        exclude group: "io.zipkin.brave", module: "brave"
+        exclude group: "io.zipkin.reporter2", module: "zipkin-reporter-brave"
+        exclude group: "io.micrometer", module: "micrometer-tracing-bridge-brave"
+        exclude group: "com.alibaba.nacos", module: "logback-adapter"
+    }
+}
