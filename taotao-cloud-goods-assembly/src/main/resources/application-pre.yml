@@ -194,7 +194,7 @@ elasticjob:
     namespace: taotao-cloud-elasticjob
   jobs:
     taotao-cloud-simple-job:
-      elastic-job-class: com.taotao.cloud.goods.biz.task.elastic.TaoTaoSimpleJob
+      elastic-job-class: com.taotao.boot.goods.biz.task.elastic.TaoTaoSimpleJob
       jobBootstrapBeanName: taoTaoSimpleBootstrapJob
       cron: 0 0/30 * * * ?
       timeZone: GMT+08:00
@@ -227,7 +227,7 @@ elasticjob:
           bcc:
           debug: false
     taotao-cloud-data-flow-job:
-      elastic-job-class: com.taotao.cloud.goods.biz.task.elastic.TaoTaoDataflowJob
+      elastic-job-class: com.taotao.boot.goods.biz.task.elastic.TaoTaoDataflowJob
       jobBootstrapBeanName: taoTaoDataflowBootstrapJob
       cron: 0 0/30 * * * ?
       timeZone: GMT+08:00
@@ -261,7 +261,7 @@ arthas:
 
 dubbo:
   scan:
-    base-packages: com.taotao.cloud.goods.biz.service.dubbo
+    base-packages: com.taotao.boot.goods.biz.service.dubbo
   application:
     id: ${spring.application.name}
     name: ${spring.application.name}
@@ -1126,7 +1126,7 @@ spring:
             consumer:
               txCommitRecovered: true
 taotao:
-  cloud:
+  boot:
     zookeeper:
       enabled: true
       connectString: 192.168.10.200:2181,192.168.10.200:2182,192.168.10.200:2183
@@ -1191,7 +1191,7 @@ taotao:
       dateformat: yyyy-MM-dd HH:mm:ss
       driverlist: com.mysql.cj.jdbc.Driver
       database-dialect-date-format: yyyy-MM-dd HH:mm:ss
-      appender: com.taotao.cloud.data.p6spy.logger.KafkaLogger
+      appender: com.taotao.boot.data.p6spy.logger.KafkaLogger
       logfile: ${user.home}/logs/${spring.application.name}/p6spy/p6spy.log
     oss:
       enabled: false
@@ -1260,7 +1260,7 @@ taotao:
           enabled: false
       jpa:
         enabled: true
-        packages: com.taotao.cloud.goods.biz.model.entity
+        packages: com.taotao.boot.goods.biz.model.entity
         tenant:
           enabled: false
     core:
@@ -1292,7 +1292,7 @@ taotao:
 
 mybatis-plus:
   #实体扫描 多个package用户逗号或者分号分割
-  typeAliasesPackage: com.taotao.cloud.goods.biz.model.entity
+  typeAliasesPackage: com.taotao.boot.goods.biz.model.entity
   # mapper xml 地址
   mapperLocations: classpath:mapper/*.xml
   global-config:
@@ -1315,7 +1315,7 @@ mybatis-plus:
     map-underscore-to-camel-case: true
     cache-enabled: false
     # 日志打印参数class
-    #log-impl: com.taotao.cloud.data.mybatis.logging.CustomStdOutImpl
+    #log-impl: com.taotao.boot.data.mybatis.logging.CustomStdOutImpl
     #log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
     #查询时，关闭关联对象即时加载以提高性能
@@ -1408,7 +1408,7 @@ logging:
   level:
     root: INFO
     org.apache.zookeeper.ZooKeeper: error
-    com.taotao.cloud.goods.api.feign: debug
+    com.taotao.boot.goods.api.feign: debug
     #org.springframework.cloud.openfeign: debug
     #org.springframework.web: off
     #org.springframework.security: off
@@ -1420,7 +1420,7 @@ logging:
 springdoc:
   packages-to-exclude:
     - cn.afterturn.easypoi.wps.controller
-    - com.taotao.cloud.captcha.controller
+    - com.taotao.boot.captcha.controller
 
 test:
   baseUrl: https://www.baidu.com
@@ -1428,7 +1428,7 @@ test:
 tlog:
   pattern: "$preApp:$preIp:$spanId:$traceId"
   enableInvokeTimePrint: false
-  idGenerator: com.taotao.cloud.logger.tlog.TlogIdGenerator
+  idGenerator: com.taotao.boot.logger.tlog.TlogIdGenerator
   mdcEnable: true
 
 pagehelper:
@@ -1443,7 +1443,7 @@ kylin:
     expire: 30000               #过期时间，默认值30000L 单位：毫秒
     retry-interval: 100         #获取锁失败时重试时间间隔，默认值100L 单位：毫秒
     lock-key-prefix: kylin-lock #锁前缀 默认配置
-    primary-executor: com.taotao.cloud.lock.kylin.executor.redisson.RedissonLockExecutor #默认执行器。默认redisson>zookeeper
+    primary-executor: com.taotao.boot.lock.kylin.executor.redisson.RedissonLockExecutor #默认执行器。默认redisson>zookeeper
     redisson: true              #是否开启redisson 默认true
     #zookeeper:
     #  zk-servers: 127.0.0.1:2181 #zk的server地址，多个server之间使用英文逗号分隔开 。配置地址则开启zookeeper

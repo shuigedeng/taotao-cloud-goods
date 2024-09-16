@@ -2,7 +2,7 @@
 package com.taotao.cloud.goods.application.command.dept.executor.query;
 
 import com.baomidou.dynamic.datasource.annotation.DS;
-import com.taotao.cloud.common.model.Result;
+import com.taotao.boot.common.model.Result;
 import com.taotao.cloud.goods.application.command.dept.dto.DeptGetQry;
 import com.taotao.cloud.goods.application.command.dept.dto.clientobject.DeptCO;
 import com.taotao.cloud.goods.infrastructure.persistent.dept.mapper.DeptMapper;

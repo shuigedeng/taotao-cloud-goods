@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.goods.facade.feign;
 
-import com.taotao.cloud.common.utils.log.LogUtils;
+import com.taotao.boot.common.utils.log.LogUtils;
 import com.taotao.cloud.goods.api.feign.GoodsApi;
 import com.taotao.cloud.openfeign.annotation.FeignApi;
 import com.taotao.cloud.openfeign.annotation.FeignInner;

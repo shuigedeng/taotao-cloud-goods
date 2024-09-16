@@ -17,7 +17,7 @@
 package com.taotao.cloud.goods.infrastructure.persistent.dict.mapper;
 
 import com.taotao.cloud.goods.infrastructure.persistent.dict.po.DictItemPO;
-import com.taotao.cloud.web.base.mapper.BaseSuperMapper;
+import com.taotao.boot.web.base.mapper.BaseSuperMapper;
 
 /**
  * CompanyMapper

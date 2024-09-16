@@ -18,7 +18,7 @@ package com.taotao.cloud.goods;
 
 import com.taotao.cloud.core.startup.StartupSpringApplication;
 import com.taotao.cloud.data.jpa.extend.JpaExtendRepositoryFactoryBean;
-import com.taotao.cloud.web.annotation.TaoTaoBootApplication;
+import com.taotao.boot.web.annotation.TaoTaoBootApplication;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 

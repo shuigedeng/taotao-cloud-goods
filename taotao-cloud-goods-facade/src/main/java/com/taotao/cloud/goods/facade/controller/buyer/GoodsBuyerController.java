@@ -17,8 +17,8 @@
 //package com.taotao.cloud.goods.facade.controller.buyer;
 //
 //import com.baomidou.mybatisplus.core.metadata.IPage;
-//import com.taotao.cloud.common.model.PageResult;
-//import com.taotao.cloud.common.model.Result;
+//import com.taotao.boot.common.model.PageResult;
+//import com.taotao.boot.common.model.Result;
 //import com.taotao.cloud.data.mybatis.mybatisplus.MpUtils;
 //import com.taotao.cloud.goods.application.command.goods.dto.clientobject.GoodsCO;
 //import com.taotao.cloud.goods.application.command.goods.dto.clientobject.GoodsSkuParamsCO;
@@ -27,7 +27,7 @@
 //import com.taotao.cloud.goods.application.service.IEsGoodsSearchService;
 //import com.taotao.cloud.goods.application.service.IGoodsService;
 //import com.taotao.cloud.goods.application.service.IGoodsSkuService;
-//import com.taotao.cloud.web.request.annotation.RequestLogger;
+//import com.taotao.boot.web.request.annotation.RequestLogger;
 //import io.swagger.v3.oas.annotations.Operation;
 //import io.swagger.v3.oas.annotations.Parameter;
 //import io.swagger.v3.oas.annotations.Parameters;
