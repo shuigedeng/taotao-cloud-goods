@@ -19,6 +19,6 @@ package com.taotao.cloud.goods;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-public class TaoTaoCloudSysApplicationTests {
+public class TaoTaoCloudGoodsApplicationTests {
 
 }
