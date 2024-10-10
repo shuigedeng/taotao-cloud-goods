@@ -589,7 +589,7 @@ spring:
     cache: false
     enabled: true
   main:
-    allow-circular-references: true
+    allow-circular-references: false
     allow-bean-definition-overriding: true
     banner-mode: console
     register-shutdown-hook: true
