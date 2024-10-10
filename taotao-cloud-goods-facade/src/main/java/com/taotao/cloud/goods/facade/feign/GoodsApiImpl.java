@@ -17,13 +17,10 @@
 package com.taotao.cloud.goods.facade.feign;
 
 import com.taotao.boot.common.utils.log.LogUtils;
+import com.taotao.boot.web.annotation.FeignApi;
 import com.taotao.cloud.goods.api.feign.GoodsApi;
-import com.taotao.cloud.openfeign.annotation.FeignApi;
-import com.taotao.cloud.openfeign.annotation.FeignInner;
-import com.taotao.cloud.security.springsecurity.annotation.NotAuth;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
