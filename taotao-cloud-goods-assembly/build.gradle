@@ -12,6 +12,10 @@ apply from: rootProject.file('gradle/swagger.gradle')
 apply from: rootProject.file('gradle/test.gradle')
 apply from: rootProject.file('gradle/mybatis-generator.gradle')
 
+mainClassName = "com.taotao.cloud.goods.TaoTaoCloudGoodsApplication"
+description = "商品中心"
+archivesBaseName = 'taotao-cloud-goods'
+
 dependencies {
     implementation project(":taotao-cloud-goods-application")
     implementation project(":taotao-cloud-goods-facade")
