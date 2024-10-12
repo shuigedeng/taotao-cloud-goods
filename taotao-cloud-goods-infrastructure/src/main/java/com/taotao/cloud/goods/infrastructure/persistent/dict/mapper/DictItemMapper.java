@@ -16,8 +16,8 @@
 
 package com.taotao.cloud.goods.infrastructure.persistent.dict.mapper;
 
-import com.taotao.cloud.goods.infrastructure.persistent.dict.po.DictItemPO;
 import com.taotao.boot.web.base.mapper.BaseSuperMapper;
+import com.taotao.cloud.goods.infrastructure.persistent.dict.po.DictItemPO;
 
 /**
  * CompanyMapper
@@ -26,6 +26,4 @@ import com.taotao.boot.web.base.mapper.BaseSuperMapper;
  * @version 2022.03
  * @since 2021/10/13 22:50
  */
-public interface DictItemMapper extends BaseSuperMapper<DictItemPO, Long> {
-
-}
+public interface DictItemMapper extends BaseSuperMapper<DictItemPO, Long> {}

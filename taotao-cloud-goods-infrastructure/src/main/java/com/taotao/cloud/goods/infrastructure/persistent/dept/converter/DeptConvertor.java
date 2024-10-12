@@ -32,10 +32,10 @@ import org.mapstruct.factory.Mappers;
 @Mapper(unmappedSourcePolicy = ReportingPolicy.IGNORE, unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface DeptConvertor {
 
-	/**
-	 * 实例
-	 */
-	DeptConvertor INSTANCE = Mappers.getMapper(DeptConvertor.class);
+    /**
+     * 实例
+     */
+    DeptConvertor INSTANCE = Mappers.getMapper(DeptConvertor.class);
 
-	public DeptPO convert(DeptEntity deptEntity);
+    public DeptPO convert(DeptEntity deptEntity);
 }

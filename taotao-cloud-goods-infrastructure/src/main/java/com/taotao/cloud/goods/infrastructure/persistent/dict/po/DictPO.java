@@ -134,7 +134,7 @@ import org.hibernate.Hibernate;
 @Table(name = DictPO.TABLE_NAME)
 @TableName(DictPO.TABLE_NAME)
 @EntityListeners({DictPO.DictEntityListener.class})
-//@NamedQuery(name = "User.findByEmailAddress",
+// @NamedQuery(name = "User.findByEmailAddress",
 //	query = "select u from User u where u.emailAddress = ?1")
 // @org.hibernate.annotations.Table(appliesTo = Dict.TABLE_NAME, comment = "字典表")
 public class DictPO extends BaseSuperEntity<DictPO, Long> {
@@ -204,7 +204,7 @@ public class DictPO extends BaseSuperEntity<DictPO, Long> {
 
         /**
          * 在新实体持久化之前（添加到EntityManager）
-		 * EntityManager 保存记录前回调方法
+         * EntityManager 保存记录前回调方法
          *
          * @param object 对象
          * @since 2022-10-21 11:59:54
@@ -216,7 +216,7 @@ public class DictPO extends BaseSuperEntity<DictPO, Long> {
 
         /**
          * 在数据库中存储新实体（在commit或期间flush）
-		 * EntityManager 保存记录后被回调方法
+         * EntityManager 保存记录后被回调方法
          *
          * @param object 对象
          * @since 2022-10-21 11:59:54
@@ -228,7 +228,7 @@ public class DictPO extends BaseSuperEntity<DictPO, Long> {
 
         /**
          * 从数据库中检索实体后。
-		 * 实体加载到 Entity 后回调方法
+         * 实体加载到 Entity 后回调方法
          *
          * @param object 对象
          * @since 2022-10-21 11:59:55
@@ -240,7 +240,7 @@ public class DictPO extends BaseSuperEntity<DictPO, Long> {
 
         /**
          * 当一个实体被识别为被修改时EntityManager
-		 * 数据库记录修改前回调方法
+         * 数据库记录修改前回调方法
          *
          * @param object 对象
          * @since 2022-10-21 11:59:54
@@ -252,7 +252,7 @@ public class DictPO extends BaseSuperEntity<DictPO, Long> {
 
         /**
          * 更新数据库中的实体（在commit或期间flush）
-		 * 数据库记录修改后回调方法
+         * 数据库记录修改后回调方法
          *
          * @param object 对象
          * @since 2022-10-21 11:59:54
@@ -264,7 +264,7 @@ public class DictPO extends BaseSuperEntity<DictPO, Long> {
 
         /**
          * 在EntityManager中标记要删除的实体时
-		 * EntityManager 删除记录前被回调方法
+         * EntityManager 删除记录前被回调方法
          *
          * @param object 对象
          * @since 2022-10-21 11:59:54
@@ -276,7 +276,7 @@ public class DictPO extends BaseSuperEntity<DictPO, Long> {
 
         /**
          * 从数据库中删除实体（在commit或期间flush）
-		 * EntityManager 删除记录后回调方法
+         * EntityManager 删除记录后回调方法
          *
          * @param object 对象
          * @since 2022-10-21 11:59:55

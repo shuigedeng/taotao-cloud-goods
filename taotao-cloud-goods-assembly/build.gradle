@@ -32,7 +32,7 @@ dependencies {
 //    testImplementation 'org.testcontainers:junit-jupiter'
 //    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 
-    testImplementation("io.github.shuigedeng:taotao-boot-starter-test")
+    testImplementation "io.github.shuigedeng:taotao-boot-starter-test"
 
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
@@ -59,7 +59,6 @@ processResources {
     doFirst {
         //过滤器会将用 @var@ 包裹的变量，替换为指定的值。
         filter ReplaceTokens, tokens: [activeProfile: getProperty("profile", "dev")]
-
 
         //${profile}变量
         //filesMatching("**/*.yml"){

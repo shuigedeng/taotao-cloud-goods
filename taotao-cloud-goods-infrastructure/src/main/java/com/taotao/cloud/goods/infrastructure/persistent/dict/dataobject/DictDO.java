@@ -30,23 +30,23 @@ import java.time.LocalDateTime;
 @RecordBuilder
 public record DictDO(
 
-	/** id */
-	Long id,
-	/** 字典名称 */
-	String dictName,
-	/** 字典编码 */
-	String dictCode,
-	/** 描述 */
-	String description,
-	/** 排序值 */
-	Integer dictSort,
-	/** 备注信息 */
-	String remark,
-	/** 创建时间 */
-	LocalDateTime createTime,
-	/** 最后修改时间 */
-	LocalDateTime lastModifiedTime)
-	implements Serializable {
+        /** id */
+        Long id,
+        /** 字典名称 */
+        String dictName,
+        /** 字典编码 */
+        String dictCode,
+        /** 描述 */
+        String description,
+        /** 排序值 */
+        Integer dictSort,
+        /** 备注信息 */
+        String remark,
+        /** 创建时间 */
+        LocalDateTime createTime,
+        /** 最后修改时间 */
+        LocalDateTime lastModifiedTime)
+        implements Serializable {
 
-	static final long serialVersionUID = 5126530068827085130L;
+    static final long serialVersionUID = 5126530068827085130L;
 }

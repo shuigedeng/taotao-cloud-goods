@@ -16,7 +16,6 @@
 
 package com.taotao.cloud.goods.infrastructure.util;
 
-
 /**
  * 查询跑龙套
  *
@@ -24,6 +23,4 @@ package com.taotao.cloud.goods.infrastructure.util;
  * @version 2023.01
  * @since 2023-02-01 14:05:22
  */
-public class QueryUtils {
-
-}
+public class QueryUtils {}

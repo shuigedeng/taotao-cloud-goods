@@ -1,4 +1,5 @@
-FROM registry.cn-hangzhou.aliyuncs.com/taotao-cloud-project/taotao-cloud-openjdk21:amd64 as builder
+FROM registry.cn-hangzhou.aliyuncs.com/taotao-cloud-project/taotao-cloud-openjdk21:latest as builder
+#FROM registry.cn-hangzhou.aliyuncs.com/taotao-cloud-project/taotao-cloud-graalvm21:latest as builder
 
 WORKDIR /root
 
@@ -8,7 +9,8 @@ RUN java -Djarmode=layertools -jar taotao-cloud-goods-2024.11.jar extract
 
 # FROM registry.cn-hangzhou.aliyuncs.com/taotao-cloud-project/taotao-cloud-skywalking:openjdk-17-8.6.0
 # FROM registry.cn-hangzhou.aliyuncs.com/taotao-cloud-project/taotao-cloud-openjdk21:amd64
-FROM registry.cn-hangzhou.aliyuncs.com/taotao-cloud-project/taotao-cloud-skywalking:9.3.0
+#FROM registry.cn-hangzhou.aliyuncs.com/taotao-cloud-project/taotao-cloud-openjdk21-skywalking-9-3-0:latest
+FROM registry.cn-hangzhou.aliyuncs.com/taotao-cloud-project/taotao-cloud-graalvm21-skywalking-9-3-0:latest
 
 ARG BACKEND_SERVICE=192.168.10.200:11800
 ARG AGENT_AUTHENTICATION=taotao-cloud
@@ -31,16 +33,21 @@ ENV BACKEND_SERVICE=${BACKEND_SERVICE}
 ENV AGENT_AUTHENTICATION=${AGENT_AUTHENTICATION}
 ENV TAOTAO_CLOUD_MAIL_PASSWORD=${TAOTAO_CLOUD_MAIL_PASSWORD}
 ENV PRROFILES=${PRROFILES}
-ENV JAVA_OPTIONS="-Xms512m \
+ENV JAVA_OPTIONS="-Xms1g \
                   -Xmx2g \
                   -Xss256k \
+                  -XX:ReservedCodeCacheSize=2048m \
+                  -XX:+UseZGC \
                   -XX:MaxDirectMemorySize=256m \
+                  -XX:SoftRefLRUPolicyMSPerMB=50 \
+                  -XX:CICompilerCount=2  \
                   -XX:SurvivorRatio=8 \
                   -XX:+UseCompressedOops \
                   -XX:+UseCompressedClassPointers \
                   -XX:+SegmentedCodeCache \
                   -XX:+PrintCommandLineFlags \
                   -XX:+ExplicitGCInvokesConcurrent \
+                  -XX:-OmitStackTraceInFastThrow\
                   -XX:+HeapDumpOnOutOfMemoryError \
                   -XX:+ShowCodeDetailsInExceptionMessages \
                   -XX:ParallelGCThreads=4 \

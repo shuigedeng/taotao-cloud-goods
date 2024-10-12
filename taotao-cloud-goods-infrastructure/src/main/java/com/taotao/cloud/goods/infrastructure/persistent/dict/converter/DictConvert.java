@@ -32,5 +32,4 @@ public interface DictConvert {
 
     /** 实例 */
     DictConvert INSTANCE = Mappers.getMapper(DictConvert.class);
-
 }

@@ -55,14 +55,16 @@
 
 
 dependencies {
-    api project(":taotao-cloud-goods-integration")
     api project(":taotao-cloud-goods-common")
+    api project(":taotao-cloud-goods-integration")
 
+    //cloud
     api "io.github.shuigedeng:taotao-cloud-starter-seata"
     api "io.github.shuigedeng:taotao-cloud-starter-sentinel"
     api "io.github.shuigedeng:taotao-cloud-starter-facility-alibaba"
     //api "io.github.shuigedeng:taotao-cloud-starter-mq-stream"
 
+    //boot
     api "io.github.shuigedeng:taotao-boot-starter-apollo"
     api "io.github.shuigedeng:taotao-boot-starter-dubbo"
     api "io.github.shuigedeng:taotao-boot-starter-eventbus"
@@ -79,7 +81,7 @@ dependencies {
     api "io.github.shuigedeng:taotao-boot-starter-office"
     api "io.github.shuigedeng:taotao-boot-starter-third-client"
     //api "io.github.shuigedeng:taotao-boot-starter-data-elasticsearch"
-   // api "io.github.shuigedeng:taotao-boot-starter-data-mongodb"
+    // api "io.github.shuigedeng:taotao-boot-starter-data-mongodb"
     api "io.github.shuigedeng:taotao-boot-starter-oss-minio"
     api "io.github.shuigedeng:taotao-boot-starter-laytpl"
     api "io.github.shuigedeng:taotao-boot-starter-elk"

@@ -22,45 +22,44 @@ import com.taotao.cloud.goods.domain.dict.entity.DictEntity;
 
 public interface DictDomainService {
 
-	/**
-	 * 新增字典.
-	 *
-	 * @param dictEntity 字典对象
-	 * @return 新增结果
-	 */
-	Boolean insert(DictEntity dictEntity);
+    /**
+     * 新增字典.
+     *
+     * @param dictEntity 字典对象
+     * @return 新增结果
+     */
+    Boolean insert(DictEntity dictEntity);
 
-	/**
-	 * 修改字典.
-	 *
-	 * @param dictEntity 字典对象
-	 * @return 修改结果
-	 */
-	Boolean update(DictEntity dictEntity);
+    /**
+     * 修改字典.
+     *
+     * @param dictEntity 字典对象
+     * @return 修改结果
+     */
+    Boolean update(DictEntity dictEntity);
 
-	/**
-	 * 根据ID查看字典.
-	 *
-	 * @param id ID
-	 * @return 字典
-	 */
-	DictEntity getById(Long id);
+    /**
+     * 根据ID查看字典.
+     *
+     * @param id ID
+     * @return 字典
+     */
+    DictEntity getById(Long id);
 
-	/**
-	 * 根据ID删除字典.
-	 *
-	 * @param id ID
-	 * @return 删除结果
-	 */
-	Boolean deleteById(Long id);
+    /**
+     * 根据ID删除字典.
+     *
+     * @param id ID
+     * @return 删除结果
+     */
+    Boolean deleteById(Long id);
 
-	/**
-	 * 查询字典列表.
-	 *
-	 * @param dictEntity      字典对象
-	 * @param pageQuery 分页参数
-	 * @return 字典列表
-	 */
-	IPage<DictEntity> list(DictEntity dictEntity, PageQuery pageQuery);
-
+    /**
+     * 查询字典列表.
+     *
+     * @param dictEntity      字典对象
+     * @param pageQuery 分页参数
+     * @return 字典列表
+     */
+    IPage<DictEntity> list(DictEntity dictEntity, PageQuery pageQuery);
 }
