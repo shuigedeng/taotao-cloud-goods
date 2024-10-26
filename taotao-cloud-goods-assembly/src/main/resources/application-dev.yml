@@ -1347,9 +1347,7 @@ taotao:
         - /sys/buyer/dict/test/{code}
         - /sys/manager/dept/tree
 
-mybatis-plus-join:
-  banner: true
-  sub-table-logic: true
+
 
 mybatis-plus:
   typeAliasesPackage: com.taotao.cloud.goods.infrastructure.persistent.*.po  #实体扫描 多个package用户逗号或者分号分割
