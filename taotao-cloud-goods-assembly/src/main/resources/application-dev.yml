@@ -271,7 +271,7 @@ dubbo:
     export-async: true
   monitor:
     id: ${spring.application.name}
-    address: 127.0.0.1:18080
+    address: 127.0.0.1:38080
     username: admin
     password: 123456
     group: DUBBO_REGISTRY_GROUP
