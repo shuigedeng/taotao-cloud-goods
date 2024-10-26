@@ -72,6 +72,16 @@ publishing {
                 description = project.name
                 url = "https://github.com/shuigedeng/taotao-cloud-project.git"
 
+                properties = [
+                        "java.version": JavaVersion.VERSION_21.toString(),
+                        "maven.compiler.source": JavaVersion.VERSION_21.toString(),
+                        "maven.compiler.target": JavaVersion.VERSION_21.toString(),
+                        "project.build.sourceEncoding": "UTF-8",
+                        "project.reporting.outputEncoding": "UTF-8",
+                        "spring-boot-dependencies.version"   : "3.3.5",
+                        "taotao-cloud-dependencies.version"   : rootProject.version
+                ]
+
                 licenses {
                     license {
                         name = "The Apache License, Version 2.0"
