@@ -208,7 +208,7 @@ dubbo:
     group: DUBBO_REGISTRY_GROUP
     cluster: CQ
     parameters:
-      namespace: taotao-cloud-dubbo
+      namespace: 213336af-bf44-45ce-850d-6ae563173799
       cluster-name: CQ
     timeout: 15000
     username: nacos
@@ -283,7 +283,7 @@ dubbo:
     password: nacos
     group: DUBBO_REGISTRY_GROUP
     parameters:
-      namespace: taotao-cloud-dubbo
+      namespace: 213336af-bf44-45ce-850d-6ae563173799
       cluster-name: CQ
   config-center:
     id: ${spring.application.name}
@@ -292,7 +292,7 @@ dubbo:
     password: nacos
     group: DUBBO_REGISTRY_GROUP
     parameters:
-      namespace: taotao-cloud-dubbo
+      namespace: 213336af-bf44-45ce-850d-6ae563173799
     check: false
   metrics:
     default: true
