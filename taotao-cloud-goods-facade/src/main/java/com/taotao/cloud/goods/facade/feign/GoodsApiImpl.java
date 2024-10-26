@@ -33,24 +33,23 @@ import org.springframework.web.bind.annotation.RestController;
 @FeignApi
 @Validated
 @RestController
-//@RequestMapping("/feign/goods")
+// @RequestMapping("/feign/goods")
 @Tag(name = "内部服务-商品API", description = "内部服务-商品API")
 public class GoodsApiImpl implements GoodsApi {
 
-	@Override
-	public Boolean updateStoreDetail(Long id) {
-		return null;
-	}
+    @Override
+    public Boolean updateStoreDetail(Long id) {
+        return null;
+    }
 
-	@Override
-	public Boolean underStoreGoods(Long id) {
-		return null;
-	}
+    @Override
+    public Boolean underStoreGoods(Long id) {
+        return null;
+    }
 
-
-	@Override
-	public Long countStoreGoodsNum(Long storeId) {
-		LogUtils.info("内部服务-商品API---参数：{}", storeId);
-		return 1000L;
-	}
+    @Override
+    public Long countStoreGoodsNum(Long storeId) {
+        LogUtils.info("内部服务-商品API---参数：{}", storeId);
+        return 1000L;
+    }
 }

@@ -1,4 +1,4 @@
-///*
+/// *
 // * Copyright (c) 2020-2030, Shuigedeng (981376577@qq.com & https://blog.taotaocloud.top/).
 // *
 // * Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,51 +14,51 @@
 // * limitations under the License.
 // */
 //
-//package com.taotao.cloud.goods.facade.controller.buyer;
+// package com.taotao.cloud.goods.facade.controller.buyer;
 //
-//import com.baomidou.mybatisplus.core.metadata.IPage;
-//import com.taotao.boot.common.model.PageResult;
-//import com.taotao.boot.common.model.Result;
-//import com.taotao.cloud.data.mybatis.mybatisplus.MpUtils;
-//import com.taotao.cloud.goods.application.command.goods.dto.clientobject.GoodsCO;
-//import com.taotao.cloud.goods.application.command.goods.dto.clientobject.GoodsSkuParamsCO;
-//import com.taotao.cloud.goods.application.elasticsearch.entity.EsGoodsIndex;
-//import com.taotao.cloud.goods.application.elasticsearch.pojo.EsGoodsRelatedInfo;
-//import com.taotao.cloud.goods.application.service.IEsGoodsSearchService;
-//import com.taotao.cloud.goods.application.service.IGoodsService;
-//import com.taotao.cloud.goods.application.service.IGoodsSkuService;
-//import com.taotao.boot.web.request.annotation.RequestLogger;
-//import io.swagger.v3.oas.annotations.Operation;
-//import io.swagger.v3.oas.annotations.Parameter;
-//import io.swagger.v3.oas.annotations.Parameters;
-//import io.swagger.v3.oas.annotations.enums.ParameterIn;
-//import io.swagger.v3.oas.annotations.tags.Tag;
-//import jakarta.validation.constraints.NotNull;
-//import java.util.List;
-//import java.util.Map;
-//import lombok.AllArgsConstructor;
-//import org.springframework.data.elasticsearch.core.SearchPage;
-//import org.springframework.security.access.prepost.PreAuthorize;
-//import org.springframework.validation.annotation.Validated;
-//import org.springframework.web.bind.annotation.GetMapping;
-//import org.springframework.web.bind.annotation.PathVariable;
-//import org.springframework.web.bind.annotation.RequestMapping;
-//import org.springframework.web.bind.annotation.RequestParam;
-//import org.springframework.web.bind.annotation.RestController;
+// import com.baomidou.mybatisplus.core.metadata.IPage;
+// import com.taotao.boot.common.model.PageResult;
+// import com.taotao.boot.common.model.Result;
+// import com.taotao.cloud.data.mybatis.mybatisplus.MpUtils;
+// import com.taotao.cloud.goods.application.command.goods.dto.clientobject.GoodsCO;
+// import com.taotao.cloud.goods.application.command.goods.dto.clientobject.GoodsSkuParamsCO;
+// import com.taotao.cloud.goods.application.elasticsearch.entity.EsGoodsIndex;
+// import com.taotao.cloud.goods.application.elasticsearch.pojo.EsGoodsRelatedInfo;
+// import com.taotao.cloud.goods.application.service.IEsGoodsSearchService;
+// import com.taotao.cloud.goods.application.service.IGoodsService;
+// import com.taotao.cloud.goods.application.service.IGoodsSkuService;
+// import com.taotao.boot.web.request.annotation.RequestLogger;
+// import io.swagger.v3.oas.annotations.Operation;
+// import io.swagger.v3.oas.annotations.Parameter;
+// import io.swagger.v3.oas.annotations.Parameters;
+// import io.swagger.v3.oas.annotations.enums.ParameterIn;
+// import io.swagger.v3.oas.annotations.tags.Tag;
+// import jakarta.validation.constraints.NotNull;
+// import java.util.List;
+// import java.util.Map;
+// import lombok.AllArgsConstructor;
+// import org.springframework.data.elasticsearch.core.SearchPage;
+// import org.springframework.security.access.prepost.PreAuthorize;
+// import org.springframework.validation.annotation.Validated;
+// import org.springframework.web.bind.annotation.GetMapping;
+// import org.springframework.web.bind.annotation.PathVariable;
+// import org.springframework.web.bind.annotation.RequestMapping;
+// import org.springframework.web.bind.annotation.RequestParam;
+// import org.springframework.web.bind.annotation.RestController;
 //
-///**
+/// **
 // * 买家端,商品接口
 // *
 // * @author shuigedeng
 // * @version 2022.04
 // * @since 2022-04-20 16:59:38
 // */
-//@AllArgsConstructor
-//@Validated
-//@RestController
-//@Tag(name = "买家端-商品API", description = "买家端-商品API")
-//@RequestMapping("/goods/buyer/goods")
-//public class GoodsBuyerController {
+// @AllArgsConstructor
+// @Validated
+// @RestController
+// @Tag(name = "买家端-商品API", description = "买家端-商品API")
+// @RequestMapping("/goods/buyer/goods")
+// public class GoodsBuyerController {
 //
 //	/**
 //	 * 商品
@@ -142,4 +142,4 @@
 //		List<String> hotWords = goodsSearchService.getHotWords(count);
 //		return Result.success(hotWords);
 //	}
-//}
+// }

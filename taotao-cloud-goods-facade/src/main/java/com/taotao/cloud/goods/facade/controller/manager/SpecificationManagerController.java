@@ -1,4 +1,4 @@
-///*
+/// *
 // * Copyright (c) 2020-2030, Shuigedeng (981376577@qq.com & https://blog.taotaocloud.top/).
 // *
 // * Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,40 +14,40 @@
 // * limitations under the License.
 // */
 //
-//package com.taotao.cloud.goods.facade.controller.manager;
+// package com.taotao.cloud.goods.facade.controller.manager;
 //
-//import com.baomidou.mybatisplus.core.metadata.IPage;
-//import com.taotao.boot.common.model.PageResult;
-//import com.taotao.boot.common.model.Result;
-//import com.taotao.boot.web.request.annotation.RequestLogger;
-//import io.swagger.v3.oas.annotations.Operation;
-//import io.swagger.v3.oas.annotations.Parameter;
-//import io.swagger.v3.oas.annotations.Parameters;
-//import io.swagger.v3.oas.annotations.enums.ParameterIn;
-//import io.swagger.v3.oas.annotations.tags.Tag;
-//import jakarta.validation.Valid;
-//import jakarta.validation.constraints.NotNull;
-//import jakarta.validation.constraints.Size;
-//import lombok.AllArgsConstructor;
-//import org.springframework.security.access.prepost.PreAuthorize;
-//import org.springframework.validation.annotation.Validated;
-//import org.springframework.web.bind.annotation.*;
+// import com.baomidou.mybatisplus.core.metadata.IPage;
+// import com.taotao.boot.common.model.PageResult;
+// import com.taotao.boot.common.model.Result;
+// import com.taotao.boot.web.request.annotation.RequestLogger;
+// import io.swagger.v3.oas.annotations.Operation;
+// import io.swagger.v3.oas.annotations.Parameter;
+// import io.swagger.v3.oas.annotations.Parameters;
+// import io.swagger.v3.oas.annotations.enums.ParameterIn;
+// import io.swagger.v3.oas.annotations.tags.Tag;
+// import jakarta.validation.Valid;
+// import jakarta.validation.constraints.NotNull;
+// import jakarta.validation.constraints.Size;
+// import lombok.AllArgsConstructor;
+// import org.springframework.security.access.prepost.PreAuthorize;
+// import org.springframework.validation.annotation.Validated;
+// import org.springframework.web.bind.annotation.*;
 //
-//import java.util.List;
+// import java.util.List;
 //
-///**
+/// **
 // * 管理端,商品规格接口
 // *
 // * @author shuigedeng
 // * @version 2022.04
 // * @since 2022-04-20 16:59:38
 // */
-//@AllArgsConstructor
-//@Validated
-//@RestController
-//@Tag(name = "管理端-商品规格管理API", description = "管理端-商品规格管理API")
-//@RequestMapping("/goods/manager/spec")
-//public class SpecificationManagerController {
+// @AllArgsConstructor
+// @Validated
+// @RestController
+// @Tag(name = "管理端-商品规格管理API", description = "管理端-商品规格管理API")
+// @RequestMapping("/goods/manager/spec")
+// public class SpecificationManagerController {
 //
 //    /**
 //     * 商品规格服务
@@ -103,8 +103,9 @@
 //    @RequestLogger("批量删除")
 //    @PreAuthorize("hasAuthority('dept:tree:data')")
 //    @DeleteMapping("/batch")
-//    public Result<Boolean> delAllByIds(@Valid @NotNull(message = "id列表不能为空") @Size(min = 1, max = 3, message = "id个数只能在1至3个")
+//    public Result<Boolean> delAllByIds(@Valid @NotNull(message = "id列表不能为空") @Size(min = 1, max = 3, message =
+// "id个数只能在1至3个")
 //                                           @RequestParam List<Long> ids) {
 //        return Result.success(specificationService.deleteSpecification(ids));
 //    }
-//}
+// }

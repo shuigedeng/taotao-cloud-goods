@@ -1,4 +1,4 @@
-///*
+/// *
 // * Copyright (c) 2020-2030, Shuigedeng (981376577@qq.com & https://blog.taotaocloud.top/).
 // *
 // * Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,38 +14,38 @@
 // * limitations under the License.
 // */
 //
-//package com.taotao.cloud.goods.facade.controller.manager;
+// package com.taotao.cloud.goods.facade.controller.manager;
 //
-//import com.taotao.boot.common.model.Result;
-//import com.taotao.boot.web.request.annotation.RequestLogger;
-//import io.swagger.v3.oas.annotations.Operation;
-//import io.swagger.v3.oas.annotations.Parameter;
-//import io.swagger.v3.oas.annotations.enums.ParameterIn;
-//import io.swagger.v3.oas.annotations.tags.Tag;
-//import lombok.AllArgsConstructor;
-//import org.springframework.security.access.prepost.PreAuthorize;
-//import org.springframework.validation.annotation.Validated;
-//import org.springframework.web.bind.annotation.DeleteMapping;
-//import org.springframework.web.bind.annotation.PathVariable;
-//import org.springframework.web.bind.annotation.PostMapping;
-//import org.springframework.web.bind.annotation.PutMapping;
-//import org.springframework.web.bind.annotation.RequestBody;
-//import org.springframework.web.bind.annotation.RequestMapping;
-//import org.springframework.web.bind.annotation.RestController;
+// import com.taotao.boot.common.model.Result;
+// import com.taotao.boot.web.request.annotation.RequestLogger;
+// import io.swagger.v3.oas.annotations.Operation;
+// import io.swagger.v3.oas.annotations.Parameter;
+// import io.swagger.v3.oas.annotations.enums.ParameterIn;
+// import io.swagger.v3.oas.annotations.tags.Tag;
+// import lombok.AllArgsConstructor;
+// import org.springframework.security.access.prepost.PreAuthorize;
+// import org.springframework.validation.annotation.Validated;
+// import org.springframework.web.bind.annotation.DeleteMapping;
+// import org.springframework.web.bind.annotation.PathVariable;
+// import org.springframework.web.bind.annotation.PostMapping;
+// import org.springframework.web.bind.annotation.PutMapping;
+// import org.springframework.web.bind.annotation.RequestBody;
+// import org.springframework.web.bind.annotation.RequestMapping;
+// import org.springframework.web.bind.annotation.RestController;
 //
-///**
+/// **
 // * 管理端,分类绑定参数组管理接口
 // *
 // * @author shuigedeng
 // * @version 2022.04
 // * @since 2022-04-20 16:59:38
 // */
-//@AllArgsConstructor
-//@Validated
-//@RestController
-//@Tag(name = "管理端-参数管理API", description = "管理端-参数管理API")
-//@RequestMapping("/goods/manager/parameters")
-//public class ParameterManagerController {
+// @AllArgsConstructor
+// @Validated
+// @RestController
+// @Tag(name = "管理端-参数管理API", description = "管理端-参数管理API")
+// @RequestMapping("/goods/manager/parameters")
+// public class ParameterManagerController {
 //
 //    /** 参数服务 */
 //    private final IParametersService parametersService;
@@ -83,4 +83,4 @@
 //    public Result<Boolean> delById(@PathVariable Long id) {
 //        return Result.success(parametersService.removeById(id));
 //    }
-//}
+// }

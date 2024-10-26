@@ -22,15 +22,14 @@ import com.taotao.cloud.goods.api.grpc.FirstCategoryGrpcResponse;
 import io.grpc.stub.StreamObserver;
 import lombok.extern.slf4j.Slf4j;
 import net.devh.boot.grpc.server.service.GrpcService;
-import org.lognet.springboot.grpc.GRpcService;
 
 @Slf4j
 @GrpcService
 public class CategoryGrpcServiceImpl extends CategoryGrpcServiceImplBase {
 
-	@Override
-	public void firstCategory(FirstCategoryGrpcRequest request,
-		StreamObserver<FirstCategoryGrpcResponse> responseObserver) {
-		super.firstCategory(request, responseObserver);
-	}
+    @Override
+    public void firstCategory(
+            FirstCategoryGrpcRequest request, StreamObserver<FirstCategoryGrpcResponse> responseObserver) {
+        super.firstCategory(request, responseObserver);
+    }
 }

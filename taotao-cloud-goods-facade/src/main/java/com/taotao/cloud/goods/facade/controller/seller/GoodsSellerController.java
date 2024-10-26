@@ -1,4 +1,4 @@
-///*
+/// *
 // * Copyright (c) 2020-2030, Shuigedeng (981376577@qq.com & https://blog.taotaocloud.top/).
 // *
 // * Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,51 +14,51 @@
 // * limitations under the License.
 // */
 //
-//package com.taotao.cloud.goods.facade.controller.seller;
+// package com.taotao.cloud.goods.facade.controller.seller;
 //
-//import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-//import com.baomidou.mybatisplus.core.metadata.IPage;
-//import com.taotao.boot.common.model.PageResult;
-//import com.taotao.boot.common.model.Result;
-//import com.taotao.cloud.security.springsecurity.utils.SecurityUtils;
-//import com.taotao.cloud.goods.api.enums.GoodsStatusEnum;
-//import com.taotao.cloud.store.api.feign.IFeignStoreDetailApi;
-//import com.taotao.cloud.store.api.model.vo.StoreDetailVO;
-//import com.taotao.boot.web.request.annotation.RequestLogger;
-//import io.swagger.v3.oas.annotations.Operation;
-//import io.swagger.v3.oas.annotations.Parameter;
-//import io.swagger.v3.oas.annotations.Parameters;
-//import io.swagger.v3.oas.annotations.enums.ParameterIn;
-//import io.swagger.v3.oas.annotations.tags.Tag;
-//import java.util.List;
+// import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+// import com.baomidou.mybatisplus.core.metadata.IPage;
+// import com.taotao.boot.common.model.PageResult;
+// import com.taotao.boot.common.model.Result;
+// import com.taotao.cloud.security.springsecurity.utils.SecurityUtils;
+// import com.taotao.cloud.goods.api.enums.GoodsStatusEnum;
+// import com.taotao.cloud.store.api.feign.IFeignStoreDetailApi;
+// import com.taotao.cloud.store.api.model.vo.StoreDetailVO;
+// import com.taotao.boot.web.request.annotation.RequestLogger;
+// import io.swagger.v3.oas.annotations.Operation;
+// import io.swagger.v3.oas.annotations.Parameter;
+// import io.swagger.v3.oas.annotations.Parameters;
+// import io.swagger.v3.oas.annotations.enums.ParameterIn;
+// import io.swagger.v3.oas.annotations.tags.Tag;
+// import java.util.List;
 //
-//import jakarta.validation.constraints.NotEmpty;
-//import lombok.AllArgsConstructor;
-//import org.springframework.security.access.prepost.PreAuthorize;
-//import org.springframework.validation.annotation.Validated;
-//import org.springframework.web.bind.annotation.DeleteMapping;
-//import org.springframework.web.bind.annotation.GetMapping;
-//import org.springframework.web.bind.annotation.PathVariable;
-//import org.springframework.web.bind.annotation.PostMapping;
-//import org.springframework.web.bind.annotation.PutMapping;
-//import org.springframework.web.bind.annotation.RequestBody;
-//import org.springframework.web.bind.annotation.RequestMapping;
-//import org.springframework.web.bind.annotation.RequestParam;
-//import org.springframework.web.bind.annotation.RestController;
+// import jakarta.validation.constraints.NotEmpty;
+// import lombok.AllArgsConstructor;
+// import org.springframework.security.access.prepost.PreAuthorize;
+// import org.springframework.validation.annotation.Validated;
+// import org.springframework.web.bind.annotation.DeleteMapping;
+// import org.springframework.web.bind.annotation.GetMapping;
+// import org.springframework.web.bind.annotation.PathVariable;
+// import org.springframework.web.bind.annotation.PostMapping;
+// import org.springframework.web.bind.annotation.PutMapping;
+// import org.springframework.web.bind.annotation.RequestBody;
+// import org.springframework.web.bind.annotation.RequestMapping;
+// import org.springframework.web.bind.annotation.RequestParam;
+// import org.springframework.web.bind.annotation.RestController;
 //
-///**
+/// **
 // * 店铺端,商品接口
 // *
 // * @author shuigedeng
 // * @version 2022.04
 // * @since 2022-04-14 21:09:23
 // */
-//@AllArgsConstructor
-//@Validated
-//@RestController
-//@Tag(name = "店铺端-商品API", description = "店铺端-商品API")
-//@RequestMapping("/goods/seller/goods")
-//public class GoodsSellerController {
+// @AllArgsConstructor
+// @Validated
+// @RestController
+// @Tag(name = "店铺端-商品API", description = "店铺端-商品API")
+// @RequestMapping("/goods/seller/goods")
+// public class GoodsSellerController {
 //
 //    /** 商品 */
 //    private final IGoodsService goodsService;
@@ -137,7 +137,8 @@
 //    @RequestLogger("修改商品")
 //    @PreAuthorize("hasAuthority('dept:tree:data')")
 //    @PutMapping(value = "/{goodsId}")
-//    public Result<Boolean> update(@Validated @RequestBody GoodsOperationDTO goodsOperationDTO, @PathVariable Long goodsId) {
+//    public Result<Boolean> update(@Validated @RequestBody GoodsOperationDTO goodsOperationDTO, @PathVariable Long
+// goodsId) {
 //        return Result.success(goodsService.editGoods(goodsOperationDTO, goodsId));
 //    }
 //
@@ -187,7 +188,8 @@
 //    @GetMapping(value = "/sku/{goodsId}/page")
 //    public Result<List<GoodsSkuSpecGalleryCO>> getSkuByList(@PathVariable Long goodsId) {
 //        Long storeId = SecurityUtils.getCurrentUser().getStoreId();
-//        return Result.success(goodsSkuService.getGoodsSkuVOList(goodsSkuService.list(new LambdaQueryWrapper<GoodsSku>()
+//        return Result.success(goodsSkuService.getGoodsSkuVOList(goodsSkuService.list(new
+// LambdaQueryWrapper<GoodsSku>()
 //                .eq(GoodsSku::getGoodsId, goodsId)
 //                .eq(GoodsSku::getStoreId, storeId))));
 //    }
@@ -213,4 +215,4 @@
 //                .toList();
 //        return Result.success(goodsSkuService.updateStocks(collect));
 //    }
-//}
+// }
