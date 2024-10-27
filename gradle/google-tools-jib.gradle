@@ -26,9 +26,9 @@ jib {
                     "-Duser.timezone=Asia/Shanghai"]
         mainClass = "com.taotao.cloud.monitor.TaoTaoCloudMonitorApplication"
         args = ["some", "args"]
-        ports = ["33336"]
-        //labels = ["app_name": "taotao-cloud-goods", "port": "33336"]
-        environment = ["app_name": "taotao-cloud-goods", "port": "33336"]
+        ports = ["33332"]
+        //labels = ["app_name": "taotao-cloud-goods", "port": "33332"]
+        environment = ["app_name": "taotao-cloud-goods", "port": "33332"]
         format = "OCI"
         user = "root"
         volumes = ["/root/logs"]
