@@ -99,8 +99,8 @@ ENV JAVA_OPTIONS_BACKUP="-Xms1g \
                   -Dskywalking.logging.dir=/root/logs/${APP_NAME} \
                   -Dskywalking.collector.backend_service=${BACKEND_SERVICE} "
 
-ENV JAVA_OPTIONS="-Xms8g \
-                  -Xmx8g \
+ENV JAVA_OPTIONS="-Xms1g \
+                  -Xmx2g \
                   -Xmn1280m \
                   -Xss512k \
                   -Xlog:async \
