@@ -102,6 +102,7 @@ jobs:
       #https://github.com/marketplace/actions/gradle-build-action
       - name: Gradle BootJar
         run: gradle -p taotao-cloud-goods-assembly clean bootJar -x test -Pprofile=dev
+
       #https://github.com/marketplace/actions/publish-docker
       - name: Publish Docker Image
         uses: elgohr/Publish-Docker-Github-Action@v5
@@ -117,37 +118,6 @@ jobs:
           buildargs: DINGDING_SECRET_ARG,DINGDING_TOKEN_ID_ARG
           tags: "${{env.TAOTAO_CLOUD_VERSION}}"
           workdir: ${{ github.workspace }}/taotao-cloud-goods-assembly
-      #https://github.com/marketplace/actions/ssh-remote-commands
-      - name: Ssh To server To execute taotao-cloud-monitor script
-        #uses: fifsky/ssh-action@master
-        uses: appleboy/ssh-action@v1.0.3
-        with:
-          #command: |
-          #  cd /develop/work/education-back-server
-          #  sh start.sh
-          host: ${{secrets.SERVER_HOST}}
-          username: ${{secrets.SERVER_USERNAME}}
-          port: ${{secrets.SERVER_PORT }}
-          #key: ${{secrets.SERVER_PRIVATE_KEY}}
-          password: ${{secrets.SERVER_PASSWORD}}
-          script:
-            sh /develop/work/taotao-cloud/taotao-cloud-monitor-start.sh
-            # sh start.sh
-
-
-      - name: Gradle BootJar
-        run: gradle -p taotao-cloud-goods-assembly clean bootJar -x test -Pprofile=dev
-      - name: Publish Docker Image
-        uses: elgohr/Publish-Docker-Github-Action@v5
-        with:
-          name: registry.cn-hangzhou.aliyuncs.com/taotao-cloud-project/taotao-cloud-goods
-          username: ${{ secrets.TAOTAO_CLOUD_REGISTRY_USERNAME }}
-          password: ${{ secrets.TAOTAO_CLOUD_REGISTRY_PASSWORD }}
-          registry: registry.cn-hangzhou.aliyuncs.com
-          buildoptions: "--compress --force-rm"
-          tags: "${{env.TAOTAO_CLOUD_VERSION}}"
-          workdir: ${{ github.workspace }}/taotao-cloud-goods-assembly
-
 
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v4.5.0
