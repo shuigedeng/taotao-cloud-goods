@@ -10,7 +10,7 @@ RUN java -Djarmode=layertools -jar taotao-cloud-goods-2024.11.jar extract
 # FROM registry.cn-hangzhou.aliyuncs.com/taotao-cloud-project/taotao-cloud-skywalking:openjdk-17-8.6.0
 # FROM registry.cn-hangzhou.aliyuncs.com/taotao-cloud-project/taotao-cloud-openjdk21:amd64
 #FROM registry.cn-hangzhou.aliyuncs.com/taotao-cloud-project/taotao-cloud-openjdk21-skywalking-9-3-0:latest
-FROM registry.cn-hangzhou.aliyuncs.com/taotao-cloud-project/taotao-cloud-graalvm21-skywalking-9-3-0:latest
+FROM registry.cn-hangzhou.aliyuncs.com/taotao-cloud-project/taotao-cloud-openjdk21-skywalking-9-3-0:latest
 
 ARG BACKEND_SERVICE=192.168.218.2:11800
 ARG AGENT_AUTHENTICATION=taotao-cloud
