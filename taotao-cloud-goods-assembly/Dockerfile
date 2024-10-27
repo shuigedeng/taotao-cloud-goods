@@ -25,16 +25,41 @@ LABEL application_name=${APP_NAME}
 LABEL application_version=${APP_VERSION}
 LABEL org.opencontainers.image.authors=981376577@qq.com
 
+#****************************app****************************
 ENV TZ=Asia/Shanghai
 ENV APP_NAME=${APP_NAME}
-ENV VERSION=${APP_VERSION}
-ENV JAR_NAME=${APP_NAME}-${VERSION}.jar
-ENV BACKEND_SERVICE=${BACKEND_SERVICE}
-ENV AGENT_AUTHENTICATION=${AGENT_AUTHENTICATION}
-ENV TAOTAO_CLOUD_MAIL_PASSWORD=${TAOTAO_CLOUD_MAIL_PASSWORD}
-ENV PRROFILES=${PRROFILES}
+ENV APP_PORT=${APP_PORT}
+ENV APP_VERSION=${APP_VERSION}
+ENV APP_JAR_NAME=${APP_NAME}-${APP_VERSION}.jar
+ENV APP_PRROFILES=${APP_PRROFILES}
+ENV REQUEST_API_DOCS=${REQUEST_API_DOCS}
+#****************************skywalking 从env中获取配置数据****************************
+ENV SW_AGENT_NAME=${APP_NAME}
+ENV SW_AGENT_AUTHENTICATION=${SKYWALKING_AGENT_AUTHENTICATION}
+ENV SW_AGENT_COLLECTOR_BACKEND_SERVICES=${SKYWALKING_BACKEND_SERVICE}
+ENV SW_AGENT_TRACE_IGNORE_PATH="Redisson/PING,/actuator/**,/admin/**"
+#日志数据的grpc服务器的主机
+ENV SW_GRPC_LOG_SERVER_HOST=127.0.0.1
+#日志数据的grpc服务器的端口
+ENV SW_GRPC_LOG_SERVER_PORT=11800
+#日志数据的最大大小
+ENV SW_GRPC_LOG_MAX_MESSAGE_SIZE=10485760
+#发送数据时将超时多长时间。单位是秒
+ENV SW_GRPC_LOG_GRPC_UPSTREAM_TIMEOUT=30
+ENV SW_LOGGING_LEVEL=INFO
+ENV SW_LOGGING_FILE_NAME=skywalking.log
+ENV SW_LOGGING_DIR=/root/logs/${APP_NAME}
+#****************************pyroscope 从env中获取配置数据****************************
+ENV PYROSCOPE_APPLICATION_NAME=${APP_NAME}
+ENV PYROSCOPE_SERVER_ADDRESS=http://127.0.0.1:4040
+ENV PYROSCOPE_PROFILING_INTERVAL=10ms
+ENV PYROSCOPE_PROFILER_EVENT=cpu,alloc,lock,wall,itimer
+ENV PYROSCOPE_UPLOAD_INTERVAL=10s
+ENV PYROSCOPE_LOG_LEVEL=info
+ENV PYROSCOPE_LABELS="APP=taotao-cloud-sys"
+#ENV PYROSCOPE_AUTH_TOKEN=info
 
-ENV JAVA_OPTIONS="-Xms1g \
+ENV JAVA_OPTIONS_BACKUP="-Xms1g \
                   -Xmx2g \
                   -Xss256k \
                   -XX:ReservedCodeCacheSize=2048m \
@@ -57,7 +82,7 @@ ENV JAVA_OPTIONS="-Xms1g \
                   -Xlog:gc*=debug:file=/root/logs/${APP_NAME}/${APP_NAME}.gc.log:utctime,level,tags:filecount=50,filesize=100M \
                   -Xlog:jit+compilation=debug:file=/root/logs/${APP_NAME}/${APP_NAME}.jit.compile.log:utctime,level,tags:filecount=10,filesize=100M \
                   -XX:MetaspaceSize=256m \
-                  -XX:MaxMetaspaceSize=256m \
+                  -XX:MaxMetaspaceSize=512m \
                   -verbose:gc \
                   -Djava.security.egd=file:/dev/./urandom \
                   -Dfile.encoding=utf-8 \
@@ -73,6 +98,62 @@ ENV JAVA_OPTIONS="-Xms1g \
                   -Dskywalking.logging.level=INFO \
                   -Dskywalking.logging.dir=/root/logs/${APP_NAME} \
                   -Dskywalking.collector.backend_service=${BACKEND_SERVICE} "
+
+ENV JAVA_OPTIONS="-Xms8g \
+                  -Xmx8g \
+                  -Xmn1280m \
+                  -Xss512k \
+                  -Xlog:async \
+                  -XX:MaxDirectMemorySize=1024m \
+                  -XX:MetaspaceSize=256m \
+                  -XX:MaxMetaspaceSize=512m \
+                  -XX:ReservedCodeCacheSize=256m \
+                  -XX:+DisableExplicitGC \
+                  -XX:+UnlockDiagnosticVMOptions \
+                  -XX:+UseZGC  \
+                  -XX:MaxGCPauseMillis=50 \
+                  -XX:GuaranteedSafepointInterval=0  \
+                  -XX:FlightRecorderOptions=maxchunksize=128m  \
+                  -XX:+UseCountedLoopSafepoints \
+                  -XX:StartFlightRecording=disk=true,maxsize=4096m,maxage=3d \
+                  -XX:-OmitStackTraceInFastThrow \
+                  -XX:+UnlockExperimentalVMOptions \
+                  -XX:SurvivorRatio=8 \
+                  -XX:+UseCompressedOops \
+                  -XX:+UseCompressedClassPointers \
+                  -XX:+SegmentedCodeCache \
+                  -XX:+PrintCommandLineFlags \
+                  -XX:+ExplicitGCInvokesConcurrent \
+                  -XX:+HeapDumpOnOutOfMemoryError \
+                  -XX:+ShowCodeDetailsInExceptionMessages \
+                  -XX:ParallelGCThreads=4 \
+                  -XX:AsyncLogBufferSize=409600 \
+                  -Xlog:gc*=debug:file=/root/logs/${APP_NAME}/gc.log:utctime,level,tags:filecount=50,filesize=100M \
+                  -Xlog:jit+compilation=debug:file=/root/logs/${APP_NAME}/jit.compile.log:utctime,level,tags:filecount=10,filesize=100M \
+                  -Xlog:safepoint=debug:file=/root/logs/${APP_NAME}/safepoint%t.log:utctime,level,tags:filecount=10,filesize=10M \
+                  -verbose:gc \
+                  -Dnetworkaddress.cache.ttl=10 \
+                  -Djava.security.egd=file:/dev/./urandom \
+                  -Dfile.encoding=utf-8 \
+                  --add-opens java.base/java.security=ALL-UNNAMED \
+                  --add-opens java.base/jdk.internal.misc=ALL-UNNAMED \
+                  --add-opens java.base/java.text=ALL-UNNAMED \
+                  --add-opens java.base/java.nio=ALL-UNNAMED \
+                  --add-opens java.base/jdk.internal.access=ALL-UNNAMED \
+                  --add-opens java.base/java.time=ALL-UNNAMED \
+                  --add-opens java.base/java.io=ALL-UNNAMED \
+                  --add-opens java.base/java.net=ALL-UNNAMED \
+                  --add-opens java.base/java.lang=ALL-UNNAMED \
+                  --add-opens java.base/java.lang.reflect=ALL-UNNAMED \
+                  --add-opens java.base/java.util=ALL-UNNAMED \
+                  --add-opens jdk.management/com.sun.management.internal=ALL-UNNAMED \
+                  --add-opens java.base/sun.reflect.annotation=ALL-UNNAMED \
+                  --add-opens java.base/sun.net=ALL-UNNAMED \
+                  --add-opens java.base/java.math=ALL-UNNAMED \
+                  --add-exports java.desktop/sun.awt=ALL-UNNAMED \
+                  --add-opens java.desktop/sun.awt=ALL-UNNAMED \
+                  -Dspring.profiles.active=${APP_PRROFILES} \
+                  -javaagent:/skywalking/agent/skywalking-agent.jar"
 
 USER root
 
