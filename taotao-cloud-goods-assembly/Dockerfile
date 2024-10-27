@@ -77,12 +77,12 @@ USER root
 
 WORKDIR /root
 
-RUN ln -sf /usr/share/zoneinfo/$TZ /etc/localtime \
-    && echo $TZ > /etc/timezone \
-    && mkdir -p /root/logs/${APP_NAME} \
-    && touch /root/logs/${APP_NAME}/${APP_NAME}.jit.compile.log /root/logs/${APP_NAME}/${APP_NAME}.gc.log \
-    && sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories \
-    && apk add curl
+#RUN ln -sf /usr/share/zoneinfo/$TZ /etc/localtime \
+#    && echo $TZ > /etc/timezone \
+#    && mkdir -p /root/logs/${APP_NAME} \
+#    && touch /root/logs/${APP_NAME}/${APP_NAME}.jit.compile.log /root/logs/${APP_NAME}/${APP_NAME}.gc.log \
+#    && sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories \
+#    && apk add curl
 
 VOLUME /root/logs
 
