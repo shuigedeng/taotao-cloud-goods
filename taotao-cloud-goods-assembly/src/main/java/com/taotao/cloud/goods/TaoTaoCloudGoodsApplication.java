@@ -73,4 +73,5 @@ public class TaoTaoCloudGoodsApplication {
 			.setTtcAllowBeanDefinitionOverriding(true)
 			.run(args);
 	}
+	
 }
