@@ -33,6 +33,7 @@ ENV BACKEND_SERVICE=${BACKEND_SERVICE}
 ENV AGENT_AUTHENTICATION=${AGENT_AUTHENTICATION}
 ENV TAOTAO_CLOUD_MAIL_PASSWORD=${TAOTAO_CLOUD_MAIL_PASSWORD}
 ENV PRROFILES=${PRROFILES}
+
 ENV JAVA_OPTIONS="-Xms1g \
                   -Xmx2g \
                   -Xss256k \
@@ -104,4 +105,4 @@ RUN true
 
 #HEALTHCHECK --interval=120s --timeout=60s --retries=5 CMD curl -fs http://192.168.218.2:${APP_PORT}/actuator/health || exit 1
 
-ENTRYPOINT sleep 30; java ${JAVA_OPTIONS} org.springframework.boot.loader.JarLauncher
+ENTRYPOINT sleep 30; java ${JAVA_OPTIONS} org.springframework.boot.loader.launch.JarLauncher

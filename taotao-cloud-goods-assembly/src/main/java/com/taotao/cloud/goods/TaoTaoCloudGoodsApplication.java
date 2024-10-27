@@ -65,7 +65,6 @@ import com.taotao.cloud.bootstrap.annotation.TaoTaoCloudApplication;
 @TaoTaoCloudApplication
 public class TaoTaoCloudGoodsApplication {
 
-
 	public static void main(String[] args) {
 		new StartupSpringApplication(TaoTaoCloudGoodsApplication.class)
 			.setTtcBanner()
