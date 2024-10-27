@@ -84,6 +84,11 @@ WORKDIR /root
 #    && sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories \
 #    && apk add curl
 
+RUN ln -sf /usr/share/zoneinfo/$TZ /etc/localtime \
+	&& echo $TZ > /etc/timezone \
+    && mkdir -p /root/logs/${APP_NAME} \
+	&& touch /root/logs/${APP_NAME}/jit.compile.log /root/logs/${APP_NAME}/gc.log
+
 VOLUME /root/logs
 
 EXPOSE ${APP_PORT}
@@ -97,6 +102,6 @@ RUN true
 COPY --from=builder /root/application/ ./
 RUN true
 
-HEALTHCHECK --interval=120s --timeout=60s --retries=5 CMD curl -fs http://192.168.218.2:${APP_PORT}/actuator/health || exit 1
+#HEALTHCHECK --interval=120s --timeout=60s --retries=5 CMD curl -fs http://192.168.218.2:${APP_PORT}/actuator/health || exit 1
 
-ENTRYPOINT sleep 60; java ${JAVA_OPTIONS} org.springframework.boot.loader.JarLauncher
+ENTRYPOINT sleep 30; java ${JAVA_OPTIONS} org.springframework.boot.loader.JarLauncher
