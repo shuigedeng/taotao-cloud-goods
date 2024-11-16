@@ -18,6 +18,6 @@ dependencies {
 
     api "io.github.shuigedeng:taotao-cloud-starter-alibaba"
 
-    api "io.github.shuigedeng:taotao-boot-starter-grpc"
+    api "io.github.shuigedeng:taotao-boot-starter-dubbo"
     api "io.github.shuigedeng:taotao-boot-starter-dubbo"
 }

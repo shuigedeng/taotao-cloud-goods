@@ -16,11 +16,20 @@
 
 package com.taotao.cloud.goods.facade.controller.buyer;
 
+import com.alibaba.csp.sentinel.annotation.SentinelResource;
+import com.taotao.boot.common.model.Result;
+import com.taotao.boot.idempotent.annotation.Idempotent;
+import com.taotao.boot.ratelimit.guava.Limit;
+import com.taotao.boot.security.spring.annotation.NotAuth;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Iterator;
 
 /**
  * 买家端,商品分类接口
@@ -35,6 +44,23 @@ import org.springframework.web.bind.annotation.RestController;
 @Tag(name = "买家端-商品分类API", description = "买家端-商品分类API")
 @RequestMapping("/goods/buyer/category")
 public class CategoryBuyerController {
+
+	@NotAuth
+	@SentinelResource("findByCode")
+	@GetMapping("/test")
+	public Result<String> findByCode() {
+		//		if ("sd".equals(code)) {
+		//			throw new BusinessException("我出错了");
+		//			// try {
+		//			//	Thread.sleep(100000000000L);
+		//			// } catch (InterruptedException e) {
+		//			//	throw new RuntimeException(e);
+		//			// }
+		//		}
+		//		Dict dict = service().findByCode(code);
+		//		return DictConvert.INSTANCE.convert(dict);
+		return Result.success("xxxxxxxxxxxxxxx");
+	}
 
     /**
      * 商品分类

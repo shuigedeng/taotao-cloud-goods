@@ -222,8 +222,8 @@ dubbo:
     use-as-config-center: false
     use-as-metadata-center: false
   protocol:
-    name: dubbo
-    port: 20883
+    name: tri
+    port: 50051
     ssl-enabled: false
     accesslog: ${user.home}/logs/${spring.application.name}/dubbo/access.log
     #serialization: kryo
@@ -1417,7 +1417,7 @@ management:
     tracing:
       connect-timeout: 1
       read-timeout: 10
-      endpoint: http://localhost:9411/api/v2/spans
+      endpoint: http://192.168.218.2:9411/api/v2/spans
   tracing:
     enabled: true
     sampling:
@@ -1639,7 +1639,7 @@ knife4j:
     enableSwaggerModels: true
     enableDocumentManage: true
     enableHost: false
-    enableHostText: http://localhost:18568
+    enableHostText: http://192.168.218.2:18568
     enableRequestCache: true
     enableFilterMultipartApis: false
     enableFilterMultipartApiMethodType: POST
