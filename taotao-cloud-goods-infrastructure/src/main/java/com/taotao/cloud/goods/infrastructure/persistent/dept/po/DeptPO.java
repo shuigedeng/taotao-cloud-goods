@@ -32,7 +32,7 @@ import lombok.ToString;
 import org.hibernate.Hibernate;
 
 /**
- * 部门表
+ * 后台部门表
  *
  * @author shuigedeng
  * @version 2021.10
@@ -44,9 +44,9 @@ import org.hibernate.Hibernate;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = DeptPO.TABLE_NAME)
+@jakarta.persistence.Table(name = DeptPO.TABLE_NAME)
+@org.springframework.data.relational.core.mapping.Table(name = DeptPO.TABLE_NAME)
 @TableName(DeptPO.TABLE_NAME)
-// @org.hibernate.annotations.Table(appliesTo = Dept.TABLE_NAME, comment = "后台部门表")
 public class DeptPO extends BaseSuperEntity<DeptPO, Long> {
 
     public static final String TABLE_NAME = "tt_dept";

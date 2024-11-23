@@ -16,6 +16,7 @@
 
 package com.taotao.cloud.goods.infrastructure.persistent.dict.po;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.taotao.boot.common.utils.log.LogUtils;
 import com.taotao.boot.web.base.entity.BaseSuperEntity;
@@ -30,7 +31,6 @@ import jakarta.persistence.PostUpdate;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreRemove;
 import jakarta.persistence.PreUpdate;
-import jakarta.persistence.Table;
 import java.time.LocalDateTime;
 import java.util.Objects;
 import lombok.AllArgsConstructor;
@@ -131,12 +131,12 @@ import org.hibernate.Hibernate;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = DictPO.TABLE_NAME)
 @TableName(DictPO.TABLE_NAME)
+@jakarta.persistence.Table(name = DictPO.TABLE_NAME)
+@org.springframework.data.relational.core.mapping.Table(name = DictPO.TABLE_NAME)
 @EntityListeners({DictPO.DictEntityListener.class})
 // @NamedQuery(name = "User.findByEmailAddress",
 //	query = "select u from User u where u.emailAddress = ?1")
-// @org.hibernate.annotations.Table(appliesTo = Dict.TABLE_NAME, comment = "字典表")
 public class DictPO extends BaseSuperEntity<DictPO, Long> {
 
     public static final String TABLE_NAME = "tt_dict";

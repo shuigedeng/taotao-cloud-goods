@@ -15,12 +15,10 @@
  */
 
 package com.taotao.cloud.goods.infrastructure.persistent.dict.po;
-
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.taotao.boot.web.base.entity.BaseSuperEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
 import java.time.LocalDateTime;
 import java.util.Objects;
 import lombok.AllArgsConstructor;
@@ -32,8 +30,10 @@ import lombok.ToString;
 import org.hibernate.Hibernate;
 
 /**
- * 字典子项表 // @SQLDelete(sql = "update tt_dict_item set del_flag = 1 where id = ?") // @Where(clause
- * ="del_flag = 1")
+ * 字典子项表
+ *
+ * // @SQLDelete(sql = "update tt_dict_item set del_flag = 1 where id = ?")
+ * // @Where(clause="del_flag = 1")
  *
  * @author shuigedeng
  * @version 2021.10
@@ -45,9 +45,9 @@ import org.hibernate.Hibernate;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = DictItemPO.TABLE_NAME)
+@jakarta.persistence.Table(name = DictItemPO.TABLE_NAME)
+@org.springframework.data.relational.core.mapping.Table(name = DictItemPO.TABLE_NAME)
 @TableName(DictItemPO.TABLE_NAME)
-// @org.hibernate.annotations.Table(appliesTo = DictItem.TABLE_NAME, comment = "字典项表")
 public class DictItemPO extends BaseSuperEntity<DictItemPO, Long> {
 
     public static final String TABLE_NAME = "tt_dict_item";
