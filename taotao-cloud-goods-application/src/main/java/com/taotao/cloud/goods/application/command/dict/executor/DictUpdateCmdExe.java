@@ -2,19 +2,9 @@
 
 package com.taotao.cloud.goods.application.command.dict.executor;
 
-import cn.hutool.core.util.ObjectUtil;
-import com.baomidou.dynamic.datasource.annotation.DS;
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import com.taotao.boot.common.exception.BusinessException;
-import com.taotao.boot.common.model.Result;
-import com.taotao.cloud.goods.application.adapter.DictAdapter;
 import com.taotao.cloud.goods.application.command.dict.dto.DictUpdateCmd;
-import com.taotao.cloud.goods.application.command.dict.dto.clientobject.DictCO;
-import com.taotao.cloud.goods.application.converter.DictConvert;
 import com.taotao.cloud.goods.domain.dict.service.DictDomainService;
-import com.taotao.cloud.goods.infrastructure.persistent.dict.dataobject.DictDO;
 import com.taotao.cloud.goods.infrastructure.persistent.dict.mapper.DictMapper;
-import com.taotao.cloud.goods.infrastructure.persistent.dict.po.DictPO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

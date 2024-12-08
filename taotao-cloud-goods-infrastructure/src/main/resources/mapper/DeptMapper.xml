@@ -20,7 +20,7 @@
 		where id = #{id}
 	</select>
 	<select id="selectListByPath"
-		resultType="com.taotao.cloud.goods.infrastructure.persistent.dept.po.DeptPO">
+		resultType="com.taotao.cloud.goods.infrastructure.persistent.dept.persistence.DeptPO">
 		select id, path
 		from boot_sys_dept
 		where path like concat(#{path}, '%')

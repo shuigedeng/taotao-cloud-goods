@@ -1,5 +1,6 @@
 package com.taotao.cloud.goods.application.service;
 
+import com.taotao.boot.ddd.model.application.AppService;
 import com.taotao.cloud.goods.application.command.dept.dto.DeptCreateCmd;
 import com.taotao.cloud.goods.application.command.dept.dto.DeptGetQry;
 import com.taotao.cloud.goods.application.command.dept.dto.DeptIdsGetQry;
@@ -12,7 +13,7 @@ import java.util.List;
 /**
  * 部门管理.
  */
-public interface DeptsService {
+public interface DeptsService extends AppService {
 
 
 	/**

@@ -7,7 +7,7 @@ import com.taotao.cloud.goods.application.command.dept.dto.DeptListQry;
 import com.taotao.cloud.goods.application.command.dept.dto.clientobject.DeptCO;
 import com.taotao.cloud.goods.common.enums.FindTypeEnums;
 import com.taotao.cloud.goods.infrastructure.persistent.dept.mapper.DeptMapper;
-import com.taotao.cloud.goods.infrastructure.persistent.dept.po.DeptPO;
+import com.taotao.cloud.goods.infrastructure.persistent.dept.persistence.DeptPO;
 import java.util.ArrayList;
 import java.util.List;
 import lombok.RequiredArgsConstructor;

@@ -1,6 +1,7 @@
 
 package com.taotao.cloud.goods.application.service.impl;
 
+import com.taotao.boot.ddd.model.application.AppServiceImpl;
 import com.taotao.cloud.goods.application.command.dept.dto.DeptCreateCmd;
 import com.taotao.cloud.goods.application.command.dept.dto.DeptGetQry;
 import com.taotao.cloud.goods.application.command.dept.dto.DeptIdsGetQry;
@@ -24,7 +25,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 @RequiredArgsConstructor
-public class DeptsServiceImpl implements DeptsService {
+public class DeptsServiceImpl  extends AppServiceImpl  implements DeptsService{
 
 
 	private final DeptListQryExe deptListQryExe;

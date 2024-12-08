@@ -1,7 +1,7 @@
 
 package com.taotao.cloud.goods.application.command.dept.dto;
 
-import com.taotao.boot.ddd.application.model.CommonCommand;
+import com.taotao.boot.ddd.model.application.CommonCommand;
 import com.taotao.cloud.goods.application.command.dept.dto.clientobject.DeptCO;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;

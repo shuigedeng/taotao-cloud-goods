@@ -2,11 +2,8 @@
 
 package com.taotao.cloud.goods.application.command.dict.executor.query;
 
-import com.taotao.boot.common.model.Result;
-import com.taotao.cloud.goods.application.adapter.DictAdapter;
 import com.taotao.cloud.goods.application.command.dict.dto.DictGetQry;
 import com.taotao.cloud.goods.application.command.dict.dto.clientobject.DictCO;
-import com.taotao.cloud.goods.application.converter.DictConvert;
 import com.taotao.cloud.goods.domain.dict.service.DictDomainService;
 import com.taotao.cloud.goods.infrastructure.persistent.dict.mapper.DictMapper;
 import lombok.RequiredArgsConstructor;

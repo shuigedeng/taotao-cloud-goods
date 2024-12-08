@@ -17,7 +17,7 @@
 package com.taotao.cloud.goods.infrastructure.persistent.dict.repository.inf;
 
 import com.taotao.boot.web.base.repository.BaseInterfaceSuperRepository;
-import com.taotao.cloud.goods.infrastructure.persistent.dict.po.DictPO;
+import com.taotao.cloud.goods.infrastructure.persistent.dict.persistence.DictPO;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.QueryRewriter;
 

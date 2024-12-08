@@ -3,11 +3,8 @@
 package com.taotao.cloud.goods.application.command.dict.executor.query;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.taotao.cloud.goods.application.adapter.DictAdapter;
 import com.taotao.cloud.goods.application.command.dict.dto.DictListQry;
 import com.taotao.cloud.goods.application.command.dict.dto.clientobject.DictCO;
-import com.taotao.cloud.goods.application.converter.DictConvert;
-import com.taotao.cloud.goods.domain.dict.entity.DictEntity;
 import com.taotao.cloud.goods.domain.dict.service.DictDomainService;
 import com.taotao.cloud.goods.infrastructure.persistent.dict.mapper.DictMapper;
 import lombok.RequiredArgsConstructor;

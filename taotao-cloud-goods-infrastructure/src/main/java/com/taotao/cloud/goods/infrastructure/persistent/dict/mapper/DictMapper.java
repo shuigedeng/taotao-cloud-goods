@@ -17,9 +17,9 @@
 package com.taotao.cloud.goods.infrastructure.persistent.dict.mapper;
 
 import com.taotao.boot.web.base.mapper.BaseSuperMapper;
-import com.taotao.cloud.goods.infrastructure.persistent.dict.dataobject.DictDeptDO;
-import com.taotao.cloud.goods.infrastructure.persistent.dict.params.DictDeptParams;
-import com.taotao.cloud.goods.infrastructure.persistent.dict.po.DictPO;
+import com.taotao.cloud.goods.infrastructure.dataobject.DictDeptDO;
+import com.taotao.cloud.goods.infrastructure.dataparam.DictDeptParams;
+import com.taotao.cloud.goods.infrastructure.persistent.dict.persistence.DictPO;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;

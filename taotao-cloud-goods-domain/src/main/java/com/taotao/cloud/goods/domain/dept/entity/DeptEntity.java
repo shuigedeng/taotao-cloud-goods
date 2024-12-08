@@ -16,44 +16,87 @@
 
 package com.taotao.cloud.goods.domain.dept.entity;
 
-import static lombok.AccessLevel.PRIVATE;
-
+import com.google.common.base.Preconditions;
 import com.taotao.boot.common.exception.BusinessException;
-import com.taotao.boot.ddd.domain.model.AggregateRoot;
+import com.taotao.boot.ddd.model.domain.AggregateRoot;
+import com.taotao.cloud.goods.domain.dept.val.ContentVal;
+import com.taotao.cloud.goods.domain.dept.val.MessageCategoryVal;
+import com.taotao.cloud.goods.domain.dept.val.UserVal;
 import io.swagger.v3.oas.annotations.media.Schema;
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
-@Builder
-@AllArgsConstructor(access = PRIVATE)
-@NoArgsConstructor(access = PRIVATE)
+import java.time.LocalDateTime;
+
+@Getter
+@Setter
 @Schema(name = "Dept", description = "部门")
 public class DeptEntity extends AggregateRoot<Long> {
 
-    @Schema(name = "name", description = "部门名称")
-    private String name;
+	private final MessageCategoryVal category;
+	private final UserVal sender;
+	private final UserVal receiver;
+	private final ContentVal content;
 
-    @Schema(name = "pid", description = "部门父节点ID")
-    private Long pid;
+	@Schema(name = "name", description = "部门名称")
+	private String name;
 
-    @Schema(name = "path", description = "部门节点")
-    private String path;
+	@Schema(name = "pid", description = "部门父节点ID")
+	private Long pid;
 
-    @Schema(name = "sort", description = "部门排序")
-    private Integer sort;
+	@Schema(name = "path", description = "部门节点")
+	private String path;
 
-    public void checkName(long count) {
-        if (count > 0) {
-            throw new BusinessException("部门名称已存在，请重新填写");
-        }
-    }
+	@Schema(name = "sort", description = "部门排序")
+	private Integer sort;
 
-    public void checkIdAndPid() {
-        if (id.equals(pid)) {
-            throw new BusinessException("上级部门不能为当前部门");
-        }
-    }
+	private LocalDateTime senderDeleteTime;
+	private LocalDateTime receiverDeleteTime;
+	private boolean senderDeleted;
+	private boolean receiverDeleted;
+
+	protected DeptEntity(Long aLong, MessageCategoryVal category, UserVal sender, UserVal receiver, ContentVal content) {
+		super(aLong);
+		Preconditions.checkNotNull(category);
+		Preconditions.checkNotNull(content);
+
+		this.category = category;
+		this.sender = sender;
+		this.receiver = receiver;
+		this.content = content;
+	}
+
+	/**
+	 * 发送者删除
+	 *
+	 * @return
+	 */
+	public void senderDelete() {
+		this.senderDeleted = true;
+		this.senderDeleteTime = LocalDateTime.now();
+	}
+
+	/**
+	 * 接受者删除
+	 *
+	 * @return
+	 */
+	public void receiverDelete() {
+		this.receiverDeleted = true;
+		this.receiverDeleteTime = LocalDateTime.now();
+	}
+
+	public void checkName(long count) {
+		if (count > 0) {
+			throw new BusinessException("部门名称已存在，请重新填写");
+		}
+	}
+
+	public void checkIdAndPid() {
+		if (id.equals(pid)) {
+			throw new BusinessException("上级部门不能为当前部门");
+		}
+	}
 }

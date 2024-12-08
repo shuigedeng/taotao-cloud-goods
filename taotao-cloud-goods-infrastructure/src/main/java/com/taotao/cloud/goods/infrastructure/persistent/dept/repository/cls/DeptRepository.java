@@ -17,7 +17,7 @@
 package com.taotao.cloud.goods.infrastructure.persistent.dept.repository.cls;
 
 import com.taotao.boot.web.base.repository.BaseClassSuperRepository;
-import com.taotao.cloud.goods.infrastructure.persistent.dept.po.DeptPO;
+import com.taotao.cloud.goods.infrastructure.persistent.dept.persistence.DeptPO;
 import jakarta.persistence.EntityManager;
 import org.springframework.stereotype.Repository;
 

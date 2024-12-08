@@ -17,7 +17,7 @@
 package com.taotao.cloud.goods.infrastructure.persistent.dict.repository.cls;
 
 import com.taotao.boot.web.base.repository.BaseClassSuperRepository;
-import com.taotao.cloud.goods.infrastructure.persistent.dict.po.DictItemPO;
+import com.taotao.cloud.goods.infrastructure.persistent.dict.persistence.DictItemPO;
 import jakarta.persistence.EntityManager;
 import org.springframework.stereotype.Repository;
 
