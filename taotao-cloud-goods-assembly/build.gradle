@@ -34,7 +34,7 @@ dependencies {
 
     testImplementation "io.github.shuigedeng:taotao-boot-starter-test"
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-    testImplementation "org.assertj:assertj-core:3.26.3"
+    testImplementation "org.assertj:assertj-core:3.27.0"
 }
 
 
@@ -133,7 +133,7 @@ configurations {
             //force 'org.antlr:antlr4:4.13.2'
             //force 'net.minidev:json-smart:2.5.1'
             //todo 临时使用
-            force "io.opentelemetry:opentelemetry-api-incubator:1.44.1-alpha"
+            force "io.opentelemetry:opentelemetry-api-incubator:1.45.0-alpha"
         }
 
         //exclude group: "log4j", module: "log4j"
