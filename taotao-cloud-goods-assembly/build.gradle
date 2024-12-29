@@ -17,12 +17,7 @@ description = "商品中心"
 archivesBaseName = 'taotao-cloud-goods'
 
 dependencies {
-    implementation project(":taotao-cloud-goods-application")
     implementation project(":taotao-cloud-goods-facade")
-    implementation project(":taotao-cloud-goods-domain")
-    implementation project(":taotao-cloud-goods-integration")
-    implementation project(":taotao-cloud-goods-infrastructure")
-    implementation project(":taotao-cloud-goods-common")
 
     //developmentOnly "org.springframework.boot:spring-boot-devtools"
     //developmentOnly "org.springframework.boot:spring-boot-docker-compose"
