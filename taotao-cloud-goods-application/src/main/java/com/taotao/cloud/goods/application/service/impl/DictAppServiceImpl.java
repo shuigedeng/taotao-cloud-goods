@@ -17,7 +17,7 @@ import com.taotao.cloud.goods.application.command.dict.executor.DictUpdateCmdExe
 import com.taotao.cloud.goods.application.command.dict.executor.query.DictGetQryExe;
 import com.taotao.cloud.goods.application.command.dict.executor.query.DictListQryExe;
 import com.taotao.cloud.goods.application.command.dict.executor.query.DictOptionListQryExe;
-import com.taotao.cloud.goods.application.service.DictService;
+import com.taotao.cloud.goods.application.service.DictAppService;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -27,7 +27,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 @RequiredArgsConstructor
-public class DictServiceImpl extends AppServiceImpl implements DictService {
+public class DictAppServiceImpl extends AppServiceImpl implements DictAppService {
 
 	private final DictInsertCmdExe dictInsertCmdExe;
 

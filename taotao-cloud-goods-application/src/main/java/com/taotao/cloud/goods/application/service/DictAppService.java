@@ -18,7 +18,7 @@ import java.util.List;
 /**
  * 字典管理.
  */
-public interface DictService extends AppService {
+public interface DictAppService extends AppService {
 
 
 	/**

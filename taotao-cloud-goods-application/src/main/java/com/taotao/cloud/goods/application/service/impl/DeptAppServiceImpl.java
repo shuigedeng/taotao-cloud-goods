@@ -15,7 +15,7 @@ import com.taotao.cloud.goods.application.command.dept.executor.DeptRemoveCmdExe
 import com.taotao.cloud.goods.application.command.dept.executor.query.DeptGetQryExe;
 import com.taotao.cloud.goods.application.command.dept.executor.query.DeptIdsGetQryExe;
 import com.taotao.cloud.goods.application.command.dept.executor.query.DeptListQryExe;
-import com.taotao.cloud.goods.application.service.DeptsService;
+import com.taotao.cloud.goods.application.service.DeptAppService;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -25,7 +25,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 @RequiredArgsConstructor
-public class DeptsServiceImpl  extends AppServiceImpl  implements DeptsService{
+public class DeptAppServiceImpl extends AppServiceImpl  implements DeptAppService {
 
 
 	private final DeptListQryExe deptListQryExe;

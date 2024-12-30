@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * 部门管理.
  */
-public interface DeptsService extends AppService {
+public interface DeptAppService extends AppService {
 
 
 	/**
