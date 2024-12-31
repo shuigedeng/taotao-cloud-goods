@@ -16,15 +16,11 @@
 
 package com.taotao.cloud.goods.application.pie.dict.handlers;
 
-import com.taotao.boot.common.pie.example3.Result;
 import com.taotao.boot.common.support.pie.ChannelHandlerAdapter;
 import com.taotao.boot.common.support.pie.ChannelHandlerContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-/**
- * TODO:Add the description of this class.
- */
 public class ExceptionHandler extends ChannelHandlerAdapter {
 
     private Logger logger = LoggerFactory.getLogger(ExceptionHandler.class);
@@ -34,8 +30,8 @@ public class ExceptionHandler extends ChannelHandlerAdapter {
 
         logger.error("异常处理器中的异常处理逻辑");
 
-        Result re = (Result) out;
-        re.setCode(500);
-        re.setMsg("系统异常");
+//        Result re = (Result) out;
+//        re.setCode(500);
+//        re.setMsg("系统异常");
     }
 }

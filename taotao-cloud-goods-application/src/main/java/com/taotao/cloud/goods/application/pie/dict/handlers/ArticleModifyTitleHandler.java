@@ -16,15 +16,11 @@
 
 package com.taotao.cloud.goods.application.pie.dict.handlers;
 
-import com.taotao.boot.common.pie.example3.ArticleTitleModifyCmd;
 import com.taotao.boot.common.support.pie.ChannelHandler;
 import com.taotao.boot.common.support.pie.ChannelHandlerContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-/**
- * TODO:Add the description of this class.
- */
 public class ArticleModifyTitleHandler implements ChannelHandler {
 
     private Logger logger = LoggerFactory.getLogger(ArticleModifyTitleHandler.class);
@@ -34,9 +30,6 @@ public class ArticleModifyTitleHandler implements ChannelHandler {
 
         logger.info("修改标题:进入修改标题的Handler");
 
-        ArticleTitleModifyCmd cmd = (ArticleTitleModifyCmd) in;
-
-        String title = cmd.getTitle();
         // 此处的异常用于模拟执行过程中出现异常的场景，正常情况下注释掉
         throw new RuntimeException("修改title发生异常");
         // 修改标题的业务逻辑

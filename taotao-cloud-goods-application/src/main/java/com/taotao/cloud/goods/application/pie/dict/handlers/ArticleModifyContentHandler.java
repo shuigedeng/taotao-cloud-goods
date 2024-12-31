@@ -16,15 +16,11 @@
 
 package com.taotao.cloud.goods.application.pie.dict.handlers;
 
-import com.taotao.boot.common.pie.example3.ArticleTitleModifyCmd;
 import com.taotao.boot.common.support.pie.ChannelHandler;
 import com.taotao.boot.common.support.pie.ChannelHandlerContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-/**
- * TODO:Add the description of this class.
- */
 public class ArticleModifyContentHandler implements ChannelHandler {
 
     private Logger logger = LoggerFactory.getLogger(ArticleModifyContentHandler.class);
@@ -32,10 +28,6 @@ public class ArticleModifyContentHandler implements ChannelHandler {
     @Override
     public void channelProcess(ChannelHandlerContext ctx, Object in, Object out) throws Exception {
 
-        logger.info("修改正文:进入修改正文的Handler");
-        ArticleTitleModifyCmd cmd = (ArticleTitleModifyCmd) in;
-        logger.info("修改正文,content={}", cmd.getContent());
-        logger.info("修改正文:执行完成,即将进入下一个Handler");
         ctx.fireChannelProcess(in, out);
     }
 

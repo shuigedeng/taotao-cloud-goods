@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.goods.domain.dept.service.impl;
 
-import com.taotao.cloud.goods.domain.dept.entity.DeptEntity;
+import com.taotao.cloud.goods.domain.dept.entity.Dept;
 import com.taotao.cloud.goods.domain.dept.repository.DeptDomainRepository;
 import com.taotao.cloud.goods.domain.dept.service.DeptDomainService;
 import lombok.AllArgsConstructor;
@@ -29,12 +29,12 @@ public class DeptDomainServiceImpl implements DeptDomainService {
     private DeptDomainRepository deptDomainRepository;
 
     @Override
-    public void create(DeptEntity dept) {
+    public void create(Dept dept) {
         deptDomainRepository.create(dept);
     }
 
     @Override
-    public void modify(DeptEntity dept) {
+    public void modify(Dept dept) {
         deptDomainRepository.modify(dept);
     }
 

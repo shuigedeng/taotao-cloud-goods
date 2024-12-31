@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.goods.domain.dept.service;
 
-import com.taotao.cloud.goods.domain.dept.entity.DeptEntity;
+import com.taotao.cloud.goods.domain.dept.entity.Dept;
 
 public interface DeptDomainService {
 
@@ -25,14 +25,14 @@ public interface DeptDomainService {
      *
      * @param dept 部门对象
      */
-    void create(DeptEntity dept);
+    void create(Dept dept);
 
     /**
      * 修改部门.
      *
      * @param dept 部门对象
      */
-    void modify(DeptEntity dept);
+    void modify(Dept dept);
 
     /**
      * 根据ID删除部门.

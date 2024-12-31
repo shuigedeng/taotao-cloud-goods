@@ -17,7 +17,7 @@
 package com.taotao.cloud.goods.infrastructure.converter;
 
 import com.taotao.boot.ddd.model.infrastructure.BaseConvertor;
-import com.taotao.cloud.goods.domain.dept.entity.DeptEntity;
+import com.taotao.cloud.goods.domain.dept.entity.Dept;
 import com.taotao.cloud.goods.infrastructure.persistent.dept.persistence.DeptPO;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
@@ -38,5 +38,5 @@ public interface DeptConvertor extends BaseConvertor {
      */
     DeptConvertor INSTANCE = Mappers.getMapper(DeptConvertor.class);
 
-    public DeptPO convert(DeptEntity deptEntity);
+    public DeptPO convert(Dept dept);
 }

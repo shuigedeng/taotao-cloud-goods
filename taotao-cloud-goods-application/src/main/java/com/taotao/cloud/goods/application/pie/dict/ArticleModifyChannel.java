@@ -18,9 +18,4 @@ package com.taotao.cloud.goods.application.pie.dict;
 
 import com.taotao.boot.common.support.pie.AbstractChannel;
 
-/**
- * TODO:Add the description of this class.
- *
- * @author: <a href=mailto:943868899@qq.com>Yujie</a>
- */
 public class ArticleModifyChannel extends AbstractChannel {}
