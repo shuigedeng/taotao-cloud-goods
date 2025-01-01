@@ -16,6 +16,7 @@
 
 package com.taotao.cloud.goods.application.dto.hotwords.query;
 
+import com.taotao.boot.common.model.PageQuery;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
@@ -31,7 +32,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class HotWordsPageQry {
+public class HotWordsPageQry extends PageQuery {
 
     @NotBlank(message = "搜索热词不能为空")
     @Size(max = 20, min = 1, message = "搜索热词长度限制在1-20")

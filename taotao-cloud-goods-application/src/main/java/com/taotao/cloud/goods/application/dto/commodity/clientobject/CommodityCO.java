@@ -16,6 +16,7 @@
 
 package com.taotao.cloud.goods.application.dto.commodity.clientobject;
 
+import com.taotao.boot.ddd.model.application.ClientObject;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.math.BigDecimal;
 import lombok.AllArgsConstructor;
@@ -24,12 +25,11 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
 /** 小程序直播商品 */
-@Data
 @SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
 @Schema(description = "小程序直播商品CO")
-public class CommodityCO {
+public class CommodityCO extends ClientObject {
 
     /** 图片 */
     private String goodsImage;

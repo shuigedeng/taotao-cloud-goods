@@ -16,6 +16,7 @@
 
 package com.taotao.cloud.goods.application.dto.store.clientobject;
 
+import com.taotao.boot.ddd.model.application.ClientObject;
 import com.taotao.cloud.goods.application.dto.commodity.clientobject.CommodityCO;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.List;
@@ -31,7 +32,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
-public class StudioCommodityCO extends StudioCO {
+public class StudioCommodityCO extends ClientObject {
 
     @Schema(description = "直播间商品列表")
     private List<CommodityCO> commodityList;

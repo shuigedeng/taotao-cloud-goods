@@ -1,5 +1,7 @@
 package com.taotao.cloud.goods.application.dto.goods.cmmond;
 
-public class CustomWordsAddCmd {
+import com.taotao.boot.ddd.model.application.Command;
+
+public class CustomWordsAddCmd  extends Command {
 
 }

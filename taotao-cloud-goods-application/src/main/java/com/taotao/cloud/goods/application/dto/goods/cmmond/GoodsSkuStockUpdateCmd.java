@@ -16,6 +16,7 @@
 
 package com.taotao.cloud.goods.application.dto.goods.cmmond;
 
+import com.taotao.boot.ddd.model.application.Command;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -27,7 +28,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class GoodsSkuStockUpdateCmd {
+public class GoodsSkuStockUpdateCmd  extends Command {
 
     @Schema(description = "商品skuId")
     private Long skuId;

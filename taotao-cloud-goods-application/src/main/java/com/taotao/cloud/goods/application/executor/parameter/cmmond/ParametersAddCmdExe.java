@@ -2,6 +2,7 @@
 
 package com.taotao.cloud.goods.application.executor.parameter.cmmond;
 
+import com.taotao.boot.ddd.model.application.executor.Executor;
 import com.taotao.cloud.sys.application.command.dept.dto.DeptDeleteCmd;
 import com.taotao.cloud.sys.domain.dept.service.DeptDomainService;
 import lombok.RequiredArgsConstructor;
@@ -15,7 +16,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @RequiredArgsConstructor
-public class ParametersAddCmdExe {
+public class ParametersAddCmdExe extends Executor {
 
 	private final DeptDomainService deptDomainService;
 

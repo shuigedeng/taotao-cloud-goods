@@ -17,16 +17,17 @@
 package com.taotao.cloud.goods.domain.goods.service;
 
 
-import com.taotao.cloud.goods.domain.goods.entity.GoodsEntity;
+import com.taotao.boot.ddd.model.domain.service.DomainService;
+import com.taotao.cloud.goods.domain.goods.entity.Goods;
 
-public interface GoodsDomainService {
+public interface GoodsDomainService extends DomainService {
 
 	/**
 	 * 新增部门.
 	 *
 	 * @param dept 部门对象
 	 */
-	void create(GoodsEntity dept);
+	void create(Goods dept);
 
 	/**
 	 * 修改部门.

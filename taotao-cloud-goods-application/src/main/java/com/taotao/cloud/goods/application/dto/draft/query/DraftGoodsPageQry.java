@@ -16,7 +16,6 @@
 
 package com.taotao.cloud.goods.application.dto.draft.query;
 
-import com.taotao.cloud.goods.api.enums.DraftGoodsSaveTypeEnum;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
 import lombok.AllArgsConstructor;

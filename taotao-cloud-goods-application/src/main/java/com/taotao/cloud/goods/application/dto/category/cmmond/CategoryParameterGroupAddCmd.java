@@ -1,5 +1,7 @@
 package com.taotao.cloud.goods.application.dto.category.cmmond;
 
-public class CategoryParameterGroupAddCmd {
+import com.taotao.boot.ddd.model.application.Command;
+
+public class CategoryParameterGroupAddCmd extends Command {
 
 }

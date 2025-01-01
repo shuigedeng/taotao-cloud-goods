@@ -18,7 +18,7 @@ package com.taotao.cloud.goods.application.pie.dept.handlers;
 
 import com.taotao.boot.common.support.pie.ChannelHandler;
 import com.taotao.boot.common.support.pie.ChannelHandlerContext;
-import com.taotao.cloud.goods.application.context.DeptContext;
+import com.taotao.cloud.goods.application.context.GoodsContext;
 import java.util.Objects;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,8 +32,8 @@ public class DeptCheckParameterHandler implements ChannelHandler {
 
 		logger.info("参数校验:开始执行");
 
-		if (in instanceof DeptContext) {
-			DeptContext cmd = (DeptContext) in;
+		if (in instanceof GoodsContext) {
+			GoodsContext cmd = (GoodsContext) in;
 
 			String name = cmd.getDeptAgg().getDept().getName();
 			Objects.requireNonNull(name, "name不能为空");

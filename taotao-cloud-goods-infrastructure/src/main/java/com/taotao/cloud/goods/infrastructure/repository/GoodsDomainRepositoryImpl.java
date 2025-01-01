@@ -2,7 +2,7 @@ package com.taotao.cloud.goods.infrastructure.repository;
 
 import com.taotao.boot.data.datasource.tx.TransactionalUtil;
 import com.taotao.boot.data.mybatis.utils.MybatisUtil;
-import com.taotao.cloud.goods.domain.goods.entity.GoodsEntity;
+import com.taotao.cloud.goods.domain.goods.entity.Goods;
 import com.taotao.cloud.goods.domain.goods.repository.GoodsDomainRepository;
 import com.taotao.cloud.goods.infrastructure.persistent.mapper.IGoodsMapper;
 import com.taotao.cloud.goods.infrastructure.persistent.mapper.IGoodsSkuMapper;
@@ -21,12 +21,12 @@ public class GoodsDomainRepositoryImpl implements GoodsDomainRepository {
 
 
 	@Override
-	public void create(GoodsEntity dept) {
+	public void create(Goods dept) {
 
 	}
 
 	@Override
-	public void modify(GoodsEntity dept) {
+	public void modify(Goods dept) {
 
 	}
 

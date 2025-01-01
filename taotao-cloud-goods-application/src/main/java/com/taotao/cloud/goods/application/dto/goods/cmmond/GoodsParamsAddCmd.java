@@ -16,6 +16,7 @@
 
 package com.taotao.cloud.goods.application.dto.goods.cmmond;
 
+import com.taotao.boot.ddd.model.application.Command;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.Valid;
 import java.io.Serial;
@@ -38,7 +39,7 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 @NoArgsConstructor
 @Schema(description = "商品参数分组")
-public class GoodsParamsAddCmd implements Serializable {
+public class GoodsParamsAddCmd  extends Command {
 
     @Serial
     private static final long serialVersionUID = 4892783539320159200L;

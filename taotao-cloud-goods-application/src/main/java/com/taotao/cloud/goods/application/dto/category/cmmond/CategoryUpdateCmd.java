@@ -1,5 +1,7 @@
 package com.taotao.cloud.goods.application.dto.category.cmmond;
 
-public class CategoryUpdateCmd {
+import com.taotao.boot.ddd.model.application.Command;
+
+public class CategoryUpdateCmd extends Command {
 
 }

@@ -16,4 +16,8 @@
 
 package com.taotao.cloud.goods.infrastructure.factory;
 
-public class UserFactory {}
+import com.taotao.boot.ddd.model.types.Factory;
+
+public class UserFactory implements Factory {
+
+}

@@ -18,6 +18,8 @@ package com.taotao.cloud.goods.application.dto.goods.clientobject;
 
 import java.io.Serial;
 import java.io.Serializable;
+
+import com.taotao.boot.ddd.model.application.ClientObject;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -32,7 +34,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class EsGoodsAttributeCO implements Serializable {
+public class EsGoodsAttributeCO extends ClientObject {
 
     @Serial
     private static final long serialVersionUID = 4018042777559970062L;

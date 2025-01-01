@@ -16,7 +16,6 @@
 
 package com.taotao.cloud.goods.application.dto.draft.cmmond;
 
-import com.taotao.cloud.goods.application.dto.draft.dto.DraftGoodsBaseCmd;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.Valid;
 import java.util.List;

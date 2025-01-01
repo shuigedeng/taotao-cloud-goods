@@ -5,6 +5,7 @@ package com.taotao.cloud.goods.application.executor.category.cmmond;
 import com.taotao.boot.cache.redis.repository.RedisRepository;
 import com.taotao.boot.common.enums.ResultEnum;
 import com.taotao.boot.common.exception.BusinessException;
+import com.taotao.boot.ddd.model.application.executor.Executor;
 import com.taotao.cloud.goods.infrastructure.persistent.mapper.ICategoryMapper;
 import com.taotao.cloud.goods.infrastructure.persistent.po.CategoryPO;
 import java.math.BigDecimal;
@@ -18,7 +19,7 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Component
 @RequiredArgsConstructor
-public class CategorySaveCmdExe {
+public class CategorySaveCmdExe extends Executor {
 
 	private final RedisRepository redisRepository;
 	private final ICategoryMapper categoryMapper;

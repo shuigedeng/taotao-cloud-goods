@@ -17,7 +17,7 @@
 package com.taotao.cloud.goods.application.pie.dept;
 
 import com.taotao.boot.common.support.pie.BootStrap;
-import com.taotao.cloud.goods.application.context.DeptContext;
+import com.taotao.cloud.goods.application.context.GoodsContext;
 import com.taotao.cloud.goods.application.pie.dict.handlers.ArticleModifyContentHandler;
 import com.taotao.cloud.goods.application.pie.dict.handlers.ArticleModifyTitleHandler;
 import com.taotao.cloud.goods.application.pie.dict.handlers.CheckParameterHandler;
@@ -30,11 +30,11 @@ public class DeptModifyCBootstrap {
 
     public void test1() {
         // 入参
-		DeptContext dto = new DeptContext();
+		GoodsContext dto = new GoodsContext();
         // 创建引导类
         BootStrap bootStrap = new BootStrap();
 
-		DeptContext result = (DeptContext) bootStrap
+		GoodsContext result = (GoodsContext) bootStrap
                 .inboundParameter(dto) // 入参
                 .outboundFactory(new ResultFactory()) // 出参工厂
                 .channel(new DeptModifyChannel()) // 自定义channel

@@ -3,6 +3,7 @@
 package com.taotao.cloud.goods.application.executor.category.cmmond;
 
 import com.taotao.boot.cache.redis.repository.RedisRepository;
+import com.taotao.boot.ddd.model.application.executor.Executor;
 import com.taotao.cloud.goods.application.service.CategoryBrandCommandService;
 import com.taotao.cloud.goods.application.service.CategoryParameterGroupCommandService;
 import com.taotao.cloud.goods.application.service.CategorySpecificationCommandService;
@@ -16,7 +17,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @RequiredArgsConstructor
-public class CategoryDelCmdExe {
+public class CategoryDelCmdExe extends Executor {
 
 	private final RedisRepository redisRepository;
 	private final ICategoryMapper categoryMapper;

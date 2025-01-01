@@ -16,6 +16,7 @@
 
 package com.taotao.cloud.goods.application.dto.parameter.clientobject;
 
+import com.taotao.boot.ddd.model.application.ClientObject;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
 import java.io.Serializable;
@@ -29,7 +30,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class ParametersCO implements Serializable {
+public class ParametersCO extends ClientObject {
 
     @Serial
     private static final long serialVersionUID = 724427321881170297L;

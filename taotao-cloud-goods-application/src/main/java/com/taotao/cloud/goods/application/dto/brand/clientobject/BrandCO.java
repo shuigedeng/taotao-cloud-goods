@@ -16,6 +16,7 @@
 
 package com.taotao.cloud.goods.application.dto.brand.clientobject;
 
+import com.taotao.boot.ddd.model.application.ClientObject;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
 import java.io.Serializable;
@@ -25,12 +26,11 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /** 品牌CO */
-@Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Schema(description = "品牌CO")
-public class BrandCO implements Serializable {
+public class BrandCO extends ClientObject {
 
     @Serial
 	private static final long serialVersionUID = 3829199991161122317L;

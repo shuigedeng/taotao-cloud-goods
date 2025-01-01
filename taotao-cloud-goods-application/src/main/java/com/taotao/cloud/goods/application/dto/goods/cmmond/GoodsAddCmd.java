@@ -16,6 +16,7 @@
 
 package com.taotao.cloud.goods.application.dto.goods.cmmond;
 
+import com.taotao.boot.ddd.model.application.Command;
 import com.taotao.cloud.goods.api.enums.GoodsTypeEnum;
 import com.taotao.cloud.goods.application.dto.goods.cmmond.GoodsParamsAddCmd;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -41,7 +42,7 @@ import org.hibernate.validator.constraints.Length;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class GoodsAddCmd implements Serializable {
+public class GoodsAddCmd  extends Command {
 
     @Serial
     private static final long serialVersionUID = -509667581371776913L;

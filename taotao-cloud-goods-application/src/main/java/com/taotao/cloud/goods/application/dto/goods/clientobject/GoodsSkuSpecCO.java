@@ -16,6 +16,7 @@
 
 package com.taotao.cloud.goods.application.dto.goods.clientobject;
 
+import com.taotao.boot.ddd.model.application.ClientObject;
 import com.taotao.cloud.goods.application.dto.specification.dto.clientobject.SpecValueCO;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.List;
@@ -29,7 +30,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class GoodsSkuSpecCO {
+public class GoodsSkuSpecCO extends ClientObject {
 
     @Schema(description = "商品skuId")
     private Long skuId;

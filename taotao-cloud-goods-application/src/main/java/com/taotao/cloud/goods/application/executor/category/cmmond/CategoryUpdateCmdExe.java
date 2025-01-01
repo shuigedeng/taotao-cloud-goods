@@ -12,6 +12,7 @@ import com.taotao.boot.cache.redis.repository.RedisRepository;
 import com.taotao.boot.common.enums.ResultEnum;
 import com.taotao.boot.common.exception.BusinessException;
 import com.taotao.boot.common.utils.bean.BeanUtils;
+import com.taotao.boot.ddd.model.application.executor.Executor;
 import com.taotao.cloud.goods.application.command.category.dto.clientobject.CategoryTreeCO;
 import com.taotao.cloud.goods.application.command.category.executor.query.CategoryChildrenCmdExe;
 import com.taotao.cloud.goods.infrastructure.persistent.mapper.ICategoryMapper;
@@ -30,7 +31,7 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Component
 @RequiredArgsConstructor
-public class CategoryUpdateCmdExe {
+public class CategoryUpdateCmdExe extends Executor {
 
 	private final RedisRepository redisRepository;
 	private final ICategoryMapper categoryMapper;

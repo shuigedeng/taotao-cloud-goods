@@ -3,6 +3,7 @@
 package com.taotao.cloud.goods.application.executor.hotwords.query;
 
 
+import com.taotao.boot.ddd.model.application.executor.Executor;
 import com.taotao.cloud.sys.application.command.dept.dto.DeptGetQry;
 import com.taotao.cloud.sys.application.command.dept.dto.clientobject.DeptCO;
 import com.taotao.cloud.sys.application.converter.DeptConvert;
@@ -17,7 +18,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @RequiredArgsConstructor
-public class HotWordsPageQryExe {
+public class HotWordsPageQryExe extends Executor {
 
 	private final DeptDomainService deptDomainService;
 

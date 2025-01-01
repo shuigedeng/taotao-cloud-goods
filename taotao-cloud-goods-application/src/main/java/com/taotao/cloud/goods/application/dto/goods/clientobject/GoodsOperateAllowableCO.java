@@ -16,6 +16,7 @@
 
 package com.taotao.cloud.goods.application.dto.goods.clientobject;
 
+import com.taotao.boot.ddd.model.application.ClientObject;
 import com.taotao.cloud.goods.api.enums.GoodsStatusEnum;
 import java.io.Serializable;
 import java.util.Objects;
@@ -29,7 +30,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class GoodsOperateAllowableCO implements Serializable {
+public class GoodsOperateAllowableCO extends ClientObject {
 
     /**
      * 上下架状态

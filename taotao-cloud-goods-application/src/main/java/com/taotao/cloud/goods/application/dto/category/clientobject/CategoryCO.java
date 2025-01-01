@@ -16,6 +16,7 @@
 
 package com.taotao.cloud.goods.application.dto.category.clientobject;
 
+import com.taotao.boot.ddd.model.application.ClientObject;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.math.BigDecimal;
 import lombok.AllArgsConstructor;
@@ -26,12 +27,11 @@ import lombok.experimental.SuperBuilder;
 /**
  * 商品分类
  */
-@Data
 @SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
 @Schema(description = "商品分类CO")
-public class CategoryCO {
+public class CategoryCO extends ClientObject {
 
 	@Schema(description = "id")
 	private Long id;

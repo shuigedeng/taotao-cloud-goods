@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.goods.infrastructure.converter;
 
-import com.taotao.boot.ddd.model.infrastructure.BaseConvertor;
+import com.taotao.boot.ddd.model.infrastructure.Convertor;
 import com.taotao.cloud.goods.domain.dept.entity.Dept;
 import com.taotao.cloud.goods.infrastructure.persistent.dept.persistence.DeptPO;
 import org.mapstruct.Mapper;
@@ -31,7 +31,7 @@ import org.mapstruct.factory.Mappers;
  * @since 2022-04-28 13:39:18
  */
 @Mapper(unmappedSourcePolicy = ReportingPolicy.IGNORE, unmappedTargetPolicy = ReportingPolicy.IGNORE)
-public interface DeptConvertor extends BaseConvertor {
+public interface DeptConvertor extends Convertor {
 
     /**
      * 实例

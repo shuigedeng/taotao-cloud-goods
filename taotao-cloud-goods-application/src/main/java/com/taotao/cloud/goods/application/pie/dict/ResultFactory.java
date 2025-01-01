@@ -17,8 +17,7 @@
 package com.taotao.cloud.goods.application.pie.dict;
 
 import com.taotao.boot.common.support.pie.OutboundFactory;
-import com.taotao.cloud.goods.application.context.DeptContext;
-import com.taotao.cloud.goods.application.context.DictContext;
+import com.taotao.cloud.goods.application.context.DraftGoodsContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -31,7 +30,7 @@ public class ResultFactory implements OutboundFactory {
 
     @Override
     public Object newInstance() {
-		DictContext result = new DictContext();
+		DraftGoodsContext result = new DraftGoodsContext();
 		return result;
     }
 }

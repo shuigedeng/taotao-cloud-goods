@@ -7,6 +7,7 @@ import static com.taotao.boot.common.enums.CachePrefixEnum.CATEGORY_ARRAY;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.taotao.boot.cache.redis.repository.RedisRepository;
+import com.taotao.boot.ddd.model.application.executor.Executor;
 import com.taotao.cloud.goods.application.command.category.dto.clientobject.CategoryTreeCO;
 import com.taotao.cloud.goods.application.convert.CategoryConvert;
 import com.taotao.cloud.goods.infrastructure.persistent.mapper.ICategoryMapper;
@@ -23,7 +24,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @RequiredArgsConstructor
-public class CategoryTreeCmdExe {
+public class CategoryTreeCmdExe extends Executor {
 
 	private final RedisRepository redisRepository;
 	private final ICategoryMapper categoryMapper;

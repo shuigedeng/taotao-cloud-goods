@@ -18,7 +18,7 @@ package com.taotao.cloud.goods.application.pie.dept.handlers;
 
 import com.taotao.boot.common.support.pie.ChannelHandler;
 import com.taotao.boot.common.support.pie.ChannelHandlerContext;
-import com.taotao.cloud.goods.application.context.DeptContext;
+import com.taotao.cloud.goods.application.context.GoodsContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -31,7 +31,7 @@ public class DeptModifyTitleHandler implements ChannelHandler {
 
         logger.info("修改标题:进入修改标题的Handler");
 
-		DeptContext cmd = (DeptContext) in;
+		GoodsContext cmd = (GoodsContext) in;
 
         String title = cmd.getDeptModifyCmd().getDeptCO().getName();
         // 此处的异常用于模拟执行过程中出现异常的场景，正常情况下注释掉

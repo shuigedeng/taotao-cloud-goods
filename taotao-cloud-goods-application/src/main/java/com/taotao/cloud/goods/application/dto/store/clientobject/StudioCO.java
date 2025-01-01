@@ -16,6 +16,7 @@
 
 package com.taotao.cloud.goods.application.dto.store.clientobject;
 
+import com.taotao.boot.ddd.model.application.ClientObject;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -29,7 +30,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
-public class StudioCO {
+public class StudioCO extends ClientObject {
 
     /** 直播间名字，最短3个汉字，最长17个汉字，1个汉字相当于2个字符 */
     private String name;

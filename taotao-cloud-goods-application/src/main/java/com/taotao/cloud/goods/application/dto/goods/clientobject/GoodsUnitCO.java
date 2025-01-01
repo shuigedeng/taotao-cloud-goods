@@ -16,6 +16,7 @@
 
 package com.taotao.cloud.goods.application.dto.goods.clientobject;
 
+import com.taotao.boot.ddd.model.application.ClientObject;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
 import java.io.Serializable;
@@ -38,7 +39,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Schema(description = "商品计量CO")
-public class GoodsUnitCO implements Serializable {
+public class GoodsUnitCO extends ClientObject {
 
     @Serial
     private static final long serialVersionUID = -4433579132929428572L;

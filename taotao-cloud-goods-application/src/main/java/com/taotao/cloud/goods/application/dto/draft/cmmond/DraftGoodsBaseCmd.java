@@ -16,6 +16,7 @@
 
 package com.taotao.cloud.goods.application.dto.draft.cmmond;
 
+import com.taotao.boot.ddd.model.application.Command;
 import com.taotao.cloud.goods.api.enums.DraftGoodsSaveTypeEnum;
 import com.taotao.cloud.goods.api.enums.GoodsStatusEnum;
 import com.taotao.cloud.goods.api.enums.GoodsTypeEnum;
@@ -30,7 +31,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
-public class DraftGoodsBaseCmd {
+public class DraftGoodsBaseCmd  extends Command {
 
     /** 商品名称 */
     private String goodsName;

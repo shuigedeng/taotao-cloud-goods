@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.goods.infrastructure.converter;
 
-import com.taotao.boot.ddd.model.infrastructure.BaseConvertor;
+import com.taotao.boot.ddd.model.infrastructure.Convertor;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 import org.mapstruct.factory.Mappers;
@@ -29,7 +29,7 @@ import org.mapstruct.factory.Mappers;
  * @since 2022-04-28 13:39:18
  */
 @Mapper(unmappedSourcePolicy = ReportingPolicy.IGNORE, unmappedTargetPolicy = ReportingPolicy.IGNORE)
-public interface DictConvert  extends BaseConvertor {
+public interface DictConvert  extends Convertor {
 
     /** 实例 */
     DictConvert INSTANCE = Mappers.getMapper(DictConvert.class);

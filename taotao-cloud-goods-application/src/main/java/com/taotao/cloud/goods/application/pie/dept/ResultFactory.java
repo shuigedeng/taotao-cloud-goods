@@ -17,7 +17,7 @@
 package com.taotao.cloud.goods.application.pie.dept;
 
 import com.taotao.boot.common.support.pie.OutboundFactory;
-import com.taotao.cloud.goods.application.context.DeptContext;
+import com.taotao.cloud.goods.application.context.GoodsContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -30,7 +30,7 @@ public class ResultFactory implements OutboundFactory {
 
     @Override
     public Object newInstance() {
-		DeptContext result = new DeptContext();
+		GoodsContext result = new GoodsContext();
         return result;
     }
 }

@@ -16,6 +16,7 @@
 
 package com.taotao.cloud.goods.application.dto.category.clientobject;
 
+import com.taotao.boot.ddd.model.application.ClientObject;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -23,12 +24,11 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /** 分类品牌CO */
-@Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Schema(description = "分类品牌CO")
-public class CategoryBrandCO {
+public class CategoryBrandCO extends ClientObject {
 
     @Schema(description = "品牌id")
     private String id;

@@ -16,6 +16,7 @@
 
 package com.taotao.cloud.goods.application.dto.store.cmmond;
 
+import com.taotao.boot.ddd.model.application.Command;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
 import java.io.Serializable;
@@ -35,7 +36,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class StoreGoodsLabelAddCmd implements Serializable {
+public class StoreGoodsLabelAddCmd  extends Command {
 
     @Serial
     private static final long serialVersionUID = -7605952923416404638L;

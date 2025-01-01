@@ -16,6 +16,7 @@
 
 package com.taotao.cloud.goods.application.dto.draft.clientobject;
 
+import com.taotao.boot.ddd.model.application.ClientObject;
 import com.taotao.cloud.goods.api.enums.DraftGoodsSaveTypeEnum;
 import com.taotao.cloud.goods.api.enums.GoodsStatusEnum;
 import com.taotao.cloud.goods.api.enums.GoodsTypeEnum;
@@ -38,7 +39,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
-public class DraftGoodsCO implements Serializable {
+public class DraftGoodsCO extends ClientObject {
 
     @Serial
     private static final long serialVersionUID = 1450550797436233753L;

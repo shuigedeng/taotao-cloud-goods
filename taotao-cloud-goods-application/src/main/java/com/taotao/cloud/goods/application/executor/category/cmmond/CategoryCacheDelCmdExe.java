@@ -5,6 +5,7 @@ package com.taotao.cloud.goods.application.executor.category.cmmond;
 import static com.taotao.boot.common.enums.CachePrefixEnum.CATEGORY;
 
 import com.taotao.boot.cache.redis.repository.RedisRepository;
+import com.taotao.boot.ddd.model.application.executor.Executor;
 import com.taotao.cloud.goods.infrastructure.persistent.mapper.ICategoryMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -15,7 +16,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @RequiredArgsConstructor
-public class CategoryCacheDelCmdExe {
+public class CategoryCacheDelCmdExe extends Executor {
 
 	private final RedisRepository redisRepository;
 	private final ICategoryMapper categoryMapper;

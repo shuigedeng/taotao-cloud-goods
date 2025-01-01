@@ -16,6 +16,7 @@
 
 package com.taotao.cloud.goods.application.dto.goods.clientobject;
 
+import com.taotao.boot.ddd.model.application.ClientObject;
 import com.taotao.cloud.goods.api.enums.GoodsTypeEnum;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
@@ -38,7 +39,7 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 @NoArgsConstructor
 @Schema(description = "商品基础CO")
-public class GoodsCO implements Serializable {
+public class GoodsCO extends ClientObject {
 
     @Serial
     private static final long serialVersionUID = 1450550797436233753L;

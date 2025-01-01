@@ -4,6 +4,7 @@ package com.taotao.cloud.goods.application.executor.category.query;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.taotao.boot.common.utils.bean.BeanUtils;
+import com.taotao.boot.ddd.model.application.executor.Executor;
 import com.taotao.cloud.goods.application.command.category.dto.clientobject.CategoryTreeCO;
 import com.taotao.cloud.goods.infrastructure.persistent.mapper.ICategoryMapper;
 import com.taotao.cloud.goods.infrastructure.persistent.po.CategoryPO;
@@ -19,7 +20,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @RequiredArgsConstructor
-public class CategoryChildrenCmdExe {
+public class CategoryChildrenCmdExe extends Executor {
 
 	private final ICategoryMapper categoryMapper;
 	private final CategoryTreeCmdExe categoryTreeCmdExe;

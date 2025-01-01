@@ -17,6 +17,7 @@
 package com.taotao.cloud.goods.application.dto.goods.clientobject;
 
 import com.taotao.boot.common.enums.PromotionTypeEnum;
+import com.taotao.boot.ddd.model.application.ClientObject;
 import com.taotao.cloud.goods.api.enums.GoodsTypeEnum;
 import java.io.Serial;
 import java.io.Serializable;
@@ -41,7 +42,7 @@ import lombok.experimental.Accessors;
 @AllArgsConstructor
 @Builder
 @Accessors(chain = true)
-public class EsGoodsIndexCO implements Serializable {
+public class EsGoodsIndexCO extends ClientObject {
 
     @Serial
     private static final long serialVersionUID = -6856471777036048874L;

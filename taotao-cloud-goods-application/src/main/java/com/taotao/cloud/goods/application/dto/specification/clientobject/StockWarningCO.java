@@ -17,6 +17,7 @@
 package com.taotao.cloud.goods.application.dto.specification.clientobject;
 
 import com.taotao.boot.common.model.PageResult;
+import com.taotao.boot.ddd.model.application.ClientObject;
 import com.taotao.cloud.goods.application.command.goods.dto.clientobject.GoodsSkuCO;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
@@ -37,7 +38,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class StockWarningCO implements Serializable {
+public class StockWarningCO extends ClientObject {
 
     @Serial
     private static final long serialVersionUID = -7605952923416404638L;

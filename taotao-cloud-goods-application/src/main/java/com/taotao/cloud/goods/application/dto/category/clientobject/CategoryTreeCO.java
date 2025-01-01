@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.goods.application.dto.category.clientobject;
 
-import com.taotao.cloud.goods.application.command.brand.dto.clientobject.BrandCO;
+import com.taotao.cloud.goods.application.dto.brand.clientobject.BrandCO;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Comparator;
 import java.util.List;
