@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.goods.application.dto.draft.clientobject;
 
-import com.taotao.boot.ddd.model.application.ClientObject;
+import com.taotao.boot.ddd.model.application.dto.ClientObject;
 import com.taotao.cloud.goods.api.enums.DraftGoodsSaveTypeEnum;
 import com.taotao.cloud.goods.api.enums.GoodsStatusEnum;
 import com.taotao.cloud.goods.api.enums.GoodsTypeEnum;

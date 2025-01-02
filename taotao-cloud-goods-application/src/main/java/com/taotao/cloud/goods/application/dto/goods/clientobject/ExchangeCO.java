@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.goods.application.dto.goods.clientobject;
 
-import com.taotao.boot.ddd.model.application.ClientObject;
+import com.taotao.boot.ddd.model.application.dto.ClientObject;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.math.BigDecimal;
 import lombok.AllArgsConstructor;

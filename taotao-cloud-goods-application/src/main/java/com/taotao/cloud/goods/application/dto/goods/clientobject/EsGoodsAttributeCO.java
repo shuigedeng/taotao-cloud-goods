@@ -19,7 +19,7 @@ package com.taotao.cloud.goods.application.dto.goods.clientobject;
 import java.io.Serial;
 import java.io.Serializable;
 
-import com.taotao.boot.ddd.model.application.ClientObject;
+import com.taotao.boot.ddd.model.application.dto.ClientObject;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

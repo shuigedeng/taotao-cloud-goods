@@ -2,7 +2,7 @@
 
 package com.taotao.cloud.goods.application.dto.hotwords.clientobject;
 
-import com.taotao.boot.ddd.model.application.ClientObject;
+import com.taotao.boot.ddd.model.application.dto.ClientObject;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
 import lombok.Data;

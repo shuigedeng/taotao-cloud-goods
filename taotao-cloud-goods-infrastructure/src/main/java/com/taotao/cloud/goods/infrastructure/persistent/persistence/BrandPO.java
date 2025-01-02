@@ -17,7 +17,7 @@
 package com.taotao.cloud.goods.infrastructure.persistent.persistence;
 
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.taotao.boot.web.base.entity.BaseSuperEntity;
+import com.taotao.boot.webagg.entity.BaseSuperEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
@@ -46,30 +46,34 @@ import org.hibernate.Hibernate;
 @TableName(BrandPO.TABLE_NAME)
 public class BrandPO extends BaseSuperEntity<BrandPO, Long> {
 
-    public static final String TABLE_NAME = "tt_brand";
+	public static final String TABLE_NAME = "tt_brand";
 
-    /** 品牌名称 */
-    @Column(name = "name", columnDefinition = "varchar(255) not null comment '品牌名称'")
-    private String name;
+	/**
+	 * 品牌名称
+	 */
+	@Column(name = "name", columnDefinition = "varchar(255) not null comment '品牌名称'")
+	private String name;
 
-    /** 品牌图标 */
-    @Column(name = "logo", columnDefinition = "varchar(255) not null comment '品牌图标'")
-    private String logo;
+	/**
+	 * 品牌图标
+	 */
+	@Column(name = "logo", columnDefinition = "varchar(255) not null comment '品牌图标'")
+	private String logo;
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) {
-            return false;
-        }
-        BrandPO brandPO = (BrandPO) o;
-        return getId() != null && Objects.equals(getId(), brandPO.getId());
-    }
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) {
+			return true;
+		}
+		if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) {
+			return false;
+		}
+		BrandPO brandPO = (BrandPO) o;
+		return getId() != null && Objects.equals(getId(), brandPO.getId());
+	}
 
-    @Override
-    public int hashCode() {
-        return getClass().hashCode();
-    }
+	@Override
+	public int hashCode() {
+		return getClass().hashCode();
+	}
 }

@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.goods.application.dto.draft.cmmond;
 
-import com.taotao.boot.ddd.model.application.Command;
+import com.taotao.boot.ddd.model.application.dto.Command;
 import com.taotao.cloud.goods.api.enums.DraftGoodsSaveTypeEnum;
 import com.taotao.cloud.goods.api.enums.GoodsStatusEnum;
 import com.taotao.cloud.goods.api.enums.GoodsTypeEnum;

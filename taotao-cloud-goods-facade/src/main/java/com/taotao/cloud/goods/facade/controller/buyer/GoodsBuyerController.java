@@ -20,11 +20,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.taotao.boot.common.model.PageResult;
 import com.taotao.boot.common.model.Result;
 import com.taotao.boot.data.mybatis.mybatisplus.MpUtils;
-import com.taotao.cloud.goods.application.command.goods.dto.clientobject.GoodsCO;
-import com.taotao.cloud.goods.application.command.goods.dto.clientobject.GoodsSkuParamsCO;
-import com.taotao.cloud.goods.application.elasticsearch.entity.EsGoodsIndex;
-import com.taotao.cloud.goods.application.elasticsearch.pojo.EsGoodsRelatedInfo;
-import com.taotao.cloud.goods.application.service.EsGoodsSearchCommandService;
+import com.taotao.cloud.goods.application.service.EsGoodsQueryService;
 import com.taotao.cloud.goods.application.service.GoodsCommandService;
 import com.taotao.cloud.goods.application.service.GoodsSkuCommandService;
 import com.taotao.boot.web.request.annotation.RequestLogger;
@@ -71,7 +67,7 @@ public class GoodsBuyerController {
 	/**
 	 * ES商品搜索
 	 */
-	private final EsGoodsSearchCommandService goodsSearchService;
+	private final EsGoodsQueryService goodsSearchService;
 
 	@Operation(summary = "通过id获取商品信息", description = "通过id获取商品信息")
 	@Parameters({

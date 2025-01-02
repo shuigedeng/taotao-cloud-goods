@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.goods.application.dto.store.clientobject;
 
-import com.taotao.boot.ddd.model.application.ClientObject;
+import com.taotao.boot.ddd.model.application.dto.ClientObject;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

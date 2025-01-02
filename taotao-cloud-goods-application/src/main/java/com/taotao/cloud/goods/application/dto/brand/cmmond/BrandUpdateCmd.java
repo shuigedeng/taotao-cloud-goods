@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.goods.application.dto.brand.cmmond;
 
-import com.taotao.boot.ddd.model.application.Command;
+import com.taotao.boot.ddd.model.application.dto.Command;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;

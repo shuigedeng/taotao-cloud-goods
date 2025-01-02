@@ -14,8 +14,6 @@ import lombok.experimental.SuperBuilder;
 /**
  * 
  */
-@Data
-@SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
 @Schema(name = "OperateLogEvent", description = "操作日志事件")

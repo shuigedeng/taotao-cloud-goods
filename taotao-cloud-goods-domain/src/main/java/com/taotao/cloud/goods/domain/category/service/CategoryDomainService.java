@@ -18,7 +18,7 @@ package com.taotao.cloud.goods.domain.category.service;
 
 
 import com.taotao.boot.ddd.model.domain.service.DomainService;
-import com.taotao.cloud.goods.domain.category.entity.Category;
+import com.taotao.cloud.goods.domain.category.aggregate.CategoryAgg;
 
 public interface CategoryDomainService extends DomainService {
 
@@ -27,14 +27,14 @@ public interface CategoryDomainService extends DomainService {
 	 *
 	 * @param categoryEntity 部门对象
 	 */
-	void create(Category categoryEntity);
+	void create(CategoryAgg categoryEntity);
 
 	/**
 	 * 修改部门.
 	 *
 	 * @param categoryEntity 部门对象
 	 */
-	void modify(Category categoryEntity);
+	void modify(CategoryAgg categoryEntity);
 
 	/**
 	 * 根据ID删除部门.

@@ -16,17 +16,21 @@
 
 package com.taotao.cloud.goods.application.dto.category.clientobject;
 
-import com.taotao.boot.ddd.model.application.ClientObject;
+import com.taotao.boot.ddd.model.application.dto.ClientObject;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.math.BigDecimal;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 
 /**
  * 商品分类
  */
+@Getter
+@Setter
 @SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor

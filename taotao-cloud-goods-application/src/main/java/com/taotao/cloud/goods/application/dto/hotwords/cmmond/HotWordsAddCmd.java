@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.goods.application.dto.hotwords.cmmond;
 
-import com.taotao.boot.ddd.model.application.Command;
+import com.taotao.boot.ddd.model.application.dto.Command;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;

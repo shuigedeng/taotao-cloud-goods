@@ -1,7 +1,7 @@
 package com.taotao.cloud.goods.domain.goods.repository;
 
 import com.taotao.boot.ddd.model.domain.repository.DomainRepository;
-import com.taotao.cloud.goods.domain.goods.entity.Goods;
+import com.taotao.cloud.goods.domain.goods.aggregate.GoodsAgg;
 
 public interface GoodsDomainRepository extends DomainRepository {
 	/**
@@ -9,14 +9,14 @@ public interface GoodsDomainRepository extends DomainRepository {
 	 *
 	 * @param dept 部门对象
 	 */
-	void create(Goods dept);
+	void create(GoodsAgg dept);
 
 	/**
 	 * 修改部门.
 	 *
 	 * @param dept 部门对象
 	 */
-	void modify(Goods dept);
+	void modify(GoodsAgg dept);
 
 	/**
 	 * 根据ID删除部门.

@@ -17,7 +17,7 @@
 package com.taotao.cloud.goods.facade.controller.buyer;
 
 import com.taotao.boot.common.model.Result;
-import com.taotao.cloud.goods.application.command.category.dto.clientobject.CategoryTreeCO;
+import com.taotao.cloud.goods.application.dto.category.clientobject.CategoryTreeCO;
 import com.taotao.cloud.goods.application.service.CategoryCommandService;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import io.swagger.v3.oas.annotations.Operation;

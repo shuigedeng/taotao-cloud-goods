@@ -37,7 +37,7 @@ import com.taotao.cloud.goods.application.elasticsearch.entity.EsGoodsIndex;
 import com.taotao.cloud.goods.application.elasticsearch.pojo.EsGoodsAttribute;
 import com.taotao.cloud.goods.application.listener.GeneratorEsGoodsIndexEvent;
 import com.taotao.cloud.goods.application.service.CategoryCommandService;
-import com.taotao.cloud.goods.application.service.EsGoodsIndexCommandService;
+import com.taotao.cloud.goods.application.service.EsGoodsCommandService;
 import com.taotao.cloud.goods.application.service.GoodsGalleryCommandService;
 import com.taotao.cloud.goods.application.service.GoodsCommandService;
 import com.taotao.cloud.goods.application.service.GoodsSkuCommandService;
@@ -111,7 +111,7 @@ public class GoodsSkuCommandServiceImpl
 	/**
 	 * 商品索引服务
 	 */
-	private final EsGoodsIndexCommandService goodsIndexService;
+	private final EsGoodsCommandService goodsIndexService;
 
 	/**
 	 * 会员评价服务
