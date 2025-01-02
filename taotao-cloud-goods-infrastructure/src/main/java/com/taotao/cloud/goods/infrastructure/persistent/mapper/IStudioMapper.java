@@ -16,8 +16,8 @@
 
 package com.taotao.cloud.goods.infrastructure.persistent.mapper;
 
-import com.taotao.cloud.goods.infrastructure.persistent.po.StudioPO;
-import com.taotao.boot.web.base.mapper.BaseSuperMapper;
+import com.taotao.cloud.goods.infrastructure.persistent.StudioPO;
+import com.taotao.boot.webagg.mapper.BaseSuperMapper;
 
 /**
  * 直播间数据层

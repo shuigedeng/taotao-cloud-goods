@@ -16,9 +16,9 @@
 
 package com.taotao.cloud.goods.infrastructure.persistent.mapper;
 
-import com.taotao.cloud.goods.infrastructure.persistent.po.CategorySpecificationPO;
-import com.taotao.cloud.goods.infrastructure.persistent.po.SpecificationPO;
-import com.taotao.boot.web.base.mapper.BaseSuperMapper;
+import com.taotao.cloud.goods.infrastructure.persistent.CategorySpecificationPO;
+import com.taotao.cloud.goods.infrastructure.persistent.SpecificationPO;
+import com.taotao.boot.webagg.mapper.BaseSuperMapper;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;

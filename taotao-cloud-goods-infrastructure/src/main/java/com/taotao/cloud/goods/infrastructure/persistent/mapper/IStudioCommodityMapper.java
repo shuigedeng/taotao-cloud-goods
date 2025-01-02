@@ -16,8 +16,8 @@
 
 package com.taotao.cloud.goods.infrastructure.persistent.mapper;
 
-import com.taotao.cloud.goods.infrastructure.persistent.po.StudioCommodityPO;
-import com.taotao.boot.web.base.mapper.BaseSuperMapper;
+import com.taotao.cloud.goods.infrastructure.persistent.StudioCommodityPO;
+import com.taotao.boot.webagg.mapper.BaseSuperMapper;
 
 /**
  * 直播间-商品关联持久层

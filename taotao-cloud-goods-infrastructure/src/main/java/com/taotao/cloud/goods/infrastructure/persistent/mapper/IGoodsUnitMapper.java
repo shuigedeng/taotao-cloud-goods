@@ -16,8 +16,8 @@
 
 package com.taotao.cloud.goods.infrastructure.persistent.mapper;
 
-import com.taotao.cloud.goods.infrastructure.persistent.po.GoodsUnitPO;
-import com.taotao.boot.web.base.mapper.BaseSuperMapper;
+import com.taotao.cloud.goods.infrastructure.persistent.GoodsUnitPO;
+import com.taotao.boot.webagg.mapper.BaseSuperMapper;
 
 /**
  * 商品计量单位数据处理层
