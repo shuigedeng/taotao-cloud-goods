@@ -23,6 +23,8 @@ import com.taotao.boot.common.model.Result;
 import com.taotao.boot.security.spring.utils.SecurityUtils;
 import com.taotao.cloud.goods.api.enums.GoodsStatusEnum;
 import com.taotao.cloud.goods.application.dto.goods.clientobject.GoodsCO;
+import com.taotao.cloud.goods.application.service.GoodsQueryService;
+import com.taotao.cloud.goods.application.service.GoodsSkuQueryService;
 import com.taotao.cloud.store.api.feign.IFeignStoreDetailApi;
 import com.taotao.cloud.store.api.model.vo.StoreDetailVO;
 import com.taotao.boot.web.request.annotation.RequestLogger;
@@ -62,9 +64,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class GoodsSellerController {
 
     /** 商品 */
-    private final GoodsService goodsService;
+    private final GoodsQueryService goodsService;
     /** 商品sku */
-    private final GoodsSkuService goodsSkuService;
+    private final GoodsSkuQueryService goodsSkuService;
     /** 店铺详情 */
     private final FeignStoreDetailApi storeDetailApi;
 

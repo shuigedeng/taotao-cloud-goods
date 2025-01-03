@@ -34,86 +34,9 @@ import java.util.Map;
  */
 public interface CategoryCommandService extends BaseSuperService<CategoryPO, Long> {
 
-	List<CategoryPO> childrenList(Long parentId);
-
-	CategoryPO getCategoryById(Long id);
-
 	boolean delete(Long id);
 
 	boolean updateCategoryStatus(Long categoryId, boolean enableOperations);
-
-	/**
-	 * 管理端获取所有分类 即获取的对象不管是否删除，都要展示，而且不从缓存获取，保证内容是最新的
-	 *
-	 * @param parentId 分类父ID
-	 * @return 商品分类列表
-	 */
-	List<CategoryPO> dbList(String parentId);
-
-	/**
-	 * 获取分类
-	 *
-	 * @param id 分类id
-	 * @return com.taotao.cloud.goods.application.model.entity.Category
-	 * @author shuigedeng
-	 * @since 2023-12-05 15:19
-	 */
-	CategoryPO getCategoryById(String id);
-
-	/**
-	 * 根据分类id集合获取所有分类根据层级排序
-	 *
-	 * @param ids 分类ID集合
-	 * @return 商品分类列表
-	 */
-	List<CategoryPO> listByIdsOrderByLevel(List<Long> ids);
-
-	/**
-	 * 根据分类id集合获取所有分类根据层级排序
-	 *
-	 * @param ids 分类ID集合
-	 * @return 商品分类列表
-	 */
-	List<Map<String, Object>> listMapsByIdsOrderByLevel(List<String> ids,
-		String columns);
-
-	/**
-	 * 获取分类树
-	 *
-	 * @return 分类树
-	 */
-	List<CategoryTreeCO> categoryTree();
-
-	/**
-	 * 查询所有的分类，父子关系
-	 *
-	 * @param parentId 分类父ID
-	 * @return 所有的分类，父子关系
-	 */
-	List<CategoryTreeCO> listAllChildren(Long parentId);
-
-	/**
-	 * 查询所有的分类，父子关系 数据库获取
-	 *
-	 * @return 所有的分类，父子关系
-	 */
-	List<CategoryTreeCO> listAllChildren();
-
-	/**
-	 * 获取指定分类的分类名称
-	 *
-	 * @param ids 指定分类id集合
-	 * @return 分类名称集合
-	 */
-	List<String> getCategoryNameByIds(List<Long> ids);
-
-	/**
-	 * 获取商品分类list
-	 *
-	 * @param category 分类
-	 * @return 商品分类list
-	 */
-	List<CategoryPO> findByAllBySortOrder(CategorySearchQry category);
 
 	/**
 	 * 添加商品分类
@@ -145,20 +68,5 @@ public interface CategoryCommandService extends BaseSuperService<CategoryPO, Lon
 	 * @param enableOperations 是否可用
 	 */
 	void updateCategoryStatus(String categoryId, boolean enableOperations);
-
-	/**
-	 * 获取商家经营类目
-	 *
-	 * @param categories 经营范围
-	 * @return 分类VO列表
-	 */
-	List<CategoryTreeCO> getStoreCategory(String[] categories);
-
-	/**
-	 * 获取一级分类列表 用于商家入驻选择
-	 *
-	 * @return 分类列表
-	 */
-	List<CategoryPO> firstCategory();
 
 }

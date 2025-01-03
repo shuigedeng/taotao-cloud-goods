@@ -20,6 +20,7 @@ import com.taotao.boot.common.model.Result;
 import com.taotao.cloud.goods.application.dto.category.clientobject.CategoryTreeCO;
 import com.taotao.cloud.goods.application.service.CategoryCommandService;
 import com.taotao.boot.web.request.annotation.RequestLogger;
+import com.taotao.cloud.goods.application.service.CategoryQueryService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.Parameters;
@@ -52,7 +53,8 @@ public class CategoryBuyerController {
 	/**
 	 * 商品分类
 	 */
-	private final CategoryCommandService categoryService;
+	private final CategoryCommandService categoryCommandService;
+	private final CategoryQueryService categoryQueryService;
 
 	@RequestLogger
 	@Operation(summary = "根据父id获取商品分类列表", description = "根据父id获取商品分类列表")
@@ -63,6 +65,6 @@ public class CategoryBuyerController {
 	@GetMapping(value = "/{parentId}")
 	public Result<List<CategoryTreeCO>> list(
 		@NotNull(message = "父ID不能为空") @PathVariable Long parentId) {
-		return Result.success(categoryService.listAllChildren(parentId));
+		return Result.success(categoryQueryService.listAllChildren(parentId));
 	}
 }

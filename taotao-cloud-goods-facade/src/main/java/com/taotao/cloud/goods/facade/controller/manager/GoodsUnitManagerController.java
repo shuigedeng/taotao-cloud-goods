@@ -20,7 +20,9 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.taotao.boot.common.model.PageQuery;
 import com.taotao.boot.common.model.PageResult;
 import com.taotao.boot.common.model.Result;
+import com.taotao.boot.data.mybatis.mybatisplus.MpUtils;
 import com.taotao.boot.web.request.annotation.RequestLogger;
+import com.taotao.cloud.goods.application.service.GoodsUnitQueryService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.Parameters;
@@ -50,7 +52,7 @@ import org.springframework.web.bind.annotation.*;
 public class GoodsUnitManagerController {
 
     /** 商品计量服务 */
-    private final IGoodsUnitService goodsUnitService;
+    private final GoodsUnitQueryService goodsUnitService;
 
     @Operation(summary = "分页获取商品计量单位", description = "分页获取商品计量单位")
     @Parameters({

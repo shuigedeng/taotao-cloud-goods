@@ -20,6 +20,8 @@ import com.taotao.boot.common.enums.ResultEnum;
 import com.taotao.boot.common.exception.BusinessException;
 import com.taotao.boot.common.model.Result;
 import com.taotao.boot.web.request.annotation.RequestLogger;
+import com.taotao.cloud.goods.application.dto.category.clientobject.CategoryCO;
+import com.taotao.cloud.goods.application.service.GoodsQueryService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.Parameters;
@@ -58,9 +60,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class CategoryManagerController {
 
     /** 分类服务 */
-    private final ICategoryService categoryService;
+    private final CategoryQueryService categoryService;
     /** 商品服务 */
-    private final IGoodsService goodsService;
+    private final GoodsQueryService goodsService;
 
     @Operation(summary = "查询某分类下的全部子分类列表", description = "查询某分类下的全部子分类列表")
     @Parameters({

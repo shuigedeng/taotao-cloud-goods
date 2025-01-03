@@ -20,6 +20,8 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.taotao.boot.common.model.PageResult;
 import com.taotao.boot.common.model.Result;
 import com.taotao.boot.web.request.annotation.RequestLogger;
+import com.taotao.cloud.goods.application.dto.specification.clientobject.SpecificationCO;
+import com.taotao.cloud.goods.application.service.SpecificationQueryService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.Parameters;
@@ -52,7 +54,7 @@ public class SpecificationManagerController {
     /**
      * 商品规格服务
      */
-    private final ISpecificationService specificationService;
+    private final SpecificationQueryService specificationService;
 
     @Operation(summary = "获取所有可用规格", description = "获取所有可用规格")
     @RequestLogger("获取所有可用规格")

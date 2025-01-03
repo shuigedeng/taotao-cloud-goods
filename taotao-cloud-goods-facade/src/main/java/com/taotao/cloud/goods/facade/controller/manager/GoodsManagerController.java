@@ -22,6 +22,7 @@ import com.taotao.boot.common.model.Result;
 import com.taotao.cloud.goods.api.enums.GoodsAuthEnum;
 import com.taotao.cloud.goods.api.enums.GoodsStatusEnum;
 import com.taotao.boot.web.request.annotation.RequestLogger;
+import com.taotao.cloud.goods.application.dto.goods.clientobject.GoodsCO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.Parameters;
@@ -54,9 +55,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class GoodsManagerController {
 
     /** 商品服务 */
-    private final IGoodsService goodsService;
+    private final GoodsQueryService goodsService;
     /** 规格商品服务 */
-    private final IGoodsSkuService goodsSkuService;
+    private final GoodsSkuQueryService goodsSkuService;
 
     @Operation(summary = "分页获取", description = "分页获取")
     @Parameters({

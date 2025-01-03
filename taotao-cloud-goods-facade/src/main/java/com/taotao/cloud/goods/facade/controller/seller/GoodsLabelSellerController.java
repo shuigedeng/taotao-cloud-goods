@@ -19,6 +19,8 @@ package com.taotao.cloud.goods.facade.controller.seller;
 import com.taotao.boot.common.model.Result;
 import com.taotao.boot.security.spring.utils.SecurityUtils;
 import com.taotao.boot.web.request.annotation.RequestLogger;
+import com.taotao.cloud.goods.application.dto.store.clientobject.StoreGoodsLabelCO;
+import com.taotao.cloud.goods.application.service.StoreGoodsLabelQueryService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import java.util.List;
@@ -49,7 +51,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class GoodsLabelSellerController {
 
     /** 店铺分类服务 */
-    private final IStoreGoodsLabelService storeGoodsLabelService;
+    private final StoreGoodsLabelQueryService storeGoodsLabelService;
 
     @Operation(summary = "获取当前店铺商品分类列表", description = "获取当前店铺商品分类列表")
     @RequestLogger("获取当前店铺商品分类列表")

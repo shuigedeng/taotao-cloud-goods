@@ -18,6 +18,8 @@ package com.taotao.cloud.goods.facade.controller.seller;
 
 import com.taotao.boot.common.model.Result;
 import com.taotao.boot.security.spring.utils.SecurityUtils;
+import com.taotao.cloud.goods.application.dto.category.clientobject.CategoryTreeCO;
+import com.taotao.cloud.goods.application.service.CategoryBrandQueryService;
 import com.taotao.cloud.store.api.feign.IFeignStoreDetailApi;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import io.swagger.v3.oas.annotations.Operation;
@@ -46,11 +48,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class CategorySellerController {
 
     /** 分类服务 */
-    private final ICategoryService categoryService;
+    private final CategoryQueryService categoryService;
     /** 分类品牌服务 */
-    private final ICategoryBrandService categoryBrandService;
+    private final CategoryBrandQueryService categoryBrandService;
     /** 店铺详情服务 */
-    private final IFeignStoreDetailApi storeDetailApi;
+    private final FeignStoreDetailApi storeDetailApi;
 
     @Operation(summary = "获取店铺经营的分类", description = "获取店铺经营的分类")
     @RequestLogger("获取店铺经营的分类")

@@ -18,6 +18,8 @@ package com.taotao.cloud.goods.facade.controller.seller;
 
 import com.taotao.boot.common.model.Result;
 import com.taotao.boot.web.request.annotation.RequestLogger;
+import com.taotao.cloud.goods.application.dto.specification.clientobject.SpecificationCO;
+import com.taotao.cloud.goods.application.service.CategorySpecificationQueryService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import java.util.List;
@@ -44,7 +46,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class CategorySpecificationSellerController {
 
     /** 商品规格服务 */
-    private final ICategorySpecificationService categorySpecificationService;
+    private final CategorySpecificationQueryService categorySpecificationService;
 
     @Operation(summary = "查询某分类下绑定的规格信息", description = "查询某分类下绑定的规格信息")
     @RequestLogger("查询某分类下绑定的规格信息")

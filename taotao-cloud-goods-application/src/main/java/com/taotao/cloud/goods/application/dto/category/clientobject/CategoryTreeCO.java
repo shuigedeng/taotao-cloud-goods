@@ -26,7 +26,9 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
-/** 分类CO */
+/**
+ * 分类CO
+ */
 @Data
 @EqualsAndHashCode(callSuper = true)
 @SuperBuilder
@@ -34,22 +36,22 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 public class CategoryTreeCO extends CategoryCO {
 
-    private static final long serialVersionUID = 3775766246075838410L;
+	private static final long serialVersionUID = 3775766246075838410L;
 
-    @Schema(description = "父节点名称")
-    private String parentTitle;
+	@Schema(description = "父节点名称")
+	private String parentTitle;
 
-    @Schema(description = "子分类列表")
-    private List<CategoryTreeCO> children;
+	@Schema(description = "子分类列表")
+	private List<CategoryTreeCO> children;
 
-    @Schema(description = "分类关联的品牌列表")
-    private List<BrandCO> brandList;
+	@Schema(description = "分类关联的品牌列表")
+	private List<BrandCO> brandList;
 
-    public List<CategoryTreeCO> getChildren() {
-        if (children != null) {
-            children.sort(Comparator.comparing(CategoryCO::getSortOrder));
-            return children;
-        }
-        return null;
-    }
+	public List<CategoryTreeCO> getChildren() {
+		if (children != null) {
+			children.sort(Comparator.comparing(CategoryCO::getSortOrder));
+			return children;
+		}
+		return null;
+	}
 }

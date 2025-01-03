@@ -19,6 +19,9 @@ package com.taotao.cloud.goods.facade.controller.manager;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.taotao.boot.common.model.Result;
 import com.taotao.boot.web.request.annotation.RequestLogger;
+import com.taotao.cloud.goods.application.dto.parameter.clientobject.ParameterGroupCO;
+import com.taotao.cloud.goods.application.service.CategoryParameterGroupQueryService;
+import com.taotao.cloud.goods.application.service.ParametersQueryService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.enums.ParameterIn;
@@ -50,9 +53,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class CategoryParameterGroupManagerController {
 
     /** 商品参数组服务 */
-    private final IParametersService parametersService;
+    private final ParametersQueryService parametersService;
     /** 分类绑定参数组服务 */
-    private final ICategoryParameterGroupService categoryParameterGroupService;
+    private final CategoryParameterGroupQueryService categoryParameterGroupService;
 
     @Operation(summary = "查询某分类下绑定的参数信息", description = "查询某分类下绑定的参数信息")
     @io.swagger.v3.oas.annotations.Parameters({
