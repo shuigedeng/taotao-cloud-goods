@@ -35,8 +35,8 @@ import com.taotao.cloud.goods.application.command.store.dto.clientobject.StudioC
 import com.taotao.cloud.goods.application.service.GoodsCommandService;
 import com.taotao.cloud.goods.application.service.StudioCommandService;
 import com.taotao.cloud.goods.application.service.StudioCommodityCommandService;
-import com.taotao.cloud.goods.infrastructure.persistent.mapper.ICommodityMapper;
-import com.taotao.cloud.goods.infrastructure.persistent.mapper.IStudioMapper;
+import com.taotao.cloud.goods.infrastructure.persistent.mapper.CommodityMapper;
+import com.taotao.cloud.goods.infrastructure.persistent.mapper.StudioMapper;
 import com.taotao.cloud.goods.infrastructure.persistent.po.CommodityPO;
 import com.taotao.cloud.goods.infrastructure.persistent.po.GoodsPO;
 import com.taotao.cloud.goods.infrastructure.persistent.po.StudioCommodityPO;
@@ -67,7 +67,7 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Service
 public class StudioQueryServiceImpl
-        extends BaseSuperServiceImpl<StudioPO, Long, IStudioMapper, StudioRepository, IStudioRepository>
+        extends BaseSuperServiceImpl<StudioPO, Long, StudioMapper, StudioRepository, IStudioRepository>
         implements StudioCommandService {
 
     @Autowired
@@ -77,7 +77,7 @@ public class StudioQueryServiceImpl
     private StudioCommodityCommandService studioCommodityService;
 
     @Resource
-    private ICommodityMapper commodityMapper;
+    private CommodityMapper commodityMapper;
 
     @Autowired
     private TimeTrigger timeTrigger;

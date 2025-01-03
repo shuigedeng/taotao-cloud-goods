@@ -14,24 +14,16 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.infrastructure.persistent.repository.cls;
+package com.taotao.cloud.goods.infrastructure.persistent.mapper;
 
-import com.taotao.boot.webagg.repository.BaseClassSuperRepository;
-import com.taotao.cloud.goods.infrastructure.persistent.persistence.DeptPO;
-import jakarta.persistence.EntityManager;
-import org.springframework.stereotype.Repository;
+import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsGalleryPO;
+import com.taotao.boot.webagg.mapper.BaseSuperMapper;
 
 /**
- * CompanyMapper
+ * 商品相册数据处理层
  *
  * @author shuigedeng
- * @version 2022.03
- * @since 2021/10/13 22:50
+ * @version 2022.04
+ * @since 2022-04-27 16:55:56
  */
-@Repository
-public class DeptRepository extends BaseClassSuperRepository<DeptPO, Long> {
-
-    public DeptRepository(EntityManager em) {
-        super(DeptPO.class, em);
-    }
-}
+public interface GoodsGalleryMapper extends BaseSuperMapper<GoodsGalleryPO, Long> {}

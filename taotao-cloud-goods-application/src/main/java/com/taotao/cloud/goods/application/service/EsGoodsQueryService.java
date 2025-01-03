@@ -16,8 +16,8 @@
 
 package com.taotao.cloud.goods.application.service;
 
-import com.taotao.cloud.goods.application.command.goods.dto.EsGoodsSearchQry;
-import com.taotao.cloud.goods.application.command.hotwords.dto.HotWordsPageQry;
+import com.taotao.cloud.goods.application.dto.goods.query.EsGoodsSearchQry;
+import com.taotao.cloud.goods.application.dto.hotwords.query.HotWordsPageQry;
 import com.taotao.cloud.goods.application.elasticsearch.entity.EsGoodsIndex;
 import com.taotao.cloud.goods.application.elasticsearch.pojo.EsGoodsRelatedInfo;
 import java.util.List;

@@ -24,7 +24,7 @@ import com.taotao.cloud.goods.application.command.goods.dto.GoodsParamsAddCmd;
 import com.taotao.cloud.goods.application.command.goods.dto.GoodsParamsItemAddCmd;
 import com.taotao.cloud.goods.application.service.GoodsCommandService;
 import com.taotao.cloud.goods.application.service.ParametersCommandService;
-import com.taotao.cloud.goods.infrastructure.persistent.mapper.IParametersMapper;
+import com.taotao.cloud.goods.infrastructure.persistent.mapper.ParametersMapper;
 import com.taotao.cloud.goods.infrastructure.persistent.po.GoodsPO;
 import com.taotao.cloud.goods.infrastructure.persistent.po.ParametersPO;
 import com.taotao.cloud.goods.infrastructure.persistent.repository.cls.ParametersRepository;
@@ -54,7 +54,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class ParametersCommandServiceImpl
 	extends
-	BaseSuperServiceImpl<ParametersPO, Long, IParametersMapper, ParametersRepository, IParametersRepository>
+	BaseSuperServiceImpl<ParametersPO, Long, ParametersMapper, ParametersRepository, IParametersRepository>
 	implements ParametersCommandService {
 
 	/**

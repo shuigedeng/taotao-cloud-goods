@@ -25,7 +25,7 @@ import com.taotao.cloud.goods.application.service.CategoryCommandService;
 import com.taotao.cloud.goods.application.service.DraftGoodsCommandService;
 import com.taotao.cloud.goods.application.service.GoodsGalleryCommandService;
 import com.taotao.cloud.goods.application.service.GoodsSkuCommandService;
-import com.taotao.cloud.goods.infrastructure.persistent.mapper.IDraftGoodsMapper;
+import com.taotao.cloud.goods.infrastructure.persistent.mapper.DraftGoodsMapper;
 import com.taotao.cloud.goods.infrastructure.persistent.po.DraftGoodsPO;
 import com.taotao.cloud.goods.infrastructure.persistent.po.GoodsGalleryPO;
 import com.taotao.cloud.goods.infrastructure.persistent.po.GoodsSkuPO;
@@ -50,7 +50,7 @@ import org.springframework.stereotype.Service;
 @AllArgsConstructor
 @Service
 public class DraftGoodsCommandServiceImpl
-        extends BaseSuperServiceImpl<DraftGoodsPO, Long, IDraftGoodsMapper, DraftGoodsRepository, IDraftGoodsRepository>
+        extends BaseSuperServiceImpl<DraftGoodsPO, Long, DraftGoodsMapper, DraftGoodsRepository, IDraftGoodsRepository>
         implements DraftGoodsCommandService {
 
     /** 分类 */

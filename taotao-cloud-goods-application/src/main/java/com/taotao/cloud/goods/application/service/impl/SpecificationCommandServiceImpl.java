@@ -26,7 +26,7 @@ import com.taotao.cloud.goods.application.command.specification.dto.Specificatio
 import com.taotao.cloud.goods.application.service.CategoryCommandService;
 import com.taotao.cloud.goods.application.service.CategorySpecificationCommandService;
 import com.taotao.cloud.goods.application.service.SpecificationCommandService;
-import com.taotao.cloud.goods.infrastructure.persistent.mapper.ISpecificationMapper;
+import com.taotao.cloud.goods.infrastructure.persistent.mapper.SpecificationMapper;
 import com.taotao.cloud.goods.infrastructure.persistent.po.CategorySpecificationPO;
 import com.taotao.cloud.goods.infrastructure.persistent.po.SpecificationPO;
 import com.taotao.cloud.goods.infrastructure.persistent.repository.cls.SpecificationRepository;
@@ -49,7 +49,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class SpecificationCommandServiceImpl
 	extends
-	BaseSuperServiceImpl<SpecificationPO, Long, ISpecificationMapper, SpecificationRepository, ISpecificationRepository>
+	BaseSuperServiceImpl<SpecificationPO, Long, SpecificationMapper, SpecificationRepository, ISpecificationRepository>
 	implements SpecificationCommandService {
 
 	/**

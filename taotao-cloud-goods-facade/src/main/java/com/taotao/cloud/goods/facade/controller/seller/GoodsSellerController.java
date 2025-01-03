@@ -22,6 +22,7 @@ import com.taotao.boot.common.model.PageResult;
 import com.taotao.boot.common.model.Result;
 import com.taotao.boot.security.spring.utils.SecurityUtils;
 import com.taotao.cloud.goods.api.enums.GoodsStatusEnum;
+import com.taotao.cloud.goods.application.dto.goods.clientobject.GoodsCO;
 import com.taotao.cloud.store.api.feign.IFeignStoreDetailApi;
 import com.taotao.cloud.store.api.model.vo.StoreDetailVO;
 import com.taotao.boot.web.request.annotation.RequestLogger;
@@ -61,11 +62,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class GoodsSellerController {
 
     /** 商品 */
-    private final IGoodsService goodsService;
+    private final GoodsService goodsService;
     /** 商品sku */
-    private final IGoodsSkuService goodsSkuService;
+    private final GoodsSkuService goodsSkuService;
     /** 店铺详情 */
-    private final IFeignStoreDetailApi storeDetailApi;
+    private final FeignStoreDetailApi storeDetailApi;
 
     @Operation(summary = "分页获取商品列表", description = "分页获取商品列表")
     @RequestLogger("分页获取商品列表")

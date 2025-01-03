@@ -18,6 +18,8 @@ package com.taotao.cloud.goods.facade.controller.seller;
 
 import com.taotao.boot.common.model.Result;
 import com.taotao.boot.web.request.annotation.RequestLogger;
+import com.taotao.cloud.goods.application.dto.parameter.clientobject.ParameterGroupCO;
+import com.taotao.cloud.goods.application.service.CategoryParameterGroupQueryService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import java.util.List;
@@ -44,7 +46,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class CategoryParameterGroupSellerController {
 
     /** 分类参数组服务 */
-    private final ICategoryParameterGroupService categoryParameterGroupService;
+    private final CategoryParameterGroupQueryService categoryParameterGroupService;
 
     @Operation(summary = "查询某分类下绑定的参数信息", description = "查询某分类下绑定的参数信息")
     @RequestLogger("查询某分类下绑定的参数信息")

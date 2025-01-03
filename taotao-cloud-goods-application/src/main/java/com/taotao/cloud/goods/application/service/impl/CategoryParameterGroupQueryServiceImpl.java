@@ -26,7 +26,7 @@ import com.taotao.cloud.goods.application.dto.parameter.clientobject.ParameterGr
 import com.taotao.cloud.goods.application.service.CategoryParameterGroupCommandService;
 import com.taotao.cloud.goods.application.service.GoodsCommandService;
 import com.taotao.cloud.goods.application.service.ParametersCommandService;
-import com.taotao.cloud.goods.infrastructure.persistent.mapper.ICategoryParameterGroupMapper;
+import com.taotao.cloud.goods.infrastructure.persistent.mapper.CategoryParameterGroupMapper;
 import com.taotao.cloud.goods.infrastructure.persistent.po.CategoryParameterGroupPO;
 import com.taotao.cloud.goods.infrastructure.persistent.repository.cls.CategoryParameterGroupRepository;
 import com.taotao.cloud.goods.infrastructure.persistent.repository.inf.ICategoryParameterGroupRepository;
@@ -50,7 +50,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class CategoryParameterGroupQueryServiceImpl extends BaseSuperServiceImpl<
 	CategoryParameterGroupPO,
 	Long,
-	ICategoryParameterGroupMapper,
+		CategoryParameterGroupMapper,
 	CategoryParameterGroupRepository,
 	ICategoryParameterGroupRepository>
 	implements CategoryParameterGroupCommandService {

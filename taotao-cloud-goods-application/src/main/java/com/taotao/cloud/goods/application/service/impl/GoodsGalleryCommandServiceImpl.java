@@ -20,7 +20,7 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.taotao.boot.common.utils.io.FileUtils;
-import com.taotao.cloud.goods.infrastructure.persistent.mapper.IGoodsGalleryMapper;
+import com.taotao.cloud.goods.infrastructure.persistent.mapper.GoodsGalleryMapper;
 import com.taotao.cloud.goods.infrastructure.persistent.po.GoodsGalleryPO;
 import com.taotao.cloud.goods.infrastructure.persistent.repository.inf.IGoodsGalleryRepository;
 import com.taotao.boot.web.base.service.impl.BaseSuperServiceImpl;
@@ -40,7 +40,7 @@ import org.springframework.transaction.annotation.Transactional;
 @AllArgsConstructor
 @Service
 public class GoodsGalleryCommandServiceImpl
-        extends BaseSuperServiceImpl<GoodsGalleryPO, Long, IGoodsGalleryMapper, GoodsGalleryRepository, IGoodsGalleryRepository>
+        extends BaseSuperServiceImpl<GoodsGalleryPO, Long, GoodsGalleryMapper, GoodsGalleryRepository, IGoodsGalleryRepository>
         implements IGoodsGalleryService {
 
     /** 设置 */

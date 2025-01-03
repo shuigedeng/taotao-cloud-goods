@@ -16,34 +16,33 @@
 
 package com.taotao.cloud.goods.infrastructure.persistent.mapper;
 
-import com.taotao.cloud.goods.infrastructure.persistent.GoodsSkuPO;
+import com.taotao.cloud.goods.biz.model.vo.CategoryBrandVO;
+import com.taotao.cloud.goods.infrastructure.persistent.persistence.CategoryBrandPO;
 import com.taotao.boot.webagg.mapper.BaseSuperMapper;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
-import org.springframework.stereotype.Repository;
 
 /**
- * 规格项数据处理层
+ * 商品分类品牌数据处理层
  *
  * @author shuigedeng
  * @version 2022.04
- * @since 2022-04-27 16:57:22
+ * @since 2022-04-27 16:55:23
  */
-@Repository
-public interface IGoodsSkuMapper extends BaseSuperMapper<GoodsSkuPO, Long> {
+public interface CategoryBrandMapper extends BaseSuperMapper<CategoryBrandPO, Long> {
 
-    /**
-     * 根据商品id获取全部skuId的集合
-     *
-     * @param goodsId goodsId
-     * @return {@link List }<{@link String }>
-     * @since 2022-04-27 16:57:22
-     */
-    @Select("""
-		SELECT id
-		FROM tt_goods_sku
-		WHERE goods_id = #{goodsId}
+	/**
+	 * 根据分类id查分类绑定品牌
+	 *
+	 * @param categoryId 分类id
+	 * @return {@link List }<{@link CategoryBrandVO }>
+	 * @since 2022-04-27 16:55:23
+	 */
+	@Select("""
+		SELECT b.id,b.name,b.logo
+		FROM tt_brand b INNER join tt_category_brand cb on b.id = cb.brand_id and cb.category_id = #{categoryId}
+		where b.delete_flag = 0
 		""")
-    List<String> getGoodsSkuIdByGoodsId(@Param(value = "goodsId") Long goodsId);
+	List<CategoryBrandVO> getCategoryBrandList(@Param(value = "categoryId") Long categoryId);
 }

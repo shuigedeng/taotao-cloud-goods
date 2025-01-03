@@ -16,9 +16,9 @@
 
 package com.taotao.cloud.goods.application.service;
 
-import com.taotao.cloud.goods.application.command.store.dto.clientobject.StoreGoodsLabelCO;
-import com.taotao.cloud.goods.infrastructure.persistent.po.StoreGoodsLabelPO;
-import com.taotao.boot.web.base.service.BaseSuperService;
+import com.taotao.boot.webagg.service.BaseSuperService;
+import com.taotao.cloud.goods.application.dto.store.clientobject.StoreGoodsLabelCO;
+import com.taotao.cloud.goods.infrastructure.persistent.persistence.StoreGoodsLabelPO;
 import java.util.List;
 import java.util.Map;
 

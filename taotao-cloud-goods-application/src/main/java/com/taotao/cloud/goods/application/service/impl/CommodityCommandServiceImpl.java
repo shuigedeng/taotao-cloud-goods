@@ -28,7 +28,7 @@ import com.taotao.cloud.goods.api.enums.GoodsAuthEnum;
 import com.taotao.cloud.goods.application.command.commodity.dto.clientobject.CommoditySkuCO;
 import com.taotao.cloud.goods.application.service.CommodityCommandService;
 import com.taotao.cloud.goods.application.service.GoodsSkuCommandService;
-import com.taotao.cloud.goods.infrastructure.persistent.mapper.ICommodityMapper;
+import com.taotao.cloud.goods.infrastructure.persistent.mapper.CommodityMapper;
 import com.taotao.cloud.goods.infrastructure.persistent.po.CommodityPO;
 import com.taotao.cloud.goods.infrastructure.persistent.po.GoodsSkuPO;
 import com.taotao.cloud.goods.infrastructure.persistent.repository.cls.CommodityRepository;
@@ -53,7 +53,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class CommodityCommandServiceImpl
 	extends
-	BaseSuperServiceImpl<CommodityPO, Long, ICommodityMapper, CommodityRepository, ICommodityRepository>
+	BaseSuperServiceImpl<CommodityPO, Long, CommodityMapper, CommodityRepository, ICommodityRepository>
 	implements CommodityCommandService {
 
 	private final WechatLivePlayerUtil wechatLivePlayerUtil;

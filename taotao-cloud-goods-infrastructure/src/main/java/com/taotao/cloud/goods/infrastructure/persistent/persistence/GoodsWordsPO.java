@@ -46,7 +46,7 @@ import org.hibernate.Hibernate;
 @Entity
 @Table(name = GoodsWordsPO.TABLE_NAME)
 @TableName(GoodsWordsPO.TABLE_NAME)
-@org.springframework.data.relational.core.mapping.Table(name = GoodsWords.TABLE_NAME)
+@org.springframework.data.relational.core.mapping.Table(name = GoodsWordsPO.TABLE_NAME)
 public class GoodsWordsPO extends BaseSuperEntity<GoodsWordsPO, Long> {
 
     public static final String TABLE_NAME = "tt_goods_words";

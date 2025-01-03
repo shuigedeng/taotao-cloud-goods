@@ -16,8 +16,8 @@
 
 package com.taotao.cloud.goods.application.service;
 
-import com.taotao.boot.web.base.service.BaseSuperService;
-import com.taotao.cloud.goods.infrastructure.persistent.po.GoodsUnitPO;
+
+import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsUnitPO;
 
 /**
  * 商品计量单位业务层

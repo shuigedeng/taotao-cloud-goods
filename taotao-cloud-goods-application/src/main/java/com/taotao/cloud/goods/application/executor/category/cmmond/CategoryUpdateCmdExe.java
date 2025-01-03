@@ -15,7 +15,7 @@ import com.taotao.boot.common.utils.bean.BeanUtils;
 import com.taotao.boot.ddd.model.application.executor.Executor;
 import com.taotao.cloud.goods.application.command.category.dto.clientobject.CategoryTreeCO;
 import com.taotao.cloud.goods.application.command.category.executor.query.CategoryChildrenCmdExe;
-import com.taotao.cloud.goods.infrastructure.persistent.mapper.ICategoryMapper;
+import com.taotao.cloud.goods.infrastructure.persistent.mapper.CategoryMapper;
 import com.taotao.cloud.goods.infrastructure.persistent.po.CategoryPO;
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -34,7 +34,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class CategoryUpdateCmdExe extends Executor {
 
 	private final RedisRepository redisRepository;
-	private final ICategoryMapper categoryMapper;
+	private final CategoryMapper categoryMapper;
 	private final CategoryCacheDelCmdExe categoryCacheDelCmdExe;
 	private final CategoryChildrenCmdExe categoryChildrenCmdExe;
 

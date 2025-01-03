@@ -17,13 +17,7 @@
 package com.taotao.cloud.goods.application.service;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.taotao.cloud.goods.api.enums.GoodsAuthEnum;
-import com.taotao.cloud.goods.api.enums.GoodsStatusEnum;
-import com.taotao.cloud.goods.application.command.goods.dto.GoodsAddCmd;
-import com.taotao.cloud.goods.application.command.goods.dto.GoodsPageQry;
-import com.taotao.cloud.goods.application.command.goods.dto.clientobject.GoodsSkuParamsCO;
-import com.taotao.cloud.goods.infrastructure.persistent.po.GoodsPO;
-import com.taotao.boot.web.base.service.BaseSuperService;
+import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsPO;
 import java.util.List;
 
 /**

@@ -16,9 +16,8 @@
 
 package com.taotao.cloud.goods.application.service;
 
-import com.taotao.boot.web.base.service.BaseSuperService;
-import com.taotao.cloud.goods.infrastructure.persistent.po.CategorySpecificationPO;
-import com.taotao.cloud.goods.infrastructure.persistent.po.SpecificationPO;
+import com.taotao.cloud.goods.infrastructure.persistent.persistence.CategorySpecificationPO;
+import com.taotao.cloud.goods.infrastructure.persistent.persistence.SpecificationPO;
 import java.util.List;
 
 /**

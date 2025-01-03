@@ -16,14 +16,14 @@
 
 package com.taotao.cloud.goods.infrastructure.persistent.mapper;
 
-import com.taotao.cloud.goods.infrastructure.persistent.CategoryPO;
+import com.taotao.cloud.goods.infrastructure.persistent.persistence.ParametersPO;
 import com.taotao.boot.webagg.mapper.BaseSuperMapper;
 
 /**
- * 商品分类数据处理层
+ * 商品参数数据处理层
  *
  * @author shuigedeng
  * @version 2022.04
- * @since 2022-04-27 16:55:28
+ * @since 2022-04-27 16:57:35
  */
-public interface ICategoryMapper extends BaseSuperMapper<CategoryPO, Long> {}
+public interface ParametersMapper extends BaseSuperMapper<ParametersPO, Long> {}

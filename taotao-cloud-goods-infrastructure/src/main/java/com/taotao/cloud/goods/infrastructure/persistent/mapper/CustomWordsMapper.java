@@ -16,14 +16,14 @@
 
 package com.taotao.cloud.goods.infrastructure.persistent.mapper;
 
-import com.taotao.cloud.goods.infrastructure.persistent.StudioPO;
+import com.taotao.cloud.goods.infrastructure.persistent.persistence.CustomWordsPO;
 import com.taotao.boot.webagg.mapper.BaseSuperMapper;
 
 /**
- * 直播间数据层
+ * 自定义分词数据处理层
  *
  * @author shuigedeng
  * @version 2022.04
- * @since 2022-04-27 16:57:49
+ * @since 2022-04-27 16:55:50
  */
-public interface IStudioMapper extends BaseSuperMapper<StudioPO, Long> {}
+public interface CustomWordsMapper extends BaseSuperMapper<CustomWordsPO, Long> {}

@@ -16,9 +16,9 @@
 
 package com.taotao.cloud.goods.application.service;
 
-import com.taotao.cloud.goods.application.command.category.dto.clientobject.CategoryBrandCO;
-import com.taotao.cloud.goods.infrastructure.persistent.po.CategoryBrandPO;
-import com.taotao.boot.web.base.service.BaseSuperService;
+import com.taotao.boot.webagg.service.BaseSuperService;
+import com.taotao.cloud.goods.application.dto.category.clientobject.CategoryBrandCO;
+import com.taotao.cloud.goods.infrastructure.persistent.persistence.CategoryBrandPO;
 import java.util.List;
 
 /**
@@ -30,40 +30,40 @@ import java.util.List;
  */
 public interface CategoryBrandCommandService extends BaseSuperService<CategoryBrandPO, Long> {
 
-    /**
-     * 根据分类id查询品牌信息
-     *
-     * @param categoryId 分类id
-     * @return {@link List }<{@link CategoryBrandCO }>
-     * @since 2022-04-27 16:59:19
-     */
-    List<CategoryBrandCO> getCategoryBrandList(Long categoryId);
+	/**
+	 * 根据分类id查询品牌信息
+	 *
+	 * @param categoryId 分类id
+	 * @return {@link List }<{@link CategoryBrandCO }>
+	 * @since 2022-04-27 16:59:19
+	 */
+	List<CategoryBrandCO> getCategoryBrandList(Long categoryId);
 
-    /**
-     * 通过分类ID删除关联品牌
-     *
-     * @param categoryId 品牌ID
-     * @return {@link boolean }
-     * @since 2022-04-27 16:59:19
-     */
-    boolean deleteByCategoryId(Long categoryId);
+	/**
+	 * 通过分类ID删除关联品牌
+	 *
+	 * @param categoryId 品牌ID
+	 * @return {@link boolean }
+	 * @since 2022-04-27 16:59:19
+	 */
+	boolean deleteByCategoryId(Long categoryId);
 
-    /**
-     * 根据品牌ID获取分类品牌关联信息
-     *
-     * @param brandId 品牌ID
-     * @return {@link List }<{@link CategoryBrandPO }>
-     * @since 2022-04-27 16:59:19
-     */
-    List<CategoryBrandPO> getCategoryBrandListByBrandId(List<Long> brandId);
+	/**
+	 * 根据品牌ID获取分类品牌关联信息
+	 *
+	 * @param brandId 品牌ID
+	 * @return {@link List }<{@link CategoryBrandPO }>
+	 * @since 2022-04-27 16:59:19
+	 */
+	List<CategoryBrandPO> getCategoryBrandListByBrandId(List<Long> brandId);
 
-    /**
-     * 保存分类品牌关系
-     *
-     * @param categoryId 分类id
-     * @param brandIds 品牌ids
-     * @return {@link boolean }
-     * @since 2022-04-27 16:59:19
-     */
-    boolean saveCategoryBrandList(Long categoryId, List<Long> brandIds);
+	/**
+	 * 保存分类品牌关系
+	 *
+	 * @param categoryId 分类id
+	 * @param brandIds   品牌ids
+	 * @return {@link boolean }
+	 * @since 2022-04-27 16:59:19
+	 */
+	boolean saveCategoryBrandList(Long categoryId, List<Long> brandIds);
 }

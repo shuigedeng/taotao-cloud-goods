@@ -16,14 +16,14 @@
 
 package com.taotao.cloud.goods.infrastructure.persistent.mapper;
 
-import com.taotao.cloud.goods.infrastructure.persistent.GoodsGalleryPO;
+import com.taotao.cloud.goods.infrastructure.persistent.persistence.SpecificationPO;
 import com.taotao.boot.webagg.mapper.BaseSuperMapper;
 
 /**
- * 商品相册数据处理层
+ * 规格数据处理层
  *
  * @author shuigedeng
  * @version 2022.04
- * @since 2022-04-27 16:55:56
+ * @since 2022-04-27 16:57:39
  */
-public interface IGoodsGalleryMapper extends BaseSuperMapper<GoodsGalleryPO, Long> {}
+public interface SpecificationMapper extends BaseSuperMapper<SpecificationPO, Long> {}

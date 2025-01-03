@@ -14,16 +14,17 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.infrastructure.persistent.mapper;
+package com.taotao.cloud.goods.infrastructure.persistent.repository.cls;
 
-import com.taotao.cloud.goods.infrastructure.persistent.GoodsUnitPO;
-import com.taotao.boot.webagg.mapper.BaseSuperMapper;
+import com.taotao.cloud.goods.infrastructure.persistent.persistence.CategoryPO;
+import com.taotao.boot.webagg.repository.BaseClassSuperRepository;
+import jakarta.persistence.EntityManager;
+import org.springframework.stereotype.Repository;
 
-/**
- * 商品计量单位数据处理层
- *
- * @author shuigedeng
- * @version 2022.04
- * @since 2022-04-27 16:57:27
- */
-public interface IGoodsUnitMapper extends BaseSuperMapper<GoodsUnitPO, Long> {}
+@Repository
+public class CategoryRepository extends BaseClassSuperRepository<CategoryPO, Long> {
+
+    public CategoryRepository(EntityManager em) {
+        super(CategoryPO.class, em);
+    }
+}

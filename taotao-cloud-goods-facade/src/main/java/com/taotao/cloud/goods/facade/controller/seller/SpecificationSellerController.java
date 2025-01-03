@@ -19,6 +19,7 @@ package com.taotao.cloud.goods.facade.controller.seller;
 import com.taotao.boot.common.model.Result;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.cloud.goods.application.dto.specification.clientobject.SpecificationCO;
+import com.taotao.cloud.goods.application.service.CategorySpecificationQueryService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.Parameters;
@@ -47,18 +48,21 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/goods/seller/goods/specification")
 public class SpecificationSellerController {
 
-    /** 商品规格服务 */
-    private final CategorySpecificationService categorySpecificationService;
+	/**
+	 * 商品规格服务
+	 */
+	private final CategorySpecificationQueryService categorySpecificationService;
 
-    @Operation(summary = "获取分类规格", description = "获取分类规格")
-    @Parameters({
-            @Parameter(name = "categoryId", required = true, description = "分类id", in = ParameterIn.PATH),
-    })
-    @RequestLogger
-    @PreAuthorize("hasAuthority('dept:tree:data')")
-    @GetMapping(value = "/{categoryId}")
-    public Result<List<SpecificationCO>> getSpecifications(@PathVariable Long categoryId) {
-        List<Specification> categorySpecList = categorySpecificationService.getCategorySpecList(categoryId);
-        return Result.success(SpecificationConvert.INSTANCE.convert(categorySpecList));
-    }
+	@Operation(summary = "获取分类规格", description = "获取分类规格")
+	@Parameters({
+		@Parameter(name = "categoryId", required = true, description = "分类id", in = ParameterIn.PATH),
+	})
+	@RequestLogger
+	@PreAuthorize("hasAuthority('dept:tree:data')")
+	@GetMapping(value = "/{categoryId}")
+	public Result<List<SpecificationCO>> getSpecifications(@PathVariable Long categoryId) {
+		List<Specification> categorySpecList = categorySpecificationService.getCategorySpecList(
+			categoryId);
+		return Result.success(SpecificationConvert.INSTANCE.convert(categorySpecList));
+	}
 }

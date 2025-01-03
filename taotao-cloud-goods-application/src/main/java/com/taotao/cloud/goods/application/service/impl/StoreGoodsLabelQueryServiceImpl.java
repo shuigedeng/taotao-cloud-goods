@@ -26,7 +26,7 @@ import com.taotao.boot.security.spring.utils.SecurityUtils;
 import com.taotao.boot.web.base.service.impl.BaseSuperServiceImpl;
 import com.taotao.cloud.goods.application.command.store.dto.clientobject.StoreGoodsLabelCO;
 import com.taotao.cloud.goods.application.service.StoreGoodsLabelCommandService;
-import com.taotao.cloud.goods.infrastructure.persistent.mapper.IStoreGoodsLabelMapper;
+import com.taotao.cloud.goods.infrastructure.persistent.mapper.StoreGoodsLabelMapper;
 import com.taotao.cloud.goods.infrastructure.persistent.po.StoreGoodsLabelPO;
 import com.taotao.cloud.goods.infrastructure.persistent.repository.cls.StoreGoodsLabelRepository;
 import com.taotao.cloud.goods.infrastructure.persistent.repository.inf.IStoreGoodsLabelRepository;
@@ -49,7 +49,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class StoreGoodsLabelQueryServiceImpl
 	extends
-	BaseSuperServiceImpl<StoreGoodsLabelPO, Long, IStoreGoodsLabelMapper, StoreGoodsLabelRepository, IStoreGoodsLabelRepository>
+	BaseSuperServiceImpl<StoreGoodsLabelPO, Long, StoreGoodsLabelMapper, StoreGoodsLabelRepository, IStoreGoodsLabelRepository>
 	implements StoreGoodsLabelCommandService {
 
 	/**

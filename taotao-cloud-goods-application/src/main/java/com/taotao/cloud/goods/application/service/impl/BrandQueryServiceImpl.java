@@ -25,15 +25,14 @@ import com.taotao.boot.common.utils.bean.BeanUtils;
 import com.taotao.boot.common.utils.lang.StringUtils;
 import com.taotao.boot.common.utils.log.LogUtils;
 import com.taotao.boot.data.mybatis.mybatisplus.MpUtils;
-import com.taotao.boot.web.base.service.impl.BaseSuperServiceImpl;
-import com.taotao.cloud.goods.application.convert.BrandConvert;
+import com.taotao.boot.webagg.service.impl.BaseSuperServiceImpl;
 import com.taotao.cloud.goods.application.service.BrandCommandService;
 import com.taotao.cloud.goods.application.service.CategoryBrandCommandService;
 import com.taotao.cloud.goods.application.service.CategoryCommandService;
 import com.taotao.cloud.goods.application.service.GoodsCommandService;
-import com.taotao.cloud.goods.infrastructure.persistent.mapper.IBrandMapper;
-import com.taotao.cloud.goods.infrastructure.persistent.po.BrandPO;
-import com.taotao.cloud.goods.infrastructure.persistent.po.CategoryBrandPO;
+import com.taotao.cloud.goods.infrastructure.persistent.mapper.BrandMapper;
+import com.taotao.cloud.goods.infrastructure.persistent.persistence.BrandPO;
+import com.taotao.cloud.goods.infrastructure.persistent.persistence.CategoryBrandPO;
 import com.taotao.cloud.goods.infrastructure.persistent.repository.cls.BrandRepository;
 import com.taotao.cloud.goods.infrastructure.persistent.repository.inf.IBrandRepository;
 import java.util.ArrayList;
@@ -53,7 +52,7 @@ import org.springframework.stereotype.Service;
 @Service
 @AllArgsConstructor
 public class BrandQueryServiceImpl extends
-	BaseSuperServiceImpl<BrandPO, Long, IBrandMapper, BrandRepository, IBrandRepository>
+	BaseSuperServiceImpl<BrandPO, Long, BrandMapper, BrandRepository, IBrandRepository>
 	implements BrandCommandService {
 
 	/**

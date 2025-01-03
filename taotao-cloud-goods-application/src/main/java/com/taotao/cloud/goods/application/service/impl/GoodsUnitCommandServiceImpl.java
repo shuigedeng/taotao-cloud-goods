@@ -17,7 +17,7 @@
 package com.taotao.cloud.goods.application.service.impl;
 
 import com.taotao.cloud.goods.application.service.GoodsUnitCommandService;
-import com.taotao.cloud.goods.infrastructure.persistent.mapper.IGoodsUnitMapper;
+import com.taotao.cloud.goods.infrastructure.persistent.mapper.GoodsUnitMapper;
 import com.taotao.cloud.goods.infrastructure.persistent.po.GoodsUnitPO;
 import com.taotao.cloud.goods.infrastructure.persistent.repository.cls.GoodsUnitRepository;
 import com.taotao.cloud.goods.infrastructure.persistent.repository.inf.IGoodsUnitRepository;
@@ -33,5 +33,5 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class GoodsUnitCommandServiceImpl
-        extends BaseSuperServiceImpl<GoodsUnitPO, Long, IGoodsUnitMapper, GoodsUnitRepository, IGoodsUnitRepository>
+        extends BaseSuperServiceImpl<GoodsUnitPO, Long, GoodsUnitMapper, GoodsUnitRepository, IGoodsUnitRepository>
         implements GoodsUnitCommandService {}

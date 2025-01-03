@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.goods.infrastructure.persistent.repository.inf;
 
-import com.taotao.cloud.goods.infrastructure.persistent.CustomWordsPO;
+import com.taotao.cloud.goods.infrastructure.persistent.persistence.CustomWordsPO;
 import com.taotao.boot.webagg.repository.BaseInterfaceSuperRepository;
 import org.springframework.data.jpa.repository.JpaRepository;
 

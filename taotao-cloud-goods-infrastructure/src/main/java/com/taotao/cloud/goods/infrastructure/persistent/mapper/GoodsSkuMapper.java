@@ -16,33 +16,34 @@
 
 package com.taotao.cloud.goods.infrastructure.persistent.mapper;
 
-import com.taotao.cloud.goods.infrastructure.persistent.CategorySpecificationPO;
-import com.taotao.cloud.goods.infrastructure.persistent.SpecificationPO;
+import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsSkuPO;
 import com.taotao.boot.webagg.mapper.BaseSuperMapper;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.springframework.stereotype.Repository;
 
 /**
- * 商品分类规格数据处理层
+ * 规格项数据处理层
  *
  * @author shuigedeng
  * @version 2022.04
- * @since 2022-04-27 16:55:35
+ * @since 2022-04-27 16:57:22
  */
-public interface ICategorySpecificationMapper extends BaseSuperMapper<CategorySpecificationPO, Long> {
+@Repository
+public interface GoodsSkuMapper extends BaseSuperMapper<GoodsSkuPO, Long> {
 
-	/**
-	 * 根据分类id查分类绑定规格
-	 *
-	 * @param categoryId 分类id
-	 * @return {@link List }<{@link SpecificationPO }>
-	 * @since 2022-04-27 16:55:35
-	 */
-	@Select("""
-		select s.*
-		from  tt_specification s
-		INNER join tt_category_specification cs on s.id = cs.specification_id and cs.category_id = #{categoryId}
+    /**
+     * 根据商品id获取全部skuId的集合
+     *
+     * @param goodsId goodsId
+     * @return {@link List }<{@link String }>
+     * @since 2022-04-27 16:57:22
+     */
+    @Select("""
+		SELECT id
+		FROM tt_goods_sku
+		WHERE goods_id = #{goodsId}
 		""")
-	List<SpecificationPO> getCategorySpecList(@Param("categoryId") Long categoryId);
+    List<String> getGoodsSkuIdByGoodsId(@Param(value = "goodsId") Long goodsId);
 }

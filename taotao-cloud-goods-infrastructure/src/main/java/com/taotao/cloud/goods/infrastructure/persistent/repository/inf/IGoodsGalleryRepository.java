@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.goods.infrastructure.persistent.repository.inf;
 
-import com.taotao.cloud.goods.infrastructure.persistent.GoodsGalleryPO;
+import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsGalleryPO;
 import com.taotao.boot.webagg.repository.BaseInterfaceSuperRepository;
 import org.springframework.data.jpa.repository.JpaRepository;
 

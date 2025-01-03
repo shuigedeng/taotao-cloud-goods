@@ -16,14 +16,14 @@
 
 package com.taotao.cloud.goods.infrastructure.persistent.mapper;
 
-import com.taotao.cloud.goods.infrastructure.persistent.CustomWordsPO;
+import com.taotao.cloud.goods.infrastructure.persistent.persistence.StoreGoodsLabelPO;
 import com.taotao.boot.webagg.mapper.BaseSuperMapper;
 
 /**
- * 自定义分词数据处理层
+ * 店铺商品分类数据处理层
  *
  * @author shuigedeng
  * @version 2022.04
- * @since 2022-04-27 16:55:50
+ * @since 2022-04-27 16:57:42
  */
-public interface ICustomWordsMapper extends BaseSuperMapper<CustomWordsPO, Long> {}
+public interface StoreGoodsLabelMapper extends BaseSuperMapper<StoreGoodsLabelPO, Long> {}

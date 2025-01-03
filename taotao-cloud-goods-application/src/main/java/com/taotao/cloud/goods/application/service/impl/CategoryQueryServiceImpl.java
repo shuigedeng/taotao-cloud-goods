@@ -30,9 +30,9 @@ import com.taotao.cloud.goods.application.command.category.executor.query.Catego
 import com.taotao.cloud.goods.application.command.category.executor.query.CategoryTreeCmdExe;
 import com.taotao.cloud.goods.application.service.BrandCommandService;
 import com.taotao.cloud.goods.application.service.CategoryCommandService;
-import com.taotao.cloud.goods.infrastructure.persistent.mapper.ICategoryMapper;
+import com.taotao.cloud.goods.infrastructure.persistent.mapper.CategoryMapper;
 import com.taotao.cloud.goods.infrastructure.persistent.po.CategoryPO;
-import com.taotao.cloud.goods.infrastructure.persistent.repository.cls.CategorytRepository;
+import com.taotao.cloud.goods.infrastructure.persistent.repository.cls.CategoryRepository;
 import com.taotao.cloud.goods.infrastructure.persistent.repository.inf.ICategoryRepository;
 import java.util.Arrays;
 import java.util.List;
@@ -52,7 +52,7 @@ import org.springframework.stereotype.Service;
 @Service
 @CacheConfig(cacheNames = "{category}")
 public class CategoryQueryServiceImpl extends
-	BaseSuperServiceImpl<CategoryPO, Long, ICategoryMapper, CategorytRepository, ICategoryRepository>
+	BaseSuperServiceImpl<CategoryPO, Long, CategoryMapper, CategoryRepository, ICategoryRepository>
 	implements CategoryCommandService {
 
 	private final RedisRepository redisRepository;

@@ -19,14 +19,8 @@ package com.taotao.cloud.goods.application.service;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.taotao.boot.web.base.service.BaseSuperService;
-import com.taotao.cloud.goods.application.command.goods.dto.GoodsAddCmd;
-import com.taotao.cloud.goods.application.command.goods.dto.GoodsPageQry;
-import com.taotao.cloud.goods.application.command.goods.dto.GoodsSkuSearchQry;
-import com.taotao.cloud.goods.application.command.goods.dto.GoodsSkuStockUpdateCmd;
-import com.taotao.cloud.goods.application.command.goods.dto.clientobject.GoodsSkuCO;
-import com.taotao.cloud.goods.infrastructure.persistent.po.GoodsPO;
-import com.taotao.cloud.goods.infrastructure.persistent.po.GoodsSkuPO;
+import com.taotao.boot.webagg.service.BaseSuperService;
+import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsSkuPO;
 import java.util.List;
 import java.util.Map;
 

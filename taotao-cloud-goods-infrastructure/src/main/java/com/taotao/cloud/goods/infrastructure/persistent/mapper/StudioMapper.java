@@ -14,17 +14,16 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.infrastructure.persistent.repository.cls;
+package com.taotao.cloud.goods.infrastructure.persistent.mapper;
 
-import com.taotao.cloud.goods.infrastructure.persistent.CategoryPO;
-import com.taotao.boot.webagg.repository.BaseClassSuperRepository;
-import jakarta.persistence.EntityManager;
-import org.springframework.stereotype.Repository;
+import com.taotao.cloud.goods.infrastructure.persistent.persistence.StudioPO;
+import com.taotao.boot.webagg.mapper.BaseSuperMapper;
 
-@Repository
-public class CategorytRepository extends BaseClassSuperRepository<CategoryPO, Long> {
-
-    public CategorytRepository(EntityManager em) {
-        super(CategoryPO.class, em);
-    }
-}
+/**
+ * 直播间数据层
+ *
+ * @author shuigedeng
+ * @version 2022.04
+ * @since 2022-04-27 16:57:49
+ */
+public interface StudioMapper extends BaseSuperMapper<StudioPO, Long> {}

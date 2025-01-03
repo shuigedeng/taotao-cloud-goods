@@ -34,7 +34,7 @@ import com.taotao.cloud.goods.application.dto.goods.clientobject.GoodsSkuSpecGal
 import com.taotao.cloud.goods.application.service.CategoryCommandService;
 import com.taotao.cloud.goods.application.service.GoodsCommandService;
 import com.taotao.cloud.goods.application.service.GoodsSkuCommandService;
-import com.taotao.cloud.goods.infrastructure.persistent.mapper.IGoodsMapper;
+import com.taotao.cloud.goods.infrastructure.persistent.mapper.GoodsMapper;
 import com.taotao.cloud.goods.infrastructure.persistent.po.GoodsPO;
 import com.taotao.cloud.goods.infrastructure.persistent.repository.cls.GoodsRepository;
 import com.taotao.cloud.goods.infrastructure.persistent.repository.inf.IGoodsRepository;
@@ -63,7 +63,7 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Service
 @AllArgsConstructor
-public class GoodsQueryServiceImpl extends BaseSuperServiceImpl<GoodsPO, Long, IGoodsMapper, GoodsRepository, IGoodsRepository>
+public class GoodsQueryServiceImpl extends BaseSuperServiceImpl<GoodsPO, Long, GoodsMapper, GoodsRepository, IGoodsRepository>
         implements GoodsCommandService {
     private final GoodsManager goodsManager;
 

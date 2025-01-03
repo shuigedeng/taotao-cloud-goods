@@ -19,7 +19,7 @@ package com.taotao.cloud.goods.application.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.taotao.cloud.goods.application.command.category.dto.clientobject.CategoryBrandCO;
 import com.taotao.cloud.goods.application.service.CategoryBrandCommandService;
-import com.taotao.cloud.goods.infrastructure.persistent.mapper.ICategoryBrandMapper;
+import com.taotao.cloud.goods.infrastructure.persistent.mapper.CategoryBrandMapper;
 import com.taotao.cloud.goods.infrastructure.persistent.po.CategoryBrandPO;
 import com.taotao.cloud.goods.infrastructure.persistent.repository.cls.CategoryBrandRepository;
 import com.taotao.cloud.goods.infrastructure.persistent.repository.inf.ICategoryBrandRepository;
@@ -41,7 +41,7 @@ import java.util.List;
 public class CategoryBrandCommandServiceImpl extends BaseSuperServiceImpl<
 	CategoryBrandPO,
 	Long,
-	ICategoryBrandMapper,
+		CategoryBrandMapper,
 	CategoryBrandRepository,
 	ICategoryBrandRepository> implements CategoryBrandCommandService {
 

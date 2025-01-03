@@ -16,10 +16,10 @@
 
 package com.taotao.cloud.goods.application.service;
 
-import com.taotao.boot.web.base.service.BaseSuperService;
-import com.taotao.cloud.goods.application.command.category.dto.CategoryParameterGroupAddCmd;
-import com.taotao.cloud.goods.application.command.parameter.dto.clientobject.ParameterGroupCO;
-import com.taotao.cloud.goods.infrastructure.persistent.po.CategoryParameterGroupPO;
+import com.taotao.boot.webagg.service.BaseSuperService;
+import com.taotao.cloud.goods.application.dto.category.cmmond.CategoryParameterGroupAddCmd;
+import com.taotao.cloud.goods.application.dto.parameter.clientobject.ParameterGroupCO;
+import com.taotao.cloud.goods.infrastructure.persistent.persistence.CategoryParameterGroupPO;
 import java.util.List;
 
 /**
@@ -29,7 +29,8 @@ import java.util.List;
  * @version 2022.04
  * @since 2022-04-27 16:59:23
  */
-public interface CategoryParameterGroupQueryService extends BaseSuperService<CategoryParameterGroupPO, Long> {
+public interface CategoryParameterGroupQueryService extends
+	BaseSuperService<CategoryParameterGroupPO, Long> {
 
     /**
      * 查询分类绑定参数集合

@@ -16,14 +16,14 @@
 
 package com.taotao.cloud.goods.infrastructure.persistent.mapper;
 
-import com.taotao.cloud.goods.infrastructure.persistent.ParametersPO;
+import com.taotao.cloud.goods.infrastructure.persistent.persistence.StudioCommodityPO;
 import com.taotao.boot.webagg.mapper.BaseSuperMapper;
 
 /**
- * 商品参数数据处理层
+ * 直播间-商品关联持久层
  *
  * @author shuigedeng
  * @version 2022.04
- * @since 2022-04-27 16:57:35
+ * @since 2022-04-27 16:57:45
  */
-public interface IParametersMapper extends BaseSuperMapper<ParametersPO, Long> {}
+public interface StudioCommodityMapper extends BaseSuperMapper<StudioCommodityPO, Long> {}

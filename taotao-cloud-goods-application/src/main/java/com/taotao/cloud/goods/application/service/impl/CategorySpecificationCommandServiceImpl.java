@@ -18,7 +18,7 @@ package com.taotao.cloud.goods.application.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.taotao.cloud.goods.application.service.CategorySpecificationCommandService;
-import com.taotao.cloud.goods.infrastructure.persistent.mapper.ICategorySpecificationMapper;
+import com.taotao.cloud.goods.infrastructure.persistent.mapper.CategorySpecificationMapper;
 import com.taotao.cloud.goods.infrastructure.persistent.po.CategorySpecificationPO;
 import com.taotao.cloud.goods.infrastructure.persistent.po.SpecificationPO;
 import com.taotao.cloud.goods.infrastructure.persistent.repository.cls.CategorySpecificationRepository;
@@ -41,7 +41,7 @@ public class CategorySpecificationCommandServiceImpl
 	extends BaseSuperServiceImpl<
 	CategorySpecificationPO,
 	Long,
-	ICategorySpecificationMapper,
+		CategorySpecificationMapper,
 	CategorySpecificationRepository,
 	ICategorySpecificationRepository>
 	implements CategorySpecificationCommandService {

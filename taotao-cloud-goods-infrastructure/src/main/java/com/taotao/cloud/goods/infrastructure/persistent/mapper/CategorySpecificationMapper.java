@@ -16,33 +16,33 @@
 
 package com.taotao.cloud.goods.infrastructure.persistent.mapper;
 
-import com.taotao.cloud.goods.biz.model.vo.CategoryBrandVO;
-import com.taotao.cloud.goods.infrastructure.persistent.CategoryBrandPO;
+import com.taotao.cloud.goods.infrastructure.persistent.persistence.CategorySpecificationPO;
+import com.taotao.cloud.goods.infrastructure.persistent.persistence.SpecificationPO;
 import com.taotao.boot.webagg.mapper.BaseSuperMapper;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 /**
- * 商品分类品牌数据处理层
+ * 商品分类规格数据处理层
  *
  * @author shuigedeng
  * @version 2022.04
- * @since 2022-04-27 16:55:23
+ * @since 2022-04-27 16:55:35
  */
-public interface ICategoryBrandMapper extends BaseSuperMapper<CategoryBrandPO, Long> {
+public interface CategorySpecificationMapper extends BaseSuperMapper<CategorySpecificationPO, Long> {
 
 	/**
-	 * 根据分类id查分类绑定品牌
+	 * 根据分类id查分类绑定规格
 	 *
 	 * @param categoryId 分类id
-	 * @return {@link List }<{@link CategoryBrandVO }>
-	 * @since 2022-04-27 16:55:23
+	 * @return {@link List }<{@link SpecificationPO }>
+	 * @since 2022-04-27 16:55:35
 	 */
 	@Select("""
-		SELECT b.id,b.name,b.logo
-		FROM tt_brand b INNER join tt_category_brand cb on b.id = cb.brand_id and cb.category_id = #{categoryId}
-		where b.delete_flag = 0
+		select s.*
+		from  tt_specification s
+		INNER join tt_category_specification cs on s.id = cs.specification_id and cs.category_id = #{categoryId}
 		""")
-	List<CategoryBrandVO> getCategoryBrandList(@Param(value = "categoryId") Long categoryId);
+	List<SpecificationPO> getCategorySpecList(@Param("categoryId") Long categoryId);
 }

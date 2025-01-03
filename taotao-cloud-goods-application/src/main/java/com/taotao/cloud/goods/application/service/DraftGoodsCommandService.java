@@ -17,13 +17,8 @@
 package com.taotao.cloud.goods.application.service;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.taotao.cloud.goods.application.command.draft.dto.DraftGoodsPageQry;
-import com.taotao.cloud.goods.application.command.draft.dto.DraftGoodsSkuParamsAddCmd;
-import com.taotao.cloud.goods.application.command.draft.dto.DraftGoodsSkuParamsSaveCmd;
-import com.taotao.cloud.goods.application.command.draft.dto.DraftGoodsSkuParamsUpdateCmd;
-import com.taotao.cloud.goods.application.command.draft.dto.clientobject.DraftGoodsSkuParamsCO;
-import com.taotao.cloud.goods.infrastructure.persistent.po.DraftGoodsPO;
-import com.taotao.boot.web.base.service.BaseSuperService;
+import com.taotao.cloud.goods.application.dto.draft.cmmond.DraftGoodsSkuParamsAddCmd;
+import com.taotao.cloud.goods.infrastructure.persistent.persistence.DraftGoodsPO;
 
 /**
  * 草稿商品业务层

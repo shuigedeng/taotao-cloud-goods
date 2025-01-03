@@ -6,7 +6,7 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.taotao.boot.common.utils.bean.BeanUtils;
 import com.taotao.boot.ddd.model.application.executor.Executor;
 import com.taotao.cloud.goods.application.command.category.dto.clientobject.CategoryTreeCO;
-import com.taotao.cloud.goods.infrastructure.persistent.mapper.ICategoryMapper;
+import com.taotao.cloud.goods.infrastructure.persistent.mapper.CategoryMapper;
 import com.taotao.cloud.goods.infrastructure.persistent.po.CategoryPO;
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -22,7 +22,7 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 public class CategoryChildrenCmdExe extends Executor {
 
-	private final ICategoryMapper categoryMapper;
+	private final CategoryMapper categoryMapper;
 	private final CategoryTreeCmdExe categoryTreeCmdExe;
 
 	public List<CategoryPO> childrenList(Long parentId) {

@@ -29,7 +29,7 @@ import com.taotao.cloud.goods.application.command.goods.dto.GoodsAddCmd;
 import com.taotao.cloud.goods.application.service.CategoryCommandService;
 import com.taotao.cloud.goods.application.service.GoodsCommandService;
 import com.taotao.cloud.goods.application.service.GoodsSkuCommandService;
-import com.taotao.cloud.goods.infrastructure.persistent.mapper.IGoodsMapper;
+import com.taotao.cloud.goods.infrastructure.persistent.mapper.GoodsMapper;
 import com.taotao.cloud.goods.infrastructure.persistent.po.GoodsPO;
 import com.taotao.cloud.goods.infrastructure.persistent.repository.cls.GoodsRepository;
 import com.taotao.cloud.goods.infrastructure.persistent.repository.inf.IGoodsRepository;
@@ -62,7 +62,7 @@ import java.util.Objects;
  */
 @Service
 @AllArgsConstructor
-public class GoodsCommandServiceImpl extends BaseSuperServiceImpl<GoodsPO, Long, IGoodsMapper, GoodsRepository, IGoodsRepository>
+public class GoodsCommandServiceImpl extends BaseSuperServiceImpl<GoodsPO, Long, GoodsMapper, GoodsRepository, IGoodsRepository>
         implements GoodsCommandService {
     private final GoodsManager goodsManager;
 

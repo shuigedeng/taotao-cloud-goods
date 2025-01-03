@@ -22,7 +22,7 @@ import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.taotao.boot.common.utils.io.FileUtils;
 import com.taotao.boot.web.base.service.impl.BaseSuperServiceImpl;
 import com.taotao.cloud.goods.common.enums.SettingCategoryEnum;
-import com.taotao.cloud.goods.infrastructure.persistent.mapper.IGoodsGalleryMapper;
+import com.taotao.cloud.goods.infrastructure.persistent.mapper.GoodsGalleryMapper;
 import com.taotao.cloud.goods.infrastructure.persistent.po.GoodsGalleryPO;
 import com.taotao.cloud.goods.infrastructure.persistent.repository.cls.GoodsGalleryRepository;
 import com.taotao.cloud.goods.infrastructure.persistent.repository.inf.IGoodsGalleryRepository;
@@ -42,7 +42,7 @@ import org.springframework.transaction.annotation.Transactional;
 @AllArgsConstructor
 @Service
 public class GoodsGalleryQueryServiceImpl
-        extends BaseSuperServiceImpl<GoodsGalleryPO, Long, IGoodsGalleryMapper, GoodsGalleryRepository, IGoodsGalleryRepository>
+        extends BaseSuperServiceImpl<GoodsGalleryPO, Long, GoodsGalleryMapper, GoodsGalleryRepository, IGoodsGalleryRepository>
         implements IGoodsGalleryService {
 
     /** 设置 */

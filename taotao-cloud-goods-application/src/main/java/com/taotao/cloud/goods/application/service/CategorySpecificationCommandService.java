@@ -16,9 +16,9 @@
 
 package com.taotao.cloud.goods.application.service;
 
-import com.taotao.cloud.goods.infrastructure.persistent.po.CategorySpecificationPO;
-import com.taotao.cloud.goods.infrastructure.persistent.po.SpecificationPO;
-import com.taotao.boot.web.base.service.BaseSuperService;
+import com.taotao.boot.webagg.service.BaseSuperService;
+import com.taotao.cloud.goods.infrastructure.persistent.persistence.CategorySpecificationPO;
+import com.taotao.cloud.goods.infrastructure.persistent.persistence.SpecificationPO;
 import java.util.List;
 
 /**
@@ -28,7 +28,8 @@ import java.util.List;
  * @version 2022.04
  * @since 2022-04-27 16:59:40
  */
-public interface CategorySpecificationCommandService extends BaseSuperService<CategorySpecificationPO, Long> {
+public interface CategorySpecificationCommandService extends
+	BaseSuperService<CategorySpecificationPO, Long> {
 
     /**
      * 根据分类id查询规格信息

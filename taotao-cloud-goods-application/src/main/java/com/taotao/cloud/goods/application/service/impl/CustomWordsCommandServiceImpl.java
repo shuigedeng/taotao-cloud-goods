@@ -26,7 +26,7 @@ import com.taotao.boot.common.utils.servlet.RequestUtils;
 import com.taotao.cloud.goods.application.command.goods.dto.clientobject.CustomWordsCO;
 import com.taotao.cloud.goods.application.convert.CustomWordsConvert;
 import com.taotao.cloud.goods.application.service.CustomWordsCommandService;
-import com.taotao.cloud.goods.infrastructure.persistent.mapper.ICustomWordsMapper;
+import com.taotao.cloud.goods.infrastructure.persistent.mapper.CustomWordsMapper;
 import com.taotao.cloud.goods.infrastructure.persistent.po.CustomWordsPO;
 import com.taotao.cloud.goods.infrastructure.persistent.repository.cls.CustomWordsRepository;
 import com.taotao.cloud.goods.infrastructure.persistent.repository.inf.ICustomWordsRepository;
@@ -47,7 +47,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class CustomWordsCommandServiceImpl
 	extends
-	BaseSuperServiceImpl<CustomWordsPO, Long, ICustomWordsMapper, CustomWordsRepository, ICustomWordsRepository>
+	BaseSuperServiceImpl<CustomWordsPO, Long, CustomWordsMapper, CustomWordsRepository, ICustomWordsRepository>
 	implements CustomWordsCommandService {
 
 	@Override

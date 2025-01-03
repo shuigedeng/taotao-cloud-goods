@@ -10,7 +10,7 @@ import com.taotao.boot.cache.redis.repository.RedisRepository;
 import com.taotao.boot.ddd.model.application.executor.Executor;
 import com.taotao.cloud.goods.application.command.category.dto.clientobject.CategoryTreeCO;
 import com.taotao.cloud.goods.application.convert.CategoryConvert;
-import com.taotao.cloud.goods.infrastructure.persistent.mapper.ICategoryMapper;
+import com.taotao.cloud.goods.infrastructure.persistent.mapper.CategoryMapper;
 import com.taotao.cloud.goods.infrastructure.persistent.po.CategoryPO;
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -27,7 +27,7 @@ import org.springframework.stereotype.Component;
 public class CategoryTreeCmdExe extends Executor {
 
 	private final RedisRepository redisRepository;
-	private final ICategoryMapper categoryMapper;
+	private final CategoryMapper categoryMapper;
 
 	public List<CategoryTreeCO> categoryTree() {
 		// 获取缓存数据

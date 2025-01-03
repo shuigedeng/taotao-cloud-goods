@@ -17,9 +17,9 @@
 package com.taotao.cloud.goods.application.service;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.taotao.cloud.goods.application.command.specification.dto.SpecificationPageQry;
-import com.taotao.cloud.goods.infrastructure.persistent.po.SpecificationPO;
-import com.taotao.boot.web.base.service.BaseSuperService;
+import com.taotao.boot.webagg.service.BaseSuperService;
+import com.taotao.cloud.goods.application.dto.specification.query.SpecificationPageQry;
+import com.taotao.cloud.goods.infrastructure.persistent.persistence.SpecificationPO;
 import java.util.List;
 
 /**
