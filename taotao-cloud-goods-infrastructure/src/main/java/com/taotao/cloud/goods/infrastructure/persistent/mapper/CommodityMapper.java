@@ -19,7 +19,6 @@ package com.taotao.cloud.goods.infrastructure.persistent.mapper;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.toolkit.Constants;
-import com.taotao.cloud.goods.biz.model.vo.CommoditySkuVO;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.CommodityPO;
 import com.taotao.boot.webagg.mapper.BaseSuperMapper;
 import java.util.List;
