@@ -34,19 +34,7 @@ import java.util.Map;
  */
 public interface BrandCommandService extends BaseSuperService<BrandPO, Long> {
 
-	IPage<BrandPO> brandsQueryPage(BrandPageQry page);
 
-	/**
-	 * 根据条件分页获取品牌列表
-	 *
-	 * @param page 条件参数
-	 * @return 品牌列表
-	 */
-	IPage<BrandPO> getBrandsByPage(BrandPageQry page);
-
-	List<BrandPO> getBrandsByCategorys(Long categoryIds);
-
-	List<BrandPO> getAllAvailable();
 
 	/**
 	 * 删除品牌
@@ -55,22 +43,6 @@ public interface BrandCommandService extends BaseSuperService<BrandPO, Long> {
 	 */
 	boolean deleteBrands(List<Long> ids);
 
-	/**
-	 * 根据分类ID获取品牌列表
-	 *
-	 * @param categoryId 分类ID
-	 * @return 品牌列表
-	 */
-	List<BrandPO> getBrandsByCategory(Long categoryId);
-
-	/**
-	 * 根据分类ID获取品牌列表
-	 *
-	 * @param categoryIds 分类ID
-	 * @return 品牌列表
-	 */
-	List<Map<String, Object>> getBrandsMapsByCategory(List<Long> categoryIds,
-		String columns);
 
 	/**
 	 * 添加品牌

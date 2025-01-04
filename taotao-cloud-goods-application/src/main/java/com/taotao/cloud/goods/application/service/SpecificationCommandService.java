@@ -40,14 +40,5 @@ public interface SpecificationCommandService extends BaseSuperService<Specificat
 	 */
 	boolean deleteSpecification(List<Long> ids);
 
-	/**
-	 * 分页查询
-	 *
-	 * @param specificationPageQry 查询条件
-	 * @return {@link IPage }<{@link SpecificationPO }>
-	 * @since 2022-04-27 17:01:01
-	 */
-	IPage<SpecificationPO> getPage(SpecificationPageQry specificationPageQry);
-
 	boolean saveCategoryBrand(Long categoryId, String[] categorySpecs);
 }

@@ -50,23 +50,6 @@ public interface StudioCommandService extends BaseSuperService<StudioPO, Long> {
      */
     boolean edit(StudioPO studioPO);
 
-    /**
-     * 获取直播间信息
-     *
-     * @param id 直播间ID
-     * @return {@link StudioCommodityVO }
-     * @since 2022-04-27 17:01:11
-     */
-    StudioCommodityCO getStudioVO(Long id);
-
-    /**
-     * 获取直播间回放
-     *
-     * @param roomId 房间ID
-     * @return {@link String }
-     * @since 2022-04-27 17:01:11
-     */
-    String getLiveInfo(Integer roomId);
 
     /**
      * 推送商品
@@ -89,17 +72,6 @@ public interface StudioCommandService extends BaseSuperService<StudioPO, Long> {
      * @since 2022-04-27 17:01:11
      */
     boolean goodsDeleteInRoom(Integer roomId, Long goodsId, Long storeId);
-
-    /**
-     * 获取直播间列表
-     *
-     * @param PageQuery 分页
-     * @param recommend 是否推荐
-     * @param status 直播间状态
-     * @return {@link IPage }<{@link StudioPO }>
-     * @since 2022-04-27 17:01:12
-     */
-    IPage<StudioPO> studioList(PageQuery PageQuery, Integer recommend, String status);
 
     /**
      * 修改直播间状态

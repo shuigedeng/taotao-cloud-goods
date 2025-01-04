@@ -20,8 +20,16 @@ import com.taotao.boot.common.enums.ResultEnum;
 import com.taotao.boot.common.exception.BusinessException;
 import com.taotao.boot.common.model.Result;
 import com.taotao.boot.web.request.annotation.RequestLogger;
+import com.taotao.cloud.goods.application.assembler.CategoryAssembler;
 import com.taotao.cloud.goods.application.dto.category.clientobject.CategoryCO;
+import com.taotao.cloud.goods.application.dto.category.clientobject.CategoryTreeCO;
+import com.taotao.cloud.goods.application.dto.category.cmmond.CategoryAddCmd;
+import com.taotao.cloud.goods.application.service.CategoryCommandService;
+import com.taotao.cloud.goods.application.service.CategoryQueryService;
+import com.taotao.cloud.goods.application.service.GoodsCommandService;
 import com.taotao.cloud.goods.application.service.GoodsQueryService;
+import com.taotao.cloud.goods.infrastructure.persistent.persistence.CategoryPO;
+import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsPO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.Parameters;
@@ -60,9 +68,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class CategoryManagerController {
 
     /** 分类服务 */
-    private final CategoryQueryService categoryService;
+    private final CategoryQueryService categoryQueryService;
+    private final CategoryCommandService categoryCommandService;
     /** 商品服务 */
-    private final GoodsQueryService goodsService;
+    private final GoodsQueryService goodsQueryService;
+    private final GoodsCommandService goodsCommandService;
 
     @Operation(summary = "查询某分类下的全部子分类列表", description = "查询某分类下的全部子分类列表")
     @Parameters({
@@ -72,8 +82,8 @@ public class CategoryManagerController {
     @PreAuthorize("hasAuthority('dept:tree:data')")
     @GetMapping(value = "/{parentId}/children/all")
     public Result<List<CategoryCO>> childrenList(@PathVariable Long parentId) {
-        List<Category> categories = this.categoryService.childrenList(parentId);
-        return Result.success(CategoryConvert.INSTANCE.convert(categories));
+        List<CategoryPO> categories = this.categoryQueryService.childrenList(parentId);
+        return Result.success(CategoryAssembler.INSTANCE.convert(categories));
     }
 
     @Operation(summary = "查询全部分类列表", description = "查询全部分类列表")
@@ -84,7 +94,7 @@ public class CategoryManagerController {
     @PreAuthorize("hasAuthority('dept:tree:data')")
     @GetMapping(value = "/children/all")
     public Result<List<CategoryTreeCO>> list() {
-        return Result.success(this.categoryService.listAllChildren());
+        return Result.success(this.categoryQueryService.listAllChildren());
     }
 
     @Operation(summary = "添加商品分类", description = "添加商品分类")
@@ -94,10 +104,10 @@ public class CategoryManagerController {
     @RequestLogger
     @PreAuthorize("hasAuthority('dept:tree:data')")
     @PostMapping
-    public Result<Boolean> saveCategory(@Validated @RequestBody Category category) {
+    public Result<Boolean> saveCategory(@Validated @RequestBody CategoryAddCmd category) {
         // 非顶级分类
         if (category.getParentId() != null && !Long.valueOf(0).equals(category.getParentId())) {
-            Category parent = categoryService.getById(category.getParentId());
+            Category parent = categoryQueryService.getById(category.getParentId());
             if (parent == null) {
                 throw new BusinessException(ResultEnum.CATEGORY_PARENT_NOT_EXIST);
             }
@@ -105,7 +115,7 @@ public class CategoryManagerController {
                 throw new BusinessException(ResultEnum.CATEGORY_BEYOND_THREE);
             }
         }
-        return Result.success(categoryService.saveCategory(category));
+        return Result.success(categoryCommandService.saveCategory(category));
     }
 
     @Operation(summary = "修改商品分类", description = "修改商品分类")
@@ -116,11 +126,11 @@ public class CategoryManagerController {
     @PreAuthorize("hasAuthority('dept:tree:data')")
     @PutMapping
     public Result<Boolean> updateCategory(@Valid @RequestBody CategoryTreeCO category) {
-        Category catTemp = categoryService.getById(category.getId());
+		CategoryPO catTemp = categoryQueryService.getById(category.getId());
         if (catTemp == null) {
             throw new BusinessException(ResultEnum.CATEGORY_NOT_EXIST);
         }
-        return Result.success(categoryService.updateCategory(catTemp));
+        return Result.success(categoryCommandService.updateCategory(catTemp));
     }
 
     @Operation(summary = "通过id删除分类", description = "通过id删除分类")
@@ -131,19 +141,19 @@ public class CategoryManagerController {
     @PreAuthorize("hasAuthority('dept:tree:data')")
     @DeleteMapping(value = "/{id}")
     public Result<Boolean> delAllByIds(@NotBlank(message = "id不能为空") @PathVariable Long id) {
-        Category category = new Category();
+		CategoryPO category = new CategoryPO();
         category.setParentId(id);
-        List<Category> list = categoryService.findByAllBySortOrder(category);
+        List<CategoryPO> list = categoryQueryService.findByAllBySortOrder(category);
         if (list != null && !list.isEmpty()) {
             throw new BusinessException(ResultEnum.CATEGORY_HAS_CHILDREN);
         }
 
         // 查询某商品分类的商品数量
-        long count = goodsService.getGoodsCountByCategory(id);
+        long count = goodsQueryService.getGoodsCountByCategory(id);
         if (count > 0) {
             throw new BusinessException(ResultEnum.CATEGORY_HAS_GOODS);
         }
-        return Result.success(categoryService.delete(id));
+        return Result.success(categoryCommandService.delete(id));
     }
 
     @Operation(summary = "后台 禁用/启用 分类", description = "后台 禁用/启用 分类")
@@ -154,10 +164,10 @@ public class CategoryManagerController {
     @PreAuthorize("hasAuthority('dept:tree:data')")
     @PutMapping(value = "/disable/{id}")
     public Result<Boolean> disable(@PathVariable Long id, @RequestParam Boolean enableOperations) {
-        Category category = categoryService.getById(id);
+		GoodsPO category = goodsQueryService.getById(id);
         if (category == null) {
             throw new BusinessException(ResultEnum.CATEGORY_NOT_EXIST);
         }
-        return Result.success(categoryService.updateCategoryStatus(id, enableOperations));
+        return Result.success(categoryCommandService.updateCategoryStatus(id, enableOperations));
     }
 }

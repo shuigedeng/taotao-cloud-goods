@@ -17,29 +17,30 @@
 package com.taotao.cloud.goods.application.service.impl;
 
 import com.taotao.boot.cache.redis.repository.RedisRepository;
-import com.taotao.cloud.goods.application.command.category.dto.CategoryAddCmd;
-import com.taotao.cloud.goods.application.command.category.dto.CategorySearchQry;
-import com.taotao.cloud.goods.application.command.category.dto.CategoryUpdateCmd;
-import com.taotao.cloud.goods.application.command.category.dto.clientobject.CategoryTreeCO;
-import com.taotao.cloud.goods.application.command.category.executor.query.CategoryChildrenCmdExe;
-import com.taotao.cloud.goods.application.command.category.executor.CategoryDelCmdExe;
-import com.taotao.cloud.goods.application.command.category.executor.CategorySaveCmdExe;
-import com.taotao.cloud.goods.application.command.category.executor.query.CategoryTreeCmdExe;
-import com.taotao.cloud.goods.application.command.category.executor.CategoryUpdateCmdExe;
-import com.taotao.cloud.goods.application.command.category.executor.query.CategorySearchQryExe;
+import com.taotao.boot.webagg.service.impl.BaseSuperServiceImpl;
+import com.taotao.cloud.goods.application.dto.category.clientobject.CategoryTreeCO;
+import com.taotao.cloud.goods.application.dto.category.cmmond.CategoryAddCmd;
+import com.taotao.cloud.goods.application.dto.category.cmmond.CategoryUpdateCmd;
+import com.taotao.cloud.goods.application.dto.category.query.CategorySearchQry;
+import com.taotao.cloud.goods.application.executor.category.cmmond.CategoryDelCmdExe;
+import com.taotao.cloud.goods.application.executor.category.cmmond.CategorySaveCmdExe;
+import com.taotao.cloud.goods.application.executor.category.cmmond.CategoryUpdateCmdExe;
+import com.taotao.cloud.goods.application.executor.category.query.CategoryChildrenCmdExe;
+import com.taotao.cloud.goods.application.executor.category.query.CategorySearchQryExe;
+import com.taotao.cloud.goods.application.executor.category.query.CategoryTreeCmdExe;
 import com.taotao.cloud.goods.application.service.BrandCommandService;
 import com.taotao.cloud.goods.application.service.CategoryCommandService;
 import com.taotao.cloud.goods.infrastructure.persistent.mapper.CategoryMapper;
-import com.taotao.cloud.goods.infrastructure.persistent.po.CategoryPO;
+import com.taotao.cloud.goods.infrastructure.persistent.persistence.CategoryPO;
 import com.taotao.cloud.goods.infrastructure.persistent.repository.cls.CategoryRepository;
 import com.taotao.cloud.goods.infrastructure.persistent.repository.inf.ICategoryRepository;
-import com.taotao.boot.web.base.service.impl.BaseSuperServiceImpl;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
 import lombok.AllArgsConstructor;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.stereotype.Service;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
 
 /**
  * 商品分类业务层实现
@@ -68,15 +69,6 @@ public class CategoryCommandServiceImpl extends
 	private final CategorySaveCmdExe categorySaveCmdExe;
 	private final CategoryDelCmdExe categoryDelCmdExe;
 
-	@Override
-	public List<CategoryPO> childrenList(Long parentId) {
-		return categoryChildrenCmdExe.childrenList(parentId);
-	}
-
-	@Override
-	public CategoryPO getCategoryById(Long id) {
-		return this.getById(id);
-	}
 
 	@Override
 	public boolean delete(Long id) {
@@ -85,52 +77,7 @@ public class CategoryCommandServiceImpl extends
 
 	@Override
 	public boolean updateCategoryStatus(Long categoryId, boolean enableOperations) {
-		return categoryUpdateCmdExe.updateCategoryStatus(categoryId,enableOperations);
-	}
-
-	@Override
-	public List<CategoryPO> dbList(String parentId) {
-		return List.of();
-	}
-
-	@Override
-	public CategoryPO getCategoryById(String id) {
-		return null;
-	}
-
-	@Override
-	public List<CategoryPO> listByIdsOrderByLevel(List<Long> ids) {
-		return categorySearchQryExe.listByIdsOrderByLevel(ids);
-	}
-
-	@Override
-	public List<Map<String, Object>> listMapsByIdsOrderByLevel(List<String> ids, String columns) {
-		return List.of();
-	}
-
-	@Override
-	public List<CategoryTreeCO> categoryTree() {
-		return categoryTreeCmdExe.categoryTree();
-	}
-
-	@Override
-	public List<CategoryTreeCO> listAllChildren(Long parentId) {
-		return categoryChildrenCmdExe.listAllChildren(parentId);
-	}
-
-	@Override
-	public List<CategoryTreeCO> listAllChildren() {
-		return categoryChildrenCmdExe.listAllChildren();
-	}
-
-	@Override
-	public List<String> getCategoryNameByIds(List<Long> ids) {
-		return categorySearchQryExe.getCategoryNameByIds(ids);
-	}
-
-	@Override
-	public List<CategoryPO> findByAllBySortOrder(CategorySearchQry category) {
-		return categorySearchQryExe.findByAllBySortOrder(categoryPO);
+		return categoryUpdateCmdExe.updateCategoryStatus(categoryId, enableOperations);
 	}
 
 	@Override
@@ -150,19 +97,6 @@ public class CategoryCommandServiceImpl extends
 
 	@Override
 	public void updateCategoryStatus(String categoryId, boolean enableOperations) {
-		return categoryUpdateCmdExe.updateCategoryStatus(categoryId,enableOperations);
-	}
-
-	@Override
-	public List<CategoryTreeCO> getStoreCategory(String[] categories) {
-		List<String> arr = Arrays.asList(categories.clone());
-		return categoryTree().stream()
-			.filter(item -> arr.contains(item.getId()))
-			.toList();
-	}
-
-	@Override
-	public List<CategoryPO> firstCategory() {
-		return categorySearchQryExe.firstCategory();
+		return categoryUpdateCmdExe.updateCategoryStatus(categoryId, enableOperations);
 	}
 }

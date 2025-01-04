@@ -16,8 +16,6 @@
 
 package com.taotao.cloud.goods.application.assembler;
 
-import com.taotao.cloud.goods.application.model.vo.CommoditySkuVO;
-import com.taotao.cloud.goods.application.model.entity.Commodity;
 import java.util.List;
 import org.mapstruct.Builder;
 import org.mapstruct.Mapper;

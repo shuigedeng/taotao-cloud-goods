@@ -20,9 +20,13 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.taotao.boot.common.model.PageQuery;
 import com.taotao.boot.common.model.PageResult;
 import com.taotao.boot.common.model.Result;
+import com.taotao.boot.data.mybatis.mybatisplus.MpUtils;
 import com.taotao.boot.web.request.annotation.RequestLogger;
+import com.taotao.cloud.goods.application.assembler.GoodsUnitAssembler;
 import com.taotao.cloud.goods.application.dto.goods.clientobject.GoodsUnitCO;
+import com.taotao.cloud.goods.application.service.GoodsUnitCommandService;
 import com.taotao.cloud.goods.application.service.GoodsUnitQueryService;
+import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsUnitPO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
@@ -47,14 +51,15 @@ import org.springframework.web.bind.annotation.RestController;
 public class GoodsUnitSellerController {
 
     /** 商品计量单位服务 */
-    private final GoodsUnitQueryService goodsUnitService;
+    private final GoodsUnitQueryService goodsUnitQueryService;
+    private final GoodsUnitCommandService goodsUnitCommandService;
 
     @Operation(summary = "分页获取商品计量单位", description = "分页获取商品计量单位")
     @RequestLogger
     @PreAuthorize("hasAuthority('dept:tree:data')")
     @GetMapping("/page")
     public Result<PageResult<GoodsUnitCO>> getByPage(@Validated PageQuery pageQuery) {
-        IPage<GoodsUnit> page = goodsUnitService.page(pageQuery.buildMpPage());
-        return Result.success(MpUtils.convertMybatisPage(page, GoodsUnitConvert.INSTANCE::convert));
+        IPage<GoodsUnitPO> page = goodsUnitQueryService.page(MpUtils.buildMpPage(pageQuery));
+        return Result.success(MpUtils.convertMybatisPage(page, GoodsUnitAssembler.INSTANCE::convert));
     }
 }

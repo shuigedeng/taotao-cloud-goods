@@ -22,21 +22,22 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.taotao.boot.common.enums.ResultEnum;
 import com.taotao.boot.common.exception.BusinessException;
 import com.taotao.boot.common.utils.lang.StringUtils;
-import com.taotao.cloud.goods.application.command.specification.dto.SpecificationPageQry;
+import com.taotao.boot.webagg.service.impl.BaseSuperServiceImpl;
+import com.taotao.cloud.goods.application.dto.specification.query.SpecificationPageQry;
 import com.taotao.cloud.goods.application.service.CategoryCommandService;
 import com.taotao.cloud.goods.application.service.CategorySpecificationCommandService;
 import com.taotao.cloud.goods.application.service.SpecificationCommandService;
 import com.taotao.cloud.goods.infrastructure.persistent.mapper.SpecificationMapper;
-import com.taotao.cloud.goods.infrastructure.persistent.po.CategorySpecificationPO;
-import com.taotao.cloud.goods.infrastructure.persistent.po.SpecificationPO;
+import com.taotao.cloud.goods.infrastructure.persistent.persistence.CategorySpecificationPO;
+import com.taotao.cloud.goods.infrastructure.persistent.persistence.SpecificationPO;
 import com.taotao.cloud.goods.infrastructure.persistent.repository.cls.SpecificationRepository;
 import com.taotao.cloud.goods.infrastructure.persistent.repository.inf.ISpecificationRepository;
-import com.taotao.boot.web.base.service.impl.BaseSuperServiceImpl;
-import java.util.ArrayList;
-import java.util.List;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 商品规格业务层实现
@@ -82,15 +83,6 @@ public class SpecificationCommandServiceImpl
 		return result;
 	}
 
-	@Override
-	public IPage<SpecificationPO> getPage(SpecificationPageQry specificationPageQry) {
-		LambdaQueryWrapper<SpecificationPO> lambdaQueryWrapper = new LambdaQueryWrapper<>();
-		lambdaQueryWrapper.like(
-			StringUtils.isNotEmpty(specificationPageQry.getSpecName()),
-			SpecificationPO::getSpecName,
-			specificationPageQry.getSpecName());
-		return this.page(specificationPageQry.buildMpPage(), lambdaQueryWrapper);
-	}
 
 	@Override
 	@Transactional

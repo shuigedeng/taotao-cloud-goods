@@ -19,9 +19,15 @@ package com.taotao.cloud.goods.facade.controller.manager;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.taotao.boot.common.model.PageResult;
 import com.taotao.boot.common.model.Result;
+import com.taotao.boot.data.mybatis.mybatisplus.MpUtils;
 import com.taotao.boot.web.request.annotation.RequestLogger;
+import com.taotao.cloud.goods.application.assembler.BrandAssembler;
 import com.taotao.cloud.goods.application.dto.brand.clientobject.BrandCO;
+import com.taotao.cloud.goods.application.dto.brand.cmmond.BrandAddCmd;
+import com.taotao.cloud.goods.application.dto.brand.cmmond.BrandUpdateCmd;
+import com.taotao.cloud.goods.application.dto.brand.query.BrandPageQry;
 import com.taotao.cloud.goods.application.service.BrandCommandService;
+import com.taotao.cloud.goods.application.service.BrandQueryService;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.BrandPO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -58,7 +64,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class BrandManagerController {
 
     /** 品牌 */
-    private final BrandCommandService brandService;
+    private final BrandCommandService brandCommandService;
+    private final BrandQueryService brandQueryService;
 
     @Operation(summary = "通过id获取", description = "通过id获取")
     @Parameters({
@@ -68,8 +75,8 @@ public class BrandManagerController {
     @PreAuthorize("hasAuthority('dept:tree:data')")
     @GetMapping(value = "/{id}")
     public Result<BrandCO> getById(@NotBlank(message = "id不能为空") @PathVariable Long id) {
-        BrandPO brand = brandService.getById(id);
-        return Result.success(BrandConvert.INSTANCE.convert(brand));
+        BrandPO brand = brandQueryService.getById(id);
+        return Result.success(BrandAssembler.INSTANCE.convert(brand));
     }
 
     @Operation(summary = "获取所有可用品牌", description = "获取所有可用品牌")
@@ -80,8 +87,8 @@ public class BrandManagerController {
     @PreAuthorize("hasAuthority('dept:tree:data')")
     @GetMapping(value = "/all/available")
     public Result<List<BrandCO>> getAllAvailable() {
-        List<BrandPO> list = brandService.getAllAvailable();
-        return Result.success(BrandConvert.INSTANCE.convert(list));
+        List<BrandPO> list = brandQueryService.getAllAvailable();
+        return Result.success(BrandAssembler.INSTANCE.convert(list));
     }
 
     @Operation(summary = "分页获取", description = "分页获取")
@@ -91,8 +98,8 @@ public class BrandManagerController {
     @RequestLogger
     @PreAuthorize("hasAuthority('dept:tree:data')")
     @GetMapping(value = "/page")
-    public Result<PageResult<BrandCO>> brandsQueryPage(@Validated BrandPageQuery page) {
-        IPage<BrandPO> brandPage = brandService.brandsQueryPage(page);
+    public Result<PageResult<BrandCO>> brandsQueryPage(@Validated BrandPageQry page) {
+        IPage<BrandPO> brandPage = brandQueryService.brandsQueryPage(page);
         return Result.success(MpUtils.convertMybatisPage(brandPage, BrandCO.class));
     }
 
@@ -103,8 +110,8 @@ public class BrandManagerController {
     @RequestLogger
     @PreAuthorize("hasAuthority('dept:tree:data')")
     @PostMapping
-    public Result<Boolean> save(@Validated @RequestBody BrandDTO brand) {
-        return Result.success(brandService.addBrand(brand));
+    public Result<Boolean> save(@Validated @RequestBody BrandAddCmd brand) {
+        return Result.success(brandCommandService.addBrand(brand));
     }
 
     @Operation(summary = "更新品牌", description = "更新品牌")
@@ -114,9 +121,9 @@ public class BrandManagerController {
     @RequestLogger
     @PreAuthorize("hasAuthority('dept:tree:data')")
     @PutMapping("/{id}")
-    public Result<Boolean> update(@PathVariable Long id, @Validated BrandDTO brand) {
+    public Result<Boolean> update(@PathVariable Long id, @Validated BrandUpdateCmd brand) {
         brand.setId(id);
-        return Result.success(brandService.updateBrand(brand));
+        return Result.success(brandCommandService.updateBrand(brand));
     }
 
     @Operation(summary = "后台禁用品牌", description = "后台禁用品牌")
@@ -127,7 +134,7 @@ public class BrandManagerController {
     @PreAuthorize("hasAuthority('dept:tree:data')")
     @PutMapping(value = "/disable/{brandId}")
     public Result<Boolean> disable(@PathVariable Long brandId, @RequestParam Boolean disable) {
-        return Result.success(brandService.brandDisable(brandId, disable));
+        return Result.success(brandCommandService.brandDisable(brandId, disable));
     }
 
     @Operation(summary = "批量删除", description = "批量删除")
@@ -138,6 +145,6 @@ public class BrandManagerController {
     @PreAuthorize("hasAuthority('dept:tree:data')")
     @DeleteMapping(value = "/{ids}")
     public Result<Boolean> delAllByIds(@PathVariable List<Long> ids) {
-        return Result.success(brandService.deleteBrands(ids));
+        return Result.success(brandCommandService.deleteBrands(ids));
     }
 }

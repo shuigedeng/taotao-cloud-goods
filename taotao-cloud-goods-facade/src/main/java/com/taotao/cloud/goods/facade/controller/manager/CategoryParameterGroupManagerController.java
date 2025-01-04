@@ -20,8 +20,11 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.taotao.boot.common.model.Result;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.cloud.goods.application.dto.parameter.clientobject.ParameterGroupCO;
+import com.taotao.cloud.goods.application.service.CategoryParameterGroupCommandService;
 import com.taotao.cloud.goods.application.service.CategoryParameterGroupQueryService;
+import com.taotao.cloud.goods.application.service.ParametersCommandService;
 import com.taotao.cloud.goods.application.service.ParametersQueryService;
+import com.taotao.cloud.goods.infrastructure.persistent.persistence.ParametersPO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.enums.ParameterIn;
@@ -53,9 +56,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class CategoryParameterGroupManagerController {
 
     /** 商品参数组服务 */
-    private final ParametersQueryService parametersService;
+    private final ParametersQueryService parametersQueryService;
+    private final ParametersCommandService parametersCommandService;
     /** 分类绑定参数组服务 */
-    private final CategoryParameterGroupQueryService categoryParameterGroupService;
+    private final CategoryParameterGroupQueryService categoryParameterGroupQueryService;
+    private final CategoryParameterGroupCommandService categoryParameterGroupCommandService;
 
     @Operation(summary = "查询某分类下绑定的参数信息", description = "查询某分类下绑定的参数信息")
     @io.swagger.v3.oas.annotations.Parameters({
@@ -65,7 +70,7 @@ public class CategoryParameterGroupManagerController {
     @PreAuthorize("hasAuthority('dept:tree:data')")
     @GetMapping(value = "/{categoryId}")
     public Result<List<ParameterGroupCO>> getCategoryParam(@PathVariable Long categoryId) {
-        return Result.success(categoryParameterGroupService.getCategoryParams(categoryId));
+        return Result.success(categoryParameterGroupQueryService.getCategoryParams(categoryId));
     }
 
     @Operation(summary = "保存数据", description = "保存数据")
@@ -76,7 +81,7 @@ public class CategoryParameterGroupManagerController {
     @PreAuthorize("hasAuthority('dept:tree:data')")
     @PostMapping
     public Result<Boolean> saveOrUpdate(@Validated CategoryParameterGroup categoryParameterGroup) {
-        return Result.success(categoryParameterGroupService.save(categoryParameterGroup));
+        return Result.success(categoryParameterGroupCommandService.save(categoryParameterGroup));
     }
 
     @Operation(summary = "更新数据", description = "更新数据")
@@ -87,7 +92,7 @@ public class CategoryParameterGroupManagerController {
     @PreAuthorize("hasAuthority('dept:tree:data')")
     @PutMapping
     public Result<Boolean> update(@Validated CategoryParameterGroup categoryParameterGroup) {
-        return Result.success(categoryParameterGroupService.updateById(categoryParameterGroup));
+        return Result.success(categoryParameterGroupCommandService.updateById(categoryParameterGroup));
     }
 
     @Operation(summary = "通过id删除参数组", description = "通过id删除参数组")
@@ -99,8 +104,8 @@ public class CategoryParameterGroupManagerController {
     @DeleteMapping(value = "/{id}")
     public Result<Boolean> delAllByIds(@PathVariable Long id) {
         // 删除参数
-        parametersService.remove(new QueryWrapper<Parameters>().eq("group_id", id));
+		parametersCommandService.remove(new QueryWrapper<ParametersPO>().eq("group_id", id));
         // 删除参数组
-        return Result.success(categoryParameterGroupService.removeById(id));
+        return Result.success(categoryParameterGroupCommandService.removeById(id));
     }
 }

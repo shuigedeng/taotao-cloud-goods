@@ -17,13 +17,13 @@
 package com.taotao.cloud.goods.application.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.taotao.cloud.goods.application.command.category.dto.clientobject.CategoryBrandCO;
+import com.taotao.boot.webagg.service.impl.BaseSuperServiceImpl;
+import com.taotao.cloud.goods.application.dto.category.clientobject.CategoryBrandCO;
 import com.taotao.cloud.goods.application.service.CategoryBrandCommandService;
 import com.taotao.cloud.goods.infrastructure.persistent.mapper.CategoryBrandMapper;
-import com.taotao.cloud.goods.infrastructure.persistent.po.CategoryBrandPO;
+import com.taotao.cloud.goods.infrastructure.persistent.persistence.CategoryBrandPO;
 import com.taotao.cloud.goods.infrastructure.persistent.repository.cls.CategoryBrandRepository;
 import com.taotao.cloud.goods.infrastructure.persistent.repository.inf.ICategoryBrandRepository;
-import com.taotao.boot.web.base.service.impl.BaseSuperServiceImpl;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -41,14 +41,10 @@ import java.util.List;
 public class CategoryBrandCommandServiceImpl extends BaseSuperServiceImpl<
 	CategoryBrandPO,
 	Long,
-		CategoryBrandMapper,
+	CategoryBrandMapper,
 	CategoryBrandRepository,
-	ICategoryBrandRepository> implements CategoryBrandCommandService {
-
-	@Override
-	public List<CategoryBrandCO> getCategoryBrandList(Long categoryId) {
-		return im().getCategoryBrandList(categoryId);
-	}
+	ICategoryBrandRepository>
+	implements CategoryBrandCommandService {
 
 	@Override
 	public boolean deleteByCategoryId(Long categoryId) {
@@ -57,12 +53,6 @@ public class CategoryBrandCommandServiceImpl extends BaseSuperServiceImpl<
 		return im().delete(wrapper) > 0;
 	}
 
-	@Override
-	public List<CategoryBrandPO> getCategoryBrandListByBrandId(List<Long> brandId) {
-		LambdaQueryWrapper<CategoryBrandPO> wrapper = new LambdaQueryWrapper<>();
-		wrapper.in(CategoryBrandPO::getBrandId, brandId);
-		return list(wrapper);
-	}
 
 	@Override
 	@Transactional(rollbackFor = Exception.class)
@@ -72,11 +62,11 @@ public class CategoryBrandCommandServiceImpl extends BaseSuperServiceImpl<
 
 		// 绑定品牌信息
 		if (!brandIds.isEmpty()) {
-			List<CategoryBrandPO> categoryBrandPOS = new ArrayList<>();
+			List<CategoryBrandPO> categoryBrandPos = new ArrayList<>();
 			for (Long brandId : brandIds) {
-				categoryBrandPOS.add(new CategoryBrandPO(categoryId, brandId));
+				categoryBrandPos.add(new CategoryBrandPO(categoryId, brandId));
 			}
-			this.saveBatch(categoryBrandPOS);
+			this.saveBatch(categoryBrandPos);
 		}
 
 		return true;

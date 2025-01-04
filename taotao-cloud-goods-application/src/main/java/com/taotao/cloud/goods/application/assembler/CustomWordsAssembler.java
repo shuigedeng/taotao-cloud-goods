@@ -16,8 +16,6 @@
 
 package com.taotao.cloud.goods.application.assembler;
 
-import com.taotao.cloud.goods.application.model.vo.CustomWordsVO;
-import com.taotao.cloud.goods.application.model.entity.CustomWords;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 import org.mapstruct.factory.Mappers;

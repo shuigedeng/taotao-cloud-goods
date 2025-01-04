@@ -28,22 +28,16 @@ import com.taotao.boot.common.utils.bean.BeanUtils;
 import com.taotao.boot.common.utils.common.OrikaUtils;
 import com.taotao.boot.common.utils.date.DateUtils;
 import com.taotao.boot.security.spring.utils.SecurityUtils;
-import com.taotao.boot.web.base.service.impl.BaseSuperServiceImpl;
-import com.taotao.cloud.goods.api.enums.StudioStatusEnum;
-import com.taotao.cloud.goods.application.command.commodity.dto.clientobject.CommodityCO;
-import com.taotao.cloud.goods.application.command.store.dto.clientobject.StudioCommodityCO;
+import com.taotao.boot.webagg.service.impl.BaseSuperServiceImpl;
 import com.taotao.cloud.goods.application.service.GoodsCommandService;
 import com.taotao.cloud.goods.application.service.StudioCommandService;
 import com.taotao.cloud.goods.application.service.StudioCommodityCommandService;
+import com.taotao.cloud.goods.application.service.StudioQueryService;
 import com.taotao.cloud.goods.infrastructure.persistent.mapper.CommodityMapper;
 import com.taotao.cloud.goods.infrastructure.persistent.mapper.StudioMapper;
-import com.taotao.cloud.goods.infrastructure.persistent.po.CommodityPO;
-import com.taotao.cloud.goods.infrastructure.persistent.po.GoodsPO;
-import com.taotao.cloud.goods.infrastructure.persistent.po.StudioCommodityPO;
-import com.taotao.cloud.goods.infrastructure.persistent.po.StudioPO;
+import com.taotao.cloud.goods.infrastructure.persistent.persistence.StudioPO;
 import com.taotao.cloud.goods.infrastructure.persistent.repository.cls.StudioRepository;
 import com.taotao.cloud.goods.infrastructure.persistent.repository.inf.IStudioRepository;
-import com.taotao.cloud.goods.infrastructure.util.WechatLivePlayerUtil;
 import com.taotao.cloud.stream.framework.trigger.enums.DelayTypeEnums;
 import com.taotao.cloud.stream.framework.trigger.interfaces.TimeTrigger;
 import com.taotao.cloud.stream.framework.trigger.message.BroadcastMessage;
@@ -68,7 +62,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class StudioQueryServiceImpl
         extends BaseSuperServiceImpl<StudioPO, Long, StudioMapper, StudioRepository, IStudioRepository>
-        implements StudioCommandService {
+        implements StudioQueryService {
 
     @Autowired
     private WechatLivePlayerUtil wechatLivePlayerUtil;

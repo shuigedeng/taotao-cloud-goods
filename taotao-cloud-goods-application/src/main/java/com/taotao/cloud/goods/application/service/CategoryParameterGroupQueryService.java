@@ -50,21 +50,4 @@ public interface CategoryParameterGroupQueryService extends
      */
     List<CategoryParameterGroupPO> getCategoryGroup(Long categoryId);
 
-    /**
-     * 更新分类参数组绑定信息
-     *
-     * @param categoryParameterGroupPO 分类参数组信息
-     * @return {@link boolean }
-     * @since 2022-04-27 16:59:23
-     */
-    boolean updateCategoryGroup(CategoryParameterGroupAddCmd categoryParameterGroupAddCmd);
-
-    /**
-     * 通过分类ID删除关联品牌
-     *
-     * @param categoryId 品牌ID
-     * @return {@link boolean }
-     * @since 2022-04-27 16:59:23
-     */
-    boolean deleteByCategoryId(Long categoryId);
 }

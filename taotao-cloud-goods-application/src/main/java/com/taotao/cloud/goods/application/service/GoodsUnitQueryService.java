@@ -17,6 +17,7 @@
 package com.taotao.cloud.goods.application.service;
 
 
+import com.taotao.boot.webagg.service.BaseSuperService;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsUnitPO;
 
 /**
@@ -26,4 +27,5 @@ import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsUnitPO;
  * @version 2022.04
  * @since 2022-04-27 17:00:52
  */
-public interface GoodsUnitQueryService extends BaseSuperService<GoodsUnitPO, Long> {}
+public interface GoodsUnitQueryService extends BaseSuperService<GoodsUnitPO, Long> {
+}

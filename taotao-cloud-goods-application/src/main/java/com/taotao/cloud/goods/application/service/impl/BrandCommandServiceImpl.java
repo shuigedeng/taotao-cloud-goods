@@ -17,30 +17,33 @@
 package com.taotao.cloud.goods.application.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.taotao.boot.common.enums.ResultEnum;
 import com.taotao.boot.common.exception.BusinessException;
 import com.taotao.boot.common.utils.bean.BeanUtils;
-import com.taotao.boot.common.utils.lang.StringUtils;
 import com.taotao.boot.common.utils.log.LogUtils;
-import com.taotao.boot.data.mybatis.mybatisplus.MpUtils;
 import com.taotao.boot.webagg.service.impl.BaseSuperServiceImpl;
+import com.taotao.cloud.goods.application.assembler.BrandAssembler;
+import com.taotao.cloud.goods.application.dto.brand.cmmond.BrandAddCmd;
+import com.taotao.cloud.goods.application.dto.brand.cmmond.BrandUpdateCmd;
 import com.taotao.cloud.goods.application.service.BrandCommandService;
 import com.taotao.cloud.goods.application.service.CategoryBrandCommandService;
+import com.taotao.cloud.goods.application.service.CategoryBrandQueryService;
 import com.taotao.cloud.goods.application.service.CategoryCommandService;
+import com.taotao.cloud.goods.application.service.CategoryQueryService;
 import com.taotao.cloud.goods.application.service.GoodsCommandService;
+import com.taotao.cloud.goods.application.service.GoodsQueryService;
 import com.taotao.cloud.goods.infrastructure.persistent.mapper.BrandMapper;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.BrandPO;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.CategoryBrandPO;
+import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsPO;
 import com.taotao.cloud.goods.infrastructure.persistent.repository.cls.BrandRepository;
 import com.taotao.cloud.goods.infrastructure.persistent.repository.inf.IBrandRepository;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 import lombok.AllArgsConstructor;
 import org.dromara.hutool.json.JSONUtil;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 商品品牌业务层实现
@@ -58,68 +61,32 @@ public class BrandCommandServiceImpl extends
 	/**
 	 * 分类品牌绑定服务
 	 */
-	private final CategoryBrandCommandService categoryBrandService;
+	private final CategoryBrandCommandService categoryBrandCommandService;
+	private final CategoryBrandQueryService categoryBrandQueryService;
 	/**
 	 * 分类服务
 	 */
-	private final CategoryCommandService categoryService;
+	private final CategoryCommandService categoryCommandService;
+	private final CategoryQueryService categoryQueryService;
 	/**
 	 * 商品服务
 	 */
-	private final GoodsCommandService goodsService;
+	private final GoodsCommandService goodsCommandService;
+	private final GoodsQueryService goodsQueryService;
+
 
 	@Override
-	public IPage<BrandPO> brandsQueryPage(BrandPageQuery page) {
-		LambdaQueryWrapper<BrandPO> queryWrapper = new LambdaQueryWrapper<>();
-		queryWrapper.like(StringUtils.isNotBlank(page.getName()), BrandPO::getName, page.getName());
-
-		return this.page(MpUtils.buildMpPage(page), queryWrapper);
-	}
-
-	@Override
-	public List<BrandPO> getBrandsByCategory(Long categoryId) {
-		QueryWrapper<CategoryBrandPO> queryWrapper = new QueryWrapper<>();
-		queryWrapper.eq("category_id", categoryId);
-		List<CategoryBrandPO> list = categoryBrandService.list(queryWrapper);
-		if (list != null && !list.isEmpty()) {
-			List<Long> collect = list.stream().map(CategoryBrand::getBrandId).toList();
-			return this.list(new LambdaQueryWrapper<BrandPO>().in(BrandPO::getId, collect));
-		}
-		return new ArrayList<>();
-	}
-
-	@Override
-	public List<Map<String, Object>> getBrandsMapsByCategory(List<Long> categoryIds,
-		String columns) {
-		return null;
-	}
-
-	@Override
-	public List<BrandPO> getBrandsByCategorys(Long categoryIds) {
-		// Map<String,  List<Brand>> map = this.baseMapper.selectBrandsByCategorysAsMap(categoryIds)
-
-		QueryWrapper<CategoryBrand> queryWrapper = new QueryWrapper<>();
-		queryWrapper.in("category_id", categoryIds);
-		List<CategoryBrand> list = categoryBrandService.list(queryWrapper);
-		if (list != null && !list.isEmpty()) {
-			List<Long> collect = list.stream().map(CategoryBrand::getBrandId).toList();
-			return this.list(new LambdaQueryWrapper<BrandPO>().in(BrandPO::getId, collect));
-		}
-		return new ArrayList<>();
-	}
-
-	@Override
-	public boolean addBrand(BrandDTO brandDTO) {
+	public boolean addBrand(BrandAddCmd brandDTO) {
 		LambdaQueryWrapper<BrandPO> lambdaQueryWrapper = new LambdaQueryWrapper<>();
 		lambdaQueryWrapper.eq(BrandPO::getName, brandDTO.getName());
 		if (getOne(lambdaQueryWrapper) != null) {
 			throw new BusinessException(ResultEnum.BRAND_NAME_EXIST_ERROR);
 		}
-		return this.save(BrandConvert.INSTANCE.convert(brandDTO));
+		return this.save(BrandAssembler.INSTANCE.convert(brandDTO));
 	}
 
 	@Override
-	public boolean updateBrand(BrandDTO brandDTO) {
+	public boolean updateBrand(BrandUpdateCmd brandDTO) {
 		this.checkExist(brandDTO.getId());
 
 		if (getOne(new LambdaQueryWrapper<BrandPO>()
@@ -145,17 +112,6 @@ public class BrandCommandServiceImpl extends
 		return updateById(brand);
 	}
 
-	@Override
-	public List<BrandPO> getAllAvailable() {
-		LambdaQueryWrapper<BrandPO> lambdaQueryWrapper = new LambdaQueryWrapper<>();
-		lambdaQueryWrapper.eq(BrandPO::getDelFlag, 0);
-		return this.list(lambdaQueryWrapper);
-	}
-
-	@Override
-	public IPage<BrandPO> getBrandsByPage(BrandPageQuery page) {
-		return null;
-	}
 
 	@Override
 	public boolean deleteBrands(List<Long> ids) {
@@ -170,21 +126,21 @@ public class BrandCommandServiceImpl extends
 	 */
 	private void checkBind(List<Long> brandIds) {
 		// 分了绑定关系查询
-		List<CategoryBrand> categoryBrands = categoryBrandService.getCategoryBrandListByBrandId(
+		List<CategoryBrandPO> categoryBrands = categoryBrandQueryService.getCategoryBrandListByBrandId(
 			brandIds);
 
 		if (!categoryBrands.isEmpty()) {
 			List<Long> categoryIds =
-				categoryBrands.stream().map(CategoryBrand::getCategoryId).toList();
+				categoryBrands.stream().map(CategoryBrandPO::getCategoryId).toList();
 			throw new BusinessException(
 				ResultEnum.BRAND_USE_DISABLE_ERROR.getCode(),
-				JSONUtil.toJsonStr(categoryService.getCategoryNameByIds(categoryIds)));
+				JSONUtil.toJsonStr(categoryQueryService.getCategoryNameByIds(categoryIds)));
 		}
 
 		// 分了商品绑定关系查询
-		List<Goods> goods = goodsService.getByBrandIds(brandIds);
+		List<GoodsPO> goods = goodsQueryService.getByBrandIds(brandIds);
 		if (!goods.isEmpty()) {
-			List<String> goodsNames = goods.stream().map(Goods::getGoodsName).toList();
+			List<String> goodsNames = goods.stream().map(GoodsPO::getGoodsName).toList();
 			throw new BusinessException(ResultEnum.BRAND_BIND_GOODS_ERROR.getCode(),
 				JSONUtil.toJsonStr(goodsNames));
 		}

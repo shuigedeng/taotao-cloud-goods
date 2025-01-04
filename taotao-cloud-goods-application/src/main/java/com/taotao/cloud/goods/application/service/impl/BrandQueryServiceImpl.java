@@ -26,7 +26,8 @@ import com.taotao.boot.common.utils.lang.StringUtils;
 import com.taotao.boot.common.utils.log.LogUtils;
 import com.taotao.boot.data.mybatis.mybatisplus.MpUtils;
 import com.taotao.boot.webagg.service.impl.BaseSuperServiceImpl;
-import com.taotao.cloud.goods.application.service.BrandCommandService;
+import com.taotao.cloud.goods.application.dto.brand.query.BrandPageQry;
+import com.taotao.cloud.goods.application.service.BrandQueryService;
 import com.taotao.cloud.goods.application.service.CategoryBrandCommandService;
 import com.taotao.cloud.goods.application.service.CategoryCommandService;
 import com.taotao.cloud.goods.application.service.GoodsCommandService;
@@ -35,12 +36,13 @@ import com.taotao.cloud.goods.infrastructure.persistent.persistence.BrandPO;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.CategoryBrandPO;
 import com.taotao.cloud.goods.infrastructure.persistent.repository.cls.BrandRepository;
 import com.taotao.cloud.goods.infrastructure.persistent.repository.inf.IBrandRepository;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 import lombok.AllArgsConstructor;
 import org.dromara.hutool.json.JSONUtil;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * 商品品牌业务层实现
@@ -53,7 +55,7 @@ import org.springframework.stereotype.Service;
 @AllArgsConstructor
 public class BrandQueryServiceImpl extends
 	BaseSuperServiceImpl<BrandPO, Long, BrandMapper, BrandRepository, IBrandRepository>
-	implements BrandCommandService {
+	implements BrandQueryService {
 
 	/**
 	 * 分类品牌绑定服务
@@ -69,7 +71,7 @@ public class BrandQueryServiceImpl extends
 	private final GoodsCommandService goodsService;
 
 	@Override
-	public IPage<BrandPO> brandsQueryPage(BrandPageQuery page) {
+	public IPage<BrandPO> brandsQueryPage(BrandPageQry page) {
 		LambdaQueryWrapper<BrandPO> queryWrapper = new LambdaQueryWrapper<>();
 		queryWrapper.like(StringUtils.isNotBlank(page.getName()), BrandPO::getName, page.getName());
 
@@ -90,7 +92,7 @@ public class BrandQueryServiceImpl extends
 
 	@Override
 	public List<Map<String, Object>> getBrandsMapsByCategory(List<Long> categoryIds,
-		String columns) {
+															 String columns) {
 		return null;
 	}
 
@@ -108,42 +110,9 @@ public class BrandQueryServiceImpl extends
 		return new ArrayList<>();
 	}
 
-	@Override
-	public boolean addBrand(BrandDTO brandDTO) {
-		LambdaQueryWrapper<BrandPO> lambdaQueryWrapper = new LambdaQueryWrapper<>();
-		lambdaQueryWrapper.eq(BrandPO::getName, brandDTO.getName());
-		if (getOne(lambdaQueryWrapper) != null) {
-			throw new BusinessException(ResultEnum.BRAND_NAME_EXIST_ERROR);
-		}
-		return this.save(BrandConvert.INSTANCE.convert(brandDTO));
-	}
 
-	@Override
-	public boolean updateBrand(BrandDTO brandDTO) {
-		this.checkExist(brandDTO.getId());
 
-		if (getOne(new LambdaQueryWrapper<BrandPO>()
-			.eq(BrandPO::getName, brandDTO.getName())
-			.ne(BrandPO::getId, brandDTO.getId()))
-			!= null) {
-			throw new BusinessException(ResultEnum.BRAND_NAME_EXIST_ERROR);
-		}
 
-		return this.updateById(BeanUtils.copy(brandDTO, BrandPO.class));
-	}
-
-	@Override
-	public boolean brandDisable(Long brandId, boolean disable) {
-		BrandPO brand = this.checkExist(brandId);
-		// 如果是要禁用，则需要先判定绑定关系
-		if (disable) {
-			List<Long> ids = new ArrayList<>();
-			ids.add(brandId);
-			checkBind(ids);
-		}
-		brand.setDelFlag(disable);
-		return updateById(brand);
-	}
 
 	@Override
 	public List<BrandPO> getAllAvailable() {
@@ -153,15 +122,11 @@ public class BrandQueryServiceImpl extends
 	}
 
 	@Override
-	public IPage<BrandPO> getBrandsByPage(BrandPageQuery page) {
+	public IPage<BrandPO> getBrandsByPage(BrandPageQry page) {
 		return null;
 	}
 
-	@Override
-	public boolean deleteBrands(List<Long> ids) {
-		checkBind(ids);
-		return this.removeByIds(ids);
-	}
+
 
 	/**
 	 * 校验绑定关系

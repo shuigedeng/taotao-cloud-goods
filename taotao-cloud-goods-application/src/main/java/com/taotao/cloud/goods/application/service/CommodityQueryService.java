@@ -17,6 +17,8 @@
 package com.taotao.cloud.goods.application.service;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.taotao.boot.webagg.service.BaseSuperService;
+import com.taotao.cloud.goods.application.dto.commodity.clientobject.CommoditySkuCO;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.CommodityPO;
 import java.util.List;
 
@@ -29,23 +31,6 @@ import java.util.List;
  */
 public interface CommodityQueryService extends BaseSuperService<CommodityPO, Long> {
 
-	/**
-	 * 添加直播商品
-	 *
-	 * @param commodityPO 直播商品列表
-	 * @return {@link boolean }
-	 * @since 2022-04-27 16:59:47
-	 */
-	boolean addCommodity(List<CommodityAddCmd> commodityAddCmdList);
-
-	/**
-	 * 删除直播商品
-	 *
-	 * @param goodsId 直播商品ID
-	 * @return {@link boolean }
-	 * @since 2022-04-27 16:59:47
-	 */
-	boolean deleteCommodity(Long goodsId);
 
 	/**
 	 * 查询微信小程序直播商品审核状态

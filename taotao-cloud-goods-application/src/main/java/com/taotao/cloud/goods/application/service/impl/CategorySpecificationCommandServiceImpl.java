@@ -17,16 +17,17 @@
 package com.taotao.cloud.goods.application.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.taotao.boot.webagg.service.impl.BaseSuperServiceImpl;
 import com.taotao.cloud.goods.application.service.CategorySpecificationCommandService;
 import com.taotao.cloud.goods.infrastructure.persistent.mapper.CategorySpecificationMapper;
-import com.taotao.cloud.goods.infrastructure.persistent.po.CategorySpecificationPO;
-import com.taotao.cloud.goods.infrastructure.persistent.po.SpecificationPO;
+import com.taotao.cloud.goods.infrastructure.persistent.persistence.CategorySpecificationPO;
+import com.taotao.cloud.goods.infrastructure.persistent.persistence.SpecificationPO;
 import com.taotao.cloud.goods.infrastructure.persistent.repository.cls.CategorySpecificationRepository;
 import com.taotao.cloud.goods.infrastructure.persistent.repository.inf.ICategorySpecificationRepository;
-import com.taotao.boot.web.base.service.impl.BaseSuperServiceImpl;
-import java.util.List;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * 商品分类规格业务层实现
@@ -41,7 +42,7 @@ public class CategorySpecificationCommandServiceImpl
 	extends BaseSuperServiceImpl<
 	CategorySpecificationPO,
 	Long,
-		CategorySpecificationMapper,
+	CategorySpecificationMapper,
 	CategorySpecificationRepository,
 	ICategorySpecificationRepository>
 	implements CategorySpecificationCommandService {

@@ -23,21 +23,22 @@ import com.taotao.boot.cache.redis.repository.RedisRepository;
 import com.taotao.boot.common.enums.ResultEnum;
 import com.taotao.boot.common.exception.BusinessException;
 import com.taotao.boot.security.spring.utils.SecurityUtils;
-import com.taotao.boot.web.base.service.impl.BaseSuperServiceImpl;
-import com.taotao.cloud.goods.application.command.store.dto.clientobject.StoreGoodsLabelCO;
-import com.taotao.cloud.goods.application.service.StoreGoodsLabelCommandService;
+import com.taotao.boot.webagg.service.impl.BaseSuperServiceImpl;
+import com.taotao.cloud.goods.application.dto.store.clientobject.StoreGoodsLabelCO;
+import com.taotao.cloud.goods.application.service.StoreGoodsLabelQueryService;
 import com.taotao.cloud.goods.infrastructure.persistent.mapper.StoreGoodsLabelMapper;
-import com.taotao.cloud.goods.infrastructure.persistent.po.StoreGoodsLabelPO;
+import com.taotao.cloud.goods.infrastructure.persistent.persistence.StoreGoodsLabelPO;
 import com.taotao.cloud.goods.infrastructure.persistent.repository.cls.StoreGoodsLabelRepository;
 import com.taotao.cloud.goods.infrastructure.persistent.repository.inf.IStoreGoodsLabelRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 /**
  * 店铺商品分类业务层实现
@@ -50,7 +51,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class StoreGoodsLabelQueryServiceImpl
 	extends
 	BaseSuperServiceImpl<StoreGoodsLabelPO, Long, StoreGoodsLabelMapper, StoreGoodsLabelRepository, IStoreGoodsLabelRepository>
-	implements StoreGoodsLabelCommandService {
+	implements StoreGoodsLabelQueryService {
 
 	/**
 	 * 缓存
@@ -113,69 +114,12 @@ public class StoreGoodsLabelQueryServiceImpl
 			.orderByAsc(StoreGoodsLabelPO::getLevel));
 	}
 
+
 	@Override
-	public List<StoreGoodsLabelCO> listByStoreId(String storeId) {
+	public List<Map<String, Object>> listMapsByStoreIds(List<Long> ids, String columns) {
 		return List.of();
 	}
 
-	@Override
-	public List<StoreGoodsLabelPO> listByStoreIds(List<String> ids) {
-		return List.of();
-	}
-
-	@Override
-	public List<Map<String, Object>> listMapsByStoreIds(List<String> ids, String columns) {
-		return List.of();
-	}
-
-	@Override
-	@Transactional(rollbackFor = Exception.class)
-	public boolean addStoreGoodsLabel(StoreGoodsLabelPO storeGoodsLabelPO) {
-		// 获取当前登录商家账号
-		SecurityUser tokenUser = SecurityUtils.getCurrentUser();
-		storeGoodsLabelPO.setStoreId(tokenUser.getStoreId());
-		// 保存店铺分类
-		this.save(storeGoodsLabelPO);
-		// 清除缓存
-		removeCache(storeGoodsLabelPO.getStoreId());
-		return true;
-	}
-
-	@Override
-	@Transactional(rollbackFor = Exception.class)
-	public boolean editStoreGoodsLabel(StoreGoodsLabelPO storeGoodsLabelPO) {
-		// 修改当前店铺的商品分类
-		SecurityUser tokenUser = SecurityUtils.getCurrentUser();
-
-		LambdaUpdateWrapper<StoreGoodsLabelPO> lambdaUpdateWrapper = Wrappers.lambdaUpdate();
-		lambdaUpdateWrapper.eq(StoreGoodsLabelPO::getStoreId, tokenUser.getStoreId());
-		lambdaUpdateWrapper.eq(StoreGoodsLabelPO::getId, storeGoodsLabelPO.getId());
-		// 修改店铺分类
-		this.update(storeGoodsLabelPO, lambdaUpdateWrapper);
-		// 清除缓存
-		removeCache(storeGoodsLabelPO.getStoreId());
-		return true;
-	}
-
-	@Override
-	public void removeStoreGoodsLabel(String storeLabelId) {
-
-	}
-
-	@Override
-	public boolean removeStoreGoodsLabel(Long storeLabelId) {
-		SecurityUser tokenUser = SecurityUtils.getCurrentUser();
-		if (tokenUser == null || Objects.isNull(tokenUser.getStoreId())) {
-			throw new BusinessException(ResultEnum.USER_NOT_LOGIN);
-		}
-		// 删除店铺分类
-		this.removeById(storeLabelId);
-
-		// 清除缓存
-		removeCache(tokenUser.getStoreId());
-
-		return true;
-	}
 
 	/**
 	 * 获取店铺商品分类列表

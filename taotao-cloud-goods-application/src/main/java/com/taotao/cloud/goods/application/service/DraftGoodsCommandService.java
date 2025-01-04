@@ -18,6 +18,8 @@ package com.taotao.cloud.goods.application.service;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.taotao.cloud.goods.application.dto.draft.cmmond.DraftGoodsSkuParamsAddCmd;
+import com.taotao.cloud.goods.application.dto.draft.cmmond.DraftGoodsSkuParamsSaveCmd;
+import com.taotao.cloud.goods.application.dto.draft.cmmond.DraftGoodsSkuParamsUpdateCmd;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.DraftGoodsPO;
 
 /**
@@ -65,21 +67,5 @@ public interface DraftGoodsCommandService extends BaseSuperService<DraftGoodsPO,
      */
     boolean deleteGoodsDraft(Long id);
 
-    /**
-     * 获取草稿商品详情
-     *
-     * @param id 草稿商品ID
-     * @return {@link DraftGoodsSkuParamsCO }
-     * @since 2022-04-27 16:59:57
-     */
-    DraftGoodsSkuParamsCO getDraftGoods(Long id);
 
-    /**
-     * 分页获取草稿商品
-     *
-     * @param searchParams 查询参数
-     * @return {@link IPage }<{@link DraftGoodsPO }>
-     * @since 2022-04-27 16:59:57
-     */
-    IPage<DraftGoodsPO> draftGoodsQueryPage(DraftGoodsPageQry searchParams);
 }

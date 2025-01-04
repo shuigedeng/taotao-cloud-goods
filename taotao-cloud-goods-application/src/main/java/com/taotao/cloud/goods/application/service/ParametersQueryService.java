@@ -29,14 +29,6 @@ import java.util.List;
  */
 public interface ParametersQueryService extends BaseSuperService<ParametersPO, Long> {
 
-    /**
-     * 更新参数组信息
-     *
-     * @param parametersPO 参数组信息
-     * @return {@link boolean }
-     * @since 2022-04-27 17:00:58
-     */
-    boolean updateParameter(ParametersPO parametersPO);
 
     List<ParametersPO> queryParametersByCategoryId(Long categoryId);
 }

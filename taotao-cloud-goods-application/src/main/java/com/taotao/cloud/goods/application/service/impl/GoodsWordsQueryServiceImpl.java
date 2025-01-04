@@ -16,10 +16,11 @@
 
 package com.taotao.cloud.goods.application.service.impl;
 
-import com.taotao.boot.web.base.service.impl.BaseSuperServiceImpl;
+import com.taotao.boot.webagg.service.impl.BaseSuperServiceImpl;
 import com.taotao.cloud.goods.application.service.GoodsWordsCommandService;
+import com.taotao.cloud.goods.application.service.GoodsWordsQueryService;
 import com.taotao.cloud.goods.infrastructure.persistent.mapper.GoodsWordsMapper;
-import com.taotao.cloud.goods.infrastructure.persistent.po.GoodsWordsPO;
+import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsWordsPO;
 import com.taotao.cloud.goods.infrastructure.persistent.repository.cls.GoodsWordsRepository;
 import com.taotao.cloud.goods.infrastructure.persistent.repository.inf.IGoodsWordsRepository;
 import org.springframework.stereotype.Service;
@@ -34,4 +35,4 @@ import org.springframework.stereotype.Service;
 @Service
 public class GoodsWordsQueryServiceImpl
         extends BaseSuperServiceImpl<GoodsWordsPO, Long, GoodsWordsMapper, GoodsWordsRepository, IGoodsWordsRepository>
-        implements GoodsWordsCommandService {}
+        implements GoodsWordsQueryService {}

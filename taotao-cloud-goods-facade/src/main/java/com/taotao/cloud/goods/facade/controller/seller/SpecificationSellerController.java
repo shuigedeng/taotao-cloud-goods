@@ -18,14 +18,16 @@ package com.taotao.cloud.goods.facade.controller.seller;
 
 import com.taotao.boot.common.model.Result;
 import com.taotao.boot.web.request.annotation.RequestLogger;
+import com.taotao.cloud.goods.application.assembler.SpecificationAssembler;
 import com.taotao.cloud.goods.application.dto.specification.clientobject.SpecificationCO;
+import com.taotao.cloud.goods.application.service.CategorySpecificationCommandService;
 import com.taotao.cloud.goods.application.service.CategorySpecificationQueryService;
+import com.taotao.cloud.goods.infrastructure.persistent.persistence.SpecificationPO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.Parameters;
 import io.swagger.v3.oas.annotations.enums.ParameterIn;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import java.util.List;
 import lombok.AllArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
@@ -33,6 +35,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 /**
  * 店铺端-规格接口接口
@@ -51,7 +55,8 @@ public class SpecificationSellerController {
 	/**
 	 * 商品规格服务
 	 */
-	private final CategorySpecificationQueryService categorySpecificationService;
+	private final CategorySpecificationQueryService categorySpecificationQueryService;
+	private final CategorySpecificationCommandService categorySpecificationCommandService;
 
 	@Operation(summary = "获取分类规格", description = "获取分类规格")
 	@Parameters({
@@ -61,8 +66,8 @@ public class SpecificationSellerController {
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/{categoryId}")
 	public Result<List<SpecificationCO>> getSpecifications(@PathVariable Long categoryId) {
-		List<Specification> categorySpecList = categorySpecificationService.getCategorySpecList(
+		List<SpecificationPO> categorySpecList = categorySpecificationQueryService.getCategorySpecList(
 			categoryId);
-		return Result.success(SpecificationConvert.INSTANCE.convert(categorySpecList));
+		return Result.success(SpecificationAssembler.INSTANCE.convert(categorySpecList));
 	}
 }

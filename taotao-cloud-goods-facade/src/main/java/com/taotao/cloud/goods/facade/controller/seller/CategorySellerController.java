@@ -18,8 +18,12 @@ package com.taotao.cloud.goods.facade.controller.seller;
 
 import com.taotao.boot.common.model.Result;
 import com.taotao.boot.security.spring.utils.SecurityUtils;
+import com.taotao.cloud.goods.application.dto.category.clientobject.CategoryBrandCO;
 import com.taotao.cloud.goods.application.dto.category.clientobject.CategoryTreeCO;
+import com.taotao.cloud.goods.application.service.CategoryBrandCommandService;
 import com.taotao.cloud.goods.application.service.CategoryBrandQueryService;
+import com.taotao.cloud.goods.application.service.CategoryCommandService;
+import com.taotao.cloud.goods.application.service.CategoryQueryService;
 import com.taotao.cloud.store.api.feign.IFeignStoreDetailApi;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import io.swagger.v3.oas.annotations.Operation;
@@ -48,9 +52,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class CategorySellerController {
 
     /** 分类服务 */
-    private final CategoryQueryService categoryService;
+    private final CategoryQueryService categoryQueryService;
+    private final CategoryCommandService categoryCommandService;
     /** 分类品牌服务 */
-    private final CategoryBrandQueryService categoryBrandService;
+    private final CategoryBrandQueryService categoryBrandQueryService;
+    private final CategoryBrandCommandService categoryBrandCommandService;
     /** 店铺详情服务 */
     private final FeignStoreDetailApi storeDetailApi;
 
@@ -62,7 +68,7 @@ public class CategorySellerController {
         Long storeId = SecurityUtils.getCurrentUser().getStoreId();
         // 获取店铺经营范围
         String goodsManagementCategory = storeDetailApi.getStoreDetailVO(storeId).getGoodsManagementCategory();
-        return Result.success(this.categoryService.getStoreCategory(goodsManagementCategory.split(",")));
+        return Result.success(this.categoryQueryService.getStoreCategory(goodsManagementCategory.split(",")));
     }
 
     @Operation(summary = "获取所选分类关联的品牌信息", description = "获取所选分类关联的品牌信息")
@@ -70,6 +76,6 @@ public class CategorySellerController {
     @PreAuthorize("hasAuthority('dept:tree:data')")
     @GetMapping(value = "/{categoryId}/brands")
     public Result<List<CategoryBrandCO>> queryBrands(@PathVariable Long categoryId) {
-        return Result.success(this.categoryBrandService.getCategoryBrandList(categoryId));
+        return Result.success(this.categoryBrandQueryService.getCategoryBrandList(categoryId));
     }
 }

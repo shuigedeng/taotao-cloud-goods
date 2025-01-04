@@ -18,6 +18,8 @@ package com.taotao.cloud.goods.application.service;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.taotao.boot.common.model.PageQuery;
+import com.taotao.boot.webagg.service.BaseSuperService;
+import com.taotao.cloud.goods.application.dto.commodity.cmmond.CommodityAddCmd;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.CommodityPO;
 import java.util.List;
 
@@ -48,23 +50,5 @@ public interface CommodityCommandService extends BaseSuperService<CommodityPO, L
 	 */
 	boolean deleteCommodity(Long goodsId);
 
-	/**
-	 * 查询微信小程序直播商品审核状态
-	 *
-	 * @return {@link boolean }
-	 * @since 2022-04-27 16:59:47
-	 */
-	boolean getGoodsWareHouse();
 
-	/**
-	 * 查看直播商品分页
-	 *
-	 * @param PageQuery   分页
-	 * @param name        商品名称
-	 * @param auditStatus 审核状态
-	 * @return {@link IPage }<{@link CommoditySkuCO }>
-	 * @since 2022-04-27 16:59:47
-	 */
-	IPage<CommoditySkuCO> commodityList(PageQuery PageQuery,
-		String name, String auditStatus);
 }

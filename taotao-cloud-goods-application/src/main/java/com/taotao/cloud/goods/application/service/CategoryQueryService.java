@@ -18,10 +18,9 @@ package com.taotao.cloud.goods.application.service;
 
 import com.taotao.boot.webagg.service.BaseSuperService;
 import com.taotao.cloud.goods.application.dto.category.clientobject.CategoryTreeCO;
-import com.taotao.cloud.goods.application.dto.category.cmmond.CategoryAddCmd;
-import com.taotao.cloud.goods.application.dto.category.cmmond.CategoryUpdateCmd;
 import com.taotao.cloud.goods.application.dto.category.query.CategorySearchQry;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.CategoryPO;
+
 import java.util.List;
 import java.util.Map;
 
@@ -71,7 +70,7 @@ public interface CategoryQueryService extends BaseSuperService<CategoryPO, Long>
 	 * @return 商品分类列表
 	 */
 	List<Map<String, Object>> listMapsByIdsOrderByLevel(List<String> ids,
-		String columns);
+														String columns);
 
 	/**
 	 * 获取分类树
@@ -110,14 +109,6 @@ public interface CategoryQueryService extends BaseSuperService<CategoryPO, Long>
 	 * @return 商品分类list
 	 */
 	List<CategoryPO> findByAllBySortOrder(CategorySearchQry category);
-
-
-	/**
-	 * 批量删除分类
-	 *
-	 * @param id 分类ID
-	 */
-	void delete(String id);
 
 
 	/**

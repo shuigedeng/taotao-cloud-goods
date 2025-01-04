@@ -2,21 +2,21 @@
 
 package com.taotao.cloud.goods.application.executor.category.query;
 
-import static com.taotao.boot.common.enums.CachePrefixEnum.CATEGORY;
-import static com.taotao.boot.common.enums.CachePrefixEnum.CATEGORY_ARRAY;
-
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.taotao.boot.cache.redis.repository.RedisRepository;
 import com.taotao.boot.ddd.model.application.executor.Executor;
-import com.taotao.cloud.goods.application.command.category.dto.clientobject.CategoryTreeCO;
-import com.taotao.cloud.goods.application.convert.CategoryConvert;
+import com.taotao.cloud.goods.application.dto.category.clientobject.CategoryTreeCO;
 import com.taotao.cloud.goods.infrastructure.persistent.mapper.CategoryMapper;
-import com.taotao.cloud.goods.infrastructure.persistent.po.CategoryPO;
+import com.taotao.cloud.goods.infrastructure.persistent.persistence.CategoryPO;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
+
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Component;
+
+import static com.taotao.boot.common.enums.CachePrefixEnum.CATEGORY;
+import static com.taotao.boot.common.enums.CachePrefixEnum.CATEGORY_ARRAY;
 
 
 /**
@@ -70,7 +70,7 @@ public class CategoryTreeCmdExe extends Executor {
 	 * @return 分类CO列表
 	 */
 	public List<CategoryTreeCO> findChildren(List<CategoryPO> categories,
-		CategoryTreeCO categoryTreeCo) {
+											 CategoryTreeCO categoryTreeCo) {
 		List<CategoryTreeCO> children = new ArrayList<>();
 		categories.forEach(item -> {
 			if (item.getParentId().equals(categoryTreeCo.getId())) {

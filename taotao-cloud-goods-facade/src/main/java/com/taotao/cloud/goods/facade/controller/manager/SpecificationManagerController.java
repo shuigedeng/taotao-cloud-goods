@@ -21,6 +21,7 @@ import com.taotao.boot.common.model.PageResult;
 import com.taotao.boot.common.model.Result;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.cloud.goods.application.dto.specification.clientobject.SpecificationCO;
+import com.taotao.cloud.goods.application.service.SpecificationCommandService;
 import com.taotao.cloud.goods.application.service.SpecificationQueryService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -54,7 +55,8 @@ public class SpecificationManagerController {
     /**
      * 商品规格服务
      */
-    private final SpecificationQueryService specificationService;
+    private final SpecificationQueryService specificationQueryService;
+    private final SpecificationCommandService specificationCommandService;
 
     @Operation(summary = "获取所有可用规格", description = "获取所有可用规格")
     @RequestLogger("获取所有可用规格")

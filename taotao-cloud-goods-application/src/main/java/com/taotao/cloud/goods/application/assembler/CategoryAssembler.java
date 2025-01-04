@@ -16,13 +16,11 @@
 
 package com.taotao.cloud.goods.application.assembler;
 
-import com.taotao.cloud.goods.application.command.category.dto.clientobject.CategoryCO;
-import com.taotao.cloud.goods.application.command.category.dto.clientobject.CategoryTreeCO;
-import com.taotao.cloud.goods.application.model.vo.CategoryTreeVO;
-import com.taotao.cloud.goods.application.model.vo.CategoryVO;
-import com.taotao.cloud.goods.application.model.entity.Category;
-import com.taotao.cloud.goods.infrastructure.persistent.po.CategoryPO;
 import java.util.List;
+
+import com.taotao.cloud.goods.application.dto.category.clientobject.CategoryCO;
+import com.taotao.cloud.goods.application.dto.category.clientobject.CategoryTreeCO;
+import com.taotao.cloud.goods.infrastructure.persistent.persistence.CategoryPO;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 import org.mapstruct.factory.Mappers;

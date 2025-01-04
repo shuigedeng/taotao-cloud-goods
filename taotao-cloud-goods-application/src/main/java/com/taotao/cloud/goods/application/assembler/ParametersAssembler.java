@@ -16,9 +16,6 @@
 
 package com.taotao.cloud.goods.application.assembler;
 
-import com.taotao.cloud.goods.application.model.dto.ParametersDTO;
-import com.taotao.cloud.goods.application.model.vo.ParametersVO;
-import com.taotao.cloud.goods.application.model.entity.Parameters;
 import java.util.List;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;

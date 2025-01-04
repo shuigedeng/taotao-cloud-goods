@@ -14,16 +14,16 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.application.dto.category.cmmond;
+package com.taotao.cloud.goods.application.dto.store.cmmond;
 
 import com.taotao.boot.ddd.model.application.dto.Command;
 import io.swagger.v3.oas.annotations.media.Schema;
-import java.io.Serial;
-import java.io.Serializable;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.io.Serial;
 
 /**
  * StoreGoodsLabelCO
@@ -36,7 +36,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class StoreGoodsLabelAddCmd extends Command {
+public class StoreGoodsLabelEditCmd extends Command {
 
     @Serial
     private static final long serialVersionUID = -7605952923416404638L;

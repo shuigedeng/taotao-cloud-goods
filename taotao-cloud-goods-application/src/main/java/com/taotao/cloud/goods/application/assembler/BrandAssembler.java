@@ -16,6 +16,9 @@
 
 package com.taotao.cloud.goods.application.assembler;
 
+import com.taotao.cloud.goods.application.dto.brand.clientobject.BrandCO;
+import com.taotao.cloud.goods.application.dto.brand.cmmond.BrandAddCmd;
+import com.taotao.cloud.goods.infrastructure.persistent.persistence.BrandPO;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 import org.mapstruct.factory.Mappers;
@@ -44,7 +47,7 @@ public interface BrandAssembler {
 	 * @return {@link BrandVO }
 	 * @since 2022-04-27 16:57:56
 	 */
-	BrandVO convert(Brand brand);
+	BrandCO convert(BrandPO brand);
 
 	/**
 	 * 品牌品牌vos
@@ -53,7 +56,7 @@ public interface BrandAssembler {
 	 * @return {@link List }<{@link BrandVO }>
 	 * @since 2022-04-27 16:57:56
 	 */
-	List<BrandVO> convert(List<Brand> brands);
+	List<BrandCO> convert(List<BrandPO> brands);
 
 	/**
 	 * 品牌dtoto品牌
@@ -62,5 +65,5 @@ public interface BrandAssembler {
 	 * @return {@link Brand }
 	 * @since 2022-04-27 16:57:56
 	 */
-	Brand convert(BrandDTO brandDTO);
+	BrandPO convert(BrandAddCmd brandDTO);
 }

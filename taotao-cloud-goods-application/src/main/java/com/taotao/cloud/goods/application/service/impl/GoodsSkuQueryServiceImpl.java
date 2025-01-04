@@ -27,36 +27,36 @@ import com.taotao.boot.common.enums.ResultEnum;
 import com.taotao.boot.common.enums.UserEnum;
 import com.taotao.boot.common.exception.BusinessException;
 import com.taotao.boot.security.spring.utils.SecurityUtils;
-import com.taotao.boot.web.base.service.impl.BaseSuperServiceImpl;
-import com.taotao.cloud.goods.api.enums.GoodsAuthEnum;
-import com.taotao.cloud.goods.api.enums.GoodsStatusEnum;
-import com.taotao.cloud.goods.application.command.goods.dto.GoodsPageQry;
-import com.taotao.cloud.goods.application.command.goods.dto.GoodsSkuStockUpdateCmd;
-import com.taotao.cloud.goods.application.command.goods.dto.clientobject.GoodsSkuParamsCO;
-import com.taotao.cloud.goods.application.command.goods.dto.clientobject.GoodsSkuSpecGalleryCO;
-import com.taotao.cloud.goods.application.command.specification.dto.clientobject.SpecValueCO;
-import com.taotao.cloud.goods.application.convert.GoodsSkuConvert;
-import com.taotao.cloud.goods.application.elasticsearch.entity.EsGoodsIndex;
-import com.taotao.cloud.goods.application.elasticsearch.pojo.EsGoodsAttribute;
-import com.taotao.cloud.goods.application.listener.GeneratorEsGoodsIndexEvent;
+import com.taotao.boot.webagg.service.impl.BaseSuperServiceImpl;
+import com.taotao.cloud.goods.application.dto.goods.clientobject.GoodsSkuParamsCO;
+import com.taotao.cloud.goods.application.dto.goods.clientobject.GoodsSkuSpecGalleryCO;
+import com.taotao.cloud.goods.application.dto.goods.cmmond.GoodsSkuStockUpdateCmd;
+import com.taotao.cloud.goods.application.dto.goods.query.GoodsPageQry;
+import com.taotao.cloud.goods.application.dto.specification.clientobject.SpecValueCO;
+import com.taotao.cloud.goods.application.manager.GoodsManager;
 import com.taotao.cloud.goods.application.service.CategoryCommandService;
 import com.taotao.cloud.goods.application.service.EsGoodsCommandService;
 import com.taotao.cloud.goods.application.service.GoodsCommandService;
 import com.taotao.cloud.goods.application.service.GoodsGalleryCommandService;
-import com.taotao.cloud.goods.application.service.GoodsSkuCommandService;
+import com.taotao.cloud.goods.application.service.GoodsSkuQueryService;
+import com.taotao.cloud.goods.common.enums.SettingCategoryEnum;
 import com.taotao.cloud.goods.infrastructure.persistent.mapper.GoodsSkuMapper;
-import com.taotao.cloud.goods.infrastructure.persistent.po.GoodsPO;
-import com.taotao.cloud.goods.infrastructure.persistent.po.GoodsSkuPO;
+import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsPO;
+import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsSkuPO;
 import com.taotao.cloud.goods.infrastructure.persistent.repository.cls.GoodsSkuRepository;
 import com.taotao.cloud.goods.infrastructure.persistent.repository.inf.IGoodsSkuRepository;
-import com.taotao.cloud.goods.infrastructure.util.EsIndexUtil;
-import com.taotao.cloud.member.api.enums.EvaluationGradeEnum;
-import com.taotao.cloud.promotion.api.enums.CouponGetEnum;
-import com.taotao.cloud.promotion.api.feign.IFeignPromotionGoodsApi;
-import com.taotao.cloud.promotion.api.model.page.PromotionGoodsPageQuery;
 import com.taotao.cloud.stream.framework.rocketmq.RocketmqSendCallbackBuilder;
 import com.taotao.cloud.stream.framework.rocketmq.tags.GoodsTagsEnum;
-import com.taotao.cloud.sys.api.enums.SettingCategoryEnum;
+import lombok.AllArgsConstructor;
+import org.dromara.dynamictp.common.util.StringUtil;
+import org.dromara.hutool.core.map.MapUtil;
+import org.dromara.hutool.core.math.NumberUtil;
+import org.dromara.hutool.json.JSONObject;
+import org.dromara.hutool.json.JSONUtil;
+import org.springframework.context.ApplicationEventPublisher;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -70,15 +70,6 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
-import lombok.AllArgsConstructor;
-import org.dromara.dynamictp.common.util.StringUtil;
-import org.dromara.hutool.core.map.MapUtil;
-import org.dromara.hutool.core.math.NumberUtil;
-import org.dromara.hutool.json.JSONObject;
-import org.dromara.hutool.json.JSONUtil;
-import org.springframework.context.ApplicationEventPublisher;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 /**
  * 商品sku业务层实现
@@ -92,7 +83,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class GoodsSkuQueryServiceImpl
 	extends
 	BaseSuperServiceImpl<GoodsSkuPO, Long, GoodsSkuMapper, GoodsSkuRepository, IGoodsSkuRepository>
-	implements GoodsSkuCommandService {
+	implements GoodsSkuQueryService {
 
 	private final GoodsSkuManager goodsSkuManager;
 	private final GoodsManager goodsManager;
@@ -141,8 +132,7 @@ public class GoodsSkuQueryServiceImpl
 		if (skuList != null && !skuList.isEmpty()) {
 			// 添加商品sku
 			newSkuList = this.addGoodsSku(skuList, goods);
-		}
-		else {
+		} else {
 			throw new BusinessException(ResultEnum.MUST_HAVE_GOODS_SKU);
 		}
 
@@ -156,7 +146,7 @@ public class GoodsSkuQueryServiceImpl
 	@Override
 	@Transactional(rollbackFor = Exception.class)
 	public boolean update(List<Map<String, Object>> skuList, GoodsPO goods,
-		boolean regeneratorSkuFlag) {
+						  boolean regeneratorSkuFlag) {
 		// 是否存在规格
 		if (skuList == null || skuList.isEmpty()) {
 			throw new BusinessException(ResultEnum.MUST_HAVE_GOODS_SKU);
@@ -184,8 +174,7 @@ public class GoodsSkuQueryServiceImpl
 			rocketMQTemplate.asyncSend(
 				destination, JSONUtil.toJsonStr(oldSkuIds),
 				RocketmqSendCallbackBuilder.commonCallback());
-		}
-		else {
+		} else {
 			newSkuList = new ArrayList<>();
 			for (Map<String, Object> map : skuList) {
 				GoodsSkuPO sku = new GoodsSkuPO();
@@ -327,8 +316,7 @@ public class GoodsSkuQueryServiceImpl
 					goodsSkuDetail.setPromotionFlag(true);
 					goodsSkuDetail.setPromotionPrice(promotionsGoods.getPrice());
 				}
-			}
-			else {
+			} else {
 				goodsSkuDetail.setPromotionFlag(false);
 				goodsSkuDetail.setPromotionPrice(null);
 			}
@@ -453,8 +441,7 @@ public class GoodsSkuQueryServiceImpl
 						.map(SpecValueCO.SpecImages::getUrl)
 						.toList();
 				}
-			}
-			else {
+			} else {
 				specValueCO.setSpecName(entry.getKey());
 				specValueCO.setSpecValue(entry.getValue().toString());
 			}
@@ -516,8 +503,7 @@ public class GoodsSkuQueryServiceImpl
 		Integer stock = (Integer) redisRepository.get(cacheKeys);
 		if (stock != null) {
 			return stock;
-		}
-		else {
+		} else {
 			GoodsSkuPO goodsSkuPO = getGoodsSkuByIdFromCache(skuId);
 			redisRepository.set(cacheKeys, goodsSkuPO.getQuantity());
 			return goodsSkuPO.getQuantity();
@@ -710,7 +696,7 @@ public class GoodsSkuQueryServiceImpl
 	 * @param esGoodsIndex 商品索引
 	 */
 	private void skuInfo(GoodsSkuPO sku, GoodsPO goods, Map<String, Object> map,
-		EsGoodsIndex esGoodsIndex) {
+						 EsGoodsIndex esGoodsIndex) {
 		// 规格简短信息
 		StringBuilder simpleSpecs = new StringBuilder();
 		// 商品名称
@@ -732,8 +718,7 @@ public class GoodsSkuQueryServiceImpl
 				|| ("price").equals(spec.getKey())
 				|| ("quantity").equals(spec.getKey())
 				|| ("weight").equals(spec.getKey())) {
-			}
-			else {
+			} else {
 				specMap.put(spec.getKey(), spec.getValue());
 				if (("images").equals(spec.getKey())) {
 					// 设置规格商品缩略图
@@ -751,8 +736,7 @@ public class GoodsSkuQueryServiceImpl
 							.getGoodsGallery(images.get(0).get("url"))
 							.getSmall();
 					}
-				}
-				else {
+				} else {
 					if (spec.getValue() != null) {
 						// 设置商品名称
 						goodsName.append(" ").append(spec.getValue());
@@ -820,8 +804,7 @@ public class GoodsSkuQueryServiceImpl
 		// 检查商品是否存在--修改商品时使用
 		if (goods.getId() != null) {
 			this.checkExist(goods.getId());
-		}
-		else {
+		} else {
 			// 评论次数
 			goods.setCommentNum(0);
 			// 购买次数
@@ -849,8 +832,7 @@ public class GoodsSkuQueryServiceImpl
 			goods.setStoreId(storeDetail.getId());
 			goods.setStoreName(storeDetail.getStoreName());
 			goods.setSelfOperated(storeDetail.getSelfOperated());
-		}
-		else {
+		} else {
 			throw new BusinessException(ResultEnum.STORE_NOT_LOGIN_ERROR);
 		}
 	}

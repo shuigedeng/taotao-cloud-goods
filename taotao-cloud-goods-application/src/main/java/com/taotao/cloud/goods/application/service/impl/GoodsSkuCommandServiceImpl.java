@@ -16,6 +16,7 @@
 
 package com.taotao.cloud.goods.application.service.impl;
 
+import cn.hutool.core.convert.Convert;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
@@ -25,37 +26,37 @@ import com.taotao.boot.common.enums.PromotionTypeEnum;
 import com.taotao.boot.common.enums.ResultEnum;
 import com.taotao.boot.common.enums.UserEnum;
 import com.taotao.boot.common.exception.BusinessException;
-import com.taotao.cloud.goods.api.enums.GoodsAuthEnum;
-import com.taotao.cloud.goods.api.enums.GoodsStatusEnum;
-import com.taotao.cloud.goods.application.command.goods.dto.GoodsPageQry;
-import com.taotao.cloud.goods.application.command.goods.dto.GoodsSkuStockUpdateCmd;
-import com.taotao.cloud.goods.application.command.goods.dto.clientobject.GoodsSkuParamsCO;
-import com.taotao.cloud.goods.application.command.goods.dto.clientobject.GoodsSkuSpecGalleryCO;
-import com.taotao.cloud.goods.application.command.specification.dto.clientobject.SpecValueCO;
-import com.taotao.cloud.goods.application.convert.GoodsSkuConvert;
-import com.taotao.cloud.goods.application.elasticsearch.entity.EsGoodsIndex;
-import com.taotao.cloud.goods.application.elasticsearch.pojo.EsGoodsAttribute;
-import com.taotao.cloud.goods.application.listener.GeneratorEsGoodsIndexEvent;
+import com.taotao.boot.security.spring.utils.SecurityUtils;
+import com.taotao.boot.webagg.service.impl.BaseSuperServiceImpl;
+import com.taotao.cloud.goods.application.dto.goods.clientobject.GoodsSkuParamsCO;
+import com.taotao.cloud.goods.application.dto.goods.clientobject.GoodsSkuSpecGalleryCO;
+import com.taotao.cloud.goods.application.dto.goods.cmmond.GoodsSkuStockUpdateCmd;
+import com.taotao.cloud.goods.application.dto.goods.query.GoodsPageQry;
+import com.taotao.cloud.goods.application.dto.specification.clientobject.SpecValueCO;
+import com.taotao.cloud.goods.application.manager.GoodsManager;
 import com.taotao.cloud.goods.application.service.CategoryCommandService;
 import com.taotao.cloud.goods.application.service.EsGoodsCommandService;
-import com.taotao.cloud.goods.application.service.GoodsGalleryCommandService;
 import com.taotao.cloud.goods.application.service.GoodsCommandService;
+import com.taotao.cloud.goods.application.service.GoodsGalleryCommandService;
 import com.taotao.cloud.goods.application.service.GoodsSkuCommandService;
+import com.taotao.cloud.goods.common.enums.SettingCategoryEnum;
 import com.taotao.cloud.goods.infrastructure.persistent.mapper.GoodsSkuMapper;
-import com.taotao.cloud.goods.infrastructure.persistent.po.GoodsPO;
-import com.taotao.cloud.goods.infrastructure.persistent.po.GoodsSkuPO;
+import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsPO;
+import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsSkuPO;
 import com.taotao.cloud.goods.infrastructure.persistent.repository.cls.GoodsSkuRepository;
 import com.taotao.cloud.goods.infrastructure.persistent.repository.inf.IGoodsSkuRepository;
-import com.taotao.cloud.goods.infrastructure.util.EsIndexUtil;
-import com.taotao.cloud.member.api.enums.EvaluationGradeEnum;
 import com.taotao.cloud.stream.framework.rocketmq.RocketmqSendCallbackBuilder;
 import com.taotao.cloud.stream.framework.rocketmq.tags.GoodsTagsEnum;
-import com.taotao.cloud.promotion.api.enums.CouponGetEnum;
-import com.taotao.cloud.promotion.api.feign.IFeignPromotionGoodsApi;
-import com.taotao.cloud.promotion.api.model.page.PromotionGoodsPageQuery;
-import com.taotao.boot.security.spring.utils.SecurityUtils;
-import com.taotao.cloud.sys.api.enums.SettingCategoryEnum;
-import com.taotao.boot.web.base.service.impl.BaseSuperServiceImpl;
+import lombok.AllArgsConstructor;
+import org.dromara.dynamictp.common.util.StringUtil;
+import org.dromara.hutool.core.map.MapUtil;
+import org.dromara.hutool.core.math.NumberUtil;
+import org.dromara.hutool.json.JSONObject;
+import org.dromara.hutool.json.JSONUtil;
+import org.springframework.context.ApplicationEventPublisher;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -69,15 +70,6 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
-import lombok.AllArgsConstructor;
-import org.dromara.dynamictp.common.util.StringUtil;
-import org.dromara.hutool.core.map.MapUtil;
-import org.dromara.hutool.core.math.NumberUtil;
-import org.dromara.hutool.json.JSONObject;
-import org.dromara.hutool.json.JSONUtil;
-import org.springframework.context.ApplicationEventPublisher;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 /**
  * 商品sku业务层实现
@@ -140,8 +132,7 @@ public class GoodsSkuCommandServiceImpl
 		if (skuList != null && !skuList.isEmpty()) {
 			// 添加商品sku
 			newSkuList = this.addGoodsSku(skuList, goods);
-		}
-		else {
+		} else {
 			throw new BusinessException(ResultEnum.MUST_HAVE_GOODS_SKU);
 		}
 
@@ -155,7 +146,7 @@ public class GoodsSkuCommandServiceImpl
 	@Override
 	@Transactional(rollbackFor = Exception.class)
 	public boolean update(List<Map<String, Object>> skuList, GoodsPO goods,
-		boolean regeneratorSkuFlag) {
+						  boolean regeneratorSkuFlag) {
 		// 是否存在规格
 		if (skuList == null || skuList.isEmpty()) {
 			throw new BusinessException(ResultEnum.MUST_HAVE_GOODS_SKU);
@@ -183,8 +174,7 @@ public class GoodsSkuCommandServiceImpl
 			rocketMQTemplate.asyncSend(
 				destination, JSONUtil.toJsonStr(oldSkuIds),
 				RocketmqSendCallbackBuilder.commonCallback());
-		}
-		else {
+		} else {
 			newSkuList = new ArrayList<>();
 			for (Map<String, Object> map : skuList) {
 				GoodsSkuPO sku = new GoodsSkuPO();
@@ -225,143 +215,7 @@ public class GoodsSkuCommandServiceImpl
 		return true;
 	}
 
-	@Override
-	public GoodsSkuPO getGoodsSkuByIdFromCache(Long skuId) {
-		// 获取缓存中的sku
-		GoodsSkuPO goodsSkuPO = (GoodsSkuPO) redisRepository.get(getCacheKeys(skuId));
-		// 如果缓存中没有信息，则查询数据库，然后写入缓存
-		if (goodsSkuPO == null) {
-			goodsSkuPO = this.getById(skuId);
-			if (goodsSkuPO == null) {
-				return null;
-			}
-			redisRepository.set(getCacheKeys(skuId), goodsSkuPO);
-		}
 
-		// 获取商品库存
-		Integer stock = (Integer) redisRepository.get(getStockCacheKey(skuId));
-
-		// 库存不为空,库存与缓存中不一致
-		if (stock != null && !goodsSkuPO.getQuantity().equals(stock)) {
-			// 写入最新的库存信息
-			goodsSkuPO.setQuantity(stock);
-			redisRepository.set(getCacheKeys(goodsSkuPO.getId()), goodsSkuPO);
-		}
-
-		return goodsSkuPO;
-	}
-
-	@Override
-	public Map<String, Object> getGoodsSkuDetail(Long goodsId, Long skuId) {
-		Map<String, Object> map = new HashMap<>(16);
-		// 获取商品CO
-		GoodsSkuParamsCO goodsSkuParamsCO = goodsService.getGoodsCO(goodsId);
-		// 如果skuid为空，则使用商品CO中sku信息获取
-		if (Objects.nonNull(skuId)) {
-			skuId = goodsSkuParamsCO.getSkuList().get(0).getId();
-		}
-
-		// 从缓存拿商品Sku
-		GoodsSkuPO goodsSkuPO = this.getGoodsSkuByIdFromCache(skuId);
-		// 如果使用商品ID无法查询SKU则返回错误
-		if (goodsSkuParamsCO == null || goodsSkuPO == null) {
-			throw new BusinessException(ResultEnum.GOODS_NOT_EXIST);
-		}
-
-		// 商品下架||商品未审核通过||商品删除，则提示：商品已下架
-		if (GoodsStatusEnum.DOWN.name().equals(goodsSkuParamsCO.getMarketEnable())
-			|| !GoodsAuthEnum.PASS.name().equals(goodsSkuParamsCO.getIsAuth())
-			|| boolean.TRUE.equals(goodsSkuParamsCO.getDelFlag())) {
-			throw new BusinessException(ResultEnum.GOODS_NOT_EXIST);
-		}
-
-		// 获取当前商品的索引信息
-		EsGoodsIndex goodsIndex = goodsIndexService.findById(skuId);
-		if (goodsIndex == null) {
-			goodsIndex = goodsIndexService.getResetEsGoodsIndex(goodsSkuPO,
-				goodsSkuParamsCO.getGoodsParamsDTOList());
-		}
-
-		// 商品规格
-		GoodsSkuSpecGalleryCO goodsSkuDetail = this.getGoodsSkuCO(goodsSkuPO);
-
-		Map<String, Object> promotionMap = goodsIndex.getPromotionMap();
-		// 设置当前商品的促销价格
-		if (promotionMap != null && !promotionMap.isEmpty()) {
-			promotionMap = promotionMap.entrySet().stream()
-				.parallel()
-				.filter(i -> {
-					JSONObject jsonObject = JSONUtil.parseObj(i.getValue());
-					// 过滤活动赠送优惠券和无效时间的活动
-					return (jsonObject.get("getType") == null
-						|| jsonObject
-						.get("getType", String.class)
-						.equals(CouponGetEnum.FREE.name()))
-						&& (jsonObject.get("startTime") != null
-						&& jsonObject
-						.get("startTime", Date.class)
-						.getTime()
-						<= System.currentTimeMillis())
-						&& (jsonObject.get("endTime") == null
-						|| jsonObject.get("endTime", Date.class).getTime()
-						>= System.currentTimeMillis());
-				})
-				.collect(Collectors.toMap(Entry::getKey, Entry::getValue));
-
-			// 是否包含促销商品
-			Optional<Entry<String, Object>> containsPromotion = promotionMap.entrySet().stream()
-				.filter(i -> i.getKey().contains(PromotionTypeEnum.SECKILL.name())
-					|| i.getKey().contains(PromotionTypeEnum.PINTUAN.name()))
-				.findFirst();
-			if (containsPromotion.isPresent()) {
-				// 获取促销商品信息
-				JSONObject jsonObject =
-					JSONUtil.parseObj(containsPromotion.get().getValue());
-				PromotionGoodsPageQuery promotionGoodsPageQuery = new PromotionGoodsPageQuery();
-				promotionGoodsPageQuery.setSkuId(String.valueOf(skuId));
-				promotionGoodsPageQuery.setPromotionId(jsonObject.getLong("id"));
-				PromotionGoodsCO promotionsGoods = promotionGoodsApi.getPromotionsGoods(
-					promotionGoodsPageQuery);
-				if (promotionsGoods != null && promotionsGoods.getPrice() != null) {
-					goodsSkuDetail.setPromotionFlag(true);
-					goodsSkuDetail.setPromotionPrice(promotionsGoods.getPrice());
-				}
-			}
-			else {
-				goodsSkuDetail.setPromotionFlag(false);
-				goodsSkuDetail.setPromotionPrice(null);
-			}
-		}
-		map.put("data", goodsSkuDetail);
-
-		// 获取分类信息
-		long[] split = StringUtil.splitToLong(goodsSkuDetail.getCategoryPath(), ",");
-		map.put(
-			"categoryName",
-			categoryService.getCategoryNameByIds(
-				Arrays.stream(split).boxed().toList()));
-
-		// 获取规格信息
-		map.put("specs", this.groupBySkuAndSpec(goodsSkuParamsCO.getSkuList()));
-		map.put("promotionMap", promotionMap);
-
-		// 获取参数信息
-		if (goodsSkuParamsCO.getGoodsParamsDTOList() != null
-			&& !goodsSkuParamsCO.getGoodsParamsDTOList().isEmpty()) {
-			map.put("goodsParamsDTOList", goodsSkuParamsCO.getGoodsParamsDTOList());
-		}
-
-		// 记录用户足迹
-		// if (UserContext.getCurrentUser() != null) {
-		//	FootPrint footPrint = new FootPrint(UserContext.getCurrentUser().getId(), goodsId,
-		//		skuId);
-		//	String destination =
-		//		rocketmqCustomProperties.getGoodsTopic() + ":" + GoodsTagsEnum.VIEW_GOODS.name();
-		//	rocketMQTemplate.asyncSend(destination, footPrint,
-		//		RocketmqSendCallbackBuilder.commonCallback());
-		// }
-		return map;
-	}
 
 	@Override
 	@Transactional(rollbackFor = Exception.class)
@@ -385,94 +239,6 @@ public class GoodsSkuCommandServiceImpl
 		return true;
 	}
 
-	@Override
-	public List<GoodsSkuPO> getGoodsSkuByIdFromCache(List<Long> ids) {
-		List<String> keys = new ArrayList<>();
-		for (Long id : ids) {
-			keys.add(getCacheKeys(id));
-		}
-		List<GoodsSkuPO> list = redisRepository.mGet(keys);
-		if (list == null || list.isEmpty()) {
-			list = new ArrayList<>();
-			List<GoodsSkuPO> goodsSkusPOS = listByIds(ids);
-			for (GoodsSkuPO skus : goodsSkusPOS) {
-				redisRepository.set(getCacheKeys(skus.getId()), skus);
-				list.add(skus);
-			}
-		}
-		return list;
-	}
-
-	@Override
-	public List<GoodsSkuSpecGalleryCO> getGoodsListByGoodsId(Long goodsId) {
-		LambdaQueryWrapper<GoodsSkuPO> queryWrapper = Wrappers.lambdaQuery();
-		queryWrapper.eq(GoodsSkuPO::getGoodsId, goodsId);
-		List<GoodsSkuPO> list = this.list(queryWrapper);
-		return this.getGoodsSkuCOList(list);
-	}
-
-	@Override
-	public List<GoodsSkuPO> getGoodsSkuListByGoodsId(Long goodsId) {
-		return this.list(new LambdaQueryWrapper<GoodsSkuPO>().eq(GoodsSkuPO::getGoodsId, goodsId));
-	}
-
-	@Override
-	public List<GoodsSkuSpecGalleryCO> getGoodsSkuCOList(List<GoodsSkuPO> list) {
-		List<GoodsSkuSpecGalleryCO> goodsSkuSpecGalleryCOS = new ArrayList<>();
-		for (GoodsSkuPO goodsSkuPO : list) {
-			GoodsSkuSpecGalleryCO goodsSkuSpecGalleryCO = this.getGoodsSkuCO(goodsSkuPO);
-			goodsSkuSpecGalleryCOS.add(goodsSkuSpecGalleryCO);
-		}
-		return goodsSkuSpecGalleryCOS;
-	}
-
-	@Override
-	public GoodsSkuSpecGalleryCO getGoodsSkuCO(GoodsSkuPO goodsSkuPO) {
-		// 初始化商品
-		GoodsSkuSpecGalleryCO goodsSkuSpecGalleryCO = GoodsSkuConvert.INSTANCE.convertGallery(
-			goodsSkuPO);
-		// 获取规格信息
-		JSONObject jsonObject = JSONUtil.parseObj(goodsSkuPO.getSpecs());
-		// 规格值信息
-		List<SpecValueCO> specValueCOs = new ArrayList<>();
-		// sku相册信息
-		List<String> goodsGalleryList = new ArrayList<>();
-
-		// 循环提交的sku表单
-		for (Entry<String, Object> entry : jsonObject.entrySet()) {
-			SpecValueCO specValueCO = new SpecValueCO();
-			if ("images".equals(entry.getKey())) {
-				specValueCO.setSpecName(entry.getKey());
-				if (entry.getValue().toString().contains("url")) {
-					List<SpecValueCO.SpecImages> specImages =
-						JSONUtil.toList(JSONUtil.parseArray(entry.getValue()),
-							SpecValueCO.SpecImages.class);
-					specValueCO.setSpecImage(specImages);
-					goodsGalleryList = specImages.stream()
-						.map(SpecValueCO.SpecImages::getUrl)
-						.toList();
-				}
-			}
-			else {
-				specValueCO.setSpecName(entry.getKey());
-				specValueCO.setSpecValue(entry.getValue().toString());
-			}
-			specValueCOs.add(specValueCO);
-		}
-		goodsSkuSpecGalleryCO.setGoodsGalleryList(goodsGalleryList);
-		goodsSkuSpecGalleryCO.setSpecList(specValueCOs);
-		return goodsSkuSpecGalleryCO;
-	}
-
-	@Override
-	public IPage<GoodsSkuPO> goodsSkuQueryPage(GoodsPageQry searchParams) {
-		return this.page(searchParams.buildMpPage(), QueryUtil.goodsQueryWrapper(searchParams));
-	}
-
-	@Override
-	public List<GoodsSkuPO> getGoodsSkuByList(GoodsPageQry searchParams) {
-		return this.list(QueryUtil.goodsQueryWrapper(searchParams));
-	}
 
 	@Override
 	@Transactional(rollbackFor = Exception.class)
@@ -509,19 +275,6 @@ public class GoodsSkuCommandServiceImpl
 		return true;
 	}
 
-	@Override
-	public Integer getStock(Long skuId) {
-		String cacheKeys = getStockCacheKey(skuId);
-		Integer stock = (Integer) redisRepository.get(cacheKeys);
-		if (stock != null) {
-			return stock;
-		}
-		else {
-			GoodsSkuPO goodsSkuPO = getGoodsSkuByIdFromCache(skuId);
-			redisRepository.set(cacheKeys, goodsSkuPO.getQuantity());
-			return goodsSkuPO.getQuantity();
-		}
-	}
 
 	@Override
 	@Transactional(rollbackFor = Exception.class)
@@ -589,11 +342,6 @@ public class GoodsSkuCommandServiceImpl
 		// 修改商品的评价数量
 		goodsService.updateGoodsCommentNum(goodsSkuPO.getGoodsId());
 		return true;
-	}
-
-	@Override
-	public List<String> getSkuIdsByGoodsId(Long goodsId) {
-		return this.baseMapper.getGoodsSkuIdByGoodsId(goodsId);
 	}
 
 	@Override
@@ -709,7 +457,7 @@ public class GoodsSkuCommandServiceImpl
 	 * @param esGoodsIndex 商品索引
 	 */
 	private void skuInfo(GoodsSkuPO sku, GoodsPO goods, Map<String, Object> map,
-		EsGoodsIndex esGoodsIndex) {
+						 EsGoodsIndex esGoodsIndex) {
 		// 规格简短信息
 		StringBuilder simpleSpecs = new StringBuilder();
 		// 商品名称
@@ -731,8 +479,7 @@ public class GoodsSkuCommandServiceImpl
 				|| ("price").equals(spec.getKey())
 				|| ("quantity").equals(spec.getKey())
 				|| ("weight").equals(spec.getKey())) {
-			}
-			else {
+			} else {
 				specMap.put(spec.getKey(), spec.getValue());
 				if (("images").equals(spec.getKey())) {
 					// 设置规格商品缩略图
@@ -750,8 +497,7 @@ public class GoodsSkuCommandServiceImpl
 							.getGoodsGallery(images.get(0).get("url"))
 							.getSmall();
 					}
-				}
-				else {
+				} else {
 					if (spec.getValue() != null) {
 						// 设置商品名称
 						goodsName.append(" ").append(spec.getValue());
@@ -819,8 +565,7 @@ public class GoodsSkuCommandServiceImpl
 		// 检查商品是否存在--修改商品时使用
 		if (goods.getId() != null) {
 			this.checkExist(goods.getId());
-		}
-		else {
+		} else {
 			// 评论次数
 			goods.setCommentNum(0);
 			// 购买次数
@@ -848,8 +593,7 @@ public class GoodsSkuCommandServiceImpl
 			goods.setStoreId(storeDetail.getId());
 			goods.setStoreName(storeDetail.getStoreName());
 			goods.setSelfOperated(storeDetail.getSelfOperated());
-		}
-		else {
+		} else {
 			throw new BusinessException(ResultEnum.STORE_NOT_LOGIN_ERROR);
 		}
 	}

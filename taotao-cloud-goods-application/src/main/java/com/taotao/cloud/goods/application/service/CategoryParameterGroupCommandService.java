@@ -33,23 +33,7 @@ import java.util.List;
 public interface CategoryParameterGroupCommandService extends
 	BaseSuperService<CategoryParameterGroupPO, Long> {
 
-    /**
-     * 查询分类绑定参数集合
-     *
-     * @param categoryId 分类Id
-     * @return {@link List }<{@link ParameterGroupCO }>
-     * @since 2022-04-27 16:59:23
-     */
-    List<ParameterGroupCO> getCategoryParams(Long categoryId);
 
-    /**
-     * 查询分类绑定参数组信息
-     *
-     * @param categoryId 分类id
-     * @return {@link List }<{@link CategoryParameterGroupPO }>
-     * @since 2022-04-27 16:59:23
-     */
-    List<CategoryParameterGroupPO> getCategoryGroup(Long categoryId);
 
     /**
      * 更新分类参数组绑定信息

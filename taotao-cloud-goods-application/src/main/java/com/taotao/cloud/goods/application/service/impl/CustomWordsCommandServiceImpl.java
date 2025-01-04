@@ -23,19 +23,19 @@ import com.taotao.boot.common.exception.BusinessException;
 import com.taotao.boot.common.model.PageQuery;
 import com.taotao.boot.common.utils.log.LogUtils;
 import com.taotao.boot.common.utils.servlet.RequestUtils;
-import com.taotao.cloud.goods.application.command.goods.dto.clientobject.CustomWordsCO;
-import com.taotao.cloud.goods.application.convert.CustomWordsConvert;
+import com.taotao.boot.webagg.service.impl.BaseSuperServiceImpl;
+import com.taotao.cloud.goods.application.dto.goods.clientobject.CustomWordsCO;
 import com.taotao.cloud.goods.application.service.CustomWordsCommandService;
 import com.taotao.cloud.goods.infrastructure.persistent.mapper.CustomWordsMapper;
-import com.taotao.cloud.goods.infrastructure.persistent.po.CustomWordsPO;
+import com.taotao.cloud.goods.infrastructure.persistent.persistence.CustomWordsPO;
 import com.taotao.cloud.goods.infrastructure.persistent.repository.cls.CustomWordsRepository;
 import com.taotao.cloud.goods.infrastructure.persistent.repository.inf.ICustomWordsRepository;
-import com.taotao.boot.web.base.service.impl.BaseSuperServiceImpl;
 import jakarta.servlet.http.HttpServletResponse;
-import java.nio.charset.StandardCharsets;
-import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.nio.charset.StandardCharsets;
+import java.util.List;
 
 /**
  * 自定义分词业务层实现
@@ -66,14 +66,12 @@ public class CustomWordsCommandServiceImpl
 						response.setHeader(
 							"Last-Modified", customWordsPO.getCreateTime().toString());
 						response.setHeader("ETag", Integer.toString(list.size()));
-					}
-					catch (Exception e) {
+					} catch (Exception e) {
 						LogUtils.error("自定义分词错误", e);
 					}
 					builder.append(customWordsPO.getName());
 					flag = false;
-				}
-				else {
+				} else {
 					builder.append("\n");
 					builder.append(customWordsPO.getName());
 				}
@@ -92,8 +90,7 @@ public class CustomWordsCommandServiceImpl
 		CustomWordsPO one = this.getOne(queryWrapper, false);
 		if (one != null && one.getDisabled().equals(1)) {
 			throw new BusinessException(ResultEnum.CUSTOM_WORDS_EXIST_ERROR);
-		}
-		else if (one != null && !one.getDisabled().equals(1)) {
+		} else if (one != null && !one.getDisabled().equals(1)) {
 			this.remove(queryWrapper);
 		}
 		customWordsCO.setDisabled(1);

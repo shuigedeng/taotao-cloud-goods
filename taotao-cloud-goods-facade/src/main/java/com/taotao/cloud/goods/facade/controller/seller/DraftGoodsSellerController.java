@@ -24,6 +24,8 @@ import com.taotao.boot.common.model.Result;
 import com.taotao.boot.security.spring.utils.SecurityUtils;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.cloud.goods.application.dto.draft.clientobject.DraftGoodsCO;
+import com.taotao.cloud.goods.application.service.DraftGoodsCommandService;
+import com.taotao.cloud.goods.application.service.DraftGoodsQueryService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
@@ -52,7 +54,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class DraftGoodsSellerController {
 
     /** 草稿商品服务 */
-    private final DraftGoodsQueryService draftGoodsService;
+    private final DraftGoodsQueryService draftGoodsQueryService;
+    private final DraftGoodsCommandService draftGoodsCommandService;
 
     @Operation(summary = "分页获取草稿商品列表", description = "分页获取草稿商品列表")
     @RequestLogger("分页获取草稿商品列表")

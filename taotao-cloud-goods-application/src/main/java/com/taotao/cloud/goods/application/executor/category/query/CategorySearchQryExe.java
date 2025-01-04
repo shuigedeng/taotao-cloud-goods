@@ -3,21 +3,21 @@
 package com.taotao.cloud.goods.application.executor.category.query;
 
 
-import static com.taotao.boot.common.enums.CachePrefixEnum.CATEGORY_ARRAY;
-import static com.taotao.cloud.goods.common.constant.GoodsConstants.DELETE_FLAG_COLUMN;
-
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.taotao.boot.cache.redis.repository.RedisRepository;
 import com.taotao.boot.ddd.model.application.executor.Executor;
 import com.taotao.cloud.goods.infrastructure.persistent.mapper.CategoryMapper;
-import com.taotao.cloud.goods.infrastructure.persistent.po.CategoryPO;
-import java.util.ArrayList;
-import java.util.List;
+import com.taotao.cloud.goods.infrastructure.persistent.persistence.CategoryPO;
 import lombok.RequiredArgsConstructor;
 import org.dromara.hutool.core.text.CharSequenceUtil;
 import org.springframework.stereotype.Component;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static com.taotao.boot.common.enums.CachePrefixEnum.CATEGORY_ARRAY;
 
 /**
  * 查看部门执行器.
@@ -25,7 +25,6 @@ import org.springframework.stereotype.Component;
 @Component
 @RequiredArgsConstructor
 public class CategorySearchQryExe extends Executor {
-
 
 
 	private final RedisRepository redisRepository;

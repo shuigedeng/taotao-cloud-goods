@@ -37,7 +37,7 @@ public interface StoreGoodsLabelQueryService extends BaseSuperService<StoreGoods
 	 * @param storeId 商家ID
 	 * @return 店铺分类列表
 	 */
-	List<StoreGoodsLabelCO> listByStoreId(String storeId);
+	List<StoreGoodsLabelCO> listByStoreId(Long storeId);
 
 	/**
 	 * 根据分类id集合获取所有店铺分类根据层级排序
@@ -45,7 +45,7 @@ public interface StoreGoodsLabelQueryService extends BaseSuperService<StoreGoods
 	 * @param ids 商家ID
 	 * @return 店铺分类列表
 	 */
-	List<StoreGoodsLabelPO> listByStoreIds(List<String> ids);
+	List<StoreGoodsLabelPO> listByStoreIds(List<Long> ids);
 
 	/**
 	 * 根据分类id集合获取所有店铺分类根据层级排序
@@ -53,28 +53,7 @@ public interface StoreGoodsLabelQueryService extends BaseSuperService<StoreGoods
 	 * @param ids 商家ID
 	 * @return 店铺分类列表
 	 */
-	List<Map<String, Object>> listMapsByStoreIds(List<String> ids, String columns);
+	List<Map<String, Object>> listMapsByStoreIds(List<Long> ids, String columns);
 
-	/**
-	 * 添加商品分类
-	 *
-	 * @param storeGoodsLabelPO 店铺商品分类
-	 * @return 店铺商品分类
-	 */
-	StoreGoodsLabelPO addStoreGoodsLabel(StoreGoodsLabelPO storeGoodsLabelPO);
 
-	/**
-	 * 修改商品分类
-	 *
-	 * @param storeGoodsLabelPO 店铺商品分类
-	 * @return 店铺商品分类
-	 */
-	StoreGoodsLabelPO editStoreGoodsLabel(StoreGoodsLabelPO storeGoodsLabelPO);
-
-	/**
-	 * 删除商品分类
-	 *
-	 * @param storeLabelId 店铺 分类 ID
-	 */
-	void removeStoreGoodsLabel(String storeLabelId);
 }

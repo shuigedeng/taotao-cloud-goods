@@ -5,14 +5,15 @@ package com.taotao.cloud.goods.application.executor.category.query;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.taotao.boot.common.utils.bean.BeanUtils;
 import com.taotao.boot.ddd.model.application.executor.Executor;
-import com.taotao.cloud.goods.application.command.category.dto.clientobject.CategoryTreeCO;
+import com.taotao.cloud.goods.application.dto.category.clientobject.CategoryTreeCO;
 import com.taotao.cloud.goods.infrastructure.persistent.mapper.CategoryMapper;
-import com.taotao.cloud.goods.infrastructure.persistent.po.CategoryPO;
+import com.taotao.cloud.goods.infrastructure.persistent.persistence.CategoryPO;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
+
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Component;
 
 
 /**
@@ -26,6 +27,7 @@ public class CategoryChildrenCmdExe extends Executor {
 	private final CategoryTreeCmdExe categoryTreeCmdExe;
 
 	public List<CategoryPO> childrenList(Long parentId) {
+
 		LambdaQueryWrapper<CategoryPO> wrapper = new LambdaQueryWrapper<>();
 		wrapper.eq(CategoryPO::getParentId, parentId);
 		return categoryMapper.selectList(wrapper);
@@ -41,8 +43,7 @@ public class CategoryChildrenCmdExe extends Executor {
 		for (CategoryTreeCO item : topCatList) {
 			if (item.getId().equals(parentId)) {
 				return item.getChildren();
-			}
-			else {
+			} else {
 				return getChildren(parentId, item.getChildren());
 			}
 		}
@@ -111,7 +112,7 @@ public class CategoryChildrenCmdExe extends Executor {
 	 * @return 子分类列表CO
 	 */
 	private List<CategoryTreeCO> getChildren(Long parentId,
-		List<CategoryTreeCO> categoryTreeCoList) {
+											 List<CategoryTreeCO> categoryTreeCoList) {
 		for (CategoryTreeCO item : categoryTreeCoList) {
 			if (item.getId().equals(parentId)) {
 				return item.getChildren();

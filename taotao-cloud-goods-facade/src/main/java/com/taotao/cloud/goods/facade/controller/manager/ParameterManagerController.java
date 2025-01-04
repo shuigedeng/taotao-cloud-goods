@@ -18,6 +18,7 @@ package com.taotao.cloud.goods.facade.controller.manager;
 
 import com.taotao.boot.common.model.Result;
 import com.taotao.boot.web.request.annotation.RequestLogger;
+import com.taotao.cloud.goods.application.service.ParametersCommandService;
 import com.taotao.cloud.goods.application.service.ParametersQueryService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -49,7 +50,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class ParameterManagerController {
 
     /** 参数服务 */
-    private final ParametersQueryService parametersService;
+    private final ParametersQueryService parametersQueryService;
+    private final ParametersCommandService parametersCommandService;
 
     @Operation(summary = "添加参数", description = "添加参数")
     @RequestLogger("添加参数添加参数")

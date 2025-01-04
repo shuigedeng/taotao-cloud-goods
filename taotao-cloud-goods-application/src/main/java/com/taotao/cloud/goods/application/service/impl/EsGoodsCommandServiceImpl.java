@@ -32,7 +32,6 @@ import com.taotao.cloud.goods.application.service.StoreGoodsLabelCommandService;
 import com.taotao.cloud.stream.framework.rocketmq.RocketmqSendCallbackBuilder;
 import com.taotao.cloud.stream.framework.rocketmq.tags.GoodsTagsEnum;
 import com.taotao.cloud.stream.properties.RocketmqCustomProperties;
-import com.taotao.cloud.promotion.api.feign.IFeignPromotionGoodsApi;
 import org.apache.rocketmq.spring.core.RocketMQTemplate;
 import org.dromara.hutool.core.collection.CollUtil;
 import org.dromara.hutool.core.text.CharSequenceUtil;
@@ -76,7 +75,7 @@ import static com.taotao.boot.common.enums.CachePrefixEnum.INIT_INDEX_PROCESS;
  */
 @Service
 public class EsGoodsCommandServiceImpl extends BaseElasticsearchService implements
-		EsGoodsCommandService {
+	EsGoodsCommandService {
 
 	private static final String IGNORE_FIELD = "serialVersionUID,promotionMap,id,goodsId";
 	private static final String KEY_SUCCESS = "success";

@@ -20,7 +20,12 @@ import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.taotao.boot.webagg.service.BaseSuperService;
+import com.taotao.cloud.goods.application.dto.goods.clientobject.GoodsSkuCO;
+import com.taotao.cloud.goods.application.dto.goods.cmmond.GoodsAddCmd;
+import com.taotao.cloud.goods.application.dto.goods.query.GoodsPageQry;
+import com.taotao.cloud.goods.application.dto.goods.query.GoodsSkuSearchQry;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsSkuPO;
+
 import java.util.List;
 import java.util.Map;
 
@@ -55,39 +60,6 @@ public interface GoodsSkuQueryService extends BaseSuperService<GoodsSkuPO, Long>
 		return CachePrefix.SKU_STOCK.getPrefix() + id;
 	}
 
-	/**
-	 * 添加商品sku
-	 *
-	 * @param goods             商品信息
-	 * @param goodsAddCmd 商品操作信息
-	 * @since 2023-08-18 16:00:59
-	 */
-	boolean add(GoodsPO goods, GoodsAddCmd goodsAddCmd);
-
-	/**
-	 * 更新商品sku
-	 *
-	 * @param goods             商品信息
-	 * @param goodsAddCmd 商品操作信息
-	 * @since 2023-08-18 16:00:59
-	 */
-	boolean update(GoodsPO goods, GoodsAddCmd goodsAddCmd);
-
-	/**
-	 * 更新商品sku
-	 *
-	 * @param goodsSkuPO sku信息
-	 * @since 2023-08-18 16:00:59
-	 */
-	boolean update(GoodsSkuPO goodsSkuPO);
-
-	/**
-	 * 清除sku缓存
-	 *
-	 * @param skuId skuid
-	 * @since 2023-08-18 16:00:59
-	 */
-	boolean clearCache(Long skuId);
 
 	/**
 	 * 从redis缓存中获取商品SKU信息
@@ -191,40 +163,6 @@ public interface GoodsSkuQueryService extends BaseSuperService<GoodsSkuPO, Long>
 	 */
 	List<GoodsSkuPO> getGoodsSkuByList(GoodsPageQry searchParams);
 
-	/**
-	 * 更新商品sku状态
-	 *
-	 * @param goods 商品信息(Id,MarketEnable/AuthFlag)
-	 * @since 2023-08-18 16:00:59
-	 */
-	boolean updateGoodsSkuStatus(GoodsPO goods);
-
-	/**
-	 * 更新商品sku状态根据店铺id
-	 *
-	 * @param storeId      店铺id
-	 * @param marketEnable 市场启用状态
-	 * @param authFlag     审核状态
-	 * @since 2023-08-18 16:00:59
-	 */
-	boolean updateGoodsSkuStatusByStoreId(Long storeId, String marketEnable, String authFlag);
-
-	/**
-	 * 更新SKU库存
-	 *
-	 * @param goodsSkuStockUpdateCmds sku库存修改实体
-	 * @since 2023-08-18 16:00:59
-	 */
-	boolean updateStocks(List<GoodsSkuStockUpdateCmd> goodsSkuStockUpdateCmds);
-
-	/**
-	 * 更新SKU库存
-	 *
-	 * @param skuId    SKUId
-	 * @param quantity 设置的库存数量
-	 * @since 2023-08-18 16:00:59
-	 */
-	boolean updateStock(Long skuId, Integer quantity);
 
 	/**
 	 * 获取商品sku库存
@@ -236,33 +174,12 @@ public interface GoodsSkuQueryService extends BaseSuperService<GoodsSkuPO, Long>
 	Integer getStock(Long skuId);
 
 	/**
-	 * 修改商品库存字段
-	 *
-	 * @param goodsSkusPOS
-	 */
-	boolean updateGoodsStuck(List<GoodsSkuPO> goodsSkusPOS);
-
-	/**
-	 * 更新SKU评价数量
-	 *
-	 * @param skuId SKUId
-	 */
-	boolean updateGoodsSkuCommentNum(Long skuId);
-
-	/**
 	 * 根据商品id获取全部skuId的集合
 	 *
 	 * @param goodsId goodsId
 	 * @return 全部skuId的集合
 	 */
 	List<String> getSkuIdsByGoodsId(Long goodsId);
-
-	/**
-	 * 删除并且新增sku，即覆盖之前信息
-	 *
-	 * @param goodsSkusPOS 商品sku集合
-	 */
-	boolean deleteAndInsertGoodsSkus(List<GoodsSkuPO> goodsSkusPOS);
 
 	/**
 	 * 统计sku总数
@@ -276,7 +193,7 @@ public interface GoodsSkuQueryService extends BaseSuperService<GoodsSkuPO, Long>
 	 * 批量渲染商品sku
 	 *
 	 * @param goodsSkuPOList SKU基础数据列表
-	 * @param goodsAddCmd 商品操作信息
+	 * @param goodsAddCmd    商品操作信息
 	 */
 	void renderGoodsSkuList(List<GoodsSkuPO> goodsSkuPOList, GoodsAddCmd goodsAddCmd);
 }

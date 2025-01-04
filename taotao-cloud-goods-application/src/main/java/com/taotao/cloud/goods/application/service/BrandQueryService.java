@@ -18,10 +18,9 @@ package com.taotao.cloud.goods.application.service;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.taotao.boot.webagg.service.BaseSuperService;
-import com.taotao.cloud.goods.application.dto.brand.cmmond.BrandAddCmd;
-import com.taotao.cloud.goods.application.dto.brand.cmmond.BrandUpdateCmd;
 import com.taotao.cloud.goods.application.dto.brand.query.BrandPageQry;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.BrandPO;
+
 import java.util.List;
 import java.util.Map;
 
@@ -48,12 +47,6 @@ public interface BrandQueryService extends BaseSuperService<BrandPO, Long> {
 
 	List<BrandPO> getAllAvailable();
 
-	/**
-	 * 删除品牌
-	 *
-	 * @param ids 品牌id
-	 */
-	boolean deleteBrands(List<Long> ids);
 
 	/**
 	 * 根据分类ID获取品牌列表
@@ -70,30 +63,6 @@ public interface BrandQueryService extends BaseSuperService<BrandPO, Long> {
 	 * @return 品牌列表
 	 */
 	List<Map<String, Object>> getBrandsMapsByCategory(List<Long> categoryIds,
-		String columns);
+													  String columns);
 
-	/**
-	 * 添加品牌
-	 *
-	 * @param brandVO 品牌信息
-	 * @return 添加结果
-	 */
-	boolean addBrand(BrandAddCmd brandAddCmd);
-
-	/**
-	 * 更新品牌
-	 *
-	 * @param brandVO 品牌信息
-	 * @return 更新结果
-	 */
-	boolean updateBrand(BrandUpdateCmd brandUpdateCmd);
-
-	/**
-	 * 更新品牌是否可用
-	 *
-	 * @param brandId 品牌ID
-	 * @param disable 是否不可用
-	 * @return 更新结果
-	 */
-	boolean brandDisable(Long brandId, boolean disable);
 }

@@ -42,52 +42,6 @@ public interface GoodsQueryService extends BaseSuperService<GoodsPO, Long> {
      */
     List<GoodsPO> getByBrandIds(List<Long> brandIds);
 
-    /**
-     * 下架所有商家商品
-     *
-     * @param storeId 店铺ID
-     * @return {@link boolean }
-     * @since 2022-04-27 17:00:15
-     */
-    boolean underStoreGoods(Long storeId);
-
-    /**
-     * 更新商品参数
-     *
-     * @param goodsId 商品id
-     * @param params 商品参数
-     * @return {@link boolean }
-     * @since 2022-04-27 17:00:15
-     */
-    boolean updateGoodsParams(Long goodsId, String params);
-
-    /**
-     * 获取某分类下的商品数量
-     *
-     * @param categoryId 分类ID
-     * @return {@link Long }
-     * @since 2022-04-27 17:00:15
-     */
-    Long getGoodsCountByCategory(Long categoryId);
-
-    /**
-     * 添加商品
-     *
-     * @param goodsAddCmd 商品查询条件
-     * @return {@link boolean }
-     * @since 2022-04-27 17:00:15
-     */
-    boolean addGoods(GoodsAddCmd goodsAddCmd);
-
-    /**
-     * 修改商品
-     *
-     * @param goodsAddCmd 商品查询条件
-     * @param goodsId 商品ID
-     * @return {@link boolean }
-     * @since 2022-04-27 17:00:15
-     */
-    boolean editGoods(GoodsAddCmd goodsAddCmd, Long goodsId);
 
     /**
      * 查询商品CO
@@ -115,86 +69,6 @@ public interface GoodsQueryService extends BaseSuperService<GoodsPO, Long> {
      * @since 2022-04-27 17:00:16
      */
     List<GoodsPO> queryListByParams(GoodsPageQry goodsPageQry);
-
-    /**
-     * 批量审核商品
-     *
-     * @param goodsIds 商品id列表
-     * @param goodsAuthEnum 审核操作
-     * @return {@link boolean }
-     * @since 2022-04-27 17:00:16
-     */
-    boolean auditGoods(List<Long> goodsIds, GoodsAuthEnum goodsAuthEnum);
-
-    /**
-     * 更新商品上架状态状态
-     *
-     * @param goodsIds 商品ID集合
-     * @param goodsStatusEnum 更新的商品状态
-     * @param underReason 下架原因
-     * @return {@link boolean }
-     * @since 2022-04-27 17:00:16
-     */
-    boolean updateGoodsMarketAble(List<Long> goodsIds, GoodsStatusEnum goodsStatusEnum, String underReason);
-
-    /**
-     * 更新商品上架状态状态
-     *
-     * @param goodsIds 商品ID集合
-     * @param goodsStatusEnum 更新的商品状态
-     * @param underReason 下架原因
-     * @return {@link boolean }
-     * @since 2022-04-27 17:00:16
-     */
-    boolean managerUpdateGoodsMarketAble(List<Long> goodsIds, GoodsStatusEnum goodsStatusEnum, String underReason);
-
-    /**
-     * 删除商品
-     *
-     * @param goodsIds 商品ID
-     * @return {@link boolean }
-     * @since 2022-04-27 17:00:16
-     */
-    boolean deleteGoods(List<Long> goodsIds);
-
-    /**
-     * 设置商品运费模板
-     *
-     * @param goodsIds 商品列表
-     * @param templateId 运费模板ID
-     * @return {@link boolean }
-     * @since 2022-04-27 17:00:16
-     */
-    boolean freight(List<Long> goodsIds, Long templateId);
-
-    /**
-     * 修改商品库存数量
-     *
-     * @param goodsId 商品ID
-     * @param quantity 库存数量
-     * @return {@link boolean }
-     * @since 2022-04-27 17:00:16
-     */
-    boolean updateStock(Long goodsId, Integer quantity);
-
-    /**
-     * 更新商品评价数量
-     *
-     * @param goodsId 商品ID
-     * @return {@link boolean }
-     * @since 2022-04-27 17:00:16
-     */
-    boolean updateGoodsCommentNum(Long goodsId);
-
-    /**
-     * 更新商品的购买数量
-     *
-     * @param goodsId 商品ID
-     * @param buyCount 购买数量
-     * @return {@link boolean }
-     * @since 2022-04-27 17:00:16
-     */
-    boolean updateGoodsBuyCount(Long goodsId, int buyCount);
 
     /**
      * 批量更新商品的店铺信息

@@ -38,5 +38,4 @@ public interface ParametersCommandService extends BaseSuperService<ParametersPO,
      */
     boolean updateParameter(ParametersPO parametersPO);
 
-    List<ParametersPO> queryParametersByCategoryId(Long categoryId);
 }

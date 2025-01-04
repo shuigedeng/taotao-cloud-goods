@@ -25,7 +25,9 @@ import com.taotao.cloud.goods.application.dto.goods.clientobject.GoodsCO;
 import com.taotao.cloud.goods.application.dto.goods.clientobject.GoodsSkuParamsCO;
 import com.taotao.cloud.goods.application.service.EsGoodsQueryService;
 import com.taotao.cloud.goods.application.service.GoodsCommandService;
+import com.taotao.cloud.goods.application.service.GoodsQueryService;
 import com.taotao.cloud.goods.application.service.GoodsSkuCommandService;
+import com.taotao.cloud.goods.application.service.GoodsSkuQueryService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.Parameters;
@@ -61,15 +63,17 @@ public class GoodsBuyerController {
 	/**
 	 * 商品
 	 */
-	private final GoodsCommandService goodsService;
+	private final GoodsCommandService goodsCommandService;
+	private final GoodsQueryService goodsQueryService;
 	/**
 	 * 商品SKU
 	 */
-	private final GoodsSkuCommandService goodsSkuService;
+	private final GoodsSkuCommandService goodsSkuCommandService;
+	private final GoodsSkuQueryService goodsSkuQueryService;
 	/**
 	 * ES商品搜索
 	 */
-	private final EsGoodsQueryService goodsSearchService;
+	private final EsGoodsQueryService esGoodsQueryService;
 
 	@Operation(summary = "通过id获取商品信息", description = "通过id获取商品信息")
 	@Parameters({
@@ -80,7 +84,7 @@ public class GoodsBuyerController {
 	@GetMapping(value = "/{goodsId}")
 	public Result<GoodsSkuParamsCO> get(
 		@NotNull(message = "商品ID不能为空") @PathVariable Long goodsId) {
-		return Result.success(goodsService.getGoodsVO(goodsId));
+		return Result.success(goodsQueryService.getGoodsVO(goodsId));
 	}
 
 	@Operation(summary = "通过skuId获取商品信息", description = "通过skuId获取商品信息")
@@ -95,7 +99,7 @@ public class GoodsBuyerController {
 	public Result<Map<String, Object>> getSku(
 		@NotNull(message = "商品ID不能为空") @PathVariable Long goodsId,
 		@NotNull(message = "skuId不能为空") @PathVariable Long skuId) {
-		Map<String, Object> map = goodsSkuService.getGoodsSkuDetail(goodsId, skuId);
+		Map<String, Object> map = goodsQueryService.getGoodsSkuDetail(goodsId, skuId);
 		return Result.success(map);
 	}
 
@@ -104,7 +108,7 @@ public class GoodsBuyerController {
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping("/page")
 	public Result<PageResult<GoodsCO>> getByPage(@Validated GoodsPageQuery goodsPageQuery) {
-		IPage<Goods> goodsPage = goodsService.goodsQueryPage(goodsPageQuery);
+		IPage<Goods> goodsPage = goodsQueryService.goodsQueryPage(goodsPageQuery);
 		return Result.success(MpUtils.convertMybatisPage(goodsPage, GoodsCO.class));
 	}
 
@@ -113,7 +117,7 @@ public class GoodsBuyerController {
 	@GetMapping("/es")
 	public Result<SearchPage<EsGoodsIndex>> getGoodsByPageFromEs(
 		@Validated EsGoodsSearchQuery goodsSearchParams) {
-		SearchPage<EsGoodsIndex> esGoodsIndices = goodsSearchService.searchGoods(goodsSearchParams);
+		SearchPage<EsGoodsIndex> esGoodsIndices = esGoodsQueryService.searchGoods(goodsSearchParams);
 		return Result.success(esGoodsIndices);
 	}
 
@@ -124,7 +128,7 @@ public class GoodsBuyerController {
 	public Result<EsGoodsRelatedInfo> getGoodsRelatedByPageFromEs(
 		@Validated EsGoodsSearchQuery esGoodsSearchQuery) {
 		// pageVO.setNotConvert(true);
-		EsGoodsRelatedInfo selector = goodsSearchService.getSelector(esGoodsSearchQuery);
+		EsGoodsRelatedInfo selector = esGoodsQueryService.getSelector(esGoodsSearchQuery);
 		return Result.success(selector);
 	}
 
@@ -137,7 +141,7 @@ public class GoodsBuyerController {
 	@GetMapping("/hot-words")
 	public Result<List<String>> getGoodsHotWords(
 		@NotNull(message = "热词数量不能为空") @RequestParam Integer count) {
-		List<String> hotWords = goodsSearchService.getHotWords(count);
+		List<String> hotWords = esGoodsQueryService.getHotWords(count);
 		return Result.success(hotWords);
 	}
 }

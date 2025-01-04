@@ -16,10 +16,10 @@
 
 package com.taotao.cloud.goods.application.assembler;
 
-import com.taotao.cloud.goods.application.model.dto.SpecificationDTO;
-import com.taotao.cloud.goods.application.model.vo.SpecificationVO;
-import com.taotao.cloud.goods.application.model.entity.Specification;
 import java.util.List;
+
+import com.taotao.cloud.goods.application.dto.specification.clientobject.SpecificationCO;
+import com.taotao.cloud.goods.infrastructure.persistent.persistence.SpecificationPO;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 import org.mapstruct.factory.Mappers;
@@ -44,9 +44,9 @@ public interface SpecificationAssembler {
      * @return {@link List }<{@link SpecificationVO }>
      * @since 2022-04-27 16:58:30
      */
-    List<SpecificationVO> convert(List<Specification> specifications);
+    List<SpecificationCO> convert(List<SpecificationPO> specifications);
 
-    SpecificationVO convert(Specification specification);
+	SpecificationCO convert(SpecificationPO specification);
 
     /**
      * 规范dtoto规范
@@ -55,5 +55,5 @@ public interface SpecificationAssembler {
      * @return {@link Specification }
      * @since 2022-04-27 16:58:30
      */
-    Specification convert(SpecificationDTO specificationDTO);
+	SpecificationPO convert(SpecificationDTO specificationDTO);
 }

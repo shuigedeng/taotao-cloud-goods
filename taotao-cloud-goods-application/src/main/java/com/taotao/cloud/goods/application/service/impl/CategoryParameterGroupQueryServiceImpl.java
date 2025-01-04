@@ -21,22 +21,23 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.taotao.boot.common.enums.ResultEnum;
 import com.taotao.boot.common.exception.BusinessException;
-import com.taotao.boot.web.base.service.impl.BaseSuperServiceImpl;
+import com.taotao.boot.webagg.service.impl.BaseSuperServiceImpl;
 import com.taotao.cloud.goods.application.dto.parameter.clientobject.ParameterGroupCO;
-import com.taotao.cloud.goods.application.service.CategoryParameterGroupCommandService;
+import com.taotao.cloud.goods.application.service.CategoryParameterGroupQueryService;
 import com.taotao.cloud.goods.application.service.GoodsCommandService;
 import com.taotao.cloud.goods.application.service.ParametersCommandService;
 import com.taotao.cloud.goods.infrastructure.persistent.mapper.CategoryParameterGroupMapper;
-import com.taotao.cloud.goods.infrastructure.persistent.po.CategoryParameterGroupPO;
+import com.taotao.cloud.goods.infrastructure.persistent.persistence.CategoryParameterGroupPO;
 import com.taotao.cloud.goods.infrastructure.persistent.repository.cls.CategoryParameterGroupRepository;
 import com.taotao.cloud.goods.infrastructure.persistent.repository.inf.ICategoryParameterGroupRepository;
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import lombok.AllArgsConstructor;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 /**
  * 分类绑定参数组接口实现
@@ -50,10 +51,10 @@ import org.springframework.transaction.annotation.Transactional;
 public class CategoryParameterGroupQueryServiceImpl extends BaseSuperServiceImpl<
 	CategoryParameterGroupPO,
 	Long,
-		CategoryParameterGroupMapper,
+	CategoryParameterGroupMapper,
 	CategoryParameterGroupRepository,
 	ICategoryParameterGroupRepository>
-	implements CategoryParameterGroupCommandService {
+	implements CategoryParameterGroupQueryService {
 
 	/**
 	 * 商品参数服务
@@ -81,42 +82,6 @@ public class CategoryParameterGroupQueryServiceImpl extends BaseSuperServiceImpl
 		return this.list(queryWrapper);
 	}
 
-	@Override
-	@Transactional(rollbackFor = Exception.class)
-	public boolean updateCategoryGroup(CategoryParameterGroupPO categoryParameterGroupPO) {
-		CategoryParameterGroupPO origin = this.getById(categoryParameterGroupPO.getId());
-		if (origin == null) {
-			throw new BusinessException(ResultEnum.CATEGORY_PARAMETER_NOT_EXIST);
-		}
-
-		LambdaQueryWrapper<Goods> queryWrapper = new LambdaQueryWrapper<>();
-		queryWrapper.select(Goods::getId, Goods::getParams);
-		queryWrapper.like(Goods::getParams, origin.getId());
-		List<Map<String, Object>> goodsList = this.goodsService.listMaps(queryWrapper);
-
-		for (Map<String, Object> goods : goodsList) {
-			String params = (String) goods.get("params");
-			List<GoodsParamsDTO> goodsParamsDTOS = JSONUtil.toList(params, GoodsParamsDTO.class);
-			List<GoodsParamsDTO> goodsParamsDTOList = goodsParamsDTOS.stream()
-				.filter(i -> i.getGroupId() != null && i.getGroupId().equals(origin.getId()))
-				.toList();
-			for (GoodsParamsDTO goodsParamsDTO : goodsParamsDTOList) {
-				goodsParamsDTO.setGroupName(categoryParameterGroupPO.getGroupName());
-			}
-
-			this.goodsService.updateGoodsParams(
-				Long.valueOf(goods.get("id").toString()), JSONUtil.toJsonStr(goodsParamsDTOS));
-		}
-
-		return this.updateById(categoryParameterGroupPO);
-	}
-
-	@Override
-	public boolean deleteByCategoryId(Long categoryId) {
-		return this.baseMapper.delete(new LambdaUpdateWrapper<CategoryParameterGroupPO>()
-			.eq(CategoryParameterGroupPO::getCategoryId, categoryId))
-			> 0;
-	}
 
 	/**
 	 * 拼装参数组和参数的返回值

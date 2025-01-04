@@ -16,6 +16,7 @@
 
 package com.taotao.cloud.goods.application.service;
 
+import com.taotao.boot.webagg.service.BaseSuperService;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsGalleryPO;
 import java.util.List;
 
@@ -38,21 +39,4 @@ public interface GoodsGalleryCommandService extends BaseSuperService<GoodsGaller
      */
     boolean add(List<String> goodsGalleryList, Long goodsId);
 
-    /**
-     * 根据原图获取缩略图
-     *
-     * @param origin 原图地址
-     * @return {@link GoodsGalleryPO }
-     * @since 2022-04-27 17:00:12
-     */
-    GoodsGalleryPO getGoodsGallery(String origin);
-
-    /**
-     * 根据商品id查询商品相册原图
-     *
-     * @param goodsId 商品ID
-     * @return {@link List }<{@link GoodsGalleryPO }>
-     * @since 2022-04-27 17:00:12
-     */
-    List<GoodsGalleryPO> goodsGalleryList(Long goodsId);
 }

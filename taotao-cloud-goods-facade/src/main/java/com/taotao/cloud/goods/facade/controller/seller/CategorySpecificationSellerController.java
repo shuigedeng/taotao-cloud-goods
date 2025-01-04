@@ -18,8 +18,11 @@ package com.taotao.cloud.goods.facade.controller.seller;
 
 import com.taotao.boot.common.model.Result;
 import com.taotao.boot.web.request.annotation.RequestLogger;
+import com.taotao.cloud.goods.application.assembler.SpecificationAssembler;
 import com.taotao.cloud.goods.application.dto.specification.clientobject.SpecificationCO;
+import com.taotao.cloud.goods.application.service.CategorySpecificationCommandService;
 import com.taotao.cloud.goods.application.service.CategorySpecificationQueryService;
+import com.taotao.cloud.goods.infrastructure.persistent.persistence.SpecificationPO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import java.util.List;
@@ -46,15 +49,16 @@ import org.springframework.web.bind.annotation.RestController;
 public class CategorySpecificationSellerController {
 
     /** 商品规格服务 */
-    private final CategorySpecificationQueryService categorySpecificationService;
+    private final CategorySpecificationQueryService categorySpecificationQueryService;
+    private final CategorySpecificationCommandService categorySpecificationCommandService;
 
     @Operation(summary = "查询某分类下绑定的规格信息", description = "查询某分类下绑定的规格信息")
     @RequestLogger("查询某分类下绑定的规格信息")
     @PreAuthorize("hasAuthority('dept:tree:data')")
     @GetMapping(value = "/{categoryId}")
     public Result<List<SpecificationCO>> getCategorySpec(@PathVariable("categoryId") Long categoryId) {
-        List<Specification> categorySpecList = categorySpecificationService.getCategorySpecList(categoryId);
+        List<SpecificationPO> categorySpecList = categorySpecificationQueryService.getCategorySpecList(categoryId);
 
-        return Result.success(SpecificationConvert.INSTANCE.convert(categorySpecList));
+        return Result.success(SpecificationAssembler.INSTANCE.convert(categorySpecList));
     }
 }

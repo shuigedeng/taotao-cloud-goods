@@ -18,8 +18,11 @@ package com.taotao.cloud.goods.facade.controller.manager;
 
 import com.taotao.boot.common.model.Result;
 import com.taotao.boot.web.request.annotation.RequestLogger;
+import com.taotao.cloud.goods.application.service.CategorySpecificationCommandService;
 import com.taotao.cloud.goods.application.service.CategorySpecificationQueryService;
+import com.taotao.cloud.goods.application.service.SpecificationCommandService;
 import com.taotao.cloud.goods.application.service.SpecificationQueryService;
+import com.taotao.cloud.goods.infrastructure.persistent.persistence.SpecificationPO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.Parameters;
@@ -51,9 +54,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class CategorySpecificationManagerController {
 
     /** 分类规格服务 */
-    private final CategorySpecificationQueryService categorySpecificationService;
+    private final CategorySpecificationQueryService categorySpecificationQueryService;
+    private final CategorySpecificationCommandService categorySpecificationCommandService;
     /** 规格服务 */
-    private final SpecificationQueryService specificationService;
+    private final SpecificationQueryService specificationQueryService;
+    private final SpecificationCommandService specificationCommandService;
 
     @Operation(summary = "查询某分类下绑定的规格信息", description = "查询某分类下绑定的规格信息")
     @Parameters({
@@ -62,8 +67,8 @@ public class CategorySpecificationManagerController {
     @RequestLogger
     @PreAuthorize("hasAuthority('dept:tree:data')")
     @GetMapping(value = "/{categoryId}")
-    public Result<List<Specification>> getCategorySpec(@PathVariable Long categoryId) {
-        return Result.success(categorySpecificationService.getCategorySpecList(categoryId));
+    public Result<List<SpecificationPO>> getCategorySpec(@PathVariable Long categoryId) {
+        return Result.success(categorySpecificationQueryService.getCategorySpecList(categoryId));
     }
 
     @Operation(summary = "查询某分类下绑定的规格信息,商品操作使用", description = "查询某分类下绑定的规格信息,商品操作使用")
@@ -73,8 +78,8 @@ public class CategorySpecificationManagerController {
     @RequestLogger
     @PreAuthorize("hasAuthority('dept:tree:data')")
     @GetMapping(value = "/goods/{categoryId}")
-    public Result<List<Specification>> getSpec(@PathVariable Long categoryId) {
-        return Result.success(specificationService.list());
+    public Result<List<SpecificationPO>> getSpec(@PathVariable Long categoryId) {
+        return Result.success(specificationQueryService.list());
     }
 
     @Operation(summary = "保存某分类下绑定的规格信息", description = "保存某分类下绑定的规格信息")
@@ -85,6 +90,6 @@ public class CategorySpecificationManagerController {
     @PreAuthorize("hasAuthority('dept:tree:data')")
     @PostMapping(value = "/{categoryId}")
     public Result<Boolean> saveCategoryBrand(@PathVariable Long categoryId, @RequestParam String[] categorySpecs) {
-        return Result.success(specificationService.saveCategoryBrand(categoryId, categorySpecs));
+        return Result.success(specificationCommandService.saveCategoryBrand(categoryId, categorySpecs));
     }
 }

@@ -17,8 +17,10 @@
 package com.taotao.cloud.goods.facade.controller.manager;
 
 import com.taotao.boot.common.model.Result;
+import com.taotao.cloud.goods.application.dto.category.clientobject.CategoryBrandCO;
 import com.taotao.cloud.goods.application.service.CategoryBrandCommandService;
 import com.taotao.boot.web.request.annotation.RequestLogger;
+import com.taotao.cloud.goods.application.service.CategoryBrandQueryService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.Parameters;
@@ -50,7 +52,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class CategoryBrandManagerController {
 
     /** 规格品牌管理服务 */
-    private final CategoryBrandCommandService categoryBrandService;
+    private final CategoryBrandCommandService categoryBrandCommandService;
+    private final CategoryBrandQueryService categoryBrandQueryService;
 
     @Operation(summary = "查询某分类下绑定的品牌信息", description = "查询某分类下绑定的品牌信息")
     @Parameters({
@@ -61,7 +64,7 @@ public class CategoryBrandManagerController {
     @GetMapping(value = "/{categoryId}")
     public Result<List<CategoryBrandCO>> getCategoryBrandList(
             @NotBlank(message = "分类id不能为空") @PathVariable(value = "categoryId") Long categoryId) {
-        return Result.success(categoryBrandService.getCategoryBrandList(categoryId));
+        return Result.success(categoryBrandQueryService.getCategoryBrandList(categoryId));
     }
 
     @Operation(summary = "保存某分类下绑定的品牌信息", description = "保存某分类下绑定的品牌信息")
@@ -74,6 +77,6 @@ public class CategoryBrandManagerController {
     public Result<Boolean> saveCategoryBrand(
             @NotBlank(message = "分类id不能为空") @PathVariable(value = "categoryId") Long categoryId,
             @NotBlank(message = "品牌id列表不能为空") @PathVariable(value = "categoryBrands") List<Long> categoryBrands) {
-        return Result.success(categoryBrandService.saveCategoryBrandList(categoryId, categoryBrands));
+        return Result.success(categoryBrandCommandService.saveCategoryBrandList(categoryId, categoryBrands));
     }
 }

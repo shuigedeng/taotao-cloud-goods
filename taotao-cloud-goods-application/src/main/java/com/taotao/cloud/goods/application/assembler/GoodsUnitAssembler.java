@@ -16,10 +16,8 @@
 
 package com.taotao.cloud.goods.application.assembler;
 
-import com.taotao.cloud.goods.application.model.vo.GoodsSkuParamsVO;
-import com.taotao.cloud.goods.application.model.vo.GoodsUnitVO;
-import com.taotao.cloud.goods.application.model.entity.Goods;
-import com.taotao.cloud.goods.application.model.entity.GoodsUnit;
+import com.taotao.cloud.goods.application.dto.goods.clientobject.GoodsUnitCO;
+import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsUnitPO;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 import org.mapstruct.factory.Mappers;
@@ -44,5 +42,5 @@ public interface GoodsUnitAssembler {
      * @return {@link GoodsUnitVO }
      * @since 2023-08-11 14:54:25
      */
-    GoodsUnitVO convert(GoodsUnit goodsUnit);
+    GoodsUnitCO convert(GoodsUnitPO goodsUnit);
 }

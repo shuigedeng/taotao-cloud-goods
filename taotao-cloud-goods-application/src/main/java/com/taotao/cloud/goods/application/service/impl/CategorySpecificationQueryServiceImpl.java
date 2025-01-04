@@ -17,16 +17,17 @@
 package com.taotao.cloud.goods.application.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.taotao.boot.web.base.service.impl.BaseSuperServiceImpl;
-import com.taotao.cloud.goods.application.service.CategorySpecificationCommandService;
+import com.taotao.boot.webagg.service.impl.BaseSuperServiceImpl;
+import com.taotao.cloud.goods.application.service.CategorySpecificationQueryService;
 import com.taotao.cloud.goods.infrastructure.persistent.mapper.CategorySpecificationMapper;
-import com.taotao.cloud.goods.infrastructure.persistent.po.CategorySpecificationPO;
-import com.taotao.cloud.goods.infrastructure.persistent.po.SpecificationPO;
+import com.taotao.cloud.goods.infrastructure.persistent.persistence.CategorySpecificationPO;
+import com.taotao.cloud.goods.infrastructure.persistent.persistence.SpecificationPO;
 import com.taotao.cloud.goods.infrastructure.persistent.repository.cls.CategorySpecificationRepository;
 import com.taotao.cloud.goods.infrastructure.persistent.repository.inf.ICategorySpecificationRepository;
-import java.util.List;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * 商品分类规格业务层实现
@@ -41,19 +42,13 @@ public class CategorySpecificationQueryServiceImpl
 	extends BaseSuperServiceImpl<
 	CategorySpecificationPO,
 	Long,
-		CategorySpecificationMapper,
+	CategorySpecificationMapper,
 	CategorySpecificationRepository,
 	ICategorySpecificationRepository>
-	implements CategorySpecificationCommandService {
+	implements CategorySpecificationQueryService {
 
 	@Override
 	public List<SpecificationPO> getCategorySpecList(Long categoryId) {
 		return im().getCategorySpecList(categoryId);
-	}
-
-	@Override
-	public boolean deleteByCategoryId(Long categoryId) {
-		return im().delete(new LambdaQueryWrapper<CategorySpecificationPO>()
-			.eq(CategorySpecificationPO::getCategoryId, categoryId)) > 0;
 	}
 }
