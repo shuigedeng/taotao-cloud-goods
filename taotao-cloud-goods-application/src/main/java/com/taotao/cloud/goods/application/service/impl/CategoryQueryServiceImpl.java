@@ -60,7 +60,7 @@ public class CategoryQueryServiceImpl extends
 	/**
 	 * 商品品牌业务层
 	 */
-	private final BrandCommandService brandService;
+	//private final BrandCommandService brandService;
 
 	private final CategoryTreeCmdExe categoryTreeCmdExe;
 	private final CategoryChildrenCmdExe categoryChildrenCmdExe;
