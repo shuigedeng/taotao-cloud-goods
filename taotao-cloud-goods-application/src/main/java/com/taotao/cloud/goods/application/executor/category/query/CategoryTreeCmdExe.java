@@ -46,10 +46,10 @@ public class CategoryTreeCmdExe extends Executor {
 		categoryTreeCoList = new ArrayList<>();
 		for (CategoryPO categoryPo : list) {
 			if (Long.valueOf(0).equals(categoryPo.getParentId())) {
-				CategoryTreeCO categoryTreeCo = CategoryConvert.INSTANCE.convert(categoryPo);
-				categoryTreeCo.setParentTitle(categoryPo.getName());
-				categoryTreeCo.setChildren(findChildren(list, categoryTreeCo));
-				categoryTreeCoList.add(categoryTreeCo);
+				//CategoryTreeCO categoryTreeCo = CategoryConvert.INSTANCE.convert(categoryPo);
+				//categoryTreeCo.setParentTitle(categoryPo.getName());
+				//categoryTreeCo.setChildren(findChildren(list, categoryTreeCo));
+				//categoryTreeCoList.add(categoryTreeCo);
 			}
 		}
 
@@ -74,10 +74,10 @@ public class CategoryTreeCmdExe extends Executor {
 		List<CategoryTreeCO> children = new ArrayList<>();
 		categories.forEach(item -> {
 			if (item.getParentId().equals(categoryTreeCo.getId())) {
-				CategoryTreeCO temp = CategoryConvert.INSTANCE.convert(item);
-				temp.setParentTitle(item.getName());
-				temp.setChildren(findChildren(categories, temp));
-				children.add(temp);
+				//CategoryTreeCO temp = CategoryConvert.INSTANCE.convert(item);
+				//temp.setParentTitle(item.getName());
+				//temp.setChildren(findChildren(categories, temp));
+				//children.add(temp);
 			}
 		});
 

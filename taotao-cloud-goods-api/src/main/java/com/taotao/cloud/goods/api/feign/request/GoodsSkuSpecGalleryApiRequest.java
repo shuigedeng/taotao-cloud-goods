@@ -28,7 +28,6 @@ import lombok.experimental.SuperBuilder;
 /** 商品规格VO */
 @Setter
 @Getter
-@SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
 public class GoodsSkuSpecGalleryApiRequest extends GoodsSkuApiRequest {

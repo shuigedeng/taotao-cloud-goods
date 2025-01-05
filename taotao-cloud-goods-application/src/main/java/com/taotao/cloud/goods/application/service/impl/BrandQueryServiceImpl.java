@@ -84,7 +84,7 @@ public class BrandQueryServiceImpl extends
 		queryWrapper.eq("category_id", categoryId);
 		List<CategoryBrandPO> list = categoryBrandService.list(queryWrapper);
 		if (list != null && !list.isEmpty()) {
-			List<Long> collect = list.stream().map(CategoryBrand::getBrandId).toList();
+			List<Long> collect = list.stream().map(CategoryBrandPO::getBrandId).toList();
 			return this.list(new LambdaQueryWrapper<BrandPO>().in(BrandPO::getId, collect));
 		}
 		return new ArrayList<>();
@@ -100,11 +100,11 @@ public class BrandQueryServiceImpl extends
 	public List<BrandPO> getBrandsByCategorys(Long categoryIds) {
 		// Map<String,  List<Brand>> map = this.baseMapper.selectBrandsByCategorysAsMap(categoryIds)
 
-		QueryWrapper<CategoryBrand> queryWrapper = new QueryWrapper<>();
+		QueryWrapper<CategoryBrandPO> queryWrapper = new QueryWrapper<>();
 		queryWrapper.in("category_id", categoryIds);
-		List<CategoryBrand> list = categoryBrandService.list(queryWrapper);
+		List<CategoryBrandPO> list = categoryBrandService.list(queryWrapper);
 		if (list != null && !list.isEmpty()) {
-			List<Long> collect = list.stream().map(CategoryBrand::getBrandId).toList();
+			List<Long> collect = list.stream().map(CategoryBrandPO::getBrandId).toList();
 			return this.list(new LambdaQueryWrapper<BrandPO>().in(BrandPO::getId, collect));
 		}
 		return new ArrayList<>();
@@ -133,27 +133,27 @@ public class BrandQueryServiceImpl extends
 	 *
 	 * @param brandIds 品牌Ids
 	 */
-	private void checkBind(List<Long> brandIds) {
-		// 分了绑定关系查询
-		List<CategoryBrand> categoryBrands = categoryBrandService.getCategoryBrandListByBrandId(
-			brandIds);
-
-		if (!categoryBrands.isEmpty()) {
-			List<Long> categoryIds =
-				categoryBrands.stream().map(CategoryBrand::getCategoryId).toList();
-			throw new BusinessException(
-				ResultEnum.BRAND_USE_DISABLE_ERROR.getCode(),
-				JSONUtil.toJsonStr(categoryService.getCategoryNameByIds(categoryIds)));
-		}
-
-		// 分了商品绑定关系查询
-		List<Goods> goods = goodsService.getByBrandIds(brandIds);
-		if (!goods.isEmpty()) {
-			List<String> goodsNames = goods.stream().map(Goods::getGoodsName).toList();
-			throw new BusinessException(ResultEnum.BRAND_BIND_GOODS_ERROR.getCode(),
-				JSONUtil.toJsonStr(goodsNames));
-		}
-	}
+	//private void checkBind(List<Long> brandIds) {
+	//	// 分了绑定关系查询
+	//	List<CategoryBrand> categoryBrands = categoryBrandService.getCategoryBrandListByBrandId(
+	//		brandIds);
+	//
+	//	if (!categoryBrands.isEmpty()) {
+	//		List<Long> categoryIds =
+	//			categoryBrands.stream().map(CategoryBrand::getCategoryId).toList();
+	//		throw new BusinessException(
+	//			ResultEnum.BRAND_USE_DISABLE_ERROR.getCode(),
+	//			JSONUtil.toJsonStr(categoryService.getCategoryNameByIds(categoryIds)));
+	//	}
+	//
+	//	// 分了商品绑定关系查询
+	//	List<Goods> goods = goodsService.getByBrandIds(brandIds);
+	//	if (!goods.isEmpty()) {
+	//		List<String> goodsNames = goods.stream().map(Goods::getGoodsName).toList();
+	//		throw new BusinessException(ResultEnum.BRAND_BIND_GOODS_ERROR.getCode(),
+	//			JSONUtil.toJsonStr(goodsNames));
+	//	}
+	//}
 
 	/**
 	 * 校验是否存在

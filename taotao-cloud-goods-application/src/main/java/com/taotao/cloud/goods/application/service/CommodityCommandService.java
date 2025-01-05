@@ -35,7 +35,7 @@ public interface CommodityCommandService extends BaseSuperService<CommodityPO, L
 	/**
 	 * 添加直播商品
 	 *
-	 * @param commodityPO 直播商品列表
+	 * @param commodityAddCmdList 直播商品列表
 	 * @return {@link boolean }
 	 * @since 2022-04-27 16:59:47
 	 */

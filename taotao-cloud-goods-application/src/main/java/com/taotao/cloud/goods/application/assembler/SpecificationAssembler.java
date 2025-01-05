@@ -55,5 +55,5 @@ public interface SpecificationAssembler {
      * @return {@link Specification }
      * @since 2022-04-27 16:58:30
      */
-	SpecificationPO convert(SpecificationDTO specificationDTO);
+	//SpecificationPO convert(SpecificationDTO specificationDTO);
 }

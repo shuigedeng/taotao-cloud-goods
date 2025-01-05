@@ -41,12 +41,12 @@ public interface CustomWordsQueryService extends BaseSuperService<CustomWordsPO,
 	 */
 	boolean existWords(String words);
 
-	/**
-	 * 分页查询自定义分词
-	 *
-	 * @param words  分词
-	 * @param pageVo 分页信息
-	 * @return 自定义分词分页信息
-	 */
-	IPage<CustomWordsPO> getCustomWordsByPage(String words, PageVO pageVo);
+	///**
+	// * 分页查询自定义分词
+	// *
+	// * @param words  分词
+	// * @param pageVo 分页信息
+	// * @return 自定义分词分页信息
+	// */
+	//IPage<CustomWordsPO> getCustomWordsByPage(String words, PageVO pageVo);
 }

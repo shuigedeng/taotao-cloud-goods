@@ -27,7 +27,6 @@ import lombok.experimental.SuperBuilder;
  *
  */
 @Data
-@SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
 public class StudioCO extends ClientObject {

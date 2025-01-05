@@ -28,7 +28,6 @@ import lombok.experimental.SuperBuilder;
 
 /** 草稿商品 */
 @Data
-@SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
 public class DraftGoodsBaseCmd  extends Command {

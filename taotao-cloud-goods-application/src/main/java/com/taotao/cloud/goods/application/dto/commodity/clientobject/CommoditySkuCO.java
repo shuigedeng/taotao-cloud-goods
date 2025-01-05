@@ -26,7 +26,6 @@ import lombok.experimental.SuperBuilder;
 /** 直播商品CO */
 @Setter
 @Getter
-@SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
 public class CommoditySkuCO extends CommodityCO {

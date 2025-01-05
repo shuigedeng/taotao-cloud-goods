@@ -16,7 +16,6 @@
 
 package com.taotao.cloud.goods.infrastructure.persistent.mapper;
 
-import com.taotao.cloud.goods.biz.model.vo.CategoryBrandVO;
 import com.taotao.cloud.goods.infrastructure.dataobject.CategoryBrandDO;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.CategoryBrandPO;
 import com.taotao.boot.webagg.mapper.BaseSuperMapper;

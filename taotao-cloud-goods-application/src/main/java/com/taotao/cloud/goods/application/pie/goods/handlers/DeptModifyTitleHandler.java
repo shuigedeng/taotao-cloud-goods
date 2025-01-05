@@ -33,7 +33,7 @@ public class DeptModifyTitleHandler implements ChannelHandler {
 
 		GoodsContext cmd = (GoodsContext) in;
 
-        String title = cmd.getDeptModifyCmd().getDeptCO().getName();
+        //String title = cmd.getDeptModifyCmd().getDeptCO().getName();
         // 此处的异常用于模拟执行过程中出现异常的场景，正常情况下注释掉
         throw new RuntimeException("修改title发生异常");
         // 修改标题的业务逻辑

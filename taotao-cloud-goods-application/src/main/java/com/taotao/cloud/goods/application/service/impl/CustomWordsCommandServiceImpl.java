@@ -25,6 +25,8 @@ import com.taotao.boot.common.utils.log.LogUtils;
 import com.taotao.boot.common.utils.servlet.RequestUtils;
 import com.taotao.boot.webagg.service.impl.BaseSuperServiceImpl;
 import com.taotao.cloud.goods.application.dto.goods.clientobject.CustomWordsCO;
+import com.taotao.cloud.goods.application.dto.goods.cmmond.CustomWordsAddCmd;
+import com.taotao.cloud.goods.application.dto.goods.cmmond.CustomWordsUpdateCmd;
 import com.taotao.cloud.goods.application.service.CustomWordsCommandService;
 import com.taotao.cloud.goods.infrastructure.persistent.mapper.CustomWordsMapper;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.CustomWordsPO;
@@ -49,84 +51,113 @@ public class CustomWordsCommandServiceImpl
 	extends
 	BaseSuperServiceImpl<CustomWordsPO, Long, CustomWordsMapper, CustomWordsRepository, ICustomWordsRepository>
 	implements CustomWordsCommandService {
-
 	@Override
 	public String deploy() {
-		LambdaQueryWrapper<CustomWordsPO> queryWrapper =
-			new LambdaQueryWrapper<CustomWordsPO>().eq(CustomWordsPO::getDisabled, 1);
-		List<CustomWordsPO> list = list(queryWrapper);
-
-		HttpServletResponse response = RequestUtils.getResponse();
-		StringBuilder builder = new StringBuilder();
-		if (list != null && !list.isEmpty()) {
-			boolean flag = true;
-			for (CustomWordsPO customWordsPO : list) {
-				if (flag) {
-					try {
-						response.setHeader(
-							"Last-Modified", customWordsPO.getCreateTime().toString());
-						response.setHeader("ETag", Integer.toString(list.size()));
-					} catch (Exception e) {
-						LogUtils.error("自定义分词错误", e);
-					}
-					builder.append(customWordsPO.getName());
-					flag = false;
-				} else {
-					builder.append("\n");
-					builder.append(customWordsPO.getName());
-				}
-			}
-		}
-
-		return new String(builder.toString().getBytes(StandardCharsets.UTF_8));
+		return "";
 	}
 
 	@Override
-	@Transactional(rollbackFor = Exception.class)
-	public boolean addCustomWords(CustomWordsCO customWordsCO) {
-		LambdaQueryWrapper<CustomWordsPO> queryWrapper =
-			new LambdaQueryWrapper<CustomWordsPO>().eq(CustomWordsPO::getName,
-				customWordsCO.getName());
-		CustomWordsPO one = this.getOne(queryWrapper, false);
-		if (one != null && one.getDisabled().equals(1)) {
-			throw new BusinessException(ResultEnum.CUSTOM_WORDS_EXIST_ERROR);
-		} else if (one != null && !one.getDisabled().equals(1)) {
-			this.remove(queryWrapper);
-		}
-		customWordsCO.setDisabled(1);
-		return this.save(CustomWordsConvert.INSTANCE.convert(customWordsCO));
+	public boolean addCustomWords(CustomWordsAddCmd customWordsAddCmd) {
+		return false;
 	}
 
 	@Override
-	@Transactional(rollbackFor = Exception.class)
-	public boolean deleteCustomWords(Long id) {
-		if (this.getById(id) == null) {
-			throw new BusinessException(ResultEnum.CUSTOM_WORDS_NOT_EXIST_ERROR);
-		}
-		return this.removeById(id);
+	public boolean updateCustomWords(CustomWordsUpdateCmd customWordsUpdateCmd) {
+		return false;
 	}
 
 	@Override
-	public boolean updateCustomWords(CustomWordsCO customWordsCO) {
-		if (this.getById(customWordsCO.getId()) == null) {
-			throw new BusinessException(ResultEnum.CUSTOM_WORDS_NOT_EXIST_ERROR);
-		}
-
-		return this.updateById(CustomWordsConvert.INSTANCE.convert(customWordsCO));
+	public boolean deleteCustomWords(String id) {
+		return false;
 	}
 
 	@Override
-	public IPage<CustomWordsPO> getCustomWordsByPage(String words, PageQuery pageQuery) {
-		LambdaQueryWrapper<CustomWordsPO> queryWrapper =
-			new LambdaQueryWrapper<CustomWordsPO>().like(CustomWordsPO::getName, words);
-		return this.page(pageQuery.buildMpPage(), queryWrapper);
+	public boolean deleteBathByName(List<String> names) {
+		return false;
 	}
 
 	@Override
-	public boolean existWords(String words) {
-		LambdaQueryWrapper<CustomWordsPO> queryWrapper =
-			new LambdaQueryWrapper<CustomWordsPO>().eq(CustomWordsPO::getName, words);
-		long count = count(queryWrapper);
-		return count > 0;
+	public long insertBatchCustomWords(List<CustomWordsPO> customWordsPOList) {
+		return 0;
 	}
+
+	//@Override
+	//public String deploy() {
+	//	LambdaQueryWrapper<CustomWordsPO> queryWrapper =
+	//		new LambdaQueryWrapper<CustomWordsPO>().eq(CustomWordsPO::getDisabled, 1);
+	//	List<CustomWordsPO> list = list(queryWrapper);
+	//
+	//	HttpServletResponse response = RequestUtils.getResponse();
+	//	StringBuilder builder = new StringBuilder();
+	//	if (list != null && !list.isEmpty()) {
+	//		boolean flag = true;
+	//		for (CustomWordsPO customWordsPO : list) {
+	//			if (flag) {
+	//				try {
+	//					response.setHeader(
+	//						"Last-Modified", customWordsPO.getCreateTime().toString());
+	//					response.setHeader("ETag", Integer.toString(list.size()));
+	//				} catch (Exception e) {
+	//					LogUtils.error("自定义分词错误", e);
+	//				}
+	//				builder.append(customWordsPO.getName());
+	//				flag = false;
+	//			} else {
+	//				builder.append("\n");
+	//				builder.append(customWordsPO.getName());
+	//			}
+	//		}
+	//	}
+	//
+	//	return new String(builder.toString().getBytes(StandardCharsets.UTF_8));
+	//}
+	//
+	//@Override
+	//@Transactional(rollbackFor = Exception.class)
+	//public boolean addCustomWords(CustomWordsCO customWordsCO) {
+	//	LambdaQueryWrapper<CustomWordsPO> queryWrapper =
+	//		new LambdaQueryWrapper<CustomWordsPO>().eq(CustomWordsPO::getName,
+	//			customWordsCO.getName());
+	//	CustomWordsPO one = this.getOne(queryWrapper, false);
+	//	if (one != null && one.getDisabled().equals(1)) {
+	//		throw new BusinessException(ResultEnum.CUSTOM_WORDS_EXIST_ERROR);
+	//	} else if (one != null && !one.getDisabled().equals(1)) {
+	//		this.remove(queryWrapper);
+	//	}
+	//	customWordsCO.setDisabled(1);
+	//	return this.save(CustomWordsConvert.INSTANCE.convert(customWordsCO));
+	//}
+	//
+	//@Override
+	//@Transactional(rollbackFor = Exception.class)
+	//public boolean deleteCustomWords(Long id) {
+	//	if (this.getById(id) == null) {
+	//		throw new BusinessException(ResultEnum.CUSTOM_WORDS_NOT_EXIST_ERROR);
+	//	}
+	//	return this.removeById(id);
+	//}
+	//
+	//@Override
+	//public boolean updateCustomWords(CustomWordsCO customWordsCO) {
+	//	if (this.getById(customWordsCO.getId()) == null) {
+	//		throw new BusinessException(ResultEnum.CUSTOM_WORDS_NOT_EXIST_ERROR);
+	//	}
+	//
+	//	return this.updateById(CustomWordsConvert.INSTANCE.convert(customWordsCO));
+	//}
+	//
+	//@Override
+	//public IPage<CustomWordsPO> getCustomWordsByPage(String words, PageQuery pageQuery) {
+	//	LambdaQueryWrapper<CustomWordsPO> queryWrapper =
+	//		new LambdaQueryWrapper<CustomWordsPO>().like(CustomWordsPO::getName, words);
+	//	return this.page(pageQuery.buildMpPage(), queryWrapper);
+	//}
+	//
+	//@Override
+	//public boolean existWords(String words) {
+	//	LambdaQueryWrapper<CustomWordsPO> queryWrapper =
+	//		new LambdaQueryWrapper<CustomWordsPO>().eq(CustomWordsPO::getName, words);
+	//	long count = count(queryWrapper);
+	//	return count > 0;
+	//}
 }

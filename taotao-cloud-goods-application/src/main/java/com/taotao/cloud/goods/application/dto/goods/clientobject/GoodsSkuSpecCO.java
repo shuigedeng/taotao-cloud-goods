@@ -17,7 +17,7 @@
 package com.taotao.cloud.goods.application.dto.goods.clientobject;
 
 import com.taotao.boot.ddd.model.application.dto.ClientObject;
-import com.taotao.cloud.goods.application.dto.specification.dto.clientobject.SpecValueCO;
+import com.taotao.cloud.goods.application.dto.specification.clientobject.SpecValueCO;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.List;
 import lombok.AllArgsConstructor;

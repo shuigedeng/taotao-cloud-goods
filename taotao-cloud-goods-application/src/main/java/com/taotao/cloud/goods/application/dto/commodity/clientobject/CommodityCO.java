@@ -25,7 +25,6 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
 /** 小程序直播商品 */
-@SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
 @Schema(description = "小程序直播商品CO")

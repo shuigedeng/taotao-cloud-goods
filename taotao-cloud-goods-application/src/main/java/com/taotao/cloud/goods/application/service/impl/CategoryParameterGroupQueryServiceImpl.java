@@ -67,12 +67,13 @@ public class CategoryParameterGroupQueryServiceImpl extends BaseSuperServiceImpl
 
 	@Override
 	public List<ParameterGroupCO> getCategoryParams(Long categoryId) {
-		// 根据id查询参数组
-		List<CategoryParameterGroupPO> groups = this.getCategoryGroup(categoryId);
-		// 查询参数
-		List<Parameters> params = parametersService.queryParametersByCategoryId(categoryId);
-		// 组合参数vo
-		return convertParamList(groups, params);
+		//// 根据id查询参数组
+		//List<CategoryParameterGroupPO> groups = this.getCategoryGroup(categoryId);
+		//// 查询参数
+		//List<Parameters> params = parametersService.queryParametersByCategoryId(categoryId);
+		//// 组合参数vo
+		//return convertParamList(groups, params);
+		return null;
 	}
 
 	@Override
@@ -90,28 +91,28 @@ public class CategoryParameterGroupQueryServiceImpl extends BaseSuperServiceImpl
 	 * @param paramList 商品参数list
 	 * @return 参数组和参数的返回值
 	 */
-	public List<ParameterGroupCO> convertParamList(List<CategoryParameterGroupPO> groupList, List<Parameters> paramList) {
-		Map<Long, List<Parameters>> map = new HashMap<>(paramList.size());
-		for (Parameters param : paramList) {
-			List<Parameters> list = map.get(param.getGroupId());
-			if (list == null) {
-				list = new ArrayList<>();
-			}
-			list.add(param);
-			map.put(param.getGroupId(), list);
-		}
-
-		List<ParameterGroupCO> resList = new ArrayList<>();
-		for (CategoryParameterGroupPO group : groupList) {
-			ParameterGroupCO groupVo = new ParameterGroupCO();
-			groupVo.setGroupId(group.getId());
-			groupVo.setGroupName(group.getGroupName());
-			groupVo.setParams(
-				map.get(group.getId()) == null
-					? new ArrayList<>()
-					: ParametersConvert.INSTANCE.convert(map.get(group.getId())));
-			resList.add(groupVo);
-		}
-		return resList;
-	}
+	//public List<ParameterGroupCO> convertParamList(List<CategoryParameterGroupPO> groupList, List<Parameters> paramList) {
+	//	Map<Long, List<Parameters>> map = new HashMap<>(paramList.size());
+	//	for (Parameters param : paramList) {
+	//		List<Parameters> list = map.get(param.getGroupId());
+	//		if (list == null) {
+	//			list = new ArrayList<>();
+	//		}
+	//		list.add(param);
+	//		map.put(param.getGroupId(), list);
+	//	}
+	//
+	//	List<ParameterGroupCO> resList = new ArrayList<>();
+	//	for (CategoryParameterGroupPO group : groupList) {
+	//		ParameterGroupCO groupVo = new ParameterGroupCO();
+	//		groupVo.setGroupId(group.getId());
+	//		groupVo.setGroupName(group.getGroupName());
+	//		groupVo.setParams(
+	//			map.get(group.getId()) == null
+	//				? new ArrayList<>()
+	//				: ParametersConvert.INSTANCE.convert(map.get(group.getId())));
+	//		resList.add(groupVo);
+	//	}
+	//	return resList;
+	//}
 }

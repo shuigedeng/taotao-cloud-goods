@@ -67,19 +67,19 @@ public interface GoodsMapper extends BaseSuperMapper<GoodsPO, Long> {
 	void addGoodsCommentNum(@Param("commentNum") Integer commentNum,
 		@Param("goodsId") Long goodsId);
 
-	/**
-	 * 查询商品VO分页
-	 *
-	 * @param page         分页
-	 * @param queryWrapper 查询条件
-	 * @return {@link IPage }<{@link GoodsSkuParamsVO }>
-	 * @since 2022-04-27 16:56:00
-	 */
-	@Select("""
-		select g.*
-		from tt_goods as g
-		""")
-	IPage<GoodsSkuParamsVO> queryByParams(
-		IPage<GoodsSkuParamsVO> page,
-		@Param(Constants.WRAPPER) Wrapper<GoodsSkuParamsVO> queryWrapper);
+	///**
+	// * 查询商品VO分页
+	// *
+	// * @param page         分页
+	// * @param queryWrapper 查询条件
+	// * @return {@link IPage }<{@link GoodsSkuParamsVO }>
+	// * @since 2022-04-27 16:56:00
+	// */
+	//@Select("""
+	//	select g.*
+	//	from tt_goods as g
+	//	""")
+	//IPage<GoodsSkuParamsVO> queryByParams(
+	//	IPage<GoodsSkuParamsVO> page,
+	//	@Param(Constants.WRAPPER) Wrapper<GoodsSkuParamsVO> queryWrapper);
 }

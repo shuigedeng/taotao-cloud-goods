@@ -38,33 +38,33 @@ import java.util.Map;
  * @since 2023-08-18 16:00:58
  */
 public interface GoodsSkuQueryService extends BaseSuperService<GoodsSkuPO, Long> {
-	/**
-	 * 获取商品SKU缓存ID
-	 *
-	 * @param id SkuId
-	 * @return {@link String }
-	 * @since 2023-08-18 16:00:58
-	 */
-	default String getCacheKeys(Long id) {
-		return CachePrefix.GOODS_SKU.getPrefix() + id;
-	}
-
-	/**
-	 * 获取商品SKU库存缓存ID
-	 *
-	 * @param id SkuId
-	 * @return {@link String }
-	 * @since 2023-08-18 16:00:58
-	 */
-	default String getStockCacheKey(Long id) {
-		return CachePrefix.SKU_STOCK.getPrefix() + id;
-	}
-
+	///**
+	// * 获取商品SKU缓存ID
+	// *
+	// * @param id SkuId
+	// * @return {@link String }
+	// * @since 2023-08-18 16:00:58
+	// */
+	//default String getCacheKeys(Long id) {
+	//	return CachePrefix.GOODS_SKU.getPrefix() + id;
+	//}
+	//
+	///**
+	// * 获取商品SKU库存缓存ID
+	// *
+	// * @param id SkuId
+	// * @return {@link String }
+	// * @since 2023-08-18 16:00:58
+	// */
+	//default String getStockCacheKey(Long id) {
+	//	return CachePrefix.SKU_STOCK.getPrefix() + id;
+	//}
+	//
 
 	/**
 	 * 从redis缓存中获取商品SKU信息
 	 *
-	 * @param id SkuId
+	 * @param skuId SkuId
 	 * @return {@link GoodsSkuPO }
 	 * @since 2023-08-18 16:00:59
 	 */

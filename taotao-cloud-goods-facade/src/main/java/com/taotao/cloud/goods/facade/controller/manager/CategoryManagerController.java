@@ -105,17 +105,18 @@ public class CategoryManagerController {
     @PreAuthorize("hasAuthority('dept:tree:data')")
     @PostMapping
     public Result<Boolean> saveCategory(@Validated @RequestBody CategoryAddCmd category) {
-        // 非顶级分类
-        if (category.getParentId() != null && !Long.valueOf(0).equals(category.getParentId())) {
-            Category parent = categoryQueryService.getById(category.getParentId());
-            if (parent == null) {
-                throw new BusinessException(ResultEnum.CATEGORY_PARENT_NOT_EXIST);
-            }
-            if (category.getLevel() >= 4) {
-                throw new BusinessException(ResultEnum.CATEGORY_BEYOND_THREE);
-            }
-        }
-        return Result.success(categoryCommandService.saveCategory(category));
+        //// 非顶级分类
+        //if (category.getParentId() != null && !Long.valueOf(0).equals(category.getParentId())) {
+        //    Category parent = categoryQueryService.getById(category.getParentId());
+        //    if (parent == null) {
+        //        throw new BusinessException(ResultEnum.CATEGORY_PARENT_NOT_EXIST);
+        //    }
+        //    if (category.getLevel() >= 4) {
+        //        throw new BusinessException(ResultEnum.CATEGORY_BEYOND_THREE);
+        //    }
+        //}
+        //return Result.success(categoryCommandService.saveCategory(category));
+		return Result.success(true);
     }
 
     @Operation(summary = "修改商品分类", description = "修改商品分类")
@@ -126,11 +127,12 @@ public class CategoryManagerController {
     @PreAuthorize("hasAuthority('dept:tree:data')")
     @PutMapping
     public Result<Boolean> updateCategory(@Valid @RequestBody CategoryTreeCO category) {
-		CategoryPO catTemp = categoryQueryService.getById(category.getId());
-        if (catTemp == null) {
-            throw new BusinessException(ResultEnum.CATEGORY_NOT_EXIST);
-        }
-        return Result.success(categoryCommandService.updateCategory(catTemp));
+		//CategoryPO catTemp = categoryQueryService.getById(category.getId());
+        //if (catTemp == null) {
+        //    throw new BusinessException(ResultEnum.CATEGORY_NOT_EXIST);
+        //}
+        //return Result.success(categoryCommandService.updateCategory(catTemp));
+		return Result.success(true);
     }
 
     @Operation(summary = "通过id删除分类", description = "通过id删除分类")
@@ -141,19 +143,20 @@ public class CategoryManagerController {
     @PreAuthorize("hasAuthority('dept:tree:data')")
     @DeleteMapping(value = "/{id}")
     public Result<Boolean> delAllByIds(@NotBlank(message = "id不能为空") @PathVariable Long id) {
-		CategoryPO category = new CategoryPO();
-        category.setParentId(id);
-        List<CategoryPO> list = categoryQueryService.findByAllBySortOrder(category);
-        if (list != null && !list.isEmpty()) {
-            throw new BusinessException(ResultEnum.CATEGORY_HAS_CHILDREN);
-        }
-
-        // 查询某商品分类的商品数量
-        long count = goodsQueryService.getGoodsCountByCategory(id);
-        if (count > 0) {
-            throw new BusinessException(ResultEnum.CATEGORY_HAS_GOODS);
-        }
-        return Result.success(categoryCommandService.delete(id));
+		//CategoryPO category = new CategoryPO();
+        //category.setParentId(id);
+        //List<CategoryPO> list = categoryQueryService.findByAllBySortOrder(category);
+        //if (list != null && !list.isEmpty()) {
+        //    throw new BusinessException(ResultEnum.CATEGORY_HAS_CHILDREN);
+        //}
+		//
+        //// 查询某商品分类的商品数量
+        //long count = goodsQueryService.getGoodsCountByCategory(id);
+        //if (count > 0) {
+        //    throw new BusinessException(ResultEnum.CATEGORY_HAS_GOODS);
+        //}
+        //return Result.success(categoryCommandService.delete(id));
+		return Result.success(true);
     }
 
     @Operation(summary = "后台 禁用/启用 分类", description = "后台 禁用/启用 分类")
@@ -168,6 +171,7 @@ public class CategoryManagerController {
         if (category == null) {
             throw new BusinessException(ResultEnum.CATEGORY_NOT_EXIST);
         }
-        return Result.success(categoryCommandService.updateCategoryStatus(id, enableOperations));
+        //return Result.success(categoryCommandService.updateCategoryStatus(id, enableOperations));
+		return null;
     }
 }

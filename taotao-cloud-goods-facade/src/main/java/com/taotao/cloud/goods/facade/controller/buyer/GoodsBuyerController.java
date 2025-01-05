@@ -23,17 +23,21 @@ import com.taotao.boot.data.mybatis.mybatisplus.MpUtils;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.cloud.goods.application.dto.goods.clientobject.GoodsCO;
 import com.taotao.cloud.goods.application.dto.goods.clientobject.GoodsSkuParamsCO;
+import com.taotao.cloud.goods.application.dto.goods.query.GoodsPageQry;
 import com.taotao.cloud.goods.application.service.EsGoodsQueryService;
 import com.taotao.cloud.goods.application.service.GoodsCommandService;
 import com.taotao.cloud.goods.application.service.GoodsQueryService;
 import com.taotao.cloud.goods.application.service.GoodsSkuCommandService;
 import com.taotao.cloud.goods.application.service.GoodsSkuQueryService;
+import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsPO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.Parameters;
 import io.swagger.v3.oas.annotations.enums.ParameterIn;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.constraints.NotNull;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import lombok.AllArgsConstructor;
@@ -99,7 +103,7 @@ public class GoodsBuyerController {
 	public Result<Map<String, Object>> getSku(
 		@NotNull(message = "商品ID不能为空") @PathVariable Long goodsId,
 		@NotNull(message = "skuId不能为空") @PathVariable Long skuId) {
-		Map<String, Object> map = goodsQueryService.getGoodsSkuDetail(goodsId, skuId);
+		Map<String, Object> map = goodsSkuQueryService.getGoodsSkuDetail(goodsId, skuId);
 		return Result.success(map);
 	}
 
@@ -107,30 +111,30 @@ public class GoodsBuyerController {
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping("/page")
-	public Result<PageResult<GoodsCO>> getByPage(@Validated GoodsPageQuery goodsPageQuery) {
-		IPage<Goods> goodsPage = goodsQueryService.goodsQueryPage(goodsPageQuery);
+	public Result<PageResult<GoodsCO>> getByPage(@Validated GoodsPageQry goodsPageQuery) {
+		IPage<GoodsPO> goodsPage = goodsQueryService.goodsQueryPage(goodsPageQuery);
 		return Result.success(MpUtils.convertMybatisPage(goodsPage, GoodsCO.class));
 	}
 
-	@Operation(summary = "从ES中获取商品信息", description = "从ES中获取商品信息")
-	@RequestLogger
-	@GetMapping("/es")
-	public Result<SearchPage<EsGoodsIndex>> getGoodsByPageFromEs(
-		@Validated EsGoodsSearchQuery goodsSearchParams) {
-		SearchPage<EsGoodsIndex> esGoodsIndices = esGoodsQueryService.searchGoods(goodsSearchParams);
-		return Result.success(esGoodsIndices);
-	}
+	//@Operation(summary = "从ES中获取商品信息", description = "从ES中获取商品信息")
+	//@RequestLogger
+	//@GetMapping("/es")
+	//public Result<SearchPage<EsGoodsIndex>> getGoodsByPageFromEs(
+	//	@Validated EsGoodsSearchQuery goodsSearchParams) {
+	//	SearchPage<EsGoodsIndex> esGoodsIndices = esGoodsQueryService.searchGoods(goodsSearchParams);
+	//	return Result.success(esGoodsIndices);
+	//}
 
-	@Operation(summary = "从ES中获取相关商品品牌名称，分类名称及属性", description = "从ES中获取相关商品品牌名称，分类名称及属性")
-	@RequestLogger
-	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@GetMapping("/es/related")
-	public Result<EsGoodsRelatedInfo> getGoodsRelatedByPageFromEs(
-		@Validated EsGoodsSearchQuery esGoodsSearchQuery) {
-		// pageVO.setNotConvert(true);
-		EsGoodsRelatedInfo selector = esGoodsQueryService.getSelector(esGoodsSearchQuery);
-		return Result.success(selector);
-	}
+	//@Operation(summary = "从ES中获取相关商品品牌名称，分类名称及属性", description = "从ES中获取相关商品品牌名称，分类名称及属性")
+	//@RequestLogger
+	//@PreAuthorize("hasAuthority('dept:tree:data')")
+	//@GetMapping("/es/related")
+	//public Result<EsGoodsRelatedInfo> getGoodsRelatedByPageFromEs(
+	//	@Validated EsGoodsSearchQuery esGoodsSearchQuery) {
+	//	// pageVO.setNotConvert(true);
+	//	EsGoodsRelatedInfo selector = esGoodsQueryService.getSelector(esGoodsSearchQuery);
+	//	return Result.success(selector);
+	//}
 
 	@Operation(summary = "获取热门关键词", description = "获取热门关键词")
 	@Parameters({
@@ -141,7 +145,7 @@ public class GoodsBuyerController {
 	@GetMapping("/hot-words")
 	public Result<List<String>> getGoodsHotWords(
 		@NotNull(message = "热词数量不能为空") @RequestParam Integer count) {
-		List<String> hotWords = esGoodsQueryService.getHotWords(count);
-		return Result.success(hotWords);
+		//List<String> hotWords = esGoodsQueryService.getHotWords(count);
+		return Result.success(new ArrayList<>());
 	}
 }

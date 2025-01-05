@@ -25,7 +25,6 @@ import lombok.experimental.SuperBuilder;
 
 /** 商品分类 */
 @Data
-@SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
 @Schema(description = "商品分类VO")

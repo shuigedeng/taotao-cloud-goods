@@ -57,46 +57,46 @@ public class DraftGoodsSellerController {
     private final DraftGoodsQueryService draftGoodsQueryService;
     private final DraftGoodsCommandService draftGoodsCommandService;
 
-    @Operation(summary = "分页获取草稿商品列表", description = "分页获取草稿商品列表")
-    @RequestLogger("分页获取草稿商品列表")
-    @PreAuthorize("hasAuthority('dept:tree:data')")
-    @GetMapping(value = "/page")
-    public Result<PageResult<DraftGoodsCO>> getDraftGoodsByPage(DraftGoodsPageQuery draftGoodsPageQuery) {
-        Long storeId = SecurityUtils.getCurrentUser().getStoreId();
-        draftGoodsPageQuery.setStoreId(storeId);
-        IPage<DraftGoods> draftGoods = draftGoodsService.draftGoodsQueryPage(draftGoodsPageQuery);
-        return Result.success(MpUtils.convertMybatisPage(draftGoods, DraftGoodsCO.class));
-    }
-
-    @Operation(summary = "获取草稿商品", description = "获取草稿商品")
-    @RequestLogger("获取草稿商品")
-    @PreAuthorize("hasAuthority('dept:tree:data')")
-    @GetMapping(value = "/{id}")
-    public Result<DraftGoodsSkuParamsCO> getDraftGoods(@PathVariable Long id) {
-        return Result.success(draftGoodsService.getDraftGoods(id));
-    }
-
-    @Operation(summary = "保存草稿商品", description = "保存草稿商品")
-    @RequestLogger("保存草稿商品")
-    @PreAuthorize("hasAuthority('dept:tree:data')")
-    @PostMapping
-    public Result<Boolean> saveDraftGoods(@Validated @RequestBody DraftGoodsSkuParamsDTO draftGoodsSkuParamsDTO) {
-        Long storeId = SecurityUtils.getCurrentUser().getStoreId();
-        if (draftGoodsSkuParamsDTO.getStoreId() == null) {
-            draftGoodsSkuParamsDTO.setStoreId(storeId);
-        } else if (draftGoodsSkuParamsDTO.getStoreId() != null
-                && !storeId.equals(draftGoodsSkuParamsDTO.getStoreId())) {
-            throw new BusinessException(ResultEnum.USER_AUTHORITY_ERROR);
-        }
-        return Result.success(draftGoodsService.saveGoodsDraft(draftGoodsSkuParamsDTO));
-    }
-
-    @Operation(summary = "删除草稿商品", description = "删除草稿商品")
-    @RequestLogger("删除草稿商品")
-    @PreAuthorize("hasAuthority('dept:tree:data')")
-    @DeleteMapping(value = "/{id}")
-    public Result<Boolean> deleteDraftGoods(@PathVariable Long id) {
-        draftGoodsService.getDraftGoods(id);
-        return Result.success(draftGoodsService.deleteGoodsDraft(id));
-    }
+    //@Operation(summary = "分页获取草稿商品列表", description = "分页获取草稿商品列表")
+    //@RequestLogger("分页获取草稿商品列表")
+    //@PreAuthorize("hasAuthority('dept:tree:data')")
+    //@GetMapping(value = "/page")
+    //public Result<PageResult<DraftGoodsCO>> getDraftGoodsByPage(DraftGoodsPageQuery draftGoodsPageQuery) {
+    //    Long storeId = SecurityUtils.getCurrentUser().getStoreId();
+    //    draftGoodsPageQuery.setStoreId(storeId);
+    //    IPage<DraftGoods> draftGoods = draftGoodsService.draftGoodsQueryPage(draftGoodsPageQuery);
+    //    return Result.success(MpUtils.convertMybatisPage(draftGoods, DraftGoodsCO.class));
+    //}
+	//
+    //@Operation(summary = "获取草稿商品", description = "获取草稿商品")
+    //@RequestLogger("获取草稿商品")
+    //@PreAuthorize("hasAuthority('dept:tree:data')")
+    //@GetMapping(value = "/{id}")
+    //public Result<DraftGoodsSkuParamsCO> getDraftGoods(@PathVariable Long id) {
+    //    return Result.success(draftGoodsService.getDraftGoods(id));
+    //}
+	//
+    //@Operation(summary = "保存草稿商品", description = "保存草稿商品")
+    //@RequestLogger("保存草稿商品")
+    //@PreAuthorize("hasAuthority('dept:tree:data')")
+    //@PostMapping
+    //public Result<Boolean> saveDraftGoods(@Validated @RequestBody DraftGoodsSkuParamsDTO draftGoodsSkuParamsDTO) {
+    //    Long storeId = SecurityUtils.getCurrentUser().getStoreId();
+    //    if (draftGoodsSkuParamsDTO.getStoreId() == null) {
+    //        draftGoodsSkuParamsDTO.setStoreId(storeId);
+    //    } else if (draftGoodsSkuParamsDTO.getStoreId() != null
+    //            && !storeId.equals(draftGoodsSkuParamsDTO.getStoreId())) {
+    //        throw new BusinessException(ResultEnum.USER_AUTHORITY_ERROR);
+    //    }
+    //    return Result.success(draftGoodsService.saveGoodsDraft(draftGoodsSkuParamsDTO));
+    //}
+	//
+    //@Operation(summary = "删除草稿商品", description = "删除草稿商品")
+    //@RequestLogger("删除草稿商品")
+    //@PreAuthorize("hasAuthority('dept:tree:data')")
+    //@DeleteMapping(value = "/{id}")
+    //public Result<Boolean> deleteDraftGoods(@PathVariable Long id) {
+    //    draftGoodsService.getDraftGoods(id);
+    //    return Result.success(draftGoodsService.deleteGoodsDraft(id));
+    //}
 }

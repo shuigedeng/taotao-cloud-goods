@@ -32,7 +32,7 @@ public class DeptModifyContentHandler implements ChannelHandler {
 		logger.info("修改正文:进入修改正文的Handler");
 
 		GoodsContext cmd = (GoodsContext) in;
-		logger.info("修改正文,content={}", cmd.getDeptModifyCmd().getDeptCO().getName());
+		//logger.info("修改正文,content={}", cmd.getDeptModifyCmd().getDeptCO().getName());
 
 		logger.info("修改正文:执行完成,即将进入下一个Handler");
 		ctx.fireChannelProcess(in, out);

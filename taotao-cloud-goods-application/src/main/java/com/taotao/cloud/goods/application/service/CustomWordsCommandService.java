@@ -43,7 +43,7 @@ public interface CustomWordsCommandService extends BaseSuperService<CustomWordsP
 	/**
 	 * 添加自定义分词
 	 *
-	 * @param customWordsVO 自定义分词信息
+	 * @param customWordsAddCmd 自定义分词信息
 	 * @return 是否添加成功
 	 */
 	boolean addCustomWords(CustomWordsAddCmd customWordsAddCmd);
@@ -52,7 +52,7 @@ public interface CustomWordsCommandService extends BaseSuperService<CustomWordsP
 	/**
 	 * 修改自定义分词
 	 *
-	 * @param customWordsVO 自定义分词信息
+	 * @param customWordsUpdateCmd 自定义分词信息
 	 * @return 是否修改成功
 	 */
 	boolean updateCustomWords(CustomWordsUpdateCmd customWordsUpdateCmd);
@@ -82,3 +82,4 @@ public interface CustomWordsCommandService extends BaseSuperService<CustomWordsP
 	long insertBatchCustomWords(List<CustomWordsPO> customWordsPOList);
 
 
+}

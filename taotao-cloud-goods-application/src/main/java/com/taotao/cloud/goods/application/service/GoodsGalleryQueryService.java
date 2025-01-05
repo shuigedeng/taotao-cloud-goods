@@ -20,6 +20,8 @@ package com.taotao.cloud.goods.application.service;
 import com.taotao.boot.webagg.service.BaseSuperService;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsGalleryPO;
 
+import java.util.List;
+
 /**
  * 商品相册业务层
  *

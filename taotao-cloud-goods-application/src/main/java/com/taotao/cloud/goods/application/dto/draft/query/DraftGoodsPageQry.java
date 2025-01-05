@@ -16,6 +16,7 @@
 
 package com.taotao.cloud.goods.application.dto.draft.query;
 
+import com.taotao.cloud.goods.api.enums.DraftGoodsSaveTypeEnum;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
 import lombok.AllArgsConstructor;
@@ -31,10 +32,9 @@ import lombok.NoArgsConstructor;
  * @since 2022-04-14 22:07:42
  */
 @Data
-@EqualsAndHashCode(callSuper = true)
 @AllArgsConstructor
 @NoArgsConstructor
-public class DraftGoodsPageQry extends GoodsPageQuery {
+public class DraftGoodsPageQry{
 
     @Serial
     private static final long serialVersionUID = -1057830772267228050L;

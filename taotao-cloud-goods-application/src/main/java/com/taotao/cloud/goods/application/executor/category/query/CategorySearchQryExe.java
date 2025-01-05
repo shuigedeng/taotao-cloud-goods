@@ -49,7 +49,7 @@ public class CategorySearchQryExe extends Executor {
 			CATEGORY_ARRAY.getPrefix());
 		// 如果缓存中为空，则重新获取缓存
 		if (categoryPoList == null) {
-			categoryTree();
+			//categoryTree();
 			categoryPoList = (List<CategoryPO>) redisRepository.get(CATEGORY_ARRAY.getPrefix());
 		}
 
@@ -71,15 +71,15 @@ public class CategorySearchQryExe extends Executor {
 		return categoryName;
 	}
 
-	public List<CategoryPO> findByAllBySortOrder(CategoryPO categoryPo) {
-		QueryWrapper<CategoryPO> queryWrapper = new QueryWrapper<>();
-		queryWrapper
-			.eq(categoryPo.getLevel() != null, "level", categoryPo.getLevel())
-			.eq(CharSequenceUtil.isNotBlank(categoryPo.getName()), "name", categoryPo.getName())
-			.eq(categoryPo.getParentId() != null, "parent_id", categoryPo.getParentId())
-			.ne(categoryPo.getId() != null, "id", categoryPo.getId())
-			.eq(DELETE_FLAG_COLUMN, false)
-			.orderByAsc("sort_order");
-		return this.categoryMapper.selectList(queryWrapper);
-	}
+	//public List<CategoryPO> findByAllBySortOrder(CategoryPO categoryPo) {
+	//	QueryWrapper<CategoryPO> queryWrapper = new QueryWrapper<>();
+	//	queryWrapper
+	//		.eq(categoryPo.getLevel() != null, "level", categoryPo.getLevel())
+	//		.eq(CharSequenceUtil.isNotBlank(categoryPo.getName()), "name", categoryPo.getName())
+	//		.eq(categoryPo.getParentId() != null, "parent_id", categoryPo.getParentId())
+	//		.ne(categoryPo.getId() != null, "id", categoryPo.getId())
+	//		.eq(DELETE_FLAG_COLUMN, false)
+	//		.orderByAsc("sort_order");
+	//	return this.categoryMapper.selectList(queryWrapper);
+	//}
 }

@@ -38,7 +38,7 @@ public interface CategoryParameterGroupCommandService extends
     /**
      * 更新分类参数组绑定信息
      *
-     * @param categoryParameterGroupPO 分类参数组信息
+     * @param categoryParameterGroupAddCmd 分类参数组信息
      * @return {@link boolean }
      * @since 2022-04-27 16:59:23
      */

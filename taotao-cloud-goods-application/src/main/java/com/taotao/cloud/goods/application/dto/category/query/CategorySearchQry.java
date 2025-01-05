@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.goods.application.dto.category.query;
 
-import com.taotao.boot.ddd.model.application.Query;
+import com.taotao.boot.ddd.model.application.dto.Query;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.DecimalMax;
 import jakarta.validation.constraints.DecimalMin;

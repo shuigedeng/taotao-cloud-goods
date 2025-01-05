@@ -18,7 +18,7 @@ package com.taotao.cloud.goods.application.dto.specification.clientobject;
 
 import com.taotao.boot.common.model.PageResult;
 import com.taotao.boot.ddd.model.application.dto.ClientObject;
-import com.taotao.cloud.goods.application.command.goods.dto.clientobject.GoodsSkuCO;
+import com.taotao.cloud.goods.application.dto.goods.clientobject.GoodsSkuCO;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
 import java.io.Serializable;

@@ -35,11 +35,11 @@ public class DeptCheckParameterHandler implements ChannelHandler {
 		if (in instanceof GoodsContext) {
 			GoodsContext cmd = (GoodsContext) in;
 
-			String name = cmd.getDeptAgg().getDept().getName();
-			Objects.requireNonNull(name, "name不能为空");
-
-			String path = cmd.getDeptAgg().getDept().getPath();
-			Objects.requireNonNull(path, "path不能为空");
+			//String name = cmd.getDeptAgg().getDept().getName();
+			//Objects.requireNonNull(name, "name不能为空");
+			//
+			//String path = cmd.getDeptAgg().getDept().getPath();
+			//Objects.requireNonNull(path, "path不能为空");
 		}
 
 		logger.info("参数校验:校验通过,即将进入下一个Handler");

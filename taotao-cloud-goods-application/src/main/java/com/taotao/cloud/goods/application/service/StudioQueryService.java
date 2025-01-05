@@ -37,7 +37,7 @@ public interface StudioQueryService extends BaseSuperService<StudioPO, Long> {
      * 获取直播间信息
      *
      * @param id 直播间ID
-     * @return {@link StudioCommodityVO }
+     * @return {@link StudioCommodityCO }
      * @since 2022-04-27 17:01:11
      */
     StudioCommodityCO getStudioVO(Long id);

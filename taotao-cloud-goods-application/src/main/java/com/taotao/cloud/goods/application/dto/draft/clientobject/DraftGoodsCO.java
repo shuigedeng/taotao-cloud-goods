@@ -36,7 +36,6 @@ import lombok.experimental.SuperBuilder;
  * @since 2022-04-14 22:10:24
  */
 @Data
-@SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
 public class DraftGoodsCO extends ClientObject {

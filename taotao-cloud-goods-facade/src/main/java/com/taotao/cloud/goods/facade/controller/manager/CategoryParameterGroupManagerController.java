@@ -73,27 +73,27 @@ public class CategoryParameterGroupManagerController {
         return Result.success(categoryParameterGroupQueryService.getCategoryParams(categoryId));
     }
 
-    @Operation(summary = "保存数据", description = "保存数据")
-    @io.swagger.v3.oas.annotations.Parameters({
-            @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
-    })
-    @RequestLogger
-    @PreAuthorize("hasAuthority('dept:tree:data')")
-    @PostMapping
-    public Result<Boolean> saveOrUpdate(@Validated CategoryParameterGroup categoryParameterGroup) {
-        return Result.success(categoryParameterGroupCommandService.save(categoryParameterGroup));
-    }
+    //@Operation(summary = "保存数据", description = "保存数据")
+    //@io.swagger.v3.oas.annotations.Parameters({
+    //        @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
+    //})
+    //@RequestLogger
+    //@PreAuthorize("hasAuthority('dept:tree:data')")
+    //@PostMapping
+    //public Result<Boolean> saveOrUpdate(@Validated CategoryParameterGroup categoryParameterGroup) {
+    //    return Result.success(categoryParameterGroupCommandService.save(categoryParameterGroup));
+    //}
 
-    @Operation(summary = "更新数据", description = "更新数据")
-    @io.swagger.v3.oas.annotations.Parameters({
-            @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
-    })
-    @RequestLogger
-    @PreAuthorize("hasAuthority('dept:tree:data')")
-    @PutMapping
-    public Result<Boolean> update(@Validated CategoryParameterGroup categoryParameterGroup) {
-        return Result.success(categoryParameterGroupCommandService.updateById(categoryParameterGroup));
-    }
+    //@Operation(summary = "更新数据", description = "更新数据")
+    //@io.swagger.v3.oas.annotations.Parameters({
+    //        @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
+    //})
+    //@RequestLogger
+    //@PreAuthorize("hasAuthority('dept:tree:data')")
+    //@PutMapping
+    //public Result<Boolean> update(@Validated CategoryParameterGroup categoryParameterGroup) {
+    //    return Result.success(categoryParameterGroupCommandService.updateById(categoryParameterGroup));
+    //}
 
     @Operation(summary = "通过id删除参数组", description = "通过id删除参数组")
     @io.swagger.v3.oas.annotations.Parameters({

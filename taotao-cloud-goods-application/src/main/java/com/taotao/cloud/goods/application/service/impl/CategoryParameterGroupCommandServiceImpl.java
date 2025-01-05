@@ -29,6 +29,7 @@ import com.taotao.cloud.goods.application.service.GoodsCommandService;
 import com.taotao.cloud.goods.application.service.ParametersCommandService;
 import com.taotao.cloud.goods.infrastructure.persistent.mapper.CategoryParameterGroupMapper;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.CategoryParameterGroupPO;
+import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsPO;
 import com.taotao.cloud.goods.infrastructure.persistent.repository.cls.CategoryParameterGroupRepository;
 import com.taotao.cloud.goods.infrastructure.persistent.repository.inf.ICategoryParameterGroupRepository;
 import lombok.AllArgsConstructor;
@@ -67,35 +68,35 @@ public class CategoryParameterGroupCommandServiceImpl extends BaseSuperServiceIm
 	private final GoodsCommandService goodsService;
 
 
-	@Override
-	@Transactional(rollbackFor = Exception.class)
-	public boolean updateCategoryGroup(CategoryParameterGroupPO categoryParameterGroupPO) {
-		CategoryParameterGroupPO origin = this.getById(categoryParameterGroupPO.getId());
-		if (origin == null) {
-			throw new BusinessException(ResultEnum.CATEGORY_PARAMETER_NOT_EXIST);
-		}
-
-		LambdaQueryWrapper<Goods> queryWrapper = new LambdaQueryWrapper<>();
-		queryWrapper.select(Goods::getId, Goods::getParams);
-		queryWrapper.like(Goods::getParams, origin.getId());
-		List<Map<String, Object>> goodsList = this.goodsService.listMaps(queryWrapper);
-
-		for (Map<String, Object> goods : goodsList) {
-			String params = (String) goods.get("params");
-			List<GoodsParamsDTO> goodsParamsDTOS = JSONUtil.toList(params, GoodsParamsDTO.class);
-			List<GoodsParamsDTO> goodsParamsDTOList = goodsParamsDTOS.stream()
-				.filter(i -> i.getGroupId() != null && i.getGroupId().equals(origin.getId()))
-				.toList();
-			for (GoodsParamsDTO goodsParamsDTO : goodsParamsDTOList) {
-				goodsParamsDTO.setGroupName(categoryParameterGroupPO.getGroupName());
-			}
-
-			this.goodsService.updateGoodsParams(
-				Long.valueOf(goods.get("id").toString()), JSONUtil.toJsonStr(goodsParamsDTOS));
-		}
-
-		return this.updateById(categoryParameterGroupPO);
-	}
+	//@Override
+	//@Transactional(rollbackFor = Exception.class)
+	//public boolean updateCategoryGroup(CategoryParameterGroupPO categoryParameterGroupPO) {
+	//	CategoryParameterGroupPO origin = this.getById(categoryParameterGroupPO.getId());
+	//	if (origin == null) {
+	//		throw new BusinessException(ResultEnum.CATEGORY_PARAMETER_NOT_EXIST);
+	//	}
+	//
+	//	LambdaQueryWrapper<GoodsPO> queryWrapper = new LambdaQueryWrapper<>();
+	//	queryWrapper.select(GoodsPO::getId, GoodsPO::getParams);
+	//	queryWrapper.like(GoodsPO::getParams, origin.getId());
+	//	List<Map<String, Object>> goodsList = this.goodsService.listMaps(queryWrapper);
+	//
+	//	for (Map<String, Object> goods : goodsList) {
+	//		String params = (String) goods.get("params");
+	//		List<GoodsParamsDTO> goodsParamsDTOS = JSONUtil.toList(params, GoodsParamsDTO.class);
+	//		List<GoodsParamsDTO> goodsParamsDTOList = goodsParamsDTOS.stream()
+	//			.filter(i -> i.getGroupId() != null && i.getGroupId().equals(origin.getId()))
+	//			.toList();
+	//		for (GoodsParamsDTO goodsParamsDTO : goodsParamsDTOList) {
+	//			goodsParamsDTO.setGroupName(categoryParameterGroupPO.getGroupName());
+	//		}
+	//
+	//		this.goodsService.updateGoodsParams(
+	//			Long.valueOf(goods.get("id").toString()), JSONUtil.toJsonStr(goodsParamsDTOS));
+	//	}
+	//
+	//	return this.updateById(categoryParameterGroupPO);
+	//}
 
 	@Override
 	public boolean updateCategoryGroup(CategoryParameterGroupAddCmd categoryParameterGroupAddCmd) {

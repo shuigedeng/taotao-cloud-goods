@@ -28,7 +28,6 @@ import lombok.experimental.SuperBuilder;
 /** 分类VO */
 @Data
 @EqualsAndHashCode(callSuper = true)
-@SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
 public class CategoryTreeApiResponse extends CategoryApiResponse {

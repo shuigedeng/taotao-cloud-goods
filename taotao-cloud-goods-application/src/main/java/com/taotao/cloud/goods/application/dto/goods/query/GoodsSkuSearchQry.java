@@ -1,7 +1,7 @@
 package com.taotao.cloud.goods.application.dto.goods.query;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.taotao.boot.ddd.model.application.Query;
+import com.taotao.boot.ddd.model.application.dto.Query;
 import com.taotao.cloud.goods.api.enums.GoodsAuthEnum;
 import com.taotao.cloud.goods.api.enums.GoodsSalesModeEnum;
 import com.taotao.cloud.goods.api.enums.GoodsStatusEnum;

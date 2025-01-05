@@ -1,6 +1,7 @@
 package com.taotao.cloud.goods.domain.category.valueobject;
 
 import com.taotao.boot.ddd.model.domain.ValueObject;
+import jakarta.validation.constraints.NotBlank;
 import org.hibernate.validator.constraints.Length;
 
 import java.util.Objects;

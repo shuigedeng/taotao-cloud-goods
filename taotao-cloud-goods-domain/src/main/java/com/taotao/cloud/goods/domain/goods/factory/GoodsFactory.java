@@ -23,16 +23,16 @@ public class GoodsFactory {
 	 * @param goodsPrice 商品价格
 	 * @return 初始商品
 	 */
-	public static GoodsAgg createGoods(BizId categoryId, GoodsName goodsName, GoodsSpec goodsSpec,
-		Price goodsPrice, Set<BizId> tagIds) {
-		return new GoodsAgg(
-			BizId.of(IdGenUtils.nextDigitalId()),
-			categoryId,
-			goodsName,
-			goodsSpec,
-			goodsPrice,
-			GoodsStatus.UNSHELVED,
-			tagIds
-		);
-	}
+	//public static GoodsAgg createGoods(BizId categoryId, GoodsName goodsName, GoodsSpec goodsSpec,
+	//	Price goodsPrice, Set<BizId> tagIds) {
+	//	return new GoodsAgg(
+	//		BizId.of(IdGenUtils.nextDigitalId()),
+	//		categoryId,
+	//		goodsName,
+	//		goodsSpec,
+	//		goodsPrice,
+	//		GoodsStatus.UNSHELVED,
+	//		tagIds
+	//	);
+	//}
 }

@@ -83,17 +83,17 @@ public class GoodsManagerController {
         return Result.success(MpUtils.convertMybatisPage(goodsPage, GoodsCO.class));
     }
 
-    @Operation(summary = "分页获取商品列表", description = "分页获取商品列表")
-    @Parameters({
-            @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
-    })
-    @RequestLogger("分页获取商品列表")
-    @PreAuthorize("hasAuthority('dept:tree:data')")
-    @GetMapping(value = "/sku/page")
-    public Result<PageResult<GoodsSkuCO>> getSkuByPage(@Validated GoodsPageQry goodsPageQuery) {
-        IPage<GoodsSkuPO> goodsSkuPage = goodsSkuQueryService.goodsSkuQueryPage(goodsPageQuery);
-        return Result.success(MpUtils.convertMybatisPage(goodsSkuPage, GoodsSkuConvert.INSTANCE::convert));
-    }
+    //@Operation(summary = "分页获取商品列表", description = "分页获取商品列表")
+    //@Parameters({
+    //        @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
+    //})
+    //@RequestLogger("分页获取商品列表")
+    //@PreAuthorize("hasAuthority('dept:tree:data')")
+    //@GetMapping(value = "/sku/page")
+    //public Result<PageResult<GoodsSkuCO>> getSkuByPage(@Validated GoodsPageQry goodsPageQuery) {
+    //    IPage<GoodsSkuPO> goodsSkuPage = goodsSkuQueryService.goodsSkuQueryPage(goodsPageQuery);
+    //    return Result.success(MpUtils.convertMybatisPage(goodsSkuPage, GoodsSkuConvert.INSTANCE::convert));
+    //}
 
     @Operation(summary = "分页获取待审核商品", description = "分页获取待审核商品")
     @Parameters({

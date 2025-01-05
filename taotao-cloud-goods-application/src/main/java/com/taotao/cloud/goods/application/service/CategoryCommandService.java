@@ -17,13 +17,9 @@
 package com.taotao.cloud.goods.application.service;
 
 import com.taotao.boot.webagg.service.BaseSuperService;
-import com.taotao.cloud.goods.application.dto.category.clientobject.CategoryTreeCO;
 import com.taotao.cloud.goods.application.dto.category.cmmond.CategoryAddCmd;
 import com.taotao.cloud.goods.application.dto.category.cmmond.CategoryUpdateCmd;
-import com.taotao.cloud.goods.application.dto.category.query.CategorySearchQry;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.CategoryPO;
-import java.util.List;
-import java.util.Map;
 
 /**
  * 商品分类业务层
@@ -33,10 +29,6 @@ import java.util.Map;
  * @since 2022-04-27 16:59:28
  */
 public interface CategoryCommandService extends BaseSuperService<CategoryPO, Long> {
-
-	boolean delete(Long id);
-
-	boolean updateCategoryStatus(Long categoryId, boolean enableOperations);
 
 	/**
 	 * 添加商品分类
@@ -59,7 +51,7 @@ public interface CategoryCommandService extends BaseSuperService<CategoryPO, Lon
 	 *
 	 * @param id 分类ID
 	 */
-	void delete(String id);
+	void delete(Long id);
 
 	/**
 	 * 分类状态的更改
@@ -67,6 +59,6 @@ public interface CategoryCommandService extends BaseSuperService<CategoryPO, Lon
 	 * @param categoryId       商品分类ID
 	 * @param enableOperations 是否可用
 	 */
-	void updateCategoryStatus(String categoryId, boolean enableOperations);
+	void updateCategoryStatus(Long categoryId, boolean enableOperations);
 
 }

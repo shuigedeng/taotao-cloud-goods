@@ -18,8 +18,6 @@ package com.taotao.cloud.goods.application.service;
 
 import com.taotao.cloud.goods.application.dto.goods.query.EsGoodsSearchQry;
 import com.taotao.cloud.goods.application.dto.hotwords.query.HotWordsPageQry;
-import com.taotao.cloud.goods.application.elasticsearch.entity.EsGoodsIndex;
-import com.taotao.cloud.goods.application.elasticsearch.pojo.EsGoodsRelatedInfo;
 import java.util.List;
 import org.springframework.data.elasticsearch.core.SearchPage;
 
@@ -32,66 +30,66 @@ import org.springframework.data.elasticsearch.core.SearchPage;
  */
 public interface EsGoodsQueryService {
 
-    /**
-     * 商品搜索
-     *
-     * @param esGoodsSearchQry 搜索参数
-     * @return {@link SearchPage }<{@link EsGoodsIndex }>
-     * @since 2022-04-27 17:00:07
-     */
-    SearchPage<EsGoodsIndex> searchGoods(EsGoodsSearchQry esGoodsSearchQry);
-
-    /**
-     * 获取热门关键词
-     *
-     * @param count 热词数量
-     * @return {@link List }<{@link String }>
-     * @since 2022-04-27 17:00:07
-     */
-    List<String> getHotWords(Integer count);
-
-    /**
-     * 设置热门关键词
-     *
-     * @param hotWords 热词分数
-     * @return {@link boolean }
-     * @since 2022-04-27 17:00:07
-     */
-    boolean setHotWords(HotWordsPageQry hotWords);
-
-    /**
-     * 删除热门关键词
-     *
-     * @param keywords 热词
-     * @return {@link boolean }
-     * @since 2022-04-27 17:00:07
-     */
-    boolean deleteHotWords(String keywords);
-
-    /**
-     * 获取筛选器
-     *
-     * @param esGoodsSearchQry 搜索条件
-     * @return {@link EsGoodsRelatedInfo }
-     * @since 2022-04-27 17:00:07
-     */
-    EsGoodsRelatedInfo getSelector(EsGoodsSearchQry esGoodsSearchQry);
-
-    /**
-     * 根据SkuID列表获取ES商品
-     *
-     * @param skuIds SkuId列表
-     * @return {@link List }<{@link EsGoodsIndex }>
-     * @since 2022-04-27 17:00:07
-     */
-    List<EsGoodsIndex> getEsGoodsBySkuIds(List<Long> skuIds);
-
-    /**
-     * 根据id获取商品索引
-     *
-     * @param id 商品skuId
-     * @return {@link EsGoodsIndex }
-     * @since 2022-04-27 17:00:07
-     */
-    EsGoodsIndex getEsGoodsById(Long id);
+    ///**
+    // * 商品搜索
+    // *
+    // * @param esGoodsSearchQry 搜索参数
+    // * @return {@link SearchPage }<{@link EsGoodsIndex }>
+    // * @since 2022-04-27 17:00:07
+    // */
+    //SearchPage<EsGoodsIndex> searchGoods(EsGoodsSearchQry esGoodsSearchQry);
+	//
+    ///**
+    // * 获取热门关键词
+    // *
+    // * @param count 热词数量
+    // * @return {@link List }<{@link String }>
+    // * @since 2022-04-27 17:00:07
+    // */
+    //List<String> getHotWords(Integer count);
+	//
+    ///**
+    // * 设置热门关键词
+    // *
+    // * @param hotWords 热词分数
+    // * @return {@link boolean }
+    // * @since 2022-04-27 17:00:07
+    // */
+    //boolean setHotWords(HotWordsPageQry hotWords);
+	//
+    ///**
+    // * 删除热门关键词
+    // *
+    // * @param keywords 热词
+    // * @return {@link boolean }
+    // * @since 2022-04-27 17:00:07
+    // */
+    //boolean deleteHotWords(String keywords);
+	//
+    ///**
+    // * 获取筛选器
+    // *
+    // * @param esGoodsSearchQry 搜索条件
+    // * @return {@link EsGoodsRelatedInfo }
+    // * @since 2022-04-27 17:00:07
+    // */
+    //EsGoodsRelatedInfo getSelector(EsGoodsSearchQry esGoodsSearchQry);
+	//
+    ///**
+    // * 根据SkuID列表获取ES商品
+    // *
+    // * @param skuIds SkuId列表
+    // * @return {@link List }<{@link EsGoodsIndex }>
+    // * @since 2022-04-27 17:00:07
+    // */
+    //List<EsGoodsIndex> getEsGoodsBySkuIds(List<Long> skuIds);
+	//
+    ///**
+    // * 根据id获取商品索引
+    // *
+    // * @param id 商品skuId
+    // * @return {@link EsGoodsIndex }
+    // * @since 2022-04-27 17:00:07
+    // */
+    //EsGoodsIndex getEsGoodsById(Long id);
 }

@@ -38,5 +38,5 @@ public interface CommodityAssembler {
     /** 实例 */
     CommodityAssembler INSTANCE = Mappers.getMapper(CommodityAssembler.class);
 
-    List<CommoditySkuVO> convert(List<Commodity> commodities);
+    //List<CommoditySkuVO> convert(List<Commodity> commodities);
 }

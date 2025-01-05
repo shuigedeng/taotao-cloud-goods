@@ -31,7 +31,6 @@ import java.math.BigDecimal;
  */
 @Getter
 @Setter
-@SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
 @Schema(description = "商品分类CO")

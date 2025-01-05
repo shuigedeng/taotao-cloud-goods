@@ -43,7 +43,7 @@ public class HotWordsEveryDayTaskExecute implements EveryDayExecute {
 	@Override
 	public void execute() {
 		//移除昨日的热搜词
-		redisRepository.del(CachePrefix.HOT_WORD.getPrefix());
+		//redisRepository.del(CachePrefix.HOT_WORD.getPrefix());
 	}
 
 }

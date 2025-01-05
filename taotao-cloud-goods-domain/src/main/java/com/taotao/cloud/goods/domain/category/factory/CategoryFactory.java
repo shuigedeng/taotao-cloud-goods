@@ -20,14 +20,14 @@ public class CategoryFactory {
 	 * @param categoryDesc     分类描述
 	 * @return 初始分类
 	 */
-	public static CategoryAgg createCategory(BizId parentCategoryId, CategoryName categoryName,
-		CategoryDesc categoryDesc) {
-		LocalDateTime now = LocalDateTime.now();
-		return new CategoryAgg(
-			BizId.of(IdGenUtils.nextDigitalId()),
-			parentCategoryId,
-			categoryName,
-			categoryDesc
-		);
-	}
+	//public static CategoryAgg createCategory(BizId parentCategoryId, CategoryName categoryName,
+	//	CategoryDesc categoryDesc) {
+	//	LocalDateTime now = LocalDateTime.now();
+	//	return new CategoryAgg(
+	//		BizId.of(IdGenUtils.nextDigitalId()),
+	//		parentCategoryId,
+	//		categoryName,
+	//		categoryDesc
+	//	);
+	//}
 }

@@ -66,12 +66,13 @@ public class SpecificationQueryServiceImpl
 
 	@Override
 	public IPage<SpecificationPO> getPage(SpecificationPageQry specificationPageQry) {
-		LambdaQueryWrapper<SpecificationPO> lambdaQueryWrapper = new LambdaQueryWrapper<>();
-		lambdaQueryWrapper.like(
-			StringUtils.isNotEmpty(specificationPageQry.getSpecName()),
-			SpecificationPO::getSpecName,
-			specificationPageQry.getSpecName());
-		return this.page(specificationPageQry.buildMpPage(), lambdaQueryWrapper);
+		//LambdaQueryWrapper<SpecificationPO> lambdaQueryWrapper = new LambdaQueryWrapper<>();
+		//lambdaQueryWrapper.like(
+		//	StringUtils.isNotEmpty(specificationPageQry.getSpecName()),
+		//	SpecificationPO::getSpecName,
+		//	specificationPageQry.getSpecName());
+		//return this.page(specificationPageQry.buildMpPage(), lambdaQueryWrapper);
+		return null;
 	}
 
 }

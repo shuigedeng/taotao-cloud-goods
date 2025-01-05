@@ -59,68 +59,83 @@ public class StoreGoodsLabelCommandServiceImpl
 	@Autowired
 	private RedisRepository redisRepository;
 
-
 	@Override
-	@Transactional(rollbackFor = Exception.class)
 	public boolean addStoreGoodsLabel(StoreGoodsLabelPO storeGoodsLabelPO) {
-		// 获取当前登录商家账号
-		SecurityUser tokenUser = SecurityUtils.getCurrentUser();
-		storeGoodsLabelPO.setStoreId(tokenUser.getStoreId());
-		// 保存店铺分类
-		this.save(storeGoodsLabelPO);
-		// 清除缓存
-		removeCache(storeGoodsLabelPO.getStoreId());
-		return true;
+		return false;
 	}
 
 	@Override
-	@Transactional(rollbackFor = Exception.class)
 	public boolean editStoreGoodsLabel(StoreGoodsLabelPO storeGoodsLabelPO) {
-		// 修改当前店铺的商品分类
-		SecurityUser tokenUser = SecurityUtils.getCurrentUser();
-
-		LambdaUpdateWrapper<StoreGoodsLabelPO> lambdaUpdateWrapper = Wrappers.lambdaUpdate();
-		lambdaUpdateWrapper.eq(StoreGoodsLabelPO::getStoreId, tokenUser.getStoreId());
-		lambdaUpdateWrapper.eq(StoreGoodsLabelPO::getId, storeGoodsLabelPO.getId());
-		// 修改店铺分类
-		this.update(storeGoodsLabelPO, lambdaUpdateWrapper);
-		// 清除缓存
-		removeCache(storeGoodsLabelPO.getStoreId());
-		return true;
+		return false;
 	}
 
 	@Override
 	public boolean removeStoreGoodsLabel(Long storeLabelId) {
-		SecurityUser tokenUser = SecurityUtils.getCurrentUser();
-		if (tokenUser == null || Objects.isNull(tokenUser.getStoreId())) {
-			throw new BusinessException(ResultEnum.USER_NOT_LOGIN);
-		}
-		// 删除店铺分类
-		this.removeById(storeLabelId);
-
-		// 清除缓存
-		removeCache(tokenUser.getStoreId());
-
-		return true;
+		return false;
 	}
 
-	/**
-	 * 获取店铺商品分类列表
-	 *
-	 * @param storeId 店铺ID
-	 * @return 店铺商品分类列表
-	 */
-	private List<StoreGoodsLabelPO> list(Long storeId) {
-		LambdaQueryWrapper<StoreGoodsLabelPO> queryWrapper = Wrappers.lambdaQuery();
-		queryWrapper.eq(StoreGoodsLabelPO::getStoreId, storeId);
-		queryWrapper.orderByDesc(StoreGoodsLabelPO::getSortOrder);
-		return this.baseMapper.selectList(queryWrapper);
-	}
 
-	/**
-	 * 清除缓存
-	 */
-	private void removeCache(Long storeId) {
-		redisRepository.del(CachePrefix.STORE_CATEGORY.getPrefix() + storeId);
-	}
+	//@Override
+	//@Transactional(rollbackFor = Exception.class)
+	//public boolean addStoreGoodsLabel(StoreGoodsLabelPO storeGoodsLabelPO) {
+	//	// 获取当前登录商家账号
+	//	SecurityUser tokenUser = SecurityUtils.getCurrentUser();
+	//	storeGoodsLabelPO.setStoreId(tokenUser.getStoreId());
+	//	// 保存店铺分类
+	//	this.save(storeGoodsLabelPO);
+	//	// 清除缓存
+	//	removeCache(storeGoodsLabelPO.getStoreId());
+	//	return true;
+	//}
+	//
+	//@Override
+	//@Transactional(rollbackFor = Exception.class)
+	//public boolean editStoreGoodsLabel(StoreGoodsLabelPO storeGoodsLabelPO) {
+	//	// 修改当前店铺的商品分类
+	//	SecurityUser tokenUser = SecurityUtils.getCurrentUser();
+	//
+	//	LambdaUpdateWrapper<StoreGoodsLabelPO> lambdaUpdateWrapper = Wrappers.lambdaUpdate();
+	//	lambdaUpdateWrapper.eq(StoreGoodsLabelPO::getStoreId, tokenUser.getStoreId());
+	//	lambdaUpdateWrapper.eq(StoreGoodsLabelPO::getId, storeGoodsLabelPO.getId());
+	//	// 修改店铺分类
+	//	this.update(storeGoodsLabelPO, lambdaUpdateWrapper);
+	//	// 清除缓存
+	//	removeCache(storeGoodsLabelPO.getStoreId());
+	//	return true;
+	//}
+	//
+	//@Override
+	//public boolean removeStoreGoodsLabel(Long storeLabelId) {
+	//	SecurityUser tokenUser = SecurityUtils.getCurrentUser();
+	//	if (tokenUser == null || Objects.isNull(tokenUser.getStoreId())) {
+	//		throw new BusinessException(ResultEnum.USER_NOT_LOGIN);
+	//	}
+	//	// 删除店铺分类
+	//	this.removeById(storeLabelId);
+	//
+	//	// 清除缓存
+	//	removeCache(tokenUser.getStoreId());
+	//
+	//	return true;
+	//}
+	//
+	///**
+	// * 获取店铺商品分类列表
+	// *
+	// * @param storeId 店铺ID
+	// * @return 店铺商品分类列表
+	// */
+	//private List<StoreGoodsLabelPO> list(Long storeId) {
+	//	LambdaQueryWrapper<StoreGoodsLabelPO> queryWrapper = Wrappers.lambdaQuery();
+	//	queryWrapper.eq(StoreGoodsLabelPO::getStoreId, storeId);
+	//	queryWrapper.orderByDesc(StoreGoodsLabelPO::getSortOrder);
+	//	return this.baseMapper.selectList(queryWrapper);
+	//}
+	//
+	///**
+	// * 清除缓存
+	// */
+	//private void removeCache(Long storeId) {
+	//	redisRepository.del(CachePrefix.STORE_CATEGORY.getPrefix() + storeId);
+	//}
 }

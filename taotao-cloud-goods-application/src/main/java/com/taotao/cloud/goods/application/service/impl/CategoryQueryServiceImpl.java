@@ -121,7 +121,8 @@ public class CategoryQueryServiceImpl extends
 
 	@Override
 	public List<CategoryPO> findByAllBySortOrder(CategorySearchQry category) {
-		return categorySearchQryExe.findByAllBySortOrder(categoryPO);
+		//return categorySearchQryExe.findByAllBySortOrder(categoryPO);
+		return null;
 	}
 
 

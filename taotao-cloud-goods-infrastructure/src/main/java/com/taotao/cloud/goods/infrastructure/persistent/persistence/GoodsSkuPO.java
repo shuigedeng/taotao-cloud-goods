@@ -226,14 +226,14 @@ public class GoodsSkuPO extends BaseSuperEntity<GoodsSkuPO, Long> {
         return weight;
     }
 
-    @Override
-    public LocalDateTime getUpdateTime() {
-        if (super.getUpdateTime() == null) {
-            return LocalDateTime.ofEpochSecond(1593571928, 0, ZoneOffset.of("+8"));
-        } else {
-            return super.getUpdateTime();
-        }
-    }
+    //@Override
+    //public LocalDateTime getUpdateTime() {
+    //    if (super.getUpdateTime() == null) {
+    //        return LocalDateTime.ofEpochSecond(1593571928, 0, ZoneOffset.of("+8"));
+    //    } else {
+    //        return super.getUpdateTime();
+    //    }
+    //}
 
     @Override
     public boolean equals(Object o) {

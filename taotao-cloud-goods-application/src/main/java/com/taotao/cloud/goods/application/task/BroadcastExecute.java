@@ -43,6 +43,6 @@ public class BroadcastExecute implements EveryHourExecute {
 	@Override
 	public void execute() {
 		//同步直播商品状态
-		commodityService.getGoodsWareHouse();
+		//commodityService.getGoodsWareHouse();
 	}
 }

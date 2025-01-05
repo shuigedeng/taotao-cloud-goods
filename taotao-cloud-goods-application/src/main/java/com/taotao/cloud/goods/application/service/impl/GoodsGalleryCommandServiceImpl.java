@@ -46,55 +46,59 @@ import java.util.List;
 public class GoodsGalleryCommandServiceImpl
 	extends BaseSuperServiceImpl<GoodsGalleryPO, Long, GoodsGalleryMapper, GoodsGalleryRepository, IGoodsGalleryRepository>
 	implements GoodsGalleryCommandService {
-
-	/**
-	 * 设置
-	 */
-	@Autowired
-	private IFeignSettingApi settingApi;
-
 	@Override
-	@Transactional(rollbackFor = Exception.class)
 	public boolean add(List<String> goodsGalleryList, Long goodsId) {
-		// 删除原来商品相册信息
-		this.baseMapper.delete(new UpdateWrapper<GoodsGalleryPO>().eq("goods_id", goodsId));
-		// 确定好图片选择器后进行处理
-		int i = 0;
-		for (String origin : goodsGalleryList) {
-			// 获取带所有缩略的相册
-			GoodsGalleryPO galley = this.getGoodsGallery(origin);
-			galley.setGoodsId(goodsId);
-			// 默认第一个为默认图片
-			galley.setIsDefault(i == 0 ? 1 : 0);
-			i++;
-			this.baseMapper.insert(galley);
-		}
-		return true;
+		return false;
 	}
 
-	@Override
-	public GoodsGalleryPO getGoodsGallery(String origin) {
-		GoodsGalleryPO goodsGalleryPO = new GoodsGalleryPO();
-		// 获取商品系统配置决定是否审核
-		GoodsSettingCO goodsSetting = settingApi.getGoodsSetting(SettingCategoryEnum.GOODS_SETTING.name());
-		// 缩略图
-		String thumbnail = FileUtils.getUrl(
-			origin, goodsSetting.getAbbreviationPictureWidth(), goodsSetting.getAbbreviationPictureHeight());
-		// 小图
-		String small =
-			FileUtils.getUrl(origin, goodsSetting.getSmallPictureWidth(), goodsSetting.getSmallPictureHeight());
-		// 赋值
-		goodsGalleryPO.setSmall(small);
-		goodsGalleryPO.setThumbnail(thumbnail);
-		goodsGalleryPO.setOriginal(origin);
-		return goodsGalleryPO;
-	}
-
-	@Override
-	public List<GoodsGalleryPO> goodsGalleryList(Long goodsId) {
-		// 根据商品id查询商品相册
-		LambdaQueryWrapper<GoodsGalleryPO> queryWrapper = Wrappers.lambdaQuery();
-		queryWrapper.eq(GoodsGalleryPO::getGoodsId, goodsId);
-		return this.list(queryWrapper);
-	}
+	///**
+	// * 设置
+	// */
+	//@Autowired
+	//private IFeignSettingApi settingApi;
+	//
+	//@Override
+	//@Transactional(rollbackFor = Exception.class)
+	//public boolean add(List<String> goodsGalleryList, Long goodsId) {
+	//	// 删除原来商品相册信息
+	//	this.baseMapper.delete(new UpdateWrapper<GoodsGalleryPO>().eq("goods_id", goodsId));
+	//	// 确定好图片选择器后进行处理
+	//	int i = 0;
+	//	for (String origin : goodsGalleryList) {
+	//		// 获取带所有缩略的相册
+	//		GoodsGalleryPO galley = this.getGoodsGallery(origin);
+	//		galley.setGoodsId(goodsId);
+	//		// 默认第一个为默认图片
+	//		galley.setIsDefault(i == 0 ? 1 : 0);
+	//		i++;
+	//		this.baseMapper.insert(galley);
+	//	}
+	//	return true;
+	//}
+	//
+	//@Override
+	//public GoodsGalleryPO getGoodsGallery(String origin) {
+	//	GoodsGalleryPO goodsGalleryPO = new GoodsGalleryPO();
+	//	// 获取商品系统配置决定是否审核
+	//	GoodsSettingCO goodsSetting = settingApi.getGoodsSetting(SettingCategoryEnum.GOODS_SETTING.name());
+	//	// 缩略图
+	//	String thumbnail = FileUtils.getUrl(
+	//		origin, goodsSetting.getAbbreviationPictureWidth(), goodsSetting.getAbbreviationPictureHeight());
+	//	// 小图
+	//	String small =
+	//		FileUtils.getUrl(origin, goodsSetting.getSmallPictureWidth(), goodsSetting.getSmallPictureHeight());
+	//	// 赋值
+	//	goodsGalleryPO.setSmall(small);
+	//	goodsGalleryPO.setThumbnail(thumbnail);
+	//	goodsGalleryPO.setOriginal(origin);
+	//	return goodsGalleryPO;
+	//}
+	//
+	//@Override
+	//public List<GoodsGalleryPO> goodsGalleryList(Long goodsId) {
+	//	// 根据商品id查询商品相册
+	//	LambdaQueryWrapper<GoodsGalleryPO> queryWrapper = Wrappers.lambdaQuery();
+	//	queryWrapper.eq(GoodsGalleryPO::getGoodsId, goodsId);
+	//	return this.list(queryWrapper);
+	//}
 }

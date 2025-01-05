@@ -20,11 +20,11 @@ public class GoodsTagFactory {
      * @param tagDesc 商品标签描述
      * @return 初始商品标签
      */
-    public static GoodsTagAgg createGoodsTag(String tagName, String tagDesc) {
-        return new GoodsTagAgg(
-                BizId.of(IdGenUtils.nextDigitalId()),
-                tagName,
-                tagDesc
-        );
-    }
+    //public static GoodsTagAgg createGoodsTag(String tagName, String tagDesc) {
+    //    return new GoodsTagAgg(
+    //            BizId.of(IdGenUtils.nextDigitalId()),
+    //            tagName,
+    //            tagDesc
+    //    );
+    //}
 }

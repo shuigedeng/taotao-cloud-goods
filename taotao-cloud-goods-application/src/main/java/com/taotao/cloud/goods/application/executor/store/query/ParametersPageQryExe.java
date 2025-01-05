@@ -4,10 +4,6 @@ package com.taotao.cloud.goods.application.executor.store.query;
 
 
 import com.taotao.boot.ddd.model.application.executor.Executor;
-import com.taotao.cloud.sys.application.command.dept.dto.DeptGetQry;
-import com.taotao.cloud.sys.application.command.dept.dto.clientobject.DeptCO;
-import com.taotao.cloud.sys.application.converter.DeptConvert;
-import com.taotao.cloud.sys.domain.dept.service.DeptDomainService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -19,21 +15,21 @@ import org.springframework.stereotype.Component;
 @Component
 @RequiredArgsConstructor
 public class ParametersPageQryExe extends Executor {
-
-	private final DeptDomainService deptDomainService;
-
-	private final DeptConvert memberNoticeConvertor;
-
-	/**
-	 * 执行查看部门.
-	 *
-	 * @param qry 查看部门参数
-	 * @return 部门
-	 */
-//	@DS(TENANT)
-	public DeptCO execute(DeptGetQry qry) {
-//		return deptConvertor.convertClientObject(deptGateway.getById(qry.getId()));
-		return null;
-	}
+//
+//	private final DeptDomainService deptDomainService;
+//
+//	private final DeptConvert memberNoticeConvertor;
+//
+//	/**
+//	 * 执行查看部门.
+//	 *
+//	 * @param qry 查看部门参数
+//	 * @return 部门
+//	 */
+////	@DS(TENANT)
+//	public DeptCO execute(DeptGetQry qry) {
+////		return deptConvertor.convertClientObject(deptGateway.getById(qry.getId()));
+//		return null;
+//	}
 
 }

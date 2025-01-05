@@ -77,20 +77,20 @@ public interface CommodityMapper extends BaseSuperMapper<CommodityPO, Long> {
 		""")
     List<String> getSimpleCommodityByRoomId(Integer roomId);
 
-    /**
-     * 获取直播商品VO分页
-     *
-     * @param page 分页
-     * @param queryWrapper 查询条件
-     * @return {@link IPage }<{@link CommodityGoodsVO }>
-     * @since 2022-04-27 16:55:41
-     */
-    @Select(
-            """
-		SELECT c.*,gs.quantity,s.store_name
-		FROM tt_commodity c INNER JOIN tt_goods_sku gs ON c.sku_id = gs.id INNER JOIN tt_store s ON s.id=c.store_id
-		${ew.customSqlSegment}
-		""")
-    IPage<CommoditySkuVO> commodityVOList(
-            IPage<CommoditySkuVO> page, @Param(Constants.WRAPPER) Wrapper<CommoditySkuVO> queryWrapper);
+    ///**
+    // * 获取直播商品VO分页
+    // *
+    // * @param page 分页
+    // * @param queryWrapper 查询条件
+    // * @return {@link IPage }<{@link CommodityGoodsVO }>
+    // * @since 2022-04-27 16:55:41
+    // */
+    //@Select(
+    //        """
+	//	SELECT c.*,gs.quantity,s.store_name
+	//	FROM tt_commodity c INNER JOIN tt_goods_sku gs ON c.sku_id = gs.id INNER JOIN tt_store s ON s.id=c.store_id
+	//	${ew.customSqlSegment}
+	//	""")
+    //IPage<CommoditySkuVO> commodityVOList(
+    //        IPage<CommoditySkuVO> page, @Param(Constants.WRAPPER) Wrapper<CommoditySkuVO> queryWrapper);
 }

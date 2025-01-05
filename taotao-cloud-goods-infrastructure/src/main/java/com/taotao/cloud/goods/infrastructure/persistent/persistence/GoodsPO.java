@@ -16,6 +16,7 @@
 
 package com.taotao.cloud.goods.infrastructure.persistent.persistence;
 
+import cn.hutool.core.convert.Convert;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.taotao.boot.common.enums.ResultEnum;
 import com.taotao.boot.common.exception.BusinessException;
@@ -23,7 +24,6 @@ import com.taotao.boot.common.utils.lang.StringUtils;
 import com.taotao.cloud.goods.api.enums.GoodsAuthEnum;
 import com.taotao.cloud.goods.api.enums.GoodsStatusEnum;
 import com.taotao.cloud.goods.api.enums.GoodsTypeEnum;
-import com.taotao.cloud.goods.biz.model.dto.GoodsOperationDTO;
 import com.taotao.boot.webagg.entity.BaseSuperEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -191,64 +191,64 @@ public class GoodsPO extends BaseSuperEntity<GoodsPO, Long> {
     /** 商品参数json */
     @Column(name = "params", columnDefinition = "json not null comment '商品参数json'")
     private String params;
-
-    public GoodsPO(GoodsOperationDTO goodsOperationDTO) {
-        this.goodsName = goodsOperationDTO.getGoodsName();
-        this.categoryPath = goodsOperationDTO.getCategoryPath();
-        this.storeCategoryPath = goodsOperationDTO.getStoreCategoryPath();
-        this.brandId = goodsOperationDTO.getBrandId();
-        this.templateId = goodsOperationDTO.getTemplateId();
-        this.recommend = goodsOperationDTO.getRecommend();
-        this.sellingPoint = goodsOperationDTO.getSellingPoint();
-        this.salesModel = goodsOperationDTO.getSalesModel();
-        this.goodsUnit = goodsOperationDTO.getGoodsUnit();
-        this.intro = goodsOperationDTO.getIntro();
-        this.mobileIntro = goodsOperationDTO.getMobileIntro();
-        this.goodsVideo = goodsOperationDTO.getGoodsVideo();
-        this.price = goodsOperationDTO.getPrice();
-        if (goodsOperationDTO.getGoodsParamsDTOList() != null
-                && goodsOperationDTO.getGoodsParamsDTOList().isEmpty()) {
-            this.params = JSONUtil.toJsonStr(goodsOperationDTO.getGoodsParamsDTOList());
-        }
-
-        // 如果立即上架则
-        this.marketEnable = Boolean.TRUE.equals(goodsOperationDTO.getRelease())
-                ? GoodsStatusEnum.UPPER.name()
-                : GoodsStatusEnum.DOWN.name();
-        this.goodsType = goodsOperationDTO.getGoodsType();
-        this.grade = BigDecimal.valueOf(100);
-
-        // 循环sku，判定sku是否有效
-        for (Map<String, Object> sku : goodsOperationDTO.getSkuList()) {
-            // 判定参数不能为空
-            if (sku.get("sn") == null) {
-                throw new BusinessException(ResultEnum.GOODS_SKU_SN_ERROR);
-            }
-            // 商品SKU价格不能小于等于0
-            if (StringUtils.isEmpty(sku.get("price").toString())
-                    || Convert.toBigDecimal(sku.get("price")).compareTo(BigDecimal.ZERO) <= 0) {
-                throw new BusinessException(ResultEnum.GOODS_SKU_PRICE_ERROR);
-            }
-            // 商品SKU成本价不能小于等于0
-            if (StringUtils.isEmpty(sku.get("cost").toString())
-                    || Convert.toBigDecimal(sku.get("cost")).compareTo(BigDecimal.ZERO) <= 0) {
-                throw new BusinessException(ResultEnum.GOODS_SKU_COST_ERROR);
-            }
-            // 商品重量不能为负数 虚拟商品没有重量字段
-            if (sku.containsKey("weight")
-                    && (StringUtils.isEmpty(sku.get("weight").toString())
-                            || Convert.toBigDecimal(sku.get("weight").toString())
-                                            .compareTo(BigDecimal.ZERO)
-                                    < 0)) {
-                throw new BusinessException(ResultEnum.GOODS_SKU_WEIGHT_ERROR);
-            }
-            // 商品库存数量不能为负数
-            if (StringUtils.isEmpty(sku.get("quantity").toString())
-                    || Convert.toInt(sku.get("quantity").toString()) < 0) {
-                throw new BusinessException(ResultEnum.GOODS_SKU_QUANTITY_ERROR);
-            }
-        }
-    }
+	//
+    //public GoodsPO(GoodsOperationDTO goodsOperationDTO) {
+    //    this.goodsName = goodsOperationDTO.getGoodsName();
+    //    this.categoryPath = goodsOperationDTO.getCategoryPath();
+    //    this.storeCategoryPath = goodsOperationDTO.getStoreCategoryPath();
+    //    this.brandId = goodsOperationDTO.getBrandId();
+    //    this.templateId = goodsOperationDTO.getTemplateId();
+    //    this.recommend = goodsOperationDTO.getRecommend();
+    //    this.sellingPoint = goodsOperationDTO.getSellingPoint();
+    //    this.salesModel = goodsOperationDTO.getSalesModel();
+    //    this.goodsUnit = goodsOperationDTO.getGoodsUnit();
+    //    this.intro = goodsOperationDTO.getIntro();
+    //    this.mobileIntro = goodsOperationDTO.getMobileIntro();
+    //    this.goodsVideo = goodsOperationDTO.getGoodsVideo();
+    //    this.price = goodsOperationDTO.getPrice();
+    //    if (goodsOperationDTO.getGoodsParamsDTOList() != null
+    //            && goodsOperationDTO.getGoodsParamsDTOList().isEmpty()) {
+    //        this.params = JSONUtil.toJsonStr(goodsOperationDTO.getGoodsParamsDTOList());
+    //    }
+	//
+    //    // 如果立即上架则
+    //    this.marketEnable = Boolean.TRUE.equals(goodsOperationDTO.getRelease())
+    //            ? GoodsStatusEnum.UPPER.name()
+    //            : GoodsStatusEnum.DOWN.name();
+    //    this.goodsType = goodsOperationDTO.getGoodsType();
+    //    this.grade = BigDecimal.valueOf(100);
+	//
+    //    // 循环sku，判定sku是否有效
+    //    for (Map<String, Object> sku : goodsOperationDTO.getSkuList()) {
+    //        // 判定参数不能为空
+    //        if (sku.get("sn") == null) {
+    //            throw new BusinessException(ResultEnum.GOODS_SKU_SN_ERROR);
+    //        }
+    //        // 商品SKU价格不能小于等于0
+    //        if (StringUtils.isEmpty(sku.get("price").toString())
+    //                || Convert.toBigDecimal(sku.get("price")).compareTo(BigDecimal.ZERO) <= 0) {
+    //            throw new BusinessException(ResultEnum.GOODS_SKU_PRICE_ERROR);
+    //        }
+    //        // 商品SKU成本价不能小于等于0
+    //        if (StringUtils.isEmpty(sku.get("cost").toString())
+    //                || Convert.toBigDecimal(sku.get("cost")).compareTo(BigDecimal.ZERO) <= 0) {
+    //            throw new BusinessException(ResultEnum.GOODS_SKU_COST_ERROR);
+    //        }
+    //        // 商品重量不能为负数 虚拟商品没有重量字段
+    //        if (sku.containsKey("weight")
+    //                && (StringUtils.isEmpty(sku.get("weight").toString())
+    //                        || Convert.toBigDecimal(sku.get("weight").toString())
+    //                                        .compareTo(BigDecimal.ZERO)
+    //                                < 0)) {
+    //            throw new BusinessException(ResultEnum.GOODS_SKU_WEIGHT_ERROR);
+    //        }
+    //        // 商品库存数量不能为负数
+    //        if (StringUtils.isEmpty(sku.get("quantity").toString())
+    //                || Convert.toInt(sku.get("quantity").toString()) < 0) {
+    //            throw new BusinessException(ResultEnum.GOODS_SKU_QUANTITY_ERROR);
+    //        }
+    //    }
+    //}
 
     public String getIntro() {
         if (CharSequenceUtil.isNotEmpty(intro)) {

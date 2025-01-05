@@ -17,6 +17,8 @@
 package com.taotao.cloud.goods.application.service;
 
 import com.taotao.boot.webagg.service.BaseSuperService;
+import com.taotao.cloud.goods.api.enums.GoodsAuthEnum;
+import com.taotao.cloud.goods.api.enums.GoodsStatusEnum;
 import com.taotao.cloud.goods.application.dto.goods.cmmond.GoodsAddCmd;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsPO;
 

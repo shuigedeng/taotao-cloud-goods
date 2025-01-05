@@ -16,7 +16,6 @@
 
 package com.taotao.cloud.goods.application.dto.goods.clientobject;
 
-import com.taotao.cloud.goods.application.model.dto.GoodsParamsDTO;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
 import lombok.AllArgsConstructor;
@@ -27,11 +26,9 @@ import lombok.experimental.SuperBuilder;
 
 /** 商品关联参数的CO */
 @Data
-@EqualsAndHashCode(callSuper = true)
-@SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
-public class GoodsParamsCO extends GoodsParamsDTO {
+public class GoodsParamsCO {
 
     @Serial
     private static final long serialVersionUID = -4904700751774005326L;

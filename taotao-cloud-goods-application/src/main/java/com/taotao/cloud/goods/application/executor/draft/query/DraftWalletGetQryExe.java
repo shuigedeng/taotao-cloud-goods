@@ -1,6 +1,6 @@
 
 
-package com.taotao.cloud.goods.application.executor.brand.query;
+package com.taotao.cloud.goods.application.executor.draft.query;
 
 
 import com.taotao.boot.ddd.model.application.executor.Executor;
@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @RequiredArgsConstructor
-public class BrandPageQryExe extends Executor {
+public class DraftWalletGetQryExe extends Executor {
 
 //	private final DeptDomainService deptDomainService;
 //

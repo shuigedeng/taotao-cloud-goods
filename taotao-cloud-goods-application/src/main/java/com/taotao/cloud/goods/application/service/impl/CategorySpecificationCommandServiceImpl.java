@@ -47,10 +47,6 @@ public class CategorySpecificationCommandServiceImpl
 	ICategorySpecificationRepository>
 	implements CategorySpecificationCommandService {
 
-	@Override
-	public List<SpecificationPO> getCategorySpecList(Long categoryId) {
-		return im().getCategorySpecList(categoryId);
-	}
 
 	@Override
 	public boolean deleteByCategoryId(Long categoryId) {

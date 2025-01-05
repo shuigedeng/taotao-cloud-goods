@@ -40,5 +40,5 @@ public interface CustomWordsAssembler {
      * @return {@link CustomWords }
      * @since 2022-04-27 16:58:09
      */
-    CustomWords convert(CustomWordsVO customWordsVO);
+    //CustomWords convert(CustomWordsVO customWordsVO);
 }

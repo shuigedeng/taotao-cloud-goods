@@ -70,13 +70,13 @@ public class SpecificationCommandServiceImpl
 			List<CategorySpecificationPO> list = categorySpecificationService.list(
 				new QueryWrapper<CategorySpecificationPO>().eq("specification_id", id));
 
-			if (!list.isEmpty()) {
-				List<Long> categoryIds = new ArrayList<>();
-				list.forEach(item -> categoryIds.add(item.getCategoryId()));
-				throw new BusinessException(
-					ResultEnum.SPEC_DELETE_ERROR.getCode(),
-					JSONUtil.toJsonStr(categoryService.getCategoryNameByIds(categoryIds)));
-			}
+			//if (!list.isEmpty()) {
+			//	List<Long> categoryIds = new ArrayList<>();
+			//	list.forEach(item -> categoryIds.add(item.getCategoryId()));
+			//	throw new BusinessException(
+			//		ResultEnum.SPEC_DELETE_ERROR.getCode(),
+			//		JSONUtil.toJsonStr(categoryService.getCategoryNameByIds(categoryIds)));
+			//}
 			// 删除规格
 			result = this.removeById(id);
 		}

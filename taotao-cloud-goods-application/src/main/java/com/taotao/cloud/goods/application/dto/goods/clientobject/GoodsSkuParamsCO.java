@@ -16,7 +16,6 @@
 
 package com.taotao.cloud.goods.application.dto.goods.clientobject;
 
-import com.taotao.cloud.goods.application.model.dto.GoodsParamsDTO;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
 import java.util.List;
@@ -35,7 +34,6 @@ import lombok.experimental.SuperBuilder;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-@SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
 @Schema(description = "商品CO")
@@ -47,8 +45,8 @@ public class GoodsSkuParamsCO extends GoodsCO {
     @Schema(description = "分类名称")
     private List<String> categoryName;
 
-    @Schema(description = "商品参数")
-    private List<GoodsParamsDTO> goodsParamsDTOList;
+    //@Schema(description = "商品参数")
+    //private List<GoodsParamsDTO> goodsParamsDTOList;
 
     @Schema(description = "商品图片")
     private List<String> goodsGalleryList;

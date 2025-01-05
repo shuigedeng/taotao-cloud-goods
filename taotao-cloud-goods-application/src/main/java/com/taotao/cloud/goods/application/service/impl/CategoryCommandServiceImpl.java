@@ -18,10 +18,8 @@ package com.taotao.cloud.goods.application.service.impl;
 
 import com.taotao.boot.cache.redis.repository.RedisRepository;
 import com.taotao.boot.webagg.service.impl.BaseSuperServiceImpl;
-import com.taotao.cloud.goods.application.dto.category.clientobject.CategoryTreeCO;
 import com.taotao.cloud.goods.application.dto.category.cmmond.CategoryAddCmd;
 import com.taotao.cloud.goods.application.dto.category.cmmond.CategoryUpdateCmd;
-import com.taotao.cloud.goods.application.dto.category.query.CategorySearchQry;
 import com.taotao.cloud.goods.application.executor.category.cmmond.CategoryDelCmdExe;
 import com.taotao.cloud.goods.application.executor.category.cmmond.CategorySaveCmdExe;
 import com.taotao.cloud.goods.application.executor.category.cmmond.CategoryUpdateCmdExe;
@@ -37,10 +35,6 @@ import com.taotao.cloud.goods.infrastructure.persistent.repository.inf.ICategory
 import lombok.AllArgsConstructor;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.stereotype.Service;
-
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
 
 /**
  * 商品分类业务层实现
@@ -71,32 +65,24 @@ public class CategoryCommandServiceImpl extends
 
 
 	@Override
-	public boolean delete(Long id) {
-		return false;
-	}
-
-	@Override
-	public boolean updateCategoryStatus(Long categoryId, boolean enableOperations) {
-		return categoryUpdateCmdExe.updateCategoryStatus(categoryId, enableOperations);
-	}
-
-	@Override
 	public boolean saveCategory(CategoryAddCmd category) {
-		return categorySaveCmdExe.saveCategory(categoryPO);
+		//return categorySaveCmdExe.saveCategory(categoryPO);
+		return true;
 	}
 
 	@Override
 	public boolean updateCategory(CategoryUpdateCmd category) {
-		return categoryUpdateCmdExe.updateCategory(categoryPO);
+		//return categoryUpdateCmdExe.updateCategory(categoryPO);
+		return true;
 	}
 
 	@Override
-	public void delete(String id) {
+	public void delete(Long id) {
 		categoryDelCmdExe.delete(id);
 	}
 
 	@Override
-	public void updateCategoryStatus(String categoryId, boolean enableOperations) {
-		return categoryUpdateCmdExe.updateCategoryStatus(categoryId, enableOperations);
+	public void updateCategoryStatus(Long categoryId, boolean enableOperations) {
+		//categoryUpdateCmdExe.updateCategoryStatus(categoryId, enableOperations);
 	}
 }

@@ -37,7 +37,6 @@ import lombok.experimental.SuperBuilder;
  * @since 2022-04-14 21:15:33
  */
 @Data
-@SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
 @Schema(description = "商品sku基础CO")

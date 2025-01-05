@@ -29,16 +29,15 @@ import lombok.experimental.SuperBuilder;
 /** 草稿商品DTO */
 @Setter
 @Getter
-@SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
 public class DraftGoodsSkuParamsUpdateCmd extends DraftGoodsBaseCmd {
 
     private static final long serialVersionUID = 5255666163196674178L;
 
-    @Valid
-    @Schema(description = "商品参数")
-    private List<GoodsParamsDTO> goodsParamsDTOList;
+    //@Valid
+    //@Schema(description = "商品参数")
+    //private List<GoodsParamsDTO> goodsParamsDTOList;
 
     @Schema(description = "商品图片")
     private List<String> goodsGalleryList;

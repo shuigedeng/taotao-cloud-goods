@@ -43,6 +43,6 @@ public class DeptModifyCBootstrap {
                 .addChannelHandlerAtLast("modifyContent", new ArticleModifyContentHandler()) // 第三个handler
                 .process(); // 执行
         // result为执行结果
-        logger.info("result:code={},msg={}", result.getDeptModifyCmd(), result.getDeptAgg());
+        //logger.info("result:code={},msg={}", result.getDeptModifyCmd(), result.getDeptAgg());
     }
 }

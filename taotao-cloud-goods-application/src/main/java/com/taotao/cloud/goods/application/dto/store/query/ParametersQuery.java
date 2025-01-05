@@ -15,8 +15,7 @@
  */
 
 package com.taotao.cloud.goods.application.dto.store.query;
-
-import com.taotao.boot.ddd.model.application.Query;
+import com.taotao.boot.ddd.model.application.dto.Query;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
 import java.io.Serializable;

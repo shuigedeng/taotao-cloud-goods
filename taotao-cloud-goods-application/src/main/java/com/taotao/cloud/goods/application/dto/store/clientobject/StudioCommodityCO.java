@@ -29,7 +29,6 @@ import lombok.experimental.SuperBuilder;
 /** 直播间CO */
 @Data
 @EqualsAndHashCode(callSuper = true)
-@SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
 public class StudioCommodityCO extends ClientObject {

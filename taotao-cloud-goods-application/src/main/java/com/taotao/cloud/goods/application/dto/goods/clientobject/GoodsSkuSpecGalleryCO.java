@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.goods.application.dto.goods.clientobject;
 
-import com.taotao.cloud.goods.application.dto.specification.dto.clientobject.SpecValueCO;
+import com.taotao.cloud.goods.application.dto.specification.clientobject.SpecValueCO;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
 import java.util.List;
@@ -29,7 +29,6 @@ import lombok.experimental.SuperBuilder;
 /** 商品规格CO */
 @Setter
 @Getter
-@SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
 public class GoodsSkuSpecGalleryCO extends GoodsSkuCO {

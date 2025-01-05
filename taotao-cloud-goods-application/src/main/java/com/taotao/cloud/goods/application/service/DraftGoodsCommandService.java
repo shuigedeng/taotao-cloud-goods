@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.goods.application.service;
 
-import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.taotao.boot.webagg.service.BaseSuperService;
 import com.taotao.cloud.goods.application.dto.draft.cmmond.DraftGoodsSkuParamsAddCmd;
 import com.taotao.cloud.goods.application.dto.draft.cmmond.DraftGoodsSkuParamsSaveCmd;
 import com.taotao.cloud.goods.application.dto.draft.cmmond.DraftGoodsSkuParamsUpdateCmd;
@@ -31,41 +31,41 @@ import com.taotao.cloud.goods.infrastructure.persistent.persistence.DraftGoodsPO
  */
 public interface DraftGoodsCommandService extends BaseSuperService<DraftGoodsPO, Long> {
 
-    /**
-     * 添加草稿商品
-     *
-     * @param draftGoods 草稿商品
-     * @return {@link boolean }
-     * @since 2022-04-27 16:59:56
-     */
-    boolean addGoodsDraft(DraftGoodsSkuParamsAddCmd draftGoods);
+	/**
+	 * 添加草稿商品
+	 *
+	 * @param draftGoods 草稿商品
+	 * @return {@link boolean }
+	 * @since 2022-04-27 16:59:56
+	 */
+	boolean addGoodsDraft(DraftGoodsSkuParamsAddCmd draftGoods);
 
-    /**
-     * 更新草稿商品
-     *
-     * @param draftGoods 草稿商品
-     * @return {@link boolean }
-     * @since 2022-04-27 16:59:56
-     */
-    boolean updateGoodsDraft(DraftGoodsSkuParamsUpdateCmd draftGoods);
+	/**
+	 * 更新草稿商品
+	 *
+	 * @param draftGoods 草稿商品
+	 * @return {@link boolean }
+	 * @since 2022-04-27 16:59:56
+	 */
+	boolean updateGoodsDraft(DraftGoodsSkuParamsUpdateCmd draftGoods);
 
-    /**
-     * 保存草稿商品
-     *
-     * @param draftGoodsVO 草稿商品
-     * @return {@link boolean }
-     * @since 2022-04-27 16:59:56
-     */
-    boolean saveGoodsDraft(DraftGoodsSkuParamsSaveCmd draftGoodsVO);
+	/**
+	 * 保存草稿商品
+	 *
+	 * @param draftGoodsVO 草稿商品
+	 * @return {@link boolean }
+	 * @since 2022-04-27 16:59:56
+	 */
+	boolean saveGoodsDraft(DraftGoodsSkuParamsSaveCmd draftGoodsVO);
 
-    /**
-     * 根据ID删除草稿商品
-     *
-     * @param id 草稿商品ID
-     * @return {@link boolean }
-     * @since 2022-04-27 16:59:56
-     */
-    boolean deleteGoodsDraft(Long id);
+	/**
+	 * 根据ID删除草稿商品
+	 *
+	 * @param id 草稿商品ID
+	 * @return {@link boolean }
+	 * @since 2022-04-27 16:59:56
+	 */
+	boolean deleteGoodsDraft(Long id);
 
 
 }

@@ -24,7 +24,6 @@ import com.taotao.cloud.goods.application.service.CategoryBrandCommandService;
 import com.taotao.cloud.goods.application.service.CategoryBrandQueryService;
 import com.taotao.cloud.goods.application.service.CategoryCommandService;
 import com.taotao.cloud.goods.application.service.CategoryQueryService;
-import com.taotao.cloud.store.api.feign.IFeignStoreDetailApi;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -57,19 +56,19 @@ public class CategorySellerController {
     /** 分类品牌服务 */
     private final CategoryBrandQueryService categoryBrandQueryService;
     private final CategoryBrandCommandService categoryBrandCommandService;
-    /** 店铺详情服务 */
-    private final FeignStoreDetailApi storeDetailApi;
+    ///** 店铺详情服务 */
+    //private final FeignStoreDetailApi storeDetailApi;
 
-    @Operation(summary = "获取店铺经营的分类", description = "获取店铺经营的分类")
-    @RequestLogger("获取店铺经营的分类")
-    @PreAuthorize("hasAuthority('dept:tree:data')")
-    @GetMapping(value = "/all")
-    public Result<List<CategoryTreeCO>> getListAll() {
-        Long storeId = SecurityUtils.getCurrentUser().getStoreId();
-        // 获取店铺经营范围
-        String goodsManagementCategory = storeDetailApi.getStoreDetailVO(storeId).getGoodsManagementCategory();
-        return Result.success(this.categoryQueryService.getStoreCategory(goodsManagementCategory.split(",")));
-    }
+    //@Operation(summary = "获取店铺经营的分类", description = "获取店铺经营的分类")
+    //@RequestLogger("获取店铺经营的分类")
+    //@PreAuthorize("hasAuthority('dept:tree:data')")
+    //@GetMapping(value = "/all")
+    //public Result<List<CategoryTreeCO>> getListAll() {
+    //    Long storeId = SecurityUtils.getCurrentUser().getStoreId();
+    //    // 获取店铺经营范围
+    //    String goodsManagementCategory = storeDetailApi.getStoreDetailVO(storeId).getGoodsManagementCategory();
+    //    return Result.success(this.categoryQueryService.getStoreCategory(goodsManagementCategory.split(",")));
+    //}
 
     @Operation(summary = "获取所选分类关联的品牌信息", description = "获取所选分类关联的品牌信息")
     @RequestLogger("获取所选分类关联的品牌信息")

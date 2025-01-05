@@ -29,7 +29,6 @@ import lombok.experimental.SuperBuilder;
 /** 草稿商品CO */
 @Data
 @EqualsAndHashCode(callSuper = true)
-@SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
 public class DraftGoodsSkuParamsCO extends DraftGoodsCO {
@@ -40,8 +39,8 @@ public class DraftGoodsSkuParamsCO extends DraftGoodsCO {
     @Schema(description = "分类名称")
     private List<String> categoryName;
 
-    @Schema(description = "商品参数")
-    private List<GoodsParamsDTO> goodsParamsDTOList;
+    //@Schema(description = "商品参数")
+    //private List<GoodsParamsDTO> goodsParamsDTOList;
 
     @Schema(description = "商品图片")
     private List<String> goodsGalleryList;

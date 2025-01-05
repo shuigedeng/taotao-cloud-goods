@@ -47,7 +47,7 @@ public interface BrandCommandService extends BaseSuperService<BrandPO, Long> {
 	/**
 	 * 添加品牌
 	 *
-	 * @param brandVO 品牌信息
+	 * @param brandAddCmd 品牌信息
 	 * @return 添加结果
 	 */
 	boolean addBrand(BrandAddCmd brandAddCmd);
@@ -55,7 +55,7 @@ public interface BrandCommandService extends BaseSuperService<BrandPO, Long> {
 	/**
 	 * 更新品牌
 	 *
-	 * @param brandVO 品牌信息
+	 * @param brandUpdateCmd 品牌信息
 	 * @return 更新结果
 	 */
 	boolean updateBrand(BrandUpdateCmd brandUpdateCmd);

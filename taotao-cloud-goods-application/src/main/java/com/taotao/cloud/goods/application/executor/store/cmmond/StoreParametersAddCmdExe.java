@@ -1,6 +1,6 @@
 
 
-package com.taotao.cloud.goods.application.executor.hotwords.cmmond;
+package com.taotao.cloud.goods.application.executor.store.cmmond;
 
 import com.taotao.boot.ddd.model.application.executor.Executor;
 import lombok.RequiredArgsConstructor;
@@ -14,8 +14,8 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @RequiredArgsConstructor
-public class HotWordsAddCmdExe extends Executor {
-//
+public class StoreParametersAddCmdExe extends Executor {
+
 //	private final DeptDomainService deptDomainService;
 //
 //	/**
