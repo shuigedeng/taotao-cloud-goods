@@ -42,7 +42,9 @@ import org.hibernate.Hibernate;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = BrandPO.TABLE_NAME)
+@Table(name = BrandPO.TABLE_NAME,
+uniqueConstraints = {},
+indexes = {})
 @TableName(BrandPO.TABLE_NAME)
 public class BrandPO extends BaseSuperEntity<BrandPO, Long> {
 
