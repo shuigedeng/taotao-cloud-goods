@@ -196,7 +196,7 @@ dubbo:
     architecture: china
     organization: taotao-cloud
     metadata-type: local
-    environment: develop
+    environment: dev
     qos-port: 20880     #禁用qos同一台集群可能会有端口冲突现象
     qos-enable: false
     qos-accept-foreign-ip: true
@@ -230,8 +230,9 @@ dubbo:
     status: server
     payload: 83886080
     threadpool: fixed
-    threadname: taotao-cloud-goods-dubbo-protocol-executor
-    threads: 200
+    corethreads: 10
+    threads: 20
+    queues: 200
   provider:
     timeout: 3000
     version: ${ttcVersion}
@@ -297,23 +298,27 @@ dubbo:
   metrics:
     default: true
     id: ${spring.application.name}
-    port: 9091
     enable-threadpool: true
     enable-registry: true
     enable-metadata: true
     enable-jvm: true
     enable-rpc: true
+    enable-netty: true
+    rpc-level: method
     protocol: prometheus
     aggregation:
       enabled: true
       bucketNum: 100
       timeWindowSeconds: 30
+      enable-qps: true
+      enable-rt: true
+      enable-request: true
+      enable-rt-pxx: true
     prometheus:
       exporter:
         enabled: true
         enableHttpServiceDiscovery: true
-        metricsPort: 18081
-        metricsPath: /test
+        httpServiceDiscoveryUrl: http://192.168.218.2:18081/prometheus/metrics
       pushgateway:
         enabled: false
     histogram:
@@ -331,7 +336,6 @@ seata:
       SC: 192.168.218.2:8091
     vgroupMapping:
       taotao_cloud_tx_group: SC   # TC 集群（必须与seata-server保持一致）
-    enable-degrade: false     # 降级开关
     disable-global-transaction: false     # 禁用全局事务（默认false）
   config:
     type: nacos
@@ -440,12 +444,6 @@ spring:
       logPath: /home/logs           # 监控日志数据路径，默认 ${user.home}/logs，采集类型非logging不用配置
       monitorInterval: 5            # 监控时间间隔（报警判断、指标采集），默认5s
       configType: yml               # 配置文件类型，非cloud nacos 和 apollo需配置，其他不用配
-      nacos: # nacos配置，不配置有默认值（规则appname-dev.yml这样），cloud应用不需要配置
-        dataId: taotao-cloud-goods-dev.yml
-        group: SYS_GROUP
-        namespace: taotao-cloud-dev
-      apollo: # apollo配置，不配置默认拿apollo配置第一个namespace
-        namespace: dynamic-tp-demo-dev.yml
       platforms: # 通知报警平台配置
         - platform: wechat
           urlKey: 3a700-127-4bd-a798-c53d8b69c     # 替换
@@ -715,25 +713,6 @@ spring:
     #        missing_cache_strategy: create
     #    temp:
     #      use_jdbc_metadata_defaults: false
-  #mail:
-  #  title: ThreadPool Notify
-  #  host: smtp.qq.com
-  #  port: 465
-  #  password: ${TAOTAO_CLOUD_MAIL_PASSWORD:xxx}
-  #  username: 981376577@qq.com
-  #  properties:
-  #    mail:
-  #      transport:
-  #        protocol: smtp
-  #      smtp:
-  #        auth: true
-  #        port: ${spring.mail.port}
-  #        starttls:
-  #          enable: true
-  #          required: true
-  #        socketFactory:
-  #          class: javax.net.ssl.SSLSocketFactory
-
   data:
     redis:
       host: 192.168.218.2
@@ -798,66 +777,12 @@ spring:
           transportMode : "NIO"
           # 配置看门狗的默认超时时间为30s，这里改为 10s
           lockWatchdogTimeout: 10000
-  rabbitmq:
-    host: 192.168.218.2
-    port: 5672
-    #注意：guest用户只能链接本地服务器 比如localhost  不可以连接远程服务器
-    username: root
-    password: 123456
-    #虚拟主机 一台机器可能有很多虚拟主机 这里选择默认配置 / 即可 # 虚拟host 可以不设置  需要再server端搭建自己的虚拟host
-    virtual-host: /
-    #支持发布返回
-    publisher-returns: true
-    listener:
-      simple:
-        #消费者最小数量
-        concurrency: 10
-        #消费者最大数量
-        max-concurrency: 10
-        #限制消费者，每次只能处理一条消息，处理完才能继续下一条消息
-        prefetch: 1
-        #启动时是否默认启动容器，默认为 true
-        auto-startup: true
-        #被拒绝时重新进入队列的
-        default-requeue-rejected: true
-      direct:
-        #消息确认：手动签收
-        acknowledge-mode: manual
-        #当前监听容器数
-        concurrency: 1
-        #最大数
-        max-concurrency: 10
-        #是否支持重试
-        retry:
-          enabled: true
-          #重试次数5,超过5次抛出异常
-          max-attempts: 5
-          #重试间隔 3s
-          max-interval: 3000
-      template:
-        retry:
-          #启用消息重试机制，默认为 false
-          enabled: true
-          #初始重试间隔时间
-          initial-interval: 1000ms
-          #重试最大次数，默认为 3 次
-          max-attempts: 3
-          #重试最大时间间隔，默认 10000ms
-          max-interval: 10000ms
-          #重试的间隔乘数，
-          #配置 2 的话，第一次等 1s，第二次等 2s，第三次等 4s
-          multiplier: 1
-          #在 RabbitMQ 中，initial-interval 和 max-interval 是用于指定消息重试机制的两个参数，
-          #它们的区别如下：
-          #1. initial-interval（初始间隔时间）：表示第一次重试的时间间隔，也就是在消息第一次处
-          #理失败后，等待多长时间再尝试重新发送消息。这个参数的默认值是 1 秒。
-          #2.max-interval（最大间隔时间）：表示重试过程中的最大时间间隔，也就是每次重试时，
-          #最长等待多长时间再尝试重新发送消息。这个参数的默认值是 10 秒。
   kafka:
     enabled: true
-    bootstrap-servers: 192.168.218.2:9092 #kafka的地址 多个逗号连接
+    bootstrap-servers: 192.168.218.2:9092
     producer:
-      retries: 1 # 消息发送重试次数
+      # 消息发送重试次数
+      retries: 1
       # 当有多个消息需要被发送到同一个分区时，生产者会把它们放在同一个批次里。该参数指定了一个批次可以使用的内存大小，按照字节数计算。
       batch-size: 16384 #批量大小
       buffer-memory: 33554432 # 生产者内存缓冲区的大小
@@ -953,7 +878,6 @@ spring:
       okhttp:
         enabled: true
       httpclient:
-        enabled: false
         max-connections: 1000
         max-connections-per-route: 100
       client:
@@ -983,7 +907,7 @@ spring:
       enabled: true
     function:
       # functionName对应服务中的Bean
-      definition: inputKafka1;inputKafka2;inputRabbit1;inputRabbit2;demo;example;test
+      definition: inputKafka1;inputKafka2;demo;example;test
     stream:
       #instance-count: 2       #该参数指定了当前消费者的总实例数量；
       #instance-index: 0       #该参数设置当前实例的索引号，从0开始，最大值为
@@ -1015,14 +939,6 @@ spring:
           binder: rocketmq
           destination: ttopic #topic
           group: pt-group #group
-        # rabbit
-        sms-output:
-          destination: sms-topic
-          binder: rabbit
-        sms-input:
-          destination: sms-topic
-          group: sms-group
-          binder: rabbit
         # kafka
         order-output:
           destination: order-topic
@@ -1061,20 +977,6 @@ spring:
           test-out-0:
             producer:
               sync: true
-      rabbit:
-        binder:
-          admin-addresses: 192.168.218.2:5672
-        bindings:
-          sms-output:
-            producer:
-              #routing-key-expression: headers.routingKey  # 发送端路由key
-              delayed-exchange: false # 开启延时队列
-          sms-input:
-            consumer:
-              #binding-routing-key: login.user.succeed # 生产监听路由表达式
-              delayed-exchange: false # 开启延时队列
-              #auto-bind-dlq: true # 绑定死信队列
-              #republish-to-dlq: true # 重投到死信队列并带有报错信息
       kafka:
         binder:
           brokers: 192.168.218.2:9092
@@ -1091,13 +993,27 @@ spring:
     basename: "messages"               # ResourceBundle 名称，多个用，号隔开，默认是 messages
     #basename: "ballcat-*"               # ResourceBundle 名称，多个用，号隔开，默认是 messages
     #basename: "messages, validation"
-    fallback-to-goodstem-locale: true     # 当找不到对应区域的语言时，是否回退到系统区域的语言，默认 true
+    fallback-to-system-locale: true     # 当找不到对应区域的语言时，是否回退到系统区域的语言，默认 true
     encoding: 'utf-8'                    # ResourceBundle 的 charset
     #cacheDuration: 						# ResourceBundle 加载后的过期时间（s），不设置则不过期，默认不过期
     alwaysUseMessageFormat: false       # 是否始终应用MessageFormat规则，甚至不带参数地解析消息，默认false
     useCodeAsDefaultMessage: false  #找不到对应的区域的语言（包括回退）时，直接返回 code 值，否则抛出异常, 默认flase
 
 taotao:
+  cloud:
+    feign:
+      enabled: true
+      loadbalancer:
+        enabled: true
+    alibaba:
+      nacos:
+        enabled: true
+      seata:
+        enabled: true
+      sentinel:
+        enabled: false
+    stream:
+      enabled: true
   boot:
     job:
       xxl:
@@ -1109,17 +1025,6 @@ taotao:
         executor:
           access-token:
           ip: 192.168.1.3
-    dinger:
-      enabled: false
-      httpclient:
-        enabled: false
-      threadpool:
-        enabled: false
-      project-id: ${spring.application.name}
-      dingers:
-        dingtalk:
-          tokenId: ${DINGDING_TOKEN_ID:xxx}
-          secret: ${DINGDING_SECRET:xxxx}
     zookeeper:
       enabled: false
       connectString: 192.168.218.2:2181
@@ -1128,7 +1033,7 @@ taotao:
     lock:
       enabled: true
       type: redis
-    limit:
+    ratelimit:
       enabled: true
     idgenerator:
       enabled: true
@@ -1166,28 +1071,15 @@ taotao:
           - MAIL
         receive-emails:
           - 981376577@qq.com
-    alibaba:
-      nacos:
-        enabled: true
-      sentinel:
-        enabled: true
-      seata:
-        enabled: true
     mq:
       enabled: true
       rocketmq:
-        enabled: true
-      rabbitmq:
         enabled: true
       kafka:
         enabled: true
       pulsar:
         enabled: false
-      stream:
-        enabled: true
     cache:
-      jetcache:
-        enabled: false
       caffeine:
         enabled: false
       redis:
@@ -1201,12 +1093,13 @@ taotao:
       retrofit:
         enabled: false
     data:
+      datasource:
+        dynamic:
+          enabled: false
       elasticsearch:
         enabled: true
       mybatis:
         enabled: true
-        dynamic:
-          enabled: false
         interceptor:
           enabled: true
           sqlLog:
@@ -1255,12 +1148,6 @@ taotao:
         packages: com.taotao.cloud.goods.infrastructure.persistent.*.po
         tenant:
           enabled: false
-      shardingsphere:
-        enabled: false
-      mongodb:
-        enabled: true
-        slowQuery: true #是否记录慢查询到数据库中
-        slowTime: 2000 #慢查询最短时间,默认为1000毫秒
       p6spy:
         enabled: true
         dateformat: yyyy-MM-dd HH:mm:ss
@@ -1304,10 +1191,6 @@ taotao:
         enabled: true
       warn:
         enabled: true
-    feign:
-      enabled: true
-      loadbalancer:
-        enabled: true
     encrypt:
       enabled: false
       filter:
@@ -1320,12 +1203,6 @@ taotao:
       enabled: true
     captcha:
       enabled: false
-    mail:
-      enabled: false
-    websocket:
-      enabled: true
-      netty:
-        enabled: true
     security:
       oauth2:
         endpoint:
@@ -1356,8 +1233,6 @@ taotao:
       ignore-url:
         - /sys/buyer/dict/test/{code}
         - /sys/manager/dept/tree
-
-
 
 mybatis-plus:
   typeAliasesPackage: com.taotao.cloud.goods.infrastructure.persistent.*.po  #实体扫描 多个package用户逗号或者分号分割
@@ -1390,7 +1265,6 @@ mybatis-plus:
   configuration-properties:
     CONSTANT_CIPHER_TEXT: taotao-cloud
 
-
 feign:
   sentinel:
     enabled: true
@@ -1421,8 +1295,6 @@ management:
       enabled: false
     elasticsearch:
       enabled: true
-    rabbit:
-      enabled: true
   zipkin:
     tracing:
       connect-timeout: 1
@@ -1451,31 +1323,6 @@ management:
       export:
         batch-size: 500
 
-#  sleuth:
-#    jdbc:
-#      # 为false时 datasource-proxy-spring-boot-starter会生效 程序启动时会卡着不动
-#      enabled: false
-#    enabled: true
-#    web:
-#      client:
-#        enabled: true
-#      servlet:
-#        enabled: true
-#    sampler:
-#      probability: 1.0
-#      refresh:
-#        enabled: true
-#  zipkin:
-#    enabled: true
-#    base-url: http://192.168.218.2:9411/
-#    discoveryClientEnabled: false
-#    sender:
-#      type: WEB
-#    service:
-#      name: ${spring.application.name}
-#    compression:
-#      enabled: true
-
 logging:
   file:
     name: ${user.home}/logs/${spring.application.name}/${spring.application.name}.all.log
@@ -1495,9 +1342,6 @@ logging:
     net.ttddyy.dsproxy.listener.logging.SLF4JQueryLoggingListener: debug
     org.springframework.core.log.LogAccessor: error
     com.alibaba.nacos.common.utils.LoggerUtils: error
-    org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer: error
-    org.springframework.amqp.rabbit.connection: error
-    org.springframework.cloud.stream.binder.rabbit.provisioning.RabbitExchangeQueueProvisioner: error
     org.apache.rocketmq.logging.Slf4jLoggerFactory: error
     org.apache.rocketmq.client.consumer.store: error
     org.apache.kafka.clients.consumer: error
@@ -1527,9 +1371,6 @@ logging:
     #org.springframework.security.oauth2: off
     #org.springframework.boot.autoconfigure: off
     #org.elasticsearch.client: debug
-
-test:
-  baseUrl: https://www.baidu.com
 
 tlog:
   pattern: "$preApp:$preIp:$spanId:$traceId"
