@@ -94,6 +94,7 @@ dependencies {
     //api "io.github.shuigedeng:taotao-boot-starter-job-snail"
     api "io.github.shuigedeng:taotao-boot-starter-statemachine"
     api "io.github.shuigedeng:taotao-boot-starter-flowengine"
+    api "io.github.shuigedeng:taotao-boot-starter-tracer"
     api "io.github.shuigedeng:taotao-boot-starter-web"
     api "io.github.shuigedeng:taotao-boot-starter-webagg"
 

@@ -16,8 +16,11 @@
 
 package com.taotao.cloud.goods.application.task;
 
+import com.taotao.boot.common.utils.log.LogUtils;
 import com.taotao.boot.job.xxl.timetask.EveryHourExecute;
 import com.taotao.cloud.goods.application.service.CommodityCommandService;
+import com.xxl.job.core.biz.model.ReturnT;
+import com.xxl.job.core.context.XxlJobHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -43,6 +46,17 @@ public class BroadcastExecute implements EveryHourExecute {
 	@Override
 	public void execute() {
 		//同步直播商品状态
-		//commodityService.getGoodsWareHouse();
+		long jobId = XxlJobHelper.getJobId();
+		String jobParam = XxlJobHelper.getJobParam();
+		long shardIndex = XxlJobHelper.getShardIndex();
+		long shardTotal = XxlJobHelper.getShardTotal();
+		String jobLogFileName = XxlJobHelper.getJobLogFileName();
+
+		XxlJobHelper.log("XXL-JOB, successsssssssssss, jobId: {}, jobParam: {}, shardIndex:{}, shardTotal:{}, jobLogFileName:{}",
+			jobId, jobParam, shardIndex, shardTotal, jobLogFileName);
+
+		LogUtils.info("=============xxljob succcccccccccccccc, jobId: {}, jobParam: {}, shardIndex:{}, shardTotal:{}, jobLogFileName:{}",
+			jobId, jobParam, shardIndex, shardTotal, jobLogFileName);
+
 	}
 }
