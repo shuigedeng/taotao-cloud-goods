@@ -367,6 +367,10 @@ subprojects {
                 cacheChangingModulesFor 0, "seconds"
                 cacheDynamicVersionsFor 0, "seconds"
             }
+
+            resolutionStrategy {
+                force 'net.minidev:json-smart:2.5.1'
+            }
         }
 
         compileOnly {
