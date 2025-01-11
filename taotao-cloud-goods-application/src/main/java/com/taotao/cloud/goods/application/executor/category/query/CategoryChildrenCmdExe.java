@@ -8,6 +8,8 @@ import com.taotao.boot.ddd.model.application.executor.Executor;
 import com.taotao.cloud.goods.application.dto.category.clientobject.CategoryTreeCO;
 import com.taotao.cloud.goods.infrastructure.persistent.mapper.CategoryMapper;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.CategoryPO;
+import com.taotao.cloud.goods.integration.sys.proxy.SysDictClientProxy;
+import com.taotao.cloud.goods.integration.sys.vo.DictVO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -25,6 +27,8 @@ public class CategoryChildrenCmdExe extends Executor {
 
 	private final CategoryMapper categoryMapper;
 	private final CategoryTreeCmdExe categoryTreeCmdExe;
+
+	private final SysDictClientProxy sysDictClientProxy;
 
 	public List<CategoryPO> childrenList(Long parentId) {
 
@@ -47,6 +51,10 @@ public class CategoryChildrenCmdExe extends Executor {
 				return getChildren(parentId, item.getChildren());
 			}
 		}
+
+		DictVO byCode = sysDictClientProxy.findByCode();
+		System.out.println(byCode);
+
 		return new ArrayList<>();
 	}
 

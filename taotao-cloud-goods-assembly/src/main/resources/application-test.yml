@@ -1019,7 +1019,7 @@ taotao:
       xxl:
         enabled: true
         admin:
-          addresses: http://192.168.218.2:48000/xxl-job-admin
+          addresses: http://192.168.218.2:58080/xxl-job-admin
           username: admin
           password: 123456
         executor:

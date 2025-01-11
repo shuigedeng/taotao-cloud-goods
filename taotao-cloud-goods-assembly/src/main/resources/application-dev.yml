@@ -222,8 +222,9 @@ dubbo:
     use-as-config-center: false
     use-as-metadata-center: false
   protocol:
+    host: 192.168.1.4
     name: tri
-    port: 50051
+    port: 50052
     ssl-enabled: false
     accesslog: ${user.home}/logs/${spring.application.name}/dubbo/access.log
     #serialization: kryo
@@ -234,6 +235,7 @@ dubbo:
     threads: 20
     queues: 200
   provider:
+    host: 192.168.1.4
     timeout: 3000
     version: ${ttcVersion}
     threads: 500
@@ -1019,7 +1021,7 @@ taotao:
       xxl:
         enabled: true
         admin:
-          addresses: http://192.168.218.2:48000/xxl-job-admin
+          addresses: http://192.168.218.2:58080/xxl-job-admin
           username: admin
           password: 123456
         executor:
@@ -1365,7 +1367,7 @@ logging:
     #org.apache.kafka: off
     #org.I0Itec.zkclient: info
     # springframework log
-    #org.springframework.cloud.openfeign: debug
+    org.springframework.cloud.openfeign: debug
     #org.springframework.web: off
     #org.springframework.security: off
     #org.springframework.security.oauth2: off

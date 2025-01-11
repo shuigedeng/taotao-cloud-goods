@@ -17,6 +17,7 @@
 package com.taotao.cloud.goods.facade.controller.buyer;
 
 import com.taotao.boot.common.model.Result;
+import com.taotao.boot.security.spring.annotation.NotAuth;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.cloud.goods.application.dto.category.clientobject.CategoryTreeCO;
 import com.taotao.cloud.goods.application.service.CategoryCommandService;
@@ -33,6 +34,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -62,10 +64,10 @@ public class CategoryBuyerController {
 	@Parameters({
 		@Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
 	})
-	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@GetMapping(value = "/{parentId}")
+	@NotAuth
+	@GetMapping(value = "parentId")
 	public Result<List<CategoryTreeCO>> list(
-		@NotNull(message = "父ID不能为空") @PathVariable Long parentId) {
+		@NotNull(message = "父ID不能为空") @RequestParam(value = "parentId") Long parentId) {
 		return Result.success(categoryQueryService.listAllChildren(parentId));
 	}
 }
