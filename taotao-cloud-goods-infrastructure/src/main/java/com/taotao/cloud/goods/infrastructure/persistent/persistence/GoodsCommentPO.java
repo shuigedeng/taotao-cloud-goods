@@ -77,10 +77,10 @@ public class GoodsCommentPO extends BaseSuperEntity<GoodsCommentPO, Long> {
     @Column(name = "type", columnDefinition = "int not null comment '会员ID'")
     private Integer type;
 
-    @Column(name = "rank", columnDefinition = "int not null comment '会员ID'")
+    @Column(name = "`rank`", columnDefinition = "int not null comment '会员ID'")
     private Integer rank;
 
-    @Column(name = "has_image", columnDefinition = "int not null comment '会员ID'")
+    @Column(name = "`has_image`", columnDefinition = "int not null comment '会员ID'")
     private Integer hasImage;
 
     @Column(name = "comment_pic_id", columnDefinition = "bigint not null comment '会员ID'")
