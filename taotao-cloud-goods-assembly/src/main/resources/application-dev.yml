@@ -196,8 +196,8 @@ dubbo:
     architecture: china
     organization: taotao-cloud
     metadata-type: local
-    environment: dev
-    qos-port: 20880     #禁用qos同一台集群可能会有端口冲突现象
+    environment: product
+    qos-port: 20883     #禁用qos同一台集群可能会有端口冲突现象
     qos-enable: false
     qos-accept-foreign-ip: true
     logger: slf4j
@@ -213,7 +213,6 @@ dubbo:
     timeout: 15000
     username: nacos
     password: nacos
-    protocol: dubbo
     version: ${ttcVersion}
     check: false
     register: true
@@ -224,9 +223,10 @@ dubbo:
   protocol:
     host: 192.168.1.4
     name: tri
-    port: 50052
+    port: 50053
     ssl-enabled: false
-    accesslog: ${user.home}/logs/${spring.application.name}/dubbo/access.log
+    #accesslog: ${user.home}/logs/${spring.application.name}/dubbo/access.log
+    accesslog: true
     #serialization: kryo
     status: server
     payload: 83886080
@@ -239,13 +239,14 @@ dubbo:
     timeout: 3000
     version: ${ttcVersion}
     threads: 500
-    group: taotao-cloud-goods-dev
+    #group: taotao-cloud-goods-dev
     #delay: 3000     #延时注册服务（毫秒）
-    protocol: dubbo
+    protocol: tri
+    port: 50053
     retries: 3
     loadbalance: shortestresponse
     async: true
-    accesslog: ${user.home}/logs/${spring.application.name}/dubbo/provider.log
+    accesslog: true
     owner: 981376577
     threadpool: fixed
     threadname: taotao-cloud-goods-dubbo-provider-executor
@@ -262,8 +263,8 @@ dubbo:
     actives: 10
     cluster: failover
     validation: true
-    protocol: dubbo
-    group: taotao-cloud-dev
+    protocol: tri
+    #group: taotao-cloud-dev
   module:
     name: ${spring.application.name}
     version: ${ttcVersion}
@@ -272,13 +273,13 @@ dubbo:
     background: false
     refer-async: true
     export-async: true
-  monitor:
-    id: ${spring.application.name}
-    address: 192.168.218.2:38080
-    username: admin
-    password: 123456
-    group: DUBBO_REGISTRY_GROUP
-    version: ${ttcVersion}
+  #monitor:
+  #  id: ${spring.application.name}
+  #  address: 192.168.218.2:38080
+  #  username: admin
+  #  password: 123456
+  #  group: DUBBO_REGISTRY_GROUP
+  #  version: ${ttcVersion}
   metadata-report:
     id: ${spring.application.name}
     address: nacos://192.168.218.2:8848
@@ -297,6 +298,17 @@ dubbo:
     parameters:
       namespace: 213336af-bf44-45ce-850d-6ae563173799
     check: false
+  #tracing:
+  #  enabled: true # 默认为false
+  #  sampling:
+  #    probability: 0.5 # 采样率, 默认是 0.1
+  #  propagation:
+  #    type: W3C # 传播器类型：W3C/B3 默认是W3C
+  #  tracing-exporter:
+  #    zipkin-config:
+  #      endpoint: http://192.168.218.2:9411/api/v2/spans
+  #      connect-timeout: 1s # 建立连接超时时间, 默认为1s
+  #      read-timeout: 10s # 传递数据超时时间, 默认为10s
   metrics:
     default: true
     id: ${spring.application.name}
@@ -308,6 +320,8 @@ dubbo:
     enable-netty: true
     rpc-level: method
     protocol: prometheus
+    export-metrics-service: false
+    use-global-registry: true
     aggregation:
       enabled: true
       bucketNum: 100
@@ -1201,6 +1215,7 @@ taotao:
       enabled: false
     dubbo:
       enabled: true
+      request-log: true
     core:
       enabled: true
     captcha:

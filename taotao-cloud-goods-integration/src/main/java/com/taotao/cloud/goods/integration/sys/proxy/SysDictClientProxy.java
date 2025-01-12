@@ -42,6 +42,7 @@ public class SysDictClientProxy {
     // 查询用户
     public DictVO findByCode() {
 		DictApiResponse dictApiResponse = dictApi.findByCode("abcd");
+
 		DictRpcResponse dictRpcResponse = dictRpcService.findByCode(123);
 
         return sysClientAdapter.convert(dictApiResponse);

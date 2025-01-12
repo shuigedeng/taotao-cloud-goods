@@ -270,13 +270,13 @@ dubbo:
     background: false
     refer-async: true
     export-async: true
-  monitor:
-    id: ${spring.application.name}
-    address: 192.168.218.2:38080
-    username: admin
-    password: 123456
-    group: DUBBO_REGISTRY_GROUP
-    version: ${ttcVersion}
+  #monitor:
+  #  id: ${spring.application.name}
+  #  address: 192.168.218.2:38080
+  #  username: admin
+  #  password: 123456
+  #  group: DUBBO_REGISTRY_GROUP
+  #  version: ${ttcVersion}
   metadata-report:
     id: ${spring.application.name}
     address: nacos://192.168.218.2:8848
