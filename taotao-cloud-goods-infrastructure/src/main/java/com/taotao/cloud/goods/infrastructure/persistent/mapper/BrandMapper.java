@@ -16,7 +16,11 @@
 
 package com.taotao.cloud.goods.infrastructure.persistent.mapper;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.taotao.boot.common.utils.lang.StringUtils;
 import com.taotao.boot.webagg.mapper.BaseSuperMapper;
+import com.taotao.cloud.goods.infrastructure.dataparam.BrandPageParam;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.BrandPO;
 
 /**
@@ -26,4 +30,14 @@ import com.taotao.cloud.goods.infrastructure.persistent.persistence.BrandPO;
  * @version 2022.04
  * @since 2022-04-20 16:59:38
  */
-public interface BrandMapper extends BaseSuperMapper<BrandPO, Long> {}
+public interface BrandMapper extends BaseSuperMapper<BrandPO, Long> {
+
+	default IPage<BrandPO> findBrandPage(BrandPageParam brandPageParam) {
+		LambdaQueryWrapper<BrandPO> queryWrapper = new LambdaQueryWrapper<>();
+
+		queryWrapper.like(StringUtils.isNotBlank(brandPageParam.getName()), BrandPO::getName,
+			brandPageParam.getName());
+
+		return this.selectPage(queryWrapper, brandPageParam);
+	}
+}

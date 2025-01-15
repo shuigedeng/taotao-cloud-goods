@@ -31,6 +31,7 @@ import com.taotao.cloud.goods.application.service.BrandQueryService;
 import com.taotao.cloud.goods.application.service.CategoryBrandCommandService;
 import com.taotao.cloud.goods.application.service.CategoryCommandService;
 import com.taotao.cloud.goods.application.service.GoodsCommandService;
+import com.taotao.cloud.goods.infrastructure.dataparam.BrandPageParam;
 import com.taotao.cloud.goods.infrastructure.persistent.mapper.BrandMapper;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.BrandPO;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.CategoryBrandPO;
@@ -70,10 +71,11 @@ public class BrandQueryServiceImpl extends
 	 */
 	private final GoodsCommandService goodsService;
 
+	private final BrandMapper brandMapper;
+
 	@Override
 	public IPage<BrandPO> brandsQueryPage(BrandPageQry page) {
-		LambdaQueryWrapper<BrandPO> queryWrapper = new LambdaQueryWrapper<>();
-		queryWrapper.like(StringUtils.isNotBlank(page.getName()), BrandPO::getName, page.getName());
+		brandMapper.findBrandPage(BrandPageParam.builder().name(page.getName()).pageQuery(page.gpa))
 
 		return this.page(MpUtils.buildMpPage(page), queryWrapper);
 	}
