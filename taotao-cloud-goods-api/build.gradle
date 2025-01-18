@@ -47,7 +47,10 @@ protobuf {
     }
     generateProtoTasks {
         all()*.plugins {
-            grpc {}
+            grpc {
+                option 'jakarta_omit'
+                option '@generated=omit'
+            }
         }
     }
 }
@@ -65,21 +68,21 @@ configurations {
     }
 }
 
-tasks.register('javaxReplaceToJakarta') {
-    doLast {
-        def treeFile = fileTree(
-                dir: "${project.layout.buildDirectory.asFile.get()}/generated/source/proto/main/grpc",
-                includes: ["**/*.java"])
-
-        treeFile.each({
-            File f ->
-                {
-                    def text = f.text
-                    text = text.replaceAll("javax", "jakarta")
-                    f.write(text, "UTF-8")
-                }
-        })
-    }
-}
-
-generateProto.finalizedBy javaxReplaceToJakarta
+//tasks.register('javaxReplaceToJakarta') {
+//    doLast {
+//        def treeFile = fileTree(
+//                dir: "${project.layout.buildDirectory.asFile.get()}/generated/source/proto/main/grpc",
+//                includes: ["**/*.java"])
+//
+//        treeFile.each({
+//            File f ->
+//                {
+//                    def text = f.text
+//                    text = text.replaceAll("javax", "jakarta")
+//                    f.write(text, "UTF-8")
+//                }
+//        })
+//    }
+//}
+//
+//generateProto.finalizedBy javaxReplaceToJakarta
