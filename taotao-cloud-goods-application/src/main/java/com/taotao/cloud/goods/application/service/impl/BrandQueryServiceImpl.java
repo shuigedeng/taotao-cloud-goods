@@ -75,9 +75,7 @@ public class BrandQueryServiceImpl extends
 
 	@Override
 	public IPage<BrandPO> brandsQueryPage(BrandPageQry page) {
-		brandMapper.findBrandPage(BrandPageParam.builder().name(page.getName()).pageQuery(page.gpa))
-
-		return this.page(MpUtils.buildMpPage(page), queryWrapper);
+		return brandMapper.findBrandPage(BrandPageParam.builder().name(page.getName()).pageQuery(page.pageQuery()).build());
 	}
 
 	@Override

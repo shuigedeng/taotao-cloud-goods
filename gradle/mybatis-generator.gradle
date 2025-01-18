@@ -6,7 +6,7 @@ configurations {
 
 mybatisGenerator {
     verbose = true
-    configFile = 'src/main/resources/mybatisGenerator/generatorConfiguration.xml'
+    configFile = 'generatorConfiguration.xml'
 
 //    mybatisProperties = ['key1' : "value1",'key2' : "value2"]
 //    mybatisProperties = [
@@ -21,7 +21,7 @@ mybatisGenerator {
         mybatisGenerator 'org.mybatis.generator:mybatis-generator-core:1.4.2'
         mybatisGenerator 'org.mybatis.dynamic-sql:mybatis-dynamic-sql:1.5.2'
         mybatisGenerator 'io.github.shuigedeng:taotao-boot-starter-data-mybatis:2025.02'
-        mybatisGenerator 'mysql:mysql-connector-java:9.1.0'
+        mybatisGenerator 'com.mysql:mysql-connector-j:9.1.0'
         //mybatisGenerator 'org.postgresql:postgresql:42.7.4'
         //mybatisGenerator  // Here add your mariadb dependencies or else
     }

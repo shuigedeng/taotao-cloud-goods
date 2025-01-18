@@ -1,7 +1,7 @@
 apply plugin: "com.ly.smart-doc"
 
 smartdoc {
-    configFile = file("src/main/resources/smart-doc.json")
+    configFile = file("smart-doc.json")
 
 //    // exclude example
 //    // exclude artifact
