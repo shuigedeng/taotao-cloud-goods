@@ -42,7 +42,7 @@ import org.hibernate.Hibernate;
 @ToString(callSuper = true)
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
+@Accessors(fluent = true)
 @Entity
 @Table(name = StudioCommodityPO.TABLE_NAME)
 @TableName(StudioCommodityPO.TABLE_NAME)

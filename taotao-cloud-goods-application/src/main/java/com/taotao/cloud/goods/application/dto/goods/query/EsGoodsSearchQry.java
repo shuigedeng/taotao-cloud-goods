@@ -36,7 +36,7 @@ import lombok.NoArgsConstructor;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-@Builder
+@Accessors(fluent = true)
 @AllArgsConstructor
 @NoArgsConstructor
 public class EsGoodsSearchQry extends PageQuery {

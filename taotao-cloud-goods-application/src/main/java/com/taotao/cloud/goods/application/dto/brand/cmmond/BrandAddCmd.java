@@ -26,7 +26,7 @@ import lombok.NoArgsConstructor;
 
 /** 品牌DTO */
 @Data
-@Builder
+@Accessors(fluent = true)
 @AllArgsConstructor
 @NoArgsConstructor
 @Schema(description = "品牌DTO")

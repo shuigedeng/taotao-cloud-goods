@@ -42,7 +42,7 @@ import org.hibernate.Hibernate;
 @ToString(callSuper = true)
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
+@Accessors(fluent = true)
 @Entity
 @Table(name = CategoryBrandPO.TABLE_NAME)
 @TableName(CategoryBrandPO.TABLE_NAME)

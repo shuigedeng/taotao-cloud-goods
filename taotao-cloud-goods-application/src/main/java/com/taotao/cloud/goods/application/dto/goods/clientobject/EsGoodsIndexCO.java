@@ -40,8 +40,7 @@ import lombok.experimental.Accessors;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
-@Accessors(chain = true)
+@Accessors(fluent = true)
 public class EsGoodsIndexCO extends ClientObject {
 
     @Serial

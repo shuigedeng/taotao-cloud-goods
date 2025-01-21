@@ -28,7 +28,7 @@ import lombok.NoArgsConstructor;
 
 /** 规格值 */
 @Data
-@Builder
+@Accessors(fluent = true)
 @AllArgsConstructor
 @NoArgsConstructor
 public class SpecValueCO extends ClientObject {

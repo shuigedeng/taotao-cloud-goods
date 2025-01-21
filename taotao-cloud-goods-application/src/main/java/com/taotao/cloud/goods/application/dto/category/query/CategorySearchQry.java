@@ -37,7 +37,7 @@ import lombok.NoArgsConstructor;
  * @since 2022-04-25 16:33:05
  */
 @Data
-@Builder
+@Accessors(fluent = true)
 @AllArgsConstructor
 @NoArgsConstructor
 public class CategorySearchQry extends Query {

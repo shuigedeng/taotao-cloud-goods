@@ -24,10 +24,11 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
 
 /** 规格值 */
 @Data
-@Builder
+@Accessors(fluent = true)
 @AllArgsConstructor
 @NoArgsConstructor
 public class SpecValueApiRequest implements Serializable {

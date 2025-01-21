@@ -26,7 +26,7 @@ import lombok.NoArgsConstructor;
 
 /** 兑换CO */
 @Data
-@Builder
+@Accessors(fluent = true)
 @AllArgsConstructor
 @NoArgsConstructor
 public class ExchangeCO extends ClientObject {

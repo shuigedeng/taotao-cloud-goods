@@ -24,7 +24,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /** 分类品牌CO */
-@Builder
+@Accessors(fluent = true)
 @AllArgsConstructor
 @NoArgsConstructor
 @Schema(description = "分类品牌CO")

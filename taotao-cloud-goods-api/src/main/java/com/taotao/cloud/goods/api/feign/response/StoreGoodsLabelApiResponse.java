@@ -24,6 +24,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
 
 /**
  * 店铺分类VO
@@ -33,7 +34,7 @@ import lombok.NoArgsConstructor;
  * @since 2022-04-14 21:52:23
  */
 @Data
-@Builder
+@Accessors(fluent = true)
 @AllArgsConstructor
 @NoArgsConstructor
 public class StoreGoodsLabelApiResponse implements Serializable {

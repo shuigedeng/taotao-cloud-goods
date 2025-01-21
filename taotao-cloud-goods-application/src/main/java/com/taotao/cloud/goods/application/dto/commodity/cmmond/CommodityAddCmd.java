@@ -25,7 +25,7 @@ import lombok.NoArgsConstructor;
 
 /** 直播商品DTO 用于获取直播商品状态时使用 */
 @Data
-@Builder
+@Accessors(fluent = true)
 @AllArgsConstructor
 @NoArgsConstructor
 public class CommodityAddCmd  extends Command {

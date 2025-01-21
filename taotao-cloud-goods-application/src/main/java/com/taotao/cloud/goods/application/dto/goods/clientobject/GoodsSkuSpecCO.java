@@ -27,7 +27,7 @@ import lombok.NoArgsConstructor;
 
 /** 商品规格CO */
 @Data
-@Builder
+@Accessors(fluent = true)
 @AllArgsConstructor
 @NoArgsConstructor
 public class GoodsSkuSpecCO extends ClientObject {

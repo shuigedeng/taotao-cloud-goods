@@ -23,7 +23,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@Builder
+@Accessors(fluent = true)
 @AllArgsConstructor
 @NoArgsConstructor
 public class CustomWordsCO extends ClientObject {

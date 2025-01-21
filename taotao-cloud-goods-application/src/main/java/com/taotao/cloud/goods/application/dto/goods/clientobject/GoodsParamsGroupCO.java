@@ -28,7 +28,7 @@ import lombok.NoArgsConstructor;
 
 /** 商品参数vo */
 @Data
-@Builder
+@Accessors(fluent = true)
 @AllArgsConstructor
 @NoArgsConstructor
 public class GoodsParamsGroupCO extends ClientObject {

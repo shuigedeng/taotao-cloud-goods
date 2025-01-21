@@ -32,7 +32,7 @@ import lombok.NoArgsConstructor;
  * @since 2022-04-25 16:33:26
  */
 @Data
-@Builder
+@Accessors(fluent = true)
 @AllArgsConstructor
 @NoArgsConstructor
 @Schema(description = "规格查询参数")

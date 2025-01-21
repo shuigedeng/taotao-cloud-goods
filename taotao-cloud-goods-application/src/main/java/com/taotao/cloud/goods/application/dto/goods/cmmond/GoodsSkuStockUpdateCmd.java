@@ -25,7 +25,7 @@ import lombok.NoArgsConstructor;
 
 /** 商品库存DTO */
 @Data
-@Builder
+@Accessors(fluent = true)
 @AllArgsConstructor
 @NoArgsConstructor
 public class GoodsSkuStockUpdateCmd  extends Command {

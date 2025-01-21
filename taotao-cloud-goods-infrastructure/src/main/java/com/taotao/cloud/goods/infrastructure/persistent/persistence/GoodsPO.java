@@ -52,7 +52,7 @@ import org.hibernate.annotations.Type;
 @ToString(callSuper = true)
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
+@Accessors(fluent = true)
 @Entity
 @Table(name = GoodsPO.TABLE_NAME,
 	uniqueConstraints = {

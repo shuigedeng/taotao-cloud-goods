@@ -39,7 +39,7 @@ import org.hibernate.validator.constraints.Length;
 
 /** 商品编辑DTO */
 @Data
-@Builder
+@Accessors(fluent = true)
 @AllArgsConstructor
 @NoArgsConstructor
 public class GoodsAddCmd  extends Command {

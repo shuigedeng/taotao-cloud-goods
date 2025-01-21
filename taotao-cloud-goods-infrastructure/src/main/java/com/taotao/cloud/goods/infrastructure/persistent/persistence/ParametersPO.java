@@ -42,7 +42,7 @@ import org.hibernate.Hibernate;
 @ToString(callSuper = true)
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
+@Accessors(fluent = true)
 @Entity
 @Table(name = ParametersPO.TABLE_NAME)
 @TableName(ParametersPO.TABLE_NAME)

@@ -28,7 +28,7 @@ import lombok.NoArgsConstructor;
 
 /** 参数组vo */
 @Data
-@Builder
+@Accessors(fluent = true)
 @AllArgsConstructor
 @NoArgsConstructor
 public class ParameterGroupCO extends ClientObject {

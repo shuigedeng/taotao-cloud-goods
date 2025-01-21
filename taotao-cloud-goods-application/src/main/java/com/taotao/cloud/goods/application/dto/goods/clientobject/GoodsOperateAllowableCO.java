@@ -27,7 +27,7 @@ import lombok.NoArgsConstructor;
 
 /** 商品操作允许的范围 */
 @Data
-@Builder
+@Accessors(fluent = true)
 @AllArgsConstructor
 @NoArgsConstructor
 public class GoodsOperateAllowableCO extends ClientObject {

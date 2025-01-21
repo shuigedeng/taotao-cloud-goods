@@ -34,7 +34,7 @@ import lombok.NoArgsConstructor;
  * @since 2022-04-14 21:52:23
  */
 @Data
-@Builder
+@Accessors(fluent = true)
 @AllArgsConstructor
 @NoArgsConstructor
 public class StoreGoodsLabelCO extends ClientObject {

@@ -26,7 +26,9 @@ import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.experimental.Accessors;
 
 /**
@@ -39,8 +41,7 @@ import lombok.experimental.Accessors;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
-@Accessors(chain = true)
+@Accessors(fluent = true)
 public class EsGoodsIndexApiResponse implements Serializable {
 
     @Serial
@@ -159,4 +160,293 @@ public class EsGoodsIndexApiResponse implements Serializable {
      * @see PromotionTypeEnum value 为 促销活动实体信息
      */
     private String promotionMapJson;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Long getGoodsId() {
+		return goodsId;
+	}
+
+	public void setGoodsId(Long goodsId) {
+		this.goodsId = goodsId;
+	}
+
+	public String getGoodsName() {
+		return goodsName;
+	}
+
+	public void setGoodsName(String goodsName) {
+		this.goodsName = goodsName;
+	}
+
+	public String getSn() {
+		return sn;
+	}
+
+	public void setSn(String sn) {
+		this.sn = sn;
+	}
+
+	public Long getStoreId() {
+		return storeId;
+	}
+
+	public void setStoreId(Long storeId) {
+		this.storeId = storeId;
+	}
+
+	public String getStoreName() {
+		return storeName;
+	}
+
+	public void setStoreName(String storeName) {
+		this.storeName = storeName;
+	}
+
+	public Integer getBuyCount() {
+		return buyCount;
+	}
+
+	public void setBuyCount(Integer buyCount) {
+		this.buyCount = buyCount;
+	}
+
+	public String getSmall() {
+		return small;
+	}
+
+	public void setSmall(String small) {
+		this.small = small;
+	}
+
+	public String getThumbnail() {
+		return thumbnail;
+	}
+
+	public void setThumbnail(String thumbnail) {
+		this.thumbnail = thumbnail;
+	}
+
+	public Long getBrandId() {
+		return brandId;
+	}
+
+	public void setBrandId(Long brandId) {
+		this.brandId = brandId;
+	}
+
+	public String getBrandName() {
+		return brandName;
+	}
+
+	public void setBrandName(String brandName) {
+		this.brandName = brandName;
+	}
+
+	public String getBrandUrl() {
+		return brandUrl;
+	}
+
+	public void setBrandUrl(String brandUrl) {
+		this.brandUrl = brandUrl;
+	}
+
+	public String getCategoryPath() {
+		return categoryPath;
+	}
+
+	public void setCategoryPath(String categoryPath) {
+		this.categoryPath = categoryPath;
+	}
+
+	public String getCategoryNamePath() {
+		return categoryNamePath;
+	}
+
+	public void setCategoryNamePath(String categoryNamePath) {
+		this.categoryNamePath = categoryNamePath;
+	}
+
+	public String getStoreCategoryPath() {
+		return storeCategoryPath;
+	}
+
+	public void setStoreCategoryPath(String storeCategoryPath) {
+		this.storeCategoryPath = storeCategoryPath;
+	}
+
+	public String getStoreCategoryNamePath() {
+		return storeCategoryNamePath;
+	}
+
+	public void setStoreCategoryNamePath(String storeCategoryNamePath) {
+		this.storeCategoryNamePath = storeCategoryNamePath;
+	}
+
+	public BigDecimal getPrice() {
+		return price;
+	}
+
+	public void setPrice(BigDecimal price) {
+		this.price = price;
+	}
+
+	public BigDecimal getPromotionPrice() {
+		return promotionPrice;
+	}
+
+	public void setPromotionPrice(BigDecimal promotionPrice) {
+		this.promotionPrice = promotionPrice;
+	}
+
+	public Integer getPoint() {
+		return point;
+	}
+
+	public void setPoint(Integer point) {
+		this.point = point;
+	}
+
+	public Integer getCommentNum() {
+		return commentNum;
+	}
+
+	public void setCommentNum(Integer commentNum) {
+		this.commentNum = commentNum;
+	}
+
+	public Integer getHighPraiseNum() {
+		return highPraiseNum;
+	}
+
+	public void setHighPraiseNum(Integer highPraiseNum) {
+		this.highPraiseNum = highPraiseNum;
+	}
+
+	public BigDecimal getGrade() {
+		return grade;
+	}
+
+	public void setGrade(BigDecimal grade) {
+		this.grade = grade;
+	}
+
+	public String getIntro() {
+		return intro;
+	}
+
+	public void setIntro(String intro) {
+		this.intro = intro;
+	}
+
+	public String getMobileIntro() {
+		return mobileIntro;
+	}
+
+	public void setMobileIntro(String mobileIntro) {
+		this.mobileIntro = mobileIntro;
+	}
+
+	public Boolean getSelfOperated() {
+		return selfOperated;
+	}
+
+	public void setSelfOperated(Boolean selfOperated) {
+		this.selfOperated = selfOperated;
+	}
+
+	public Boolean getRecommend() {
+		return recommend;
+	}
+
+	public void setRecommend(Boolean recommend) {
+		this.recommend = recommend;
+	}
+
+	public String getSalesModel() {
+		return salesModel;
+	}
+
+	public void setSalesModel(String salesModel) {
+		this.salesModel = salesModel;
+	}
+
+	public String getAuthFlag() {
+		return authFlag;
+	}
+
+	public void setAuthFlag(String authFlag) {
+		this.authFlag = authFlag;
+	}
+
+	public String getSellingPoint() {
+		return sellingPoint;
+	}
+
+	public void setSellingPoint(String sellingPoint) {
+		this.sellingPoint = sellingPoint;
+	}
+
+	public String getMarketEnable() {
+		return marketEnable;
+	}
+
+	public void setMarketEnable(String marketEnable) {
+		this.marketEnable = marketEnable;
+	}
+
+	public String getGoodsVideo() {
+		return goodsVideo;
+	}
+
+	public void setGoodsVideo(String goodsVideo) {
+		this.goodsVideo = goodsVideo;
+	}
+
+	public LocalDateTime getReleaseTime() {
+		return releaseTime;
+	}
+
+	public void setReleaseTime(LocalDateTime releaseTime) {
+		this.releaseTime = releaseTime;
+	}
+
+	public String getGoodsType() {
+		return goodsType;
+	}
+
+	public void setGoodsType(String goodsType) {
+		this.goodsType = goodsType;
+	}
+
+	public Integer getSkuSource() {
+		return skuSource;
+	}
+
+	public void setSkuSource(Integer skuSource) {
+		this.skuSource = skuSource;
+	}
+
+	public List<EsGoodsAttributeApiResponse> getAttrList() {
+		return attrList;
+	}
+
+	public void setAttrList(
+		List<EsGoodsAttributeApiResponse> attrList) {
+		this.attrList = attrList;
+	}
+
+	public String getPromotionMapJson() {
+		return promotionMapJson;
+	}
+
+	public void setPromotionMapJson(String promotionMapJson) {
+		this.promotionMapJson = promotionMapJson;
+	}
 }

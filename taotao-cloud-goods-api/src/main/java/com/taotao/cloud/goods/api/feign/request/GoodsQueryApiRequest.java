@@ -25,6 +25,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
 
 /**
  * 公司查询对象
@@ -34,7 +35,7 @@ import lombok.NoArgsConstructor;
  * @since 2021-10-09 16:31:52
  */
 @Data
-@Builder
+@Accessors(fluent = true)
 @EqualsAndHashCode
 @AllArgsConstructor
 @NoArgsConstructor
