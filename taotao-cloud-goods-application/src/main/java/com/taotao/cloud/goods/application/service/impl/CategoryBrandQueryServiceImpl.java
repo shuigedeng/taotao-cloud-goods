@@ -55,7 +55,7 @@ public class CategoryBrandQueryServiceImpl extends BaseSuperServiceImpl<
 
 	public List<CategoryBrandPO> getCategoryBrandListByBrandId(List<Long> brandId) {
 		LambdaQueryWrapper<CategoryBrandPO> wrapper = new LambdaQueryWrapper<>();
-		wrapper.in(CategoryBrandPO::getBrandId, brandId);
+		wrapper.in(CategoryBrandPO::brandId, brandId);
 		return list(wrapper);
 	}
 

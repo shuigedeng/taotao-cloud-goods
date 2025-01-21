@@ -106,7 +106,7 @@ public class CategoryParameterGroupCommandServiceImpl extends BaseSuperServiceIm
 	@Override
 	public boolean deleteByCategoryId(Long categoryId) {
 		return this.baseMapper.delete(new LambdaUpdateWrapper<CategoryParameterGroupPO>()
-			.eq(CategoryParameterGroupPO::getCategoryId, categoryId))
+			.eq(CategoryParameterGroupPO::categoryId, categoryId))
 			> 0;
 	}
 

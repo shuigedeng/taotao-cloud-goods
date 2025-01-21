@@ -27,7 +27,10 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.experimental.Accessors;
 import lombok.ToString;
+import lombok.experimental.Accessors;
+import lombok.experimental.Accessors;
 import org.hibernate.Hibernate;
 
 /** 分类绑定参数组表 */

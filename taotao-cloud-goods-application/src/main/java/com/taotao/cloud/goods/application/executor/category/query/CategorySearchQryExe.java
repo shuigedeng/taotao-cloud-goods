@@ -33,7 +33,7 @@ public class CategorySearchQryExe extends Executor {
 	public List<CategoryPO> listByIdsOrderByLevel(List<Long> ids) {
 		LambdaQueryWrapper<CategoryPO> wrapper = new LambdaQueryWrapper<>();
 		wrapper.in(CategoryPO::getId, ids);
-		wrapper.orderByAsc(CategoryPO::getLevel);
+		wrapper.orderByAsc(CategoryPO::level);
 		return categoryMapper.selectList(wrapper);
 	}
 
@@ -64,7 +64,7 @@ public class CategorySearchQryExe extends Executor {
 			for (Long id : ids) {
 				if (categoryPo.getId().equals(id)) {
 					// 写入商品分类
-					categoryName.add(categoryPo.getName());
+					categoryName.add(categoryPo.name());
 				}
 			}
 		}

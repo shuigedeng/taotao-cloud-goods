@@ -87,7 +87,7 @@ public class ParametersQueryServiceImpl
 		for (GoodsParamsAddCmd goodsParamsAddCmd : goodsParamsAddCmdList) {
 			List<GoodsParamsItemAddCmd> goodsParamsItemAddCmdList = goodsParamsAddCmd.getGoodsParamsItemAddCmdList()
 				.stream()
-				.filter(i -> i.getParamId() != null && i.getParamId().equals(parametersPO.getId()))
+				.filter(i -> i.paramId() != null && i.paramId().equals(parametersPO.getId()))
 				.toList();
 			for (GoodsParamsItemAddCmd goodsParamsItemAddCmd : goodsParamsItemAddCmdList) {
 				this.setGoodsItemDTO(goodsParamsItemAddCmd, parametersPO);
@@ -102,21 +102,21 @@ public class ParametersQueryServiceImpl
 	 * @param parametersPO          参数信息
 	 */
 	private void setGoodsItemDTO(GoodsParamsItemAddCmd goodsParamsItemAddCmd, ParametersPO parametersPO) {
-		if (goodsParamsItemAddCmd.getParamId().equals(parametersPO.getId())) {
-			goodsParamsItemAddCmd.setParamId(parametersPO.getId());
-			goodsParamsItemAddCmd.setParamName(parametersPO.getParamName());
-			goodsParamsItemAddCmd.setRequired(parametersPO.getRequired());
-			goodsParamsItemAddCmd.setIsIndex(parametersPO.getIsIndex());
-			goodsParamsItemAddCmd.setSort(parametersPO.getSort());
-			if (CharSequenceUtil.isNotEmpty(parametersPO.getOptions())
-				&& CharSequenceUtil.isNotEmpty(goodsParamsItemAddCmd.getParamValue())
-				&& !parametersPO.getOptions().contains(goodsParamsItemAddCmd.getParamValue())) {
-				if (parametersPO.getOptions().contains(",")) {
-					goodsParamsItemAddCmd.setParamValue(parametersPO
-						.getOptions()
-						.substring(0, parametersPO.getOptions().indexOf(",")));
+		if (goodsParamsItemAddCmd.paramId().equals(parametersPO.getId())) {
+			goodsParamsItemAddCmd.paramId(parametersPO.getId());
+			goodsParamsItemAddCmd.paramName(parametersPO.paramName());
+			goodsParamsItemAddCmd.required(parametersPO.required());
+			goodsParamsItemAddCmd.isIndex(parametersPO.isIndex());
+			goodsParamsItemAddCmd.sort(parametersPO.sort());
+			if (CharSequenceUtil.isNotEmpty(parametersPO.options())
+				&& CharSequenceUtil.isNotEmpty(goodsParamsItemAddCmd.paramValue())
+				&& !parametersPO.options().contains(goodsParamsItemAddCmd.paramValue())) {
+				if (parametersPO.options().contains(",")) {
+					goodsParamsItemAddCmd.paramValue(parametersPO
+						.options()
+						.substring(0, parametersPO.options().indexOf(",")));
 				} else {
-					goodsParamsItemAddCmd.setParamValue(parametersPO.getOptions());
+					goodsParamsItemAddCmd.paramValue(parametersPO.options());
 				}
 			}
 		}

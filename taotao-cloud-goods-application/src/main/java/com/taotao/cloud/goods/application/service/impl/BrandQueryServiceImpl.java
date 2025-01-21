@@ -75,7 +75,7 @@ public class BrandQueryServiceImpl extends
 
 	@Override
 	public IPage<BrandPO> brandsQueryPage(BrandPageQry page) {
-		return brandMapper.findBrandPage(BrandPageParam.builder().name(page.getName()).pageQuery(page.pageQuery()).build());
+		return brandMapper.findBrandPage(BrandPageParam.builder().name(page.name()).pageQuery(page.pageQuery()).build());
 	}
 
 	@Override
@@ -84,7 +84,7 @@ public class BrandQueryServiceImpl extends
 		queryWrapper.eq("category_id", categoryId);
 		List<CategoryBrandPO> list = categoryBrandService.list(queryWrapper);
 		if (list != null && !list.isEmpty()) {
-			List<Long> collect = list.stream().map(CategoryBrandPO::getBrandId).toList();
+			List<Long> collect = list.stream().map(CategoryBrandPO::brandId).toList();
 			return this.list(new LambdaQueryWrapper<BrandPO>().in(BrandPO::getId, collect));
 		}
 		return new ArrayList<>();
@@ -104,7 +104,7 @@ public class BrandQueryServiceImpl extends
 		queryWrapper.in("category_id", categoryIds);
 		List<CategoryBrandPO> list = categoryBrandService.list(queryWrapper);
 		if (list != null && !list.isEmpty()) {
-			List<Long> collect = list.stream().map(CategoryBrandPO::getBrandId).toList();
+			List<Long> collect = list.stream().map(CategoryBrandPO::brandId).toList();
 			return this.list(new LambdaQueryWrapper<BrandPO>().in(BrandPO::getId, collect));
 		}
 		return new ArrayList<>();

@@ -45,7 +45,7 @@ public class CategoryTreeCmdExe extends Executor {
 		// 构造分类树
 		categoryTreeCoList = new ArrayList<>();
 		for (CategoryPO categoryPo : list) {
-			if (Long.valueOf(0).equals(categoryPo.getParentId())) {
+			if (Long.valueOf(0).equals(categoryPo.parentId())) {
 				//CategoryTreeCO categoryTreeCo = CategoryConvert.INSTANCE.convert(categoryPo);
 				//categoryTreeCo.setParentTitle(categoryPo.getName());
 				//categoryTreeCo.setChildren(findChildren(list, categoryTreeCo));
@@ -73,7 +73,7 @@ public class CategoryTreeCmdExe extends Executor {
 											 CategoryTreeCO categoryTreeCo) {
 		List<CategoryTreeCO> children = new ArrayList<>();
 		categories.forEach(item -> {
-			if (item.getParentId().equals(categoryTreeCo.getId())) {
+			if (item.parentId().equals(categoryTreeCo.getId())) {
 				//CategoryTreeCO temp = CategoryConvert.INSTANCE.convert(item);
 				//temp.setParentTitle(item.getName());
 				//temp.setChildren(findChildren(categories, temp));

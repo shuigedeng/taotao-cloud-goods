@@ -78,7 +78,7 @@ public class BrandCommandServiceImpl extends
 	@Override
 	public boolean addBrand(BrandAddCmd brandDTO) {
 		LambdaQueryWrapper<BrandPO> lambdaQueryWrapper = new LambdaQueryWrapper<>();
-		lambdaQueryWrapper.eq(BrandPO::getName, brandDTO.getName());
+		lambdaQueryWrapper.eq(BrandPO::getName, brandDTO.name());
 		if (getOne(lambdaQueryWrapper) != null) {
 			throw new BusinessException(ResultEnum.BRAND_NAME_EXIST_ERROR);
 		}
@@ -87,11 +87,11 @@ public class BrandCommandServiceImpl extends
 
 	@Override
 	public boolean updateBrand(BrandUpdateCmd brandDTO) {
-		this.checkExist(brandDTO.getId());
+		this.checkExist(brandDTO.id());
 
 		if (getOne(new LambdaQueryWrapper<BrandPO>()
-			.eq(BrandPO::getName, brandDTO.getName())
-			.ne(BrandPO::getId, brandDTO.getId()))
+			.eq(BrandPO::getName, brandDTO.name())
+			.ne(BrandPO::getId, brandDTO.id()))
 			!= null) {
 			throw new BusinessException(ResultEnum.BRAND_NAME_EXIST_ERROR);
 		}
@@ -131,7 +131,7 @@ public class BrandCommandServiceImpl extends
 
 		if (!categoryBrands.isEmpty()) {
 			List<Long> categoryIds =
-				categoryBrands.stream().map(CategoryBrandPO::getCategoryId).toList();
+				categoryBrands.stream().map(CategoryBrandPO::categoryId).toList();
 			throw new BusinessException(
 				ResultEnum.BRAND_USE_DISABLE_ERROR.getCode(),
 				JSONUtil.toJsonStr(categoryQueryService.getCategoryNameByIds(categoryIds)));
@@ -140,7 +140,7 @@ public class BrandCommandServiceImpl extends
 		// 分了商品绑定关系查询
 		List<GoodsPO> goods = goodsQueryService.getByBrandIds(brandIds);
 		if (!goods.isEmpty()) {
-			List<String> goodsNames = goods.stream().map(GoodsPO::getGoodsName).toList();
+			List<String> goodsNames = goods.stream().map(GoodsPO::goodsName).toList();
 			throw new BusinessException(ResultEnum.BRAND_BIND_GOODS_ERROR.getCode(),
 				JSONUtil.toJsonStr(goodsNames));
 		}

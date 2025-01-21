@@ -122,7 +122,7 @@ public class BrandManagerController {
     @PreAuthorize("hasAuthority('dept:tree:data')")
     @PutMapping("/{id}")
     public Result<Boolean> update(@PathVariable Long id, @Validated BrandUpdateCmd brand) {
-        brand.setId(id);
+        brand.id(id);
         return Result.success(brandCommandService.updateBrand(brand));
     }
 

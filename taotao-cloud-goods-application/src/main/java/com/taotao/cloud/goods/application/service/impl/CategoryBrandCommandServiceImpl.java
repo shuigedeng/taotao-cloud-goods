@@ -49,7 +49,7 @@ public class CategoryBrandCommandServiceImpl extends BaseSuperServiceImpl<
 	@Override
 	public boolean deleteByCategoryId(Long categoryId) {
 		LambdaQueryWrapper<CategoryBrandPO> wrapper = new LambdaQueryWrapper<>();
-		wrapper.in(CategoryBrandPO::getCategoryId, categoryId);
+		wrapper.in(CategoryBrandPO::categoryId, categoryId);
 		return im().delete(wrapper) > 0;
 	}
 

@@ -33,7 +33,7 @@ public class CategoryChildrenCmdExe extends Executor {
 	public List<CategoryPO> childrenList(Long parentId) {
 
 		LambdaQueryWrapper<CategoryPO> wrapper = new LambdaQueryWrapper<>();
-		wrapper.eq(CategoryPO::getParentId, parentId);
+		wrapper.eq(CategoryPO::parentId, parentId);
 		return categoryMapper.selectList(wrapper);
 	}
 
@@ -67,7 +67,7 @@ public class CategoryChildrenCmdExe extends Executor {
 		// 构造分类树
 		List<CategoryTreeCO> categoryTreeCoList = new ArrayList<>();
 		for (CategoryPO categoryPo : list) {
-			if (Long.valueOf(0).equals(categoryPo.getParentId())) {
+			if (Long.valueOf(0).equals(categoryPo.parentId())) {
 				// CategoryCO categoryCO = new CategoryCO(category);
 				CategoryTreeCO categoryTreeCo = new CategoryTreeCO();
 				categoryTreeCo.setChildren(categoryTreeCmdExe.findChildren(list, categoryTreeCo));
@@ -85,7 +85,7 @@ public class CategoryChildrenCmdExe extends Executor {
 	 */
 	public void findAllChild(CategoryTreeCO category) {
 		LambdaQueryWrapper<CategoryPO> queryWrapper = new LambdaQueryWrapper<>();
-		queryWrapper.eq(CategoryPO::getParentId, category.getId());
+		queryWrapper.eq(CategoryPO::parentId, category.getId());
 		List<CategoryPO> categories = this.categoryMapper.selectList(queryWrapper);
 		List<CategoryTreeCO> categoryTreeCoList = new ArrayList<>();
 		for (CategoryPO categoryPo1 : categories) {

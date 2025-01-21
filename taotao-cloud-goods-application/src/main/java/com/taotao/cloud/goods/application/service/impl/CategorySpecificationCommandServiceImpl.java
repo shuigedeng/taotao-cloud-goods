@@ -51,6 +51,6 @@ public class CategorySpecificationCommandServiceImpl
 	@Override
 	public boolean deleteByCategoryId(Long categoryId) {
 		return im().delete(new LambdaQueryWrapper<CategorySpecificationPO>()
-			.eq(CategorySpecificationPO::getCategoryId, categoryId)) > 0;
+			.eq(CategorySpecificationPO::categoryId, categoryId)) > 0;
 	}
 }
