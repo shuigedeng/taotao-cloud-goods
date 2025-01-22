@@ -20,7 +20,9 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import com.taotao.boot.webagg.entity.SuperEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Index;
 import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 import java.util.Objects;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -39,14 +41,19 @@ import org.hibernate.Hibernate;
  * @version 2022.04
  * @since 2022-04-20 16:59:38
  */
-@Getter
-@Setter
+
 @ToString(callSuper = true)
 @AllArgsConstructor
 @NoArgsConstructor
 @Accessors(fluent = true)
 @Entity
-@Table(name = CategorySpecificationPO.TABLE_NAME)
+@Table(name = CategorySpecificationPO.TABLE_NAME,
+	uniqueConstraints = {
+		@UniqueConstraint(name = "uniq_goods_no", columnNames = "goods_no"),
+	},
+	indexes = {
+		@Index(name = "idx_create_date", columnList = "create_date"),
+	})
 @TableName(CategorySpecificationPO.TABLE_NAME)
 @org.springframework.data.relational.core.mapping.Table(name = CategorySpecificationPO.TABLE_NAME)
 public class CategorySpecificationPO extends SuperEntity<CategorySpecificationPO, Long> {
@@ -54,11 +61,11 @@ public class CategorySpecificationPO extends SuperEntity<CategorySpecificationPO
     public static final String TABLE_NAME = "tt_category_specification";
 
     /** 分类id */
-    @Column(name = "category_id", columnDefinition = "bigint not null comment '分类id'")
+    @Column(name = "`category_id`", columnDefinition = "bigint not null comment '分类id'")
     private Long categoryId;
 
     /** 规格id */
-    @Column(name = "specification_id", columnDefinition = "bigint not null comment '规格id'")
+    @Column(name = "`specification_id`", columnDefinition = "bigint not null comment '规格id'")
     private Long specificationId;
 
     @Override

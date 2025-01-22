@@ -20,7 +20,9 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import com.taotao.boot.webagg.entity.BaseSuperEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Index;
 import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 import java.util.Objects;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -39,14 +41,19 @@ import org.hibernate.Hibernate;
  * @version 2022.04
  * @since 2022-04-14 21:50:58
  */
-@Getter
-@Setter
+
 @ToString(callSuper = true)
 @AllArgsConstructor
 @NoArgsConstructor
 @Accessors(fluent = true)
 @Entity
-@Table(name = StoreGoodsLabelPO.TABLE_NAME)
+@Table(name = StoreGoodsLabelPO.TABLE_NAME,
+	uniqueConstraints = {
+		@UniqueConstraint(name = "uniq_goods_no", columnNames = "goods_no"),
+	},
+	indexes = {
+		@Index(name = "idx_create_date", columnList = "create_date"),
+	})
 @TableName(StoreGoodsLabelPO.TABLE_NAME)
 @org.springframework.data.relational.core.mapping.Table(name = StoreGoodsLabelPO.TABLE_NAME)
 public class StoreGoodsLabelPO extends BaseSuperEntity<StoreGoodsLabelPO, Long> {
@@ -54,23 +61,23 @@ public class StoreGoodsLabelPO extends BaseSuperEntity<StoreGoodsLabelPO, Long> 
     public static final String TABLE_NAME = "tt_store_goods_label";
 
     /** 店铺ID */
-    @Column(name = "store_id", columnDefinition = "bigint not null comment '店铺ID'")
+    @Column(name = "`store_id`", columnDefinition = "bigint not null comment '店铺ID'")
     private Long storeId;
 
     /** 店铺商品分类名称 */
-    @Column(name = "label_name", columnDefinition = "varchar(255) not null comment '店铺商品分类名称'")
+    @Column(name = "`label_name`", columnDefinition = "varchar(255) not null comment '店铺商品分类名称'")
     private String labelName;
 
     /** 店铺商品分类排序 */
-    @Column(name = "sort_order", columnDefinition = "int not null comment '店铺商品分类排序'")
+    @Column(name = "`sort_order`", columnDefinition = "int not null comment '店铺商品分类排序'")
     private Integer sortOrder;
 
     /** 父id, 根节点为0 */
-    @Column(name = "parent_id", columnDefinition = "bigint not null comment '父id, 根节点为0'")
+    @Column(name = "`parent_id`", columnDefinition = "bigint not null comment '父id, 根节点为0'")
     private Long parentId;
 
     /** 层级, 从0开始 */
-    @Column(name = "level", columnDefinition = "int not null comment '层级, 从0开始'")
+    @Column(name = "`level`", columnDefinition = "int not null comment '层级, 从0开始'")
     private Integer level;
 
     @Override

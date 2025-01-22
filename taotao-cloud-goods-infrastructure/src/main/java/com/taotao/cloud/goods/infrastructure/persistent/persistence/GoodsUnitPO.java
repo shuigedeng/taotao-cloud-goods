@@ -20,7 +20,9 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import com.taotao.boot.webagg.entity.BaseSuperEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Index;
 import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 import java.util.Objects;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -33,14 +35,19 @@ import lombok.experimental.Accessors;
 import org.hibernate.Hibernate;
 
 /** 商品计量单位表 */
-@Getter
-@Setter
+
 @ToString(callSuper = true)
 @AllArgsConstructor
 @NoArgsConstructor
 @Accessors(fluent = true)
 @Entity
-@Table(name = GoodsUnitPO.TABLE_NAME)
+@Table(name = GoodsUnitPO.TABLE_NAME,
+	uniqueConstraints = {
+		@UniqueConstraint(name = "uniq_goods_no", columnNames = "goods_no"),
+	},
+	indexes = {
+		@Index(name = "idx_create_date", columnList = "create_date"),
+	})
 @TableName(GoodsUnitPO.TABLE_NAME)
 @org.springframework.data.relational.core.mapping.Table(name = GoodsUnitPO.TABLE_NAME)
 public class GoodsUnitPO extends BaseSuperEntity<GoodsUnitPO, Long> {
@@ -48,7 +55,7 @@ public class GoodsUnitPO extends BaseSuperEntity<GoodsUnitPO, Long> {
     public static final String TABLE_NAME = "tt_goods_unit";
 
     /** 计量单位名称 */
-    @Column(name = "name", columnDefinition = "varchar(255) not null comment '计量单位名称'")
+    @Column(name = "`name`", columnDefinition = "varchar(255) not null comment '计量单位名称'")
     private String name;
 
     @Override

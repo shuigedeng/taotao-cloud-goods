@@ -20,7 +20,9 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import com.taotao.boot.webagg.entity.BaseSuperEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Index;
 import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 import java.util.Objects;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -37,16 +39,17 @@ import org.hibernate.Hibernate;
  * @version 2022.04
  * @since 2022-04-27 16:55:08
  */
-@Getter
-@Setter
 @ToString(callSuper = true)
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table(name = BrandPO.TABLE_NAME,
-uniqueConstraints = {},
-indexes = {})
+	indexes = {
+		@Index(name = "idx_create_date", columnList = "`create_date`"),
+		@Index(name = "idx_name", columnList = "`name`"),
+	})
 @TableName(BrandPO.TABLE_NAME)
+@org.springframework.data.relational.core.mapping.Table(name = BrandPO.TABLE_NAME)
 public class BrandPO extends BaseSuperEntity<BrandPO, Long> {
 
 	public static final String TABLE_NAME = "tt_brand";
@@ -54,13 +57,13 @@ public class BrandPO extends BaseSuperEntity<BrandPO, Long> {
 	/**
 	 * 品牌名称
 	 */
-	@Column(name = "name", columnDefinition = "varchar(255) not null comment '品牌名称'")
+	@Column(name = "`name`", columnDefinition = "varchar(255) not null comment '品牌名称'")
 	private String name;
 
 	/**
 	 * 品牌图标
 	 */
-	@Column(name = "logo", columnDefinition = "varchar(255) not null comment '品牌图标'")
+	@Column(name = "`logo`", columnDefinition = "varchar(255) not null comment '品牌图标'")
 	private String logo;
 
 	@Override

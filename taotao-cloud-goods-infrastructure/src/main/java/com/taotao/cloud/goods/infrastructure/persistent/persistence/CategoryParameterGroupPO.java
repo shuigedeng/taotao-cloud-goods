@@ -20,6 +20,7 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import com.taotao.boot.webagg.entity.BaseSuperEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Index;
 import jakarta.persistence.Table;
 import java.util.Objects;
 import lombok.AllArgsConstructor;
@@ -34,14 +35,18 @@ import lombok.experimental.Accessors;
 import org.hibernate.Hibernate;
 
 /** 分类绑定参数组表 */
-@Getter
-@Setter
+
 @ToString(callSuper = true)
 @AllArgsConstructor
 @NoArgsConstructor
 @Accessors(fluent = true)
 @Entity
-@Table(name = CategoryParameterGroupPO.TABLE_NAME)
+@Table(name = CategoryParameterGroupPO.TABLE_NAME,
+	indexes = {
+		@Index(name = "idx_create_date", columnList = "`create_date`"),
+		@Index(name = "idx_group_name", columnList = "`group_name`"),
+		@Index(name = "idx_sort_order", columnList = "`sort_order`"),
+	})
 @TableName(CategoryParameterGroupPO.TABLE_NAME)
 @org.springframework.data.relational.core.mapping.Table(name = CategoryParameterGroupPO.TABLE_NAME)
 public class CategoryParameterGroupPO extends BaseSuperEntity<CategoryParameterGroupPO, Long> {
@@ -49,15 +54,15 @@ public class CategoryParameterGroupPO extends BaseSuperEntity<CategoryParameterG
     public static final String TABLE_NAME = "tt_category_parameter_group";
 
     /** 参数组名称 */
-    @Column(name = "group_name", columnDefinition = "varchar(255) not null comment '参数组名称'")
+    @Column(name = "`group_name`", columnDefinition = "varchar(255) not null comment '参数组名称'")
     private String groupName;
 
     /** 关联分类id */
-    @Column(name = "category_id", columnDefinition = "bigint not null comment '关联分类id'")
+    @Column(name = "`category_id`", columnDefinition = "bigint not null comment '关联分类id'")
     private Long categoryId;
 
     /** 排序 */
-    @Column(name = "sort_order", columnDefinition = "int not null default 0 comment '排序'")
+    @Column(name = "`sort_order`", columnDefinition = "int not null default 0 comment '排序'")
     private Integer sortOrder;
 
     @Override

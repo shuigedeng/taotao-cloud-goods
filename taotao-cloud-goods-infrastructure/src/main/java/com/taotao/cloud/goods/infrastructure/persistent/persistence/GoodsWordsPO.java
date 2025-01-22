@@ -20,7 +20,9 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import com.taotao.boot.webagg.entity.BaseSuperEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Index;
 import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 import java.util.Objects;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -39,14 +41,19 @@ import org.hibernate.Hibernate;
  * @version 2022.04
  * @since 2022-04-20 16:59:38
  */
-@Getter
-@Setter
+
 @ToString(callSuper = true)
 @AllArgsConstructor
 @NoArgsConstructor
 @Accessors(fluent = true)
 @Entity
-@Table(name = GoodsWordsPO.TABLE_NAME)
+@Table(name = GoodsWordsPO.TABLE_NAME,
+	uniqueConstraints = {
+		@UniqueConstraint(name = "uniq_goods_no", columnNames = "goods_no"),
+	},
+	indexes = {
+		@Index(name = "idx_create_date", columnList = "create_date"),
+	})
 @TableName(GoodsWordsPO.TABLE_NAME)
 @org.springframework.data.relational.core.mapping.Table(name = GoodsWordsPO.TABLE_NAME)
 public class GoodsWordsPO extends BaseSuperEntity<GoodsWordsPO, Long> {
@@ -54,23 +61,23 @@ public class GoodsWordsPO extends BaseSuperEntity<GoodsWordsPO, Long> {
     public static final String TABLE_NAME = "tt_goods_words";
 
     /** 商品关键字 */
-    @Column(name = "words", columnDefinition = "varchar(255) not null comment '商品关键字'")
+    @Column(name = "`words`", columnDefinition = "varchar(255) not null comment '商品关键字'")
     private String words;
 
     /** 全拼音 */
-    @Column(name = "whole_spell", columnDefinition = "varchar(255) not null comment '全拼音'")
+    @Column(name = "`whole_spell`", columnDefinition = "varchar(255) not null comment '全拼音'")
     private String wholeSpell;
 
     /** 缩写 */
-    @Column(name = "abbreviate", columnDefinition = "varchar(255) not null comment '缩写'")
+    @Column(name = "`abbreviate`", columnDefinition = "varchar(255) not null comment '缩写'")
     private String abbreviate;
 
     /** 类型 */
-    @Column(name = "type", columnDefinition = "varchar(255) not null comment '类型'")
+    @Column(name = "`type`", columnDefinition = "varchar(255) not null comment '类型'")
     private String type;
 
     /** 排序 */
-    @Column(name = "sort", columnDefinition = "int not null default 0  comment '排序'")
+    @Column(name = "`sort`", columnDefinition = "int not null default 0  comment '排序'")
     private Integer sort;
 
     @Override

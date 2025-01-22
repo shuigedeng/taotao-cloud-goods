@@ -31,7 +31,7 @@ package com.taotao.cloud.goods.infrastructure.persistent.persistence; // package
 // * @author shuigedeng
 // */
 // @Setter
-// @Getter
+// 
 // @Accessors(fluent = true)
 // @AllArgsConstructor
 // @NoArgsConstructor
@@ -40,11 +40,11 @@ package com.taotao.cloud.goods.infrastructure.persistent.persistence; // package
 // @org.springframework.data.relational.core.mapping.Table(name = "tt_product_moments_steward_collect", comment =
 // "商品信息扩展表")
 // public class ProductMomentsStewardCollect extends JpaSuperEntity {
-//	@Column(name = "member_id", columnDefinition = "varchar(255) not null comment '会员ID'")
+//	@Column(name = "`member_id`", columnDefinition = "varchar(255) not null comment '会员ID'")
 //    private Long stewardId;
-//	@Column(name = "member_id", columnDefinition = "varchar(255) not null comment '会员ID'")
+//	@Column(name = "`member_id`", columnDefinition = "varchar(255) not null comment '会员ID'")
 //    private Long momentsId;
-//	@Column(name = "member_id", columnDefinition = "varchar(255) not null comment '会员ID'")
+//	@Column(name = "`member_id`", columnDefinition = "varchar(255) not null comment '会员ID'")
 //    private LocalDateTime collectTime;
 //
 // }

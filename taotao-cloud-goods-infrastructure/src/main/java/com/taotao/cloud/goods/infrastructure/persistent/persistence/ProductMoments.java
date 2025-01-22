@@ -28,7 +28,7 @@ package com.taotao.cloud.goods.infrastructure.persistent.persistence; // package
 // import lombok.Setter;
 //
 // @Setter
-// @Getter
+// 
 // @Accessors(fluent = true)
 // @AllArgsConstructor
 // @NoArgsConstructor
@@ -36,23 +36,23 @@ package com.taotao.cloud.goods.infrastructure.persistent.persistence; // package
 // @Table(name = "tt_product_moments")
 // @org.springframework.data.relational.core.mapping.Table(name = "tt_product_moments", comment = "商品信息扩展表")
 // public class ProductMoments extends JpaSuperEntity {
-//	@Column(name = "member_id", columnDefinition = "varchar(255) not null comment '会员ID'")
+//	@Column(name = "`member_id`", columnDefinition = "varchar(255) not null comment '会员ID'")
 //    private Long productId;
-//	@Column(name = "member_id", columnDefinition = "varchar(255) not null comment '会员ID'")
+//	@Column(name = "`member_id`", columnDefinition = "varchar(255) not null comment '会员ID'")
 //    private String document;
-//	@Column(name = "member_id", columnDefinition = "varchar(255) not null comment '会员ID'")
+//	@Column(name = "`member_id`", columnDefinition = "varchar(255) not null comment '会员ID'")
 //    private Long picId;
-//	@Column(name = "member_id", columnDefinition = "varchar(255) not null comment '会员ID'")
+//	@Column(name = "`member_id`", columnDefinition = "varchar(255) not null comment '会员ID'")
 //    private Integer status;
-//	@Column(name = "member_id", columnDefinition = "varchar(255) not null comment '会员ID'")
+//	@Column(name = "`member_id`", columnDefinition = "varchar(255) not null comment '会员ID'")
 //    private Integer hasVideo;
-//	@Column(name = "member_id", columnDefinition = "varchar(255) not null comment '会员ID'")
+//	@Column(name = "member_id`", columnDefinition = "varchar(255) not null comment '会员ID'")
 //    private Long sendNum = 0L;
-//	@Column(name = "member_id", columnDefinition = "varchar(255) not null comment '会员ID'")
+//	@Column(name = "member_id`", columnDefinition = "varchar(255) not null comment '会员ID'")
 //    private Integer sort = 0;
-//	@Column(name = "member_id", columnDefinition = "varchar(255) not null comment '会员ID'")
+//	@Column(name = "member_id`", columnDefinition = "varchar(255) not null comment '会员ID'")
 //    private LocalDateTime createDate;
-//	@Column(name = "member_id", columnDefinition = "varchar(255) not null comment '会员ID'")
+//	@Column(name = "member_id`", columnDefinition = "varchar(255) not null comment '会员ID'")
 //    private LocalDateTime publishTime;
 //
 // }

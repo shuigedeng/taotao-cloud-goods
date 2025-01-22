@@ -20,7 +20,9 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import com.taotao.boot.webagg.entity.BaseSuperEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Index;
 import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 import java.math.BigDecimal;
 import java.util.Objects;
 import lombok.AllArgsConstructor;
@@ -34,14 +36,19 @@ import lombok.experimental.Accessors;
 import org.hibernate.Hibernate;
 
 /** 小程序直播商品表 */
-@Getter
-@Setter
+
 @ToString(callSuper = true)
 @AllArgsConstructor
 @NoArgsConstructor
 @Accessors(fluent = true)
 @Entity
-@Table(name = CommodityPO.TABLE_NAME)
+@Table(name = CommodityPO.TABLE_NAME,
+	uniqueConstraints = {
+		@UniqueConstraint(name = "uniq_goods_no", columnNames = "goods_no"),
+	},
+	indexes = {
+		@Index(name = "idx_create_date", columnList = "create_date"),
+	})
 @TableName(CommodityPO.TABLE_NAME)
 @org.springframework.data.relational.core.mapping.Table(name = CommodityPO.TABLE_NAME)
 public class CommodityPO extends BaseSuperEntity<CommodityPO, Long> {
@@ -49,11 +56,11 @@ public class CommodityPO extends BaseSuperEntity<CommodityPO, Long> {
     public static final String TABLE_NAME = "tt_commodity";
 
     /** 图片 */
-    @Column(name = "goods_image", columnDefinition = "varchar(255) not null comment '图片'")
+    @Column(name = "`goods_image`", columnDefinition = "varchar(255) not null comment '图片'")
     private String goodsImage;
 
     /** 商品名称 */
-    @Column(name = "name", columnDefinition = "varchar(255) not null comment '商品名称'")
+    @Column(name = "`name`", columnDefinition = "varchar(255) not null comment '商品名称'")
     private String name;
 
     /**
@@ -71,39 +78,39 @@ public class CommodityPO extends BaseSuperEntity<CommodityPO, Long> {
     private Integer priceType;
 
     /** 价格 */
-    @Column(name = "price", columnDefinition = "decimal(10,2) not null comment '价格'")
+    @Column(name = "`price`", columnDefinition = "decimal(10,2) not null comment '价格'")
     private BigDecimal price;
 
     /** 价格2 */
-    @Column(name = "price2", columnDefinition = "decimal(10,2) not null comment '价格2'")
+    @Column(name = "`price2`", columnDefinition = "decimal(10,2) not null comment '价格2'")
     private BigDecimal price2;
 
     /** 商品详情页的小程序路径 */
-    @Column(name = "url", columnDefinition = "varchar(255) not null comment '商品详情页的小程序路径'")
+    @Column(name = "`url`", columnDefinition = "varchar(255) not null comment '商品详情页的小程序路径'")
     private String url;
 
     /** 微信程序直播商品ID */
-    @Column(name = "live_goods_id", columnDefinition = "bigint not null comment '微信程序直播商品ID'")
+    @Column(name = "`live_goods_id`", columnDefinition = "bigint not null comment '微信程序直播商品ID'")
     private Long liveGoodsId;
 
     /** 审核单ID */
-    @Column(name = "audit_id", columnDefinition = "bigint not null comment '审核单ID'")
+    @Column(name = "`audit_id`", columnDefinition = "bigint not null comment '审核单ID'")
     private Long auditId;
 
     /** 审核状态 */
-    @Column(name = "audit_status", columnDefinition = "varchar(255) not null comment '审核状态'")
+    @Column(name = "`audit_status`", columnDefinition = "varchar(255) not null comment '审核状态'")
     private String auditStatus;
 
     /** 店铺ID */
-    @Column(name = "store_id", columnDefinition = "bigint not null comment '店铺ID'")
+    @Column(name = "`store_id`", columnDefinition = "bigint not null comment '店铺ID'")
     private Long storeId;
 
     /** 商品ID */
-    @Column(name = "goods_id", columnDefinition = "bigint not null comment '商品ID'")
+    @Column(name = "`goods_id`", columnDefinition = "bigint not null comment '商品ID'")
     private Long goodsId;
 
     /** skuId */
-    @Column(name = "sku_id", columnDefinition = "bigint not null comment 'skuId'")
+    @Column(name = "`sku_id`", columnDefinition = "bigint not null comment 'skuId'")
     private Long skuId;
 
     @Override

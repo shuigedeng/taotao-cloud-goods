@@ -20,7 +20,9 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import com.taotao.boot.webagg.entity.BaseSuperEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Index;
 import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 import lombok.*;
 import lombok.experimental.Accessors;
 import org.hibernate.Hibernate;
@@ -34,15 +36,21 @@ import java.util.Objects;
  * @version 2022.04
  * @since 2022-04-20 16:59:38
  */
-@Getter
-@Setter
+
 @ToString(callSuper = true)
 @AllArgsConstructor
 @NoArgsConstructor
 @Accessors(fluent = true)
 @Entity
-@Table(name = SpecificationPO.TABLE_NAME)
+@Table(name = SpecificationPO.TABLE_NAME,
+	uniqueConstraints = {
+		@UniqueConstraint(name = "uniq_goods_no", columnNames = "goods_no"),
+	},
+	indexes = {
+		@Index(name = "idx_create_date", columnList = "create_date"),
+	})
 @TableName(SpecificationPO.TABLE_NAME)
+@org.springframework.data.relational.core.mapping.Table(name = SpecificationPO.TABLE_NAME)
 public class SpecificationPO extends BaseSuperEntity<SpecificationPO, Long> {
 
 	/**
@@ -53,7 +61,7 @@ public class SpecificationPO extends BaseSuperEntity<SpecificationPO, Long> {
 	/**
 	 * 规格名称
 	 */
-	@Column(name = "spec_name", columnDefinition = "varchar(255) not null comment '会员规格名称ID'")
+	@Column(name = "`spec_name`", columnDefinition = "varchar(255) not null comment '会员规格名称ID'")
 	private String specName;
 
 	/**
@@ -61,13 +69,13 @@ public class SpecificationPO extends BaseSuperEntity<SpecificationPO, Long> {
 	 *
 	 * <p>店铺自定义规格暂时废弃 2021-06-23 后续推出新配置方式
 	 */
-	@Column(name = "store_id", columnDefinition = "bigint not null comment '所属卖家'")
+	@Column(name = "`store_id`", columnDefinition = "bigint not null comment '所属卖家'")
 	private Long storeId;
 
 	/**
 	 * 规格值名字, 《,》分割
 	 */
-	@Column(name = "spec_value", columnDefinition = "varchar(1024) not null comment '规格值名字'")
+	@Column(name = "`spec_value`", columnDefinition = "varchar(1024) not null comment '规格值名字'")
 	private String specValue;
 
 	@Override

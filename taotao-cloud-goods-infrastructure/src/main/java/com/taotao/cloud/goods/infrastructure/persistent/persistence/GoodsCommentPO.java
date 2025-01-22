@@ -20,7 +20,9 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import com.taotao.boot.webagg.entity.BaseSuperEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Index;
 import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 import java.time.LocalDateTime;
 import java.util.Objects;
 import lombok.AllArgsConstructor;
@@ -41,42 +43,47 @@ import org.hibernate.Hibernate;
  * @author shuigedeng
  * @since 2020/4/30 16:06
  */
-@Getter
-@Setter
+
 @ToString(callSuper = true)
 @AllArgsConstructor
 @NoArgsConstructor
 @Accessors(fluent = true)
 @Entity
-@Table(name = GoodsCommentPO.TABLE_NAME)
+@Table(name = GoodsCommentPO.TABLE_NAME,
+	uniqueConstraints = {
+		@UniqueConstraint(name = "uniq_goods_no", columnNames = "goods_no"),
+	},
+	indexes = {
+		@Index(name = "idx_create_date", columnList = "create_date"),
+	})
 @TableName(GoodsCommentPO.TABLE_NAME)
 @org.springframework.data.relational.core.mapping.Table(name = GoodsCommentPO.TABLE_NAME)
 public class GoodsCommentPO extends BaseSuperEntity<GoodsCommentPO, Long> {
 
     public static final String TABLE_NAME = "tt_goods_comment";
 
-    @Column(name = "goods_spec_ame", columnDefinition = "varchar(255) not null comment '会员ID'")
+    @Column(name = "`goods_spec_ame`", columnDefinition = "varchar(255) not null comment '会员ID'")
     private String goodsSpecName;
 
-    @Column(name = "mall_id", columnDefinition = "bigint not null comment '会员ID'")
+    @Column(name = "`mall_id`", columnDefinition = "bigint not null comment '会员ID'")
     private Long mallId;
 
-    @Column(name = "scene_id", columnDefinition = "bigint not null comment '会员ID'")
+    @Column(name = "`scene_id`", columnDefinition = "bigint not null comment '会员ID'")
     private Long sceneId;
 
-    @Column(name = "customer_id", columnDefinition = "bigint not null comment '会员ID'")
+    @Column(name = "`customer_id`", columnDefinition = "bigint not null comment '会员ID'")
     private Long customerId;
 
-    @Column(name = "member_nick", columnDefinition = "varchar(255) not null comment '会员ID'")
+    @Column(name = "`member_nick`", columnDefinition = "varchar(255) not null comment '会员ID'")
     private String memberNick;
 
-    @Column(name = "member_avatar", columnDefinition = "varchar(255) not null comment '会员ID'")
+    @Column(name = "`member_avatar`", columnDefinition = "varchar(255) not null comment '会员ID'")
     private String memberAvatar;
 
-    @Column(name = "order_code", columnDefinition = "varchar(255) not null comment '会员ID'")
+    @Column(name = "`order_code`", columnDefinition = "varchar(255) not null comment '会员ID'")
     private String orderCode;
 
-    @Column(name = "type", columnDefinition = "int not null comment '会员ID'")
+    @Column(name = "`type`", columnDefinition = "int not null comment '会员ID'")
     private Integer type;
 
     @Column(name = "`rank`", columnDefinition = "int not null comment '会员ID'")
@@ -85,49 +92,49 @@ public class GoodsCommentPO extends BaseSuperEntity<GoodsCommentPO, Long> {
     @Column(name = "`has_image`", columnDefinition = "int not null comment '会员ID'")
     private Integer hasImage;
 
-    @Column(name = "comment_pic_id", columnDefinition = "bigint not null comment '会员ID'")
+    @Column(name = "`comment_pic_id`", columnDefinition = "bigint not null comment '会员ID'")
     private Long commentPicId;
 
-    @Column(name = "has_sen_word", columnDefinition = "int not null comment '会员ID'")
+    @Column(name = "`has_sen_word`", columnDefinition = "int not null comment '会员ID'")
     private Integer hasSenWord;
 
-    @Column(name = "origin_content", columnDefinition = "varchar(255) not null comment '会员ID'")
+    @Column(name = "`origin_content`", columnDefinition = "varchar(255) not null comment '会员ID'")
     private String originContent;
 
-    @Column(name = "filter_content", columnDefinition = "varchar(255) not null comment '会员ID'")
+    @Column(name = "`filter_content`", columnDefinition = "varchar(255) not null comment '会员ID'")
     private String filterContent;
 
-    @Column(name = "op_type", columnDefinition = "int not null comment '会员ID'")
+    @Column(name = "`op_type`", columnDefinition = "int not null comment '会员ID'")
     private Integer opType;
 
-    @Column(name = "reply_status", columnDefinition = "int not null comment '会员ID'")
+    @Column(name = "`reply_status`", columnDefinition = "int not null comment '会员ID'")
     private Integer replyStatus;
 
-    @Column(name = "reply_content", columnDefinition = "varchar(255) not null comment '会员ID'")
+    @Column(name = "`reply_content`", columnDefinition = "varchar(255) not null comment '会员ID'")
     private String replyContent;
 
-    @Column(name = "reply_ori_content", columnDefinition = "varchar(255) not null comment '会员ID'")
+    @Column(name = "`reply_ori_content`", columnDefinition = "varchar(255) not null comment '会员ID'")
     private String replyOriContent;
 
-    @Column(name = "reply_time", columnDefinition = "datetime not null comment '会员ID'")
+    @Column(name = "`reply_time`", columnDefinition = "datetime not null comment '会员ID'")
     private LocalDateTime replyTime;
 
-    @Column(name = "reply_user_id", columnDefinition = "bigint not null comment '会员ID'")
+    @Column(name = "`reply_user_id`", columnDefinition = "bigint not null comment '会员ID'")
     private Long replyUserId;
 
-    @Column(name = "reply_pic_id", columnDefinition = "bigint not null comment '会员ID'")
+    @Column(name = "`reply_pic_id`", columnDefinition = "bigint not null comment '会员ID'")
     private Long replyPicId;
 
-    @Column(name = "has_add", columnDefinition = "int not null comment '会员ID'")
+    @Column(name = "`has_add`", columnDefinition = "int not null comment '会员ID'")
     private Integer hasAdd;
 
-    @Column(name = "after_days", columnDefinition = "int not null comment '会员ID'")
+    @Column(name = "`after_days`", columnDefinition = "int not null comment '会员ID'")
     private Integer afterDays;
 
-    @Column(name = "append_time", columnDefinition = "datetime not null comment '会员ID'")
+    @Column(name = "`append_time`", columnDefinition = "datetime not null comment '会员ID'")
     private LocalDateTime appendTime;
 
-    @Column(name = "status", columnDefinition = "int not null comment '会员ID'")
+    @Column(name = "`status`", columnDefinition = "int not null comment '会员ID'")
     private Integer status;
 
     @Override

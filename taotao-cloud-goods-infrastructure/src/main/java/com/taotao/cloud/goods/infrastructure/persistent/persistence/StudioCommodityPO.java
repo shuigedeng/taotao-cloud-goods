@@ -20,7 +20,9 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import com.taotao.boot.webagg.entity.BaseSuperEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Index;
 import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 import java.util.Objects;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -39,14 +41,19 @@ import org.hibernate.Hibernate;
  * @version 2022.04
  * @since 2022-04-20 16:59:38
  */
-@Getter
-@Setter
+
 @ToString(callSuper = true)
 @AllArgsConstructor
 @NoArgsConstructor
 @Accessors(fluent = true)
 @Entity
-@Table(name = StudioCommodityPO.TABLE_NAME)
+@Table(name = StudioCommodityPO.TABLE_NAME,
+	uniqueConstraints = {
+		@UniqueConstraint(name = "uniq_goods_no", columnNames = "goods_no"),
+	},
+	indexes = {
+		@Index(name = "idx_create_date", columnList = "create_date"),
+	})
 @TableName(StudioCommodityPO.TABLE_NAME)
 @org.springframework.data.relational.core.mapping.Table(name = StudioCommodityPO.TABLE_NAME)
 public class StudioCommodityPO extends BaseSuperEntity<StudioCommodityPO, Long> {
@@ -54,11 +61,11 @@ public class StudioCommodityPO extends BaseSuperEntity<StudioCommodityPO, Long> 
     public static final String TABLE_NAME = "tt_studio_commodity";
 
     /** 房间ID */
-    @Column(name = "room_id", columnDefinition = "bigint not null comment '房间ID'")
+    @Column(name = "room_id`", columnDefinition = "bigint not null comment '房间ID'")
     private Long roomId;
 
     /** 商品ID */
-    @Column(name = "goods_id", columnDefinition = "varchar(255) not null comment '商品ID'")
+    @Column(name = "`goods_id`", columnDefinition = "varchar(255) not null comment '商品ID'")
     private Long goodsId;
 
     @Override

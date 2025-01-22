@@ -20,7 +20,9 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import com.taotao.boot.webagg.entity.BaseSuperEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Index;
 import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 import java.util.Objects;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -40,14 +42,19 @@ import org.hibernate.Hibernate;
  * @author shuigedeng
  * @since 2020/4/30 16:04
  */
-@Getter
-@Setter
+
 @ToString(callSuper = true)
 @AllArgsConstructor
 @NoArgsConstructor
 @Accessors(fluent = true)
 @Entity
-@Table(name = GoodsAreaPO.TABLE_NAME)
+@Table(name = GoodsAreaPO.TABLE_NAME,
+	uniqueConstraints = {
+		@UniqueConstraint(name = "uniq_goods_no", columnNames = "goods_no"),
+	},
+	indexes = {
+		@Index(name = "idx_create_date", columnList = "create_date"),
+	})
 @TableName(GoodsAreaPO.TABLE_NAME)
 @org.springframework.data.relational.core.mapping.Table(name = GoodsAreaPO.TABLE_NAME)
 public class GoodsAreaPO extends BaseSuperEntity<GoodsAreaPO, Long> {
@@ -55,11 +62,11 @@ public class GoodsAreaPO extends BaseSuperEntity<GoodsAreaPO, Long> {
     public static final String TABLE_NAME = "tt_goods_area";
 
     /** 区域json */
-    @Column(name = "region_json", columnDefinition = "json not null comment '区域json'")
+    @Column(name = "`region_json`", columnDefinition = "json not null comment '区域json'")
     private String regionJson;
 
     /** 商品id */
-    @Column(name = "type", columnDefinition = "int not null comment '类型'")
+    @Column(name = "`type`", columnDefinition = "int not null comment '类型'")
     private Integer type;
 
     @Override

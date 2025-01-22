@@ -20,7 +20,9 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import com.taotao.boot.webagg.entity.BaseSuperEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Index;
 import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 import java.util.Objects;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -33,14 +35,19 @@ import lombok.experimental.Accessors;
 import org.hibernate.Hibernate;
 
 /** 自定义分词表 */
-@Getter
-@Setter
+
 @ToString(callSuper = true)
 @AllArgsConstructor
 @NoArgsConstructor
 @Accessors(fluent = true)
 @Entity
-@Table(name = CustomWordsPO.TABLE_NAME)
+@Table(name = CustomWordsPO.TABLE_NAME,
+	uniqueConstraints = {
+		@UniqueConstraint(name = "uniq_goods_no", columnNames = "goods_no"),
+	},
+	indexes = {
+		@Index(name = "idx_create_date", columnList = "create_date"),
+	})
 @TableName(CustomWordsPO.TABLE_NAME)
 @org.springframework.data.relational.core.mapping.Table(name = CustomWordsPO.TABLE_NAME)
 public class CustomWordsPO extends BaseSuperEntity<CustomWordsPO, Long> {
@@ -48,11 +55,11 @@ public class CustomWordsPO extends BaseSuperEntity<CustomWordsPO, Long> {
     public static final String TABLE_NAME = "tt_custom_words";
 
     /** 分词名称 */
-    @Column(name = "name", columnDefinition = "varchar(255) not null comment '分词名称'")
+    @Column(name = "`name`", columnDefinition = "varchar(255) not null comment '分词名称'")
     private String name;
 
     /** 是否禁用 */
-    @Column(name = "disabled", columnDefinition = "int null default 0 comment '是否禁用'")
+    @Column(name = "`disabled`", columnDefinition = "int null default 0 comment '是否禁用'")
     private Integer disabled;
 
     @Override
