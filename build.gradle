@@ -345,14 +345,14 @@ subprojects {
     dependencies {
         implementation platform("io.github.shuigedeng:taotao-cloud-dependencies:$ttcVersion")
 
-        implementation "org.projectlombok:lombok"
+        compileOnly "org.projectlombok:lombok"
         annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
         annotationProcessor "org.projectlombok:lombok-mapstruct-binding:${lombokMapstructBindingVersion}"
 
-        implementation "io.soabase.record-builder:record-builder-core"
+        compileOnly "io.soabase.record-builder:record-builder-core"
         annotationProcessor "io.soabase.record-builder:record-builder-processor:${recordBuilderVersion}"
 
-        implementation "org.mapstruct:mapstruct"
+        compileOnly "org.mapstruct:mapstruct"
         annotationProcessor "org.mapstruct:mapstruct-processor:${mapstructProcessorVersion}"
         //https://github.com/entur/mapstruct-spi-protobuf
         //https://search.maven.org/artifact/no.entur.mapstruct.spi/protobuf-spi-impl

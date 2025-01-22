@@ -28,8 +28,24 @@ dependencies {
     //testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 
     testImplementation "io.github.shuigedeng:taotao-boot-starter-test"
-    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-    testImplementation "org.assertj:assertj-core:3.27.2"
+
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.11.4'
+    testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.11.4'
+    testImplementation 'org.junit.jupiter:junit-jupiter-params:5.11.4'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher:1.11.4'
+    testImplementation "org.assertj:assertj-core:3.27.3"
+
+    testCompileOnly "org.projectlombok:lombok"
+    testAnnotationProcessor  "org.projectlombok:lombok"
+
+    testCompileOnly "io.soabase.record-builder:record-builder-core"
+    testAnnotationProcessor "io.soabase.record-builder:record-builder-processor:${recordBuilderVersion}"
+
+    testCompileOnly "org.mapstruct:mapstruct"
+    testAnnotationProcessor "org.mapstruct:mapstruct-processor:${mapstructProcessorVersion}"
+    //https://github.com/entur/mapstruct-spi-protobuf
+    //https://search.maven.org/artifact/no.entur.mapstruct.spi/protobuf-spi-impl
+    testAnnotationProcessor "no.entur.mapstruct.spi:protobuf-spi-impl:1.46"
 }
 
 
