@@ -63,7 +63,7 @@ import org.hibernate.annotations.Type;
 	indexes = {
 		@Index(name = "idx_goods_name", columnList = "goods_name"),
 		@Index(name = "idx_gn_bi_gu", columnList = "goods_name,brand_id,goods_unit"),
-		@Index(name = "idx_create_date", columnList = "create_date"),
+		@Index(name = "idx_create_date", columnList = "`create_date`"),
 	})
 @TableName(GoodsPO.TABLE_NAME)
 @org.springframework.data.relational.core.mapping.Table(name = GoodsPO.TABLE_NAME)

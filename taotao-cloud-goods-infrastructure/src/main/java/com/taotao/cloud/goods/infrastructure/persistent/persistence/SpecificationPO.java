@@ -47,7 +47,7 @@ import java.util.Objects;
 		@UniqueConstraint(name = "uniq_goods_no", columnNames = "goods_no"),
 	},
 	indexes = {
-		@Index(name = "idx_create_date", columnList = "create_date"),
+		@Index(name = "idx_create_date", columnList = "`create_date`"),
 	})
 @TableName(SpecificationPO.TABLE_NAME)
 @org.springframework.data.relational.core.mapping.Table(name = SpecificationPO.TABLE_NAME)

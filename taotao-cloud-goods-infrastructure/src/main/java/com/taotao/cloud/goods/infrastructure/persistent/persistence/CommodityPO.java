@@ -47,7 +47,7 @@ import org.hibernate.Hibernate;
 		@UniqueConstraint(name = "uniq_goods_no", columnNames = "goods_no"),
 	},
 	indexes = {
-		@Index(name = "idx_create_date", columnList = "create_date"),
+		@Index(name = "idx_create_date", columnList = "`create_date`"),
 	})
 @TableName(CommodityPO.TABLE_NAME)
 @org.springframework.data.relational.core.mapping.Table(name = CommodityPO.TABLE_NAME)
