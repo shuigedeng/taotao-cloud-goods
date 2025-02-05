@@ -43,7 +43,7 @@ public enum GoodsStatus implements ValueObjectEnum<Integer> {
 
 
 	@Override
-	public boolean sameValueAs(Object other) {
+	public boolean sameValueAs(Integer other) {
 		return false;
 	}
 }

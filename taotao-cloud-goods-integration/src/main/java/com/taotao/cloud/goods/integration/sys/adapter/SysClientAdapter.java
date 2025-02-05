@@ -25,12 +25,12 @@ public class SysClientAdapter {
 
     public DictVO convert(DictApiResponse dictApiResponse) {
 		DictVO dictVO = new DictVO();
-		dictVO.setDictName(dictApiResponse.getDictName());
-		dictVO.setDictCode(dictApiResponse.getDictCode());
-		dictVO.setRemark(dictApiResponse.getRemark());
-		dictVO.setDescription(dictApiResponse.getDescription());
-		dictVO.setId(dictApiResponse.getId());
-		dictVO.setSortNum(dictApiResponse.getSortNum());
+		dictVO.setDictName(dictApiResponse.dictName());
+		dictVO.setDictCode(dictApiResponse.dictCode());
+		dictVO.setRemark(dictApiResponse.remark());
+		dictVO.setDescription(dictApiResponse.description());
+		dictVO.setId(dictApiResponse.id());
+		dictVO.setSortNum(dictApiResponse.sortNum());
         return dictVO;
     }
 }
