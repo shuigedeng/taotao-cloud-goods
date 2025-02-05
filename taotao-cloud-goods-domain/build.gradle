@@ -131,7 +131,7 @@ dependencies {
     //https://search.maven.org/artifact/com.github.gavlyukovskiy/datasource-proxy-spring-boot-starter
     api 'com.github.gavlyukovskiy:datasource-proxy-spring-boot-starter:1.10.0'
 
-    api 'com.github.oshi:oshi-core:6.6.5'
+    api 'com.github.oshi:oshi-core:6.6.6'
 
     //api "io.github.shuigedeng:taotao-boot-starter-apt")
     //annotationProcessor "io.github.shuigedeng:taotao-boot-starter-apt")
