@@ -36,6 +36,8 @@ import org.hibernate.Hibernate;
 
 /** 分类绑定参数组表 */
 
+@Setter
+@Getter
 @ToString(callSuper = true)
 @AllArgsConstructor
 @NoArgsConstructor
@@ -65,7 +67,31 @@ public class CategoryParameterGroupPO extends BaseSuperEntity<CategoryParameterG
     @Column(name = "`sort_order`", columnDefinition = "int not null default 0 comment '排序'")
     private Integer sortOrder;
 
-    @Override
+	public String getGroupName() {
+		return groupName;
+	}
+
+	public void setGroupName(String groupName) {
+		this.groupName = groupName;
+	}
+
+	public Long getCategoryId() {
+		return categoryId;
+	}
+
+	public void setCategoryId(Long categoryId) {
+		this.categoryId = categoryId;
+	}
+
+	public Integer getSortOrder() {
+		return sortOrder;
+	}
+
+	public void setSortOrder(Integer sortOrder) {
+		this.sortOrder = sortOrder;
+	}
+
+	@Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;

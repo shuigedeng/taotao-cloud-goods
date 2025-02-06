@@ -43,6 +43,8 @@ import org.hibernate.Hibernate;
  * @since 2020/4/30 16:04
  */
 
+@Setter
+@Getter
 @ToString(callSuper = true)
 @AllArgsConstructor
 @NoArgsConstructor
@@ -69,7 +71,23 @@ public class GoodsAreaPO extends BaseSuperEntity<GoodsAreaPO, Long> {
     @Column(name = "`type`", columnDefinition = "int not null comment '类型'")
     private Integer type;
 
-    @Override
+	public String getRegionJson() {
+		return regionJson;
+	}
+
+	public void setRegionJson(String regionJson) {
+		this.regionJson = regionJson;
+	}
+
+	public Integer getType() {
+		return type;
+	}
+
+	public void setType(Integer type) {
+		this.type = type;
+	}
+
+	@Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;

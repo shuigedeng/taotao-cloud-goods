@@ -37,6 +37,8 @@ import java.util.Objects;
  * @since 2022-04-20 16:59:38
  */
 
+@Setter
+@Getter
 @ToString(callSuper = true)
 @AllArgsConstructor
 @NoArgsConstructor
@@ -77,6 +79,30 @@ public class SpecificationPO extends BaseSuperEntity<SpecificationPO, Long> {
 	 */
 	@Column(name = "`spec_value`", columnDefinition = "varchar(1024) not null comment '规格值名字'")
 	private String specValue;
+
+	public String getSpecName() {
+		return specName;
+	}
+
+	public void setSpecName(String specName) {
+		this.specName = specName;
+	}
+
+	public Long getStoreId() {
+		return storeId;
+	}
+
+	public void setStoreId(Long storeId) {
+		this.storeId = storeId;
+	}
+
+	public String getSpecValue() {
+		return specValue;
+	}
+
+	public void setSpecValue(String specValue) {
+		this.specValue = specValue;
+	}
 
 	@Override
 	public boolean equals(Object o) {

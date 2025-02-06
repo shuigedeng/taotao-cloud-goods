@@ -42,6 +42,8 @@ import org.hibernate.Hibernate;
  * @since 2022-04-20 16:59:38
  */
 
+@Setter
+@Getter
 @ToString(callSuper = true)
 @AllArgsConstructor
 @NoArgsConstructor
@@ -80,7 +82,47 @@ public class GoodsWordsPO extends BaseSuperEntity<GoodsWordsPO, Long> {
     @Column(name = "`sort`", columnDefinition = "int not null default 0  comment '排序'")
     private Integer sort;
 
-    @Override
+	public String getWords() {
+		return words;
+	}
+
+	public void setWords(String words) {
+		this.words = words;
+	}
+
+	public String getWholeSpell() {
+		return wholeSpell;
+	}
+
+	public void setWholeSpell(String wholeSpell) {
+		this.wholeSpell = wholeSpell;
+	}
+
+	public String getAbbreviate() {
+		return abbreviate;
+	}
+
+	public void setAbbreviate(String abbreviate) {
+		this.abbreviate = abbreviate;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public Integer getSort() {
+		return sort;
+	}
+
+	public void setSort(Integer sort) {
+		this.sort = sort;
+	}
+
+	@Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;

@@ -44,6 +44,8 @@ import org.hibernate.Hibernate;
  * @since 2020/4/30 16:06
  */
 
+@Setter
+@Getter
 @ToString(callSuper = true)
 @AllArgsConstructor
 @NoArgsConstructor
@@ -137,7 +139,207 @@ public class GoodsCommentPO extends BaseSuperEntity<GoodsCommentPO, Long> {
     @Column(name = "`status`", columnDefinition = "int not null comment '会员ID'")
     private Integer status;
 
-    @Override
+	public String getGoodsSpecName() {
+		return goodsSpecName;
+	}
+
+	public void setGoodsSpecName(String goodsSpecName) {
+		this.goodsSpecName = goodsSpecName;
+	}
+
+	public Long getMallId() {
+		return mallId;
+	}
+
+	public void setMallId(Long mallId) {
+		this.mallId = mallId;
+	}
+
+	public Long getSceneId() {
+		return sceneId;
+	}
+
+	public void setSceneId(Long sceneId) {
+		this.sceneId = sceneId;
+	}
+
+	public Long getCustomerId() {
+		return customerId;
+	}
+
+	public void setCustomerId(Long customerId) {
+		this.customerId = customerId;
+	}
+
+	public String getMemberNick() {
+		return memberNick;
+	}
+
+	public void setMemberNick(String memberNick) {
+		this.memberNick = memberNick;
+	}
+
+	public String getMemberAvatar() {
+		return memberAvatar;
+	}
+
+	public void setMemberAvatar(String memberAvatar) {
+		this.memberAvatar = memberAvatar;
+	}
+
+	public String getOrderCode() {
+		return orderCode;
+	}
+
+	public void setOrderCode(String orderCode) {
+		this.orderCode = orderCode;
+	}
+
+	public Integer getType() {
+		return type;
+	}
+
+	public void setType(Integer type) {
+		this.type = type;
+	}
+
+	public Integer getRank() {
+		return rank;
+	}
+
+	public void setRank(Integer rank) {
+		this.rank = rank;
+	}
+
+	public Integer getHasImage() {
+		return hasImage;
+	}
+
+	public void setHasImage(Integer hasImage) {
+		this.hasImage = hasImage;
+	}
+
+	public Long getCommentPicId() {
+		return commentPicId;
+	}
+
+	public void setCommentPicId(Long commentPicId) {
+		this.commentPicId = commentPicId;
+	}
+
+	public Integer getHasSenWord() {
+		return hasSenWord;
+	}
+
+	public void setHasSenWord(Integer hasSenWord) {
+		this.hasSenWord = hasSenWord;
+	}
+
+	public String getOriginContent() {
+		return originContent;
+	}
+
+	public void setOriginContent(String originContent) {
+		this.originContent = originContent;
+	}
+
+	public String getFilterContent() {
+		return filterContent;
+	}
+
+	public void setFilterContent(String filterContent) {
+		this.filterContent = filterContent;
+	}
+
+	public Integer getOpType() {
+		return opType;
+	}
+
+	public void setOpType(Integer opType) {
+		this.opType = opType;
+	}
+
+	public Integer getReplyStatus() {
+		return replyStatus;
+	}
+
+	public void setReplyStatus(Integer replyStatus) {
+		this.replyStatus = replyStatus;
+	}
+
+	public String getReplyContent() {
+		return replyContent;
+	}
+
+	public void setReplyContent(String replyContent) {
+		this.replyContent = replyContent;
+	}
+
+	public String getReplyOriContent() {
+		return replyOriContent;
+	}
+
+	public void setReplyOriContent(String replyOriContent) {
+		this.replyOriContent = replyOriContent;
+	}
+
+	public LocalDateTime getReplyTime() {
+		return replyTime;
+	}
+
+	public void setReplyTime(LocalDateTime replyTime) {
+		this.replyTime = replyTime;
+	}
+
+	public Long getReplyUserId() {
+		return replyUserId;
+	}
+
+	public void setReplyUserId(Long replyUserId) {
+		this.replyUserId = replyUserId;
+	}
+
+	public Long getReplyPicId() {
+		return replyPicId;
+	}
+
+	public void setReplyPicId(Long replyPicId) {
+		this.replyPicId = replyPicId;
+	}
+
+	public Integer getHasAdd() {
+		return hasAdd;
+	}
+
+	public void setHasAdd(Integer hasAdd) {
+		this.hasAdd = hasAdd;
+	}
+
+	public Integer getAfterDays() {
+		return afterDays;
+	}
+
+	public void setAfterDays(Integer afterDays) {
+		this.afterDays = afterDays;
+	}
+
+	public LocalDateTime getAppendTime() {
+		return appendTime;
+	}
+
+	public void setAppendTime(LocalDateTime appendTime) {
+		this.appendTime = appendTime;
+	}
+
+	public Integer getStatus() {
+		return status;
+	}
+
+	public void setStatus(Integer status) {
+		this.status = status;
+	}
+
+	@Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;

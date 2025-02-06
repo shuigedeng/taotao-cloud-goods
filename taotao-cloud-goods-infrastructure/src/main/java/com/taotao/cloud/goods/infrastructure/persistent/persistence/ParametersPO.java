@@ -42,6 +42,8 @@ import org.hibernate.Hibernate;
  * @since 2022-04-20 16:59:38
  */
 
+@Setter
+@Getter
 @ToString(callSuper = true)
 @AllArgsConstructor
 @NoArgsConstructor
@@ -88,7 +90,63 @@ public class ParametersPO extends BaseSuperEntity<ParametersPO, Long> {
     @Column(name = "`sort`", columnDefinition = "int not null comment '排序'")
     private Integer sort;
 
-    @Override
+	public String getParamName() {
+		return paramName;
+	}
+
+	public void setParamName(String paramName) {
+		this.paramName = paramName;
+	}
+
+	public String getOptions() {
+		return options;
+	}
+
+	public void setOptions(String options) {
+		this.options = options;
+	}
+
+	public Integer getIsIndex() {
+		return isIndex;
+	}
+
+	public void setIsIndex(Integer isIndex) {
+		this.isIndex = isIndex;
+	}
+
+	public Integer getRequired() {
+		return required;
+	}
+
+	public void setRequired(Integer required) {
+		this.required = required;
+	}
+
+	public Long getGroupId() {
+		return groupId;
+	}
+
+	public void setGroupId(Long groupId) {
+		this.groupId = groupId;
+	}
+
+	public Long getCategoryId() {
+		return categoryId;
+	}
+
+	public void setCategoryId(Long categoryId) {
+		this.categoryId = categoryId;
+	}
+
+	public Integer getSort() {
+		return sort;
+	}
+
+	public void setSort(Integer sort) {
+		this.sort = sort;
+	}
+
+	@Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;

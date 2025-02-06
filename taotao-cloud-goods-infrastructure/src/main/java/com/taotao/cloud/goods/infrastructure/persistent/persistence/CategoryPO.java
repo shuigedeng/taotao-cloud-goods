@@ -41,7 +41,8 @@ import org.hibernate.Hibernate;
  * @version 2022.04
  * @since 2022-04-20 16:59:38
  */
-
+@Setter
+@Getter
 @ToString(callSuper = true)
 @AllArgsConstructor
 @NoArgsConstructor
@@ -87,7 +88,63 @@ public class CategoryPO extends BaseSuperEntity<CategoryPO, Long> {
     @Column(name = "`support_channel`", columnDefinition = "boolean null default false comment '是否支持频道'")
     private Boolean supportChannel;
 
-    @Override
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Long getParentId() {
+		return parentId;
+	}
+
+	public void setParentId(Long parentId) {
+		this.parentId = parentId;
+	}
+
+	public Integer getLevel() {
+		return level;
+	}
+
+	public void setLevel(Integer level) {
+		this.level = level;
+	}
+
+	public Integer getSortOrder() {
+		return sortOrder;
+	}
+
+	public void setSortOrder(Integer sortOrder) {
+		this.sortOrder = sortOrder;
+	}
+
+	public BigDecimal getCommissionRate() {
+		return commissionRate;
+	}
+
+	public void setCommissionRate(BigDecimal commissionRate) {
+		this.commissionRate = commissionRate;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
+	public Boolean getSupportChannel() {
+		return supportChannel;
+	}
+
+	public void setSupportChannel(Boolean supportChannel) {
+		this.supportChannel = supportChannel;
+	}
+
+	@Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;

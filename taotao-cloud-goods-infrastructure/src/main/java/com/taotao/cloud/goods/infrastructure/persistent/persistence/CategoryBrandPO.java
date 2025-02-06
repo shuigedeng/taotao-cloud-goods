@@ -41,6 +41,8 @@ import org.hibernate.Hibernate;
  * @since 2022-04-20 16:59:38
  */
 
+@Setter
+@Getter
 @ToString(callSuper = true)
 @AllArgsConstructor
 @NoArgsConstructor
@@ -66,7 +68,23 @@ public class CategoryBrandPO extends SuperEntity<CategoryBrandPO, Long> {
     @Column(name = "`brand_id`", columnDefinition = "bigint not null comment '品牌id'")
     private Long brandId;
 
-    @Override
+	public Long getCategoryId() {
+		return categoryId;
+	}
+
+	public void setCategoryId(Long categoryId) {
+		this.categoryId = categoryId;
+	}
+
+	public Long getBrandId() {
+		return brandId;
+	}
+
+	public void setBrandId(Long brandId) {
+		this.brandId = brandId;
+	}
+
+	@Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;

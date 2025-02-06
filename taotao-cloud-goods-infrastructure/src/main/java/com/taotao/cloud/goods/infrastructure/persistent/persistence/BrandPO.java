@@ -39,6 +39,8 @@ import org.hibernate.Hibernate;
  * @version 2022.04
  * @since 2022-04-27 16:55:08
  */
+@Setter
+@Getter
 @ToString(callSuper = true)
 @AllArgsConstructor
 @NoArgsConstructor

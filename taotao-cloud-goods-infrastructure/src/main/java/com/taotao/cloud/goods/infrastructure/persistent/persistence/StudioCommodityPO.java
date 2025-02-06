@@ -42,6 +42,8 @@ import org.hibernate.Hibernate;
  * @since 2022-04-20 16:59:38
  */
 
+@Setter
+@Getter
 @ToString(callSuper = true)
 @AllArgsConstructor
 @NoArgsConstructor
@@ -68,7 +70,23 @@ public class StudioCommodityPO extends BaseSuperEntity<StudioCommodityPO, Long> 
     @Column(name = "`goods_id`", columnDefinition = "varchar(255) not null comment '商品ID'")
     private Long goodsId;
 
-    @Override
+	public Long getRoomId() {
+		return roomId;
+	}
+
+	public void setRoomId(Long roomId) {
+		this.roomId = roomId;
+	}
+
+	public Long getGoodsId() {
+		return goodsId;
+	}
+
+	public void setGoodsId(Long goodsId) {
+		this.goodsId = goodsId;
+	}
+
+	@Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;

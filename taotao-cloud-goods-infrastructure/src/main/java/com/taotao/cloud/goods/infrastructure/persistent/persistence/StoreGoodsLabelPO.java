@@ -42,6 +42,8 @@ import org.hibernate.Hibernate;
  * @since 2022-04-14 21:50:58
  */
 
+@Setter
+@Getter
 @ToString(callSuper = true)
 @AllArgsConstructor
 @NoArgsConstructor
@@ -80,7 +82,47 @@ public class StoreGoodsLabelPO extends BaseSuperEntity<StoreGoodsLabelPO, Long> 
     @Column(name = "`level`", columnDefinition = "int not null comment '层级, 从0开始'")
     private Integer level;
 
-    @Override
+	public Long getStoreId() {
+		return storeId;
+	}
+
+	public void setStoreId(Long storeId) {
+		this.storeId = storeId;
+	}
+
+	public String getLabelName() {
+		return labelName;
+	}
+
+	public void setLabelName(String labelName) {
+		this.labelName = labelName;
+	}
+
+	public Integer getSortOrder() {
+		return sortOrder;
+	}
+
+	public void setSortOrder(Integer sortOrder) {
+		this.sortOrder = sortOrder;
+	}
+
+	public Long getParentId() {
+		return parentId;
+	}
+
+	public void setParentId(Long parentId) {
+		this.parentId = parentId;
+	}
+
+	public Integer getLevel() {
+		return level;
+	}
+
+	public void setLevel(Integer level) {
+		this.level = level;
+	}
+
+	@Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;

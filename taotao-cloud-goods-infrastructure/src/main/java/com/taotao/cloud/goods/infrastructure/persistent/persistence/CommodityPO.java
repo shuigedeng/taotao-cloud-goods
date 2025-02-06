@@ -37,6 +37,8 @@ import org.hibernate.Hibernate;
 
 /** 小程序直播商品表 */
 
+@Setter
+@Getter
 @ToString(callSuper = true)
 @AllArgsConstructor
 @NoArgsConstructor
@@ -113,7 +115,103 @@ public class CommodityPO extends BaseSuperEntity<CommodityPO, Long> {
     @Column(name = "`sku_id`", columnDefinition = "bigint not null comment 'skuId'")
     private Long skuId;
 
-    @Override
+	public String getGoodsImage() {
+		return goodsImage;
+	}
+
+	public void setGoodsImage(String goodsImage) {
+		this.goodsImage = goodsImage;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Integer getPriceType() {
+		return priceType;
+	}
+
+	public void setPriceType(Integer priceType) {
+		this.priceType = priceType;
+	}
+
+	public BigDecimal getPrice() {
+		return price;
+	}
+
+	public void setPrice(BigDecimal price) {
+		this.price = price;
+	}
+
+	public BigDecimal getPrice2() {
+		return price2;
+	}
+
+	public void setPrice2(BigDecimal price2) {
+		this.price2 = price2;
+	}
+
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
+
+	public Long getLiveGoodsId() {
+		return liveGoodsId;
+	}
+
+	public void setLiveGoodsId(Long liveGoodsId) {
+		this.liveGoodsId = liveGoodsId;
+	}
+
+	public Long getAuditId() {
+		return auditId;
+	}
+
+	public void setAuditId(Long auditId) {
+		this.auditId = auditId;
+	}
+
+	public String getAuditStatus() {
+		return auditStatus;
+	}
+
+	public void setAuditStatus(String auditStatus) {
+		this.auditStatus = auditStatus;
+	}
+
+	public Long getStoreId() {
+		return storeId;
+	}
+
+	public void setStoreId(Long storeId) {
+		this.storeId = storeId;
+	}
+
+	public Long getGoodsId() {
+		return goodsId;
+	}
+
+	public void setGoodsId(Long goodsId) {
+		this.goodsId = goodsId;
+	}
+
+	public Long getSkuId() {
+		return skuId;
+	}
+
+	public void setSkuId(Long skuId) {
+		this.skuId = skuId;
+	}
+
+	@Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;

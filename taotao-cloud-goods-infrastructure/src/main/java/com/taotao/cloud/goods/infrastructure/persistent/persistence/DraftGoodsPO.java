@@ -42,6 +42,8 @@ import org.hibernate.Hibernate;
 
 /** 草稿商品表 */
 
+@Setter
+@Getter
 @ToString(callSuper = true)
 @AllArgsConstructor
 @NoArgsConstructor
@@ -200,7 +202,255 @@ public class DraftGoodsPO extends BaseSuperEntity<DraftGoodsPO, Long> {
     @Column(name = "goods_type`", columnDefinition = "varchar(255) not null comment '商品类型'")
     private String goodsType;
 
-    public String getIntro() {
+	public String getGoodsName() {
+		return goodsName;
+	}
+
+	public void setGoodsName(String goodsName) {
+		this.goodsName = goodsName;
+	}
+
+	public BigDecimal getPrice() {
+		return price;
+	}
+
+	public void setPrice(BigDecimal price) {
+		this.price = price;
+	}
+
+	public Long getBrandId() {
+		return brandId;
+	}
+
+	public void setBrandId(Long brandId) {
+		this.brandId = brandId;
+	}
+
+	public String getCategoryPath() {
+		return categoryPath;
+	}
+
+	public void setCategoryPath(String categoryPath) {
+		this.categoryPath = categoryPath;
+	}
+
+	public String getGoodsUnit() {
+		return goodsUnit;
+	}
+
+	public void setGoodsUnit(String goodsUnit) {
+		this.goodsUnit = goodsUnit;
+	}
+
+	public String getSellingPoint() {
+		return sellingPoint;
+	}
+
+	public void setSellingPoint(String sellingPoint) {
+		this.sellingPoint = sellingPoint;
+	}
+
+	public String getMarketEnable() {
+		return marketEnable;
+	}
+
+	public void setMarketEnable(String marketEnable) {
+		this.marketEnable = marketEnable;
+	}
+
+	public void setIntro(String intro) {
+		this.intro = intro;
+	}
+
+	public void setMobileIntro(String mobileIntro) {
+		this.mobileIntro = mobileIntro;
+	}
+
+	public Integer getBuyCount() {
+		return buyCount;
+	}
+
+	public void setBuyCount(Integer buyCount) {
+		this.buyCount = buyCount;
+	}
+
+	public Integer getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(Integer quantity) {
+		this.quantity = quantity;
+	}
+
+	public Integer getEnableQuantity() {
+		return enableQuantity;
+	}
+
+	public void setEnableQuantity(Integer enableQuantity) {
+		this.enableQuantity = enableQuantity;
+	}
+
+	public BigDecimal getGrade() {
+		return grade;
+	}
+
+	public void setGrade(BigDecimal grade) {
+		this.grade = grade;
+	}
+
+	public String getThumbnail() {
+		return thumbnail;
+	}
+
+	public void setThumbnail(String thumbnail) {
+		this.thumbnail = thumbnail;
+	}
+
+	public String getBig() {
+		return big;
+	}
+
+	public void setBig(String big) {
+		this.big = big;
+	}
+
+	public String getSmall() {
+		return small;
+	}
+
+	public void setSmall(String small) {
+		this.small = small;
+	}
+
+	public String getOriginal() {
+		return original;
+	}
+
+	public void setOriginal(String original) {
+		this.original = original;
+	}
+
+	public String getStoreCategoryPath() {
+		return storeCategoryPath;
+	}
+
+	public void setStoreCategoryPath(String storeCategoryPath) {
+		this.storeCategoryPath = storeCategoryPath;
+	}
+
+	public Integer getCommentNum() {
+		return commentNum;
+	}
+
+	public void setCommentNum(Integer commentNum) {
+		this.commentNum = commentNum;
+	}
+
+	public Long getStoreId() {
+		return storeId;
+	}
+
+	public void setStoreId(Long storeId) {
+		this.storeId = storeId;
+	}
+
+	public String getStoreName() {
+		return storeName;
+	}
+
+	public void setStoreName(String storeName) {
+		this.storeName = storeName;
+	}
+
+	public Long getTemplateId() {
+		return templateId;
+	}
+
+	public void setTemplateId(Long templateId) {
+		this.templateId = templateId;
+	}
+
+	public Boolean getSelfOperated() {
+		return selfOperated;
+	}
+
+	public void setSelfOperated(Boolean selfOperated) {
+		this.selfOperated = selfOperated;
+	}
+
+	public String getGoodsVideo() {
+		return goodsVideo;
+	}
+
+	public void setGoodsVideo(String goodsVideo) {
+		this.goodsVideo = goodsVideo;
+	}
+
+	public Boolean getRecommend() {
+		return recommend;
+	}
+
+	public void setRecommend(Boolean recommend) {
+		this.recommend = recommend;
+	}
+
+	public String getSalesModel() {
+		return salesModel;
+	}
+
+	public void setSalesModel(String salesModel) {
+		this.salesModel = salesModel;
+	}
+
+	public String getSaveType() {
+		return saveType;
+	}
+
+	public void setSaveType(String saveType) {
+		this.saveType = saveType;
+	}
+
+	public String getCategoryNameJson() {
+		return categoryNameJson;
+	}
+
+	public void setCategoryNameJson(String categoryNameJson) {
+		this.categoryNameJson = categoryNameJson;
+	}
+
+	public String getGoodsParamsListJson() {
+		return goodsParamsListJson;
+	}
+
+	public void setGoodsParamsListJson(String goodsParamsListJson) {
+		this.goodsParamsListJson = goodsParamsListJson;
+	}
+
+	public String getGoodsGalleryListJson() {
+		return goodsGalleryListJson;
+	}
+
+	public void setGoodsGalleryListJson(String goodsGalleryListJson) {
+		this.goodsGalleryListJson = goodsGalleryListJson;
+	}
+
+	public String getSkuListJson() {
+		return skuListJson;
+	}
+
+	public void setSkuListJson(String skuListJson) {
+		this.skuListJson = skuListJson;
+	}
+
+	public String getGoodsType() {
+		return goodsType;
+	}
+
+	public void setGoodsType(String goodsType) {
+		this.goodsType = goodsType;
+	}
+
+	public String getIntro() {
         if (CharSequenceUtil.isNotEmpty(intro)) {
             return HtmlUtil.unescape(intro);
         }

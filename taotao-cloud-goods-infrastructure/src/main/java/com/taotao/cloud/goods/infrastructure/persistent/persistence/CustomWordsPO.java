@@ -36,6 +36,8 @@ import org.hibernate.Hibernate;
 
 /** 自定义分词表 */
 
+@Setter
+@Getter
 @ToString(callSuper = true)
 @AllArgsConstructor
 @NoArgsConstructor
@@ -62,7 +64,23 @@ public class CustomWordsPO extends BaseSuperEntity<CustomWordsPO, Long> {
     @Column(name = "`disabled`", columnDefinition = "int null default 0 comment '是否禁用'")
     private Integer disabled;
 
-    @Override
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Integer getDisabled() {
+		return disabled;
+	}
+
+	public void setDisabled(Integer disabled) {
+		this.disabled = disabled;
+	}
+
+	@Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;

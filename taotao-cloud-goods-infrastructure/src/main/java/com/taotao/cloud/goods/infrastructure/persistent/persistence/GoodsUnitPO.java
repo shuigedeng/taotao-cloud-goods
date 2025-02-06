@@ -36,6 +36,8 @@ import org.hibernate.Hibernate;
 
 /** 商品计量单位表 */
 
+@Setter
+@Getter
 @ToString(callSuper = true)
 @AllArgsConstructor
 @NoArgsConstructor
@@ -58,7 +60,15 @@ public class GoodsUnitPO extends BaseSuperEntity<GoodsUnitPO, Long> {
     @Column(name = "`name`", columnDefinition = "varchar(255) not null comment '计量单位名称'")
     private String name;
 
-    @Override
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	@Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;
