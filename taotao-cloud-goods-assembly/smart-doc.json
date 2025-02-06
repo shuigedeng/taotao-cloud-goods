@@ -1,5 +1,5 @@
 {
-  "serverUrl": "http://127.0.0.1",
+  "serverUrl": "http://192.168.218.2",
   "serverEnv": "http://{{server}}",
   "pathPrefix": "",
   "isStrict": false,
@@ -30,9 +30,9 @@
   "displayActualType": false,
   "appToken": "c16931fa6590483fb7a4e85340fcbfef",
   "isReplace": true,
-  "openUrl": "http://127.0.0.1:7700/api",
+  "openUrl": "http://192.168.218.2:7700/api",
   "debugEnvName": "测试环境",
-  "debugEnvUrl": "http://127.0.0.1",
+  "debugEnvUrl": "http://192.168.218.2",
   "tornaDebug": false,
   "ignoreRequestParams": [
     "org.springframework.ui.ModelMap"

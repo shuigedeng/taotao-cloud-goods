@@ -6,8 +6,8 @@ apply plugin: "com.bmuschko.docker-spring-boot-application"
 //Windows默认: url = tcp://192.168.218.2:2375
 
 docker {
-    //url = 'https://127.0.0.1:2376'
-    url = 'tcp://127.0.0.1:2375'
+    //url = 'https://192.168.218.2:2376'
+    url = 'tcp://192.168.218.2:2375'
     //certPath = new File(System.properties['user.home'], '.boot2docker/certs/boot2docker-vm')
 
     registryCredentials {

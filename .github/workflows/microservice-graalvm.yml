@@ -6,7 +6,7 @@ name: Microservice Docker graalvm Image
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
 
 env:
   TAOTAO_CLOUD_OSSRH_USERNAME: ${{ secrets.TAOTAO_CLOUD_OSSRH_USERNAME }}
@@ -19,7 +19,7 @@ env:
   TAOTAO_CLOUD_GITHUB_TOKEN: ${{ secrets.TAOTAO_CLOUD_GITHUB_TOKEN }}
   TAOTAO_CLOUD_REGISTRY_USERNAME: ${{ secrets.TAOTAO_CLOUD_REGISTRY_USERNAME }}
   TAOTAO_CLOUD_REGISTRY_PASSWORD: ${{ secrets.TAOTAO_CLOUD_REGISTRY_PASSWORD }}
-  TAOTAO_CLOUD_VERSION: 2025.02
+  TAOTAO_CLOUD_VERSION: 2025.03
 
 jobs:
   build:
