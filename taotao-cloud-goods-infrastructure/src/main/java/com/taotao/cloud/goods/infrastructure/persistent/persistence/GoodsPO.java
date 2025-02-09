@@ -71,7 +71,7 @@ import org.hibernate.annotations.Type;
 @org.springframework.data.relational.core.mapping.Table(name = GoodsPO.TABLE_NAME)
 public class GoodsPO extends BaseSuperEntity<GoodsPO, Long> {
 
-	public static final String TABLE_NAME = "tt_goods";
+	public static final String TABLE_NAME = "ttc_goods";
 	/**
 	 * 商品名称
 	 */
@@ -244,7 +244,7 @@ public class GoodsPO extends BaseSuperEntity<GoodsPO, Long> {
 	/**
 	 * 商品海报id
 	 */
-	@Column(name = "poster_pic_id`", columnDefinition = "bigint null comment '商品海报id'")
+	@Column(name = "`poster_pic_id`", columnDefinition = "bigint null comment '商品海报id'")
 	private Long posterPicId;
 
 	/**
@@ -252,7 +252,7 @@ public class GoodsPO extends BaseSuperEntity<GoodsPO, Long> {
 	 *
 	 * @see GoodsTypeEnum
 	 */
-	@Column(name = "goods_type`", columnDefinition = "varchar(255) not null comment '商品类型'")
+	@Column(name = "`goods_type`", columnDefinition = "varchar(255) not null comment '商品类型'")
 	private String goodsType;
 
 	/**
@@ -260,7 +260,7 @@ public class GoodsPO extends BaseSuperEntity<GoodsPO, Long> {
 	 */
 	@Type(JsonType.class)
 	@TableField(typeHandler = FastjsonTypeHandler.class)
-	@Column(name = "params`", columnDefinition = "json not null comment '商品参数json'")
+	@Column(name = "`params`", columnDefinition = "json not null comment '商品参数json'")
 	private String params;
 
 	public String getGoodsNo() {

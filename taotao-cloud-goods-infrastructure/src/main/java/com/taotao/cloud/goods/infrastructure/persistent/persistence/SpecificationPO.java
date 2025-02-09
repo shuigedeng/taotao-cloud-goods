@@ -58,7 +58,7 @@ public class SpecificationPO extends BaseSuperEntity<SpecificationPO, Long> {
 	/**
 	 * 规格项表
 	 */
-	public static final String TABLE_NAME = "tt_specification";
+	public static final String TABLE_NAME = "ttc_specification";
 
 	/**
 	 * 规格名称

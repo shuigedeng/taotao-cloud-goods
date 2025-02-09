@@ -60,7 +60,7 @@ import org.hibernate.Hibernate;
 @org.springframework.data.relational.core.mapping.Table(name = StudioCommodityPO.TABLE_NAME)
 public class StudioCommodityPO extends BaseSuperEntity<StudioCommodityPO, Long> {
 
-    public static final String TABLE_NAME = "tt_studio_commodity";
+    public static final String TABLE_NAME = "ttc_studio_commodity";
 
     /** 房间ID */
     @Column(name = "`room_id`", columnDefinition = "bigint not null comment '房间ID'")

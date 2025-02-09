@@ -61,7 +61,7 @@ import org.hibernate.Hibernate;
 @org.springframework.data.relational.core.mapping.Table(name = GoodsAreaPO.TABLE_NAME)
 public class GoodsAreaPO extends BaseSuperEntity<GoodsAreaPO, Long> {
 
-    public static final String TABLE_NAME = "tt_goods_area";
+    public static final String TABLE_NAME = "ttc_goods_area";
 
     /** 区域json */
     @Column(name = "`region_json`", columnDefinition = "json not null comment '区域json'")

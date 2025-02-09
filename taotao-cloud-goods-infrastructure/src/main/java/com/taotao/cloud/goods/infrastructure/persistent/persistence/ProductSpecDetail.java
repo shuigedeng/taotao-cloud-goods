@@ -36,8 +36,8 @@ package com.taotao.cloud.goods.infrastructure.persistent.persistence; // package
 // @AllArgsConstructor
 // @NoArgsConstructor
 //// @Entity
-// @Table(name = "tt_product_spec_detail")
-// @org.springframework.data.relational.core.mapping.Table(name = "tt_product_spec_detail", comment = "商品信息扩展表")
+// @Table(name = "ttc_product_spec_detail")
+// @org.springframework.data.relational.core.mapping.Table(name = "ttc_product_spec_detail", comment = "商品信息扩展表")
 // public class ProductSpecDetail extends JpaSuperEntity {
 //	@Column(name = "`member_id`", columnDefinition = "varchar(255) not null comment '会员ID'")
 //    private Product product;

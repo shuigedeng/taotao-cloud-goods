@@ -55,7 +55,7 @@ import org.hibernate.Hibernate;
 @org.springframework.data.relational.core.mapping.Table(name = CommodityPO.TABLE_NAME)
 public class CommodityPO extends BaseSuperEntity<CommodityPO, Long> {
 
-    public static final String TABLE_NAME = "tt_commodity";
+    public static final String TABLE_NAME = "ttc_commodity";
 
     /** 图片 */
     @Column(name = "`goods_image`", columnDefinition = "varchar(255) not null comment '图片'")

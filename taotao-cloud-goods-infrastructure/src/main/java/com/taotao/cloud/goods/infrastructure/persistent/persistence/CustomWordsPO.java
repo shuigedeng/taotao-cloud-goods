@@ -54,7 +54,7 @@ import org.hibernate.Hibernate;
 @org.springframework.data.relational.core.mapping.Table(name = CustomWordsPO.TABLE_NAME)
 public class CustomWordsPO extends BaseSuperEntity<CustomWordsPO, Long> {
 
-    public static final String TABLE_NAME = "tt_custom_words";
+    public static final String TABLE_NAME = "ttc_custom_words";
 
     /** 分词名称 */
     @Column(name = "`name`", columnDefinition = "varchar(255) not null comment '分词名称'")

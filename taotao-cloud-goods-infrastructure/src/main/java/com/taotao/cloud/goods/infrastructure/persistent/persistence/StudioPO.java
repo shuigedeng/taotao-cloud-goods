@@ -61,7 +61,7 @@ import org.hibernate.Hibernate;
 @org.springframework.data.relational.core.mapping.Table(name = StudioPO.TABLE_NAME)
 public class StudioPO extends BaseSuperEntity<StudioPO, Long> {
 
-    public static final String TABLE_NAME = "tt_studio";
+    public static final String TABLE_NAME = "ttc_studio";
 
     /** 直播间名字，最短3个汉字，最长17个汉字，1个汉字相当于2个字符 */
     @Column(name = "`name`", columnDefinition = "varchar(255) not null comment '直播间名字'")

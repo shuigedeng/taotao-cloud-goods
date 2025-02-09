@@ -60,7 +60,7 @@ import org.hibernate.Hibernate;
 @org.springframework.data.relational.core.mapping.Table(name = ParametersPO.TABLE_NAME)
 public class ParametersPO extends BaseSuperEntity<ParametersPO, Long> {
 
-    public static final String TABLE_NAME = "tt_parameters";
+    public static final String TABLE_NAME = "ttc_parameters";
 
     /** 参数名称 */
     @Column(name = "`param_name`", columnDefinition = "varchar(255) not null comment '参数名称'")

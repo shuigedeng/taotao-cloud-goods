@@ -60,7 +60,7 @@ import org.hibernate.Hibernate;
 @org.springframework.data.relational.core.mapping.Table(name = GoodsGalleryPO.TABLE_NAME)
 public class GoodsGalleryPO extends BaseSuperEntity<GoodsGalleryPO, Long> {
 
-    public static final String TABLE_NAME = "tt_goods_gallery";
+    public static final String TABLE_NAME = "ttc_goods_gallery";
 
     /** 商品id */
     @Column(name = "`goods_id`", columnDefinition = "bigint not null comment '商品id'")

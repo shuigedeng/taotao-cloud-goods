@@ -60,7 +60,7 @@ import org.hibernate.Hibernate;
 @org.springframework.data.relational.core.mapping.Table(name = CategorySpecificationPO.TABLE_NAME)
 public class CategorySpecificationPO extends SuperEntity<CategorySpecificationPO, Long> {
 
-    public static final String TABLE_NAME = "tt_category_specification";
+    public static final String TABLE_NAME = "ttc_category_specification";
 
     /** 分类id */
     @Column(name = "`category_id`", columnDefinition = "bigint not null comment '分类id'")

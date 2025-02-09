@@ -53,7 +53,7 @@ import org.hibernate.Hibernate;
 @org.springframework.data.relational.core.mapping.Table(name = CategoryParameterGroupPO.TABLE_NAME)
 public class CategoryParameterGroupPO extends BaseSuperEntity<CategoryParameterGroupPO, Long> {
 
-    public static final String TABLE_NAME = "tt_category_parameter_group";
+    public static final String TABLE_NAME = "ttc_category_parameter_group";
 
     /** 参数组名称 */
     @Column(name = "`group_name`", columnDefinition = "varchar(255) not null comment '参数组名称'")

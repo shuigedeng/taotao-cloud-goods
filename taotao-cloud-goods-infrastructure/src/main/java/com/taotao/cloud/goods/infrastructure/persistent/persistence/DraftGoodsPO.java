@@ -60,7 +60,7 @@ import org.hibernate.Hibernate;
 @org.springframework.data.relational.core.mapping.Table(name = DraftGoodsPO.TABLE_NAME)
 public class DraftGoodsPO extends BaseSuperEntity<DraftGoodsPO, Long> {
 
-    public static final String TABLE_NAME = "tt_draft_goods";
+    public static final String TABLE_NAME = "ttc_draft_goods";
 
     /** 商品名称 */
     @Column(name = "`goods_name`", columnDefinition = "varchar(255) not null comment '商品名称'")
@@ -143,31 +143,31 @@ public class DraftGoodsPO extends BaseSuperEntity<DraftGoodsPO, Long> {
     private Integer commentNum;
 
     /** 卖家id */
-    @Column(name = "store_id`", columnDefinition = "bigint not null comment '卖家id'")
+    @Column(name = "`store_id`", columnDefinition = "bigint not null comment '卖家id'")
     private Long storeId;
 
     /** 卖家名字 */
-    @Column(name = "store_name`", columnDefinition = "varchar(255) not null comment '卖家名字'")
+    @Column(name = "`store_name`", columnDefinition = "varchar(255) not null comment '卖家名字'")
     private String storeName;
 
     /** 运费模板id */
-    @Column(name = "template_id`", columnDefinition = "bigint not null comment '运费模板id'")
+    @Column(name = "`template_id`", columnDefinition = "bigint not null comment '运费模板id'")
     private Long templateId;
 
     /** 是否自营 */
-    @Column(name = "self_operated`", columnDefinition = "boolean null default false comment '是否自营'")
+    @Column(name = "`self_operated`", columnDefinition = "boolean null default false comment '是否自营'")
     private Boolean selfOperated;
 
     /** 商品视频 */
-    @Column(name = "goods_video`", columnDefinition = "varchar(255) not null comment '商品视频'")
+    @Column(name = "`goods_video`", columnDefinition = "varchar(255) not null comment '商品视频'")
     private String goodsVideo;
 
     /** 是否为推荐商品 */
-    @Column(name = "recommend`", columnDefinition = "boolean null default false comment '是否为推荐商品'")
+    @Column(name = "`recommend`", columnDefinition = "boolean null default false comment '是否为推荐商品'")
     private Boolean recommend;
 
     /** 销售模式 */
-    @Column(name = "sales_model`", columnDefinition = "varchar(255) not null comment '销售模式'")
+    @Column(name = "`sales_model`", columnDefinition = "varchar(255) not null comment '销售模式'")
     private String salesModel;
 
     /**
@@ -175,23 +175,23 @@ public class DraftGoodsPO extends BaseSuperEntity<DraftGoodsPO, Long> {
      *
      * @see DraftGoodsSaveTypeEnum
      */
-    @Column(name = "save_type`", columnDefinition = "varchar(255) not null comment '草稿商品保存类型'")
+    @Column(name = "`save_type`", columnDefinition = "varchar(255) not null comment '草稿商品保存类型'")
     private String saveType;
 
     /** 分类名称JSON */
-    @Column(name = "category_name_json`", columnDefinition = "json not null comment '分类名称JSON'")
+    @Column(name = "`category_name_json`", columnDefinition = "json not null comment '分类名称JSON'")
     private String categoryNameJson;
 
     /** 商品参数JSON */
-    @Column(name = "goods_params_list_json`", columnDefinition = "json not null comment '商品参数JSON'")
+    @Column(name = "`goods_params_list_json`", columnDefinition = "json not null comment '商品参数JSON'")
     private String goodsParamsListJson;
 
     /** 商品图片JSON */
-    @Column(name = "goods_gallery_list_json`", columnDefinition = "json not null comment '商品图片JSON'")
+    @Column(name = "`goods_gallery_list_json`", columnDefinition = "json not null comment '商品图片JSON'")
     private String goodsGalleryListJson;
 
     /** sku列表JSON */
-    @Column(name = "sku_list_json`", columnDefinition = "json not null comment 'sku列表JSON'")
+    @Column(name = "`sku_list_json`", columnDefinition = "json not null comment 'sku列表JSON'")
     private String skuListJson;
 
     /**
@@ -199,7 +199,7 @@ public class DraftGoodsPO extends BaseSuperEntity<DraftGoodsPO, Long> {
      *
      * @see GoodsTypeEnum
      */
-    @Column(name = "goods_type`", columnDefinition = "varchar(255) not null comment '商品类型'")
+    @Column(name = "`goods_type`", columnDefinition = "varchar(255) not null comment '商品类型'")
     private String goodsType;
 
 	public String getGoodsName() {

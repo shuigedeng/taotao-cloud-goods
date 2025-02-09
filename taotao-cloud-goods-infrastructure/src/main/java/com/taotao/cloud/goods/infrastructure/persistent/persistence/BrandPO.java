@@ -54,7 +54,7 @@ import org.hibernate.Hibernate;
 @org.springframework.data.relational.core.mapping.Table(name = BrandPO.TABLE_NAME)
 public class BrandPO extends BaseSuperEntity<BrandPO, Long> {
 
-	public static final String TABLE_NAME = "tt_brand";
+	public static final String TABLE_NAME = "ttc_brand";
 
 	/**
 	 * 品牌名称

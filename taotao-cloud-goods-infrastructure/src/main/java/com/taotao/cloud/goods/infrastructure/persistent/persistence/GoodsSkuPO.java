@@ -60,7 +60,7 @@ import org.hibernate.Hibernate;
 @org.springframework.data.relational.core.mapping.Table(name = GoodsSkuPO.TABLE_NAME)
 public class GoodsSkuPO extends BaseSuperEntity<GoodsSkuPO, Long> {
 
-    public static final String TABLE_NAME = "tt_goods_sku";
+    public static final String TABLE_NAME = "ttc_goods_sku";
 
     /** 商品id */
     @Column(name = "`goods_id`", columnDefinition = "bigint not null comment '商品id'")
@@ -171,19 +171,19 @@ public class GoodsSkuPO extends BaseSuperEntity<GoodsSkuPO, Long> {
     private String storeCategoryPath;
 
     /** 评论数量 */
-    @Column(name = "comment_num`", columnDefinition = "int not null default 0 comment '评论数量'")
+    @Column(name = "`comment_num`", columnDefinition = "int not null default 0 comment '评论数量'")
     private Integer commentNum;
 
     /** 卖家id */
-    @Column(name = "store_id`", columnDefinition = "bigint not null comment '卖家id'")
+    @Column(name = "`store_id`", columnDefinition = "bigint not null comment '卖家id'")
     private Long storeId;
 
     /** 卖家名字 */
-    @Column(name = "store_name`", columnDefinition = "varchar(255) not null comment '卖家名字'")
+    @Column(name = "`store_name`", columnDefinition = "varchar(255) not null comment '卖家名字'")
     private String storeName;
 
     /** 运费模板id */
-    @Column(name = "template_id`", columnDefinition = "bigint not null comment '运费模板id'")
+    @Column(name = "`template_id`", columnDefinition = "bigint not null comment '运费模板id'")
     private Long templateId;
 
     /**
@@ -191,35 +191,35 @@ public class GoodsSkuPO extends BaseSuperEntity<GoodsSkuPO, Long> {
      *
      * @see GoodsAuthEnum
      */
-    @Column(name = "auth_flag`", columnDefinition = "varchar(255) not null comment '审核状态'")
+    @Column(name = "`auth_flag`", columnDefinition = "varchar(255) not null comment '审核状态'")
     private String authFlag;
 
     /** 审核信息 */
-    @Column(name = "auth_message`", columnDefinition = "varchar(255) null comment '审核信息'")
+    @Column(name = "`auth_message`", columnDefinition = "varchar(255) null comment '审核信息'")
     private String authMessage;
 
     /** 下架原因 */
-    @Column(name = "under_message`", columnDefinition = "varchar(255) null comment '下架原因'")
+    @Column(name = "`under_message`", columnDefinition = "varchar(255) null comment '下架原因'")
     private String underMessage;
 
     /** 是否自营 */
-    @Column(name = "self_operated`", columnDefinition = "boolean not null default false comment '是否自营'")
+    @Column(name = "`self_operated`", columnDefinition = "boolean not null default false comment '是否自营'")
     private Boolean selfOperated;
 
     /** 商品移动端详情 */
-    @Column(name = "mobile_intro`", columnDefinition = "mediumtext not null comment '商品移动端详情'")
+    @Column(name = "`mobile_intro`", columnDefinition = "mediumtext not null comment '商品移动端详情'")
     private String mobileIntro;
 
     /** 商品视频 */
-    @Column(name = "goods_video`", columnDefinition = "varchar(255) not null comment '商品视频'")
+    @Column(name = "`goods_video`", columnDefinition = "varchar(255) not null comment '商品视频'")
     private String goodsVideo;
 
     /** 是否为推荐商品 */
-    @Column(name = "recommend`", columnDefinition = "boolean not null default false comment '是否为推荐商品'")
+    @Column(name = "`recommend`", columnDefinition = "boolean not null default false comment '是否为推荐商品'")
     private Boolean recommend;
 
     /** 销售模式 */
-    @Column(name = "sales_model`", columnDefinition = "varchar(255) not null comment '销售模式'")
+    @Column(name = "`sales_model`", columnDefinition = "varchar(255) not null comment '销售模式'")
     private String salesModel;
 
     /**
@@ -227,7 +227,7 @@ public class GoodsSkuPO extends BaseSuperEntity<GoodsSkuPO, Long> {
      *
      * @see GoodsTypeEnum
      */
-    @Column(name = "goods_type`", columnDefinition = "varchar(255) not null comment '商品类型'")
+    @Column(name = "`goods_type`", columnDefinition = "varchar(255) not null comment '商品类型'")
     private String goodsType;
 
 	public Long getGoodsId() {
