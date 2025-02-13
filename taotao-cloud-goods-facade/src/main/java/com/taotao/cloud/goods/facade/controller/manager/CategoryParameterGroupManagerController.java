@@ -40,6 +40,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import com.taotao.boot.webagg.controller.BusinessController;
 
 /**
  * 管理端,分类绑定参数组接口
@@ -53,7 +54,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @Tag(name = "管理端-分类绑定参数组API", description = "管理端-分类绑定参数组API")
 @RequestMapping("/goods/manager/category/parameters")
-public class CategoryParameterGroupManagerController {
+public class CategoryParameterGroupManagerController extends BusinessController {
 
     /** 商品参数组服务 */
     private final ParametersQueryService parametersQueryService;

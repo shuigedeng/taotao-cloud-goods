@@ -34,6 +34,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import com.taotao.boot.webagg.controller.BusinessController;
 
 /**
  * 管理端,分类绑定参数组管理接口
@@ -47,7 +48,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @Tag(name = "管理端-参数管理API", description = "管理端-参数管理API")
 @RequestMapping("/goods/manager/parameters")
-public class ParameterManagerController {
+public class ParameterManagerController extends BusinessController {
 
     /** 参数服务 */
     private final ParametersQueryService parametersQueryService;

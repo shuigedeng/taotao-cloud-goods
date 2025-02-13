@@ -18,6 +18,7 @@ package com.taotao.cloud.goods.facade.feign;
 
 import com.taotao.boot.common.utils.log.LogUtils;
 import com.taotao.boot.web.annotation.FeignApi;
+import com.taotao.boot.webagg.controller.FeignController;
 import com.taotao.cloud.goods.api.feign.GoodsApi;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.validation.annotation.Validated;
@@ -35,7 +36,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 // @RequestMapping("/feign/goods")
 @Tag(name = "内部服务-商品API", description = "内部服务-商品API")
-public class GoodsApiImpl implements GoodsApi {
+public class GoodsApiImpl extends FeignController implements GoodsApi {
 
     @Override
     public Boolean updateStoreDetail(Long id) {

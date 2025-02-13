@@ -55,7 +55,6 @@
 
 
 dependencies {
-    api project(":taotao-cloud-goods-api")
     api project(":taotao-cloud-goods-common")
     api project(":taotao-cloud-goods-integration")
 

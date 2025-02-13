@@ -35,6 +35,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import com.taotao.boot.webagg.controller.BusinessController;
 
 /**
  * 店铺端-商品计量单位接口
@@ -48,7 +49,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @Tag(name = "店铺端-商品计量单位API", description = "店铺端-商品计量单位API")
 @RequestMapping("/goods/seller/goods/unit")
-public class GoodsUnitSellerController {
+public class GoodsUnitSellerController extends BusinessController {
 
     /** 商品计量单位服务 */
     private final GoodsUnitQueryService goodsUnitQueryService;

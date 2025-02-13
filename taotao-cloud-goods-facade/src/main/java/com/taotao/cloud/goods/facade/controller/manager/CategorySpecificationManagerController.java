@@ -38,6 +38,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import com.taotao.boot.webagg.controller.BusinessController;
 
 /**
  * 管理端,商品分类规格接口
@@ -51,7 +52,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @Tag(name = "管理端-商品分类规格管理API", description = "管理端-商品分类规格管理API")
 @RequestMapping("/goods/manager/category/spec")
-public class CategorySpecificationManagerController {
+public class CategorySpecificationManagerController extends BusinessController {
 
     /** 分类规格服务 */
     private final CategorySpecificationQueryService categorySpecificationQueryService;

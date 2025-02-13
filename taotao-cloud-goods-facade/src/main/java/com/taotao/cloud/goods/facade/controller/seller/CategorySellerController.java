@@ -35,6 +35,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import com.taotao.boot.webagg.controller.BusinessController;
 
 /**
  * 店铺端,商品分类接口
@@ -48,7 +49,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @Tag(name = "店铺端-商品分类API", description = "店铺端-商品分类API")
 @RequestMapping("/goods/seller/category/store")
-public class CategorySellerController {
+public class CategorySellerController extends BusinessController {
 
     /** 分类服务 */
     private final CategoryQueryService categoryQueryService;

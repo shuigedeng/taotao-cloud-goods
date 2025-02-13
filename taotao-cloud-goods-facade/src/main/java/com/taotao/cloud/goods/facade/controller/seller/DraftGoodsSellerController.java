@@ -38,6 +38,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import com.taotao.boot.webagg.controller.BusinessController;
 
 /**
  * 店铺端,草稿商品接口
@@ -51,7 +52,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @Tag(name = "店铺端-草稿商品API", description = "店铺端-草稿商品API")
 @RequestMapping("/goods/seller/draft/goods")
-public class DraftGoodsSellerController {
+public class DraftGoodsSellerController extends BusinessController {
 
     /** 草稿商品服务 */
     private final DraftGoodsQueryService draftGoodsQueryService;

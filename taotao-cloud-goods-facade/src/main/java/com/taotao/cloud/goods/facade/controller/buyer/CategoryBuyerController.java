@@ -36,6 +36,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import com.taotao.boot.webagg.controller.BusinessController;
 
 import java.util.List;
 
@@ -51,7 +52,7 @@ import java.util.List;
 @RestController
 @Tag(name = "买家端-商品分类API", description = "买家端-商品分类API")
 @RequestMapping("/goods/buyer/category")
-public class CategoryBuyerController {
+public class CategoryBuyerController extends BusinessController {
 
 	/**
 	 * 商品分类

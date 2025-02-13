@@ -35,6 +35,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import com.taotao.boot.webagg.controller.BusinessController;
 
 import java.util.List;
 
@@ -50,7 +51,7 @@ import java.util.List;
 @RestController
 @Tag(name = "店铺端-规格API", description = "店铺端-规格API")
 @RequestMapping("/goods/seller/goods/specification")
-public class SpecificationSellerController {
+public class SpecificationSellerController extends BusinessController {
 
 	/**
 	 * 商品规格服务

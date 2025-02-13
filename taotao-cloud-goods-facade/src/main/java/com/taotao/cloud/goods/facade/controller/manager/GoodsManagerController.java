@@ -49,6 +49,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import com.taotao.boot.webagg.controller.BusinessController;
 
 /**
  * 管理端,商品管理接口
@@ -62,7 +63,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @Tag(name = "管理端-商品管理API", description = "管理端-商品管理API")
 @RequestMapping("/goods/manager/goods")
-public class GoodsManagerController {
+public class GoodsManagerController extends BusinessController {
 
     /** 商品服务 */
     private final GoodsQueryService goodsQueryService;

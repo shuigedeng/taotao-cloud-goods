@@ -50,7 +50,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @Tag(name = "管理端-商品计量单位管理API", description = "管理端-商品计量单位管理API")
 @RequestMapping("/goods/manager/goods/unit")
-public class GoodsUnitManagerController {
+public class GoodsUnitManagerController extends BusinessController {
 
     /** 商品计量服务 */
     private final GoodsUnitQueryService goodsUnitQueryService;

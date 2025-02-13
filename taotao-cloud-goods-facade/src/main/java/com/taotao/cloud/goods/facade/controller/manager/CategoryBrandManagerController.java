@@ -36,6 +36,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import com.taotao.boot.webagg.controller.BusinessController;
 
 /**
  * 管理端,分类品牌接口
@@ -49,7 +50,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @Tag(name = "管理端-分类品牌管理API", description = "管理端-分类品牌管理API")
 @RequestMapping("/goods/manager/category/brand")
-public class CategoryBrandManagerController {
+public class CategoryBrandManagerController extends BusinessController {
 
     /** 规格品牌管理服务 */
     private final CategoryBrandCommandService categoryBrandCommandService;

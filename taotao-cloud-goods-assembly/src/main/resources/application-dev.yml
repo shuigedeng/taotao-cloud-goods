@@ -91,6 +91,10 @@ pulsar:
       ack-timeout-ms: 3000
       subscription-type: Exclusive
 
+easy-es:
+  enable: false
+  banner: false
+
 redisson:
   client-name: ${spring.application.name}   #在Redis节点里显示的客户端名称。
   #password: taotao-cloud   #用于节点身份验证的密码
