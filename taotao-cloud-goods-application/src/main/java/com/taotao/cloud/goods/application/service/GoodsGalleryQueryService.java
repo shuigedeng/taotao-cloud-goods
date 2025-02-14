@@ -18,10 +18,6 @@ package com.taotao.cloud.goods.application.service;
 
 
 import com.taotao.boot.ddd.model.application.service.QueryService;
-import com.taotao.boot.webagg.service.BaseSuperService;
-import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsGalleryPO;
-
-import java.util.List;
 
 /**
  * 商品相册业务层
@@ -40,14 +36,14 @@ public interface GoodsGalleryQueryService extends QueryService {
 	 * @return {@link GoodsGalleryPO }
 	 * @since 2022-04-27 17:00:12
 	 */
-	GoodsGalleryPO getGoodsGallery(String origin);
-
-	/**
-	 * 根据商品id查询商品相册原图
-	 *
-	 * @param goodsId 商品ID
-	 * @return {@link List }<{@link GoodsGalleryPO }>
-	 * @since 2022-04-27 17:00:12
-	 */
-	List<GoodsGalleryPO> goodsGalleryList(Long goodsId);
+//	GoodsGalleryPO getGoodsGallery(String origin);
+//
+//	/**
+//	 * 根据商品id查询商品相册原图
+//	 *
+//	 * @param goodsId 商品ID
+//	 * @return {@link List }<{@link GoodsGalleryPO }>
+//	 * @since 2022-04-27 17:00:12
+//	 */
+//	List<GoodsGalleryPO> goodsGalleryList(Long goodsId);
 }

@@ -19,7 +19,6 @@ package com.taotao.cloud.goods.facade.controller.seller;
 import com.taotao.boot.common.model.Result;
 import com.taotao.boot.security.spring.utils.SecurityUtils;
 import com.taotao.boot.web.request.annotation.RequestLogger;
-import com.taotao.cloud.goods.application.assembler.GoodsLabelStoreAssembler;
 import com.taotao.cloud.goods.application.dto.store.clientobject.StoreGoodsLabelCO;
 import com.taotao.cloud.goods.application.dto.store.clientobject.StoreGoodsLabelInfoCO;
 import com.taotao.cloud.goods.application.dto.store.cmmond.StoreGoodsLabelAddCmd;

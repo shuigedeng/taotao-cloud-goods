@@ -16,30 +16,12 @@
 
 package com.taotao.cloud.goods.application.service.impl;
 
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
-import com.taotao.boot.common.enums.ResultEnum;
-import com.taotao.boot.common.exception.BusinessException;
-import com.taotao.boot.webagg.service.impl.BaseSuperServiceImpl;
 import com.taotao.cloud.goods.application.dto.category.cmmond.CategoryParameterGroupAddCmd;
-import com.taotao.cloud.goods.application.dto.parameter.clientobject.ParameterGroupCO;
 import com.taotao.cloud.goods.application.service.CategoryParameterGroupCommandService;
 import com.taotao.cloud.goods.application.service.GoodsCommandService;
 import com.taotao.cloud.goods.application.service.ParametersCommandService;
-import com.taotao.cloud.goods.infrastructure.persistent.mapper.CategoryParameterGroupMapper;
-import com.taotao.cloud.goods.infrastructure.persistent.persistence.CategoryParameterGroupPO;
-import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsPO;
-import com.taotao.cloud.goods.infrastructure.persistent.repository.cls.CategoryParameterGroupRepository;
-import com.taotao.cloud.goods.infrastructure.persistent.repository.inf.ICategoryParameterGroupRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 /**
  * 分类绑定参数组接口实现
@@ -61,6 +43,16 @@ public class CategoryParameterGroupCommandServiceImpl
 	 * 商品服务
 	 */
 	private final GoodsCommandService goodsService;
+
+	@Override
+	public boolean updateCategoryGroup(CategoryParameterGroupAddCmd categoryParameterGroupAddCmd) {
+		return false;
+	}
+
+	@Override
+	public boolean deleteByCategoryId(Long categoryId) {
+		return false;
+	}
 
 
 	//@Override
@@ -93,16 +85,16 @@ public class CategoryParameterGroupCommandServiceImpl
 	//	return this.updateById(categoryParameterGroupPO);
 	//}
 
-	@Override
-	public boolean updateCategoryGroup(CategoryParameterGroupAddCmd categoryParameterGroupAddCmd) {
-		return false;
-	}
-
-	@Override
-	public boolean deleteByCategoryId(Long categoryId) {
-		return this.baseMapper.delete(new LambdaUpdateWrapper<CategoryParameterGroupPO>()
-			.eq(CategoryParameterGroupPO::categoryId, categoryId))
-			> 0;
-	}
+//	@Override
+//	public boolean updateCategoryGroup(CategoryParameterGroupAddCmd categoryParameterGroupAddCmd) {
+//		return false;
+//	}
+//
+//	@Override
+//	public boolean deleteByCategoryId(Long categoryId) {
+//		return this.baseMapper.delete(new LambdaUpdateWrapper<CategoryParameterGroupPO>()
+//			.eq(CategoryParameterGroupPO::categoryId, categoryId))
+//			> 0;
+//	}
 
 }

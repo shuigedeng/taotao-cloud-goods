@@ -19,7 +19,6 @@ package com.taotao.cloud.goods.application.service;
 import com.taotao.boot.ddd.model.application.service.CommandService;
 import com.taotao.cloud.goods.application.dto.goods.cmmond.CustomWordsAddCmd;
 import com.taotao.cloud.goods.application.dto.goods.cmmond.CustomWordsUpdateCmd;
-import com.taotao.cloud.goods.infrastructure.persistent.persistence.CustomWordsPO;
 
 import java.util.List;
 
@@ -30,7 +29,7 @@ import java.util.List;
  * @version 2022.04
  * @since 2022-04-27 16:59:50
  */
-public interface CustomWordsCommandService  extends CommandService {
+public interface CustomWordsCommandService extends CommandService {
 
 	/**
 	 * 自定义分词部署替换
@@ -79,7 +78,7 @@ public interface CustomWordsCommandService  extends CommandService {
 	 * @param customWordsPOList 自定义分词列表
 	 * @return 受影响行数
 	 */
-	long insertBatchCustomWords(List<CustomWordsPO> customWordsPOList);
+//	long insertBatchCustomWords(List<CustomWordsPO> customWordsPOList);
 
 
 }

@@ -18,10 +18,7 @@ package com.taotao.cloud.goods.application.service;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.taotao.boot.ddd.model.application.service.QueryService;
-import com.taotao.boot.webagg.service.BaseSuperService;
 import com.taotao.cloud.goods.application.dto.draft.clientobject.DraftGoodsSkuParamsCO;
-import com.taotao.cloud.goods.application.dto.draft.query.DraftGoodsPageQry;
-import com.taotao.cloud.goods.infrastructure.persistent.persistence.DraftGoodsPO;
 
 /**
  * 草稿商品业务层
@@ -33,21 +30,21 @@ import com.taotao.cloud.goods.infrastructure.persistent.persistence.DraftGoodsPO
 public interface DraftGoodsQueryService extends QueryService {
 
 
-    /**
-     * 获取草稿商品详情
-     *
-     * @param id 草稿商品ID
-     * @return {@link DraftGoodsSkuParamsCO }
-     * @since 2022-04-27 16:59:57
-     */
-    DraftGoodsSkuParamsCO getDraftGoods(Long id);
+	/**
+	 * 获取草稿商品详情
+	 *
+	 * @param id 草稿商品ID
+	 * @return {@link DraftGoodsSkuParamsCO }
+	 * @since 2022-04-27 16:59:57
+	 */
+	DraftGoodsSkuParamsCO getDraftGoods(Long id);
 
-    /**
-     * 分页获取草稿商品
-     *
-     * @param searchParams 查询参数
-     * @return {@link IPage }<{@link DraftGoodsPO }>
-     * @since 2022-04-27 16:59:57
-     */
-    IPage<DraftGoodsPO> draftGoodsQueryPage(DraftGoodsPageQry searchParams);
+	/**
+	 * 分页获取草稿商品
+	 *
+	 * @param searchParams 查询参数
+	 * @return {@link IPage }<{@link DraftGoodsPO }>
+	 * @since 2022-04-27 16:59:57
+	 */
+//	IPage<DraftGoodsPO> draftGoodsQueryPage(DraftGoodsPageQry searchParams);
 }

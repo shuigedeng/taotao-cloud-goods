@@ -16,33 +16,12 @@
 
 package com.taotao.cloud.goods.application.service.impl;
 
-import cn.hutool.core.convert.Convert;
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.taotao.boot.webagg.service.impl.BaseSuperServiceImpl;
-import com.taotao.cloud.goods.application.dto.draft.clientobject.DraftGoodsSkuParamsCO;
 import com.taotao.cloud.goods.application.dto.draft.cmmond.DraftGoodsSkuParamsAddCmd;
 import com.taotao.cloud.goods.application.dto.draft.cmmond.DraftGoodsSkuParamsSaveCmd;
 import com.taotao.cloud.goods.application.dto.draft.cmmond.DraftGoodsSkuParamsUpdateCmd;
-import com.taotao.cloud.goods.application.dto.draft.query.DraftGoodsPageQry;
-import com.taotao.cloud.goods.application.dto.goods.cmmond.GoodsParamsAddCmd;
-import com.taotao.cloud.goods.application.service.CategoryCommandService;
 import com.taotao.cloud.goods.application.service.DraftGoodsCommandService;
-import com.taotao.cloud.goods.application.service.GoodsGalleryCommandService;
-import com.taotao.cloud.goods.application.service.GoodsSkuCommandService;
-import com.taotao.cloud.goods.infrastructure.persistent.mapper.DraftGoodsMapper;
-import com.taotao.cloud.goods.infrastructure.persistent.persistence.DraftGoodsPO;
-import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsGalleryPO;
-import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsSkuPO;
-import com.taotao.cloud.goods.infrastructure.persistent.repository.cls.DraftGoodsRepository;
-import com.taotao.cloud.goods.infrastructure.persistent.repository.inf.IDraftGoodsRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 /**
  * 草稿商品业务层实现

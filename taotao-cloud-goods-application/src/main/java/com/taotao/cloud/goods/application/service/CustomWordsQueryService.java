@@ -16,13 +16,7 @@
 
 package com.taotao.cloud.goods.application.service;
 
-import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.taotao.boot.ddd.model.application.service.QueryService;
-import com.taotao.boot.webagg.service.BaseSuperService;
-import com.taotao.cloud.goods.application.dto.goods.cmmond.CustomWordsAddCmd;
-import com.taotao.cloud.goods.application.dto.goods.cmmond.CustomWordsUpdateCmd;
-import com.taotao.cloud.goods.infrastructure.persistent.persistence.CustomWordsPO;
-import java.util.List;
 
 /**
  * 自定义分词业务层

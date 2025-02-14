@@ -19,10 +19,7 @@ package com.taotao.cloud.goods.application.service;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.taotao.boot.common.model.clazz.PageQuery;
 import com.taotao.boot.ddd.model.application.service.QueryService;
-import com.taotao.boot.webagg.service.BaseSuperService;
 import com.taotao.cloud.goods.application.dto.commodity.clientobject.CommoditySkuCO;
-import com.taotao.cloud.goods.infrastructure.persistent.persistence.CommodityPO;
-import java.util.List;
 
 /**
  * 直播商品业务层
@@ -31,7 +28,7 @@ import java.util.List;
  * @version 2022.04
  * @since 2022-04-27 16:59:47
  */
-public interface CommodityQueryService extends QueryService{
+public interface CommodityQueryService extends QueryService {
 
 
 	/**

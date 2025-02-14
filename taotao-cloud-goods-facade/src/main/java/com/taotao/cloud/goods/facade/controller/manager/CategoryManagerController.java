@@ -20,7 +20,6 @@ import com.taotao.boot.common.enums.ResultEnum;
 import com.taotao.boot.common.exception.BusinessException;
 import com.taotao.boot.common.model.Result;
 import com.taotao.boot.web.request.annotation.RequestLogger;
-import com.taotao.cloud.goods.application.assembler.CategoryAssembler;
 import com.taotao.cloud.goods.application.dto.category.clientobject.CategoryCO;
 import com.taotao.cloud.goods.application.dto.category.clientobject.CategoryTreeCO;
 import com.taotao.cloud.goods.application.dto.category.cmmond.CategoryAddCmd;

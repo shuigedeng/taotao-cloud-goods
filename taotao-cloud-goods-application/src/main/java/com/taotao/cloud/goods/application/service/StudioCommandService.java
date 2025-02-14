@@ -16,12 +16,7 @@
 
 package com.taotao.cloud.goods.application.service;
 
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.taotao.boot.common.model.PageQuery;
 import com.taotao.boot.ddd.model.application.service.CommandService;
-import com.taotao.boot.webagg.service.BaseSuperService;
-import com.taotao.cloud.goods.application.dto.store.clientobject.StudioCommodityCO;
-import com.taotao.cloud.goods.infrastructure.persistent.persistence.StudioPO;
 import com.taotao.cloud.stream.framework.trigger.message.BroadcastMessage;
 
 /**
@@ -33,53 +28,53 @@ import com.taotao.cloud.stream.framework.trigger.message.BroadcastMessage;
  */
 public interface StudioCommandService extends CommandService {
 
-    /**
-     * 创建直播间 直播间默认手机直播 默认开启：点赞、商品货架、评论、回放
-     *
-     * @param studioPO 直播间
-     * @return {@link boolean }
-     * @since 2022-04-27 17:01:11
-     */
-    boolean create(StudioPO studioPO);
+	/**
+	 * 创建直播间 直播间默认手机直播 默认开启：点赞、商品货架、评论、回放
+	 *
+	 * @param studioPO 直播间
+	 * @return {@link boolean }
+	 * @since 2022-04-27 17:01:11
+	 */
+//    boolean create(StudioPO studioPO);
 
-    /**
-     * 修改直播间 直播间默认手机直播
-     *
-     * @param studioPO 直播间
-     * @return {@link boolean }
-     * @since 2022-04-27 17:01:11
-     */
-    boolean edit(StudioPO studioPO);
+	/**
+	 * 修改直播间 直播间默认手机直播
+	 *
+	 * @param studioPO 直播间
+	 * @return {@link boolean }
+	 * @since 2022-04-27 17:01:11
+	 */
+//    boolean edit(StudioPO studioPO);
 
 
-    /**
-     * 推送商品
-     *
-     * @param roomId 房间ID
-     * @param goodsId 商品ID
-     * @param storeId 店铺ID
-     * @return {@link boolean }
-     * @since 2022-04-27 17:01:11
-     */
-    boolean push(Integer roomId, Long goodsId, Long storeId);
+	/**
+	 * 推送商品
+	 *
+	 * @param roomId  房间ID
+	 * @param goodsId 商品ID
+	 * @param storeId 店铺ID
+	 * @return {@link boolean }
+	 * @since 2022-04-27 17:01:11
+	 */
+	boolean push(Integer roomId, Long goodsId, Long storeId);
 
-    /**
-     * 删除商品
-     *
-     * @param roomId 店铺ID
-     * @param goodsId 商品ID
-     * @param storeId
-     * @return {@link boolean }
-     * @since 2022-04-27 17:01:11
-     */
-    boolean goodsDeleteInRoom(Integer roomId, Long goodsId, Long storeId);
+	/**
+	 * 删除商品
+	 *
+	 * @param roomId  店铺ID
+	 * @param goodsId 商品ID
+	 * @param storeId
+	 * @return {@link boolean }
+	 * @since 2022-04-27 17:01:11
+	 */
+	boolean goodsDeleteInRoom(Integer roomId, Long goodsId, Long storeId);
 
-    /**
-     * 修改直播间状态
-     *
-     * @param broadcastMessage 直播间消息
-     * @return {@link boolean }
-     * @since 2022-04-27 17:01:12
-     */
-    boolean updateStudioStatus(BroadcastMessage broadcastMessage);
+	/**
+	 * 修改直播间状态
+	 *
+	 * @param broadcastMessage 直播间消息
+	 * @return {@link boolean }
+	 * @since 2022-04-27 17:01:12
+	 */
+	boolean updateStudioStatus(BroadcastMessage broadcastMessage);
 }

@@ -14,31 +14,31 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.application.assembler;
+package com.taotao.cloud.goods.infrastructure.assembler;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 import org.mapstruct.factory.Mappers;
 
 /**
- * IGoodsSkuMapStruct
+ * IParametersMapStruct
  *
  * @author shuigedeng
  * @version 2022.04
- * @since 2022-04-27 16:58:21
+ * @since 2022-04-27 16:58:13
  */
 @Mapper(unmappedSourcePolicy = ReportingPolicy.IGNORE, unmappedTargetPolicy = ReportingPolicy.IGNORE)
-public interface GoodsAssembler {
+public interface DraftGoodsAssembler {
 
     /** 实例 */
-    GoodsAssembler INSTANCE = Mappers.getMapper(GoodsAssembler.class);
+    DraftGoodsAssembler INSTANCE = Mappers.getMapper(DraftGoodsAssembler.class);
 
     /**
-     * 货物货物签证官
+     * 商品dtoto草案起草产品
      *
-     * @param goods 货物
-     * @return {@link GoodsSkuParamsVO }
-     * @since 2022-04-27 16:58:21
+     * @param draftGoodsSkuParamsDTO 商品dto草案
+     * @return {@link DraftGoods }
+     * @since 2022-04-27 16:58:13
      */
-    //GoodsSkuParamsVO convert(Goods goods);
+    //DraftGoods convert(DraftGoodsSkuParamsDTO draftGoodsSkuParamsDTO);
 }

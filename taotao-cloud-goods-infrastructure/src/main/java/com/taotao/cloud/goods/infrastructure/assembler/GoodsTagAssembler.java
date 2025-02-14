@@ -1,7 +1,5 @@
-package com.taotao.cloud.goods.application.assembler;
+package com.taotao.cloud.goods.infrastructure.assembler;
 
-
-import com.taotao.cloud.goods.domain.goodstag.aggregate.GoodsTagAgg;
 
 /**
  * GoodsTag转换器

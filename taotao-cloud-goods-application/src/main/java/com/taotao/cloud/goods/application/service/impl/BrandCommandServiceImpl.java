@@ -16,33 +16,12 @@
 
 package com.taotao.cloud.goods.application.service.impl;
 
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.taotao.boot.common.enums.ResultEnum;
-import com.taotao.boot.common.exception.BusinessException;
-import com.taotao.boot.common.utils.bean.BeanUtils;
-import com.taotao.boot.common.utils.log.LogUtils;
-import com.taotao.boot.webagg.service.impl.BaseSuperServiceImpl;
-import com.taotao.cloud.goods.application.assembler.BrandAssembler;
 import com.taotao.cloud.goods.application.dto.brand.cmmond.BrandAddCmd;
 import com.taotao.cloud.goods.application.dto.brand.cmmond.BrandUpdateCmd;
-import com.taotao.cloud.goods.application.service.BrandCommandService;
-import com.taotao.cloud.goods.application.service.CategoryBrandCommandService;
-import com.taotao.cloud.goods.application.service.CategoryBrandQueryService;
-import com.taotao.cloud.goods.application.service.CategoryCommandService;
-import com.taotao.cloud.goods.application.service.CategoryQueryService;
-import com.taotao.cloud.goods.application.service.GoodsCommandService;
-import com.taotao.cloud.goods.application.service.GoodsQueryService;
-import com.taotao.cloud.goods.infrastructure.persistent.mapper.BrandMapper;
-import com.taotao.cloud.goods.infrastructure.persistent.persistence.BrandPO;
-import com.taotao.cloud.goods.infrastructure.persistent.persistence.CategoryBrandPO;
-import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsPO;
-import com.taotao.cloud.goods.infrastructure.persistent.repository.cls.BrandRepository;
-import com.taotao.cloud.goods.infrastructure.persistent.repository.inf.IBrandRepository;
+import com.taotao.cloud.goods.application.service.*;
 import lombok.AllArgsConstructor;
-import org.dromara.hutool.json.JSONUtil;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -73,90 +52,110 @@ public class BrandCommandServiceImpl
 	private final GoodsCommandService goodsCommandService;
 	private final GoodsQueryService goodsQueryService;
 
-
 	@Override
-	public boolean addBrand(BrandAddCmd brandDTO) {
-		LambdaQueryWrapper<BrandPO> lambdaQueryWrapper = new LambdaQueryWrapper<>();
-		lambdaQueryWrapper.eq(BrandPO::getName, brandDTO.name());
-		if (getOne(lambdaQueryWrapper) != null) {
-			throw new BusinessException(ResultEnum.BRAND_NAME_EXIST_ERROR);
-		}
-		return this.save(BrandAssembler.INSTANCE.convert(brandDTO));
+	public boolean deleteBrands(List<Long> ids) {
+		return false;
 	}
 
 	@Override
-	public boolean updateBrand(BrandUpdateCmd brandDTO) {
-		this.checkExist(brandDTO.id());
+	public boolean addBrand(BrandAddCmd brandAddCmd) {
+		return false;
+	}
 
-		if (getOne(new LambdaQueryWrapper<BrandPO>()
-			.eq(BrandPO::getName, brandDTO.name())
-			.ne(BrandPO::getId, brandDTO.id()))
-			!= null) {
-			throw new BusinessException(ResultEnum.BRAND_NAME_EXIST_ERROR);
-		}
-
-		return this.updateById(BeanUtils.copy(brandDTO, BrandPO.class));
+	@Override
+	public boolean updateBrand(BrandUpdateCmd brandUpdateCmd) {
+		return false;
 	}
 
 	@Override
 	public boolean brandDisable(Long brandId, boolean disable) {
-		BrandPO brand = this.checkExist(brandId);
-		// 如果是要禁用，则需要先判定绑定关系
-		if (disable) {
-			List<Long> ids = new ArrayList<>();
-			ids.add(brandId);
-			checkBind(ids);
-		}
-		brand.setDelFlag(disable);
-		return updateById(brand);
+		return false;
 	}
 
 
-	@Override
-	public boolean deleteBrands(List<Long> ids) {
-		checkBind(ids);
-		return this.removeByIds(ids);
-	}
-
-	/**
-	 * 校验绑定关系
-	 *
-	 * @param brandIds 品牌Ids
-	 */
-	private void checkBind(List<Long> brandIds) {
-		// 分了绑定关系查询
-		List<CategoryBrandPO> categoryBrands = categoryBrandQueryService.getCategoryBrandListByBrandId(
-			brandIds);
-
-		if (!categoryBrands.isEmpty()) {
-			List<Long> categoryIds =
-				categoryBrands.stream().map(CategoryBrandPO::categoryId).toList();
-			throw new BusinessException(
-				ResultEnum.BRAND_USE_DISABLE_ERROR.getCode(),
-				JSONUtil.toJsonStr(categoryQueryService.getCategoryNameByIds(categoryIds)));
-		}
-
-		// 分了商品绑定关系查询
-		List<GoodsPO> goods = goodsQueryService.getByBrandIds(brandIds);
-		if (!goods.isEmpty()) {
-			List<String> goodsNames = goods.stream().map(GoodsPO::goodsName).toList();
-			throw new BusinessException(ResultEnum.BRAND_BIND_GOODS_ERROR.getCode(),
-				JSONUtil.toJsonStr(goodsNames));
-		}
-	}
-
-	/**
-	 * 校验是否存在
-	 *
-	 * @param brandId 品牌ID
-	 * @return 品牌
-	 */
-	private BrandPO checkExist(Long brandId) {
-		BrandPO brand = getById(brandId);
-		if (brand == null) {
-			LogUtils.error("品牌ID为" + brandId + "的品牌不存在");
-			throw new BusinessException(ResultEnum.BRAND_NOT_EXIST);
-		}
-		return brand;
-	}
+//	@Override
+//	public boolean addBrand(BrandAddCmd brandDTO) {
+//		LambdaQueryWrapper<BrandPO> lambdaQueryWrapper = new LambdaQueryWrapper<>();
+//		lambdaQueryWrapper.eq(BrandPO::getName, brandDTO.name());
+//		if (getOne(lambdaQueryWrapper) != null) {
+//			throw new BusinessException(ResultEnum.BRAND_NAME_EXIST_ERROR);
+//		}
+//		return this.save(BrandAssembler.INSTANCE.convert(brandDTO));
+//	}
+//
+//	@Override
+//	public boolean updateBrand(BrandUpdateCmd brandDTO) {
+//		this.checkExist(brandDTO.id());
+//
+//		if (getOne(new LambdaQueryWrapper<BrandPO>()
+//			.eq(BrandPO::getName, brandDTO.name())
+//			.ne(BrandPO::getId, brandDTO.id()))
+//			!= null) {
+//			throw new BusinessException(ResultEnum.BRAND_NAME_EXIST_ERROR);
+//		}
+//
+//		return this.updateById(BeanUtils.copy(brandDTO, BrandPO.class));
+//	}
+//
+//	@Override
+//	public boolean brandDisable(Long brandId, boolean disable) {
+//		BrandPO brand = this.checkExist(brandId);
+//		// 如果是要禁用，则需要先判定绑定关系
+//		if (disable) {
+//			List<Long> ids = new ArrayList<>();
+//			ids.add(brandId);
+//			checkBind(ids);
+//		}
+//		brand.setDelFlag(disable);
+//		return updateById(brand);
+//	}
+//
+//
+//	@Override
+//	public boolean deleteBrands(List<Long> ids) {
+//		checkBind(ids);
+//		return this.removeByIds(ids);
+//	}
+//
+//	/**
+//	 * 校验绑定关系
+//	 *
+//	 * @param brandIds 品牌Ids
+//	 */
+//	private void checkBind(List<Long> brandIds) {
+//		// 分了绑定关系查询
+//		List<CategoryBrandPO> categoryBrands = categoryBrandQueryService.getCategoryBrandListByBrandId(
+//			brandIds);
+//
+//		if (!categoryBrands.isEmpty()) {
+//			List<Long> categoryIds =
+//				categoryBrands.stream().map(CategoryBrandPO::categoryId).toList();
+//			throw new BusinessException(
+//				ResultEnum.BRAND_USE_DISABLE_ERROR.getCode(),
+//				JSONUtil.toJsonStr(categoryQueryService.getCategoryNameByIds(categoryIds)));
+//		}
+//
+//		// 分了商品绑定关系查询
+//		List<GoodsPO> goods = goodsQueryService.getByBrandIds(brandIds);
+//		if (!goods.isEmpty()) {
+//			List<String> goodsNames = goods.stream().map(GoodsPO::goodsName).toList();
+//			throw new BusinessException(ResultEnum.BRAND_BIND_GOODS_ERROR.getCode(),
+//				JSONUtil.toJsonStr(goodsNames));
+//		}
+//	}
+//
+//	/**
+//	 * 校验是否存在
+//	 *
+//	 * @param brandId 品牌ID
+//	 * @return 品牌
+//	 */
+//	private BrandPO checkExist(Long brandId) {
+//		BrandPO brand = getById(brandId);
+//		if (brand == null) {
+//			LogUtils.error("品牌ID为" + brandId + "的品牌不存在");
+//			throw new BusinessException(ResultEnum.BRAND_NOT_EXIST);
+//		}
+//		return brand;
+//	}
 }

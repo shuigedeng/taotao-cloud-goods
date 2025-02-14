@@ -16,26 +16,8 @@
 
 package com.taotao.cloud.goods.application.service.impl;
 
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.taotao.boot.common.enums.ResultEnum;
-import com.taotao.boot.common.exception.BusinessException;
-import com.taotao.boot.common.model.PageQuery;
-import com.taotao.boot.common.utils.log.LogUtils;
-import com.taotao.boot.common.utils.servlet.RequestUtils;
-import com.taotao.boot.webagg.service.impl.BaseSuperServiceImpl;
-import com.taotao.cloud.goods.application.dto.goods.clientobject.CustomWordsCO;
 import com.taotao.cloud.goods.application.service.CustomWordsQueryService;
-import com.taotao.cloud.goods.infrastructure.persistent.mapper.CustomWordsMapper;
-import com.taotao.cloud.goods.infrastructure.persistent.persistence.CustomWordsPO;
-import com.taotao.cloud.goods.infrastructure.persistent.repository.cls.CustomWordsRepository;
-import com.taotao.cloud.goods.infrastructure.persistent.repository.inf.ICustomWordsRepository;
-import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
-import java.nio.charset.StandardCharsets;
-import java.util.List;
 
 /**
  * 自定义分词业务层实现

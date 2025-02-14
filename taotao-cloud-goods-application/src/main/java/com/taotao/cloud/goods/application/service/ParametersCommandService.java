@@ -17,9 +17,6 @@
 package com.taotao.cloud.goods.application.service;
 
 import com.taotao.boot.ddd.model.application.service.CommandService;
-import com.taotao.boot.webagg.service.BaseSuperService;
-import com.taotao.cloud.goods.infrastructure.persistent.persistence.ParametersPO;
-import java.util.List;
 
 /**
  * 商品参数业务层
@@ -37,6 +34,6 @@ public interface ParametersCommandService extends CommandService {
      * @return {@link boolean }
      * @since 2022-04-27 17:00:58
      */
-    boolean updateParameter(ParametersPO parametersPO);
+//    boolean updateParameter(ParametersPO parametersPO);
 
 }

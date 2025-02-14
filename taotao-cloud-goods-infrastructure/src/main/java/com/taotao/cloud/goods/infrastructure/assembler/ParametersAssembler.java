@@ -14,33 +14,40 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.application.assembler;
+package com.taotao.cloud.goods.infrastructure.assembler;
 
-import com.taotao.cloud.goods.application.dto.goods.clientobject.GoodsUnitCO;
-import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsUnitPO;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 import org.mapstruct.factory.Mappers;
 
 /**
- * IGoodsSkuMapStruct
+ * IParametersMapStruct
  *
  * @author shuigedeng
  * @version 2022.04
- * @since 2022-04-27 16:58:21
+ * @since 2022-04-27 16:58:27
  */
 @Mapper(unmappedSourcePolicy = ReportingPolicy.IGNORE, unmappedTargetPolicy = ReportingPolicy.IGNORE)
-public interface GoodsUnitAssembler {
+public interface ParametersAssembler {
 
     /** 实例 */
-    GoodsUnitAssembler INSTANCE = Mappers.getMapper(GoodsUnitAssembler.class);
-
-    /**
-     * 转换
-     *
-     * @param goodsUnit 货物单位
-     * @return {@link GoodsUnitVO }
-     * @since 2023-08-11 14:54:25
-     */
-    GoodsUnitCO convert(GoodsUnitPO goodsUnit);
+    ParametersAssembler INSTANCE = Mappers.getMapper(ParametersAssembler.class);
+	//
+    ///**
+    // * 参数参数vos
+    // *
+    // * @param parameters 参数
+    // * @return {@link List }<{@link ParametersVO }>
+    // * @since 2022-04-27 16:58:27
+    // */
+    //List<ParametersVO> convert(List<Parameters> parameters);
+	//
+    ///**
+    // * 参数dtoto参数
+    // *
+    // * @param parametersDTO 参数dto
+    // * @return {@link Parameters }
+    // * @since 2022-04-27 16:58:27
+    // */
+    //Parameters convert(ParametersDTO parametersDTO);
 }

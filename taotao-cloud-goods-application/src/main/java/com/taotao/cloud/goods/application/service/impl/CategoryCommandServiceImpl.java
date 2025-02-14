@@ -17,7 +17,6 @@
 package com.taotao.cloud.goods.application.service.impl;
 
 import com.taotao.boot.cache.redis.repository.RedisRepository;
-import com.taotao.boot.webagg.service.impl.BaseSuperServiceImpl;
 import com.taotao.cloud.goods.application.dto.category.cmmond.CategoryAddCmd;
 import com.taotao.cloud.goods.application.dto.category.cmmond.CategoryUpdateCmd;
 import com.taotao.cloud.goods.application.executor.category.cmmond.CategoryDelCmdExe;
@@ -26,12 +25,7 @@ import com.taotao.cloud.goods.application.executor.category.cmmond.CategoryUpdat
 import com.taotao.cloud.goods.application.executor.category.query.CategoryChildrenCmdExe;
 import com.taotao.cloud.goods.application.executor.category.query.CategorySearchQryExe;
 import com.taotao.cloud.goods.application.executor.category.query.CategoryTreeCmdExe;
-import com.taotao.cloud.goods.application.service.BrandCommandService;
 import com.taotao.cloud.goods.application.service.CategoryCommandService;
-import com.taotao.cloud.goods.infrastructure.persistent.mapper.CategoryMapper;
-import com.taotao.cloud.goods.infrastructure.persistent.persistence.CategoryPO;
-import com.taotao.cloud.goods.infrastructure.persistent.repository.cls.CategoryRepository;
-import com.taotao.cloud.goods.infrastructure.persistent.repository.inf.ICategoryRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.stereotype.Service;

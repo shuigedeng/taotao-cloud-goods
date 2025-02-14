@@ -17,9 +17,6 @@
 package com.taotao.cloud.goods.application.service;
 
 import com.taotao.boot.ddd.model.application.service.QueryService;
-import com.taotao.boot.webagg.service.BaseSuperService;
-import com.taotao.cloud.goods.infrastructure.persistent.persistence.ParametersPO;
-import java.util.List;
 
 /**
  * 商品参数业务层
@@ -31,5 +28,5 @@ import java.util.List;
 public interface ParametersQueryService extends QueryService {
 
 
-    List<ParametersPO> queryParametersByCategoryId(Long categoryId);
+//    List<ParametersPO> queryParametersByCategoryId(Long categoryId);
 }

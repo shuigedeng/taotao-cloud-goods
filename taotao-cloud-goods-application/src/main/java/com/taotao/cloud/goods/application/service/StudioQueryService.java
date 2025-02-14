@@ -17,12 +17,8 @@
 package com.taotao.cloud.goods.application.service;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.taotao.boot.common.model.PageQuery;
 import com.taotao.boot.ddd.model.application.service.QueryService;
-import com.taotao.boot.webagg.service.BaseSuperService;
 import com.taotao.cloud.goods.application.dto.store.clientobject.StudioCommodityCO;
-import com.taotao.cloud.goods.infrastructure.persistent.persistence.StudioPO;
-import com.taotao.cloud.stream.framework.trigger.message.BroadcastMessage;
 
 /**
  * 直播间业务层
@@ -62,6 +58,6 @@ public interface StudioQueryService extends QueryService{
      * @return {@link IPage }<{@link StudioPO }>
      * @since 2022-04-27 17:01:12
      */
-    IPage<StudioPO> studioList(PageQuery PageQuery, Integer recommend, String status);
+//    IPage<StudioPO> studioList(PageQuery PageQuery, Integer recommend, String status);
 
 }

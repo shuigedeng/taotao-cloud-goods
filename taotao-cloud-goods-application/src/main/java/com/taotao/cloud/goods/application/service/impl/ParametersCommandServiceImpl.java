@@ -16,34 +16,12 @@
 
 package com.taotao.cloud.goods.application.service.impl;
 
-import cn.hutool.core.convert.Convert;
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.taotao.boot.common.enums.ResultEnum;
-import com.taotao.boot.common.exception.BusinessException;
-import com.taotao.boot.webagg.service.impl.BaseSuperServiceImpl;
-import com.taotao.cloud.goods.application.dto.goods.cmmond.GoodsParamsAddCmd;
-import com.taotao.cloud.goods.application.dto.goods.cmmond.GoodsParamsItemAddCmd;
 import com.taotao.cloud.goods.application.service.GoodsCommandService;
 import com.taotao.cloud.goods.application.service.ParametersCommandService;
-import com.taotao.cloud.goods.infrastructure.persistent.mapper.ParametersMapper;
-import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsPO;
-import com.taotao.cloud.goods.infrastructure.persistent.persistence.ParametersPO;
-import com.taotao.cloud.goods.infrastructure.persistent.repository.cls.ParametersRepository;
-import com.taotao.cloud.goods.infrastructure.persistent.repository.inf.IParametersRepository;
-import com.taotao.cloud.stream.framework.rocketmq.RocketmqSendCallbackBuilder;
-import com.taotao.cloud.stream.framework.rocketmq.tags.GoodsTagsEnum;
 import com.taotao.cloud.stream.properties.RocketmqCustomProperties;
 import lombok.AllArgsConstructor;
 import org.apache.rocketmq.spring.core.RocketMQTemplate;
-import org.dromara.hutool.core.text.CharSequenceUtil;
-import org.dromara.hutool.json.JSONUtil;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 /**
  * 商品参数业务层实现
@@ -65,91 +43,91 @@ public class ParametersCommandServiceImpl
 	private final RocketmqCustomProperties rocketmqCustomProperties;
 	private final RocketMQTemplate rocketMQTemplate;
 
-	@Override
-	@Transactional(rollbackFor = Exception.class)
-	public boolean updateParameter(ParametersPO parametersPO) {
-		ParametersPO origin = this.getById(parametersPO.getId());
-		if (origin == null) {
-			throw new BusinessException(ResultEnum.CATEGORY_NOT_EXIST);
-		}
-
-		List<String> goodsIds = new ArrayList<>();
-		LambdaQueryWrapper<GoodsPO> queryWrapper = new LambdaQueryWrapper<>();
-		queryWrapper.select(GoodsPO::getId, GoodsPO::params);
-		queryWrapper.like(GoodsPO::params, parametersPO.groupId());
-		List<Map<String, Object>> goodsList = this.goodsService.listMaps(queryWrapper);
-
-		if (!goodsList.isEmpty()) {
-			for (Map<String, Object> goods : goodsList) {
-				String params = (String) goods.get("params");
-				List<GoodsParamsAddCmd> goodsParamsAddCmds = JSONUtil.toList(params,
-					GoodsParamsAddCmd.class);
-				List<GoodsParamsAddCmd> goodsParamsAddCmdList = goodsParamsAddCmds.stream()
-					.filter(i -> i.getGroupId() != null && i.getGroupId()
-						.equals(parametersPO.groupId()))
-					.toList();
-				this.setGoodsItemDTOList(goodsParamsAddCmdList, parametersPO);
-				this.goodsService.updateGoodsParams(
-					Convert.toLong(goods.get("id")), JSONUtil.toJsonStr(goodsParamsAddCmds));
-				goodsIds.add(goods.get("id").toString());
-			}
-
-			String destination =
-				rocketmqCustomProperties.getGoodsTopic() + ":"
-					+ GoodsTagsEnum.UPDATE_GOODS_INDEX.name();
-			// 发送mq消息
-			rocketMQTemplate.asyncSend(
-				destination, JSONUtil.toJsonStr(goodsIds),
-				RocketmqSendCallbackBuilder.commonCallback());
-		}
-		return this.updateById(parametersPO);
-	}
-
-
-
-	/**
-	 * 更新商品参数信息
-	 *
-	 * @param goodsParamsAddCmdList 商品参数项列表
-	 * @param parametersPO          参数信息
-	 */
-	private void setGoodsItemDTOList(List<GoodsParamsAddCmd> goodsParamsAddCmdList,
-									 ParametersPO parametersPO) {
-		for (GoodsParamsAddCmd goodsParamsAddCmd : goodsParamsAddCmdList) {
-			List<GoodsParamsItemAddCmd> goodsParamsItemAddCmdList = goodsParamsAddCmd.getGoodsParamsItemAddCmdList()
-				.stream()
-				.filter(i -> i.paramId() != null && i.paramId().equals(parametersPO.getId()))
-				.toList();
-			for (GoodsParamsItemAddCmd goodsParamsItemAddCmd : goodsParamsItemAddCmdList) {
-				this.setGoodsItemDTO(goodsParamsItemAddCmd, parametersPO);
-			}
-		}
-	}
-
-	/**
-	 * 更新商品参数详细信息
-	 *
-	 * @param goodsParamsItemAddCmd 商品参数项信息
-	 * @param parametersPO          参数信息
-	 */
-	private void setGoodsItemDTO(GoodsParamsItemAddCmd goodsParamsItemAddCmd, ParametersPO parametersPO) {
-		if (goodsParamsItemAddCmd.paramId().equals(parametersPO.getId())) {
-			goodsParamsItemAddCmd.paramId(parametersPO.getId());
-			goodsParamsItemAddCmd.paramName(parametersPO.paramName());
-			goodsParamsItemAddCmd.required(parametersPO.required());
-			goodsParamsItemAddCmd.isIndex(parametersPO.isIndex());
-			goodsParamsItemAddCmd.sort(parametersPO.sort());
-			if (CharSequenceUtil.isNotEmpty(parametersPO.options())
-				&& CharSequenceUtil.isNotEmpty(goodsParamsItemAddCmd.paramValue())
-				&& !parametersPO.options().contains(goodsParamsItemAddCmd.paramValue())) {
-				if (parametersPO.options().contains(",")) {
-					goodsParamsItemAddCmd.paramValue(parametersPO
-						.options()
-						.substring(0, parametersPO.options().indexOf(",")));
-				} else {
-					goodsParamsItemAddCmd.paramValue(parametersPO.options());
-				}
-			}
-		}
-	}
+//	@Override
+//	@Transactional(rollbackFor = Exception.class)
+//	public boolean updateParameter(ParametersPO parametersPO) {
+//		ParametersPO origin = this.getById(parametersPO.getId());
+//		if (origin == null) {
+//			throw new BusinessException(ResultEnum.CATEGORY_NOT_EXIST);
+//		}
+//
+//		List<String> goodsIds = new ArrayList<>();
+//		LambdaQueryWrapper<GoodsPO> queryWrapper = new LambdaQueryWrapper<>();
+//		queryWrapper.select(GoodsPO::getId, GoodsPO::params);
+//		queryWrapper.like(GoodsPO::params, parametersPO.groupId());
+//		List<Map<String, Object>> goodsList = this.goodsService.listMaps(queryWrapper);
+//
+//		if (!goodsList.isEmpty()) {
+//			for (Map<String, Object> goods : goodsList) {
+//				String params = (String) goods.get("params");
+//				List<GoodsParamsAddCmd> goodsParamsAddCmds = JSONUtil.toList(params,
+//					GoodsParamsAddCmd.class);
+//				List<GoodsParamsAddCmd> goodsParamsAddCmdList = goodsParamsAddCmds.stream()
+//					.filter(i -> i.getGroupId() != null && i.getGroupId()
+//						.equals(parametersPO.groupId()))
+//					.toList();
+//				this.setGoodsItemDTOList(goodsParamsAddCmdList, parametersPO);
+//				this.goodsService.updateGoodsParams(
+//					Convert.toLong(goods.get("id")), JSONUtil.toJsonStr(goodsParamsAddCmds));
+//				goodsIds.add(goods.get("id").toString());
+//			}
+//
+//			String destination =
+//				rocketmqCustomProperties.getGoodsTopic() + ":"
+//					+ GoodsTagsEnum.UPDATE_GOODS_INDEX.name();
+//			// 发送mq消息
+//			rocketMQTemplate.asyncSend(
+//				destination, JSONUtil.toJsonStr(goodsIds),
+//				RocketmqSendCallbackBuilder.commonCallback());
+//		}
+//		return this.updateById(parametersPO);
+//	}
+//
+//
+//
+//	/**
+//	 * 更新商品参数信息
+//	 *
+//	 * @param goodsParamsAddCmdList 商品参数项列表
+//	 * @param parametersPO          参数信息
+//	 */
+//	private void setGoodsItemDTOList(List<GoodsParamsAddCmd> goodsParamsAddCmdList,
+//									 ParametersPO parametersPO) {
+//		for (GoodsParamsAddCmd goodsParamsAddCmd : goodsParamsAddCmdList) {
+//			List<GoodsParamsItemAddCmd> goodsParamsItemAddCmdList = goodsParamsAddCmd.getGoodsParamsItemAddCmdList()
+//				.stream()
+//				.filter(i -> i.paramId() != null && i.paramId().equals(parametersPO.getId()))
+//				.toList();
+//			for (GoodsParamsItemAddCmd goodsParamsItemAddCmd : goodsParamsItemAddCmdList) {
+//				this.setGoodsItemDTO(goodsParamsItemAddCmd, parametersPO);
+//			}
+//		}
+//	}
+//
+//	/**
+//	 * 更新商品参数详细信息
+//	 *
+//	 * @param goodsParamsItemAddCmd 商品参数项信息
+//	 * @param parametersPO          参数信息
+//	 */
+//	private void setGoodsItemDTO(GoodsParamsItemAddCmd goodsParamsItemAddCmd, ParametersPO parametersPO) {
+//		if (goodsParamsItemAddCmd.paramId().equals(parametersPO.getId())) {
+//			goodsParamsItemAddCmd.paramId(parametersPO.getId());
+//			goodsParamsItemAddCmd.paramName(parametersPO.paramName());
+//			goodsParamsItemAddCmd.required(parametersPO.required());
+//			goodsParamsItemAddCmd.isIndex(parametersPO.isIndex());
+//			goodsParamsItemAddCmd.sort(parametersPO.sort());
+//			if (CharSequenceUtil.isNotEmpty(parametersPO.options())
+//				&& CharSequenceUtil.isNotEmpty(goodsParamsItemAddCmd.paramValue())
+//				&& !parametersPO.options().contains(goodsParamsItemAddCmd.paramValue())) {
+//				if (parametersPO.options().contains(",")) {
+//					goodsParamsItemAddCmd.paramValue(parametersPO
+//						.options()
+//						.substring(0, parametersPO.options().indexOf(",")));
+//				} else {
+//					goodsParamsItemAddCmd.paramValue(parametersPO.options());
+//				}
+//			}
+//		}
+//	}
 }

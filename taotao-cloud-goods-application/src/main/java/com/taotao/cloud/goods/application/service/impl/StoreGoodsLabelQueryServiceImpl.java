@@ -16,29 +16,14 @@
 
 package com.taotao.cloud.goods.application.service.impl;
 
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.taotao.boot.cache.redis.repository.RedisRepository;
-import com.taotao.boot.common.enums.ResultEnum;
-import com.taotao.boot.common.exception.BusinessException;
-import com.taotao.boot.security.spring.utils.SecurityUtils;
-import com.taotao.boot.webagg.service.impl.BaseSuperServiceImpl;
 import com.taotao.cloud.goods.application.dto.store.clientobject.StoreGoodsLabelCO;
 import com.taotao.cloud.goods.application.service.StoreGoodsLabelQueryService;
-import com.taotao.cloud.goods.infrastructure.persistent.mapper.StoreGoodsLabelMapper;
-import com.taotao.cloud.goods.infrastructure.persistent.persistence.StoreGoodsLabelPO;
-import com.taotao.cloud.goods.infrastructure.persistent.repository.cls.StoreGoodsLabelRepository;
-import com.taotao.cloud.goods.infrastructure.persistent.repository.inf.IStoreGoodsLabelRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 
 /**
  * 店铺商品分类业务层实现
@@ -63,14 +48,24 @@ public class StoreGoodsLabelQueryServiceImpl
 	}
 
 	@Override
-	public List<StoreGoodsLabelPO> listByStoreIds(List<Long> ids) {
-		return List.of();
-	}
-
-	@Override
 	public List<Map<String, Object>> listMapsByStoreIds(List<Long> ids, String columns) {
 		return List.of();
 	}
+//
+//	@Override
+//	public List<StoreGoodsLabelCO> listByStoreId(Long storeId) {
+//		return List.of();
+//	}
+//
+//	@Override
+//	public List<StoreGoodsLabelPO> listByStoreIds(List<Long> ids) {
+//		return List.of();
+//	}
+//
+//	@Override
+//	public List<Map<String, Object>> listMapsByStoreIds(List<Long> ids, String columns) {
+//		return List.of();
+//	}
 	//
 	//@Override
 	//public List<StoreGoodsLabelCO> listByStoreId(Long storeId) {

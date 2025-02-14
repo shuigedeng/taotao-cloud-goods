@@ -18,7 +18,6 @@ package com.taotao.cloud.goods.facade.controller.seller;
 
 import com.taotao.boot.common.model.Result;
 import com.taotao.boot.web.request.annotation.RequestLogger;
-import com.taotao.cloud.goods.application.assembler.SpecificationAssembler;
 import com.taotao.cloud.goods.application.dto.specification.clientobject.SpecificationCO;
 import com.taotao.cloud.goods.application.service.CategorySpecificationCommandService;
 import com.taotao.cloud.goods.application.service.CategorySpecificationQueryService;

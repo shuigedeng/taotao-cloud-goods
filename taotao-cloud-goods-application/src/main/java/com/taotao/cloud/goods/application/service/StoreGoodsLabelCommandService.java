@@ -17,11 +17,6 @@
 package com.taotao.cloud.goods.application.service;
 
 import com.taotao.boot.ddd.model.application.service.CommandService;
-import com.taotao.boot.webagg.service.BaseSuperService;
-import com.taotao.cloud.goods.application.dto.store.clientobject.StoreGoodsLabelCO;
-import com.taotao.cloud.goods.infrastructure.persistent.persistence.StoreGoodsLabelPO;
-import java.util.List;
-import java.util.Map;
 
 /**
  * 店铺商品分类业务层
@@ -39,7 +34,7 @@ public interface StoreGoodsLabelCommandService extends CommandService {
 	 * @param storeGoodsLabelPO 店铺商品分类
 	 * @return 店铺商品分类
 	 */
-	boolean addStoreGoodsLabel(StoreGoodsLabelPO storeGoodsLabelPO);
+//	boolean addStoreGoodsLabel(StoreGoodsLabelPO storeGoodsLabelPO);
 
 	/**
 	 * 修改商品分类
@@ -47,7 +42,7 @@ public interface StoreGoodsLabelCommandService extends CommandService {
 	 * @param storeGoodsLabelPO 店铺商品分类
 	 * @return 店铺商品分类
 	 */
-	boolean editStoreGoodsLabel(StoreGoodsLabelPO storeGoodsLabelPO);
+//	boolean editStoreGoodsLabel(StoreGoodsLabelPO storeGoodsLabelPO);
 
 	/**
 	 * 删除商品分类

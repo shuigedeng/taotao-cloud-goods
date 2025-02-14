@@ -16,21 +16,11 @@
 
 package com.taotao.cloud.goods.application.service;
 
-import com.baomidou.mybatisplus.core.conditions.Wrapper;
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-
 import com.taotao.boot.ddd.model.application.service.CommandService;
 import com.taotao.boot.webagg.service.BaseSuperService;
-import com.taotao.cloud.goods.application.dto.goods.clientobject.GoodsSkuCO;
-import com.taotao.cloud.goods.application.dto.goods.cmmond.GoodsAddCmd;
 import com.taotao.cloud.goods.application.dto.goods.cmmond.GoodsSkuStockUpdateCmd;
-import com.taotao.cloud.goods.application.dto.goods.query.GoodsPageQry;
-import com.taotao.cloud.goods.application.dto.goods.query.GoodsSkuSearchQry;
-import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsPO;
-import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsSkuPO;
+
 import java.util.List;
-import java.util.Map;
 
 /**
  * 商品sku业务层
@@ -70,24 +60,24 @@ public interface GoodsSkuCommandService extends CommandService {
 	 * @param goodsAddCmd 商品操作信息
 	 * @since 2023-08-18 16:00:59
 	 */
-	boolean add(GoodsPO goods, GoodsAddCmd goodsAddCmd);
-
-	/**
-	 * 更新商品sku
-	 *
-	 * @param goods             商品信息
-	 * @param goodsAddCmd 商品操作信息
-	 * @since 2023-08-18 16:00:59
-	 */
-	boolean update(GoodsPO goods, GoodsAddCmd goodsAddCmd);
-
-	/**
-	 * 更新商品sku
-	 *
-	 * @param goodsSkuPO sku信息
-	 * @since 2023-08-18 16:00:59
-	 */
-	boolean update(GoodsSkuPO goodsSkuPO);
+//	boolean add(GoodsPO goods, GoodsAddCmd goodsAddCmd);
+//
+//	/**
+//	 * 更新商品sku
+//	 *
+//	 * @param goods             商品信息
+//	 * @param goodsAddCmd 商品操作信息
+//	 * @since 2023-08-18 16:00:59
+//	 */
+//	boolean update(GoodsPO goods, GoodsAddCmd goodsAddCmd);
+//
+//	/**
+//	 * 更新商品sku
+//	 *
+//	 * @param goodsSkuPO sku信息
+//	 * @since 2023-08-18 16:00:59
+//	 */
+//	boolean update(GoodsSkuPO goodsSkuPO);
 
 	/**
 	 * 清除sku缓存
@@ -104,7 +94,7 @@ public interface GoodsSkuCommandService extends CommandService {
 	 * @param goods 商品信息(Id,MarketEnable/AuthFlag)
 	 * @since 2023-08-18 16:00:59
 	 */
-	boolean updateGoodsSkuStatus(GoodsPO goods);
+//	boolean updateGoodsSkuStatus(GoodsPO goods);
 
 	/**
 	 * 更新商品sku状态根据店铺id
@@ -138,7 +128,7 @@ public interface GoodsSkuCommandService extends CommandService {
 	 *
 	 * @param goodsSkusPOS
 	 */
-	boolean updateGoodsStuck(List<GoodsSkuPO> goodsSkusPOS);
+//	boolean updateGoodsStuck(List<GoodsSkuPO> goodsSkusPOS);
 
 	/**
 	 * 更新SKU评价数量
@@ -153,7 +143,7 @@ public interface GoodsSkuCommandService extends CommandService {
 	 *
 	 * @param goodsSkusPOS 商品sku集合
 	 */
-	boolean deleteAndInsertGoodsSkus(List<GoodsSkuPO> goodsSkusPOS);
+//	boolean deleteAndInsertGoodsSkus(List<GoodsSkuPO> goodsSkusPOS);
 
 	/**
 	 * 批量渲染商品sku
@@ -161,5 +151,5 @@ public interface GoodsSkuCommandService extends CommandService {
 	 * @param goodsSkuPOList SKU基础数据列表
 	 * @param goodsAddCmd 商品操作信息
 	 */
-	void renderGoodsSkuList(List<GoodsSkuPO> goodsSkuPOList, GoodsAddCmd goodsAddCmd);
+//	void renderGoodsSkuList(List<GoodsSkuPO> goodsSkuPOList, GoodsAddCmd goodsAddCmd);
 }

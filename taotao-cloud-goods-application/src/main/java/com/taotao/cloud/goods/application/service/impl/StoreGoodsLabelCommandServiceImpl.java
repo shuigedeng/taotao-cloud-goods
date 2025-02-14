@@ -16,29 +16,10 @@
 
 package com.taotao.cloud.goods.application.service.impl;
 
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.taotao.boot.cache.redis.repository.RedisRepository;
-import com.taotao.boot.common.enums.ResultEnum;
-import com.taotao.boot.common.exception.BusinessException;
-import com.taotao.boot.security.spring.utils.SecurityUtils;
-import com.taotao.boot.webagg.service.impl.BaseSuperServiceImpl;
-import com.taotao.cloud.goods.application.dto.store.clientobject.StoreGoodsLabelCO;
 import com.taotao.cloud.goods.application.service.StoreGoodsLabelCommandService;
-import com.taotao.cloud.goods.infrastructure.persistent.mapper.StoreGoodsLabelMapper;
-import com.taotao.cloud.goods.infrastructure.persistent.persistence.StoreGoodsLabelPO;
-import com.taotao.cloud.goods.infrastructure.persistent.repository.cls.StoreGoodsLabelRepository;
-import com.taotao.cloud.goods.infrastructure.persistent.repository.inf.IStoreGoodsLabelRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
 
 /**
  * 店铺商品分类业务层实现
@@ -58,19 +39,24 @@ public class StoreGoodsLabelCommandServiceImpl
 	private RedisRepository redisRepository;
 
 	@Override
-	public boolean addStoreGoodsLabel(StoreGoodsLabelPO storeGoodsLabelPO) {
-		return false;
-	}
-
-	@Override
-	public boolean editStoreGoodsLabel(StoreGoodsLabelPO storeGoodsLabelPO) {
-		return false;
-	}
-
-	@Override
 	public boolean removeStoreGoodsLabel(Long storeLabelId) {
 		return false;
 	}
+
+//	@Override
+//	public boolean addStoreGoodsLabel(StoreGoodsLabelPO storeGoodsLabelPO) {
+//		return false;
+//	}
+//
+//	@Override
+//	public boolean editStoreGoodsLabel(StoreGoodsLabelPO storeGoodsLabelPO) {
+//		return false;
+//	}
+//
+//	@Override
+//	public boolean removeStoreGoodsLabel(Long storeLabelId) {
+//		return false;
+//	}
 
 
 	//@Override

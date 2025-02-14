@@ -16,23 +16,9 @@
 
 package com.taotao.cloud.goods.application.service.impl;
 
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import com.taotao.boot.common.utils.io.FileUtils;
-import com.taotao.boot.webagg.service.impl.BaseSuperServiceImpl;
 import com.taotao.cloud.goods.application.service.GoodsGalleryQueryService;
-import com.taotao.cloud.goods.common.enums.SettingCategoryEnum;
-import com.taotao.cloud.goods.infrastructure.persistent.mapper.GoodsGalleryMapper;
-import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsGalleryPO;
-import com.taotao.cloud.goods.infrastructure.persistent.repository.cls.GoodsGalleryRepository;
-import com.taotao.cloud.goods.infrastructure.persistent.repository.inf.IGoodsGalleryRepository;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
-import java.util.List;
 
 /**
  * 商品相册接口实现
@@ -45,15 +31,15 @@ import java.util.List;
 @Service
 public class GoodsGalleryQueryServiceImpl
 	implements GoodsGalleryQueryService {
-	@Override
-	public GoodsGalleryPO getGoodsGallery(String origin) {
-		return null;
-	}
-
-	@Override
-	public List<GoodsGalleryPO> goodsGalleryList(Long goodsId) {
-		return List.of();
-	}
+//	@Override
+//	public GoodsGalleryPO getGoodsGallery(String origin) {
+//		return null;
+//	}
+//
+//	@Override
+//	public List<GoodsGalleryPO> goodsGalleryList(Long goodsId) {
+//		return List.of();
+//	}
 
 	///**
 	// * 设置

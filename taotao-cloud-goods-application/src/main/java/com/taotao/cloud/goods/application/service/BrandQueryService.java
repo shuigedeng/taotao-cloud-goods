@@ -16,11 +16,7 @@
 
 package com.taotao.cloud.goods.application.service;
 
-import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.taotao.boot.ddd.model.application.service.QueryService;
-import com.taotao.boot.webagg.service.BaseSuperService;
-import com.taotao.cloud.goods.application.dto.brand.query.BrandPageQry;
-import com.taotao.cloud.goods.infrastructure.persistent.persistence.BrandPO;
 
 import java.util.List;
 import java.util.Map;
@@ -34,28 +30,28 @@ import java.util.Map;
  */
 public interface BrandQueryService extends QueryService {
 
-	IPage<BrandPO> brandsQueryPage(BrandPageQry page);
-
-	/**
-	 * 根据条件分页获取品牌列表
-	 *
-	 * @param page 条件参数
-	 * @return 品牌列表
-	 */
-	IPage<BrandPO> getBrandsByPage(BrandPageQry page);
-
-	List<BrandPO> getBrandsByCategorys(Long categoryIds);
-
-	List<BrandPO> getAllAvailable();
-
-
-	/**
-	 * 根据分类ID获取品牌列表
-	 *
-	 * @param categoryId 分类ID
-	 * @return 品牌列表
-	 */
-	List<BrandPO> getBrandsByCategory(Long categoryId);
+//	IPage<BrandPO> brandsQueryPage(BrandPageQry page);
+//
+//	/**
+//	 * 根据条件分页获取品牌列表
+//	 *
+//	 * @param page 条件参数
+//	 * @return 品牌列表
+//	 */
+//	IPage<BrandPO> getBrandsByPage(BrandPageQry page);
+//
+//	List<BrandPO> getBrandsByCategorys(Long categoryIds);
+//
+//	List<BrandPO> getAllAvailable();
+//
+//
+//	/**
+//	 * 根据分类ID获取品牌列表
+//	 *
+//	 * @param categoryId 分类ID
+//	 * @return 品牌列表
+//	 */
+//	List<BrandPO> getBrandsByCategory(Long categoryId);
 
 	/**
 	 * 根据分类ID获取品牌列表

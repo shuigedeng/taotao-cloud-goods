@@ -16,65 +16,17 @@
 
 package com.taotao.cloud.goods.application.service.impl;
 
-import cn.hutool.core.convert.Convert;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.taotao.boot.cache.redis.repository.RedisRepository;
-import com.taotao.boot.common.enums.PromotionTypeEnum;
-import com.taotao.boot.common.enums.ResultEnum;
-import com.taotao.boot.common.enums.UserEnum;
-import com.taotao.boot.common.exception.BusinessException;
-import com.taotao.boot.security.spring.utils.SecurityUtils;
-import com.taotao.boot.webagg.service.impl.BaseSuperServiceImpl;
 import com.taotao.cloud.goods.application.dto.goods.clientobject.GoodsSkuCO;
-import com.taotao.cloud.goods.application.dto.goods.clientobject.GoodsSkuParamsCO;
-import com.taotao.cloud.goods.application.dto.goods.clientobject.GoodsSkuSpecGalleryCO;
-import com.taotao.cloud.goods.application.dto.goods.cmmond.GoodsAddCmd;
-import com.taotao.cloud.goods.application.dto.goods.cmmond.GoodsSkuStockUpdateCmd;
-import com.taotao.cloud.goods.application.dto.goods.query.GoodsPageQry;
 import com.taotao.cloud.goods.application.dto.goods.query.GoodsSkuSearchQry;
-import com.taotao.cloud.goods.application.dto.specification.clientobject.SpecValueCO;
-import com.taotao.cloud.goods.application.manager.GoodsManager;
-import com.taotao.cloud.goods.application.service.CategoryCommandService;
-import com.taotao.cloud.goods.application.service.EsGoodsCommandService;
-import com.taotao.cloud.goods.application.service.GoodsCommandService;
-import com.taotao.cloud.goods.application.service.GoodsGalleryCommandService;
 import com.taotao.cloud.goods.application.service.GoodsSkuQueryService;
-import com.taotao.cloud.goods.common.enums.SettingCategoryEnum;
-import com.taotao.cloud.goods.infrastructure.persistent.mapper.GoodsSkuMapper;
-import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsPO;
-import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsSkuPO;
-import com.taotao.cloud.goods.infrastructure.persistent.repository.cls.GoodsSkuRepository;
-import com.taotao.cloud.goods.infrastructure.persistent.repository.inf.IGoodsSkuRepository;
-import com.taotao.cloud.stream.framework.rocketmq.RocketmqSendCallbackBuilder;
-import com.taotao.cloud.stream.framework.rocketmq.tags.GoodsTagsEnum;
 import lombok.AllArgsConstructor;
-import org.dromara.dynamictp.common.util.StringUtil;
-import org.dromara.hutool.core.map.MapUtil;
-import org.dromara.hutool.core.math.NumberUtil;
-import org.dromara.hutool.json.JSONObject;
-import org.dromara.hutool.json.JSONUtil;
-import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Objects;
-import java.util.Optional;
-import java.util.Set;
-import java.util.stream.Collectors;
 
 /**
  * 商品sku业务层实现
@@ -88,23 +40,8 @@ import java.util.stream.Collectors;
 public class GoodsSkuQueryServiceImpl
 	implements GoodsSkuQueryService {
 	@Override
-	public GoodsSkuPO getGoodsSkuByIdFromCache(Long skuId) {
-		return null;
-	}
-
-	@Override
-	public GoodsSkuPO getCanPromotionGoodsSkuByIdFromCache(Long skuId) {
-		return null;
-	}
-
-	@Override
 	public Map<String, Object> getGoodsSkuDetail(Long goodsId, Long skuId) {
 		return Map.of();
-	}
-
-	@Override
-	public List<GoodsSkuPO> getGoodsSkuByIdFromCache(List<Long> ids) {
-		return List.of();
 	}
 
 	@Override
@@ -113,33 +50,8 @@ public class GoodsSkuQueryServiceImpl
 	}
 
 	@Override
-	public List<GoodsSkuPO> getGoodsSkuListByGoodsId(Long goodsId) {
-		return List.of();
-	}
-
-	@Override
-	public List<GoodsSkuCO> getGoodsSkuVOList(List<GoodsSkuPO> list) {
-		return List.of();
-	}
-
-	@Override
-	public GoodsSkuCO getGoodsSkuVO(GoodsSkuPO goodsSkuPO) {
-		return null;
-	}
-
-	@Override
-	public IPage<GoodsSkuPO> getGoodsSkuByPage(GoodsPageQry searchParams) {
-		return null;
-	}
-
-	@Override
 	public IPage<GoodsSkuSearchQry> getGoodsSkuDTOByPage(Page<GoodsSkuSearchQry> page, Wrapper<GoodsSkuSearchQry> queryWrapper) {
 		return null;
-	}
-
-	@Override
-	public List<GoodsSkuPO> getGoodsSkuByList(GoodsPageQry searchParams) {
-		return List.of();
 	}
 
 	@Override
@@ -156,11 +68,80 @@ public class GoodsSkuQueryServiceImpl
 	public Long countSkuNum(Long storeId) {
 		return 0L;
 	}
-
-	@Override
-	public void renderGoodsSkuList(List<GoodsSkuPO> goodsSkuPOList, GoodsAddCmd goodsAddCmd) {
-
-	}
+//	@Override
+//	public GoodsSkuPO getGoodsSkuByIdFromCache(Long skuId) {
+//		return null;
+//	}
+//
+//	@Override
+//	public GoodsSkuPO getCanPromotionGoodsSkuByIdFromCache(Long skuId) {
+//		return null;
+//	}
+//
+//	@Override
+//	public Map<String, Object> getGoodsSkuDetail(Long goodsId, Long skuId) {
+//		return Map.of();
+//	}
+//
+//	@Override
+//	public List<GoodsSkuPO> getGoodsSkuByIdFromCache(List<Long> ids) {
+//		return List.of();
+//	}
+//
+//	@Override
+//	public List<GoodsSkuCO> getGoodsListByGoodsId(Long goodsId) {
+//		return List.of();
+//	}
+//
+//	@Override
+//	public List<GoodsSkuPO> getGoodsSkuListByGoodsId(Long goodsId) {
+//		return List.of();
+//	}
+//
+//	@Override
+//	public List<GoodsSkuCO> getGoodsSkuVOList(List<GoodsSkuPO> list) {
+//		return List.of();
+//	}
+//
+//	@Override
+//	public GoodsSkuCO getGoodsSkuVO(GoodsSkuPO goodsSkuPO) {
+//		return null;
+//	}
+//
+//	@Override
+//	public IPage<GoodsSkuPO> getGoodsSkuByPage(GoodsPageQry searchParams) {
+//		return null;
+//	}
+//
+//	@Override
+//	public IPage<GoodsSkuSearchQry> getGoodsSkuDTOByPage(Page<GoodsSkuSearchQry> page, Wrapper<GoodsSkuSearchQry> queryWrapper) {
+//		return null;
+//	}
+//
+//	@Override
+//	public List<GoodsSkuPO> getGoodsSkuByList(GoodsPageQry searchParams) {
+//		return List.of();
+//	}
+//
+//	@Override
+//	public Integer getStock(Long skuId) {
+//		return 0;
+//	}
+//
+//	@Override
+//	public List<String> getSkuIdsByGoodsId(Long goodsId) {
+//		return List.of();
+//	}
+//
+//	@Override
+//	public Long countSkuNum(Long storeId) {
+//		return 0L;
+//	}
+//
+//	@Override
+//	public void renderGoodsSkuList(List<GoodsSkuPO> goodsSkuPOList, GoodsAddCmd goodsAddCmd) {
+//
+//	}
 
 	//private final GoodsSkuManager goodsSkuManager;
 	//private final GoodsManager goodsManager;

@@ -16,15 +16,11 @@
 
 package com.taotao.cloud.goods.application.service;
 
-import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.taotao.boot.ddd.model.application.service.CommandService;
-import com.taotao.boot.webagg.service.BaseSuperService;
 import com.taotao.cloud.goods.application.dto.brand.cmmond.BrandAddCmd;
 import com.taotao.cloud.goods.application.dto.brand.cmmond.BrandUpdateCmd;
-import com.taotao.cloud.goods.application.dto.brand.query.BrandPageQry;
-import com.taotao.cloud.goods.infrastructure.persistent.persistence.BrandPO;
+
 import java.util.List;
-import java.util.Map;
 
 /**
  * 商品品牌业务层

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.application.assembler;
+package com.taotao.cloud.goods.infrastructure.assembler;
 
 import com.taotao.cloud.goods.application.dto.brand.clientobject.BrandCO;
 import com.taotao.cloud.goods.application.dto.brand.cmmond.BrandAddCmd;

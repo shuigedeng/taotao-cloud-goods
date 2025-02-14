@@ -16,20 +16,10 @@
 
 package com.taotao.cloud.goods.application.service.impl;
 
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.taotao.boot.webagg.service.impl.BaseSuperServiceImpl;
-import com.taotao.cloud.goods.application.assembler.CategoryBrandAssembler;
 import com.taotao.cloud.goods.application.dto.category.clientobject.CategoryBrandCO;
 import com.taotao.cloud.goods.application.service.CategoryBrandQueryService;
-import com.taotao.cloud.goods.infrastructure.dataobject.CategoryBrandDO;
-import com.taotao.cloud.goods.infrastructure.persistent.mapper.CategoryBrandMapper;
-import com.taotao.cloud.goods.infrastructure.persistent.persistence.CategoryBrandPO;
-import com.taotao.cloud.goods.infrastructure.persistent.repository.cls.CategoryBrandRepository;
-import com.taotao.cloud.goods.infrastructure.persistent.repository.inf.ICategoryBrandRepository;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -41,17 +31,21 @@ import java.util.List;
  */
 @Service
 public class CategoryBrandQueryServiceImpl implements CategoryBrandQueryService {
-
 	@Override
 	public List<CategoryBrandCO> getCategoryBrandList(Long categoryId) {
-		List<CategoryBrandDO> categoryBrandList = im().getCategoryBrandList(categoryId);
-		return CategoryBrandAssembler.INSTANCE.convert(categoryBrandList);
+		return List.of();
 	}
 
-	public List<CategoryBrandPO> getCategoryBrandListByBrandId(List<Long> brandId) {
-		LambdaQueryWrapper<CategoryBrandPO> wrapper = new LambdaQueryWrapper<>();
-		wrapper.in(CategoryBrandPO::brandId, brandId);
-		return list(wrapper);
-	}
+//	@Override
+//	public List<CategoryBrandCO> getCategoryBrandList(Long categoryId) {
+//		List<CategoryBrandDO> categoryBrandList = im().getCategoryBrandList(categoryId);
+//		return CategoryBrandAssembler.INSTANCE.convert(categoryBrandList);
+//	}
+//
+//	public List<CategoryBrandPO> getCategoryBrandListByBrandId(List<Long> brandId) {
+//		LambdaQueryWrapper<CategoryBrandPO> wrapper = new LambdaQueryWrapper<>();
+//		wrapper.in(CategoryBrandPO::brandId, brandId);
+//		return list(wrapper);
+//	}
 
 }

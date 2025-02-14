@@ -16,12 +16,7 @@
 
 package com.taotao.cloud.goods.application.service;
 
-import com.taotao.boot.common.enums.PromotionTypeEnum;
 import com.taotao.boot.ddd.model.application.service.CommandService;
-import org.elasticsearch.action.update.UpdateRequest;
-
-import java.util.List;
-import java.util.Map;
 
 /**
  * 商品索引业务层

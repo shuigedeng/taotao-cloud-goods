@@ -16,28 +16,11 @@
 
 package com.taotao.cloud.goods.application.service.impl;
 
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.taotao.boot.common.enums.ResultEnum;
-import com.taotao.boot.common.exception.BusinessException;
-import com.taotao.boot.common.utils.lang.StringUtils;
-import com.taotao.boot.webagg.service.impl.BaseSuperServiceImpl;
-import com.taotao.cloud.goods.application.dto.specification.query.SpecificationPageQry;
 import com.taotao.cloud.goods.application.service.CategoryCommandService;
 import com.taotao.cloud.goods.application.service.CategorySpecificationCommandService;
 import com.taotao.cloud.goods.application.service.SpecificationQueryService;
-import com.taotao.cloud.goods.infrastructure.persistent.mapper.SpecificationMapper;
-import com.taotao.cloud.goods.infrastructure.persistent.persistence.CategorySpecificationPO;
-import com.taotao.cloud.goods.infrastructure.persistent.persistence.SpecificationPO;
-import com.taotao.cloud.goods.infrastructure.persistent.repository.cls.SpecificationRepository;
-import com.taotao.cloud.goods.infrastructure.persistent.repository.inf.ISpecificationRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * 商品规格业务层实现
@@ -62,15 +45,15 @@ public class SpecificationQueryServiceImpl
 
 
 
-	@Override
-	public IPage<SpecificationPO> getPage(SpecificationPageQry specificationPageQry) {
-		//LambdaQueryWrapper<SpecificationPO> lambdaQueryWrapper = new LambdaQueryWrapper<>();
-		//lambdaQueryWrapper.like(
-		//	StringUtils.isNotEmpty(specificationPageQry.getSpecName()),
-		//	SpecificationPO::getSpecName,
-		//	specificationPageQry.getSpecName());
-		//return this.page(specificationPageQry.buildMpPage(), lambdaQueryWrapper);
-		return null;
-	}
+//	@Override
+//	public IPage<SpecificationPO> getPage(SpecificationPageQry specificationPageQry) {
+//		//LambdaQueryWrapper<SpecificationPO> lambdaQueryWrapper = new LambdaQueryWrapper<>();
+//		//lambdaQueryWrapper.like(
+//		//	StringUtils.isNotEmpty(specificationPageQry.getSpecName()),
+//		//	SpecificationPO::getSpecName,
+//		//	specificationPageQry.getSpecName());
+//		//return this.page(specificationPageQry.buildMpPage(), lambdaQueryWrapper);
+//		return null;
+//	}
 
 }

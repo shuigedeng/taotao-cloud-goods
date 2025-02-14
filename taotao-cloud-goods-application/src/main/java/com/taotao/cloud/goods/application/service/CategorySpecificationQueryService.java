@@ -17,9 +17,6 @@
 package com.taotao.cloud.goods.application.service;
 
 import com.taotao.boot.ddd.model.application.service.QueryService;
-import com.taotao.boot.webagg.service.BaseSuperService;
-import com.taotao.cloud.goods.infrastructure.persistent.persistence.CategorySpecificationPO;
-import com.taotao.cloud.goods.infrastructure.persistent.persistence.SpecificationPO;
 
 import java.util.List;
 
@@ -39,5 +36,5 @@ public interface CategorySpecificationQueryService extends QueryService {
 	 * @return {@link List }<{@link SpecificationPO }>
 	 * @since 2022-04-27 16:59:40
 	 */
-	List<SpecificationPO> getCategorySpecList(Long categoryId);
+//	List<SpecificationPO> getCategorySpecList(Long categoryId);
 }

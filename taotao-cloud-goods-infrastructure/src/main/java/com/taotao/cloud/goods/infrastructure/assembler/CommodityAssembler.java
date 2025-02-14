@@ -14,31 +14,28 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.application.assembler;
+package com.taotao.cloud.goods.infrastructure.assembler;
 
+import org.mapstruct.Builder;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 import org.mapstruct.factory.Mappers;
 
 /**
- * ICustomWordsMapStruct
+ * IGoodsSkuMapStruct
  *
  * @author shuigedeng
  * @version 2022.04
- * @since 2022-04-27 16:58:09
+ * @since 2022-04-27 16:58:21
  */
-@Mapper(unmappedSourcePolicy = ReportingPolicy.IGNORE, unmappedTargetPolicy = ReportingPolicy.IGNORE)
-public interface CustomWordsAssembler {
+@Mapper(
+        builder = @Builder(disableBuilder = true),
+        unmappedSourcePolicy = ReportingPolicy.IGNORE,
+        unmappedTargetPolicy = ReportingPolicy.IGNORE)
+public interface CommodityAssembler {
 
     /** 实例 */
-    CustomWordsAssembler INSTANCE = Mappers.getMapper(CustomWordsAssembler.class);
+    CommodityAssembler INSTANCE = Mappers.getMapper(CommodityAssembler.class);
 
-    /**
-     * 自定义单词voto自定义单词
-     *
-     * @param customWordsVO 自定义单词签证官
-     * @return {@link CustomWords }
-     * @since 2022-04-27 16:58:09
-     */
-    //CustomWords convert(CustomWordsVO customWordsVO);
+    //List<CommoditySkuVO> convert(List<Commodity> commodities);
 }

@@ -7,7 +7,6 @@ import com.taotao.boot.ddd.model.application.executor.Executor;
 import com.taotao.cloud.goods.application.service.CategoryBrandCommandService;
 import com.taotao.cloud.goods.application.service.CategoryParameterGroupCommandService;
 import com.taotao.cloud.goods.application.service.CategorySpecificationCommandService;
-import com.taotao.cloud.goods.infrastructure.persistent.mapper.CategoryMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -20,7 +19,6 @@ import org.springframework.stereotype.Component;
 public class CategoryDelCmdExe extends Executor {
 
 	private final RedisRepository redisRepository;
-	private final CategoryMapper categoryMapper;
 	private final CategoryCacheDelCmdExe categoryCacheDelCmdExe;
 	/**
 	 * 分类绑定参数服务
@@ -36,7 +34,6 @@ public class CategoryDelCmdExe extends Executor {
 	private final CategoryBrandCommandService categoryBrandService;
 
 	public boolean delete(Long id) {
-		this.categoryMapper.deleteById(id);
 
 		categoryCacheDelCmdExe.removeCache();
 

@@ -18,13 +18,8 @@ package com.taotao.cloud.goods.application.service.impl;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.taotao.boot.common.model.clazz.PageQuery;
-import com.taotao.boot.webagg.service.impl.BaseSuperServiceImpl;
 import com.taotao.cloud.goods.application.dto.commodity.clientobject.CommoditySkuCO;
 import com.taotao.cloud.goods.application.service.CommodityQueryService;
-import com.taotao.cloud.goods.infrastructure.persistent.mapper.CommodityMapper;
-import com.taotao.cloud.goods.infrastructure.persistent.persistence.CommodityPO;
-import com.taotao.cloud.goods.infrastructure.persistent.repository.cls.CommodityRepository;
-import com.taotao.cloud.goods.infrastructure.persistent.repository.inf.ICommodityRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

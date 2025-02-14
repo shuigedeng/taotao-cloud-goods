@@ -17,10 +17,7 @@
 package com.taotao.cloud.goods.application.service;
 
 import com.taotao.boot.ddd.model.application.service.QueryService;
-import com.taotao.boot.webagg.service.BaseSuperService;
 import com.taotao.cloud.goods.application.dto.category.clientobject.CategoryTreeCO;
-import com.taotao.cloud.goods.application.dto.category.query.CategorySearchQry;
-import com.taotao.cloud.goods.infrastructure.persistent.persistence.CategoryPO;
 
 import java.util.List;
 import java.util.Map;
@@ -34,17 +31,17 @@ import java.util.Map;
  */
 public interface CategoryQueryService extends QueryService {
 
-	List<CategoryPO> childrenList(Long parentId);
-
-	CategoryPO getCategoryById(Long id);
-
-	/**
-	 * 管理端获取所有分类 即获取的对象不管是否删除，都要展示，而且不从缓存获取，保证内容是最新的
-	 *
-	 * @param parentId 分类父ID
-	 * @return 商品分类列表
-	 */
-	List<CategoryPO> dbList(String parentId);
+//	List<CategoryPO> childrenList(Long parentId);
+//
+//	CategoryPO getCategoryById(Long id);
+//
+//	/**
+//	 * 管理端获取所有分类 即获取的对象不管是否删除，都要展示，而且不从缓存获取，保证内容是最新的
+//	 *
+//	 * @param parentId 分类父ID
+//	 * @return 商品分类列表
+//	 */
+//	List<CategoryPO> dbList(String parentId);
 
 	/**
 	 * 获取分类
@@ -54,15 +51,15 @@ public interface CategoryQueryService extends QueryService {
 	 * @author shuigedeng
 	 * @since 2023-12-05 15:19
 	 */
-	CategoryPO getCategoryById(String id);
-
-	/**
-	 * 根据分类id集合获取所有分类根据层级排序
-	 *
-	 * @param ids 分类ID集合
-	 * @return 商品分类列表
-	 */
-	List<CategoryPO> listByIdsOrderByLevel(List<Long> ids);
+//	CategoryPO getCategoryById(String id);
+//
+//	/**
+//	 * 根据分类id集合获取所有分类根据层级排序
+//	 *
+//	 * @param ids 分类ID集合
+//	 * @return 商品分类列表
+//	 */
+//	List<CategoryPO> listByIdsOrderByLevel(List<Long> ids);
 
 	/**
 	 * 根据分类id集合获取所有分类根据层级排序
@@ -109,7 +106,7 @@ public interface CategoryQueryService extends QueryService {
 	 * @param category 分类
 	 * @return 商品分类list
 	 */
-	List<CategoryPO> findByAllBySortOrder(CategorySearchQry category);
+//	List<CategoryPO> findByAllBySortOrder(CategorySearchQry category);
 
 
 	/**
@@ -125,6 +122,6 @@ public interface CategoryQueryService extends QueryService {
 	 *
 	 * @return 分类列表
 	 */
-	List<CategoryPO> firstCategory();
+//	List<CategoryPO> firstCategory();
 
 }

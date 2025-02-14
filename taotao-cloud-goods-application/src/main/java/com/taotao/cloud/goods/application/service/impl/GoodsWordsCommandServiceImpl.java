@@ -16,12 +16,7 @@
 
 package com.taotao.cloud.goods.application.service.impl;
 
-import com.taotao.boot.webagg.service.impl.BaseSuperServiceImpl;
 import com.taotao.cloud.goods.application.service.GoodsWordsCommandService;
-import com.taotao.cloud.goods.infrastructure.persistent.mapper.GoodsWordsMapper;
-import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsWordsPO;
-import com.taotao.cloud.goods.infrastructure.persistent.repository.cls.GoodsWordsRepository;
-import com.taotao.cloud.goods.infrastructure.persistent.repository.inf.IGoodsWordsRepository;
 import org.springframework.stereotype.Service;
 
 /**

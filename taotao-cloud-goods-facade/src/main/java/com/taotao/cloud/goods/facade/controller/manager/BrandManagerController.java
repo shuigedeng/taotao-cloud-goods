@@ -21,7 +21,6 @@ import com.taotao.boot.common.model.PageResult;
 import com.taotao.boot.common.model.Result;
 import com.taotao.boot.data.mybatis.mybatisplus.MpUtils;
 import com.taotao.boot.web.request.annotation.RequestLogger;
-import com.taotao.cloud.goods.application.assembler.BrandAssembler;
 import com.taotao.cloud.goods.application.dto.brand.clientobject.BrandCO;
 import com.taotao.cloud.goods.application.dto.brand.cmmond.BrandAddCmd;
 import com.taotao.cloud.goods.application.dto.brand.cmmond.BrandUpdateCmd;

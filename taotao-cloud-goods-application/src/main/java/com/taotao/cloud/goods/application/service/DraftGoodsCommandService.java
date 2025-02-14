@@ -17,11 +17,9 @@
 package com.taotao.cloud.goods.application.service;
 
 import com.taotao.boot.ddd.model.application.service.CommandService;
-import com.taotao.boot.webagg.service.BaseSuperService;
 import com.taotao.cloud.goods.application.dto.draft.cmmond.DraftGoodsSkuParamsAddCmd;
 import com.taotao.cloud.goods.application.dto.draft.cmmond.DraftGoodsSkuParamsSaveCmd;
 import com.taotao.cloud.goods.application.dto.draft.cmmond.DraftGoodsSkuParamsUpdateCmd;
-import com.taotao.cloud.goods.infrastructure.persistent.persistence.DraftGoodsPO;
 
 /**
  * 草稿商品业务层

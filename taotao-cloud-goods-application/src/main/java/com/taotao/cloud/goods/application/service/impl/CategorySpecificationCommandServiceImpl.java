@@ -16,18 +16,9 @@
 
 package com.taotao.cloud.goods.application.service.impl;
 
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.taotao.boot.webagg.service.impl.BaseSuperServiceImpl;
 import com.taotao.cloud.goods.application.service.CategorySpecificationCommandService;
-import com.taotao.cloud.goods.infrastructure.persistent.mapper.CategorySpecificationMapper;
-import com.taotao.cloud.goods.infrastructure.persistent.persistence.CategorySpecificationPO;
-import com.taotao.cloud.goods.infrastructure.persistent.persistence.SpecificationPO;
-import com.taotao.cloud.goods.infrastructure.persistent.repository.cls.CategorySpecificationRepository;
-import com.taotao.cloud.goods.infrastructure.persistent.repository.inf.ICategorySpecificationRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 /**
  * 商品分类规格业务层实现
@@ -41,11 +32,15 @@ import java.util.List;
 public class CategorySpecificationCommandServiceImpl
 
 	implements CategorySpecificationCommandService {
-
-
 	@Override
 	public boolean deleteByCategoryId(Long categoryId) {
-		return im().delete(new LambdaQueryWrapper<CategorySpecificationPO>()
-			.eq(CategorySpecificationPO::categoryId, categoryId)) > 0;
+		return false;
 	}
+
+//
+//	@Override
+//	public boolean deleteByCategoryId(Long categoryId) {
+//		return im().delete(new LambdaQueryWrapper<CategorySpecificationPO>()
+//			.eq(CategorySpecificationPO::categoryId, categoryId)) > 0;
+//	}
 }

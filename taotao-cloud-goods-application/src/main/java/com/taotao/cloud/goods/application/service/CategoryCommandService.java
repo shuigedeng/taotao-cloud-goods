@@ -17,10 +17,8 @@
 package com.taotao.cloud.goods.application.service;
 
 import com.taotao.boot.ddd.model.application.service.CommandService;
-import com.taotao.boot.webagg.service.BaseSuperService;
 import com.taotao.cloud.goods.application.dto.category.cmmond.CategoryAddCmd;
 import com.taotao.cloud.goods.application.dto.category.cmmond.CategoryUpdateCmd;
-import com.taotao.cloud.goods.infrastructure.persistent.persistence.CategoryPO;
 
 /**
  * 商品分类业务层

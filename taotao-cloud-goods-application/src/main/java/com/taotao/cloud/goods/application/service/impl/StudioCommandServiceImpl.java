@@ -16,44 +16,9 @@
 
 package com.taotao.cloud.goods.application.service.impl;
 
-import cn.hutool.core.convert.Convert;
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.taotao.boot.common.enums.ResultEnum;
-import com.taotao.boot.common.exception.BusinessException;
-import com.taotao.boot.common.model.PageQuery;
-import com.taotao.boot.common.utils.bean.BeanUtils;
-import com.taotao.boot.common.utils.common.OrikaUtils;
-import com.taotao.boot.webagg.service.impl.BaseSuperServiceImpl;
-import com.taotao.cloud.goods.application.dto.commodity.clientobject.CommodityCO;
-import com.taotao.cloud.goods.application.dto.store.clientobject.StudioCommodityCO;
-import com.taotao.cloud.goods.application.service.GoodsCommandService;
-import com.taotao.cloud.goods.application.service.StudioCommodityCommandService;
 import com.taotao.cloud.goods.application.service.StudioCommandService;
-import com.taotao.cloud.goods.infrastructure.persistent.mapper.CommodityMapper;
-import com.taotao.cloud.goods.infrastructure.persistent.mapper.StudioMapper;
-import com.taotao.boot.security.spring.utils.SecurityUtils;
-import com.taotao.boot.common.utils.date.DateUtils;
-import com.taotao.cloud.goods.infrastructure.persistent.persistence.CommodityPO;
-import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsPO;
-import com.taotao.cloud.goods.infrastructure.persistent.persistence.StudioCommodityPO;
-import com.taotao.cloud.goods.infrastructure.persistent.persistence.StudioPO;
-import com.taotao.cloud.goods.infrastructure.persistent.repository.cls.StudioRepository;
-import com.taotao.cloud.goods.infrastructure.persistent.repository.inf.IStudioRepository;
-import com.taotao.cloud.stream.framework.trigger.enums.DelayTypeEnums;
-import com.taotao.cloud.stream.framework.trigger.interfaces.TimeTrigger;
 import com.taotao.cloud.stream.framework.trigger.message.BroadcastMessage;
-import com.taotao.cloud.stream.framework.trigger.model.TimeExecuteConstant;
-import com.taotao.cloud.stream.framework.trigger.model.TimeTriggerMsg;
-import com.taotao.cloud.stream.framework.trigger.util.DelayQueueTools;
-import com.taotao.cloud.stream.properties.RocketmqCustomProperties;
-import java.util.List;
-import java.util.Map;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 /**
  * 小程序直播间业务层实现
@@ -65,15 +30,15 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class StudioCommandServiceImpl
         implements StudioCommandService {
-	@Override
-	public boolean create(StudioPO studioPO) {
-		return false;
-	}
-
-	@Override
-	public boolean edit(StudioPO studioPO) {
-		return false;
-	}
+//	@Override
+//	public boolean create(StudioPO studioPO) {
+//		return false;
+//	}
+//
+//	@Override
+//	public boolean edit(StudioPO studioPO) {
+//		return false;
+//	}
 
 	@Override
 	public boolean push(Integer roomId, Long goodsId, Long storeId) {

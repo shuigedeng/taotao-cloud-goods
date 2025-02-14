@@ -22,7 +22,6 @@ import com.taotao.boot.common.model.PageResult;
 import com.taotao.boot.common.model.Result;
 import com.taotao.boot.data.mybatis.mybatisplus.MpUtils;
 import com.taotao.boot.web.request.annotation.RequestLogger;
-import com.taotao.cloud.goods.application.assembler.GoodsUnitAssembler;
 import com.taotao.cloud.goods.application.dto.goods.clientobject.GoodsUnitCO;
 import com.taotao.cloud.goods.application.service.GoodsUnitCommandService;
 import com.taotao.cloud.goods.application.service.GoodsUnitQueryService;

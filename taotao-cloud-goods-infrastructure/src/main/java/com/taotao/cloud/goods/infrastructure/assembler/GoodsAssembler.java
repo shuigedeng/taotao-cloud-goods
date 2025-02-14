@@ -14,46 +14,31 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.application.assembler;
+package com.taotao.cloud.goods.infrastructure.assembler;
 
-import java.util.List;
-
-import com.taotao.cloud.goods.application.dto.specification.clientobject.SpecificationCO;
-import com.taotao.cloud.goods.infrastructure.persistent.persistence.SpecificationPO;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 import org.mapstruct.factory.Mappers;
 
 /**
- * ISpecificationMapStruct
+ * IGoodsSkuMapStruct
  *
  * @author shuigedeng
  * @version 2022.04
- * @since 2022-04-27 16:58:30
+ * @since 2022-04-27 16:58:21
  */
 @Mapper(unmappedSourcePolicy = ReportingPolicy.IGNORE, unmappedTargetPolicy = ReportingPolicy.IGNORE)
-public interface SpecificationAssembler {
+public interface GoodsAssembler {
 
     /** 实例 */
-    SpecificationAssembler INSTANCE = Mappers.getMapper(SpecificationAssembler.class);
+    GoodsAssembler INSTANCE = Mappers.getMapper(GoodsAssembler.class);
 
     /**
-     * 规范来规范vos
+     * 货物货物签证官
      *
-     * @param specifications 规范
-     * @return {@link List }<{@link SpecificationVO }>
-     * @since 2022-04-27 16:58:30
+     * @param goods 货物
+     * @return {@link GoodsSkuParamsVO }
+     * @since 2022-04-27 16:58:21
      */
-    List<SpecificationCO> convert(List<SpecificationPO> specifications);
-
-	SpecificationCO convert(SpecificationPO specification);
-
-    /**
-     * 规范dtoto规范
-     *
-     * @param specificationDTO 规范dto
-     * @return {@link Specification }
-     * @since 2022-04-27 16:58:30
-     */
-	//SpecificationPO convert(SpecificationDTO specificationDTO);
+    //GoodsSkuParamsVO convert(Goods goods);
 }

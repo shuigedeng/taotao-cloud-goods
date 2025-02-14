@@ -14,33 +14,35 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.application.assembler;
+package com.taotao.cloud.goods.infrastructure.assembler;
 
+import com.taotao.cloud.goods.application.dto.category.clientobject.CategoryBrandCO;
+import com.taotao.cloud.goods.infrastructure.dataobject.CategoryBrandDO;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 import org.mapstruct.factory.Mappers;
 
+import java.util.List;
+
 /**
- * IGoodsSkuMapStruct
+ * ICategoryMapStruct
  *
  * @author shuigedeng
  * @version 2022.04
- * @since 2022-04-27 16:58:24
+ * @since 2022-04-27 16:58:05
  */
 @Mapper(unmappedSourcePolicy = ReportingPolicy.IGNORE, unmappedTargetPolicy = ReportingPolicy.IGNORE)
-public interface GoodsSkuAssembler {
+public interface CategoryBrandAssembler {
 
     /** 实例 */
-    GoodsSkuAssembler INSTANCE = Mappers.getMapper(GoodsSkuAssembler.class);
+    CategoryBrandAssembler INSTANCE = Mappers.getMapper(CategoryBrandAssembler.class);
 
-    ///**
-    // * 产品sku产品sku签证官
-    // *
-    // * @param goodsSku 产品sku
-    // * @return {@link GoodsSkuSpecGalleryVO }
-    // * @since 2022-04-27 16:58:24
-    // */
-    //GoodsSkuSpecGalleryVO convertGallery(GoodsSku goodsSku);
-	//
-    //GoodsSkuVO convert(GoodsSku goodsSku);
+    /**
+     * 类别基础vos思想史范畴
+     *
+     * @param categorys 思想史范畴
+     * @return {@link List }<{@link CategoryVO }>
+     * @since 2022-04-27 16:58:05
+     */
+	List<CategoryBrandCO> convert(List<CategoryBrandDO> categoryBrandList);
 }

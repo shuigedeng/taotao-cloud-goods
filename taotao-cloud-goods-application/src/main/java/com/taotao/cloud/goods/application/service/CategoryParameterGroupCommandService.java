@@ -18,11 +18,7 @@ package com.taotao.cloud.goods.application.service;
 
 
 import com.taotao.boot.ddd.model.application.service.CommandService;
-import com.taotao.boot.webagg.service.BaseSuperService;
 import com.taotao.cloud.goods.application.dto.category.cmmond.CategoryParameterGroupAddCmd;
-import com.taotao.cloud.goods.application.dto.parameter.clientobject.ParameterGroupCO;
-import com.taotao.cloud.goods.infrastructure.persistent.persistence.CategoryParameterGroupPO;
-import java.util.List;
 
 /**
  * 分类绑定参数组业务层

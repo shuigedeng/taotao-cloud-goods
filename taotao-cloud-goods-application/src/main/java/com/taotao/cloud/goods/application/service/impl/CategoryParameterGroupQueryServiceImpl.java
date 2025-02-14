@@ -16,28 +16,14 @@
 
 package com.taotao.cloud.goods.application.service.impl;
 
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
-import com.taotao.boot.common.enums.ResultEnum;
-import com.taotao.boot.common.exception.BusinessException;
-import com.taotao.boot.webagg.service.impl.BaseSuperServiceImpl;
 import com.taotao.cloud.goods.application.dto.parameter.clientobject.ParameterGroupCO;
 import com.taotao.cloud.goods.application.service.CategoryParameterGroupQueryService;
 import com.taotao.cloud.goods.application.service.GoodsCommandService;
 import com.taotao.cloud.goods.application.service.ParametersCommandService;
-import com.taotao.cloud.goods.infrastructure.persistent.mapper.CategoryParameterGroupMapper;
-import com.taotao.cloud.goods.infrastructure.persistent.persistence.CategoryParameterGroupPO;
-import com.taotao.cloud.goods.infrastructure.persistent.repository.cls.CategoryParameterGroupRepository;
-import com.taotao.cloud.goods.infrastructure.persistent.repository.inf.ICategoryParameterGroupRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * 分类绑定参数组接口实现
@@ -71,12 +57,12 @@ public class CategoryParameterGroupQueryServiceImpl
 		return null;
 	}
 
-	@Override
-	public List<CategoryParameterGroupPO> getCategoryGroup(Long categoryId) {
-		QueryWrapper<CategoryParameterGroupPO> queryWrapper = new QueryWrapper<>();
-		queryWrapper.eq("category_id", categoryId);
-		return this.list(queryWrapper);
-	}
+//	@Override
+//	public List<CategoryParameterGroupPO> getCategoryGroup(Long categoryId) {
+//		QueryWrapper<CategoryParameterGroupPO> queryWrapper = new QueryWrapper<>();
+//		queryWrapper.eq("category_id", categoryId);
+//		return this.list(queryWrapper);
+//	}
 
 
 	/**

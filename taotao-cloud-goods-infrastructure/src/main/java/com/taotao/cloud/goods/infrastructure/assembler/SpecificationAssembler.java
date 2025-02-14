@@ -14,45 +14,46 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.application.assembler;
+package com.taotao.cloud.goods.infrastructure.assembler;
 
-import java.util.List;
-
-import com.taotao.cloud.goods.application.dto.category.clientobject.CategoryCO;
-import com.taotao.cloud.goods.application.dto.category.clientobject.CategoryTreeCO;
-import com.taotao.cloud.goods.infrastructure.persistent.persistence.CategoryPO;
+import com.taotao.cloud.goods.application.dto.specification.clientobject.SpecificationCO;
+import com.taotao.cloud.goods.infrastructure.persistent.persistence.SpecificationPO;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 import org.mapstruct.factory.Mappers;
 
+import java.util.List;
+
 /**
- * ICategoryMapStruct
+ * ISpecificationMapStruct
  *
  * @author shuigedeng
  * @version 2022.04
- * @since 2022-04-27 16:58:05
+ * @since 2022-04-27 16:58:30
  */
 @Mapper(unmappedSourcePolicy = ReportingPolicy.IGNORE, unmappedTargetPolicy = ReportingPolicy.IGNORE)
-public interface CategoryAssembler {
+public interface SpecificationAssembler {
 
     /** 实例 */
-    CategoryAssembler INSTANCE = Mappers.getMapper(CategoryAssembler.class);
+    SpecificationAssembler INSTANCE = Mappers.getMapper(SpecificationAssembler.class);
 
     /**
-     * 类别,类别签证官
+     * 规范来规范vos
      *
-     * @param category 类别
-     * @return {@link CategoryTreeVO }
-     * @since 2022-04-27 16:58:05
+     * @param specifications 规范
+     * @return {@link List }<{@link SpecificationVO }>
+     * @since 2022-04-27 16:58:30
      */
-    CategoryTreeCO convert(CategoryPO category);
+    List<SpecificationCO> convert(List<SpecificationPO> specifications);
+
+	SpecificationCO convert(SpecificationPO specification);
 
     /**
-     * 类别基础vos思想史范畴
+     * 规范dtoto规范
      *
-     * @param categorys 思想史范畴
-     * @return {@link List }<{@link CategoryVO }>
-     * @since 2022-04-27 16:58:05
+     * @param specificationDTO 规范dto
+     * @return {@link Specification }
+     * @since 2022-04-27 16:58:30
      */
-    List<CategoryCO> convert(List<CategoryPO> categorys);
+	//SpecificationPO convert(SpecificationDTO specificationDTO);
 }

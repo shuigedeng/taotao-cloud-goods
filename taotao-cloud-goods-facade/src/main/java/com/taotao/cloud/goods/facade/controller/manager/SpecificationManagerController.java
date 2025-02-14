@@ -21,7 +21,6 @@ import com.taotao.boot.common.model.PageResult;
 import com.taotao.boot.common.model.Result;
 import com.taotao.boot.data.mybatis.mybatisplus.MpUtils;
 import com.taotao.boot.web.request.annotation.RequestLogger;
-import com.taotao.cloud.goods.application.assembler.SpecificationAssembler;
 import com.taotao.cloud.goods.application.dto.specification.clientobject.SpecificationCO;
 import com.taotao.cloud.goods.application.dto.specification.query.SpecificationPageQry;
 import com.taotao.cloud.goods.application.service.SpecificationCommandService;
@@ -30,7 +29,6 @@ import com.taotao.cloud.goods.infrastructure.persistent.persistence.Specificatio
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.Parameters;
-import io.swagger.v3.oas.annotations.enums.ParameterIn;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;

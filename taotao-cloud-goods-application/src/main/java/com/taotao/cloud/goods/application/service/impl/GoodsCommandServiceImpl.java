@@ -16,46 +16,14 @@
 
 package com.taotao.cloud.goods.application.service.impl;
 
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import com.p6spy.engine.logging.Category;
-import com.taotao.boot.cache.redis.repository.RedisRepository;
-import com.taotao.boot.common.enums.ResultEnum;
-import com.taotao.boot.common.exception.BusinessException;
-import com.taotao.boot.common.utils.log.LogUtils;
-import com.taotao.boot.webagg.service.impl.BaseSuperServiceImpl;
 import com.taotao.cloud.goods.api.enums.GoodsAuthEnum;
 import com.taotao.cloud.goods.api.enums.GoodsStatusEnum;
-import com.taotao.cloud.goods.application.dto.goods.clientobject.GoodsSkuParamsCO;
-import com.taotao.cloud.goods.application.dto.goods.clientobject.GoodsSkuSpecGalleryCO;
 import com.taotao.cloud.goods.application.dto.goods.cmmond.GoodsAddCmd;
-import com.taotao.cloud.goods.application.manager.GoodsManager;
-import com.taotao.cloud.goods.application.service.CategoryCommandService;
 import com.taotao.cloud.goods.application.service.GoodsCommandService;
-import com.taotao.cloud.goods.application.service.GoodsSkuCommandService;
-import com.taotao.cloud.goods.infrastructure.persistent.mapper.GoodsMapper;
-import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsPO;
-import com.taotao.cloud.goods.infrastructure.persistent.repository.cls.GoodsRepository;
-import com.taotao.cloud.goods.infrastructure.persistent.repository.inf.IGoodsRepository;
-import com.taotao.cloud.stream.framework.rocketmq.RocketmqSendCallbackBuilder;
-import com.taotao.cloud.stream.framework.rocketmq.tags.GoodsTagsEnum;
-import com.taotao.cloud.stream.properties.RocketmqCustomProperties;
 import lombok.AllArgsConstructor;
-import org.apache.rocketmq.spring.core.RocketMQTemplate;
-import org.dromara.hutool.core.math.NumberUtil;
-import org.dromara.hutool.core.text.StrUtil;
-import org.dromara.hutool.json.JSONUtil;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
-import java.math.BigDecimal;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
-import java.util.Objects;
 
 /**
  * 商品业务层实现

@@ -16,61 +16,12 @@
 
 package com.taotao.cloud.goods.application.service.impl;
 
-import cn.hutool.core.convert.Convert;
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import com.taotao.boot.cache.redis.repository.RedisRepository;
-import com.taotao.boot.common.enums.PromotionTypeEnum;
-import com.taotao.boot.common.enums.ResultEnum;
-import com.taotao.boot.common.enums.UserEnum;
-import com.taotao.boot.common.exception.BusinessException;
-import com.taotao.boot.security.spring.utils.SecurityUtils;
-import com.taotao.boot.webagg.service.impl.BaseSuperServiceImpl;
-import com.taotao.cloud.goods.application.dto.goods.clientobject.GoodsSkuParamsCO;
-import com.taotao.cloud.goods.application.dto.goods.clientobject.GoodsSkuSpecGalleryCO;
-import com.taotao.cloud.goods.application.dto.goods.cmmond.GoodsAddCmd;
 import com.taotao.cloud.goods.application.dto.goods.cmmond.GoodsSkuStockUpdateCmd;
-import com.taotao.cloud.goods.application.dto.goods.query.GoodsPageQry;
-import com.taotao.cloud.goods.application.dto.specification.clientobject.SpecValueCO;
-import com.taotao.cloud.goods.application.manager.GoodsManager;
-import com.taotao.cloud.goods.application.service.CategoryCommandService;
-import com.taotao.cloud.goods.application.service.EsGoodsCommandService;
-import com.taotao.cloud.goods.application.service.GoodsCommandService;
-import com.taotao.cloud.goods.application.service.GoodsGalleryCommandService;
 import com.taotao.cloud.goods.application.service.GoodsSkuCommandService;
-import com.taotao.cloud.goods.common.enums.SettingCategoryEnum;
-import com.taotao.cloud.goods.infrastructure.persistent.mapper.GoodsSkuMapper;
-import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsPO;
-import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsSkuPO;
-import com.taotao.cloud.goods.infrastructure.persistent.repository.cls.GoodsSkuRepository;
-import com.taotao.cloud.goods.infrastructure.persistent.repository.inf.IGoodsSkuRepository;
-import com.taotao.cloud.stream.framework.rocketmq.RocketmqSendCallbackBuilder;
-import com.taotao.cloud.stream.framework.rocketmq.tags.GoodsTagsEnum;
 import lombok.AllArgsConstructor;
-import org.dromara.dynamictp.common.util.StringUtil;
-import org.dromara.hutool.core.map.MapUtil;
-import org.dromara.hutool.core.math.NumberUtil;
-import org.dromara.hutool.json.JSONObject;
-import org.dromara.hutool.json.JSONUtil;
-import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Objects;
-import java.util.Optional;
-import java.util.Set;
-import java.util.stream.Collectors;
 
 /**
  * 商品sku业务层实现
@@ -84,27 +35,7 @@ import java.util.stream.Collectors;
 public class GoodsSkuCommandServiceImpl
 	implements GoodsSkuCommandService {
 	@Override
-	public boolean add(GoodsPO goods, GoodsAddCmd goodsAddCmd) {
-		return false;
-	}
-
-	@Override
-	public boolean update(GoodsPO goods, GoodsAddCmd goodsAddCmd) {
-		return false;
-	}
-
-	@Override
-	public boolean update(GoodsSkuPO goodsSkuPO) {
-		return false;
-	}
-
-	@Override
 	public boolean clearCache(Long skuId) {
-		return false;
-	}
-
-	@Override
-	public boolean updateGoodsSkuStatus(GoodsPO goods) {
 		return false;
 	}
 
@@ -124,24 +55,68 @@ public class GoodsSkuCommandServiceImpl
 	}
 
 	@Override
-	public boolean updateGoodsStuck(List<GoodsSkuPO> goodsSkusPOS) {
-		return false;
-	}
-
-	@Override
 	public boolean updateGoodsSkuCommentNum(Long skuId) {
 		return false;
 	}
-
-	@Override
-	public boolean deleteAndInsertGoodsSkus(List<GoodsSkuPO> goodsSkusPOS) {
-		return false;
-	}
-
-	@Override
-	public void renderGoodsSkuList(List<GoodsSkuPO> goodsSkuPOList, GoodsAddCmd goodsAddCmd) {
-
-	}
+//	@Override
+//	public boolean add(GoodsPO goods, GoodsAddCmd goodsAddCmd) {
+//		return false;
+//	}
+//
+//	@Override
+//	public boolean update(GoodsPO goods, GoodsAddCmd goodsAddCmd) {
+//		return false;
+//	}
+//
+//	@Override
+//	public boolean update(GoodsSkuPO goodsSkuPO) {
+//		return false;
+//	}
+//
+//	@Override
+//	public boolean clearCache(Long skuId) {
+//		return false;
+//	}
+//
+//	@Override
+//	public boolean updateGoodsSkuStatus(GoodsPO goods) {
+//		return false;
+//	}
+//
+//	@Override
+//	public boolean updateGoodsSkuStatusByStoreId(Long storeId, String marketEnable, String authFlag) {
+//		return false;
+//	}
+//
+//	@Override
+//	public boolean updateStocks(List<GoodsSkuStockUpdateCmd> goodsSkuStockUpdateCmds) {
+//		return false;
+//	}
+//
+//	@Override
+//	public boolean updateStock(Long skuId, Integer quantity) {
+//		return false;
+//	}
+//
+//	@Override
+//	public boolean updateGoodsStuck(List<GoodsSkuPO> goodsSkusPOS) {
+//		return false;
+//	}
+//
+//	@Override
+//	public boolean updateGoodsSkuCommentNum(Long skuId) {
+//		return false;
+//	}
+//
+//	@Override
+//	public boolean deleteAndInsertGoodsSkus(List<GoodsSkuPO> goodsSkusPOS) {
+//		return false;
+//	}
+//
+//	@Override
+//	public void renderGoodsSkuList(List<GoodsSkuPO> goodsSkuPOList, GoodsAddCmd goodsAddCmd) {
+//
+//	}
 
 	//private final GoodsSkuManager goodsSkuManager;
 	//private final GoodsManager goodsManager;

@@ -17,10 +17,6 @@
 package com.taotao.cloud.goods.application.service;
 
 import com.taotao.boot.ddd.model.application.service.CommandService;
-import com.taotao.boot.webagg.service.BaseSuperService;
-import com.taotao.cloud.goods.infrastructure.persistent.persistence.CategorySpecificationPO;
-import com.taotao.cloud.goods.infrastructure.persistent.persistence.SpecificationPO;
-import java.util.List;
 
 /**
  * 商品分类规格业务层
@@ -32,12 +28,12 @@ import java.util.List;
 public interface CategorySpecificationCommandService extends CommandService {
 
 
-    /**
-     * 通过分类ID删除关联规格
-     *
-     * @param categoryId 分类ID
-     * @return {@link boolean }
-     * @since 2022-04-27 16:59:40
-     */
-    boolean deleteByCategoryId(Long categoryId);
+	/**
+	 * 通过分类ID删除关联规格
+	 *
+	 * @param categoryId 分类ID
+	 * @return {@link boolean }
+	 * @since 2022-04-27 16:59:40
+	 */
+	boolean deleteByCategoryId(Long categoryId);
 }

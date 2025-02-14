@@ -16,55 +16,8 @@
 
 package com.taotao.cloud.goods.application.service.impl;
 
-import cn.hutool.core.thread.ThreadUtil;
-import cn.hutool.core.util.ReflectUtil;
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.taotao.boot.cache.redis.repository.RedisRepository;
-import com.taotao.boot.common.enums.PromotionTypeEnum;
-import com.taotao.boot.common.utils.log.LogUtils;
-import com.taotao.cloud.goods.application.service.CategoryCommandService;
-import com.taotao.cloud.goods.application.service.CustomWordsCommandService;
 import com.taotao.cloud.goods.application.service.EsGoodsCommandService;
-import com.taotao.cloud.goods.application.service.GoodsSkuCommandService;
-import com.taotao.cloud.goods.application.service.StoreGoodsLabelCommandService;
-import com.taotao.cloud.stream.framework.rocketmq.RocketmqSendCallbackBuilder;
-import com.taotao.cloud.stream.framework.rocketmq.tags.GoodsTagsEnum;
-import com.taotao.cloud.stream.properties.RocketmqCustomProperties;
-import org.apache.rocketmq.spring.core.RocketMQTemplate;
-import org.dromara.hutool.core.collection.CollUtil;
-import org.dromara.hutool.core.text.CharSequenceUtil;
-import org.dromara.hutool.json.JSONObject;
-import org.dromara.hutool.json.JSONUtil;
-import org.elasticsearch.action.bulk.BulkRequest;
-import org.elasticsearch.action.bulk.BulkResponse;
-import org.elasticsearch.action.update.UpdateRequest;
-import org.elasticsearch.client.RequestOptions;
-import org.elasticsearch.index.query.BoolQueryBuilder;
-import org.elasticsearch.index.query.QueryBuilders;
-import org.elasticsearch.index.query.TermQueryBuilder;
-import org.elasticsearch.index.reindex.BulkByScrollResponse;
-import org.elasticsearch.index.reindex.DeleteByQueryRequest;
-import org.elasticsearch.index.reindex.UpdateByQueryRequest;
-import org.elasticsearch.script.Script;
-import org.elasticsearch.script.ScriptType;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.elasticsearch.core.ElasticsearchOperations;
-import org.springframework.data.elasticsearch.core.SearchHit;
-import org.springframework.data.elasticsearch.core.SearchPage;
-import org.springframework.retry.RetryException;
 import org.springframework.stereotype.Service;
-
-import java.io.IOException;
-import java.lang.reflect.Field;
-import java.util.*;
-import java.util.concurrent.TimeUnit;
-import java.util.stream.Collectors;
-
-import static com.taotao.boot.common.enums.CachePrefixEnum.INIT_INDEX_FLAG;
-import static com.taotao.boot.common.enums.CachePrefixEnum.INIT_INDEX_PROCESS;
 
 /**
  * 商品索引业务层实现
