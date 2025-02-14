@@ -52,7 +52,6 @@ import java.util.Map;
 @AllArgsConstructor
 @Service
 public class DraftGoodsQueryServiceImpl
-	extends BaseSuperServiceImpl<DraftGoodsPO, Long, DraftGoodsMapper, DraftGoodsRepository, IDraftGoodsRepository>
 	implements DraftGoodsQueryService {
 	@Override
 	public DraftGoodsSkuParamsCO getDraftGoods(Long id) {

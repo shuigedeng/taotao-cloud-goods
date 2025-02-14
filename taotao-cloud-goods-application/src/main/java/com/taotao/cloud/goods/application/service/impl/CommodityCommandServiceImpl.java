@@ -54,8 +54,6 @@ import java.util.List;
 @AllArgsConstructor
 @Service
 public class CommodityCommandServiceImpl
-	extends
-	BaseSuperServiceImpl<CommodityPO, Long, CommodityMapper, CommodityRepository, ICommodityRepository>
 	implements CommodityCommandService {
 
 	//private final WechatLivePlayerUtil wechatLivePlayerUtil;

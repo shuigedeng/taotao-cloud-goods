@@ -66,7 +66,7 @@ import java.util.Objects;
  */
 @Service
 @AllArgsConstructor
-public class GoodsCommandServiceImpl extends BaseSuperServiceImpl<GoodsPO, Long, GoodsMapper, GoodsRepository, IGoodsRepository>
+public class GoodsCommandServiceImpl
 	implements GoodsCommandService {
 	@Override
 	public boolean underStoreGoods(Long storeId) {

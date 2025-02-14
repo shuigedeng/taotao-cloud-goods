@@ -49,8 +49,6 @@ import java.util.Objects;
  */
 @Service
 public class StoreGoodsLabelQueryServiceImpl
-	extends
-	BaseSuperServiceImpl<StoreGoodsLabelPO, Long, StoreGoodsLabelMapper, StoreGoodsLabelRepository, IStoreGoodsLabelRepository>
 	implements StoreGoodsLabelQueryService {
 
 	/**

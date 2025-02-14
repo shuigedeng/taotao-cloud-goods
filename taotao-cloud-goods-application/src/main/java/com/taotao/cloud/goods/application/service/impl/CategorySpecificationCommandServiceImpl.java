@@ -39,12 +39,7 @@ import java.util.List;
 @Service
 @AllArgsConstructor
 public class CategorySpecificationCommandServiceImpl
-	extends BaseSuperServiceImpl<
-	CategorySpecificationPO,
-	Long,
-	CategorySpecificationMapper,
-	CategorySpecificationRepository,
-	ICategorySpecificationRepository>
+
 	implements CategorySpecificationCommandService {
 
 

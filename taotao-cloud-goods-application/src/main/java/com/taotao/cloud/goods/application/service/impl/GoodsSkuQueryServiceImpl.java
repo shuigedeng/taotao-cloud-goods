@@ -86,8 +86,6 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 @Service
 public class GoodsSkuQueryServiceImpl
-	extends
-	BaseSuperServiceImpl<GoodsSkuPO, Long, GoodsSkuMapper, GoodsSkuRepository, IGoodsSkuRepository>
 	implements GoodsSkuQueryService {
 	@Override
 	public GoodsSkuPO getGoodsSkuByIdFromCache(Long skuId) {

@@ -20,6 +20,7 @@ import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 
+import com.taotao.boot.ddd.model.application.service.CommandService;
 import com.taotao.boot.webagg.service.BaseSuperService;
 import com.taotao.cloud.goods.application.dto.goods.clientobject.GoodsSkuCO;
 import com.taotao.cloud.goods.application.dto.goods.cmmond.GoodsAddCmd;
@@ -39,7 +40,7 @@ import java.util.Map;
  * @see BaseSuperService
  * @since 2023-08-18 16:00:58
  */
-public interface GoodsSkuCommandService extends BaseSuperService<GoodsSkuPO, Long> {
+public interface GoodsSkuCommandService extends CommandService {
 	///**
 	// * 获取商品SKU缓存ID
 	// *

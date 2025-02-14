@@ -17,6 +17,7 @@
 package com.taotao.cloud.goods.application.service;
 
 
+import com.taotao.boot.ddd.model.application.service.CommandService;
 import com.taotao.boot.webagg.service.BaseSuperService;
 import com.taotao.cloud.goods.application.dto.category.cmmond.CategoryParameterGroupAddCmd;
 import com.taotao.cloud.goods.application.dto.parameter.clientobject.ParameterGroupCO;
@@ -30,8 +31,7 @@ import java.util.List;
  * @version 2022.04
  * @since 2022-04-27 16:59:23
  */
-public interface CategoryParameterGroupCommandService extends
-	BaseSuperService<CategoryParameterGroupPO, Long> {
+public interface CategoryParameterGroupCommandService extends CommandService {
 
 
 

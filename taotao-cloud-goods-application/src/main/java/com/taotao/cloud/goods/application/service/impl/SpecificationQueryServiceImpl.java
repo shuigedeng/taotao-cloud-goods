@@ -49,8 +49,6 @@ import java.util.List;
 @AllArgsConstructor
 @Service
 public class SpecificationQueryServiceImpl
-	extends
-	BaseSuperServiceImpl<SpecificationPO, Long, SpecificationMapper, SpecificationRepository, ISpecificationRepository>
 	implements SpecificationQueryService {
 
 	/**

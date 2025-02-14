@@ -16,6 +16,7 @@
 
 package com.taotao.cloud.goods.application.service;
 
+import com.taotao.boot.ddd.model.application.service.CommandService;
 import com.taotao.boot.webagg.service.BaseSuperService;
 import com.taotao.cloud.goods.application.dto.draft.cmmond.DraftGoodsSkuParamsAddCmd;
 import com.taotao.cloud.goods.application.dto.draft.cmmond.DraftGoodsSkuParamsSaveCmd;
@@ -29,7 +30,7 @@ import com.taotao.cloud.goods.infrastructure.persistent.persistence.DraftGoodsPO
  * @version 2022.04
  * @since 2022-04-27 16:59:56
  */
-public interface DraftGoodsCommandService extends BaseSuperService<DraftGoodsPO, Long> {
+public interface DraftGoodsCommandService extends CommandService {
 
 	/**
 	 * 添加草稿商品

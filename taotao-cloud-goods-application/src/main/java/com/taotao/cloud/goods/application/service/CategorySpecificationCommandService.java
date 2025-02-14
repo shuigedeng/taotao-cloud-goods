@@ -16,6 +16,7 @@
 
 package com.taotao.cloud.goods.application.service;
 
+import com.taotao.boot.ddd.model.application.service.CommandService;
 import com.taotao.boot.webagg.service.BaseSuperService;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.CategorySpecificationPO;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.SpecificationPO;
@@ -28,8 +29,7 @@ import java.util.List;
  * @version 2022.04
  * @since 2022-04-27 16:59:40
  */
-public interface CategorySpecificationCommandService extends
-	BaseSuperService<CategorySpecificationPO, Long> {
+public interface CategorySpecificationCommandService extends CommandService {
 
 
     /**

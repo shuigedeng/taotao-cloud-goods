@@ -64,7 +64,6 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Service
 public class StudioCommandServiceImpl
-        extends BaseSuperServiceImpl<StudioPO, Long, StudioMapper, StudioRepository, IStudioRepository>
         implements StudioCommandService {
 	@Override
 	public boolean create(StudioPO studioPO) {

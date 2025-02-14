@@ -44,7 +44,6 @@ import java.util.List;
 @AllArgsConstructor
 @Service
 public class GoodsGalleryQueryServiceImpl
-	extends BaseSuperServiceImpl<GoodsGalleryPO, Long, GoodsGalleryMapper, GoodsGalleryRepository, IGoodsGalleryRepository>
 	implements GoodsGalleryQueryService {
 	@Override
 	public GoodsGalleryPO getGoodsGallery(String origin) {

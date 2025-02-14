@@ -17,8 +17,7 @@
 package com.taotao.cloud.goods.application.service;
 
 
-import com.taotao.boot.webagg.service.BaseSuperService;
-import com.taotao.cloud.goods.infrastructure.persistent.persistence.StudioCommodityPO;
+import com.taotao.boot.ddd.model.application.service.QueryService;
 
 /**
  * 直播间-商品关联业务层
@@ -27,4 +26,4 @@ import com.taotao.cloud.goods.infrastructure.persistent.persistence.StudioCommod
  * @version 2022.04
  * @since 2022-04-27 17:01:08
  */
-public interface StudioCommodityQueryService extends BaseSuperService<StudioCommodityPO, Long> {}
+public interface StudioCommodityQueryService extends QueryService {}

@@ -48,12 +48,7 @@ import java.util.Map;
  */
 @AllArgsConstructor
 @Service
-public class CategoryParameterGroupQueryServiceImpl extends BaseSuperServiceImpl<
-	CategoryParameterGroupPO,
-	Long,
-	CategoryParameterGroupMapper,
-	CategoryParameterGroupRepository,
-	ICategoryParameterGroupRepository>
+public class CategoryParameterGroupQueryServiceImpl
 	implements CategoryParameterGroupQueryService {
 
 	/**

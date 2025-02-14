@@ -46,8 +46,7 @@ import org.springframework.stereotype.Service;
 @AllArgsConstructor
 @Service
 @CacheConfig(cacheNames = "{category}")
-public class CategoryCommandServiceImpl extends
-	BaseSuperServiceImpl<CategoryPO, Long, CategoryMapper, CategoryRepository, ICategoryRepository>
+public class CategoryCommandServiceImpl
 	implements CategoryCommandService {
 
 	private final RedisRepository redisRepository;

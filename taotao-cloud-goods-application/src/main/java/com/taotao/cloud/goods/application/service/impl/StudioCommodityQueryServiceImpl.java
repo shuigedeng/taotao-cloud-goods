@@ -34,8 +34,6 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class StudioCommodityQueryServiceImpl
-	extends BaseSuperServiceImpl<
-		StudioCommodityPO, Long, StudioCommodityMapper, StudioCommodityRepository, IStudioCommodityRepository>
 	implements StudioCommodityQueryService {
 
 }

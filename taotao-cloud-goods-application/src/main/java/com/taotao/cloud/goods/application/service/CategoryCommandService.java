@@ -16,6 +16,7 @@
 
 package com.taotao.cloud.goods.application.service;
 
+import com.taotao.boot.ddd.model.application.service.CommandService;
 import com.taotao.boot.webagg.service.BaseSuperService;
 import com.taotao.cloud.goods.application.dto.category.cmmond.CategoryAddCmd;
 import com.taotao.cloud.goods.application.dto.category.cmmond.CategoryUpdateCmd;
@@ -28,7 +29,7 @@ import com.taotao.cloud.goods.infrastructure.persistent.persistence.CategoryPO;
  * @version 2022.04
  * @since 2022-04-27 16:59:28
  */
-public interface CategoryCommandService extends BaseSuperService<CategoryPO, Long> {
+public interface CategoryCommandService extends CommandService {
 
 	/**
 	 * 添加商品分类

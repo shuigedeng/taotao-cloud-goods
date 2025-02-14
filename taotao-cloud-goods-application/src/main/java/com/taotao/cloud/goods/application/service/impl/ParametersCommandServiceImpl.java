@@ -55,8 +55,6 @@ import java.util.Map;
 @AllArgsConstructor
 @Service
 public class ParametersCommandServiceImpl
-	extends
-	BaseSuperServiceImpl<ParametersPO, Long, ParametersMapper, ParametersRepository, IParametersRepository>
 	implements ParametersCommandService {
 
 	/**

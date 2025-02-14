@@ -54,8 +54,7 @@ import java.util.List;
  */
 @Service
 @AllArgsConstructor
-public class BrandCommandServiceImpl extends
-	BaseSuperServiceImpl<BrandPO, Long, BrandMapper, BrandRepository, IBrandRepository>
+public class BrandCommandServiceImpl
 	implements BrandCommandService {
 
 	/**

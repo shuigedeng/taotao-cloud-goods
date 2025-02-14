@@ -52,8 +52,7 @@ import java.util.Map;
 @AllArgsConstructor
 @Service
 @CacheConfig(cacheNames = "{category}")
-public class CategoryQueryServiceImpl extends
-	BaseSuperServiceImpl<CategoryPO, Long, CategoryMapper, CategoryRepository, ICategoryRepository>
+public class CategoryQueryServiceImpl
 	implements CategoryQueryService {
 
 	private final RedisRepository redisRepository;

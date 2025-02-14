@@ -16,6 +16,7 @@
 
 package com.taotao.cloud.goods.application.service;
 
+import com.taotao.boot.ddd.model.application.service.QueryService;
 import com.taotao.cloud.goods.application.dto.goods.query.EsGoodsSearchQry;
 import com.taotao.cloud.goods.application.dto.hotwords.query.HotWordsPageQry;
 import java.util.List;
@@ -28,7 +29,7 @@ import org.springframework.data.elasticsearch.core.SearchPage;
  * @version 2022.04
  * @since 2022-04-27 17:00:07
  */
-public interface EsGoodsQueryService {
+public interface EsGoodsQueryService extends QueryService {
 
     ///**
     // * 商品搜索

@@ -17,6 +17,7 @@
 package com.taotao.cloud.goods.application.service;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.taotao.boot.ddd.model.application.service.QueryService;
 import com.taotao.boot.webagg.service.BaseSuperService;
 import com.taotao.cloud.goods.application.dto.draft.clientobject.DraftGoodsSkuParamsCO;
 import com.taotao.cloud.goods.application.dto.draft.query.DraftGoodsPageQry;
@@ -29,7 +30,7 @@ import com.taotao.cloud.goods.infrastructure.persistent.persistence.DraftGoodsPO
  * @version 2022.04
  * @since 2022-04-27 16:59:56
  */
-public interface DraftGoodsQueryService extends BaseSuperService<DraftGoodsPO, Long> {
+public interface DraftGoodsQueryService extends QueryService {
 
 
     /**

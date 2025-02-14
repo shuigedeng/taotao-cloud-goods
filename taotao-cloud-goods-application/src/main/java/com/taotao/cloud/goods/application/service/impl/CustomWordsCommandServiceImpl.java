@@ -48,8 +48,6 @@ import java.util.List;
  */
 @Service
 public class CustomWordsCommandServiceImpl
-	extends
-	BaseSuperServiceImpl<CustomWordsPO, Long, CustomWordsMapper, CustomWordsRepository, ICustomWordsRepository>
 	implements CustomWordsCommandService {
 	@Override
 	public String deploy() {

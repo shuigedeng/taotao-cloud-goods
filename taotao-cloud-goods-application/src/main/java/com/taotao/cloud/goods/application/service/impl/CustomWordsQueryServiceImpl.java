@@ -46,8 +46,6 @@ import java.util.List;
  */
 @Service
 public class CustomWordsQueryServiceImpl
-	extends
-	BaseSuperServiceImpl<CustomWordsPO, Long, CustomWordsMapper, CustomWordsRepository, ICustomWordsRepository>
 	implements CustomWordsQueryService {
 	@Override
 	public boolean existWords(String words) {

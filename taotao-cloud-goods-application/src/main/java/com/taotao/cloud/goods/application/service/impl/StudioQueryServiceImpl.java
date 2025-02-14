@@ -62,7 +62,6 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Service
 public class StudioQueryServiceImpl
-        extends BaseSuperServiceImpl<StudioPO, Long, StudioMapper, StudioRepository, IStudioRepository>
         implements StudioQueryService {
 	@Override
 	public StudioCommodityCO getStudioVO(Long id) {

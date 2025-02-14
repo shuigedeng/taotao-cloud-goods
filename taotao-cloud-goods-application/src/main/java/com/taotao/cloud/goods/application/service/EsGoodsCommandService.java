@@ -17,6 +17,7 @@
 package com.taotao.cloud.goods.application.service;
 
 import com.taotao.boot.common.enums.PromotionTypeEnum;
+import com.taotao.boot.ddd.model.application.service.CommandService;
 import org.elasticsearch.action.update.UpdateRequest;
 
 import java.util.List;
@@ -29,7 +30,7 @@ import java.util.Map;
  * @version 2022.04
  * @since 2022-04-27 17:00:00
  */
-public interface EsGoodsCommandService {
+public interface EsGoodsCommandService extends CommandService {
 
 	///**
 	// * 全局索引数据初始化

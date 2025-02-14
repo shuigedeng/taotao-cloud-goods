@@ -18,6 +18,7 @@ package com.taotao.cloud.goods.application.service;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.taotao.boot.common.model.PageQuery;
+import com.taotao.boot.ddd.model.application.service.CommandService;
 import com.taotao.boot.webagg.service.BaseSuperService;
 import com.taotao.cloud.goods.application.dto.store.clientobject.StudioCommodityCO;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.StudioPO;
@@ -30,7 +31,7 @@ import com.taotao.cloud.stream.framework.trigger.message.BroadcastMessage;
  * @version 2022.04
  * @since 2022-04-27 17:01:11
  */
-public interface StudioCommandService extends BaseSuperService<StudioPO, Long> {
+public interface StudioCommandService extends CommandService {
 
     /**
      * 创建直播间 直播间默认手机直播 默认开启：点赞、商品货架、评论、回放

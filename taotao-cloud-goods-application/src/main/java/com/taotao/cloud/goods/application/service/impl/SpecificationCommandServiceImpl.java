@@ -49,8 +49,6 @@ import java.util.List;
 @AllArgsConstructor
 @Service
 public class SpecificationCommandServiceImpl
-	extends
-	BaseSuperServiceImpl<SpecificationPO, Long, SpecificationMapper, SpecificationRepository, ISpecificationRepository>
 	implements SpecificationCommandService {
 
 	/**

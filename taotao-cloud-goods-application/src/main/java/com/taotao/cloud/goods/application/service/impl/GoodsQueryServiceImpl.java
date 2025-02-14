@@ -65,7 +65,7 @@ import java.util.Objects;
  */
 @Service
 @AllArgsConstructor
-public class GoodsQueryServiceImpl extends BaseSuperServiceImpl<GoodsPO, Long, GoodsMapper, GoodsRepository, IGoodsRepository>
+public class GoodsQueryServiceImpl
 	implements GoodsQueryService {
 	@Override
 	public List<GoodsPO> getByBrandIds(List<Long> brandIds) {

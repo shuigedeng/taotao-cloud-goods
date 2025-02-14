@@ -17,8 +17,7 @@
 package com.taotao.cloud.goods.application.service;
 
 
-import com.taotao.boot.webagg.service.BaseSuperService;
-import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsUnitPO;
+import com.taotao.boot.ddd.model.application.service.CommandService;
 
 /**
  * 商品计量单位业务层
@@ -27,5 +26,5 @@ import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsUnitPO;
  * @version 2022.04
  * @since 2022-04-27 17:00:52
  */
-public interface GoodsUnitCommandService extends BaseSuperService<GoodsUnitPO, Long> {
+public interface GoodsUnitCommandService extends CommandService {
 }

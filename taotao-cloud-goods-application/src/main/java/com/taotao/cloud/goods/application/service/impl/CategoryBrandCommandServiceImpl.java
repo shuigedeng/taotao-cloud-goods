@@ -38,12 +38,7 @@ import java.util.List;
  * @since 2022-04-27 17:01:32
  */
 @Service
-public class CategoryBrandCommandServiceImpl extends BaseSuperServiceImpl<
-	CategoryBrandPO,
-	Long,
-	CategoryBrandMapper,
-	CategoryBrandRepository,
-	ICategoryBrandRepository>
+public class CategoryBrandCommandServiceImpl
 	implements CategoryBrandCommandService {
 
 	@Override

@@ -16,6 +16,7 @@
 
 package com.taotao.cloud.goods.application.service;
 
+import com.taotao.boot.ddd.model.application.service.QueryService;
 import com.taotao.boot.webagg.service.BaseSuperService;
 import com.taotao.cloud.goods.application.dto.store.clientobject.StoreGoodsLabelCO;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.StoreGoodsLabelPO;
@@ -29,7 +30,7 @@ import java.util.Map;
  * @version 2022.04
  * @since 2022-04-27 17:01:05
  */
-public interface StoreGoodsLabelQueryService extends BaseSuperService<StoreGoodsLabelPO, Long> {
+public interface StoreGoodsLabelQueryService extends QueryService {
 
 	/**
 	 * 根据商家ID获取店铺分类列表

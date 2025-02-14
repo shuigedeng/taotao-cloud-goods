@@ -82,8 +82,6 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 @Service
 public class GoodsSkuCommandServiceImpl
-	extends
-	BaseSuperServiceImpl<GoodsSkuPO, Long, GoodsSkuMapper, GoodsSkuRepository, IGoodsSkuRepository>
 	implements GoodsSkuCommandService {
 	@Override
 	public boolean add(GoodsPO goods, GoodsAddCmd goodsAddCmd) {

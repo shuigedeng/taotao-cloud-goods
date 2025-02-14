@@ -44,7 +44,6 @@ import java.util.List;
 @AllArgsConstructor
 @Service
 public class GoodsGalleryCommandServiceImpl
-	extends BaseSuperServiceImpl<GoodsGalleryPO, Long, GoodsGalleryMapper, GoodsGalleryRepository, IGoodsGalleryRepository>
 	implements GoodsGalleryCommandService {
 	@Override
 	public boolean add(List<String> goodsGalleryList, Long goodsId) {

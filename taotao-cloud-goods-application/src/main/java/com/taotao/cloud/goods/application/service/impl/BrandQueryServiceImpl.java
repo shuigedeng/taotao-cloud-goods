@@ -54,8 +54,7 @@ import java.util.Map;
  */
 @Service
 @AllArgsConstructor
-public class BrandQueryServiceImpl extends
-	BaseSuperServiceImpl<BrandPO, Long, BrandMapper, BrandRepository, IBrandRepository>
+public class BrandQueryServiceImpl
 	implements BrandQueryService {
 
 	/**

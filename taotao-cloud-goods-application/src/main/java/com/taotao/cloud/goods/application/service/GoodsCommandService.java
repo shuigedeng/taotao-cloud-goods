@@ -16,6 +16,7 @@
 
 package com.taotao.cloud.goods.application.service;
 
+import com.taotao.boot.ddd.model.application.service.CommandService;
 import com.taotao.boot.webagg.service.BaseSuperService;
 import com.taotao.cloud.goods.api.enums.GoodsAuthEnum;
 import com.taotao.cloud.goods.api.enums.GoodsStatusEnum;
@@ -31,7 +32,7 @@ import java.util.List;
  * @version 2022.04
  * @since 2022-04-27 17:00:15
  */
-public interface GoodsCommandService extends BaseSuperService<GoodsPO, Long> {
+public interface GoodsCommandService extends CommandService {
 
 
 	/**

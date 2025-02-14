@@ -16,6 +16,7 @@
 
 package com.taotao.cloud.goods.application.service;
 
+import com.taotao.boot.ddd.model.application.service.QueryService;
 import com.taotao.boot.webagg.service.BaseSuperService;
 import com.taotao.cloud.goods.application.dto.category.clientobject.CategoryTreeCO;
 import com.taotao.cloud.goods.application.dto.category.query.CategorySearchQry;
@@ -31,7 +32,7 @@ import java.util.Map;
  * @version 2022.04
  * @since 2022-04-27 16:59:28
  */
-public interface CategoryQueryService extends BaseSuperService<CategoryPO, Long> {
+public interface CategoryQueryService extends QueryService {
 
 	List<CategoryPO> childrenList(Long parentId);
 

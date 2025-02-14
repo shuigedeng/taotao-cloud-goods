@@ -54,7 +54,6 @@ import java.util.Map;
 @AllArgsConstructor
 @Service
 public class DraftGoodsCommandServiceImpl
-	extends BaseSuperServiceImpl<DraftGoodsPO, Long, DraftGoodsMapper, DraftGoodsRepository, IDraftGoodsRepository>
 	implements DraftGoodsCommandService {
 	@Override
 	public boolean addGoodsDraft(DraftGoodsSkuParamsAddCmd draftGoods) {

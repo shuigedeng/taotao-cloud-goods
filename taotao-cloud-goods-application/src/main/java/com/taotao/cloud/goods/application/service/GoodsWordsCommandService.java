@@ -17,6 +17,7 @@
 package com.taotao.cloud.goods.application.service;
 
 
+import com.taotao.boot.ddd.model.application.service.CommandService;
 import com.taotao.boot.webagg.service.BaseSuperService;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsWordsPO;
 
@@ -27,4 +28,4 @@ import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsWordsPO
  * @version 2022.04
  * @since 2022-04-27 17:00:55
  */
-public interface GoodsWordsCommandService extends BaseSuperService<GoodsWordsPO, Long> {}
+public interface GoodsWordsCommandService extends CommandService {}

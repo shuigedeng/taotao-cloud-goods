@@ -40,12 +40,7 @@ import java.util.List;
  * @since 2022-04-27 17:01:32
  */
 @Service
-public class CategoryBrandQueryServiceImpl extends BaseSuperServiceImpl<
-	CategoryBrandPO,
-	Long,
-	CategoryBrandMapper,
-	CategoryBrandRepository,
-	ICategoryBrandRepository> implements CategoryBrandQueryService {
+public class CategoryBrandQueryServiceImpl implements CategoryBrandQueryService {
 
 	@Override
 	public List<CategoryBrandCO> getCategoryBrandList(Long categoryId) {

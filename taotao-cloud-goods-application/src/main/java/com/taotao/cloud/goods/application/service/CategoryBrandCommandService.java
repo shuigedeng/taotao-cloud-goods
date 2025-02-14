@@ -16,6 +16,7 @@
 
 package com.taotao.cloud.goods.application.service;
 
+import com.taotao.boot.ddd.model.application.service.CommandService;
 import com.taotao.boot.webagg.service.BaseSuperService;
 import com.taotao.cloud.goods.application.dto.category.clientobject.CategoryBrandCO;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.CategoryBrandPO;
@@ -28,7 +29,7 @@ import java.util.List;
  * @version 2022.04
  * @since 2022-04-27 16:59:19
  */
-public interface CategoryBrandCommandService extends BaseSuperService<CategoryBrandPO, Long> {
+public interface CategoryBrandCommandService extends CommandService  {
 
 
 	/**

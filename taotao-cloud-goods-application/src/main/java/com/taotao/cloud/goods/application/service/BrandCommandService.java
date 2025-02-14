@@ -17,6 +17,7 @@
 package com.taotao.cloud.goods.application.service;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.taotao.boot.ddd.model.application.service.CommandService;
 import com.taotao.boot.webagg.service.BaseSuperService;
 import com.taotao.cloud.goods.application.dto.brand.cmmond.BrandAddCmd;
 import com.taotao.cloud.goods.application.dto.brand.cmmond.BrandUpdateCmd;
@@ -32,7 +33,7 @@ import java.util.Map;
  * @version 2022.04
  * @since 2022-04-27 16:59:15
  */
-public interface BrandCommandService extends BaseSuperService<BrandPO, Long> {
+public interface BrandCommandService extends CommandService {
 
 
 

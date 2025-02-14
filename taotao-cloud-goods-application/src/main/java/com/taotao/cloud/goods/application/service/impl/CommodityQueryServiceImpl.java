@@ -38,8 +38,6 @@ import org.springframework.stereotype.Service;
 @AllArgsConstructor
 @Service
 public class CommodityQueryServiceImpl
-	extends
-	BaseSuperServiceImpl<CommodityPO, Long, CommodityMapper, CommodityRepository, ICommodityRepository>
 	implements CommodityQueryService {
 	@Override
 	public boolean getGoodsWareHouse() {
