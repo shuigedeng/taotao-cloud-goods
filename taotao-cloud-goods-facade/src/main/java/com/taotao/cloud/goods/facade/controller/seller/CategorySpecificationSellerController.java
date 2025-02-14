@@ -16,23 +16,14 @@
 
 package com.taotao.cloud.goods.facade.controller.seller;
 
-import com.taotao.boot.common.model.Result;
-import com.taotao.boot.web.request.annotation.RequestLogger;
-import com.taotao.cloud.goods.application.dto.specification.clientobject.SpecificationCO;
+import com.taotao.boot.webagg.controller.BusinessController;
 import com.taotao.cloud.goods.application.service.CategorySpecificationCommandService;
 import com.taotao.cloud.goods.application.service.CategorySpecificationQueryService;
-import com.taotao.cloud.goods.infrastructure.persistent.persistence.SpecificationPO;
-import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import java.util.List;
 import lombok.AllArgsConstructor;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.taotao.boot.webagg.controller.BusinessController;
 
 /**
  * 店铺端,商品分类规格接口
@@ -52,13 +43,13 @@ public class CategorySpecificationSellerController extends BusinessController {
     private final CategorySpecificationQueryService categorySpecificationQueryService;
     private final CategorySpecificationCommandService categorySpecificationCommandService;
 
-    @Operation(summary = "查询某分类下绑定的规格信息", description = "查询某分类下绑定的规格信息")
-    @RequestLogger("查询某分类下绑定的规格信息")
-    @PreAuthorize("hasAuthority('dept:tree:data')")
-    @GetMapping(value = "/{categoryId}")
-    public Result<List<SpecificationCO>> getCategorySpec(@PathVariable("categoryId") Long categoryId) {
-        List<SpecificationPO> categorySpecList = categorySpecificationQueryService.getCategorySpecList(categoryId);
-
-        return Result.success(SpecificationAssembler.INSTANCE.convert(categorySpecList));
-    }
+//    @Operation(summary = "查询某分类下绑定的规格信息", description = "查询某分类下绑定的规格信息")
+//    @RequestLogger("查询某分类下绑定的规格信息")
+//    @PreAuthorize("hasAuthority('dept:tree:data')")
+//    @GetMapping(value = "/{categoryId}")
+//    public Result<List<SpecificationCO>> getCategorySpec(@PathVariable("categoryId") Long categoryId) {
+//        List<SpecificationPO> categorySpecList = categorySpecificationQueryService.getCategorySpecList(categoryId);
+//
+//        return Result.success(SpecificationAssembler.INSTANCE.convert(categorySpecList));
+//    }
 }

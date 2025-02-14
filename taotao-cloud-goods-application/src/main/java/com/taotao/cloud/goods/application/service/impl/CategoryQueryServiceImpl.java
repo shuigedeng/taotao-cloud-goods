@@ -97,7 +97,8 @@ public class CategoryQueryServiceImpl
 
 	@Override
 	public List<CategoryTreeCO> listAllChildren(Long parentId) {
-		return categoryChildrenCmdExe.listAllChildren(parentId);
+//		return categoryChildrenCmdExe.listAllChildren(parentId);
+		return null;
 	}
 
 	@Override
@@ -108,7 +109,8 @@ public class CategoryQueryServiceImpl
 
 	@Override
 	public List<String> getCategoryNameByIds(List<Long> ids) {
-		return categorySearchQryExe.getCategoryNameByIds(ids);
+//		return categorySearchQryExe.getCategoryNameByIds(ids);
+		return null;
 	}
 
 //	@Override

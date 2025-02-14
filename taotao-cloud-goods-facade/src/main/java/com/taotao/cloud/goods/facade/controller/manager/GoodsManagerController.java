@@ -16,40 +16,28 @@
 
 package com.taotao.cloud.goods.facade.controller.manager;
 
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.taotao.boot.common.model.PageResult;
 import com.taotao.boot.common.model.Result;
-import com.taotao.boot.data.mybatis.mybatisplus.MpUtils;
+import com.taotao.boot.web.request.annotation.RequestLogger;
+import com.taotao.boot.webagg.controller.BusinessController;
 import com.taotao.cloud.goods.api.enums.GoodsAuthEnum;
 import com.taotao.cloud.goods.api.enums.GoodsStatusEnum;
-import com.taotao.boot.web.request.annotation.RequestLogger;
-import com.taotao.cloud.goods.application.dto.goods.clientobject.GoodsCO;
-import com.taotao.cloud.goods.application.dto.goods.clientobject.GoodsSkuCO;
 import com.taotao.cloud.goods.application.dto.goods.clientobject.GoodsSkuParamsCO;
-import com.taotao.cloud.goods.application.dto.goods.query.GoodsPageQry;
 import com.taotao.cloud.goods.application.service.GoodsCommandService;
 import com.taotao.cloud.goods.application.service.GoodsQueryService;
 import com.taotao.cloud.goods.application.service.GoodsSkuCommandService;
 import com.taotao.cloud.goods.application.service.GoodsSkuQueryService;
-import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsPO;
-import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsSkuPO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.Parameters;
 import io.swagger.v3.oas.annotations.enums.ParameterIn;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.constraints.NotEmpty;
-import java.util.List;
 import lombok.AllArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-import com.taotao.boot.webagg.controller.BusinessController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * 管理端,商品管理接口
@@ -72,17 +60,17 @@ public class GoodsManagerController extends BusinessController {
     private final GoodsSkuQueryService goodsSkuQueryService;
     private final GoodsSkuCommandService goodsSkuCommandService;
 
-    @Operation(summary = "分页获取", description = "分页获取")
-    @Parameters({
-            @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
-    })
-    @RequestLogger("分页获取")
-    @PreAuthorize("hasAuthority('dept:tree:data')")
-    @GetMapping(value = "/page")
-    public Result<PageResult<GoodsCO>> getByPage(@Validated GoodsPageQry goodsPageQuery) {
-        IPage<GoodsPO> goodsPage = goodsQueryService.goodsQueryPage(goodsPageQuery);
-        return Result.success(MpUtils.convertMybatisPage(goodsPage, GoodsCO.class));
-    }
+//    @Operation(summary = "分页获取", description = "分页获取")
+//    @Parameters({
+//            @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
+//    })
+//    @RequestLogger("分页获取")
+//    @PreAuthorize("hasAuthority('dept:tree:data')")
+//    @GetMapping(value = "/page")
+//    public Result<PageResult<GoodsCO>> getByPage(@Validated GoodsPageQry goodsPageQuery) {
+//        IPage<GoodsPO> goodsPage = goodsQueryService.goodsQueryPage(goodsPageQuery);
+//        return Result.success(MpUtils.convertMybatisPage(goodsPage, GoodsCO.class));
+//    }
 
     //@Operation(summary = "分页获取商品列表", description = "分页获取商品列表")
     //@Parameters({
@@ -96,18 +84,18 @@ public class GoodsManagerController extends BusinessController {
     //    return Result.success(MpUtils.convertMybatisPage(goodsSkuPage, GoodsSkuConvert.INSTANCE::convert));
     //}
 
-    @Operation(summary = "分页获取待审核商品", description = "分页获取待审核商品")
-    @Parameters({
-            @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
-    })
-    @RequestLogger("分页获取待审核商品")
-    @PreAuthorize("hasAuthority('dept:tree:data')")
-    @GetMapping(value = "/auth/page")
-    public Result<PageResult<GoodsCO>> getAuthPage(@Validated GoodsPageQry goodsPageQuery) {
-        goodsPageQuery.setAuthFlag(GoodsAuthEnum.TOBEAUDITED.name());
-        IPage<GoodsPO> goodsPage = goodsQueryService.goodsQueryPage(goodsPageQuery);
-        return Result.success(MpUtils.convertMybatisPage(goodsPage, GoodsCO.class));
-    }
+//    @Operation(summary = "分页获取待审核商品", description = "分页获取待审核商品")
+//    @Parameters({
+//            @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
+//    })
+//    @RequestLogger("分页获取待审核商品")
+//    @PreAuthorize("hasAuthority('dept:tree:data')")
+//    @GetMapping(value = "/auth/page")
+//    public Result<PageResult<GoodsCO>> getAuthPage(@Validated GoodsPageQry goodsPageQuery) {
+//        goodsPageQuery.setAuthFlag(GoodsAuthEnum.TOBEAUDITED.name());
+//        IPage<GoodsPO> goodsPage = goodsQueryService.goodsQueryPage(goodsPageQuery);
+//        return Result.success(MpUtils.convertMybatisPage(goodsPage, GoodsCO.class));
+//    }
 
     @Operation(summary = "管理员下架商品", description = "管理员下架商品")
     @Parameters({

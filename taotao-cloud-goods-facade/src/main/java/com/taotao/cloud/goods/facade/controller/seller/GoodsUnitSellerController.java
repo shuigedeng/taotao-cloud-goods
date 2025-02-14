@@ -16,25 +16,14 @@
 
 package com.taotao.cloud.goods.facade.controller.seller;
 
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.taotao.boot.common.model.PageQuery;
-import com.taotao.boot.common.model.PageResult;
-import com.taotao.boot.common.model.Result;
-import com.taotao.boot.data.mybatis.mybatisplus.MpUtils;
-import com.taotao.boot.web.request.annotation.RequestLogger;
-import com.taotao.cloud.goods.application.dto.goods.clientobject.GoodsUnitCO;
+import com.taotao.boot.webagg.controller.BusinessController;
 import com.taotao.cloud.goods.application.service.GoodsUnitCommandService;
 import com.taotao.cloud.goods.application.service.GoodsUnitQueryService;
-import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsUnitPO;
-import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.taotao.boot.webagg.controller.BusinessController;
 
 /**
  * 店铺端-商品计量单位接口
@@ -54,12 +43,12 @@ public class GoodsUnitSellerController extends BusinessController {
     private final GoodsUnitQueryService goodsUnitQueryService;
     private final GoodsUnitCommandService goodsUnitCommandService;
 
-    @Operation(summary = "分页获取商品计量单位", description = "分页获取商品计量单位")
-    @RequestLogger
-    @PreAuthorize("hasAuthority('dept:tree:data')")
-    @GetMapping("/page")
-    public Result<PageResult<GoodsUnitCO>> getByPage(@Validated PageQuery pageQuery) {
-        IPage<GoodsUnitPO> page = goodsUnitQueryService.page(MpUtils.buildMpPage(pageQuery));
-        return Result.success(MpUtils.convertMybatisPage(page, GoodsUnitAssembler.INSTANCE::convert));
-    }
+//    @Operation(summary = "分页获取商品计量单位", description = "分页获取商品计量单位")
+//    @RequestLogger
+//    @PreAuthorize("hasAuthority('dept:tree:data')")
+//    @GetMapping("/page")
+//    public Result<PageResult<GoodsUnitCO>> getByPage(@Validated PageQuery pageQuery) {
+//        IPage<GoodsUnitPO> page = goodsUnitQueryService.page(MpUtils.buildMpPage(pageQuery));
+//        return Result.success(MpUtils.convertMybatisPage(page, GoodsUnitAssembler.INSTANCE::convert));
+//    }
 }

@@ -16,27 +16,14 @@
 
 package com.taotao.cloud.goods.facade.controller.manager;
 
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.taotao.boot.common.model.PageQuery;
-import com.taotao.boot.common.model.PageResult;
-import com.taotao.boot.common.model.Result;
-import com.taotao.boot.data.mybatis.mybatisplus.MpUtils;
-import com.taotao.boot.web.request.annotation.RequestLogger;
+import com.taotao.boot.webagg.controller.BusinessController;
 import com.taotao.cloud.goods.application.service.GoodsUnitCommandService;
 import com.taotao.cloud.goods.application.service.GoodsUnitQueryService;
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.Parameter;
-import io.swagger.v3.oas.annotations.Parameters;
-import io.swagger.v3.oas.annotations.enums.ParameterIn;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.NotNull;
-import java.util.List;
 import lombok.AllArgsConstructor;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * 管理端,商品计量单位接口

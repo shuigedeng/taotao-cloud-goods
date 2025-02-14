@@ -16,19 +16,15 @@
 
 package com.taotao.cloud.goods.facade.controller.manager;
 
-import com.taotao.boot.common.enums.ResultEnum;
-import com.taotao.boot.common.exception.BusinessException;
 import com.taotao.boot.common.model.Result;
 import com.taotao.boot.web.request.annotation.RequestLogger;
-import com.taotao.cloud.goods.application.dto.category.clientobject.CategoryCO;
+import com.taotao.boot.webagg.controller.BusinessController;
 import com.taotao.cloud.goods.application.dto.category.clientobject.CategoryTreeCO;
 import com.taotao.cloud.goods.application.dto.category.cmmond.CategoryAddCmd;
 import com.taotao.cloud.goods.application.service.CategoryCommandService;
 import com.taotao.cloud.goods.application.service.CategoryQueryService;
 import com.taotao.cloud.goods.application.service.GoodsCommandService;
 import com.taotao.cloud.goods.application.service.GoodsQueryService;
-import com.taotao.cloud.goods.infrastructure.persistent.persistence.CategoryPO;
-import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsPO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.Parameters;
@@ -36,21 +32,13 @@ import io.swagger.v3.oas.annotations.enums.ParameterIn;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
-import java.util.List;
 import lombok.AllArgsConstructor;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-import com.taotao.boot.webagg.controller.BusinessController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * 管理端,商品分类接口
@@ -74,17 +62,17 @@ public class CategoryManagerController extends BusinessController {
     private final GoodsQueryService goodsQueryService;
     private final GoodsCommandService goodsCommandService;
 
-    @Operation(summary = "查询某分类下的全部子分类列表", description = "查询某分类下的全部子分类列表")
-    @Parameters({
-            @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
-    })
-    @RequestLogger
-    @PreAuthorize("hasAuthority('dept:tree:data')")
-    @GetMapping(value = "/{parentId}/children/all")
-    public Result<List<CategoryCO>> childrenList(@PathVariable Long parentId) {
-        List<CategoryPO> categories = this.categoryQueryService.childrenList(parentId);
-        return Result.success(CategoryAssembler.INSTANCE.convert(categories));
-    }
+//    @Operation(summary = "查询某分类下的全部子分类列表", description = "查询某分类下的全部子分类列表")
+//    @Parameters({
+//            @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
+//    })
+//    @RequestLogger
+//    @PreAuthorize("hasAuthority('dept:tree:data')")
+//    @GetMapping(value = "/{parentId}/children/all")
+//    public Result<List<CategoryCO>> childrenList(@PathVariable Long parentId) {
+//        List<CategoryPO> categories = this.categoryQueryService.childrenList(parentId);
+//        return Result.success(CategoryAssembler.INSTANCE.convert(categories));
+//    }
 
     @Operation(summary = "查询全部分类列表", description = "查询全部分类列表")
     @Parameters({
@@ -159,19 +147,19 @@ public class CategoryManagerController extends BusinessController {
 		return Result.success(true);
     }
 
-    @Operation(summary = "后台 禁用/启用 分类", description = "后台 禁用/启用 分类")
-    @Parameters({
-            @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
-    })
-    @RequestLogger
-    @PreAuthorize("hasAuthority('dept:tree:data')")
-    @PutMapping(value = "/disable/{id}")
-    public Result<Boolean> disable(@PathVariable Long id, @RequestParam Boolean enableOperations) {
-		GoodsPO category = goodsQueryService.getById(id);
-        if (category == null) {
-            throw new BusinessException(ResultEnum.CATEGORY_NOT_EXIST);
-        }
-        //return Result.success(categoryCommandService.updateCategoryStatus(id, enableOperations));
-		return null;
-    }
+//    @Operation(summary = "后台 禁用/启用 分类", description = "后台 禁用/启用 分类")
+//    @Parameters({
+//            @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
+//    })
+//    @RequestLogger
+//    @PreAuthorize("hasAuthority('dept:tree:data')")
+//    @PutMapping(value = "/disable/{id}")
+//    public Result<Boolean> disable(@PathVariable Long id, @RequestParam Boolean enableOperations) {
+//		GoodsPO category = goodsQueryService.getById(id);
+//        if (category == null) {
+//            throw new BusinessException(ResultEnum.CATEGORY_NOT_EXIST);
+//        }
+//        //return Result.success(categoryCommandService.updateCategoryStatus(id, enableOperations));
+//		return null;
+//    }
 }

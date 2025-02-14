@@ -16,40 +16,28 @@
 
 package com.taotao.cloud.goods.facade.controller.buyer;
 
-import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.taotao.boot.common.model.PageResult;
 import com.taotao.boot.common.model.Result;
-import com.taotao.boot.data.mybatis.mybatisplus.MpUtils;
 import com.taotao.boot.web.request.annotation.RequestLogger;
+import com.taotao.boot.webagg.controller.BusinessController;
 import com.taotao.cloud.goods.application.dto.goods.clientobject.GoodsCO;
 import com.taotao.cloud.goods.application.dto.goods.clientobject.GoodsSkuParamsCO;
 import com.taotao.cloud.goods.application.dto.goods.query.GoodsPageQry;
-import com.taotao.cloud.goods.application.service.EsGoodsQueryService;
-import com.taotao.cloud.goods.application.service.GoodsCommandService;
-import com.taotao.cloud.goods.application.service.GoodsQueryService;
-import com.taotao.cloud.goods.application.service.GoodsSkuCommandService;
-import com.taotao.cloud.goods.application.service.GoodsSkuQueryService;
-import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsPO;
+import com.taotao.cloud.goods.application.service.*;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.Parameters;
 import io.swagger.v3.oas.annotations.enums.ParameterIn;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import lombok.AllArgsConstructor;
-import org.springframework.data.elasticsearch.core.SearchPage;
-import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-import com.taotao.boot.webagg.controller.BusinessController;
 
 /**
  * 买家端,商品接口
@@ -113,8 +101,9 @@ public class GoodsBuyerController extends BusinessController {
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping("/page")
 	public Result<PageResult<GoodsCO>> getByPage(@Validated GoodsPageQry goodsPageQuery) {
-		IPage<GoodsPO> goodsPage = goodsQueryService.goodsQueryPage(goodsPageQuery);
-		return Result.success(MpUtils.convertMybatisPage(goodsPage, GoodsCO.class));
+//		IPage<GoodsPO> goodsPage = goodsQueryService.goodsQueryPage(goodsPageQuery);
+//		return Result.success(MpUtils.convertMybatisPage(goodsPage, GoodsCO.class));
+		return null;
 	}
 
 	//@Operation(summary = "从ES中获取商品信息", description = "从ES中获取商品信息")
