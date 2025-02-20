@@ -438,9 +438,9 @@ rocketmq:
     # 是否在内部发送失败时重试另一个broker，默认false
     retryNextServer: false
   consumer:
-      group: springboot_consumer_group
-      # 一次拉取消息最大值，注意是拉取消息的最大值而非消费最大值
-      pull-batch-size: 10
+    group: springboot_consumer_group
+    # 一次拉取消息最大值，注意是拉取消息的最大值而非消费最大值
+    pull-batch-size: 10
 
 spring:
   threads:
@@ -452,9 +452,10 @@ spring:
   config:
     activate:
       on-profile: dev
-  #autoconfigure:
-  #  exclude:
-  #    - org.springframework.boot.actuate.autoconfigure.elasticsearch.ElasticSearchReactiveHealthContributorAutoConfiguration
+  autoconfigure:
+    exclude:
+      - org.dromara.easyes.starter.config.GeneratorConfiguration
+      - org.dromara.easyes.spring.config.EasyEsConfiguration
   dynamic:
     tp:
       enabled: false
@@ -931,32 +932,35 @@ spring:
     stream:
       #instance-count: 2       #该参数指定了当前消费者的总实例数量；
       #instance-index: 0       #该参数设置当前实例的索引号，从0开始，最大值为
+      binders:
+        ttc-rocketmq:
+          type: rocketmq
       bindings: #消费者
         demo-in-0:
-          binder: rocketmq
+          binder: ttc-rocketmq
           destination: dtopic #topic
           content-type: application/json
           group: demo1-group #group
         demo-out-0:
-          binder: rocketmq
+          binder: ttc-rocketmq
           destination: dtopic #topic
           group: pd-group
         example-in-0:
-          binder: rocketmq
+          binder: ttc-rocketmq
           destination: extopic #topic
           content-type: application/json
           group: example-group #group
         example-out-0:
-          binder: rocketmq
+          binder: ttc-rocketmq
           destination: extopic #topic
           group: px-group
         test-in-0:
-          binder: rocketmq
+          binder: ttc-rocketmq
           destination: ttopic #topic
           content-type: application/json
           group: t-group #group
         test-out-0:
-          binder: rocketmq
+          binder: ttc-rocketmq
           destination: ttopic #topic
           group: pt-group #group
         # kafka
