@@ -2,18 +2,9 @@
 
 package com.taotao.cloud.goods.application.executor.category.query;
 
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.taotao.boot.common.utils.bean.BeanUtils;
 import com.taotao.boot.ddd.model.application.executor.Executor;
-import com.taotao.cloud.goods.application.dto.category.clientobject.CategoryTreeCO;
-import com.taotao.cloud.goods.integration.sys.proxy.SysDictClientProxy;
-import com.taotao.cloud.goods.integration.sys.vo.DictVO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
-
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
 
 
 /**
