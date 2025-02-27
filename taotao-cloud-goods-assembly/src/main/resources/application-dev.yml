@@ -721,7 +721,7 @@ spring:
     #  hibernate:
     #    use_sql_comments: true
     #    dialect: mysql
-    #    format_sql: false
+    #    format_sql: true 输出sql语句 此种方式是直接通过System.out方式进行输出，并且还不会记录预处理语句的参数；不推荐此做法。
     #    show_sql: false
     #    generate_statistics: false
     #    cache:
@@ -1272,6 +1272,7 @@ mybatis-plus:
   configuration:
     map-underscore-to-camel-case: true
     cache-enabled: false
+    #不仅仅输出的是sql还将数据也输出了，并且这里是通过System.out进行输出的，并且还不管你是否配置的debug级别都会进行输出
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl # 日志打印参数class  org.apache.ibatis.logging.slf4j.Slf4jImpl com.taotao.boot.data.mybatis.logging.CustomStdOutImpl
     lazyLoadingEnabled: true  #查询时，关闭关联对象即时加载以提高性能
     aggressiveLazyLoading: false  #设置关联对象加载的形态，此处为按需加载字段(加载字段由SQL指定)，不会加载关联表的所有字段，以提高性能
@@ -1358,8 +1359,18 @@ logging:
   level:
     web: TRACE
     root: INFO
+    #JdbcTemplate 输出任何SQL语句
+    '[org.springframework.jdbc.core.JdbcTemplate]': debug
+    #JdbcTemplate 输出任何SQL语句 动态参数
+    '[org.springframework.jdbc.core.StatementCreatorUtils]': trace
+    #org.hibernate.SQL：记录执行的SQL。
+    #org.hibernate.orm.jdbc.bind：记录预处理语句的参数。
+    '[org.hibernate.SQL]': debug
+    '[org.hibernate.orm.jdbc.bind]': trace
+    '[com.pack.mapper]': DEBUG
     org.apache.zookeeper.ZooKeeper: info
     com.taotao.cloud.goods.api.feign: debug
+    #第三方开源库datasource-proxy，该组件用于拦截SQL查询并记录。
     net.ttddyy.dsproxy.listener: debug
     net.ttddyy.dsproxy.listener.logging.SLF4JQueryLoggingListener: debug
     org.springframework.core.log.LogAccessor: error
