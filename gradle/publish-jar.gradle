@@ -116,7 +116,7 @@ tasks.withType(Jar).configureEach {
 
 jar {
     enabled = true
-    archiveClassifier = null
+    archiveClassifier = ""
 
     manifest {
         attributes(
