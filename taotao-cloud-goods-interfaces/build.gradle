@@ -34,8 +34,6 @@
 
 dependencies {
     api project(":taotao-cloud-goods-application")
-    api project(":taotao-cloud-goods-infrastructure")
-    api project(":taotao-cloud-goods-facade")
 }
 
 
