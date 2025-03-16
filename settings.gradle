@@ -113,7 +113,7 @@ include "taotao-cloud-goods-common"
 include "taotao-cloud-goods-domain"
 include "taotao-cloud-goods-facade"
 include "taotao-cloud-goods-infrastructure"
-include "taotao-cloud-goods-integration"
+include "taotao-cloud-goods-interfaces"
 
 
 gradle.settingsEvaluated {
