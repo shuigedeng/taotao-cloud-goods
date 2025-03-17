@@ -29,12 +29,10 @@ public class GoodsDomainRepositoryImpl implements GoodsDomainRepository {
 	private final MybatisUtil mybatisUtil;
 	private final GoodsMapper goodsMapper;
 	private final GoodsSkuMapper goodsSkuMapper;
-	private final GoodsAssembler goodsAssembler;
-
 
 	@Override
 	public void save(GoodsAgg goods) {
-		GoodsPO goodsPo = goodsAssembler.convert(goods);
+		GoodsPO goodsPo = GoodsAssembler.INSTANCE.convert(goods);
 
 		goodsMapper.insert(goodsPo);
 	}

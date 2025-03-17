@@ -37,13 +37,13 @@ dependencies {
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher:1.11.4'
     testImplementation "org.assertj:assertj-core:3.27.3"
 
-    testCompileOnly "org.projectlombok:lombok"
-    testAnnotationProcessor  "org.projectlombok:lombok"
+    testCompileOnly "org.projectlombok:lombok:${lombokVersion}"
+    testAnnotationProcessor  "org.projectlombok:lombok:${lombokVersion}"
 
-    testCompileOnly "io.soabase.record-builder:record-builder-core"
+    testCompileOnly "io.soabase.record-builder:record-builder-core:44"
     testAnnotationProcessor "io.soabase.record-builder:record-builder-processor:${recordBuilderVersion}"
 
-    testCompileOnly "org.mapstruct:mapstruct"
+    testCompileOnly "org.mapstruct:mapstruct:1.6.3"
     testAnnotationProcessor "org.mapstruct:mapstruct-processor:${mapstructProcessorVersion}"
     //https://github.com/entur/mapstruct-spi-protobuf
     //https://search.maven.org/artifact/no.entur.mapstruct.spi/protobuf-spi-impl
