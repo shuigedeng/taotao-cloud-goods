@@ -1,12 +1,6 @@
 package com.taotao.cloud.goods.domain.category.factory;
 
 
-import com.taotao.boot.ddd.model.types.BizId;
-import com.taotao.cloud.goods.domain.category.aggregate.CategoryAgg;
-import com.taotao.cloud.goods.domain.category.valueobject.CategoryDesc;
-import com.taotao.cloud.goods.domain.category.valueobject.CategoryName;
-import java.time.LocalDateTime;
-
 /**
  * 分类创建工厂<br/> 注：领域对象创建工厂，强调初始创建领域对象的操作（区别于技术层面的构造函数）
  */

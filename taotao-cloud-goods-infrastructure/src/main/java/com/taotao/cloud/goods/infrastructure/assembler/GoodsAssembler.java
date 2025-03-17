@@ -16,6 +16,10 @@
 
 package com.taotao.cloud.goods.infrastructure.assembler;
 
+import com.taotao.boot.ddd.model.types.BizId;
+import com.taotao.cloud.goods.domain.goods.aggregate.GoodsAgg;
+import com.taotao.cloud.goods.domain.goods.valobj.GoodsName;
+import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsPO;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 import org.mapstruct.factory.Mappers;
@@ -40,5 +44,12 @@ public interface GoodsAssembler {
      * @return {@link GoodsSkuParamsVO }
      * @since 2022-04-27 16:58:21
      */
-    //GoodsSkuParamsVO convert(Goods goods);
+    GoodsPO convert(GoodsAgg goods);
+
+	default Long map(BizId value) {
+		return value != null ? value.id() : null;
+	}
+	default String map(GoodsName value) {
+		return value != null ? value.getValue() : null;
+	}
 }

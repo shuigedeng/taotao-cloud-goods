@@ -17,10 +17,10 @@
 package com.taotao.cloud.goods.interfaces.controller.seller;
 
 import com.taotao.boot.webagg.controller.BusinessController;
-import com.taotao.cloud.goods.application.service.GoodsCommandService;
-import com.taotao.cloud.goods.application.service.GoodsQueryService;
-import com.taotao.cloud.goods.application.service.GoodsSkuCommandService;
-import com.taotao.cloud.goods.application.service.GoodsSkuQueryService;
+import com.taotao.cloud.goods.application.service.command.GoodsCommandService;
+import com.taotao.cloud.goods.application.service.query.GoodsQueryService;
+import com.taotao.cloud.goods.application.service.command.GoodsSkuCommandService;
+import com.taotao.cloud.goods.application.service.query.GoodsSkuQueryService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import org.springframework.validation.annotation.Validated;

@@ -1,6 +1,7 @@
 package com.taotao.cloud.goods.domain.category.repository;
 
 import com.taotao.boot.ddd.model.domain.repository.DomainRepository;
+import com.taotao.boot.ddd.model.types.BizId;
 import com.taotao.cloud.goods.domain.category.aggregate.CategoryAgg;
 
 public interface CategoryDomainRepository extends DomainRepository {
@@ -25,4 +26,6 @@ public interface CategoryDomainRepository extends DomainRepository {
 	 * @param ids IDS
 	 */
 	void remove(Long[] ids);
+
+	boolean isSatisfiedBy(BizId categoryId);
 }

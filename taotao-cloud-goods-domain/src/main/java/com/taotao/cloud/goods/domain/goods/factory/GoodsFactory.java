@@ -1,11 +1,12 @@
 package com.taotao.cloud.goods.domain.goods.factory;
 
 
+import cn.hutool.core.util.IdUtil;
 import com.taotao.boot.ddd.model.types.BizId;
+import com.taotao.boot.ddd.model.types.Price;
 import com.taotao.cloud.goods.domain.goods.aggregate.GoodsAgg;
-import com.taotao.cloud.goods.domain.goods.valueobject.GoodsName;
-import com.taotao.cloud.goods.domain.goods.valueobject.GoodsSpec;
-import com.taotao.cloud.goods.domain.goods.valueobject.GoodsStatus;
+import com.taotao.cloud.goods.domain.goods.valobj.*;
+
 import java.util.Set;
 
 /**
@@ -14,25 +15,4 @@ import java.util.Set;
 public class GoodsFactory {
 
 
-	/**
-	 * 创建初始商品
-	 *
-	 * @param categoryId 商品分类ID
-	 * @param goodsName  商品名称
-	 * @param goodsSpec  商品规格
-	 * @param goodsPrice 商品价格
-	 * @return 初始商品
-	 */
-	//public static GoodsAgg createGoods(BizId categoryId, GoodsName goodsName, GoodsSpec goodsSpec,
-	//	Price goodsPrice, Set<BizId> tagIds) {
-	//	return new GoodsAgg(
-	//		BizId.of(IdGenUtils.nextDigitalId()),
-	//		categoryId,
-	//		goodsName,
-	//		goodsSpec,
-	//		goodsPrice,
-	//		GoodsStatus.UNSHELVED,
-	//		tagIds
-	//	);
-	//}
 }

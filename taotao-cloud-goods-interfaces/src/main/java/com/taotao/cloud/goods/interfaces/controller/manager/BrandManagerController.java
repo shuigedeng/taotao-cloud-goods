@@ -19,26 +19,21 @@ package com.taotao.cloud.goods.interfaces.controller.manager;
 import com.taotao.boot.common.model.Result;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
+import com.taotao.cloud.goods.application.dto.brand.clientobject.BrandCO;
 import com.taotao.cloud.goods.application.dto.brand.cmmond.BrandAddCmd;
 import com.taotao.cloud.goods.application.dto.brand.cmmond.BrandUpdateCmd;
-import com.taotao.cloud.goods.application.service.BrandCommandService;
-import com.taotao.cloud.goods.application.service.BrandQueryService;
+import com.taotao.cloud.goods.application.service.command.BrandCommandService;
+import com.taotao.cloud.goods.application.service.query.BrandQueryService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.Parameters;
 import io.swagger.v3.oas.annotations.enums.ParameterIn;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -56,22 +51,24 @@ import java.util.List;
 @RequestMapping("/goods/manager/brand")
 public class BrandManagerController extends BusinessController {
 
-    /** 品牌 */
-    private final BrandCommandService brandCommandService;
-    private final BrandQueryService brandQueryService;
+	/**
+	 * 品牌
+	 */
+	private final BrandCommandService brandCommandService;
+	private final BrandQueryService brandQueryService;
 
-//    @Operation(summary = "通过id获取", description = "通过id获取")
-//    @Parameters({
-//            @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
-//    })
-//    @RequestLogger
-//    @PreAuthorize("hasAuthority('dept:tree:data')")
-//    @GetMapping(value = "/{id}")
-//    public Result<BrandCO> getById(@NotBlank(message = "id不能为空") @PathVariable Long id) {
-//        BrandPO brand = brandQueryService.getById(id);
-//        return Result.success(BrandAssembler.INSTANCE.convert(brand));
-//    }
-//
+	@Operation(summary = "通过id获取", description = "通过id获取")
+	@Parameters({
+		@Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
+	})
+	@RequestLogger
+	@PreAuthorize("hasAuthority('dept:tree:data')")
+	@GetMapping(value = "/{id}")
+	public Result<BrandCO> getById(@NotBlank(message = "id不能为空") @PathVariable Long id) {
+		BrandCO brandCo = brandQueryService.getById(id);
+		return Result.success(brandCo);
+	}
+
 //    @Operation(summary = "获取所有可用品牌", description = "获取所有可用品牌")
 //    @Parameters({
 //            @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
@@ -96,48 +93,48 @@ public class BrandManagerController extends BusinessController {
 //        return Result.success(MpUtils.convertMybatisPage(brandPage, BrandCO.class));
 //    }
 
-    @Operation(summary = "新增品牌", description = "新增品牌")
-    @Parameters({
-            @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
-    })
-    @RequestLogger
-    @PreAuthorize("hasAuthority('dept:tree:data')")
-    @PostMapping
-    public Result<Boolean> save(@Validated @RequestBody BrandAddCmd brand) {
-        return Result.success(brandCommandService.addBrand(brand));
-    }
+	@Operation(summary = "新增品牌", description = "新增品牌")
+	@Parameters({
+		@Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
+	})
+	@RequestLogger
+	@PreAuthorize("hasAuthority('dept:tree:data')")
+	@PostMapping
+	public Result<Boolean> save(@Validated @RequestBody BrandAddCmd brand) {
+		return Result.success(brandCommandService.addBrand(brand));
+	}
 
-    @Operation(summary = "更新品牌", description = "更新品牌")
-    @Parameters({
-            @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
-    })
-    @RequestLogger
-    @PreAuthorize("hasAuthority('dept:tree:data')")
-    @PutMapping("/{id}")
-    public Result<Boolean> update(@PathVariable Long id, @Validated BrandUpdateCmd brand) {
-        brand.id(id);
-        return Result.success(brandCommandService.updateBrand(brand));
-    }
+	@Operation(summary = "更新品牌", description = "更新品牌")
+	@Parameters({
+		@Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
+	})
+	@RequestLogger
+	@PreAuthorize("hasAuthority('dept:tree:data')")
+	@PutMapping("/{id}")
+	public Result<Boolean> update(@PathVariable Long id, @Validated BrandUpdateCmd brand) {
+		brand.id(id);
+		return Result.success(brandCommandService.updateBrand(brand));
+	}
 
-    @Operation(summary = "后台禁用品牌", description = "后台禁用品牌")
-    @Parameters({
-            @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
-    })
-    @RequestLogger
-    @PreAuthorize("hasAuthority('dept:tree:data')")
-    @PutMapping(value = "/disable/{brandId}")
-    public Result<Boolean> disable(@PathVariable Long brandId, @RequestParam Boolean disable) {
-        return Result.success(brandCommandService.brandDisable(brandId, disable));
-    }
+	@Operation(summary = "后台禁用品牌", description = "后台禁用品牌")
+	@Parameters({
+		@Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
+	})
+	@RequestLogger
+	@PreAuthorize("hasAuthority('dept:tree:data')")
+	@PutMapping(value = "/disable/{brandId}")
+	public Result<Boolean> disable(@PathVariable Long brandId, @RequestParam Boolean disable) {
+		return Result.success(brandCommandService.brandDisable(brandId, disable));
+	}
 
-    @Operation(summary = "批量删除", description = "批量删除")
-    @Parameters({
-            @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
-    })
-    @RequestLogger
-    @PreAuthorize("hasAuthority('dept:tree:data')")
-    @DeleteMapping(value = "/{ids}")
-    public Result<Boolean> delAllByIds(@PathVariable List<Long> ids) {
-        return Result.success(brandCommandService.deleteBrands(ids));
-    }
+	@Operation(summary = "批量删除", description = "批量删除")
+	@Parameters({
+		@Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
+	})
+	@RequestLogger
+	@PreAuthorize("hasAuthority('dept:tree:data')")
+	@DeleteMapping(value = "/{ids}")
+	public Result<Boolean> delAllByIds(@PathVariable List<Long> ids) {
+		return Result.success(brandCommandService.deleteBrands(ids));
+	}
 }

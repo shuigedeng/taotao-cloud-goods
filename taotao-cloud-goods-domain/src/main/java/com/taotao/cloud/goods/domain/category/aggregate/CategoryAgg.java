@@ -3,8 +3,8 @@ package com.taotao.cloud.goods.domain.category.aggregate;
 
 import com.taotao.boot.ddd.model.domain.AggregateRoot;
 import com.taotao.boot.ddd.model.types.BizId;
-import com.taotao.cloud.goods.domain.category.valueobject.CategoryDesc;
-import com.taotao.cloud.goods.domain.category.valueobject.CategoryName;
+import com.taotao.cloud.goods.domain.category.valobj.CategoryDesc;
+import com.taotao.cloud.goods.domain.category.valobj.CategoryName;
 import jakarta.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 import java.util.Objects;

@@ -17,8 +17,8 @@
 package com.taotao.cloud.goods.interfaces.controller.seller;
 
 import com.taotao.boot.webagg.controller.BusinessController;
-import com.taotao.cloud.goods.application.service.DraftGoodsCommandService;
-import com.taotao.cloud.goods.application.service.DraftGoodsQueryService;
+import com.taotao.cloud.goods.application.service.command.DraftGoodsCommandService;
+import com.taotao.cloud.goods.application.service.query.DraftGoodsQueryService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import org.springframework.validation.annotation.Validated;

@@ -1,12 +1,13 @@
 package com.taotao.cloud.goods.domain.goods.aggregate;
 
-import com.google.shopping.type.Price;
 import com.taotao.boot.ddd.model.domain.AggregateRoot;
 import com.taotao.boot.ddd.model.types.BizId;
-import com.taotao.cloud.goods.domain.goods.valueobject.GoodsName;
-import com.taotao.cloud.goods.domain.goods.valueobject.GoodsSpec;
-import com.taotao.cloud.goods.domain.goods.valueobject.GoodsStatus;
+import com.taotao.boot.ddd.model.types.Price;
+import com.taotao.cloud.goods.domain.goods.valobj.GoodsName;
+import com.taotao.cloud.goods.domain.goods.valobj.GoodsSpec;
+import com.taotao.cloud.goods.domain.goods.valobj.GoodsStatus;
 import jakarta.validation.constraints.NotNull;
+
 import java.time.LocalDateTime;
 import java.util.Objects;
 import java.util.Set;
@@ -77,8 +78,8 @@ public class GoodsAgg extends AggregateRoot<BizId> {
 	 * @param goodsPrice  商品价格
 	 * @param goodsStatus 商品状态
 	 */
-	GoodsAgg(BizId id, BizId categoryId, GoodsName goodsName, GoodsSpec goodsSpec, Price goodsPrice,
-		GoodsStatus goodsStatus, Set<BizId> tagIds) {
+	public GoodsAgg(BizId id, BizId categoryId, GoodsName goodsName, GoodsSpec goodsSpec, Price goodsPrice,
+					GoodsStatus goodsStatus, Set<BizId> tagIds) {
 		this.id = id;
 		this.categoryId = categoryId;
 		this.goodsName = goodsName;
@@ -92,8 +93,8 @@ public class GoodsAgg extends AggregateRoot<BizId> {
 	}
 
 	public GoodsAgg(BizId id, Set<BizId> tagIds, BizId categoryId, GoodsName goodsName,
-		GoodsSpec goodsSpec, Price goodsPrice, GoodsStatus goodsStatus, LocalDateTime createTime,
-		LocalDateTime updateTime) {
+					GoodsSpec goodsSpec, Price goodsPrice, GoodsStatus goodsStatus, LocalDateTime createTime,
+					LocalDateTime updateTime) {
 		this.id = id;
 		this.tagIds = tagIds;
 		this.categoryId = categoryId;
@@ -115,7 +116,7 @@ public class GoodsAgg extends AggregateRoot<BizId> {
 	 * @param goodsPrice 商品价格
 	 */
 	public void modifyBasicInfo(BizId categoryId, GoodsName goodsName, GoodsSpec goodsSpec,
-		Price goodsPrice, Set<BizId> tagIds) {
+								Price goodsPrice, Set<BizId> tagIds) {
 		this.categoryId = categoryId;
 		this.goodsName = goodsName;
 		this.goodsSpec = goodsSpec;

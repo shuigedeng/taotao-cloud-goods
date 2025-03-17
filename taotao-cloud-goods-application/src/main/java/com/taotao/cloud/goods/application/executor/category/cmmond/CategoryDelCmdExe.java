@@ -4,9 +4,9 @@ package com.taotao.cloud.goods.application.executor.category.cmmond;
 
 import com.taotao.boot.cache.redis.repository.RedisRepository;
 import com.taotao.boot.ddd.model.application.executor.Executor;
-import com.taotao.cloud.goods.application.service.CategoryBrandCommandService;
-import com.taotao.cloud.goods.application.service.CategoryParameterGroupCommandService;
-import com.taotao.cloud.goods.application.service.CategorySpecificationCommandService;
+import com.taotao.cloud.goods.application.service.command.CategoryBrandCommandService;
+import com.taotao.cloud.goods.application.service.command.CategoryParameterGroupCommandService;
+import com.taotao.cloud.goods.application.service.command.CategorySpecificationCommandService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

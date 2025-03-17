@@ -21,11 +21,13 @@ import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
 import com.taotao.cloud.goods.api.enums.GoodsAuthEnum;
 import com.taotao.cloud.goods.api.enums.GoodsStatusEnum;
+import com.taotao.cloud.goods.application.dto.goods.clientobject.GoodsCO;
 import com.taotao.cloud.goods.application.dto.goods.clientobject.GoodsSkuParamsCO;
-import com.taotao.cloud.goods.application.service.GoodsCommandService;
-import com.taotao.cloud.goods.application.service.GoodsQueryService;
-import com.taotao.cloud.goods.application.service.GoodsSkuCommandService;
-import com.taotao.cloud.goods.application.service.GoodsSkuQueryService;
+import com.taotao.cloud.goods.application.dto.goods.cmmond.GoodsCreateCommand;
+import com.taotao.cloud.goods.application.service.command.GoodsCommandService;
+import com.taotao.cloud.goods.application.service.command.GoodsSkuCommandService;
+import com.taotao.cloud.goods.application.service.query.GoodsQueryService;
+import com.taotao.cloud.goods.application.service.query.GoodsSkuQueryService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.Parameters;
@@ -35,12 +37,7 @@ import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -64,6 +61,17 @@ public class GoodsManagerController extends BusinessController {
     /** 规格商品服务 */
     private final GoodsSkuQueryService goodsSkuQueryService;
     private final GoodsSkuCommandService goodsSkuCommandService;
+
+	@Operation(summary = "管理员上架商品", description = "管理员上架商品")
+	@Parameters({
+		@Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
+	})
+	@RequestLogger("管理员上架商品")
+	@PreAuthorize("hasAuthority('dept:tree:data')")
+	@PostMapping
+	public Result<GoodsCO> createGoods(@RequestBody GoodsCreateCommand goodsCreateCommand) {
+		return Result.success(this.goodsCommandService.createGoods(goodsCreateCommand));
+	}
 
 //    @Operation(summary = "分页获取", description = "分页获取")
 //    @Parameters({
