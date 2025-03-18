@@ -31,19 +31,12 @@ import org.mapstruct.factory.Mappers;
  * @version 2022.04
  * @since 2022-04-27 16:58:21
  */
-@Mapper(unmappedSourcePolicy = ReportingPolicy.IGNORE, unmappedTargetPolicy = ReportingPolicy.IGNORE)
-public interface GoodsAssembler {
+@Mapper
+public interface GoodsInfraAssembler {
 
     /** 实例 */
-    GoodsAssembler INSTANCE = Mappers.getMapper(GoodsAssembler.class);
+    GoodsInfraAssembler INSTANCE = Mappers.getMapper(GoodsInfraAssembler.class);
 
-    /**
-     * 货物货物签证官
-     *
-     * @param goods 货物
-     * @return {@link GoodsSkuParamsVO }
-     * @since 2022-04-27 16:58:21
-     */
     GoodsPO convert(GoodsAgg goods);
 
 	default Long map(BizId value) {

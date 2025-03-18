@@ -27,7 +27,12 @@ javadoc {
 
 gradle.projectsEvaluated {
     tasks.withType(JavaCompile).configureEach {
-        options.compilerArgs += "--enable-preview"
+        options.compilerArgs += [
+                '--enable-preview',
+                '-Amapstruct.defaultComponentModel=spring',
+                '-Amapstruct.verbose=true',
+                '-Amapstruct.nullValueIterableMappingStrategy=RETURN_DEFAULT',
+        ]
     }
     tasks.withType(JavaExec).configureEach {
         jvmArgs += "--enable-preview"
@@ -39,6 +44,9 @@ gradle.projectsEvaluated {
                     '-Xlint:unchecked',
                     '-Xlint:deprecation',
                     '--enable-preview',
+                    '-Amapstruct.defaultComponentModel=spring',
+                    '-Amapstruct.verbose=true',
+                    '-Amapstruct.nullValueIterableMappingStrategy=RETURN_DEFAULT',
                     '--add-exports=java.desktop/sun.font=ALL-UNNAMED',
                     '--add-exports=java.base/sun.reflect.generics.tree=ALL-UNNAMED',
                     '--add-exports=java.base/sun.net.www.protocol.ftp=ALL-UNNAMED',

@@ -19,7 +19,6 @@ package com.taotao.cloud.goods.infrastructure.assembler;
 import com.taotao.cloud.goods.application.dto.specification.clientobject.SpecificationCO;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.SpecificationPO;
 import org.mapstruct.Mapper;
-import org.mapstruct.ReportingPolicy;
 import org.mapstruct.factory.Mappers;
 
 import java.util.List;
@@ -31,11 +30,11 @@ import java.util.List;
  * @version 2022.04
  * @since 2022-04-27 16:58:30
  */
-@Mapper(unmappedSourcePolicy = ReportingPolicy.IGNORE, unmappedTargetPolicy = ReportingPolicy.IGNORE)
-public interface SpecificationAssembler {
+@Mapper
+public interface SpecificationInfraAssembler {
 
     /** 实例 */
-    SpecificationAssembler INSTANCE = Mappers.getMapper(SpecificationAssembler.class);
+    SpecificationInfraAssembler INSTANCE = Mappers.getMapper(SpecificationInfraAssembler.class);
 
     /**
      * 规范来规范vos

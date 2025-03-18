@@ -6,7 +6,7 @@ import com.taotao.boot.ddd.model.types.BizId;
 import com.taotao.cloud.goods.domain.goods.aggregate.GoodsAgg;
 import com.taotao.cloud.goods.domain.goods.repository.GoodsDomainRepository;
 import com.taotao.cloud.goods.domain.goods.valobj.GoodsStatus;
-import com.taotao.cloud.goods.infrastructure.assembler.GoodsAssembler;
+import com.taotao.cloud.goods.infrastructure.assembler.GoodsInfraAssembler;
 import com.taotao.cloud.goods.infrastructure.persistent.mapper.GoodsMapper;
 import com.taotao.cloud.goods.infrastructure.persistent.mapper.GoodsSkuMapper;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsPO;
@@ -32,7 +32,7 @@ public class GoodsDomainRepositoryImpl implements GoodsDomainRepository {
 
 	@Override
 	public void save(GoodsAgg goods) {
-		GoodsPO goodsPo = GoodsAssembler.INSTANCE.convert(goods);
+		GoodsPO goodsPo = GoodsInfraAssembler.INSTANCE.convert(goods);
 
 		goodsMapper.insert(goodsPo);
 	}

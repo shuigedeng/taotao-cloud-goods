@@ -16,29 +16,42 @@
 
 package com.taotao.cloud.goods.infrastructure.assembler;
 
+import com.taotao.cloud.goods.application.dto.category.clientobject.CategoryCO;
+import com.taotao.cloud.goods.application.dto.category.clientobject.CategoryTreeCO;
+import com.taotao.cloud.goods.infrastructure.persistent.persistence.CategoryPO;
 import org.mapstruct.Mapper;
-import org.mapstruct.ReportingPolicy;
 import org.mapstruct.factory.Mappers;
 
+import java.util.List;
+
 /**
- * ICustomWordsMapStruct
+ * ICategoryMapStruct
  *
  * @author shuigedeng
  * @version 2022.04
- * @since 2022-04-27 16:58:09
+ * @since 2022-04-27 16:58:05
  */
-@Mapper(unmappedSourcePolicy = ReportingPolicy.IGNORE, unmappedTargetPolicy = ReportingPolicy.IGNORE)
-public interface CustomWordsAssembler {
+@Mapper
+public interface CategoryInfraAssembler {
 
     /** 实例 */
-    CustomWordsAssembler INSTANCE = Mappers.getMapper(CustomWordsAssembler.class);
+    CategoryInfraAssembler INSTANCE = Mappers.getMapper(CategoryInfraAssembler.class);
 
     /**
-     * 自定义单词voto自定义单词
+     * 类别,类别签证官
      *
-     * @param customWordsVO 自定义单词签证官
-     * @return {@link CustomWords }
-     * @since 2022-04-27 16:58:09
+     * @param category 类别
+     * @return {@link CategoryTreeVO }
+     * @since 2022-04-27 16:58:05
      */
-    //CustomWords convert(CustomWordsVO customWordsVO);
+    CategoryTreeCO convert(CategoryPO category);
+
+    /**
+     * 类别基础vos思想史范畴
+     *
+     * @param categorys 思想史范畴
+     * @return {@link List }<{@link CategoryVO }>
+     * @since 2022-04-27 16:58:05
+     */
+    List<CategoryCO> convert(List<CategoryPO> categorys);
 }

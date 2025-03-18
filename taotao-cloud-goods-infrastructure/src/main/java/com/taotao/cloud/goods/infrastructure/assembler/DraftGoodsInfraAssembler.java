@@ -16,26 +16,28 @@
 
 package com.taotao.cloud.goods.infrastructure.assembler;
 
-import org.mapstruct.Builder;
 import org.mapstruct.Mapper;
-import org.mapstruct.ReportingPolicy;
 import org.mapstruct.factory.Mappers;
 
 /**
- * IGoodsSkuMapStruct
+ * IParametersMapStruct
  *
  * @author shuigedeng
  * @version 2022.04
- * @since 2022-04-27 16:58:21
+ * @since 2022-04-27 16:58:13
  */
-@Mapper(
-        builder = @Builder(disableBuilder = true),
-        unmappedSourcePolicy = ReportingPolicy.IGNORE,
-        unmappedTargetPolicy = ReportingPolicy.IGNORE)
-public interface CommodityAssembler {
+@Mapper
+public interface DraftGoodsInfraAssembler {
 
     /** 实例 */
-    CommodityAssembler INSTANCE = Mappers.getMapper(CommodityAssembler.class);
+    DraftGoodsInfraAssembler INSTANCE = Mappers.getMapper(DraftGoodsInfraAssembler.class);
 
-    //List<CommoditySkuVO> convert(List<Commodity> commodities);
+    /**
+     * 商品dtoto草案起草产品
+     *
+     * @param draftGoodsSkuParamsDTO 商品dto草案
+     * @return {@link DraftGoods }
+     * @since 2022-04-27 16:58:13
+     */
+    //DraftGoods convert(DraftGoodsSkuParamsDTO draftGoodsSkuParamsDTO);
 }

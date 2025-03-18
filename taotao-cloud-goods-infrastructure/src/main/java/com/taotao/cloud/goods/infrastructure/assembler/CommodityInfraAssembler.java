@@ -16,33 +16,26 @@
 
 package com.taotao.cloud.goods.infrastructure.assembler;
 
-import com.taotao.cloud.goods.application.dto.category.clientobject.CategoryBrandCO;
-import com.taotao.cloud.goods.infrastructure.dataobject.CategoryBrandDO;
+import org.mapstruct.Builder;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 import org.mapstruct.factory.Mappers;
 
-import java.util.List;
-
 /**
- * ICategoryMapStruct
+ * IGoodsSkuMapStruct
  *
  * @author shuigedeng
  * @version 2022.04
- * @since 2022-04-27 16:58:05
+ * @since 2022-04-27 16:58:21
  */
-@Mapper(unmappedSourcePolicy = ReportingPolicy.IGNORE, unmappedTargetPolicy = ReportingPolicy.IGNORE)
-public interface CategoryBrandAssembler {
+@Mapper(
+        builder = @Builder(disableBuilder = true),
+        unmappedSourcePolicy = ReportingPolicy.IGNORE,
+        unmappedTargetPolicy = ReportingPolicy.IGNORE)
+public interface CommodityInfraAssembler {
 
     /** 实例 */
-    CategoryBrandAssembler INSTANCE = Mappers.getMapper(CategoryBrandAssembler.class);
+    CommodityInfraAssembler INSTANCE = Mappers.getMapper(CommodityInfraAssembler.class);
 
-    /**
-     * 类别基础vos思想史范畴
-     *
-     * @param categorys 思想史范畴
-     * @return {@link List }<{@link CategoryVO }>
-     * @since 2022-04-27 16:58:05
-     */
-	List<CategoryBrandCO> convert(List<CategoryBrandDO> categoryBrandList);
+    //List<CommoditySkuVO> convert(List<Commodity> commodities);
 }

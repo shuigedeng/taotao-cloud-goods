@@ -31,11 +31,11 @@ import org.mapstruct.factory.Mappers;
  * @version 2022.04
  * @since 2022-04-27 16:58:27
  */
-@Mapper(unmappedSourcePolicy = ReportingPolicy.IGNORE, unmappedTargetPolicy = ReportingPolicy.IGNORE)
-public interface GoodsAssembler {
+@Mapper
+public interface GoodsAppAssembler {
 
     /** 实例 */
-    GoodsAssembler INSTANCE = Mappers.getMapper(GoodsAssembler.class);
+    GoodsAppAssembler INSTANCE = Mappers.getMapper(GoodsAppAssembler.class);
 	//
     ///**
     // * 参数参数vos
@@ -45,7 +45,6 @@ public interface GoodsAssembler {
     // * @since 2022-04-27 16:58:27
     // */
     //List<ParametersVO> convert(List<Parameters> parameters);
-
 
     GoodsCO convert(GoodsAgg goodsAgg);
 

@@ -18,7 +18,7 @@ package com.taotao.cloud.goods.application.service.command.impl;
 
 import com.taotao.cloud.goods.api.enums.GoodsAuthEnum;
 import com.taotao.cloud.goods.api.enums.GoodsStatusEnum;
-import com.taotao.cloud.goods.application.assembler.GoodsAssembler;
+import com.taotao.cloud.goods.application.assembler.GoodsAppAssembler;
 import com.taotao.cloud.goods.application.dto.goods.clientobject.GoodsCO;
 import com.taotao.cloud.goods.application.dto.goods.cmmond.GoodsAddCmd;
 import com.taotao.cloud.goods.application.dto.goods.cmmond.GoodsCreateCommand;
@@ -118,7 +118,7 @@ public class GoodsCommandServiceImpl implements GoodsCommandService {
 		//保存商品
 		goodsDomainRepository.save(goods);
 		//转换GoodsDto
-		return GoodsAssembler.INSTANCE.convert(goods);
+		return GoodsAppAssembler.INSTANCE.convert(goods);
 	}
 
 	//private final GoodsManager goodsManager;

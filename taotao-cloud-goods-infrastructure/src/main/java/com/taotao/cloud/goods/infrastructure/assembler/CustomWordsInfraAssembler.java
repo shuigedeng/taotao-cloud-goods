@@ -16,31 +16,28 @@
 
 package com.taotao.cloud.goods.infrastructure.assembler;
 
-import com.taotao.cloud.goods.application.dto.goods.clientobject.GoodsUnitCO;
-import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsUnitPO;
 import org.mapstruct.Mapper;
-import org.mapstruct.ReportingPolicy;
 import org.mapstruct.factory.Mappers;
 
 /**
- * IGoodsSkuMapStruct
+ * ICustomWordsMapStruct
  *
  * @author shuigedeng
  * @version 2022.04
- * @since 2022-04-27 16:58:21
+ * @since 2022-04-27 16:58:09
  */
-@Mapper(unmappedSourcePolicy = ReportingPolicy.IGNORE, unmappedTargetPolicy = ReportingPolicy.IGNORE)
-public interface GoodsUnitAssembler {
+@Mapper
+public interface CustomWordsInfraAssembler {
 
     /** 实例 */
-    GoodsUnitAssembler INSTANCE = Mappers.getMapper(GoodsUnitAssembler.class);
+    CustomWordsInfraAssembler INSTANCE = Mappers.getMapper(CustomWordsInfraAssembler.class);
 
     /**
-     * 转换
+     * 自定义单词voto自定义单词
      *
-     * @param goodsUnit 货物单位
-     * @return {@link GoodsUnitVO }
-     * @since 2023-08-11 14:54:25
+     * @param customWordsVO 自定义单词签证官
+     * @return {@link CustomWords }
+     * @since 2022-04-27 16:58:09
      */
-    GoodsUnitCO convert(GoodsUnitPO goodsUnit);
+    //CustomWords convert(CustomWordsVO customWordsVO);
 }

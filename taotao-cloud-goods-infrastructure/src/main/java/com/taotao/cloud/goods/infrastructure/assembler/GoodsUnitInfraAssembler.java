@@ -16,8 +16,9 @@
 
 package com.taotao.cloud.goods.infrastructure.assembler;
 
+import com.taotao.cloud.goods.application.dto.goods.clientobject.GoodsUnitCO;
+import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsUnitPO;
 import org.mapstruct.Mapper;
-import org.mapstruct.ReportingPolicy;
 import org.mapstruct.factory.Mappers;
 
 /**
@@ -25,22 +26,20 @@ import org.mapstruct.factory.Mappers;
  *
  * @author shuigedeng
  * @version 2022.04
- * @since 2022-04-27 16:58:24
+ * @since 2022-04-27 16:58:21
  */
-@Mapper(unmappedSourcePolicy = ReportingPolicy.IGNORE, unmappedTargetPolicy = ReportingPolicy.IGNORE)
-public interface GoodsSkuAssembler {
+@Mapper
+public interface GoodsUnitInfraAssembler {
 
     /** 实例 */
-    GoodsSkuAssembler INSTANCE = Mappers.getMapper(GoodsSkuAssembler.class);
+    GoodsUnitInfraAssembler INSTANCE = Mappers.getMapper(GoodsUnitInfraAssembler.class);
 
-    ///**
-    // * 产品sku产品sku签证官
-    // *
-    // * @param goodsSku 产品sku
-    // * @return {@link GoodsSkuSpecGalleryVO }
-    // * @since 2022-04-27 16:58:24
-    // */
-    //GoodsSkuSpecGalleryVO convertGallery(GoodsSku goodsSku);
-	//
-    //GoodsSkuVO convert(GoodsSku goodsSku);
+    /**
+     * 转换
+     *
+     * @param goodsUnit 货物单位
+     * @return {@link GoodsUnitVO }
+     * @since 2023-08-11 14:54:25
+     */
+    GoodsUnitCO convert(GoodsUnitPO goodsUnit);
 }

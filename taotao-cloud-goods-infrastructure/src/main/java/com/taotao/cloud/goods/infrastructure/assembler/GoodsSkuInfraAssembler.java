@@ -17,28 +17,29 @@
 package com.taotao.cloud.goods.infrastructure.assembler;
 
 import org.mapstruct.Mapper;
-import org.mapstruct.ReportingPolicy;
 import org.mapstruct.factory.Mappers;
 
 /**
- * IParametersMapStruct
+ * IGoodsSkuMapStruct
  *
  * @author shuigedeng
  * @version 2022.04
- * @since 2022-04-27 16:58:13
+ * @since 2022-04-27 16:58:24
  */
-@Mapper(unmappedSourcePolicy = ReportingPolicy.IGNORE, unmappedTargetPolicy = ReportingPolicy.IGNORE)
-public interface DraftGoodsAssembler {
+@Mapper
+public interface GoodsSkuInfraAssembler {
 
     /** 实例 */
-    DraftGoodsAssembler INSTANCE = Mappers.getMapper(DraftGoodsAssembler.class);
+    GoodsSkuInfraAssembler INSTANCE = Mappers.getMapper(GoodsSkuInfraAssembler.class);
 
-    /**
-     * 商品dtoto草案起草产品
-     *
-     * @param draftGoodsSkuParamsDTO 商品dto草案
-     * @return {@link DraftGoods }
-     * @since 2022-04-27 16:58:13
-     */
-    //DraftGoods convert(DraftGoodsSkuParamsDTO draftGoodsSkuParamsDTO);
+    ///**
+    // * 产品sku产品sku签证官
+    // *
+    // * @param goodsSku 产品sku
+    // * @return {@link GoodsSkuSpecGalleryVO }
+    // * @since 2022-04-27 16:58:24
+    // */
+    //GoodsSkuSpecGalleryVO convertGallery(GoodsSku goodsSku);
+	//
+    //GoodsSkuVO convert(GoodsSku goodsSku);
 }

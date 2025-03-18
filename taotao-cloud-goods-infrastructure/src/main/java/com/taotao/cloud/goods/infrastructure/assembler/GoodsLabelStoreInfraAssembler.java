@@ -21,7 +21,6 @@ import com.taotao.cloud.goods.application.dto.store.cmmond.StoreGoodsLabelAddCmd
 import com.taotao.cloud.goods.application.dto.store.cmmond.StoreGoodsLabelEditCmd;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.StoreGoodsLabelPO;
 import org.mapstruct.Mapper;
-import org.mapstruct.ReportingPolicy;
 import org.mapstruct.factory.Mappers;
 
 /**
@@ -31,11 +30,11 @@ import org.mapstruct.factory.Mappers;
  * @version 2022.04
  * @since 2022-04-27 16:58:16
  */
-@Mapper(unmappedSourcePolicy = ReportingPolicy.IGNORE, unmappedTargetPolicy = ReportingPolicy.IGNORE)
-public interface GoodsLabelStoreAssembler {
+@Mapper
+public interface GoodsLabelStoreInfraAssembler {
 
     /** 实例 */
-    GoodsLabelStoreAssembler INSTANCE = Mappers.getMapper(GoodsLabelStoreAssembler.class);
+    GoodsLabelStoreInfraAssembler INSTANCE = Mappers.getMapper(GoodsLabelStoreInfraAssembler.class);
 
     /**
      * 商店商品标签存储货物标签信息签证官

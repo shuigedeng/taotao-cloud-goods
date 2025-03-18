@@ -14,10 +14,9 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.infrastructure.assembler;
+package com.taotao.cloud.goods.application.assembler;
 
 import org.mapstruct.Mapper;
-import org.mapstruct.ReportingPolicy;
 import org.mapstruct.factory.Mappers;
 
 /**
@@ -27,11 +26,11 @@ import org.mapstruct.factory.Mappers;
  * @version 2022.04
  * @since 2022-04-27 16:58:27
  */
-@Mapper(unmappedSourcePolicy = ReportingPolicy.IGNORE, unmappedTargetPolicy = ReportingPolicy.IGNORE)
-public interface ParametersAssembler {
+@Mapper
+public interface ParametersAppAssembler {
 
     /** 实例 */
-    ParametersAssembler INSTANCE = Mappers.getMapper(ParametersAssembler.class);
+    ParametersAppAssembler INSTANCE = Mappers.getMapper(ParametersAppAssembler.class);
 	//
     ///**
     // * 参数参数vos
