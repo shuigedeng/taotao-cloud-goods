@@ -30,8 +30,8 @@ public class ExceptionHandler extends ChannelHandlerAdapter {
 
         logger.error("异常处理器中的异常处理逻辑");
 
-//        Result re = (Result) out;
-//        re.setCode(500);
-//        re.setMsg("系统异常");
+        //        Result re = (Result) out;
+        //        re.setCode(500);
+        //        re.setMsg("系统异常");
     }
 }

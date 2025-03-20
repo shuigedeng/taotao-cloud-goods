@@ -16,9 +16,7 @@
 
 package com.taotao.cloud.goods.infrastructure.persistent.repository.inf;
 
-import com.taotao.cloud.goods.infrastructure.persistent.persistence.SpecificationPO;
 import com.taotao.boot.webagg.repository.BaseInterfaceSuperRepository;
-import org.springframework.data.jpa.repository.JpaRepository;
+import com.taotao.cloud.goods.infrastructure.persistent.persistence.SpecificationPO;
 
-public interface ISpecificationRepository extends
-	BaseInterfaceSuperRepository<SpecificationPO, Long> {}
+public interface ISpecificationRepository extends BaseInterfaceSuperRepository<SpecificationPO, Long> {}

@@ -1,4 +1,4 @@
-///*
+/// *
 // * Copyright (c) 2020-2030, Shuigedeng (981376577@qq.com & https://blog.taotaocloud.top/).
 // *
 // * Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,12 +14,12 @@
 // * limitations under the License.
 // */
 //
-//package com.taotao.cloud.goods.application.event.roketmq.handler;
+// package com.taotao.cloud.goods.application.event.roketmq.handler;
 //
-//import com.taotao.cloud.mq.stream.message.MemberWithdrawalMessage;
+// import com.taotao.cloud.mq.stream.message.MemberWithdrawalMessage;
 //
-///** 会员提现消息 */
-//public interface MemberWithdrawalEventHandler {
+/// ** 会员提现消息 */
+// public interface MemberWithdrawalEventHandler {
 //
 //    /**
 //     * 会员提现
@@ -27,4 +27,4 @@
 //     * @param memberWithdrawalMessage 提现对象
 //     */
 //    void memberWithdrawal(MemberWithdrawalMessage memberWithdrawalMessage);
-//}
+// }

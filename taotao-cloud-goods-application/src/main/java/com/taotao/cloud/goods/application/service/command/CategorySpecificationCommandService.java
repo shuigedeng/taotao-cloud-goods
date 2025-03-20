@@ -27,13 +27,12 @@ import com.taotao.boot.ddd.model.application.service.CommandService;
  */
 public interface CategorySpecificationCommandService extends CommandService {
 
-
-	/**
-	 * 通过分类ID删除关联规格
-	 *
-	 * @param categoryId 分类ID
-	 * @return {@link boolean }
-	 * @since 2022-04-27 16:59:40
-	 */
-	boolean deleteByCategoryId(Long categoryId);
+    /**
+     * 通过分类ID删除关联规格
+     *
+     * @param categoryId 分类ID
+     * @return {@link boolean }
+     * @since 2022-04-27 16:59:40
+     */
+    boolean deleteByCategoryId(Long categoryId);
 }

@@ -19,11 +19,10 @@ package com.taotao.cloud.goods.application.service.query.impl;
 import com.taotao.boot.cache.redis.repository.RedisRepository;
 import com.taotao.cloud.goods.application.dto.store.clientobject.StoreGoodsLabelCO;
 import com.taotao.cloud.goods.application.service.query.StoreGoodsLabelQueryService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Map;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  * 店铺商品分类业务层实现
@@ -33,119 +32,118 @@ import java.util.Map;
  * @since 2022-04-27 17:02:58
  */
 @Service
-public class StoreGoodsLabelQueryServiceImpl
-	implements StoreGoodsLabelQueryService {
+public class StoreGoodsLabelQueryServiceImpl implements StoreGoodsLabelQueryService {
 
-	/**
-	 * 缓存
-	 */
-	@Autowired
-	private RedisRepository redisRepository;
+    /**
+     * 缓存
+     */
+    @Autowired
+    private RedisRepository redisRepository;
 
-	@Override
-	public List<StoreGoodsLabelCO> listByStoreId(Long storeId) {
-		return List.of();
-	}
+    @Override
+    public List<StoreGoodsLabelCO> listByStoreId(Long storeId) {
+        return List.of();
+    }
 
-	@Override
-	public List<Map<String, Object>> listMapsByStoreIds(List<Long> ids, String columns) {
-		return List.of();
-	}
-//
-//	@Override
-//	public List<StoreGoodsLabelCO> listByStoreId(Long storeId) {
-//		return List.of();
-//	}
-//
-//	@Override
-//	public List<StoreGoodsLabelPO> listByStoreIds(List<Long> ids) {
-//		return List.of();
-//	}
-//
-//	@Override
-//	public List<Map<String, Object>> listMapsByStoreIds(List<Long> ids, String columns) {
-//		return List.of();
-//	}
-	//
-	//@Override
-	//public List<StoreGoodsLabelCO> listByStoreId(Long storeId) {
-	//	// 从缓存中获取店铺分类
-	//	if (redisRepository.hasKey(CachePrefix.STORE_CATEGORY.getPrefix() + storeId)) {
-	//		return (List<StoreGoodsLabelCO>) redisRepository.get(
-	//			CachePrefix.STORE_CATEGORY.getPrefix() + storeId);
-	//	}
-	//
-	//	List<StoreGoodsLabelPO> list = list(storeId);
-	//	List<StoreGoodsLabelCO> storeGoodsLabelCOList = new ArrayList<>();
-	//
-	//	// 循环列表判断是否为顶级，如果为顶级获取下级数据
-	//	list.stream().filter(storeGoodsLabel -> storeGoodsLabel.getLevel() == 0)
-	//		.forEach(storeGoodsLabel -> {
-	//			StoreGoodsLabelCO storeGoodsLabelCO = new StoreGoodsLabelCO(
-	//				storeGoodsLabel.getId(),
-	//				storeGoodsLabel.getLabelName(),
-	//				storeGoodsLabel.getLevel(),
-	//				storeGoodsLabel.getSortOrder());
-	//			List<StoreGoodsLabelCO> storeGoodsLabelCOChildList = new ArrayList<>();
-	//			list.stream()
-	//				.filter(label -> label.getParentId().equals(storeGoodsLabel.getId()))
-	//				.forEach(storeGoodsLabelChild -> storeGoodsLabelCOChildList.add(
-	//					new StoreGoodsLabelCO(
-	//						storeGoodsLabelChild.getId(),
-	//						storeGoodsLabelChild.getLabelName(),
-	//						storeGoodsLabelChild.getLevel(),
-	//						storeGoodsLabelChild.getSortOrder())));
-	//			storeGoodsLabelCO.setChildren(storeGoodsLabelCOChildList);
-	//			storeGoodsLabelCOList.add(storeGoodsLabelCO);
-	//		});
-	//
-	//	// 调整店铺分类排序
-	//	storeGoodsLabelCOList.sort(Comparator.comparing(StoreGoodsLabelCO::getSortOrder));
-	//
-	//	if (!storeGoodsLabelCOList.isEmpty()) {
-	//		redisRepository.set(CachePrefix.CATEGORY.getPrefix() + storeId + "tree",
-	//			storeGoodsLabelCOList);
-	//	}
-	//	return storeGoodsLabelCOList;
-	//}
-	//
-	///**
-	// * 根据分类id集合获取所有店铺分类根据层级排序
-	// *
-	// * @param ids 商家ID
-	// * @return 店铺分类列表
-	// */
-	//@Override
-	//public List<StoreGoodsLabelPO> listByStoreIds(List<Long> ids) {
-	//	return this.list(new LambdaQueryWrapper<StoreGoodsLabelPO>()
-	//		.in(StoreGoodsLabelPO::getId, ids)
-	//		.orderByAsc(StoreGoodsLabelPO::getLevel));
-	//}
-	//
-	//
-	//@Override
-	//public List<Map<String, Object>> listMapsByStoreIds(List<Long> ids, String columns) {
-	//	return List.of();
-	//}
-	//
-	//
-	///**
-	// * 获取店铺商品分类列表
-	// *
-	// * @param storeId 店铺ID
-	// * @return 店铺商品分类列表
-	// */
-	//private List<StoreGoodsLabelPO> list(Long storeId) {
-	//	LambdaQueryWrapper<StoreGoodsLabelPO> queryWrapper = Wrappers.lambdaQuery();
-	//	queryWrapper.eq(StoreGoodsLabelPO::getStoreId, storeId);
-	//	queryWrapper.orderByDesc(StoreGoodsLabelPO::getSortOrder);
-	//	return this.baseMapper.selectList(queryWrapper);
-	//}
-	//
-	///**
-	// * 清除缓存
-	// */
-	//private void removeCache(Long storeId) {
-	//	redisRepository.del(CachePrefix.STORE_CATEGORY.getPrefix() + storeId);
-	//}
+    @Override
+    public List<Map<String, Object>> listMapsByStoreIds(List<Long> ids, String columns) {
+        return List.of();
+    }
+    //
+    //	@Override
+    //	public List<StoreGoodsLabelCO> listByStoreId(Long storeId) {
+    //		return List.of();
+    //	}
+    //
+    //	@Override
+    //	public List<StoreGoodsLabelPO> listByStoreIds(List<Long> ids) {
+    //		return List.of();
+    //	}
+    //
+    //	@Override
+    //	public List<Map<String, Object>> listMapsByStoreIds(List<Long> ids, String columns) {
+    //		return List.of();
+    //	}
+    //
+    // @Override
+    // public List<StoreGoodsLabelCO> listByStoreId(Long storeId) {
+    //	// 从缓存中获取店铺分类
+    //	if (redisRepository.hasKey(CachePrefix.STORE_CATEGORY.getPrefix() + storeId)) {
+    //		return (List<StoreGoodsLabelCO>) redisRepository.get(
+    //			CachePrefix.STORE_CATEGORY.getPrefix() + storeId);
+    //	}
+    //
+    //	List<StoreGoodsLabelPO> list = list(storeId);
+    //	List<StoreGoodsLabelCO> storeGoodsLabelCOList = new ArrayList<>();
+    //
+    //	// 循环列表判断是否为顶级，如果为顶级获取下级数据
+    //	list.stream().filter(storeGoodsLabel -> storeGoodsLabel.getLevel() == 0)
+    //		.forEach(storeGoodsLabel -> {
+    //			StoreGoodsLabelCO storeGoodsLabelCO = new StoreGoodsLabelCO(
+    //				storeGoodsLabel.getId(),
+    //				storeGoodsLabel.getLabelName(),
+    //				storeGoodsLabel.getLevel(),
+    //				storeGoodsLabel.getSortOrder());
+    //			List<StoreGoodsLabelCO> storeGoodsLabelCOChildList = new ArrayList<>();
+    //			list.stream()
+    //				.filter(label -> label.getParentId().equals(storeGoodsLabel.getId()))
+    //				.forEach(storeGoodsLabelChild -> storeGoodsLabelCOChildList.add(
+    //					new StoreGoodsLabelCO(
+    //						storeGoodsLabelChild.getId(),
+    //						storeGoodsLabelChild.getLabelName(),
+    //						storeGoodsLabelChild.getLevel(),
+    //						storeGoodsLabelChild.getSortOrder())));
+    //			storeGoodsLabelCO.setChildren(storeGoodsLabelCOChildList);
+    //			storeGoodsLabelCOList.add(storeGoodsLabelCO);
+    //		});
+    //
+    //	// 调整店铺分类排序
+    //	storeGoodsLabelCOList.sort(Comparator.comparing(StoreGoodsLabelCO::getSortOrder));
+    //
+    //	if (!storeGoodsLabelCOList.isEmpty()) {
+    //		redisRepository.set(CachePrefix.CATEGORY.getPrefix() + storeId + "tree",
+    //			storeGoodsLabelCOList);
+    //	}
+    //	return storeGoodsLabelCOList;
+    // }
+    //
+    /// **
+    // * 根据分类id集合获取所有店铺分类根据层级排序
+    // *
+    // * @param ids 商家ID
+    // * @return 店铺分类列表
+    // */
+    // @Override
+    // public List<StoreGoodsLabelPO> listByStoreIds(List<Long> ids) {
+    //	return this.list(new LambdaQueryWrapper<StoreGoodsLabelPO>()
+    //		.in(StoreGoodsLabelPO::getId, ids)
+    //		.orderByAsc(StoreGoodsLabelPO::getLevel));
+    // }
+    //
+    //
+    // @Override
+    // public List<Map<String, Object>> listMapsByStoreIds(List<Long> ids, String columns) {
+    //	return List.of();
+    // }
+    //
+    //
+    /// **
+    // * 获取店铺商品分类列表
+    // *
+    // * @param storeId 店铺ID
+    // * @return 店铺商品分类列表
+    // */
+    // private List<StoreGoodsLabelPO> list(Long storeId) {
+    //	LambdaQueryWrapper<StoreGoodsLabelPO> queryWrapper = Wrappers.lambdaQuery();
+    //	queryWrapper.eq(StoreGoodsLabelPO::getStoreId, storeId);
+    //	queryWrapper.orderByDesc(StoreGoodsLabelPO::getSortOrder);
+    //	return this.baseMapper.selectList(queryWrapper);
+    // }
+    //
+    /// **
+    // * 清除缓存
+    // */
+    // private void removeCache(Long storeId) {
+    //	redisRepository.del(CachePrefix.STORE_CATEGORY.getPrefix() + storeId);
+    // }
 }

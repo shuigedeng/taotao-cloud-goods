@@ -18,13 +18,9 @@ package com.taotao.cloud.goods.application.dto.store.cmmond;
 
 import com.taotao.boot.ddd.model.application.dto.Command;
 import io.swagger.v3.oas.annotations.media.Schema;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.experimental.Accessors;
-
 import java.io.Serial;
+import lombok.*;
+import lombok.experimental.Accessors;
 
 /**
  * StoreGoodsLabelCO
@@ -33,7 +29,8 @@ import java.io.Serial;
  * @version 2022.04
  * @since 2022-04-14 21:52:23
  */
-@Data
+@Setter
+@Getter
 @Accessors(fluent = true)
 @AllArgsConstructor
 @NoArgsConstructor

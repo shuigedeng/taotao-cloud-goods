@@ -23,22 +23,22 @@ import org.springframework.stereotype.Component;
 @Component
 public class RegisteredCouponActivityExecute implements MemberRegisterEventHandler {
 
-//    @Autowired
-//    private IFeignCouponActivityApi couponActivityService;
-//
-//    /**
-//     * 获取进行中的注册赠券的优惠券活动 发送注册赠券
-//     *
-//     * @param member 会员
-//     */
-//    @Override
-//    public void memberRegister(Member member) {
-//        // List<CouponActivity> couponActivities = couponActivityService.list(
-//        // 	new QueryWrapper<CouponActivity>()
-//        // 		.eq("coupon_activity_type", CouponActivityTypeEnum.REGISTERED.name())
-//        // 		.and(PromotionTools.queryPromotionStatus(PromotionsStatusEnum.START)));
-//        List<CouponActivityVO> couponActivityVOS = new ArrayList<>();
-//        MemberDTO memberDTO = new MemberDTO();
-//        couponActivityService.registered(couponActivityVOS, memberDTO);
-//    }
+    //    @Autowired
+    //    private IFeignCouponActivityApi couponActivityService;
+    //
+    //    /**
+    //     * 获取进行中的注册赠券的优惠券活动 发送注册赠券
+    //     *
+    //     * @param member 会员
+    //     */
+    //    @Override
+    //    public void memberRegister(Member member) {
+    //        // List<CouponActivity> couponActivities = couponActivityService.list(
+    //        // 	new QueryWrapper<CouponActivity>()
+    //        // 		.eq("coupon_activity_type", CouponActivityTypeEnum.REGISTERED.name())
+    //        // 		.and(PromotionTools.queryPromotionStatus(PromotionsStatusEnum.START)));
+    //        List<CouponActivityVO> couponActivityVOS = new ArrayList<>();
+    //        MemberDTO memberDTO = new MemberDTO();
+    //        couponActivityService.registered(couponActivityVOS, memberDTO);
+    //    }
 }

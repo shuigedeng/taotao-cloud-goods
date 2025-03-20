@@ -16,13 +16,9 @@
 
 package com.taotao.cloud.goods.infrastructure.persistent.mapper;
 
-import com.baomidou.mybatisplus.core.conditions.Wrapper;
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.core.toolkit.Constants;
-import com.taotao.cloud.goods.infrastructure.persistent.persistence.CommodityPO;
 import com.taotao.boot.webagg.mapper.BaseSuperMapper;
+import com.taotao.cloud.goods.infrastructure.persistent.persistence.CommodityPO;
 import java.util.List;
-import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 /**
@@ -77,7 +73,7 @@ public interface CommodityMapper extends BaseSuperMapper<CommodityPO, Long> {
 		""")
     List<String> getSimpleCommodityByRoomId(Integer roomId);
 
-    ///**
+    /// **
     // * 获取直播商品VO分页
     // *
     // * @param page 分页
@@ -85,12 +81,12 @@ public interface CommodityMapper extends BaseSuperMapper<CommodityPO, Long> {
     // * @return {@link IPage }<{@link CommodityGoodsVO }>
     // * @since 2022-04-27 16:55:41
     // */
-    //@Select(
+    // @Select(
     //        """
-	//	SELECT c.*,gs.quantity,s.store_name
-	//	FROM tt_commodity c INNER JOIN tt_goods_sku gs ON c.sku_id = gs.id INNER JOIN tt_store s ON s.id=c.store_id
-	//	${ew.customSqlSegment}
-	//	""")
-    //IPage<CommoditySkuVO> commodityVOList(
+    //	SELECT c.*,gs.quantity,s.store_name
+    //	FROM tt_commodity c INNER JOIN tt_goods_sku gs ON c.sku_id = gs.id INNER JOIN tt_store s ON s.id=c.store_id
+    //	${ew.customSqlSegment}
+    //	""")
+    // IPage<CommoditySkuVO> commodityVOList(
     //        IPage<CommoditySkuVO> page, @Param(Constants.WRAPPER) Wrapper<CommoditySkuVO> queryWrapper);
 }

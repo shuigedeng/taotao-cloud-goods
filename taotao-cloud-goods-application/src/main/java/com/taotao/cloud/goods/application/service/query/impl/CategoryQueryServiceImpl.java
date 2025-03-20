@@ -25,13 +25,12 @@ import com.taotao.cloud.goods.application.executor.category.query.CategoryChildr
 import com.taotao.cloud.goods.application.executor.category.query.CategorySearchQryExe;
 import com.taotao.cloud.goods.application.executor.category.query.CategoryTreeCmdExe;
 import com.taotao.cloud.goods.application.service.query.CategoryQueryService;
-import lombok.AllArgsConstructor;
-import org.springframework.cache.annotation.CacheConfig;
-import org.springframework.stereotype.Service;
-
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import lombok.AllArgsConstructor;
+import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.stereotype.Service;
 
 /**
  * 商品分类业务层实现
@@ -45,90 +44,90 @@ import java.util.Map;
 @CacheConfig(cacheNames = "{category}")
 public class CategoryQueryServiceImpl implements CategoryQueryService {
 
-	private final RedisRepository redisRepository;
-	/**
-	 * 商品品牌业务层
-	 */
-	//private final BrandCommandService brandService;
+    private final RedisRepository redisRepository;
+    /**
+     * 商品品牌业务层
+     */
+    // private final BrandCommandService brandService;
 
-	private final CategoryTreeCmdExe categoryTreeCmdExe;
-	private final CategoryChildrenCmdExe categoryChildrenCmdExe;
-	private final CategorySearchQryExe categorySearchQryExe;
-	private final CategoryUpdateCmdExe categoryUpdateCmdExe;
-	private final CategorySaveCmdExe categorySaveCmdExe;
-	private final CategoryDelCmdExe categoryDelCmdExe;
+    private final CategoryTreeCmdExe categoryTreeCmdExe;
 
-//	@Override
-//	public List<CategoryPO> childrenList(Long parentId) {
-//		return categoryChildrenCmdExe.childrenList(parentId);
-//	}
-//
-//	@Override
-//	public CategoryPO getCategoryById(Long id) {
-//		return this.getById(id);
-//	}
-//
-//	@Override
-//	public List<CategoryPO> dbList(String parentId) {
-//		return List.of();
-//	}
-//
-//	@Override
-//	public CategoryPO getCategoryById(String id) {
-//		return null;
-//	}
-//
-//	@Override
-//	public List<CategoryPO> listByIdsOrderByLevel(List<Long> ids) {
-//		return categorySearchQryExe.listByIdsOrderByLevel(ids);
-//	}
+    private final CategoryChildrenCmdExe categoryChildrenCmdExe;
+    private final CategorySearchQryExe categorySearchQryExe;
+    private final CategoryUpdateCmdExe categoryUpdateCmdExe;
+    private final CategorySaveCmdExe categorySaveCmdExe;
+    private final CategoryDelCmdExe categoryDelCmdExe;
 
-	@Override
-	public List<Map<String, Object>> listMapsByIdsOrderByLevel(List<String> ids, String columns) {
-		return List.of();
-	}
+    //	@Override
+    //	public List<CategoryPO> childrenList(Long parentId) {
+    //		return categoryChildrenCmdExe.childrenList(parentId);
+    //	}
+    //
+    //	@Override
+    //	public CategoryPO getCategoryById(Long id) {
+    //		return this.getById(id);
+    //	}
+    //
+    //	@Override
+    //	public List<CategoryPO> dbList(String parentId) {
+    //		return List.of();
+    //	}
+    //
+    //	@Override
+    //	public CategoryPO getCategoryById(String id) {
+    //		return null;
+    //	}
+    //
+    //	@Override
+    //	public List<CategoryPO> listByIdsOrderByLevel(List<Long> ids) {
+    //		return categorySearchQryExe.listByIdsOrderByLevel(ids);
+    //	}
 
-	@Override
-	public List<CategoryTreeCO> categoryTree() {
-//		return categoryTreeCmdExe.categoryTree();
-		return null;
-	}
+    @Override
+    public List<Map<String, Object>> listMapsByIdsOrderByLevel(List<String> ids, String columns) {
+        return List.of();
+    }
 
-	@Override
-	public List<CategoryTreeCO> listAllChildren(Long parentId) {
-//		return categoryChildrenCmdExe.listAllChildren(parentId);
-		return null;
-	}
+    @Override
+    public List<CategoryTreeCO> categoryTree() {
+        //		return categoryTreeCmdExe.categoryTree();
+        return null;
+    }
 
-	@Override
-	public List<CategoryTreeCO> listAllChildren() {
-//		return categoryChildrenCmdExe.listAllChildren();
-		return null;
-	}
+    @Override
+    public List<CategoryTreeCO> listAllChildren(Long parentId) {
+        //		return categoryChildrenCmdExe.listAllChildren(parentId);
+        return null;
+    }
 
-	@Override
-	public List<String> getCategoryNameByIds(List<Long> ids) {
-//		return categorySearchQryExe.getCategoryNameByIds(ids);
-		return null;
-	}
+    @Override
+    public List<CategoryTreeCO> listAllChildren() {
+        //		return categoryChildrenCmdExe.listAllChildren();
+        return null;
+    }
 
-//	@Override
-//	public List<CategoryPO> findByAllBySortOrder(CategorySearchQry category) {
-//		//return categorySearchQryExe.findByAllBySortOrder(categoryPO);
-//		return null;
-//	}
+    @Override
+    public List<String> getCategoryNameByIds(List<Long> ids) {
+        //		return categorySearchQryExe.getCategoryNameByIds(ids);
+        return null;
+    }
 
+    //	@Override
+    //	public List<CategoryPO> findByAllBySortOrder(CategorySearchQry category) {
+    //		//return categorySearchQryExe.findByAllBySortOrder(categoryPO);
+    //		return null;
+    //	}
 
-	@Override
-	public List<CategoryTreeCO> getStoreCategory(String[] categories) {
-		List<String> arr = Arrays.asList(categories.clone());
-		return categoryTree().stream()
-			.filter(item -> arr.contains(item.getId()))
-			.toList();
-	}
+    @Override
+    public List<CategoryTreeCO> getStoreCategory(String[] categories) {
+        List<String> arr = Arrays.asList(categories.clone());
+        return categoryTree().stream()
+                .filter(item -> arr.contains(item.getId()))
+                .toList();
+    }
 
-//	@Override
-//	public List<CategoryPO> firstCategory() {
-//		return categorySearchQryExe.firstCategory();
-//	}
+    //	@Override
+    //	public List<CategoryPO> firstCategory() {
+    //		return categorySearchQryExe.firstCategory();
+    //	}
 }

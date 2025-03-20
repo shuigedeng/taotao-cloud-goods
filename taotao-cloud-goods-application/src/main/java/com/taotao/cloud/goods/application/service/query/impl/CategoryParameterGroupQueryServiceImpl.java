@@ -17,13 +17,12 @@
 package com.taotao.cloud.goods.application.service.query.impl;
 
 import com.taotao.cloud.goods.application.dto.parameter.clientobject.ParameterGroupCO;
-import com.taotao.cloud.goods.application.service.query.CategoryParameterGroupQueryService;
 import com.taotao.cloud.goods.application.service.command.GoodsCommandService;
 import com.taotao.cloud.goods.application.service.command.ParametersCommandService;
+import com.taotao.cloud.goods.application.service.query.CategoryParameterGroupQueryService;
+import java.util.List;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 /**
  * 分类绑定参数组接口实现
@@ -36,63 +35,63 @@ import java.util.List;
 @Service
 public class CategoryParameterGroupQueryServiceImpl implements CategoryParameterGroupQueryService {
 
-	/**
-	 * 商品参数服务
-	 */
-	private final ParametersCommandService parametersService;
-	/**
-	 * 商品服务
-	 */
-	private final GoodsCommandService goodsService;
+    /**
+     * 商品参数服务
+     */
+    private final ParametersCommandService parametersService;
+    /**
+     * 商品服务
+     */
+    private final GoodsCommandService goodsService;
 
-	@Override
-	public List<ParameterGroupCO> getCategoryParams(Long categoryId) {
-		//// 根据id查询参数组
-		//List<CategoryParameterGroupPO> groups = this.getCategoryGroup(categoryId);
-		//// 查询参数
-		//List<Parameters> params = parametersService.queryParametersByCategoryId(categoryId);
-		//// 组合参数vo
-		//return convertParamList(groups, params);
-		return null;
-	}
+    @Override
+    public List<ParameterGroupCO> getCategoryParams(Long categoryId) {
+        //// 根据id查询参数组
+        // List<CategoryParameterGroupPO> groups = this.getCategoryGroup(categoryId);
+        //// 查询参数
+        // List<Parameters> params = parametersService.queryParametersByCategoryId(categoryId);
+        //// 组合参数vo
+        // return convertParamList(groups, params);
+        return null;
+    }
 
-//	@Override
-//	public List<CategoryParameterGroupPO> getCategoryGroup(Long categoryId) {
-//		QueryWrapper<CategoryParameterGroupPO> queryWrapper = new QueryWrapper<>();
-//		queryWrapper.eq("category_id", categoryId);
-//		return this.list(queryWrapper);
-//	}
+    //	@Override
+    //	public List<CategoryParameterGroupPO> getCategoryGroup(Long categoryId) {
+    //		QueryWrapper<CategoryParameterGroupPO> queryWrapper = new QueryWrapper<>();
+    //		queryWrapper.eq("category_id", categoryId);
+    //		return this.list(queryWrapper);
+    //	}
 
-
-	/**
-	 * 拼装参数组和参数的返回值
-	 *
-	 * @param groupList 参数组list
-	 * @param paramList 商品参数list
-	 * @return 参数组和参数的返回值
-	 */
-	//public List<ParameterGroupCO> convertParamList(List<CategoryParameterGroupPO> groupList, List<Parameters> paramList) {
-	//	Map<Long, List<Parameters>> map = new HashMap<>(paramList.size());
-	//	for (Parameters param : paramList) {
-	//		List<Parameters> list = map.get(param.getGroupId());
-	//		if (list == null) {
-	//			list = new ArrayList<>();
-	//		}
-	//		list.add(param);
-	//		map.put(param.getGroupId(), list);
-	//	}
-	//
-	//	List<ParameterGroupCO> resList = new ArrayList<>();
-	//	for (CategoryParameterGroupPO group : groupList) {
-	//		ParameterGroupCO groupVo = new ParameterGroupCO();
-	//		groupVo.setGroupId(group.getId());
-	//		groupVo.setGroupName(group.getGroupName());
-	//		groupVo.setParams(
-	//			map.get(group.getId()) == null
-	//				? new ArrayList<>()
-	//				: ParametersConvert.INSTANCE.convert(map.get(group.getId())));
-	//		resList.add(groupVo);
-	//	}
-	//	return resList;
-	//}
+    /**
+     * 拼装参数组和参数的返回值
+     *
+     * @param groupList 参数组list
+     * @param paramList 商品参数list
+     * @return 参数组和参数的返回值
+     */
+    // public List<ParameterGroupCO> convertParamList(List<CategoryParameterGroupPO> groupList, List<Parameters>
+    // paramList) {
+    //	Map<Long, List<Parameters>> map = new HashMap<>(paramList.size());
+    //	for (Parameters param : paramList) {
+    //		List<Parameters> list = map.get(param.getGroupId());
+    //		if (list == null) {
+    //			list = new ArrayList<>();
+    //		}
+    //		list.add(param);
+    //		map.put(param.getGroupId(), list);
+    //	}
+    //
+    //	List<ParameterGroupCO> resList = new ArrayList<>();
+    //	for (CategoryParameterGroupPO group : groupList) {
+    //		ParameterGroupCO groupVo = new ParameterGroupCO();
+    //		groupVo.setGroupId(group.getId());
+    //		groupVo.setGroupName(group.getGroupName());
+    //		groupVo.setParams(
+    //			map.get(group.getId()) == null
+    //				? new ArrayList<>()
+    //				: ParametersConvert.INSTANCE.convert(map.get(group.getId())));
+    //		resList.add(groupVo);
+    //	}
+    //	return resList;
+    // }
 }

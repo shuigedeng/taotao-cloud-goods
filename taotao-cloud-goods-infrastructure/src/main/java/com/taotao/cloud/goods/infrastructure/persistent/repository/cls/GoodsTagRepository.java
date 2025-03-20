@@ -20,18 +20,17 @@ import com.taotao.boot.ddd.model.types.BizId;
 import com.taotao.boot.webagg.repository.BaseClassSuperRepository;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsTagPO;
 import jakarta.persistence.EntityManager;
-import org.springframework.stereotype.Repository;
-
 import java.util.Collection;
+import org.springframework.stereotype.Repository;
 
 @Repository
 public class GoodsTagRepository extends BaseClassSuperRepository<GoodsTagPO, Long> {
 
-	public GoodsTagRepository(EntityManager em) {
-		super(GoodsTagPO.class, em);
-	}
+    public GoodsTagRepository(EntityManager em) {
+        super(GoodsTagPO.class, em);
+    }
 
-	public Integer countByIdIn(Collection<BizId> goodsTagIds) {
-		return null;
-	}
+    public Integer countByIdIn(Collection<BizId> goodsTagIds) {
+        return null;
+    }
 }

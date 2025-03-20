@@ -21,7 +21,6 @@ import com.taotao.cloud.goods.domain.goods.aggregate.GoodsAgg;
 import com.taotao.cloud.goods.domain.goods.valobj.GoodsName;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsPO;
 import org.mapstruct.Mapper;
-import org.mapstruct.ReportingPolicy;
 import org.mapstruct.factory.Mappers;
 
 /**
@@ -39,10 +38,11 @@ public interface GoodsInfraAssembler {
 
     GoodsPO convert(GoodsAgg goods);
 
-	default Long map(BizId value) {
-		return value != null ? value.id() : null;
-	}
-	default String map(GoodsName value) {
-		return value != null ? value.getValue() : null;
-	}
+    default Long map(BizId value) {
+        return value != null ? value.id() : null;
+    }
+
+    default String map(GoodsName value) {
+        return value != null ? value.getValue() : null;
+    }
 }

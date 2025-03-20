@@ -17,7 +17,6 @@
 package com.taotao.cloud.goods.application.service.command;
 
 import com.taotao.boot.ddd.model.application.service.CommandService;
-
 import java.util.List;
 
 /**
@@ -29,14 +28,14 @@ import java.util.List;
  */
 public interface SpecificationCommandService extends CommandService {
 
-	/**
-	 * 删除规格
-	 *
-	 * @param ids 规格ID
-	 * @return {@link boolean }
-	 * @since 2022-04-27 17:01:01
-	 */
-	boolean deleteSpecification(List<Long> ids);
+    /**
+     * 删除规格
+     *
+     * @param ids 规格ID
+     * @return {@link boolean }
+     * @since 2022-04-27 17:01:01
+     */
+    boolean deleteSpecification(List<Long> ids);
 
-	boolean saveCategoryBrand(Long categoryId, String[] categorySpecs);
+    boolean saveCategoryBrand(Long categoryId, String[] categorySpecs);
 }

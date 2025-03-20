@@ -16,7 +16,6 @@
 
 package com.taotao.cloud.goods.application.service.query;
 
-import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.taotao.boot.ddd.model.application.service.QueryService;
 import com.taotao.cloud.goods.application.dto.store.clientobject.StudioCommodityCO;
 
@@ -27,8 +26,7 @@ import com.taotao.cloud.goods.application.dto.store.clientobject.StudioCommodity
  * @version 2022.04
  * @since 2022-04-27 17:01:11
  */
-public interface StudioQueryService extends QueryService{
-
+public interface StudioQueryService extends QueryService {
 
     /**
      * 获取直播间信息
@@ -48,7 +46,6 @@ public interface StudioQueryService extends QueryService{
      */
     String getLiveInfo(Integer roomId);
 
-
     /**
      * 获取直播间列表
      *
@@ -58,6 +55,6 @@ public interface StudioQueryService extends QueryService{
      * @return {@link IPage }<{@link StudioPO }>
      * @since 2022-04-27 17:01:12
      */
-//    IPage<StudioPO> studioList(PageQuery PageQuery, Integer recommend, String status);
+    //    IPage<StudioPO> studioList(PageQuery PageQuery, Integer recommend, String status);
 
 }

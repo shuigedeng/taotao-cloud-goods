@@ -19,16 +19,13 @@ package com.taotao.cloud.goods.application.dto.parameter.clientobject;
 import com.taotao.boot.ddd.model.application.dto.ClientObject;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
-import java.io.Serializable;
 import java.util.List;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.Accessors;
 
 /** 参数组vo */
-@Data
+@Setter
+@Getter
 @Accessors(fluent = true)
 @AllArgsConstructor
 @NoArgsConstructor
@@ -45,4 +42,52 @@ public class ParameterGroupCO extends ClientObject {
 
     @Schema(description = "参数组id")
     private Long groupId;
+
+    /**
+     * 获取
+     * @return params
+     */
+    public List<ParametersCO> getParams() {
+        return params;
+    }
+
+    /**
+     * 设置
+     * @param params
+     */
+    public void setParams(List<ParametersCO> params) {
+        this.params = params;
+    }
+
+    /**
+     * 获取
+     * @return groupName
+     */
+    public String getGroupName() {
+        return groupName;
+    }
+
+    /**
+     * 设置
+     * @param groupName
+     */
+    public void setGroupName(String groupName) {
+        this.groupName = groupName;
+    }
+
+    /**
+     * 获取
+     * @return groupId
+     */
+    public Long getGroupId() {
+        return groupId;
+    }
+
+    /**
+     * 设置
+     * @param groupId
+     */
+    public void setGroupId(Long groupId) {
+        this.groupId = groupId;
+    }
 }

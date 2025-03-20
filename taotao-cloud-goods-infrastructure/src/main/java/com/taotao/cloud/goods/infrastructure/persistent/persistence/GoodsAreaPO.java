@@ -25,11 +25,9 @@ import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
 import java.util.Objects;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.experimental.Accessors;
 import lombok.ToString;
 import lombok.experimental.Accessors;
 import org.hibernate.Hibernate;
@@ -42,7 +40,6 @@ import org.hibernate.Hibernate;
  * @author shuigedeng
  * @since 2020/4/30 16:04
  */
-
 @Setter
 @Getter
 @ToString(callSuper = true)
@@ -50,13 +47,14 @@ import org.hibernate.Hibernate;
 @NoArgsConstructor
 @Accessors(fluent = true)
 @Entity
-@Table(name = GoodsAreaPO.TABLE_NAME,
-	uniqueConstraints = {
-		@UniqueConstraint(name = "uniq_goods_no", columnNames = "goods_no"),
-	},
-	indexes = {
-		@Index(name = "idx_create_date", columnList = "`create_date`"),
-	})
+@Table(
+        name = GoodsAreaPO.TABLE_NAME,
+        uniqueConstraints = {
+            @UniqueConstraint(name = "uniq_goods_no", columnNames = "goods_no"),
+        },
+        indexes = {
+            @Index(name = "idx_create_date", columnList = "`create_date`"),
+        })
 @TableName(GoodsAreaPO.TABLE_NAME)
 @org.springframework.data.relational.core.mapping.Table(name = GoodsAreaPO.TABLE_NAME)
 public class GoodsAreaPO extends BaseSuperEntity<GoodsAreaPO, Long> {
@@ -71,23 +69,23 @@ public class GoodsAreaPO extends BaseSuperEntity<GoodsAreaPO, Long> {
     @Column(name = "`type`", columnDefinition = "int not null comment '类型'")
     private Integer type;
 
-	public String getRegionJson() {
-		return regionJson;
-	}
+    public String getRegionJson() {
+        return regionJson;
+    }
 
-	public void setRegionJson(String regionJson) {
-		this.regionJson = regionJson;
-	}
+    public void setRegionJson(String regionJson) {
+        this.regionJson = regionJson;
+    }
 
-	public Integer getType() {
-		return type;
-	}
+    public Integer getType() {
+        return type;
+    }
 
-	public void setType(Integer type) {
-		this.type = type;
-	}
+    public void setType(Integer type) {
+        this.type = type;
+    }
 
-	@Override
+    @Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;

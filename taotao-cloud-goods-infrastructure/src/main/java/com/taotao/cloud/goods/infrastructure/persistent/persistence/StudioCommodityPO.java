@@ -25,11 +25,9 @@ import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
 import java.util.Objects;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.experimental.Accessors;
 import lombok.ToString;
 import lombok.experimental.Accessors;
 import org.hibernate.Hibernate;
@@ -41,7 +39,6 @@ import org.hibernate.Hibernate;
  * @version 2022.04
  * @since 2022-04-20 16:59:38
  */
-
 @Setter
 @Getter
 @ToString(callSuper = true)
@@ -49,13 +46,14 @@ import org.hibernate.Hibernate;
 @NoArgsConstructor
 @Accessors(fluent = true)
 @Entity
-@Table(name = StudioCommodityPO.TABLE_NAME,
-	uniqueConstraints = {
-		@UniqueConstraint(name = "uniq_goods_no", columnNames = "goods_no"),
-	},
-	indexes = {
-		@Index(name = "idx_create_date", columnList = "`create_date`"),
-	})
+@Table(
+        name = StudioCommodityPO.TABLE_NAME,
+        uniqueConstraints = {
+            @UniqueConstraint(name = "uniq_goods_no", columnNames = "goods_no"),
+        },
+        indexes = {
+            @Index(name = "idx_create_date", columnList = "`create_date`"),
+        })
 @TableName(StudioCommodityPO.TABLE_NAME)
 @org.springframework.data.relational.core.mapping.Table(name = StudioCommodityPO.TABLE_NAME)
 public class StudioCommodityPO extends BaseSuperEntity<StudioCommodityPO, Long> {
@@ -70,23 +68,23 @@ public class StudioCommodityPO extends BaseSuperEntity<StudioCommodityPO, Long> 
     @Column(name = "`goods_id`", columnDefinition = "varchar(255) not null comment '商品ID'")
     private Long goodsId;
 
-	public Long getRoomId() {
-		return roomId;
-	}
+    public Long getRoomId() {
+        return roomId;
+    }
 
-	public void setRoomId(Long roomId) {
-		this.roomId = roomId;
-	}
+    public void setRoomId(Long roomId) {
+        this.roomId = roomId;
+    }
 
-	public Long getGoodsId() {
-		return goodsId;
-	}
+    public Long getGoodsId() {
+        return goodsId;
+    }
 
-	public void setGoodsId(Long goodsId) {
-		this.goodsId = goodsId;
-	}
+    public void setGoodsId(Long goodsId) {
+        this.goodsId = goodsId;
+    }
 
-	@Override
+    @Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;

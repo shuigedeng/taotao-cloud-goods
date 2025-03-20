@@ -21,11 +21,7 @@ import com.taotao.boot.ddd.model.application.dto.ClientObject;
 import com.taotao.cloud.goods.application.dto.goods.clientobject.GoodsSkuCO;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
-import java.io.Serializable;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.Accessors;
 
 /**
@@ -35,7 +31,8 @@ import lombok.experimental.Accessors;
  * @version 2022.04
  * @since 2022-04-14 21:52:39
  */
-@Data
+@Setter
+@Getter
 @Accessors(fluent = true)
 @AllArgsConstructor
 @NoArgsConstructor

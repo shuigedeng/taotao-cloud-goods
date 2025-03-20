@@ -21,20 +21,20 @@ import lombok.Data;
 @Data
 public class DictVO {
 
-	private Long id;
+    private Long id;
 
-	/** 字典名称 */
-	private String dictName;
+    /** 字典名称 */
+    private String dictName;
 
-	/** 字典编码 */
-	private String dictCode;
+    /** 字典编码 */
+    private String dictCode;
 
-	/** 描述 */
-	private String description;
+    /** 描述 */
+    private String description;
 
-	/** 排序值 */
-	private Integer sortNum;
+    /** 排序值 */
+    private Integer sortNum;
 
-	/** 备注信息 */
-	private String remark;
+    /** 备注信息 */
+    private String remark;
 }

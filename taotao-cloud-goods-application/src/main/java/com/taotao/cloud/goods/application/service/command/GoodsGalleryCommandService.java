@@ -17,7 +17,6 @@
 package com.taotao.cloud.goods.application.service.command;
 
 import com.taotao.boot.ddd.model.application.service.CommandService;
-
 import java.util.List;
 
 /**
@@ -38,5 +37,4 @@ public interface GoodsGalleryCommandService extends CommandService {
      * @since 2022-04-27 17:00:12
      */
     boolean add(List<String> goodsGalleryList, Long goodsId);
-
 }

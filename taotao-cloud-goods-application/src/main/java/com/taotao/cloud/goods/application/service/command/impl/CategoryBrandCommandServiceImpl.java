@@ -17,9 +17,8 @@
 package com.taotao.cloud.goods.application.service.command.impl;
 
 import com.taotao.cloud.goods.application.service.command.CategoryBrandCommandService;
-import org.springframework.stereotype.Service;
-
 import java.util.List;
+import org.springframework.stereotype.Service;
 
 /**
  * 规格项业务层实现
@@ -30,39 +29,39 @@ import java.util.List;
  */
 @Service
 public class CategoryBrandCommandServiceImpl implements CategoryBrandCommandService {
-	@Override
-	public boolean deleteByCategoryId(Long categoryId) {
-		return false;
-	}
+    @Override
+    public boolean deleteByCategoryId(Long categoryId) {
+        return false;
+    }
 
-	@Override
-	public boolean saveCategoryBrandList(Long categoryId, List<Long> brandIds) {
-		return false;
-	}
+    @Override
+    public boolean saveCategoryBrandList(Long categoryId, List<Long> brandIds) {
+        return false;
+    }
 
-//	@Override
-//	public boolean deleteByCategoryId(Long categoryId) {
-//		LambdaQueryWrapper<CategoryBrandPO> wrapper = new LambdaQueryWrapper<>();
-//		wrapper.in(CategoryBrandPO::categoryId, categoryId);
-//		return im().delete(wrapper) > 0;
-//	}
-//
-//
-//	@Override
-//	@Transactional(rollbackFor = Exception.class)
-//	public boolean saveCategoryBrandList(Long categoryId, List<Long> brandIds) {
-//		// 删除分类品牌绑定信息
-//		deleteByCategoryId(categoryId);
-//
-//		// 绑定品牌信息
-//		if (!brandIds.isEmpty()) {
-//			List<CategoryBrandPO> categoryBrandPos = new ArrayList<>();
-//			for (Long brandId : brandIds) {
-//				categoryBrandPos.add(new CategoryBrandPO(categoryId, brandId));
-//			}
-//			this.saveBatch(categoryBrandPos);
-//		}
-//
-//		return true;
-//	}
+    //	@Override
+    //	public boolean deleteByCategoryId(Long categoryId) {
+    //		LambdaQueryWrapper<CategoryBrandPO> wrapper = new LambdaQueryWrapper<>();
+    //		wrapper.in(CategoryBrandPO::categoryId, categoryId);
+    //		return im().delete(wrapper) > 0;
+    //	}
+    //
+    //
+    //	@Override
+    //	@Transactional(rollbackFor = Exception.class)
+    //	public boolean saveCategoryBrandList(Long categoryId, List<Long> brandIds) {
+    //		// 删除分类品牌绑定信息
+    //		deleteByCategoryId(categoryId);
+    //
+    //		// 绑定品牌信息
+    //		if (!brandIds.isEmpty()) {
+    //			List<CategoryBrandPO> categoryBrandPos = new ArrayList<>();
+    //			for (Long brandId : brandIds) {
+    //				categoryBrandPos.add(new CategoryBrandPO(categoryId, brandId));
+    //			}
+    //			this.saveBatch(categoryBrandPos);
+    //		}
+    //
+    //		return true;
+    //	}
 }

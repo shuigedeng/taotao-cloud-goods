@@ -19,11 +19,7 @@ package com.taotao.cloud.goods.application.dto.specification.query;
 import com.taotao.boot.common.model.PageQuery;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.Accessors;
 
 /**
@@ -33,8 +29,8 @@ import lombok.experimental.Accessors;
  * @version 2022.04
  * @since 2022-04-25 16:33:26
  */
-@Data
-@EqualsAndHashCode(callSuper = true)
+@Setter
+@Getter
 @Accessors(fluent = true)
 @AllArgsConstructor
 @NoArgsConstructor

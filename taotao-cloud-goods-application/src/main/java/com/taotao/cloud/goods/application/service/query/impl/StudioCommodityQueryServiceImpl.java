@@ -27,7 +27,4 @@ import org.springframework.stereotype.Service;
  * @since 2022-04-27 17:03:01
  */
 @Service
-public class StudioCommodityQueryServiceImpl
-	implements StudioCommodityQueryService {
-
-}
+public class StudioCommodityQueryServiceImpl implements StudioCommodityQueryService {}

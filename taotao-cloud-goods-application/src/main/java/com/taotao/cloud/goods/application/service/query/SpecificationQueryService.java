@@ -16,7 +16,6 @@
 
 package com.taotao.cloud.goods.application.service.query;
 
-import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.taotao.boot.ddd.model.application.service.QueryService;
 
 /**
@@ -28,14 +27,13 @@ import com.taotao.boot.ddd.model.application.service.QueryService;
  */
 public interface SpecificationQueryService extends QueryService {
 
-
-	/**
-	 * 分页查询
-	 *
-	 * @param specificationPageQry 查询条件
-	 * @return {@link IPage }<{@link SpecificationPO }>
-	 * @since 2022-04-27 17:01:01
-	 */
-//	IPage<SpecificationPO> getPage(SpecificationPageQry specificationPageQry);
+    /**
+     * 分页查询
+     *
+     * @param specificationPageQry 查询条件
+     * @return {@link IPage }<{@link SpecificationPO }>
+     * @since 2022-04-27 17:01:01
+     */
+    //	IPage<SpecificationPO> getPage(SpecificationPageQry specificationPageQry);
 
 }

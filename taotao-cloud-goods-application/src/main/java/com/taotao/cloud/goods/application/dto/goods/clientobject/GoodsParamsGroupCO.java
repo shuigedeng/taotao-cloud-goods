@@ -19,16 +19,13 @@ package com.taotao.cloud.goods.application.dto.goods.clientobject;
 import com.taotao.boot.ddd.model.application.dto.ClientObject;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
-import java.io.Serializable;
 import java.util.List;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.Accessors;
 
 /** 商品参数vo */
-@Data
+@Setter
+@Getter
 @Accessors(fluent = true)
 @AllArgsConstructor
 @NoArgsConstructor

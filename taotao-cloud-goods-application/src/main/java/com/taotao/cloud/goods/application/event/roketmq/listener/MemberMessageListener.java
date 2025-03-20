@@ -1,4 +1,4 @@
-///*
+/// *
 // * Copyright (c) 2020-2030, Shuigedeng (981376577@qq.com & https://blog.taotaocloud.top/).
 // *
 // * Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,21 +14,21 @@
 // * limitations under the License.
 // */
 //
-//package com.taotao.cloud.goods.application.event.roketmq.listener;
+// package com.taotao.cloud.goods.application.event.roketmq.listener;
 //
-//import java.util.List;
-//import org.apache.rocketmq.common.message.MessageExt;
-//import org.apache.rocketmq.spring.annotation.RocketMQMessageListener;
-//import org.apache.rocketmq.spring.core.RocketMQListener;
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.stereotype.Component;
+// import java.util.List;
+// import org.apache.rocketmq.common.message.MessageExt;
+// import org.apache.rocketmq.spring.annotation.RocketMQMessageListener;
+// import org.apache.rocketmq.spring.core.RocketMQListener;
+// import org.springframework.beans.factory.annotation.Autowired;
+// import org.springframework.stereotype.Component;
 //
-///** 会员消息 */
-//@Component
-//@RocketMQMessageListener(
+/// ** 会员消息 */
+// @Component
+// @RocketMQMessageListener(
 //        topic = "${taotao.data.rocketmq.member-topic}",
 //        consumerGroup = "${taotao.data.rocketmq.member-group}")
-//public class MemberMessageListener implements RocketMQListener<MessageExt> {
+// public class MemberMessageListener implements RocketMQListener<MessageExt> {
 //
 ////    /** 会员签到 */
 ////    @Autowired
@@ -119,4 +119,4 @@
 ////            default -> {}
 ////        }
 //    }
-//}
+// }

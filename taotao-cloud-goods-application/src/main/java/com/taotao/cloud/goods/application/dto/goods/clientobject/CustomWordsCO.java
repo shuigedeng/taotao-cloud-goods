@@ -17,13 +17,11 @@
 package com.taotao.cloud.goods.application.dto.goods.clientobject;
 
 import com.taotao.boot.ddd.model.application.dto.ClientObject;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.Accessors;
 
-@Data
+@Setter
+@Getter
 @Accessors(fluent = true)
 @AllArgsConstructor
 @NoArgsConstructor

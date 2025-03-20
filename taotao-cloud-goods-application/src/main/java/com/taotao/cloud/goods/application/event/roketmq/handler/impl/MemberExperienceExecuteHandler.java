@@ -23,40 +23,41 @@ import org.springframework.stereotype.Service;
 @Service
 public class MemberExperienceExecuteHandler implements MemberRegisterEventHandler {
 
-//    /** 配置 */
-//    @Autowired
-//    private IFeignSettingApi settingApi;
-//    /** 会员 */
-//    @Autowired
-//    private IMemberService memberService;
-//    /** 订单 */
-//    @Autowired
-//    private IFeignOrderApi orderApi;
-//
-//    /**
-//     * 会员注册赠送经验值
-//     *
-//     * @param member 会员
-//     */
-//    @Override
-//    public void memberRegister(Member member) {
-//        // 获取经验值设置
-//        ExperienceSettingVO experienceSetting = getExperienceSetting();
-//        // 赠送会员经验值
-//        memberService.updateMemberPoint(
-//                experienceSetting.getRegister().longValue(),
-//                PointTypeEnum.INCREASE.name(),
-//                member.getId(),
-//                "会员注册，赠送经验值" + experienceSetting.getRegister());
-//    }
-//
-//    /**
-//     * 获取经验值设置
-//     *
-//     * @return 经验值设置
-//     */
-//    private ExperienceSettingVO getExperienceSetting() {
-//        ExperienceSettingVO setting = settingApi.getExperienceSetting(SettingCategoryEnum.EXPERIENCE_SETTING.name());
-//        return setting;
-//    }
+    //    /** 配置 */
+    //    @Autowired
+    //    private IFeignSettingApi settingApi;
+    //    /** 会员 */
+    //    @Autowired
+    //    private IMemberService memberService;
+    //    /** 订单 */
+    //    @Autowired
+    //    private IFeignOrderApi orderApi;
+    //
+    //    /**
+    //     * 会员注册赠送经验值
+    //     *
+    //     * @param member 会员
+    //     */
+    //    @Override
+    //    public void memberRegister(Member member) {
+    //        // 获取经验值设置
+    //        ExperienceSettingVO experienceSetting = getExperienceSetting();
+    //        // 赠送会员经验值
+    //        memberService.updateMemberPoint(
+    //                experienceSetting.getRegister().longValue(),
+    //                PointTypeEnum.INCREASE.name(),
+    //                member.getId(),
+    //                "会员注册，赠送经验值" + experienceSetting.getRegister());
+    //    }
+    //
+    //    /**
+    //     * 获取经验值设置
+    //     *
+    //     * @return 经验值设置
+    //     */
+    //    private ExperienceSettingVO getExperienceSetting() {
+    //        ExperienceSettingVO setting =
+    // settingApi.getExperienceSetting(SettingCategoryEnum.EXPERIENCE_SETTING.name());
+    //        return setting;
+    //    }
 }

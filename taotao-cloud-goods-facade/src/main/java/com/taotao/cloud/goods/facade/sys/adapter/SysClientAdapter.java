@@ -24,13 +24,13 @@ import org.springframework.stereotype.Component;
 public class SysClientAdapter {
 
     public DictVO convert(DictApiResponse dictApiResponse) {
-		DictVO dictVO = new DictVO();
-		dictVO.setDictName(dictApiResponse.dictName());
-		dictVO.setDictCode(dictApiResponse.dictCode());
-		dictVO.setRemark(dictApiResponse.remark());
-		dictVO.setDescription(dictApiResponse.description());
-		dictVO.setId(dictApiResponse.id());
-		dictVO.setSortNum(dictApiResponse.sortNum());
+        DictVO dictVO = new DictVO();
+        dictVO.setDictName(dictApiResponse.dictName());
+        dictVO.setDictCode(dictApiResponse.dictCode());
+        dictVO.setRemark(dictApiResponse.remark());
+        dictVO.setDescription(dictApiResponse.description());
+        dictVO.setId(dictApiResponse.id());
+        dictVO.setSortNum(dictApiResponse.sortNum());
         return dictVO;
     }
 }

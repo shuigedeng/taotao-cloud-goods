@@ -39,5 +39,5 @@ public interface DraftGoodsInfraAssembler {
      * @return {@link DraftGoods }
      * @since 2022-04-27 16:58:13
      */
-    //DraftGoods convert(DraftGoodsSkuParamsDTO draftGoodsSkuParamsDTO);
+    // DraftGoods convert(DraftGoodsSkuParamsDTO draftGoodsSkuParamsDTO);
 }

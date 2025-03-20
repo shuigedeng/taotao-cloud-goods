@@ -18,10 +18,9 @@ package com.taotao.cloud.goods.infrastructure.assembler;
 
 import com.taotao.cloud.goods.application.dto.category.clientobject.CategoryBrandCO;
 import com.taotao.cloud.goods.infrastructure.dataobject.CategoryBrandDO;
+import java.util.List;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
-
-import java.util.List;
 
 /**
  * ICategoryMapStruct
@@ -43,5 +42,5 @@ public interface CategoryBrandInfraAssembler {
      * @return {@link List }<{@link CategoryVO }>
      * @since 2022-04-27 16:58:05
      */
-	List<CategoryBrandCO> convert(List<CategoryBrandDO> categoryBrandList);
+    List<CategoryBrandCO> convert(List<CategoryBrandDO> categoryBrandList);
 }

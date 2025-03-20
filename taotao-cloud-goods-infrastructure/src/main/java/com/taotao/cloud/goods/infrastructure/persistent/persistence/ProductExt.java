@@ -36,7 +36,7 @@ package com.taotao.cloud.goods.infrastructure.persistent.persistence; // package
 // * @since 2020/4/30 16:09
 // */
 // @Setter
-// 
+//
 // @Accessors(fluent = true)
 // @AllArgsConstructor
 // @NoArgsConstructor

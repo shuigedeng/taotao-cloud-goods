@@ -25,11 +25,9 @@ import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
 import java.util.Objects;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.experimental.Accessors;
 import lombok.ToString;
 import lombok.experimental.Accessors;
 import org.hibernate.Hibernate;
@@ -41,7 +39,6 @@ import org.hibernate.Hibernate;
  * @version 2022.04
  * @since 2022-04-20 16:59:38
  */
-
 @Setter
 @Getter
 @ToString(callSuper = true)
@@ -49,13 +46,14 @@ import org.hibernate.Hibernate;
 @NoArgsConstructor
 @Accessors(fluent = true)
 @Entity
-@Table(name = GoodsWordsPO.TABLE_NAME,
-	uniqueConstraints = {
-		@UniqueConstraint(name = "uniq_goods_no", columnNames = "goods_no"),
-	},
-	indexes = {
-		@Index(name = "idx_create_date", columnList = "`create_date`"),
-	})
+@Table(
+        name = GoodsWordsPO.TABLE_NAME,
+        uniqueConstraints = {
+            @UniqueConstraint(name = "uniq_goods_no", columnNames = "goods_no"),
+        },
+        indexes = {
+            @Index(name = "idx_create_date", columnList = "`create_date`"),
+        })
 @TableName(GoodsWordsPO.TABLE_NAME)
 @org.springframework.data.relational.core.mapping.Table(name = GoodsWordsPO.TABLE_NAME)
 public class GoodsWordsPO extends BaseSuperEntity<GoodsWordsPO, Long> {
@@ -82,47 +80,47 @@ public class GoodsWordsPO extends BaseSuperEntity<GoodsWordsPO, Long> {
     @Column(name = "`sort`", columnDefinition = "int not null default 0  comment '排序'")
     private Integer sort;
 
-	public String getWords() {
-		return words;
-	}
+    public String getWords() {
+        return words;
+    }
 
-	public void setWords(String words) {
-		this.words = words;
-	}
+    public void setWords(String words) {
+        this.words = words;
+    }
 
-	public String getWholeSpell() {
-		return wholeSpell;
-	}
+    public String getWholeSpell() {
+        return wholeSpell;
+    }
 
-	public void setWholeSpell(String wholeSpell) {
-		this.wholeSpell = wholeSpell;
-	}
+    public void setWholeSpell(String wholeSpell) {
+        this.wholeSpell = wholeSpell;
+    }
 
-	public String getAbbreviate() {
-		return abbreviate;
-	}
+    public String getAbbreviate() {
+        return abbreviate;
+    }
 
-	public void setAbbreviate(String abbreviate) {
-		this.abbreviate = abbreviate;
-	}
+    public void setAbbreviate(String abbreviate) {
+        this.abbreviate = abbreviate;
+    }
 
-	public String getType() {
-		return type;
-	}
+    public String getType() {
+        return type;
+    }
 
-	public void setType(String type) {
-		this.type = type;
-	}
+    public void setType(String type) {
+        this.type = type;
+    }
 
-	public Integer getSort() {
-		return sort;
-	}
+    public Integer getSort() {
+        return sort;
+    }
 
-	public void setSort(Integer sort) {
-		this.sort = sort;
-	}
+    public void setSort(Integer sort) {
+        this.sort = sort;
+    }
 
-	@Override
+    @Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;

@@ -24,18 +24,14 @@ import jakarta.persistence.Index;
 import jakarta.persistence.Table;
 import java.util.Objects;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.experimental.Accessors;
 import lombok.ToString;
-import lombok.experimental.Accessors;
 import lombok.experimental.Accessors;
 import org.hibernate.Hibernate;
 
 /** 分类绑定参数组表 */
-
 @Setter
 @Getter
 @ToString(callSuper = true)
@@ -43,12 +39,13 @@ import org.hibernate.Hibernate;
 @NoArgsConstructor
 @Accessors(fluent = true)
 @Entity
-@Table(name = CategoryParameterGroupPO.TABLE_NAME,
-	indexes = {
-		@Index(name = "idx_create_date", columnList = "`create_date`"),
-		@Index(name = "idx_group_name", columnList = "`group_name`"),
-		@Index(name = "idx_sort_order", columnList = "`sort_order`"),
-	})
+@Table(
+        name = CategoryParameterGroupPO.TABLE_NAME,
+        indexes = {
+            @Index(name = "idx_create_date", columnList = "`create_date`"),
+            @Index(name = "idx_group_name", columnList = "`group_name`"),
+            @Index(name = "idx_sort_order", columnList = "`sort_order`"),
+        })
 @TableName(CategoryParameterGroupPO.TABLE_NAME)
 @org.springframework.data.relational.core.mapping.Table(name = CategoryParameterGroupPO.TABLE_NAME)
 public class CategoryParameterGroupPO extends BaseSuperEntity<CategoryParameterGroupPO, Long> {
@@ -67,31 +64,31 @@ public class CategoryParameterGroupPO extends BaseSuperEntity<CategoryParameterG
     @Column(name = "`sort_order`", columnDefinition = "int not null default 0 comment '排序'")
     private Integer sortOrder;
 
-	public String getGroupName() {
-		return groupName;
-	}
+    public String getGroupName() {
+        return groupName;
+    }
 
-	public void setGroupName(String groupName) {
-		this.groupName = groupName;
-	}
+    public void setGroupName(String groupName) {
+        this.groupName = groupName;
+    }
 
-	public Long getCategoryId() {
-		return categoryId;
-	}
+    public Long getCategoryId() {
+        return categoryId;
+    }
 
-	public void setCategoryId(Long categoryId) {
-		this.categoryId = categoryId;
-	}
+    public void setCategoryId(Long categoryId) {
+        this.categoryId = categoryId;
+    }
 
-	public Integer getSortOrder() {
-		return sortOrder;
-	}
+    public Integer getSortOrder() {
+        return sortOrder;
+    }
 
-	public void setSortOrder(Integer sortOrder) {
-		this.sortOrder = sortOrder;
-	}
+    public void setSortOrder(Integer sortOrder) {
+        this.sortOrder = sortOrder;
+    }
 
-	@Override
+    @Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;

@@ -30,12 +30,11 @@ import io.swagger.v3.oas.annotations.Parameters;
 import io.swagger.v3.oas.annotations.enums.ParameterIn;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.constraints.NotBlank;
+import java.util.List;
 import lombok.AllArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 /**
  * 管理端-品牌管理API
@@ -51,90 +50,91 @@ import java.util.List;
 @RequestMapping("/goods/manager/brand")
 public class BrandManagerController extends BusinessController {
 
-	/**
-	 * 品牌
-	 */
-	private final BrandCommandService brandCommandService;
-	private final BrandQueryService brandQueryService;
+    /**
+     * 品牌
+     */
+    private final BrandCommandService brandCommandService;
 
-	@Operation(summary = "通过id获取", description = "通过id获取")
-	@Parameters({
-		@Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
-	})
-	@RequestLogger
-	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@GetMapping(value = "/{id}")
-	public Result<BrandCO> getById(@NotBlank(message = "id不能为空") @PathVariable Long id) {
-		BrandCO brandCo = brandQueryService.getById(id);
-		return Result.success(brandCo);
-	}
+    private final BrandQueryService brandQueryService;
 
-//    @Operation(summary = "获取所有可用品牌", description = "获取所有可用品牌")
-//    @Parameters({
-//            @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
-//    })
-//    @RequestLogger
-//    @PreAuthorize("hasAuthority('dept:tree:data')")
-//    @GetMapping(value = "/all/available")
-//    public Result<List<BrandCO>> getAllAvailable() {
-//        List<BrandPO> list = brandQueryService.getAllAvailable();
-//        return Result.success(BrandAssembler.INSTANCE.convert(list));
-//    }
+    @Operation(summary = "通过id获取", description = "通过id获取")
+    @Parameters({
+        @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
+    })
+    @RequestLogger
+    @PreAuthorize("hasAuthority('dept:tree:data')")
+    @GetMapping(value = "/{id}")
+    public Result<BrandCO> getById(@NotBlank(message = "id不能为空") @PathVariable Long id) {
+        BrandCO brandCo = brandQueryService.getById(id);
+        return Result.success(brandCo);
+    }
 
-//    @Operation(summary = "分页获取", description = "分页获取")
-//    @Parameters({
-//            @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
-//    })
-//    @RequestLogger
-//    @PreAuthorize("hasAuthority('dept:tree:data')")
-//    @GetMapping(value = "/page")
-//    public Result<PageResult<BrandCO>> brandsQueryPage(@Validated BrandPageQry page) {
-//        IPage<BrandPO> brandPage = brandQueryService.brandsQueryPage(page);
-//        return Result.success(MpUtils.convertMybatisPage(brandPage, BrandCO.class));
-//    }
+    //    @Operation(summary = "获取所有可用品牌", description = "获取所有可用品牌")
+    //    @Parameters({
+    //            @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
+    //    })
+    //    @RequestLogger
+    //    @PreAuthorize("hasAuthority('dept:tree:data')")
+    //    @GetMapping(value = "/all/available")
+    //    public Result<List<BrandCO>> getAllAvailable() {
+    //        List<BrandPO> list = brandQueryService.getAllAvailable();
+    //        return Result.success(BrandAssembler.INSTANCE.convert(list));
+    //    }
 
-	@Operation(summary = "新增品牌", description = "新增品牌")
-	@Parameters({
-		@Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
-	})
-	@RequestLogger
-	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@PostMapping
-	public Result<Boolean> save(@Validated @RequestBody BrandAddCmd brand) {
-		return Result.success(brandCommandService.addBrand(brand));
-	}
+    //    @Operation(summary = "分页获取", description = "分页获取")
+    //    @Parameters({
+    //            @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
+    //    })
+    //    @RequestLogger
+    //    @PreAuthorize("hasAuthority('dept:tree:data')")
+    //    @GetMapping(value = "/page")
+    //    public Result<PageResult<BrandCO>> brandsQueryPage(@Validated BrandPageQry page) {
+    //        IPage<BrandPO> brandPage = brandQueryService.brandsQueryPage(page);
+    //        return Result.success(MpUtils.convertMybatisPage(brandPage, BrandCO.class));
+    //    }
 
-	@Operation(summary = "更新品牌", description = "更新品牌")
-	@Parameters({
-		@Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
-	})
-	@RequestLogger
-	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@PutMapping("/{id}")
-	public Result<Boolean> update(@PathVariable Long id, @Validated BrandUpdateCmd brand) {
-		brand.id(id);
-		return Result.success(brandCommandService.updateBrand(brand));
-	}
+    @Operation(summary = "新增品牌", description = "新增品牌")
+    @Parameters({
+        @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
+    })
+    @RequestLogger
+    @PreAuthorize("hasAuthority('dept:tree:data')")
+    @PostMapping
+    public Result<Boolean> save(@Validated @RequestBody BrandAddCmd brand) {
+        return Result.success(brandCommandService.addBrand(brand));
+    }
 
-	@Operation(summary = "后台禁用品牌", description = "后台禁用品牌")
-	@Parameters({
-		@Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
-	})
-	@RequestLogger
-	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@PutMapping(value = "/disable/{brandId}")
-	public Result<Boolean> disable(@PathVariable Long brandId, @RequestParam Boolean disable) {
-		return Result.success(brandCommandService.brandDisable(brandId, disable));
-	}
+    @Operation(summary = "更新品牌", description = "更新品牌")
+    @Parameters({
+        @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
+    })
+    @RequestLogger
+    @PreAuthorize("hasAuthority('dept:tree:data')")
+    @PutMapping("/{id}")
+    public Result<Boolean> update(@PathVariable Long id, @Validated BrandUpdateCmd brand) {
+        brand.id(id);
+        return Result.success(brandCommandService.updateBrand(brand));
+    }
 
-	@Operation(summary = "批量删除", description = "批量删除")
-	@Parameters({
-		@Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
-	})
-	@RequestLogger
-	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@DeleteMapping(value = "/{ids}")
-	public Result<Boolean> delAllByIds(@PathVariable List<Long> ids) {
-		return Result.success(brandCommandService.deleteBrands(ids));
-	}
+    @Operation(summary = "后台禁用品牌", description = "后台禁用品牌")
+    @Parameters({
+        @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
+    })
+    @RequestLogger
+    @PreAuthorize("hasAuthority('dept:tree:data')")
+    @PutMapping(value = "/disable/{brandId}")
+    public Result<Boolean> disable(@PathVariable Long brandId, @RequestParam Boolean disable) {
+        return Result.success(brandCommandService.brandDisable(brandId, disable));
+    }
+
+    @Operation(summary = "批量删除", description = "批量删除")
+    @Parameters({
+        @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
+    })
+    @RequestLogger
+    @PreAuthorize("hasAuthority('dept:tree:data')")
+    @DeleteMapping(value = "/{ids}")
+    public Result<Boolean> delAllByIds(@PathVariable List<Long> ids) {
+        return Result.success(brandCommandService.deleteBrands(ids));
+    }
 }

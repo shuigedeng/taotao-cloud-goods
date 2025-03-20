@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.goods.application.event.roketmq.handler;
 
-//import com.taotao.cloud.member.api.model.dto.MemberPointMessageDTO;
+// import com.taotao.cloud.member.api.model.dto.MemberPointMessageDTO;
 
 /** 会员积分改变消息 */
 public interface MemberPointChangeEventHandler {
@@ -26,5 +26,5 @@ public interface MemberPointChangeEventHandler {
      *
      * @param memberPointMessageDTO 会员积分消息
      */
-//    void memberPointChange(MemberPointMessageDTO memberPointMessageDTO);
+    //    void memberPointChange(MemberPointMessageDTO memberPointMessageDTO);
 }

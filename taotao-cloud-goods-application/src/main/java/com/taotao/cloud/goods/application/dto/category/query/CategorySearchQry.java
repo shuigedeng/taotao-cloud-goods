@@ -22,12 +22,8 @@ import jakarta.validation.constraints.DecimalMax;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.Digits;
 import java.io.Serial;
-import java.io.Serializable;
 import java.math.BigDecimal;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.Accessors;
 
 /**
@@ -37,7 +33,9 @@ import lombok.experimental.Accessors;
  * @version 2022.04
  * @since 2022-04-25 16:33:05
  */
-@Data
+@Setter
+@Getter
+@ToString
 @Accessors(fluent = true)
 @AllArgsConstructor
 @NoArgsConstructor
@@ -66,4 +64,100 @@ public class CategorySearchQry extends Query {
 
     @Schema(description = "父节点名称")
     private String parentTitle;
+
+    /**
+     * 获取
+     * @return name
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * 设置
+     * @param name
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    /**
+     * 获取
+     * @return parentId
+     */
+    public String getParentId() {
+        return parentId;
+    }
+
+    /**
+     * 设置
+     * @param parentId
+     */
+    public void setParentId(String parentId) {
+        this.parentId = parentId;
+    }
+
+    /**
+     * 获取
+     * @return level
+     */
+    public Integer getLevel() {
+        return level;
+    }
+
+    /**
+     * 设置
+     * @param level
+     */
+    public void setLevel(Integer level) {
+        this.level = level;
+    }
+
+    /**
+     * 获取
+     * @return sortOrder
+     */
+    public BigDecimal getSortOrder() {
+        return sortOrder;
+    }
+
+    /**
+     * 设置
+     * @param sortOrder
+     */
+    public void setSortOrder(BigDecimal sortOrder) {
+        this.sortOrder = sortOrder;
+    }
+
+    /**
+     * 获取
+     * @return commissionRate
+     */
+    public BigDecimal getCommissionRate() {
+        return commissionRate;
+    }
+
+    /**
+     * 设置
+     * @param commissionRate
+     */
+    public void setCommissionRate(BigDecimal commissionRate) {
+        this.commissionRate = commissionRate;
+    }
+
+    /**
+     * 获取
+     * @return parentTitle
+     */
+    public String getParentTitle() {
+        return parentTitle;
+    }
+
+    /**
+     * 设置
+     * @param parentTitle
+     */
+    public void setParentTitle(String parentTitle) {
+        this.parentTitle = parentTitle;
+    }
 }

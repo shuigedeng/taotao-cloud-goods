@@ -30,24 +30,22 @@ import com.taotao.cloud.goods.application.dto.commodity.clientobject.CommoditySk
  */
 public interface CommodityQueryService extends QueryService {
 
+    /**
+     * 查询微信小程序直播商品审核状态
+     *
+     * @return {@link boolean }
+     * @since 2022-04-27 16:59:47
+     */
+    boolean getGoodsWareHouse();
 
-	/**
-	 * 查询微信小程序直播商品审核状态
-	 *
-	 * @return {@link boolean }
-	 * @since 2022-04-27 16:59:47
-	 */
-	boolean getGoodsWareHouse();
-
-	/**
-	 * 查看直播商品分页
-	 *
-	 * @param pageQuery   分页
-	 * @param name        商品名称
-	 * @param auditStatus 审核状态
-	 * @return {@link IPage }<{@link CommoditySkuCO }>
-	 * @since 2022-04-27 16:59:47
-	 */
-	IPage<CommoditySkuCO> commodityList(PageQuery pageQuery,
-										String name, String auditStatus);
+    /**
+     * 查看直播商品分页
+     *
+     * @param pageQuery   分页
+     * @param name        商品名称
+     * @param auditStatus 审核状态
+     * @return {@link IPage }<{@link CommoditySkuCO }>
+     * @since 2022-04-27 16:59:47
+     */
+    IPage<CommoditySkuCO> commodityList(PageQuery pageQuery, String name, String auditStatus);
 }

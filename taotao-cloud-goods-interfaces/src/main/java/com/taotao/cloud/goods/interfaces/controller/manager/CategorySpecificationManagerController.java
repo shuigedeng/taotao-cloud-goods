@@ -20,8 +20,8 @@ import com.taotao.boot.common.model.Result;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
 import com.taotao.cloud.goods.application.service.command.CategorySpecificationCommandService;
-import com.taotao.cloud.goods.application.service.query.CategorySpecificationQueryService;
 import com.taotao.cloud.goods.application.service.command.SpecificationCommandService;
+import com.taotao.cloud.goods.application.service.query.CategorySpecificationQueryService;
 import com.taotao.cloud.goods.application.service.query.SpecificationQueryService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -53,36 +53,38 @@ public class CategorySpecificationManagerController extends BusinessController {
 
     /** 分类规格服务 */
     private final CategorySpecificationQueryService categorySpecificationQueryService;
+
     private final CategorySpecificationCommandService categorySpecificationCommandService;
     /** 规格服务 */
     private final SpecificationQueryService specificationQueryService;
+
     private final SpecificationCommandService specificationCommandService;
 
-//    @Operation(summary = "查询某分类下绑定的规格信息", description = "查询某分类下绑定的规格信息")
-//    @Parameters({
-//            @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
-//    })
-//    @RequestLogger
-//    @PreAuthorize("hasAuthority('dept:tree:data')")
-//    @GetMapping(value = "/{categoryId}")
-//    public Result<List<SpecificationPO>> getCategorySpec(@PathVariable Long categoryId) {
-//        return Result.success(categorySpecificationQueryService.getCategorySpecList(categoryId));
-//    }
+    //    @Operation(summary = "查询某分类下绑定的规格信息", description = "查询某分类下绑定的规格信息")
+    //    @Parameters({
+    //            @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
+    //    })
+    //    @RequestLogger
+    //    @PreAuthorize("hasAuthority('dept:tree:data')")
+    //    @GetMapping(value = "/{categoryId}")
+    //    public Result<List<SpecificationPO>> getCategorySpec(@PathVariable Long categoryId) {
+    //        return Result.success(categorySpecificationQueryService.getCategorySpecList(categoryId));
+    //    }
 
-//    @Operation(summary = "查询某分类下绑定的规格信息,商品操作使用", description = "查询某分类下绑定的规格信息,商品操作使用")
-//    @Parameters({
-//            @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
-//    })
-//    @RequestLogger
-//    @PreAuthorize("hasAuthority('dept:tree:data')")
-//    @GetMapping(value = "/goods/{categoryId}")
-//    public Result<List<SpecificationPO>> getSpec(@PathVariable Long categoryId) {
-//        return Result.success(specificationQueryService.list());
-//    }
+    //    @Operation(summary = "查询某分类下绑定的规格信息,商品操作使用", description = "查询某分类下绑定的规格信息,商品操作使用")
+    //    @Parameters({
+    //            @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
+    //    })
+    //    @RequestLogger
+    //    @PreAuthorize("hasAuthority('dept:tree:data')")
+    //    @GetMapping(value = "/goods/{categoryId}")
+    //    public Result<List<SpecificationPO>> getSpec(@PathVariable Long categoryId) {
+    //        return Result.success(specificationQueryService.list());
+    //    }
 
     @Operation(summary = "保存某分类下绑定的规格信息", description = "保存某分类下绑定的规格信息")
     @Parameters({
-            @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
+        @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
     })
     @RequestLogger
     @PreAuthorize("hasAuthority('dept:tree:data')")

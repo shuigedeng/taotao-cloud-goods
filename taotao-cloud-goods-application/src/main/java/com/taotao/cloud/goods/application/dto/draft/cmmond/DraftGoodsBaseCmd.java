@@ -21,16 +21,17 @@ import com.taotao.cloud.goods.api.enums.DraftGoodsSaveTypeEnum;
 import com.taotao.cloud.goods.api.enums.GoodsStatusEnum;
 import com.taotao.cloud.goods.api.enums.GoodsTypeEnum;
 import java.math.BigDecimal;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.experimental.SuperBuilder;
+import lombok.*;
+import lombok.experimental.Accessors;
 
 /** 草稿商品 */
-@Data
+@Setter
+@Getter
+@ToString
+@Accessors(fluent = true)
 @AllArgsConstructor
 @NoArgsConstructor
-public class DraftGoodsBaseCmd  extends Command {
+public class DraftGoodsBaseCmd extends Command {
 
     /** 商品名称 */
     private String goodsName;
@@ -139,4 +140,516 @@ public class DraftGoodsBaseCmd  extends Command {
      * @see GoodsTypeEnum
      */
     private String goodsType;
+
+    /**
+     * 获取
+     * @return goodsName
+     */
+    public String getGoodsName() {
+        return goodsName;
+    }
+
+    /**
+     * 设置
+     * @param goodsName
+     */
+    public void setGoodsName(String goodsName) {
+        this.goodsName = goodsName;
+    }
+
+    /**
+     * 获取
+     * @return price
+     */
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    /**
+     * 设置
+     * @param price
+     */
+    public void setPrice(BigDecimal price) {
+        this.price = price;
+    }
+
+    /**
+     * 获取
+     * @return brandId
+     */
+    public Long getBrandId() {
+        return brandId;
+    }
+
+    /**
+     * 设置
+     * @param brandId
+     */
+    public void setBrandId(Long brandId) {
+        this.brandId = brandId;
+    }
+
+    /**
+     * 获取
+     * @return categoryPath
+     */
+    public String getCategoryPath() {
+        return categoryPath;
+    }
+
+    /**
+     * 设置
+     * @param categoryPath
+     */
+    public void setCategoryPath(String categoryPath) {
+        this.categoryPath = categoryPath;
+    }
+
+    /**
+     * 获取
+     * @return goodsUnit
+     */
+    public String getGoodsUnit() {
+        return goodsUnit;
+    }
+
+    /**
+     * 设置
+     * @param goodsUnit
+     */
+    public void setGoodsUnit(String goodsUnit) {
+        this.goodsUnit = goodsUnit;
+    }
+
+    /**
+     * 获取
+     * @return sellingPoint
+     */
+    public String getSellingPoint() {
+        return sellingPoint;
+    }
+
+    /**
+     * 设置
+     * @param sellingPoint
+     */
+    public void setSellingPoint(String sellingPoint) {
+        this.sellingPoint = sellingPoint;
+    }
+
+    /**
+     * 获取
+     * @return marketEnable
+     */
+    public String getMarketEnable() {
+        return marketEnable;
+    }
+
+    /**
+     * 设置
+     * @param marketEnable
+     */
+    public void setMarketEnable(String marketEnable) {
+        this.marketEnable = marketEnable;
+    }
+
+    /**
+     * 获取
+     * @return intro
+     */
+    public String getIntro() {
+        return intro;
+    }
+
+    /**
+     * 设置
+     * @param intro
+     */
+    public void setIntro(String intro) {
+        this.intro = intro;
+    }
+
+    /**
+     * 获取
+     * @return mobileIntro
+     */
+    public String getMobileIntro() {
+        return mobileIntro;
+    }
+
+    /**
+     * 设置
+     * @param mobileIntro
+     */
+    public void setMobileIntro(String mobileIntro) {
+        this.mobileIntro = mobileIntro;
+    }
+
+    /**
+     * 获取
+     * @return buyCount
+     */
+    public Integer getBuyCount() {
+        return buyCount;
+    }
+
+    /**
+     * 设置
+     * @param buyCount
+     */
+    public void setBuyCount(Integer buyCount) {
+        this.buyCount = buyCount;
+    }
+
+    /**
+     * 获取
+     * @return quantity
+     */
+    public Integer getQuantity() {
+        return quantity;
+    }
+
+    /**
+     * 设置
+     * @param quantity
+     */
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
+    }
+
+    /**
+     * 获取
+     * @return enableQuantity
+     */
+    public Integer getEnableQuantity() {
+        return enableQuantity;
+    }
+
+    /**
+     * 设置
+     * @param enableQuantity
+     */
+    public void setEnableQuantity(Integer enableQuantity) {
+        this.enableQuantity = enableQuantity;
+    }
+
+    /**
+     * 获取
+     * @return grade
+     */
+    public BigDecimal getGrade() {
+        return grade;
+    }
+
+    /**
+     * 设置
+     * @param grade
+     */
+    public void setGrade(BigDecimal grade) {
+        this.grade = grade;
+    }
+
+    /**
+     * 获取
+     * @return thumbnail
+     */
+    public String getThumbnail() {
+        return thumbnail;
+    }
+
+    /**
+     * 设置
+     * @param thumbnail
+     */
+    public void setThumbnail(String thumbnail) {
+        this.thumbnail = thumbnail;
+    }
+
+    /**
+     * 获取
+     * @return big
+     */
+    public String getBig() {
+        return big;
+    }
+
+    /**
+     * 设置
+     * @param big
+     */
+    public void setBig(String big) {
+        this.big = big;
+    }
+
+    /**
+     * 获取
+     * @return small
+     */
+    public String getSmall() {
+        return small;
+    }
+
+    /**
+     * 设置
+     * @param small
+     */
+    public void setSmall(String small) {
+        this.small = small;
+    }
+
+    /**
+     * 获取
+     * @return original
+     */
+    public String getOriginal() {
+        return original;
+    }
+
+    /**
+     * 设置
+     * @param original
+     */
+    public void setOriginal(String original) {
+        this.original = original;
+    }
+
+    /**
+     * 获取
+     * @return storeCategoryPath
+     */
+    public String getStoreCategoryPath() {
+        return storeCategoryPath;
+    }
+
+    /**
+     * 设置
+     * @param storeCategoryPath
+     */
+    public void setStoreCategoryPath(String storeCategoryPath) {
+        this.storeCategoryPath = storeCategoryPath;
+    }
+
+    /**
+     * 获取
+     * @return commentNum
+     */
+    public Integer getCommentNum() {
+        return commentNum;
+    }
+
+    /**
+     * 设置
+     * @param commentNum
+     */
+    public void setCommentNum(Integer commentNum) {
+        this.commentNum = commentNum;
+    }
+
+    /**
+     * 获取
+     * @return storeId
+     */
+    public Long getStoreId() {
+        return storeId;
+    }
+
+    /**
+     * 设置
+     * @param storeId
+     */
+    public void setStoreId(Long storeId) {
+        this.storeId = storeId;
+    }
+
+    /**
+     * 获取
+     * @return storeName
+     */
+    public String getStoreName() {
+        return storeName;
+    }
+
+    /**
+     * 设置
+     * @param storeName
+     */
+    public void setStoreName(String storeName) {
+        this.storeName = storeName;
+    }
+
+    /**
+     * 获取
+     * @return templateId
+     */
+    public Long getTemplateId() {
+        return templateId;
+    }
+
+    /**
+     * 设置
+     * @param templateId
+     */
+    public void setTemplateId(Long templateId) {
+        this.templateId = templateId;
+    }
+
+    /**
+     * 获取
+     * @return selfOperated
+     */
+    public Boolean getSelfOperated() {
+        return selfOperated;
+    }
+
+    /**
+     * 设置
+     * @param selfOperated
+     */
+    public void setSelfOperated(Boolean selfOperated) {
+        this.selfOperated = selfOperated;
+    }
+
+    /**
+     * 获取
+     * @return goodsVideo
+     */
+    public String getGoodsVideo() {
+        return goodsVideo;
+    }
+
+    /**
+     * 设置
+     * @param goodsVideo
+     */
+    public void setGoodsVideo(String goodsVideo) {
+        this.goodsVideo = goodsVideo;
+    }
+
+    /**
+     * 获取
+     * @return recommend
+     */
+    public Boolean getRecommend() {
+        return recommend;
+    }
+
+    /**
+     * 设置
+     * @param recommend
+     */
+    public void setRecommend(Boolean recommend) {
+        this.recommend = recommend;
+    }
+
+    /**
+     * 获取
+     * @return salesModel
+     */
+    public String getSalesModel() {
+        return salesModel;
+    }
+
+    /**
+     * 设置
+     * @param salesModel
+     */
+    public void setSalesModel(String salesModel) {
+        this.salesModel = salesModel;
+    }
+
+    /**
+     * 获取
+     * @return saveType
+     */
+    public String getSaveType() {
+        return saveType;
+    }
+
+    /**
+     * 设置
+     * @param saveType
+     */
+    public void setSaveType(String saveType) {
+        this.saveType = saveType;
+    }
+
+    /**
+     * 获取
+     * @return categoryNameJson
+     */
+    public String getCategoryNameJson() {
+        return categoryNameJson;
+    }
+
+    /**
+     * 设置
+     * @param categoryNameJson
+     */
+    public void setCategoryNameJson(String categoryNameJson) {
+        this.categoryNameJson = categoryNameJson;
+    }
+
+    /**
+     * 获取
+     * @return goodsParamsListJson
+     */
+    public String getGoodsParamsListJson() {
+        return goodsParamsListJson;
+    }
+
+    /**
+     * 设置
+     * @param goodsParamsListJson
+     */
+    public void setGoodsParamsListJson(String goodsParamsListJson) {
+        this.goodsParamsListJson = goodsParamsListJson;
+    }
+
+    /**
+     * 获取
+     * @return goodsGalleryListJson
+     */
+    public String getGoodsGalleryListJson() {
+        return goodsGalleryListJson;
+    }
+
+    /**
+     * 设置
+     * @param goodsGalleryListJson
+     */
+    public void setGoodsGalleryListJson(String goodsGalleryListJson) {
+        this.goodsGalleryListJson = goodsGalleryListJson;
+    }
+
+    /**
+     * 获取
+     * @return skuListJson
+     */
+    public String getSkuListJson() {
+        return skuListJson;
+    }
+
+    /**
+     * 设置
+     * @param skuListJson
+     */
+    public void setSkuListJson(String skuListJson) {
+        this.skuListJson = skuListJson;
+    }
+
+    /**
+     * 获取
+     * @return goodsType
+     */
+    public String getGoodsType() {
+        return goodsType;
+    }
+
+    /**
+     * 设置
+     * @param goodsType
+     */
+    public void setGoodsType(String goodsType) {
+        this.goodsType = goodsType;
+    }
 }

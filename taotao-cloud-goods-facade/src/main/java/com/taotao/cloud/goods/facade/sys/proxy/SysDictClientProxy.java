@@ -32,17 +32,18 @@ public class SysDictClientProxy {
 
     @Autowired
     private DictApi dictApi;
-	@DubboReference
-	private DictRpcService dictRpcService;
+
+    @DubboReference
+    private DictRpcService dictRpcService;
 
     @Resource
     private SysClientAdapter sysClientAdapter;
 
     // 查询用户
     public DictVO findByCode() {
-		DictApiResponse dictApiResponse = dictApi.findByCode("abcd");
+        DictApiResponse dictApiResponse = dictApi.findByCode("abcd");
 
-		DictRpcResponse dictRpcResponse = dictRpcService.findByCode(123);
+        DictRpcResponse dictRpcResponse = dictRpcService.findByCode(123);
 
         return sysClientAdapter.convert(dictApiResponse);
     }

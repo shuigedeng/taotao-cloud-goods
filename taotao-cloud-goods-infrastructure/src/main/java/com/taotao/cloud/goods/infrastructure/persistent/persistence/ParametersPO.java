@@ -25,11 +25,9 @@ import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
 import java.util.Objects;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.experimental.Accessors;
 import lombok.ToString;
 import lombok.experimental.Accessors;
 import org.hibernate.Hibernate;
@@ -41,7 +39,6 @@ import org.hibernate.Hibernate;
  * @version 2022.04
  * @since 2022-04-20 16:59:38
  */
-
 @Setter
 @Getter
 @ToString(callSuper = true)
@@ -49,13 +46,14 @@ import org.hibernate.Hibernate;
 @NoArgsConstructor
 @Accessors(fluent = true)
 @Entity
-@Table(name = ParametersPO.TABLE_NAME,
-	uniqueConstraints = {
-		@UniqueConstraint(name = "uniq_goods_no", columnNames = "goods_no"),
-	},
-	indexes = {
-		@Index(name = "idx_create_date", columnList = "`create_date`"),
-	})
+@Table(
+        name = ParametersPO.TABLE_NAME,
+        uniqueConstraints = {
+            @UniqueConstraint(name = "uniq_goods_no", columnNames = "goods_no"),
+        },
+        indexes = {
+            @Index(name = "idx_create_date", columnList = "`create_date`"),
+        })
 @TableName(ParametersPO.TABLE_NAME)
 @org.springframework.data.relational.core.mapping.Table(name = ParametersPO.TABLE_NAME)
 public class ParametersPO extends BaseSuperEntity<ParametersPO, Long> {
@@ -90,63 +88,63 @@ public class ParametersPO extends BaseSuperEntity<ParametersPO, Long> {
     @Column(name = "`sort`", columnDefinition = "int not null comment '排序'")
     private Integer sort;
 
-	public String getParamName() {
-		return paramName;
-	}
+    public String getParamName() {
+        return paramName;
+    }
 
-	public void setParamName(String paramName) {
-		this.paramName = paramName;
-	}
+    public void setParamName(String paramName) {
+        this.paramName = paramName;
+    }
 
-	public String getOptions() {
-		return options;
-	}
+    public String getOptions() {
+        return options;
+    }
 
-	public void setOptions(String options) {
-		this.options = options;
-	}
+    public void setOptions(String options) {
+        this.options = options;
+    }
 
-	public Integer getIsIndex() {
-		return isIndex;
-	}
+    public Integer getIsIndex() {
+        return isIndex;
+    }
 
-	public void setIsIndex(Integer isIndex) {
-		this.isIndex = isIndex;
-	}
+    public void setIsIndex(Integer isIndex) {
+        this.isIndex = isIndex;
+    }
 
-	public Integer getRequired() {
-		return required;
-	}
+    public Integer getRequired() {
+        return required;
+    }
 
-	public void setRequired(Integer required) {
-		this.required = required;
-	}
+    public void setRequired(Integer required) {
+        this.required = required;
+    }
 
-	public Long getGroupId() {
-		return groupId;
-	}
+    public Long getGroupId() {
+        return groupId;
+    }
 
-	public void setGroupId(Long groupId) {
-		this.groupId = groupId;
-	}
+    public void setGroupId(Long groupId) {
+        this.groupId = groupId;
+    }
 
-	public Long getCategoryId() {
-		return categoryId;
-	}
+    public Long getCategoryId() {
+        return categoryId;
+    }
 
-	public void setCategoryId(Long categoryId) {
-		this.categoryId = categoryId;
-	}
+    public void setCategoryId(Long categoryId) {
+        this.categoryId = categoryId;
+    }
 
-	public Integer getSort() {
-		return sort;
-	}
+    public Integer getSort() {
+        return sort;
+    }
 
-	public void setSort(Integer sort) {
-		this.sort = sort;
-	}
+    public void setSort(Integer sort) {
+        this.sort = sort;
+    }
 
-	@Override
+    @Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;

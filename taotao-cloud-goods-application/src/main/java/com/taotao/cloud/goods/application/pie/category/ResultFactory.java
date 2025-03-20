@@ -30,7 +30,7 @@ public class ResultFactory implements OutboundFactory {
 
     @Override
     public Object newInstance() {
-		DraftGoodsContext result = new DraftGoodsContext();
-		return result;
+        DraftGoodsContext result = new DraftGoodsContext();
+        return result;
     }
 }

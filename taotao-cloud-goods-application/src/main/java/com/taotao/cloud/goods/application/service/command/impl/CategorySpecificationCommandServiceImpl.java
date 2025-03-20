@@ -30,15 +30,15 @@ import org.springframework.stereotype.Service;
 @Service
 @AllArgsConstructor
 public class CategorySpecificationCommandServiceImpl implements CategorySpecificationCommandService {
-	@Override
-	public boolean deleteByCategoryId(Long categoryId) {
-		return false;
-	}
+    @Override
+    public boolean deleteByCategoryId(Long categoryId) {
+        return false;
+    }
 
-//
-//	@Override
-//	public boolean deleteByCategoryId(Long categoryId) {
-//		return im().delete(new LambdaQueryWrapper<CategorySpecificationPO>()
-//			.eq(CategorySpecificationPO::categoryId, categoryId)) > 0;
-//	}
+    //
+    //	@Override
+    //	public boolean deleteByCategoryId(Long categoryId) {
+    //		return im().delete(new LambdaQueryWrapper<CategorySpecificationPO>()
+    //			.eq(CategorySpecificationPO::categoryId, categoryId)) > 0;
+    //	}
 }

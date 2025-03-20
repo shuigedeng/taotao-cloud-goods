@@ -39,22 +39,23 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/goods/seller/goods/specification")
 public class SpecificationSellerController extends BusinessController {
 
-	/**
-	 * 商品规格服务
-	 */
-	private final CategorySpecificationQueryService categorySpecificationQueryService;
-	private final CategorySpecificationCommandService categorySpecificationCommandService;
-//
-//	@Operation(summary = "获取分类规格", description = "获取分类规格")
-//	@Parameters({
-//		@Parameter(name = "categoryId", required = true, description = "分类id", in = ParameterIn.PATH),
-//	})
-//	@RequestLogger
-//	@PreAuthorize("hasAuthority('dept:tree:data')")
-//	@GetMapping(value = "/{categoryId}")
-//	public Result<List<SpecificationCO>> getSpecifications(@PathVariable Long categoryId) {
-//		List<SpecificationPO> categorySpecList = categorySpecificationQueryService.getCategorySpecList(
-//			categoryId);
-//		return Result.success(SpecificationAssembler.INSTANCE.convert(categorySpecList));
-//	}
+    /**
+     * 商品规格服务
+     */
+    private final CategorySpecificationQueryService categorySpecificationQueryService;
+
+    private final CategorySpecificationCommandService categorySpecificationCommandService;
+    //
+    //	@Operation(summary = "获取分类规格", description = "获取分类规格")
+    //	@Parameters({
+    //		@Parameter(name = "categoryId", required = true, description = "分类id", in = ParameterIn.PATH),
+    //	})
+    //	@RequestLogger
+    //	@PreAuthorize("hasAuthority('dept:tree:data')")
+    //	@GetMapping(value = "/{categoryId}")
+    //	public Result<List<SpecificationCO>> getSpecifications(@PathVariable Long categoryId) {
+    //		List<SpecificationPO> categorySpecList = categorySpecificationQueryService.getCategorySpecList(
+    //			categoryId);
+    //		return Result.success(SpecificationAssembler.INSTANCE.convert(categorySpecList));
+    //	}
 }

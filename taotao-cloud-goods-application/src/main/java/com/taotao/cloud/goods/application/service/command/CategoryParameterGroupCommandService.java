@@ -16,7 +16,6 @@
 
 package com.taotao.cloud.goods.application.service.command;
 
-
 import com.taotao.boot.ddd.model.application.service.CommandService;
 import com.taotao.cloud.goods.application.dto.category.cmmond.CategoryParameterGroupAddCmd;
 
@@ -28,8 +27,6 @@ import com.taotao.cloud.goods.application.dto.category.cmmond.CategoryParameterG
  * @since 2022-04-27 16:59:23
  */
 public interface CategoryParameterGroupCommandService extends CommandService {
-
-
 
     /**
      * 更新分类参数组绑定信息

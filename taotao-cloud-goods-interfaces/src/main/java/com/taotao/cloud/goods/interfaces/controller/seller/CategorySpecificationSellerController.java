@@ -41,15 +41,17 @@ public class CategorySpecificationSellerController extends BusinessController {
 
     /** 商品规格服务 */
     private final CategorySpecificationQueryService categorySpecificationQueryService;
+
     private final CategorySpecificationCommandService categorySpecificationCommandService;
 
-//    @Operation(summary = "查询某分类下绑定的规格信息", description = "查询某分类下绑定的规格信息")
-//    @RequestLogger("查询某分类下绑定的规格信息")
-//    @PreAuthorize("hasAuthority('dept:tree:data')")
-//    @GetMapping(value = "/{categoryId}")
-//    public Result<List<SpecificationCO>> getCategorySpec(@PathVariable("categoryId") Long categoryId) {
-//        List<SpecificationPO> categorySpecList = categorySpecificationQueryService.getCategorySpecList(categoryId);
-//
-//        return Result.success(SpecificationAssembler.INSTANCE.convert(categorySpecList));
-//    }
+    //    @Operation(summary = "查询某分类下绑定的规格信息", description = "查询某分类下绑定的规格信息")
+    //    @RequestLogger("查询某分类下绑定的规格信息")
+    //    @PreAuthorize("hasAuthority('dept:tree:data')")
+    //    @GetMapping(value = "/{categoryId}")
+    //    public Result<List<SpecificationCO>> getCategorySpec(@PathVariable("categoryId") Long categoryId) {
+    //        List<SpecificationPO> categorySpecList =
+    // categorySpecificationQueryService.getCategorySpecList(categoryId);
+    //
+    //        return Result.success(SpecificationAssembler.INSTANCE.convert(categorySpecList));
+    //    }
 }

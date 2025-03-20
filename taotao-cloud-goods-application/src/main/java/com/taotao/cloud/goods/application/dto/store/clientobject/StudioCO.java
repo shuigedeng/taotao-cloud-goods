@@ -17,16 +17,16 @@
 package com.taotao.cloud.goods.application.dto.store.clientobject;
 
 import com.taotao.boot.ddd.model.application.dto.ClientObject;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.experimental.SuperBuilder;
+import lombok.*;
+import lombok.experimental.Accessors;
 
 /**
  * 小程序直播间基础哦
  *
  */
-@Data
+@Setter
+@Getter
+@Accessors(fluent = true)
 @AllArgsConstructor
 @NoArgsConstructor
 public class StudioCO extends ClientObject {

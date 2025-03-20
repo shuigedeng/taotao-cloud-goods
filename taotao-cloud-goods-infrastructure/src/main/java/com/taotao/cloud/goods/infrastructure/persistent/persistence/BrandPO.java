@@ -22,14 +22,12 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Index;
 import jakarta.persistence.Table;
-import jakarta.persistence.UniqueConstraint;
 import java.util.Objects;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.hibernate.Hibernate;
 
 /**
@@ -45,60 +43,60 @@ import org.hibernate.Hibernate;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = BrandPO.TABLE_NAME,
-	indexes = {
-		@Index(name = "idx_create_date", columnList = "`create_date`"),
-		@Index(name = "idx_name", columnList = "`name`"),
-	})
+@Table(
+        name = BrandPO.TABLE_NAME,
+        indexes = {
+            @Index(name = "idx_create_date", columnList = "`create_date`"),
+            @Index(name = "idx_name", columnList = "`name`"),
+        })
 @TableName(BrandPO.TABLE_NAME)
 @org.springframework.data.relational.core.mapping.Table(name = BrandPO.TABLE_NAME)
 public class BrandPO extends BaseSuperEntity<BrandPO, Long> {
 
-	public static final String TABLE_NAME = "ttc_brand";
+    public static final String TABLE_NAME = "ttc_brand";
 
-	/**
-	 * 品牌名称
-	 */
-	@Column(name = "`name`", columnDefinition = "varchar(255) not null comment '品牌名称'")
-	private String name;
+    /**
+     * 品牌名称
+     */
+    @Column(name = "`name`", columnDefinition = "varchar(255) not null comment '品牌名称'")
+    private String name;
 
-	/**
-	 * 品牌图标
-	 */
-	@Column(name = "`logo`", columnDefinition = "varchar(255) not null comment '品牌图标'")
-	private String logo;
+    /**
+     * 品牌图标
+     */
+    @Column(name = "`logo`", columnDefinition = "varchar(255) not null comment '品牌图标'")
+    private String logo;
 
-	@Override
-	public boolean equals(Object o) {
-		if (this == o) {
-			return true;
-		}
-		if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) {
-			return false;
-		}
-		BrandPO brandPO = (BrandPO) o;
-		return getId() != null && Objects.equals(getId(), brandPO.getId());
-	}
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) {
+            return false;
+        }
+        BrandPO brandPO = (BrandPO) o;
+        return getId() != null && Objects.equals(getId(), brandPO.getId());
+    }
 
-	@Override
-	public int hashCode() {
-		return getClass().hashCode();
-	}
+    @Override
+    public int hashCode() {
+        return getClass().hashCode();
+    }
 
+    public String getName() {
+        return name;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public String getLogo() {
+        return logo;
+    }
 
-	public String getLogo() {
-		return logo;
-	}
-
-	public void setLogo(String logo) {
-		this.logo = logo;
-	}
+    public void setLogo(String logo) {
+        this.logo = logo;
+    }
 }

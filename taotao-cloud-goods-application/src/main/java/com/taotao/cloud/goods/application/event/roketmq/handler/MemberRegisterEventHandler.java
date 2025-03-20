@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.goods.application.event.roketmq.handler;
 
-//import com.taotao.cloud.member.biz.model.entity.Member;
+// import com.taotao.cloud.member.biz.model.entity.Member;
 
 /** 会员注册消息 */
 public interface MemberRegisterEventHandler {
@@ -26,5 +26,5 @@ public interface MemberRegisterEventHandler {
      *
      * @param member 会员
      */
-//    void memberRegister(Member member);
+    //    void memberRegister(Member member);
 }

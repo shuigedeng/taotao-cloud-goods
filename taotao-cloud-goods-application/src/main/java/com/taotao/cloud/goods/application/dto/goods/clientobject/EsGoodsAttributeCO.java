@@ -16,13 +16,10 @@
 
 package com.taotao.cloud.goods.application.dto.goods.clientobject;
 
-import java.io.Serial;
-import java.io.Serializable;
-
 import com.taotao.boot.ddd.model.application.dto.ClientObject;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import java.io.Serial;
+import lombok.*;
+import lombok.experimental.Accessors;
 
 /**
  * 商品属性索引
@@ -31,7 +28,9 @@ import lombok.NoArgsConstructor;
  * @version 2022.04
  * @since 2022-04-25 16:18:03
  */
-@Data
+@Setter
+@Getter
+@Accessors(fluent = true)
 @AllArgsConstructor
 @NoArgsConstructor
 public class EsGoodsAttributeCO extends ClientObject {

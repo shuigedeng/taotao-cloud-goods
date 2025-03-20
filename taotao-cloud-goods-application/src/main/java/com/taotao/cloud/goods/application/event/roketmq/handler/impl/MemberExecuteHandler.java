@@ -23,11 +23,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class MemberExecuteHandler implements MemberLoginEventHandler {
 
-//    @Autowired
-//    private IMemberService memberService;
-//
-//    @Override
-//    public void memberLogin(Member member) {
-//        memberService.updateMemberLoginTime(member.getId());
-//    }
+    //    @Autowired
+    //    private IMemberService memberService;
+    //
+    //    @Override
+    //    public void memberLogin(Member member) {
+    //        memberService.updateMemberLoginTime(member.getId());
+    //    }
 }

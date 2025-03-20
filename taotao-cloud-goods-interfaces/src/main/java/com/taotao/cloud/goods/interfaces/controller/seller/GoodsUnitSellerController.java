@@ -41,14 +41,15 @@ public class GoodsUnitSellerController extends BusinessController {
 
     /** 商品计量单位服务 */
     private final GoodsUnitQueryService goodsUnitQueryService;
+
     private final GoodsUnitCommandService goodsUnitCommandService;
 
-//    @Operation(summary = "分页获取商品计量单位", description = "分页获取商品计量单位")
-//    @RequestLogger
-//    @PreAuthorize("hasAuthority('dept:tree:data')")
-//    @GetMapping("/page")
-//    public Result<PageResult<GoodsUnitCO>> getByPage(@Validated PageQuery pageQuery) {
-//        IPage<GoodsUnitPO> page = goodsUnitQueryService.page(MpUtils.buildMpPage(pageQuery));
-//        return Result.success(MpUtils.convertMybatisPage(page, GoodsUnitAssembler.INSTANCE::convert));
-//    }
+    //    @Operation(summary = "分页获取商品计量单位", description = "分页获取商品计量单位")
+    //    @RequestLogger
+    //    @PreAuthorize("hasAuthority('dept:tree:data')")
+    //    @GetMapping("/page")
+    //    public Result<PageResult<GoodsUnitCO>> getByPage(@Validated PageQuery pageQuery) {
+    //        IPage<GoodsUnitPO> page = goodsUnitQueryService.page(MpUtils.buildMpPage(pageQuery));
+    //        return Result.success(MpUtils.convertMybatisPage(page, GoodsUnitAssembler.INSTANCE::convert));
+    //    }
 }

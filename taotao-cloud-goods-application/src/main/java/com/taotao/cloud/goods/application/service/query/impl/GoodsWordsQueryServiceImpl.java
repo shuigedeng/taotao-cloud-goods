@@ -27,5 +27,4 @@ import org.springframework.stereotype.Service;
  * @since 2022-04-27 17:02:50
  */
 @Service
-public class GoodsWordsQueryServiceImpl
-        implements GoodsWordsQueryService {}
+public class GoodsWordsQueryServiceImpl implements GoodsWordsQueryService {}

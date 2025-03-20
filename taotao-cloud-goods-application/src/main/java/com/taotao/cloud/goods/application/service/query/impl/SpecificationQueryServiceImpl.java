@@ -31,29 +31,26 @@ import org.springframework.stereotype.Service;
  */
 @AllArgsConstructor
 @Service
-public class SpecificationQueryServiceImpl
-	implements SpecificationQueryService {
+public class SpecificationQueryServiceImpl implements SpecificationQueryService {
 
-	/**
-	 * 分类-规格绑定服务
-	 */
-	private final CategorySpecificationCommandService categorySpecificationService;
-	/**
-	 * 分类服务
-	 */
-	private final CategoryCommandService categoryService;
+    /**
+     * 分类-规格绑定服务
+     */
+    private final CategorySpecificationCommandService categorySpecificationService;
+    /**
+     * 分类服务
+     */
+    private final CategoryCommandService categoryService;
 
-
-
-//	@Override
-//	public IPage<SpecificationPO> getPage(SpecificationPageQry specificationPageQry) {
-//		//LambdaQueryWrapper<SpecificationPO> lambdaQueryWrapper = new LambdaQueryWrapper<>();
-//		//lambdaQueryWrapper.like(
-//		//	StringUtils.isNotEmpty(specificationPageQry.getSpecName()),
-//		//	SpecificationPO::getSpecName,
-//		//	specificationPageQry.getSpecName());
-//		//return this.page(specificationPageQry.buildMpPage(), lambdaQueryWrapper);
-//		return null;
-//	}
+    //	@Override
+    //	public IPage<SpecificationPO> getPage(SpecificationPageQry specificationPageQry) {
+    //		//LambdaQueryWrapper<SpecificationPO> lambdaQueryWrapper = new LambdaQueryWrapper<>();
+    //		//lambdaQueryWrapper.like(
+    //		//	StringUtils.isNotEmpty(specificationPageQry.getSpecName()),
+    //		//	SpecificationPO::getSpecName,
+    //		//	specificationPageQry.getSpecName());
+    //		//return this.page(specificationPageQry.buildMpPage(), lambdaQueryWrapper);
+    //		return null;
+    //	}
 
 }

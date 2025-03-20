@@ -18,7 +18,6 @@ package com.taotao.cloud.goods.application.service.command;
 
 import com.taotao.boot.ddd.model.application.service.CommandService;
 import com.taotao.cloud.goods.application.dto.commodity.cmmond.CommodityAddCmd;
-
 import java.util.List;
 
 /**
@@ -30,23 +29,21 @@ import java.util.List;
  */
 public interface CommodityCommandService extends CommandService {
 
-	/**
-	 * 添加直播商品
-	 *
-	 * @param commodityAddCmdList 直播商品列表
-	 * @return {@link boolean }
-	 * @since 2022-04-27 16:59:47
-	 */
-	boolean addCommodity(List<CommodityAddCmd> commodityAddCmdList);
+    /**
+     * 添加直播商品
+     *
+     * @param commodityAddCmdList 直播商品列表
+     * @return {@link boolean }
+     * @since 2022-04-27 16:59:47
+     */
+    boolean addCommodity(List<CommodityAddCmd> commodityAddCmdList);
 
-	/**
-	 * 删除直播商品
-	 *
-	 * @param goodsId 直播商品ID
-	 * @return {@link boolean }
-	 * @since 2022-04-27 16:59:47
-	 */
-	boolean deleteCommodity(Long goodsId);
-
-
+    /**
+     * 删除直播商品
+     *
+     * @param goodsId 直播商品ID
+     * @return {@link boolean }
+     * @since 2022-04-27 16:59:47
+     */
+    boolean deleteCommodity(Long goodsId);
 }

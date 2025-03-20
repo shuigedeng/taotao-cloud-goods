@@ -16,10 +16,6 @@
 
 package com.taotao.cloud.goods.application.configuration.redis.delegate;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.taotao.boot.common.utils.common.JsonUtils;
-import com.taotao.boot.common.utils.log.LogUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
@@ -32,15 +28,15 @@ import org.springframework.stereotype.Component;
 @Component
 public class RequestLogTopicMessageDelegate {
 
-    //@Autowired
-    //private ILogService logService;
+    // @Autowired
+    // private ILogService logService;
 
     public void handleRequestLog(String message, String channel) {
-        //try {
+        // try {
         //    Log log = JsonUtils.MAPPER.readValue(message, Log.class);
         //    logService.save(log);
-        //} catch (JsonProcessingException e) {
+        // } catch (JsonProcessingException e) {
         //    LogUtils.error(e);
-        //}
+        // }
     }
 }

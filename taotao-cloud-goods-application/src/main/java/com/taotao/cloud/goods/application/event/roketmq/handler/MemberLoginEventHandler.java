@@ -16,7 +16,6 @@
 
 package com.taotao.cloud.goods.application.event.roketmq.handler;
 
-
 /** 会员登录消息 */
 public interface MemberLoginEventHandler {
 
@@ -25,5 +24,5 @@ public interface MemberLoginEventHandler {
      *
      * @param member 会员
      */
-//    void memberLogin(Member member);
+    //    void memberLogin(Member member);
 }

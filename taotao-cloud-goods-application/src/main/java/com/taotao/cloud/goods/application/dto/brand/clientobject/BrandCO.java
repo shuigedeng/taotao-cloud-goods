@@ -19,15 +19,13 @@ package com.taotao.cloud.goods.application.dto.brand.clientobject;
 import com.taotao.boot.ddd.model.application.dto.ClientObject;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
-import java.io.Serializable;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.experimental.Accessors;
+import lombok.*;
 import lombok.experimental.Accessors;
 
 /** 品牌CO */
+@Setter
+@Getter
+@ToString
 @Accessors(fluent = true)
 @AllArgsConstructor
 @NoArgsConstructor
@@ -35,7 +33,7 @@ import lombok.experimental.Accessors;
 public class BrandCO extends ClientObject {
 
     @Serial
-	private static final long serialVersionUID = 3829199991161122317L;
+    private static final long serialVersionUID = 3829199991161122317L;
 
     @Schema(description = "id")
     private String id;
@@ -45,4 +43,28 @@ public class BrandCO extends ClientObject {
 
     @Schema(description = "logo")
     private String logo;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getLogo() {
+        return logo;
+    }
+
+    public void setLogo(String logo) {
+        this.logo = logo;
+    }
 }

@@ -19,10 +19,9 @@ package com.taotao.cloud.goods.infrastructure.assembler;
 import com.taotao.cloud.goods.application.dto.category.clientobject.CategoryCO;
 import com.taotao.cloud.goods.application.dto.category.clientobject.CategoryTreeCO;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.CategoryPO;
+import java.util.List;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
-
-import java.util.List;
 
 /**
  * ICategoryMapStruct

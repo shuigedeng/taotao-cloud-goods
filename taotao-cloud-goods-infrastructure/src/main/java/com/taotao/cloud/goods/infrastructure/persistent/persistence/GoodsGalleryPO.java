@@ -25,11 +25,9 @@ import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
 import java.util.Objects;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.experimental.Accessors;
 import lombok.ToString;
 import lombok.experimental.Accessors;
 import org.hibernate.Hibernate;
@@ -41,7 +39,6 @@ import org.hibernate.Hibernate;
  * @version 2022.04
  * @since 2022-04-20 16:59:38
  */
-
 @Setter
 @Getter
 @ToString(callSuper = true)
@@ -49,13 +46,14 @@ import org.hibernate.Hibernate;
 @NoArgsConstructor
 @Accessors(fluent = true)
 @Entity
-@Table(name = GoodsGalleryPO.TABLE_NAME,
-	uniqueConstraints = {
-		@UniqueConstraint(name = "uniq_goods_no", columnNames = "goods_no"),
-	},
-	indexes = {
-		@Index(name = "idx_create_date", columnList = "`create_date`"),
-	})
+@Table(
+        name = GoodsGalleryPO.TABLE_NAME,
+        uniqueConstraints = {
+            @UniqueConstraint(name = "uniq_goods_no", columnNames = "goods_no"),
+        },
+        indexes = {
+            @Index(name = "idx_create_date", columnList = "`create_date`"),
+        })
 @TableName(GoodsGalleryPO.TABLE_NAME)
 @org.springframework.data.relational.core.mapping.Table(name = GoodsGalleryPO.TABLE_NAME)
 public class GoodsGalleryPO extends BaseSuperEntity<GoodsGalleryPO, Long> {
@@ -86,55 +84,55 @@ public class GoodsGalleryPO extends BaseSuperEntity<GoodsGalleryPO, Long> {
     @Column(name = "`sort`", columnDefinition = "int not null default 0 comment '排序'")
     private Integer sort;
 
-	public Long getGoodsId() {
-		return goodsId;
-	}
+    public Long getGoodsId() {
+        return goodsId;
+    }
 
-	public void setGoodsId(Long goodsId) {
-		this.goodsId = goodsId;
-	}
+    public void setGoodsId(Long goodsId) {
+        this.goodsId = goodsId;
+    }
 
-	public String getThumbnail() {
-		return thumbnail;
-	}
+    public String getThumbnail() {
+        return thumbnail;
+    }
 
-	public void setThumbnail(String thumbnail) {
-		this.thumbnail = thumbnail;
-	}
+    public void setThumbnail(String thumbnail) {
+        this.thumbnail = thumbnail;
+    }
 
-	public String getSmall() {
-		return small;
-	}
+    public String getSmall() {
+        return small;
+    }
 
-	public void setSmall(String small) {
-		this.small = small;
-	}
+    public void setSmall(String small) {
+        this.small = small;
+    }
 
-	public String getOriginal() {
-		return original;
-	}
+    public String getOriginal() {
+        return original;
+    }
 
-	public void setOriginal(String original) {
-		this.original = original;
-	}
+    public void setOriginal(String original) {
+        this.original = original;
+    }
 
-	public Integer getIsDefault() {
-		return isDefault;
-	}
+    public Integer getIsDefault() {
+        return isDefault;
+    }
 
-	public void setIsDefault(Integer isDefault) {
-		this.isDefault = isDefault;
-	}
+    public void setIsDefault(Integer isDefault) {
+        this.isDefault = isDefault;
+    }
 
-	public Integer getSort() {
-		return sort;
-	}
+    public Integer getSort() {
+        return sort;
+    }
 
-	public void setSort(Integer sort) {
-		this.sort = sort;
-	}
+    public void setSort(Integer sort) {
+        this.sort = sort;
+    }
 
-	@Override
+    @Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;

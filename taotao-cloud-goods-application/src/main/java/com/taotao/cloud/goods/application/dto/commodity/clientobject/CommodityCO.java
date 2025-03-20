@@ -19,12 +19,14 @@ package com.taotao.cloud.goods.application.dto.commodity.clientobject;
 import com.taotao.boot.ddd.model.application.dto.ClientObject;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.math.BigDecimal;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.experimental.SuperBuilder;
+import lombok.*;
+import lombok.experimental.Accessors;
 
 /** 小程序直播商品 */
+@Setter
+@Getter
+@ToString
+@Accessors(fluent = true)
 @AllArgsConstructor
 @NoArgsConstructor
 @Schema(description = "小程序直播商品CO")
@@ -71,4 +73,11 @@ public class CommodityCO extends ClientObject {
 
     /** skuId */
     private Long skuId;
+
+    public String toString() {
+        return "CommodityCO{goodsImage = " + goodsImage + ", name = " + name + ", priceType = " + priceType
+                + ", price = " + price + ", price2 = " + price2 + ", url = " + url + ", liveGoodsId = " + liveGoodsId
+                + ", auditId = " + auditId + ", auditStatus = " + auditStatus + ", storeId = " + storeId
+                + ", goodsId = " + goodsId + ", skuId = " + skuId + "}";
+    }
 }

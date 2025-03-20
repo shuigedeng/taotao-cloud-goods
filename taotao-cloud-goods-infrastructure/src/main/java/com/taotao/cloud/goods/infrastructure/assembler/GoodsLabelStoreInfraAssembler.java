@@ -53,5 +53,6 @@ public interface GoodsLabelStoreInfraAssembler {
      * @since 2022-04-27 16:58:17
      */
     StoreGoodsLabelPO convert(StoreGoodsLabelAddCmd storeGoodsLabelDTO);
+
     StoreGoodsLabelPO convert(StoreGoodsLabelEditCmd storeGoodsLabelDTO);
 }

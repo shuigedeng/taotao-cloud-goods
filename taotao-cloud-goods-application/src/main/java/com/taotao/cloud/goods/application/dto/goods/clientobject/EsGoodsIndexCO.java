@@ -20,15 +20,10 @@ import com.taotao.boot.common.enums.PromotionTypeEnum;
 import com.taotao.boot.ddd.model.application.dto.ClientObject;
 import com.taotao.cloud.goods.api.enums.GoodsTypeEnum;
 import java.io.Serial;
-import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.experimental.Accessors;
+import lombok.*;
 import lombok.experimental.Accessors;
 
 /**
@@ -38,10 +33,11 @@ import lombok.experimental.Accessors;
  * @version 2022.04
  * @since 2022-04-25 16:18:08
  */
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
+@Setter
+@Getter
 @Accessors(fluent = true)
+@AllArgsConstructor
+@NoArgsConstructor
 public class EsGoodsIndexCO extends ClientObject {
 
     @Serial

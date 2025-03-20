@@ -18,16 +18,13 @@ package com.taotao.cloud.goods.application.dto.goods.clientobject;
 
 import com.taotao.boot.ddd.model.application.dto.ClientObject;
 import com.taotao.cloud.goods.api.enums.GoodsStatusEnum;
-import java.io.Serializable;
 import java.util.Objects;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.Accessors;
 
 /** 商品操作允许的范围 */
-@Data
+@Setter
+@Getter
 @Accessors(fluent = true)
 @AllArgsConstructor
 @NoArgsConstructor

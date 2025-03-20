@@ -16,9 +16,9 @@
 
 package com.taotao.cloud.goods.infrastructure.persistent.mapper;
 
+import com.taotao.boot.webagg.mapper.BaseSuperMapper;
 import com.taotao.cloud.goods.infrastructure.dataobject.CategoryBrandDO;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.CategoryBrandPO;
-import com.taotao.boot.webagg.mapper.BaseSuperMapper;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -32,17 +32,18 @@ import org.apache.ibatis.annotations.Select;
  */
 public interface CategoryBrandMapper extends BaseSuperMapper<CategoryBrandPO, Long> {
 
-	/**
-	 * 根据分类id查分类绑定品牌
-	 *
-	 * @param categoryId 分类id
-	 * @return {@link List }<{@link CategoryBrandVO }>
-	 * @since 2022-04-27 16:55:23
-	 */
-	@Select("""
+    /**
+     * 根据分类id查分类绑定品牌
+     *
+     * @param categoryId 分类id
+     * @return {@link List }<{@link CategoryBrandVO }>
+     * @since 2022-04-27 16:55:23
+     */
+    @Select(
+            """
 		SELECT b.id,b.name,b.logo
 		FROM tt_brand b INNER join tt_category_brand cb on b.id = cb.brand_id and cb.category_id = #{categoryId}
 		where b.delete_flag = 0
 		""")
-	List<CategoryBrandDO> getCategoryBrandList(@Param(value = "categoryId") Long categoryId);
+    List<CategoryBrandDO> getCategoryBrandList(@Param(value = "categoryId") Long categoryId);
 }

@@ -22,41 +22,41 @@ import org.springframework.stereotype.Service;
 /** 会员积分 */
 @Service
 public class MemberPointExecuteHandler implements MemberRegisterEventHandler {
-//
-//    /** 配置 */
-//    @Autowired
-//    private IFeignSettingApi settingApi;
-//    /** 会员 */
-//    @Autowired
-//    private IMemberService memberService;
-//    /** 订单 */
-//    @Autowired
-//    private IFeignOrderApi orderApi;
-//
-//    /**
-//     * 会员注册赠送积分
-//     *
-//     * @param member 会员
-//     */
-//    @Override
-//    public void memberRegister(Member member) {
-//        // 获取积分设置
-//        PointSettingVO pointSetting = getPointSetting();
-//        // 赠送会员积分
-//        memberService.updateMemberPoint(
-//                pointSetting.getRegister().longValue(),
-//                PointTypeEnum.INCREASE.name(),
-//                member.getId(),
-//                "会员注册，赠送积分" + pointSetting.getRegister() + "分");
-//    }
-//
-//    /**
-//     * 获取积分设置
-//     *
-//     * @return 积分设置
-//     */
-//    private PointSettingVO getPointSetting() {
-//        PointSettingVO setting = settingApi.getPointSetting(SettingCategoryEnum.POINT_SETTING.name());
-//        return setting;
-//    }
+    //
+    //    /** 配置 */
+    //    @Autowired
+    //    private IFeignSettingApi settingApi;
+    //    /** 会员 */
+    //    @Autowired
+    //    private IMemberService memberService;
+    //    /** 订单 */
+    //    @Autowired
+    //    private IFeignOrderApi orderApi;
+    //
+    //    /**
+    //     * 会员注册赠送积分
+    //     *
+    //     * @param member 会员
+    //     */
+    //    @Override
+    //    public void memberRegister(Member member) {
+    //        // 获取积分设置
+    //        PointSettingVO pointSetting = getPointSetting();
+    //        // 赠送会员积分
+    //        memberService.updateMemberPoint(
+    //                pointSetting.getRegister().longValue(),
+    //                PointTypeEnum.INCREASE.name(),
+    //                member.getId(),
+    //                "会员注册，赠送积分" + pointSetting.getRegister() + "分");
+    //    }
+    //
+    //    /**
+    //     * 获取积分设置
+    //     *
+    //     * @return 积分设置
+    //     */
+    //    private PointSettingVO getPointSetting() {
+    //        PointSettingVO setting = settingApi.getPointSetting(SettingCategoryEnum.POINT_SETTING.name());
+    //        return setting;
+    //    }
 }

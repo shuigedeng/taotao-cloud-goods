@@ -33,15 +33,15 @@ public class CheckParameterHandler extends ChannelHandlerAdapter {
 
         logger.info("参数校验:开始执行");
 
-//        if (in instanceof ArticleTitleModifyCmd) {
-//            ArticleTitleModifyCmd cmd = (ArticleTitleModifyCmd) in;
-//            String articleId = cmd.getArticleId();
-//            Objects.requireNonNull(articleId, "articleId不能为空");
-//            String title = cmd.getTitle();
-//            Objects.requireNonNull(title, "title不能为空");
-//            String content = cmd.getContent();
-//            Objects.requireNonNull(content, "content不能为空");
-//        }
+        //        if (in instanceof ArticleTitleModifyCmd) {
+        //            ArticleTitleModifyCmd cmd = (ArticleTitleModifyCmd) in;
+        //            String articleId = cmd.getArticleId();
+        //            Objects.requireNonNull(articleId, "articleId不能为空");
+        //            String title = cmd.getTitle();
+        //            Objects.requireNonNull(title, "title不能为空");
+        //            String content = cmd.getContent();
+        //            Objects.requireNonNull(content, "content不能为空");
+        //        }
         logger.info("参数校验:校验通过,即将进入下一个Handler");
         ctx.fireChannelProcess(in, out);
     }

@@ -24,22 +24,20 @@ import org.slf4j.LoggerFactory;
 
 public class DeptModifyContentHandler implements ChannelHandler {
 
-	private Logger logger = LoggerFactory.getLogger(DeptModifyContentHandler.class);
+    private Logger logger = LoggerFactory.getLogger(DeptModifyContentHandler.class);
 
-	@Override
-	public void channelProcess(ChannelHandlerContext ctx, Object in, Object out) throws Exception {
+    @Override
+    public void channelProcess(ChannelHandlerContext ctx, Object in, Object out) throws Exception {
 
-		logger.info("修改正文:进入修改正文的Handler");
+        logger.info("修改正文:进入修改正文的Handler");
 
-		GoodsContext cmd = (GoodsContext) in;
-		//logger.info("修改正文,content={}", cmd.getDeptModifyCmd().getDeptCO().getName());
+        GoodsContext cmd = (GoodsContext) in;
+        // logger.info("修改正文,content={}", cmd.getDeptModifyCmd().getDeptCO().getName());
 
-		logger.info("修改正文:执行完成,即将进入下一个Handler");
-		ctx.fireChannelProcess(in, out);
-	}
+        logger.info("修改正文:执行完成,即将进入下一个Handler");
+        ctx.fireChannelProcess(in, out);
+    }
 
-	@Override
-	public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause, Object in, Object out)
-		throws Exception {
-	}
+    @Override
+    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause, Object in, Object out) throws Exception {}
 }

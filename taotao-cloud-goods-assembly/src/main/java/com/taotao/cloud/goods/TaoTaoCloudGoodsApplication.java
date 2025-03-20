@@ -53,25 +53,24 @@ import com.taotao.cloud.bootstrap.annotation.TaoTaoCloudApplication;
  * @version 2022.03
  * @since 2020/11/30 下午3:33
  */
-//@MapperScan(basePackages = {"com.taotao.cloud.goods.infrastructure.persistent.*.mapper"})
-//@EnableJpaRepositories(
+// @MapperScan(basePackages = {"com.taotao.cloud.goods.infrastructure.persistent.*.mapper"})
+// @EnableJpaRepositories(
 //	basePackages = {"com.taotao.cloud.goods.infrastructure.persistent.*.repository.inf"},
 //	repositoryFactoryBeanClass = JpaExtendRepositoryFactoryBean.class)
-//@ComponentScan(basePackages = {
+// @ComponentScan(basePackages = {
 //	"com.taotao.cloud.goods.biz.repository.cls"
-//} )
-//@EnableFeignClients(basePackages = {"com.taotao.cloud.goods.api.feign","com.taotao.cloud.goods.api.feign"})
+// } )
+// @EnableFeignClients(basePackages = {"com.taotao.cloud.goods.api.feign","com.taotao.cloud.goods.api.feign"})
 @TaoTaoBootApplication
 @TaoTaoCloudApplication
 public class TaoTaoCloudGoodsApplication {
 
-	public static void main(String[] args) {
-		new StartupSpringApplication(TaoTaoCloudGoodsApplication.class)
-			.setTtcBanner()
-			.setTtcProfileIfNotExists("dev")
-			.setTtcApplicationProperty("taotao-cloud-goods")
-			.setTtcAllowBeanDefinitionOverriding(true)
-			.run(args);
-	}
-	
+    public static void main(String[] args) {
+        new StartupSpringApplication(TaoTaoCloudGoodsApplication.class)
+                .setTtcBanner()
+                .setTtcProfileIfNotExists("dev")
+                .setTtcApplicationProperty("taotao-cloud-goods")
+                .setTtcAllowBeanDefinitionOverriding(true)
+                .run(args);
+    }
 }

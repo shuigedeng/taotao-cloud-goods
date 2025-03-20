@@ -29,14 +29,13 @@ import io.swagger.v3.oas.annotations.Parameters;
 import io.swagger.v3.oas.annotations.enums.ParameterIn;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.constraints.NotNull;
+import java.util.List;
 import lombok.AllArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
 
 /**
  * 买家端,商品分类接口
@@ -52,21 +51,22 @@ import java.util.List;
 @RequestMapping("/goods/buyer/category")
 public class CategoryBuyerController extends BusinessController {
 
-	/**
-	 * 商品分类
-	 */
-	private final CategoryCommandService categoryCommandService;
-	private final CategoryQueryService categoryQueryService;
+    /**
+     * 商品分类
+     */
+    private final CategoryCommandService categoryCommandService;
 
-	@RequestLogger
-	@Operation(summary = "根据父id获取商品分类列表", description = "根据父id获取商品分类列表")
-	@Parameters({
-		@Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
-	})
-	@NotAuth
-	@GetMapping(value = "parentId")
-	public Result<List<CategoryTreeCO>> list(
-		@NotNull(message = "父ID不能为空") @RequestParam(value = "parentId") Long parentId) {
-		return Result.success(categoryQueryService.listAllChildren(parentId));
-	}
+    private final CategoryQueryService categoryQueryService;
+
+    @RequestLogger
+    @Operation(summary = "根据父id获取商品分类列表", description = "根据父id获取商品分类列表")
+    @Parameters({
+        @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
+    })
+    @NotAuth
+    @GetMapping(value = "parentId")
+    public Result<List<CategoryTreeCO>> list(
+            @NotNull(message = "父ID不能为空") @RequestParam(value = "parentId") Long parentId) {
+        return Result.success(categoryQueryService.listAllChildren(parentId));
+    }
 }

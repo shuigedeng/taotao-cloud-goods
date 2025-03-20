@@ -18,6 +18,4 @@ package com.taotao.cloud.goods.domain.category.adapter;
 
 import com.taotao.boot.ddd.model.domain.Adapter;
 
-public class CategoryAdapter implements Adapter {
-
-}
+public class CategoryAdapter implements Adapter {}

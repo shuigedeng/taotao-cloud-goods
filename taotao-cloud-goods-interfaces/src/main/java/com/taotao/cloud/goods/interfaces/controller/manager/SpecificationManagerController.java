@@ -28,6 +28,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import java.util.List;
 import lombok.AllArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
@@ -35,8 +36,6 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
 
 /**
  * 管理端,商品规格接口
@@ -56,59 +55,62 @@ public class SpecificationManagerController extends BusinessController {
      * 商品规格服务
      */
     private final SpecificationQueryService specificationQueryService;
+
     private final SpecificationCommandService specificationCommandService;
 
-//    @Operation(summary = "获取所有可用规格", description = "获取所有可用规格")
-//    @RequestLogger("获取所有可用规格")
-//    @PreAuthorize("hasAuthority('dept:tree:data')")
-//    @GetMapping("/all")
-//    public Result<List<SpecificationCO>> getAll() {
-//        List<SpecificationPO> specifications = specificationQueryService.list();
-//        return Result.success(SpecificationAssembler.INSTANCE.convert(specifications));
-//    }
-//
-//    @Operation(summary = "搜索规格", description = "搜索规格")
-//    @RequestLogger("搜索规格")
-//    @PreAuthorize("hasAuthority('dept:tree:data')")
-//    @GetMapping
-//    public Result<PageResult<SpecificationCO>> page(@Validated SpecificationPageQry specificationPageQuery) {
-//        IPage<SpecificationPO> specificationPage = specificationQueryService.getPage(specificationPageQuery);
-//        return Result.success(MpUtils.convertMybatisPage(specificationPage, SpecificationAssembler.INSTANCE::convert));
-//    }
+    //    @Operation(summary = "获取所有可用规格", description = "获取所有可用规格")
+    //    @RequestLogger("获取所有可用规格")
+    //    @PreAuthorize("hasAuthority('dept:tree:data')")
+    //    @GetMapping("/all")
+    //    public Result<List<SpecificationCO>> getAll() {
+    //        List<SpecificationPO> specifications = specificationQueryService.list();
+    //        return Result.success(SpecificationAssembler.INSTANCE.convert(specifications));
+    //    }
+    //
+    //    @Operation(summary = "搜索规格", description = "搜索规格")
+    //    @RequestLogger("搜索规格")
+    //    @PreAuthorize("hasAuthority('dept:tree:data')")
+    //    @GetMapping
+    //    public Result<PageResult<SpecificationCO>> page(@Validated SpecificationPageQry specificationPageQuery) {
+    //        IPage<SpecificationPO> specificationPage = specificationQueryService.getPage(specificationPageQuery);
+    //        return Result.success(MpUtils.convertMybatisPage(specificationPage,
+    // SpecificationAssembler.INSTANCE::convert));
+    //    }
 
-    //@Operation(summary = "保存规格", description = "保存规格")
-    //@RequestLogger("保存规格")
-    //@PreAuthorize("hasAuthority('dept:tree:data')")
-    //@PostMapping
-    //public Result<Boolean> save(@Valid @RequestBody SpecificationDTO specificationDTO) {
-	//	SpecificationPO specification = SpecificationAssembler.INSTANCE.convert(specificationDTO);
+    // @Operation(summary = "保存规格", description = "保存规格")
+    // @RequestLogger("保存规格")
+    // @PreAuthorize("hasAuthority('dept:tree:data')")
+    // @PostMapping
+    // public Result<Boolean> save(@Valid @RequestBody SpecificationDTO specificationDTO) {
+    //	SpecificationPO specification = SpecificationAssembler.INSTANCE.convert(specificationDTO);
     //    return Result.success(specificationCommandService.save(specification));
-    //}
+    // }
 
-    //@Operation(summary = "更改规格", description = "更改规格")
-    //@Parameters({
+    // @Operation(summary = "更改规格", description = "更改规格")
+    // @Parameters({
     //        @Parameter(name = "id", required = true, description = "id", in = ParameterIn.PATH),
-    //})
-    //@RequestLogger("更改规格")
-    //@PreAuthorize("hasAuthority('dept:tree:data')")
-    //@PutMapping("/{id}")
-    //public Result<Boolean> update(@Valid @RequestBody SpecificationDTO specificationDTO,
+    // })
+    // @RequestLogger("更改规格")
+    // @PreAuthorize("hasAuthority('dept:tree:data')")
+    // @PutMapping("/{id}")
+    // public Result<Boolean> update(@Valid @RequestBody SpecificationDTO specificationDTO,
     //                              @PathVariable Long id) {
-	//	SpecificationPO specification = SpecificationAssembler.INSTANCE.convert(specificationDTO);
+    //	SpecificationPO specification = SpecificationAssembler.INSTANCE.convert(specificationDTO);
     //    specification.setId(id);
-	//
+    //
     //    return Result.success(specificationCommandService.saveOrUpdate(specification));
-    //}
+    // }
 
     @Operation(summary = "批量删除", description = "批量删除")
     @Parameters({
-            @Parameter(name = "ids", required = true, description = "id列表,逗号连接", example = "1,2,3"),
+        @Parameter(name = "ids", required = true, description = "id列表,逗号连接", example = "1,2,3"),
     })
     @RequestLogger("批量删除")
     @PreAuthorize("hasAuthority('dept:tree:data')")
     @DeleteMapping("/batch")
-    public Result<Boolean> delAllByIds(@Valid @NotNull(message = "id列表不能为空") @Size(min = 1, max = 3, message = "id个数只能在1至3个")
-                                           @RequestParam List<Long> ids) {
+    public Result<Boolean> delAllByIds(
+            @Valid @NotNull(message = "id列表不能为空") @Size(min = 1, max = 3, message = "id个数只能在1至3个") @RequestParam
+                    List<Long> ids) {
         return Result.success(specificationCommandService.deleteSpecification(ids));
     }
 }

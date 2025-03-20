@@ -25,11 +25,9 @@ import jakarta.persistence.Table;
 import java.math.BigDecimal;
 import java.util.Objects;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.experimental.Accessors;
 import lombok.ToString;
 import lombok.experimental.Accessors;
 import org.hibernate.Hibernate;
@@ -48,12 +46,13 @@ import org.hibernate.Hibernate;
 @NoArgsConstructor
 @Accessors(fluent = true)
 @Entity
-@Table(name = CategoryPO.TABLE_NAME,
-	indexes = {
-		@Index(name = "idx_create_date", columnList = "`create_date`"),
-		@Index(name = "idx_group_name", columnList = "`group_name`"),
-		@Index(name = "idx_sort_order", columnList = "`sort_order`"),
-	})
+@Table(
+        name = CategoryPO.TABLE_NAME,
+        indexes = {
+            @Index(name = "idx_create_date", columnList = "`create_date`"),
+            @Index(name = "idx_group_name", columnList = "`group_name`"),
+            @Index(name = "idx_sort_order", columnList = "`sort_order`"),
+        })
 @TableName(CategoryPO.TABLE_NAME)
 @org.springframework.data.relational.core.mapping.Table(name = CategoryPO.TABLE_NAME)
 public class CategoryPO extends BaseSuperEntity<CategoryPO, Long> {
@@ -88,63 +87,63 @@ public class CategoryPO extends BaseSuperEntity<CategoryPO, Long> {
     @Column(name = "`support_channel`", columnDefinition = "boolean null default false comment '是否支持频道'")
     private Boolean supportChannel;
 
-	public String getName() {
-		return name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public Long getParentId() {
-		return parentId;
-	}
+    public Long getParentId() {
+        return parentId;
+    }
 
-	public void setParentId(Long parentId) {
-		this.parentId = parentId;
-	}
+    public void setParentId(Long parentId) {
+        this.parentId = parentId;
+    }
 
-	public Integer getLevel() {
-		return level;
-	}
+    public Integer getLevel() {
+        return level;
+    }
 
-	public void setLevel(Integer level) {
-		this.level = level;
-	}
+    public void setLevel(Integer level) {
+        this.level = level;
+    }
 
-	public Integer getSortOrder() {
-		return sortOrder;
-	}
+    public Integer getSortOrder() {
+        return sortOrder;
+    }
 
-	public void setSortOrder(Integer sortOrder) {
-		this.sortOrder = sortOrder;
-	}
+    public void setSortOrder(Integer sortOrder) {
+        this.sortOrder = sortOrder;
+    }
 
-	public BigDecimal getCommissionRate() {
-		return commissionRate;
-	}
+    public BigDecimal getCommissionRate() {
+        return commissionRate;
+    }
 
-	public void setCommissionRate(BigDecimal commissionRate) {
-		this.commissionRate = commissionRate;
-	}
+    public void setCommissionRate(BigDecimal commissionRate) {
+        this.commissionRate = commissionRate;
+    }
 
-	public String getImage() {
-		return image;
-	}
+    public String getImage() {
+        return image;
+    }
 
-	public void setImage(String image) {
-		this.image = image;
-	}
+    public void setImage(String image) {
+        this.image = image;
+    }
 
-	public Boolean getSupportChannel() {
-		return supportChannel;
-	}
+    public Boolean getSupportChannel() {
+        return supportChannel;
+    }
 
-	public void setSupportChannel(Boolean supportChannel) {
-		this.supportChannel = supportChannel;
-	}
+    public void setSupportChannel(Boolean supportChannel) {
+        this.supportChannel = supportChannel;
+    }
 
-	@Override
+    @Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;

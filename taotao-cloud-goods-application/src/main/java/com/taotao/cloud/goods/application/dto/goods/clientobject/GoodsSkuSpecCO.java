@@ -20,14 +20,12 @@ import com.taotao.boot.ddd.model.application.dto.ClientObject;
 import com.taotao.cloud.goods.application.dto.specification.clientobject.SpecValueCO;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.List;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.Accessors;
 
 /** 商品规格CO */
-@Data
+@Setter
+@Getter
 @Accessors(fluent = true)
 @AllArgsConstructor
 @NoArgsConstructor

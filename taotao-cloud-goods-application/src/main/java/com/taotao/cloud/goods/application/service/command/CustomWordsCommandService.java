@@ -19,7 +19,6 @@ package com.taotao.cloud.goods.application.service.command;
 import com.taotao.boot.ddd.model.application.service.CommandService;
 import com.taotao.cloud.goods.application.dto.goods.cmmond.CustomWordsAddCmd;
 import com.taotao.cloud.goods.application.dto.goods.cmmond.CustomWordsUpdateCmd;
-
 import java.util.List;
 
 /**
@@ -31,54 +30,51 @@ import java.util.List;
  */
 public interface CustomWordsCommandService extends CommandService {
 
-	/**
-	 * 自定义分词部署替换
-	 *
-	 * @return 替换的内容
-	 */
-	String deploy();
+    /**
+     * 自定义分词部署替换
+     *
+     * @return 替换的内容
+     */
+    String deploy();
 
+    /**
+     * 添加自定义分词
+     *
+     * @param customWordsAddCmd 自定义分词信息
+     * @return 是否添加成功
+     */
+    boolean addCustomWords(CustomWordsAddCmd customWordsAddCmd);
 
-	/**
-	 * 添加自定义分词
-	 *
-	 * @param customWordsAddCmd 自定义分词信息
-	 * @return 是否添加成功
-	 */
-	boolean addCustomWords(CustomWordsAddCmd customWordsAddCmd);
+    /**
+     * 修改自定义分词
+     *
+     * @param customWordsUpdateCmd 自定义分词信息
+     * @return 是否修改成功
+     */
+    boolean updateCustomWords(CustomWordsUpdateCmd customWordsUpdateCmd);
 
+    /**
+     * 删除自定义分词
+     *
+     * @param id 自定义分词id
+     * @return 是否删除成功
+     */
+    boolean deleteCustomWords(String id);
 
-	/**
-	 * 修改自定义分词
-	 *
-	 * @param customWordsUpdateCmd 自定义分词信息
-	 * @return 是否修改成功
-	 */
-	boolean updateCustomWords(CustomWordsUpdateCmd customWordsUpdateCmd);
+    /**
+     * 根据名字批量删除
+     *
+     * @param names 名称列表
+     * @return 是否删除成功
+     */
+    boolean deleteBathByName(List<String> names);
 
-	/**
-	 * 删除自定义分词
-	 *
-	 * @param id 自定义分词id
-	 * @return 是否删除成功
-	 */
-	boolean deleteCustomWords(String id);
-
-	/**
-	 * 根据名字批量删除
-	 *
-	 * @param names 名称列表
-	 * @return 是否删除成功
-	 */
-	boolean deleteBathByName(List<String> names);
-
-	/**
-	 * 批量插入自定义分词
-	 *
-	 * @param customWordsPOList 自定义分词列表
-	 * @return 受影响行数
-	 */
-//	long insertBatchCustomWords(List<CustomWordsPO> customWordsPOList);
-
+    /**
+     * 批量插入自定义分词
+     *
+     * @param customWordsPOList 自定义分词列表
+     * @return 受影响行数
+     */
+    //	long insertBatchCustomWords(List<CustomWordsPO> customWordsPOList);
 
 }

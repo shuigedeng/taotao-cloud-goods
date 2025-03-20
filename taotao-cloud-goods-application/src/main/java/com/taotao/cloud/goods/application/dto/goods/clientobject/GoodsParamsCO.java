@@ -18,15 +18,13 @@ package com.taotao.cloud.goods.application.dto.goods.clientobject;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.Accessors;
-import lombok.experimental.SuperBuilder;
 
 /** 商品关联参数的CO */
-@Data
+@Setter
+@Getter
+@Accessors(fluent = true)
 @AllArgsConstructor
 @NoArgsConstructor
 public class GoodsParamsCO {

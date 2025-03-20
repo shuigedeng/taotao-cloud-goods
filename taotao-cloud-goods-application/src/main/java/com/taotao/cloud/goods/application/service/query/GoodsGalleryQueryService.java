@@ -16,7 +16,6 @@
 
 package com.taotao.cloud.goods.application.service.query;
 
-
 import com.taotao.boot.ddd.model.application.service.QueryService;
 
 /**
@@ -28,22 +27,21 @@ import com.taotao.boot.ddd.model.application.service.QueryService;
  */
 public interface GoodsGalleryQueryService extends QueryService {
 
-
-	/**
-	 * 根据原图获取缩略图
-	 *
-	 * @param origin 原图地址
-	 * @return {@link GoodsGalleryPO }
-	 * @since 2022-04-27 17:00:12
-	 */
-//	GoodsGalleryPO getGoodsGallery(String origin);
-//
-//	/**
-//	 * 根据商品id查询商品相册原图
-//	 *
-//	 * @param goodsId 商品ID
-//	 * @return {@link List }<{@link GoodsGalleryPO }>
-//	 * @since 2022-04-27 17:00:12
-//	 */
-//	List<GoodsGalleryPO> goodsGalleryList(Long goodsId);
+    /**
+     * 根据原图获取缩略图
+     *
+     * @param origin 原图地址
+     * @return {@link GoodsGalleryPO }
+     * @since 2022-04-27 17:00:12
+     */
+    //	GoodsGalleryPO getGoodsGallery(String origin);
+    //
+    //	/**
+    //	 * 根据商品id查询商品相册原图
+    //	 *
+    //	 * @param goodsId 商品ID
+    //	 * @return {@link List }<{@link GoodsGalleryPO }>
+    //	 * @since 2022-04-27 17:00:12
+    //	 */
+    //	List<GoodsGalleryPO> goodsGalleryList(Long goodsId);
 }

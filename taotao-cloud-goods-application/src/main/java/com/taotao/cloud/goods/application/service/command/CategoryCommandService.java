@@ -29,35 +29,34 @@ import com.taotao.cloud.goods.application.dto.category.cmmond.CategoryUpdateCmd;
  */
 public interface CategoryCommandService extends CommandService {
 
-	/**
-	 * 添加商品分类
-	 *
-	 * @param category 商品分类信息
-	 * @return 添加结果
-	 */
-	boolean saveCategory(CategoryAddCmd category);
+    /**
+     * 添加商品分类
+     *
+     * @param category 商品分类信息
+     * @return 添加结果
+     */
+    boolean saveCategory(CategoryAddCmd category);
 
-	/**
-	 * 修改商品分类
-	 *
-	 * @param category 商品分类信息
-	 * @return 修改结果
-	 */
-	boolean updateCategory(CategoryUpdateCmd category);
+    /**
+     * 修改商品分类
+     *
+     * @param category 商品分类信息
+     * @return 修改结果
+     */
+    boolean updateCategory(CategoryUpdateCmd category);
 
-	/**
-	 * 批量删除分类
-	 *
-	 * @param id 分类ID
-	 */
-	void delete(Long id);
+    /**
+     * 批量删除分类
+     *
+     * @param id 分类ID
+     */
+    void delete(Long id);
 
-	/**
-	 * 分类状态的更改
-	 *
-	 * @param categoryId       商品分类ID
-	 * @param enableOperations 是否可用
-	 */
-	void updateCategoryStatus(Long categoryId, boolean enableOperations);
-
+    /**
+     * 分类状态的更改
+     *
+     * @param categoryId       商品分类ID
+     * @param enableOperations 是否可用
+     */
+    void updateCategoryStatus(Long categoryId, boolean enableOperations);
 }

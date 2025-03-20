@@ -41,39 +41,40 @@ public class ParameterManagerController extends BusinessController {
 
     /** 参数服务 */
     private final ParametersQueryService parametersQueryService;
+
     private final ParametersCommandService parametersCommandService;
-	//
-    //@Operation(summary = "添加参数", description = "添加参数")
-    //@RequestLogger("添加参数添加参数")
-    //@PreAuthorize("hasAuthority('dept:tree:data')")
-    //@PostMapping
-    //public Result<Boolean> save(@Validated @RequestBody ParametersDTO parametersDTO) {
+    //
+    // @Operation(summary = "添加参数", description = "添加参数")
+    // @RequestLogger("添加参数添加参数")
+    // @PreAuthorize("hasAuthority('dept:tree:data')")
+    // @PostMapping
+    // public Result<Boolean> save(@Validated @RequestBody ParametersDTO parametersDTO) {
     //    Parameters parameters = ParametersConvert.INSTANCE.convert(parametersDTO);
     //    return Result.success(parametersService.save(parameters));
-    //}
-	//
-    //@Operation(summary = "编辑参数", description = "编辑参数")
-    //@io.swagger.v3.oas.annotations.Parameters({
+    // }
+    //
+    // @Operation(summary = "编辑参数", description = "编辑参数")
+    // @io.swagger.v3.oas.annotations.Parameters({
     //        @Parameter(name = "id", required = true, description = "id", in = ParameterIn.PATH),
-    //})
-    //@RequestLogger("编辑参数")
-    //@PreAuthorize("hasAuthority('dept:tree:data')")
-    //@PutMapping("/{id}")
-    //public Result<Boolean> update(@Validated @RequestBody ParametersDTO parametersDTO,
+    // })
+    // @RequestLogger("编辑参数")
+    // @PreAuthorize("hasAuthority('dept:tree:data')")
+    // @PutMapping("/{id}")
+    // public Result<Boolean> update(@Validated @RequestBody ParametersDTO parametersDTO,
     //                              @PathVariable Long id) {
     //    Parameters parameters = ParametersConvert.INSTANCE.convert(parametersDTO);
     //    parameters.setId(id);
     //    return Result.success(parametersService.updateParameter(parameters));
-    //}
+    // }
 
-    //@Operation(summary = "根据id删除参数", description = "根据id删除参数")
-    //@io.swagger.v3.oas.annotations.Parameters({
+    // @Operation(summary = "根据id删除参数", description = "根据id删除参数")
+    // @io.swagger.v3.oas.annotations.Parameters({
     //        @Parameter(name = "id", required = true, description = "id", in = ParameterIn.PATH),
-    //})
-    //@RequestLogger("根据id删除参数")
-    //@PreAuthorize("hasAuthority('dept:tree:data')")
-    //@DeleteMapping(value = "/{id}")
-    //public Result<Boolean> delById(@PathVariable Long id) {
+    // })
+    // @RequestLogger("根据id删除参数")
+    // @PreAuthorize("hasAuthority('dept:tree:data')")
+    // @DeleteMapping(value = "/{id}")
+    // public Result<Boolean> delById(@PathVariable Long id) {
     //    return Result.success(parametersService.removeById(id));
-    //}
+    // }
 }

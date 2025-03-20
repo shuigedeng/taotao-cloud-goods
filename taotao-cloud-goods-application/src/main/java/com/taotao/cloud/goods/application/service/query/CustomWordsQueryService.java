@@ -27,21 +27,20 @@ import com.taotao.boot.ddd.model.application.service.QueryService;
  */
 public interface CustomWordsQueryService extends QueryService {
 
+    /**
+     * 是否存在分词
+     *
+     * @param words 分词
+     * @return 是否存在
+     */
+    boolean existWords(String words);
 
-	/**
-	 * 是否存在分词
-	 *
-	 * @param words 分词
-	 * @return 是否存在
-	 */
-	boolean existWords(String words);
-
-	///**
-	// * 分页查询自定义分词
-	// *
-	// * @param words  分词
-	// * @param pageVo 分页信息
-	// * @return 自定义分词分页信息
-	// */
-	//IPage<CustomWordsPO> getCustomWordsByPage(String words, PageVO pageVo);
+    /// **
+    // * 分页查询自定义分词
+    // *
+    // * @param words  分词
+    // * @param pageVo 分页信息
+    // * @return 自定义分词分页信息
+    // */
+    // IPage<CustomWordsPO> getCustomWordsByPage(String words, PageVO pageVo);
 }

@@ -22,18 +22,16 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.Accessors;
 
 /** 搜索热词 */
-@Data
+@Setter
+@Getter
 @Accessors(fluent = true)
 @AllArgsConstructor
 @NoArgsConstructor
-public class HotWordsAddCmd  extends Command {
+public class HotWordsAddCmd extends Command {
 
     @NotBlank(message = "搜索热词不能为空")
     @Size(max = 20, min = 1, message = "搜索热词长度限制在1-20")

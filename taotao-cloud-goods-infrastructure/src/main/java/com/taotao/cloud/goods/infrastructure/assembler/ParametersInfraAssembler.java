@@ -31,22 +31,22 @@ public interface ParametersInfraAssembler {
 
     /** 实例 */
     ParametersInfraAssembler INSTANCE = Mappers.getMapper(ParametersInfraAssembler.class);
-	//
-    ///**
+    //
+    /// **
     // * 参数参数vos
     // *
     // * @param parameters 参数
     // * @return {@link List }<{@link ParametersVO }>
     // * @since 2022-04-27 16:58:27
     // */
-    //List<ParametersVO> convert(List<Parameters> parameters);
-	//
-    ///**
+    // List<ParametersVO> convert(List<Parameters> parameters);
+    //
+    /// **
     // * 参数dtoto参数
     // *
     // * @param parametersDTO 参数dto
     // * @return {@link Parameters }
     // * @since 2022-04-27 16:58:27
     // */
-    //Parameters convert(ParametersDTO parametersDTO);
+    // Parameters convert(ParametersDTO parametersDTO);
 }

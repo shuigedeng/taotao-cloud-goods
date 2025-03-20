@@ -27,27 +27,26 @@ import com.taotao.boot.ddd.model.application.service.CommandService;
  */
 public interface StoreGoodsLabelCommandService extends CommandService {
 
+    /**
+     * 添加商品分类
+     *
+     * @param storeGoodsLabelPO 店铺商品分类
+     * @return 店铺商品分类
+     */
+    //	boolean addStoreGoodsLabel(StoreGoodsLabelPO storeGoodsLabelPO);
 
-	/**
-	 * 添加商品分类
-	 *
-	 * @param storeGoodsLabelPO 店铺商品分类
-	 * @return 店铺商品分类
-	 */
-//	boolean addStoreGoodsLabel(StoreGoodsLabelPO storeGoodsLabelPO);
+    /**
+     * 修改商品分类
+     *
+     * @param storeGoodsLabelPO 店铺商品分类
+     * @return 店铺商品分类
+     */
+    //	boolean editStoreGoodsLabel(StoreGoodsLabelPO storeGoodsLabelPO);
 
-	/**
-	 * 修改商品分类
-	 *
-	 * @param storeGoodsLabelPO 店铺商品分类
-	 * @return 店铺商品分类
-	 */
-//	boolean editStoreGoodsLabel(StoreGoodsLabelPO storeGoodsLabelPO);
-
-	/**
-	 * 删除商品分类
-	 *
-	 * @param storeLabelId 店铺 分类 ID
-	 */
-	boolean removeStoreGoodsLabel(Long storeLabelId);
+    /**
+     * 删除商品分类
+     *
+     * @param storeLabelId 店铺 分类 ID
+     */
+    boolean removeStoreGoodsLabel(Long storeLabelId);
 }

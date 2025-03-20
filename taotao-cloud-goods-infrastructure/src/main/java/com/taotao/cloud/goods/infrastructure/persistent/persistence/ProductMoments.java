@@ -28,7 +28,7 @@ package com.taotao.cloud.goods.infrastructure.persistent.persistence; // package
 // import lombok.Setter;
 //
 // @Setter
-// 
+//
 // @Accessors(fluent = true)
 // @AllArgsConstructor
 // @NoArgsConstructor

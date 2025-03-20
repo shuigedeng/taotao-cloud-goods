@@ -20,16 +20,14 @@ import com.taotao.cloud.goods.application.dto.goods.clientobject.GoodsSkuSpecGal
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
 import java.util.List;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.Accessors;
-import lombok.experimental.SuperBuilder;
 
 /** 草稿商品CO */
-@Data
-@EqualsAndHashCode(callSuper = true)
+@Setter
+@Getter
+@ToString
+@Accessors(fluent = true)
 @AllArgsConstructor
 @NoArgsConstructor
 public class DraftGoodsSkuParamsCO extends DraftGoodsCO {
@@ -40,12 +38,60 @@ public class DraftGoodsSkuParamsCO extends DraftGoodsCO {
     @Schema(description = "分类名称")
     private List<String> categoryName;
 
-    //@Schema(description = "商品参数")
-    //private List<GoodsParamsDTO> goodsParamsDTOList;
+    // @Schema(description = "商品参数")
+    // private List<GoodsParamsDTO> goodsParamsDTOList;
 
     @Schema(description = "商品图片")
     private List<String> goodsGalleryList;
 
     @Schema(description = "sku列表")
     private List<GoodsSkuSpecGalleryCO> skuList;
+
+    /**
+     * 获取
+     * @return categoryName
+     */
+    public List<String> getCategoryName() {
+        return categoryName;
+    }
+
+    /**
+     * 设置
+     * @param categoryName
+     */
+    public void setCategoryName(List<String> categoryName) {
+        this.categoryName = categoryName;
+    }
+
+    /**
+     * 获取
+     * @return goodsGalleryList
+     */
+    public List<String> getGoodsGalleryList() {
+        return goodsGalleryList;
+    }
+
+    /**
+     * 设置
+     * @param goodsGalleryList
+     */
+    public void setGoodsGalleryList(List<String> goodsGalleryList) {
+        this.goodsGalleryList = goodsGalleryList;
+    }
+
+    /**
+     * 获取
+     * @return skuList
+     */
+    public List<GoodsSkuSpecGalleryCO> getSkuList() {
+        return skuList;
+    }
+
+    /**
+     * 设置
+     * @param skuList
+     */
+    public void setSkuList(List<GoodsSkuSpecGalleryCO> skuList) {
+        this.skuList = skuList;
+    }
 }

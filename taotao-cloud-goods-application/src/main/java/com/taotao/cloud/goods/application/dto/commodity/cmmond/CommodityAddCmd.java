@@ -18,18 +18,17 @@ package com.taotao.cloud.goods.application.dto.commodity.cmmond;
 
 import com.taotao.boot.ddd.model.application.dto.Command;
 import io.swagger.v3.oas.annotations.media.Schema;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.Accessors;
 
 /** 直播商品DTO 用于获取直播商品状态时使用 */
-@Data
+@Setter
+@Getter
+@ToString
 @Accessors(fluent = true)
 @AllArgsConstructor
 @NoArgsConstructor
-public class CommodityAddCmd  extends Command {
+public class CommodityAddCmd extends Command {
 
     @Schema(description = "商品ID")
     private Long goodsId;
@@ -42,4 +41,68 @@ public class CommodityAddCmd  extends Command {
 
     @Schema(description = "审核状态")
     private Integer auditStatus;
+
+    /**
+     * 获取
+     * @return goodsId
+     */
+    public Long getGoodsId() {
+        return goodsId;
+    }
+
+    /**
+     * 设置
+     * @param goodsId
+     */
+    public void setGoodsId(Long goodsId) {
+        this.goodsId = goodsId;
+    }
+
+    /**
+     * 获取
+     * @return name
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * 设置
+     * @param name
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    /**
+     * 获取
+     * @return url
+     */
+    public String getUrl() {
+        return url;
+    }
+
+    /**
+     * 设置
+     * @param url
+     */
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    /**
+     * 获取
+     * @return auditStatus
+     */
+    public Integer getAuditStatus() {
+        return auditStatus;
+    }
+
+    /**
+     * 设置
+     * @param auditStatus
+     */
+    public void setAuditStatus(Integer auditStatus) {
+        this.auditStatus = auditStatus;
+    }
 }

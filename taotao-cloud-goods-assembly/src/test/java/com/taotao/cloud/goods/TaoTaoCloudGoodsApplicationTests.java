@@ -22,12 +22,12 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 public abstract class TaoTaoCloudGoodsApplicationTests extends TtcBootTestBase {
 
-	static {
-		System.setProperty("com.google.protobuf.use_unsafe_pre22_gencode", "true");
+    static {
+        System.setProperty("com.google.protobuf.use_unsafe_pre22_gencode", "true");
 
-		System.setProperty("spring.banner.location", "ttc-banner.txt");
-		System.setProperty("spring.profiles.active", "dev");
-		System.setProperty("spring.output.ansi.enabled", "ALWAYS");
-		System.setProperty("arthas.outputPath", "${user.home}/logs/taotao-cloud-goods/arthas-output");
-	}
+        System.setProperty("spring.banner.location", "ttc-banner.txt");
+        System.setProperty("spring.profiles.active", "dev");
+        System.setProperty("spring.output.ansi.enabled", "ALWAYS");
+        System.setProperty("arthas.outputPath", "${user.home}/logs/taotao-cloud-goods/arthas-output");
+    }
 }

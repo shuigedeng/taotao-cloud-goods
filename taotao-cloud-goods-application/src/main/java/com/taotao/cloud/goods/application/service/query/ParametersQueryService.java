@@ -27,6 +27,5 @@ import com.taotao.boot.ddd.model.application.service.QueryService;
  */
 public interface ParametersQueryService extends QueryService {
 
-
-//    List<ParametersPO> queryParametersByCategoryId(Long categoryId);
+    //    List<ParametersPO> queryParametersByCategoryId(Long categoryId);
 }

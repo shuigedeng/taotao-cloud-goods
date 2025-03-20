@@ -30,11 +30,11 @@ public class DeptModifyCBootstrap {
 
     public void test1() {
         // 入参
-		GoodsContext dto = new GoodsContext();
+        GoodsContext dto = new GoodsContext();
         // 创建引导类
         BootStrap bootStrap = new BootStrap();
 
-		GoodsContext result = (GoodsContext) bootStrap
+        GoodsContext result = (GoodsContext) bootStrap
                 .inboundParameter(dto) // 入参
                 .outboundFactory(new ResultFactory()) // 出参工厂
                 .channel(new DeptModifyChannel()) // 自定义channel
@@ -43,6 +43,6 @@ public class DeptModifyCBootstrap {
                 .addChannelHandlerAtLast("modifyContent", new ArticleModifyContentHandler()) // 第三个handler
                 .process(); // 执行
         // result为执行结果
-        //logger.info("result:code={},msg={}", result.getDeptModifyCmd(), result.getDeptAgg());
+        // logger.info("result:code={},msg={}", result.getDeptModifyCmd(), result.getDeptAgg());
     }
 }

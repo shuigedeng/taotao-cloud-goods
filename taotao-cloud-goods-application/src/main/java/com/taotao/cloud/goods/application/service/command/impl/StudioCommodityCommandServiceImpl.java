@@ -27,7 +27,4 @@ import org.springframework.stereotype.Service;
  * @since 2022-04-27 17:03:01
  */
 @Service
-public class StudioCommodityCommandServiceImpl
-	implements StudioCommodityCommandService {
-
-}
+public class StudioCommodityCommandServiceImpl implements StudioCommodityCommandService {}

@@ -1,4 +1,4 @@
-///*
+/// *
 // * Copyright (c) 2020-2030, Shuigedeng (981376577@qq.com & https://blog.taotaocloud.top/).
 // *
 // * Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,15 +14,15 @@
 // * limitations under the License.
 // */
 //
-//package com.taotao.cloud.goods.application.event.roketmq.handler.impl;
+// package com.taotao.cloud.goods.application.event.roketmq.handler.impl;
 //
-//import com.taotao.cloud.goods.application.event.roketmq.handler.MemberPointChangeEventHandler;
-//import com.taotao.cloud.goods.application.event.roketmq.handler.MemberWithdrawalEventHandler;
-//import org.springframework.stereotype.Service;
+// import com.taotao.cloud.goods.application.event.roketmq.handler.MemberPointChangeEventHandler;
+// import com.taotao.cloud.goods.application.event.roketmq.handler.MemberWithdrawalEventHandler;
+// import org.springframework.stereotype.Service;
 //
-///** 通知类消息实现 */
-//@Service
-//public class NoticeMessageExecute implements MemberPointChangeEventHandler,
+/// ** 通知类消息实现 */
+// @Service
+// public class NoticeMessageExecute implements MemberPointChangeEventHandler,
 //	MemberWithdrawalEventHandler {
 //
 //	@Override
@@ -113,4 +113,4 @@
 ////            noticeMessageService.noticeMessage(noticeMessageDTO);
 ////        }
 ////    }
-//}
+// }

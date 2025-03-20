@@ -18,7 +18,6 @@ package com.taotao.cloud.goods.infrastructure.converter;
 
 import com.taotao.boot.ddd.model.infrastructure.Convertor;
 import org.mapstruct.Mapper;
-import org.mapstruct.ReportingPolicy;
 import org.mapstruct.factory.Mappers;
 
 /**

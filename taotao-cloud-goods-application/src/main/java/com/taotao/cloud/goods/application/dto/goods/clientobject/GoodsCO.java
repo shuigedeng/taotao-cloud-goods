@@ -20,12 +20,12 @@ import com.taotao.boot.ddd.model.application.dto.ClientObject;
 import com.taotao.cloud.goods.api.enums.GoodsTypeEnum;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
-import java.io.Serializable;
 import java.math.BigDecimal;
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.experimental.SuperBuilder;
+import lombok.Setter;
+import lombok.experimental.Accessors;
 
 /**
  * 商品基础CO
@@ -34,7 +34,9 @@ import lombok.experimental.SuperBuilder;
  * @version 2021.10
  * @since 2022-03-11 17:21:04
  */
-@Data
+@Setter
+@Getter
+@Accessors(fluent = true)
 @AllArgsConstructor
 @NoArgsConstructor
 @Schema(description = "商品基础CO")

@@ -31,19 +31,18 @@ import org.springframework.stereotype.Component;
 @Component
 public class HotWordsEveryDayTaskExecute implements EveryDayExecute {
 
-	/**
-	 * 复述,库
-	 */
-	@Autowired
-	private RedisRepository redisRepository;
+    /**
+     * 复述,库
+     */
+    @Autowired
+    private RedisRepository redisRepository;
 
-	/**
-	 * 执行每日任务
-	 */
-	@Override
-	public void execute() {
-		//移除昨日的热搜词
-		//redisRepository.del(CachePrefix.HOT_WORD.getPrefix());
-	}
-
+    /**
+     * 执行每日任务
+     */
+    @Override
+    public void execute() {
+        // 移除昨日的热搜词
+        // redisRepository.del(CachePrefix.HOT_WORD.getPrefix());
+    }
 }

@@ -19,12 +19,11 @@ package com.taotao.cloud.goods.application.dto.store.clientobject;
 import com.taotao.boot.ddd.model.application.dto.ClientObject;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
-import java.io.Serializable;
 import java.util.List;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.experimental.Accessors;
 
 /**
@@ -34,7 +33,8 @@ import lombok.experimental.Accessors;
  * @version 2022.04
  * @since 2022-04-14 21:52:23
  */
-@Data
+@Setter
+@Getter
 @Accessors(fluent = true)
 @AllArgsConstructor
 @NoArgsConstructor
@@ -63,5 +63,90 @@ public class StoreGoodsLabelCO extends ClientObject {
         this.labelName = labelName;
         this.level = level;
         this.sortOrder = sortOrder;
+    }
+
+    /**
+     * 获取
+     * @return id
+     */
+    public Long getId() {
+        return id;
+    }
+
+    /**
+     * 设置
+     * @param id
+     */
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    /**
+     * 获取
+     * @return labelName
+     */
+    public String getLabelName() {
+        return labelName;
+    }
+
+    /**
+     * 设置
+     * @param labelName
+     */
+    public void setLabelName(String labelName) {
+        this.labelName = labelName;
+    }
+
+    /**
+     * 获取
+     * @return level
+     */
+    public Integer getLevel() {
+        return level;
+    }
+
+    /**
+     * 设置
+     * @param level
+     */
+    public void setLevel(Integer level) {
+        this.level = level;
+    }
+
+    /**
+     * 获取
+     * @return sortOrder
+     */
+    public Integer getSortOrder() {
+        return sortOrder;
+    }
+
+    /**
+     * 设置
+     * @param sortOrder
+     */
+    public void setSortOrder(Integer sortOrder) {
+        this.sortOrder = sortOrder;
+    }
+
+    /**
+     * 获取
+     * @return children
+     */
+    public List<StoreGoodsLabelCO> getChildren() {
+        return children;
+    }
+
+    /**
+     * 设置
+     * @param children
+     */
+    public void setChildren(List<StoreGoodsLabelCO> children) {
+        this.children = children;
+    }
+
+    public String toString() {
+        return "StoreGoodsLabelCO{serialVersionUID = " + serialVersionUID + ", id = " + id + ", labelName = "
+                + labelName + ", level = " + level + ", sortOrder = " + sortOrder + ", children = " + children + "}";
     }
 }

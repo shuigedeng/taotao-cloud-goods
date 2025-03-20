@@ -28,54 +28,53 @@ import org.springframework.stereotype.Service;
  * @since 2022-04-27 17:03:04
  */
 @Service
-public class StudioCommandServiceImpl
-        implements StudioCommandService {
-//	@Override
-//	public boolean create(StudioPO studioPO) {
-//		return false;
-//	}
-//
-//	@Override
-//	public boolean edit(StudioPO studioPO) {
-//		return false;
-//	}
+public class StudioCommandServiceImpl implements StudioCommandService {
+    //	@Override
+    //	public boolean create(StudioPO studioPO) {
+    //		return false;
+    //	}
+    //
+    //	@Override
+    //	public boolean edit(StudioPO studioPO) {
+    //		return false;
+    //	}
 
-	@Override
-	public boolean push(Integer roomId, Long goodsId, Long storeId) {
-		return false;
-	}
+    @Override
+    public boolean push(Integer roomId, Long goodsId, Long storeId) {
+        return false;
+    }
 
-	@Override
-	public boolean goodsDeleteInRoom(Integer roomId, Long goodsId, Long storeId) {
-		return false;
-	}
+    @Override
+    public boolean goodsDeleteInRoom(Integer roomId, Long goodsId, Long storeId) {
+        return false;
+    }
 
-	@Override
-	public boolean updateStudioStatus(BroadcastMessage broadcastMessage) {
-		return false;
-	}
+    @Override
+    public boolean updateStudioStatus(BroadcastMessage broadcastMessage) {
+        return false;
+    }
 
-	//@Autowired
-    //private WechatLivePlayerUtil wechatLivePlayerUtil;
-	//
-    //@Autowired
-    //private StudioCommodityCommandService studioCommodityService;
-	//
-    //@Resource
-    //private CommodityMapper commodityMapper;
-	//
-    //@Autowired
-    //private TimeTrigger timeTrigger;
-	//
-    //@Autowired
-    //private RocketmqCustomProperties rocketmqCustomProperties;
-	//
-    //@Autowired
-    //private GoodsCommandService goodsService;
-	//
-    //@Override
-    //@Transactional(rollbackFor = Exception.class)
-    //public boolean create(StudioPO studioPO) {
+    // @Autowired
+    // private WechatLivePlayerUtil wechatLivePlayerUtil;
+    //
+    // @Autowired
+    // private StudioCommodityCommandService studioCommodityService;
+    //
+    // @Resource
+    // private CommodityMapper commodityMapper;
+    //
+    // @Autowired
+    // private TimeTrigger timeTrigger;
+    //
+    // @Autowired
+    // private RocketmqCustomProperties rocketmqCustomProperties;
+    //
+    // @Autowired
+    // private GoodsCommandService goodsService;
+    //
+    // @Override
+    // @Transactional(rollbackFor = Exception.class)
+    // public boolean create(StudioPO studioPO) {
     //    studioPO.setStoreId(SecurityUtils.getCurrentUser().getStoreId());
     //    // 创建小程序直播
     //    Map<String, String> roomMap = wechatLivePlayerUtil.create(studioPO);
@@ -91,12 +90,12 @@ public class StudioCommandServiceImpl
     //                Long.parseLong(studioPO.getStartTime()) * 1000L,
     //                broadcastMessage,
     //                DelayQueueTools.wrapperUniqueKey(DelayTypeEnums.BROADCAST, String.valueOf(
-	//					studioPO.getId())),
+    //					studioPO.getId())),
     //                rocketmqCustomProperties.getPromotionTopic());
-	//
+    //
     //        // 发送促销活动开始的延时任务
     //        this.timeTrigger.addDelay(timeTriggerMsg);
-	//
+    //
     //        // 直播结束延时任务
     //        broadcastMessage = new BroadcastMessage(studioPO.getId(), StudioStatusEnum.END.name());
     //        timeTriggerMsg = new TimeTriggerMsg(
@@ -104,18 +103,18 @@ public class StudioCommandServiceImpl
     //                Long.parseLong(studioPO.getEndTime()) * 1000L,
     //                broadcastMessage,
     //                DelayQueueTools.wrapperUniqueKey(DelayTypeEnums.BROADCAST, String.valueOf(
-	//					studioPO.getId())),
+    //					studioPO.getId())),
     //                rocketmqCustomProperties.getPromotionTopic());
-	//
+    //
     //        // 发送促销活动开始的延时任务
     //        this.timeTrigger.addDelay(timeTriggerMsg);
     //    }
     //    return true;
-    //}
-	//
-    //@Override
-    //@Transactional(rollbackFor = Exception.class)
-    //public boolean edit(StudioPO studioPO) {
+    // }
+    //
+    // @Override
+    // @Transactional(rollbackFor = Exception.class)
+    // public boolean edit(StudioPO studioPO) {
     //    StudioPO oldStudioPO = this.getById(studioPO.getId());
     //    wechatLivePlayerUtil.editRoom(studioPO);
     //    if (this.updateById(studioPO)) {
@@ -128,10 +127,10 @@ public class StudioCommandServiceImpl
     //                Long.parseLong(oldStudioPO.getStartTime()) * 1000L,
     //                Long.parseLong(studioPO.getStartTime()) * 1000L,
     //                DelayQueueTools.wrapperUniqueKey(DelayTypeEnums.BROADCAST, String.valueOf(
-	//					studioPO.getId())),
+    //					studioPO.getId())),
     //                DateUtils.getDelayTime(Long.parseLong(studioPO.getStartTime())),
     //                rocketmqCustomProperties.getPromotionTopic());
-	//
+    //
     //        // 直播间结束
     //        broadcastMessage = new BroadcastMessage(studioPO.getId(), StudioStatusEnum.START.name());
     //        this.timeTrigger.edit(
@@ -140,20 +139,20 @@ public class StudioCommandServiceImpl
     //                Long.parseLong(oldStudioPO.getEndTime()) * 1000L,
     //                Long.parseLong(studioPO.getEndTime()) * 1000L,
     //                DelayQueueTools.wrapperUniqueKey(DelayTypeEnums.BROADCAST, String.valueOf(
-	//					studioPO.getId())),
+    //					studioPO.getId())),
     //                DateUtils.getDelayTime(Long.parseLong(studioPO.getEndTime())),
     //                rocketmqCustomProperties.getPromotionTopic());
     //    }
     //    return true;
-    //}
-	//
-	//@Override
-	//public StudioCommodityCO getStudioVO(Long id) {
-	//	return null;
-	//}
-	//
-	//@Override
-    //public StudioCommodityCO getStudioCO(Long id) {
+    // }
+    //
+    // @Override
+    // public StudioCommodityCO getStudioVO(Long id) {
+    //	return null;
+    // }
+    //
+    // @Override
+    // public StudioCommodityCO getStudioCO(Long id) {
     //    StudioCommodityCO studioCommodityCO = new StudioCommodityCO();
     //    StudioPO studioPO = this.getById(id);
     //    // 获取直播间信息
@@ -162,10 +161,10 @@ public class StudioCommandServiceImpl
     //    List<CommodityPO> commodities = commodityMapper.getCommodityByRoomId(studioCommodityCO.getRoomId());
     //    studioCommodityCO.setCommodityList(OrikaUtils.converts(commodities, CommodityCO.class));
     //    return studioCommodityCO;
-    //}
-	//
-    //@Override
-    //public String getLiveInfo(Integer roomId) {
+    // }
+    //
+    // @Override
+    // public String getLiveInfo(Integer roomId) {
     //    StudioPO studioPO = this.getByRoomId(roomId);
     //    // 获取直播间并判断回放内容是否为空，如果为空则获取直播间回放并保存
     //    if (studioPO.getMediaUrl() != null) {
@@ -176,11 +175,11 @@ public class StudioCommandServiceImpl
     //        this.save(studioPO);
     //        return mediaUrl;
     //    }
-    //}
-	//
-    //@Override
-    //@Transactional(rollbackFor = Exception.class)
-    //public boolean push(Integer roomId, Long goodsId, Long storeId) {
+    // }
+    //
+    // @Override
+    // @Transactional(rollbackFor = Exception.class)
+    // public boolean push(Integer roomId, Long goodsId, Long storeId) {
     //    // 判断直播间是否已添加商品
     //    if (studioCommodityService.getOne(new LambdaQueryWrapper<StudioCommodityPO>()
     //                    .eq(StudioCommodityPO::getRoomId, roomId)
@@ -188,20 +187,20 @@ public class StudioCommandServiceImpl
     //            != null) {
     //        throw new BusinessException(ResultEnum.STODIO_GOODS_EXIST_ERROR);
     //    }
-	//
+    //
     //    GoodsPO goods = goodsService.getOne(
     //            new LambdaQueryWrapper<GoodsPO>().eq(GoodsPO::getId, goodsId).eq(GoodsPO::getStoreId, storeId));
     //    if (goods == null) {
     //        throw new BusinessException(ResultEnum.USER_AUTHORITY_ERROR);
     //    }
-	//
+    //
     //    // 调用微信接口添加直播间商品并进行记录
     //    if (boolean.TRUE.equals(wechatLivePlayerUtil.pushGoods(roomId, goodsId))) {
     //        // studioCommodityService.save(new StudioCommodity(roomId, goodsId));
     //        // 添加直播间商品数量
     //        StudioPO studioPO = this.getByRoomId(roomId);
     //        studioPO.setRoomGoodsNum(
-	//			studioPO.getRoomGoodsNum() != null ? studioPO.getRoomGoodsNum() + 1 : 1);
+    //			studioPO.getRoomGoodsNum() != null ? studioPO.getRoomGoodsNum() + 1 : 1);
     //        // 设置直播间默认的商品（前台展示）只展示两个
     //        if (studioPO.getRoomGoodsNum() < 3) {
     //            studioPO.setRoomGoodsList(JSONUtil.toJsonStr(commodityMapper.getSimpleCommodityByRoomId(roomId)));
@@ -209,11 +208,11 @@ public class StudioCommandServiceImpl
     //        return this.updateById(studioPO);
     //    }
     //    return false;
-    //}
-	//
-    //@Override
-    //@Transactional(rollbackFor = Exception.class)
-    //public boolean goodsDeleteInRoom(Integer roomId, Long goodsId, Long storeId) {
+    // }
+    //
+    // @Override
+    // @Transactional(rollbackFor = Exception.class)
+    // public boolean goodsDeleteInRoom(Integer roomId, Long goodsId, Long storeId) {
     //    GoodsPO goods = goodsService.getOne(
     //            new LambdaQueryWrapper<GoodsPO>().eq(GoodsPO::getId, goodsId).eq(GoodsPO::getStoreId, storeId));
     //    if (goods == null) {
@@ -233,10 +232,10 @@ public class StudioCommandServiceImpl
     //        return this.updateById(studioPO);
     //    }
     //    return false;
-    //}
-	//
-    //@Override
-    //public IPage<StudioPO> studioList(PageQuery PageQuery, Integer recommend, String status) {
+    // }
+    //
+    // @Override
+    // public IPage<StudioPO> studioList(PageQuery PageQuery, Integer recommend, String status) {
     //    QueryWrapper<StudioPO> queryWrapper = new QueryWrapper<StudioPO>()
     //            .eq(recommend != null, "recommend", true)
     //            .eq(status != null, "status", status)
@@ -246,22 +245,22 @@ public class StudioCommandServiceImpl
     //    //	queryWrapper.eq("store_id", UserContext.getCurrentUser().getStoreId());
     //    // }
     //    return this.page(PageQuery.buildMpPage(), queryWrapper);
-    //}
-	//
-    //@Override
-    //public boolean updateStudioStatus(BroadcastMessage broadcastMessage) {
+    // }
+    //
+    // @Override
+    // public boolean updateStudioStatus(BroadcastMessage broadcastMessage) {
     //    return this.update(new LambdaUpdateWrapper<StudioPO>()
     //            .eq(StudioPO::getId, broadcastMessage.getStudioId())
     //            .set(StudioPO::getStatus, broadcastMessage.getStatus()));
-    //}
-	//
-    ///**
+    // }
+    //
+    /// **
     // * 根据直播间ID获取直播间
     // *
     // * @param roomId 直播间ID
     // * @return 直播间
     // */
-    //private StudioPO getByRoomId(Integer roomId) {
+    // private StudioPO getByRoomId(Integer roomId) {
     //    return this.getOne(new LambdaQueryWrapper<StudioPO>().eq(StudioPO::getRoomId, roomId));
-    //}
+    // }
 }

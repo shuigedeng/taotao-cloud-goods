@@ -18,9 +18,8 @@ package com.taotao.cloud.goods.application.service.query.impl;
 
 import com.taotao.cloud.goods.application.dto.category.clientobject.CategoryBrandCO;
 import com.taotao.cloud.goods.application.service.query.CategoryBrandQueryService;
-import org.springframework.stereotype.Service;
-
 import java.util.List;
+import org.springframework.stereotype.Service;
 
 /**
  * 规格项业务层实现
@@ -31,21 +30,21 @@ import java.util.List;
  */
 @Service
 public class CategoryBrandQueryServiceImpl implements CategoryBrandQueryService {
-	@Override
-	public List<CategoryBrandCO> getCategoryBrandList(Long categoryId) {
-		return List.of();
-	}
+    @Override
+    public List<CategoryBrandCO> getCategoryBrandList(Long categoryId) {
+        return List.of();
+    }
 
-//	@Override
-//	public List<CategoryBrandCO> getCategoryBrandList(Long categoryId) {
-//		List<CategoryBrandDO> categoryBrandList = im().getCategoryBrandList(categoryId);
-//		return CategoryBrandAssembler.INSTANCE.convert(categoryBrandList);
-//	}
-//
-//	public List<CategoryBrandPO> getCategoryBrandListByBrandId(List<Long> brandId) {
-//		LambdaQueryWrapper<CategoryBrandPO> wrapper = new LambdaQueryWrapper<>();
-//		wrapper.in(CategoryBrandPO::brandId, brandId);
-//		return list(wrapper);
-//	}
+    //	@Override
+    //	public List<CategoryBrandCO> getCategoryBrandList(Long categoryId) {
+    //		List<CategoryBrandDO> categoryBrandList = im().getCategoryBrandList(categoryId);
+    //		return CategoryBrandAssembler.INSTANCE.convert(categoryBrandList);
+    //	}
+    //
+    //	public List<CategoryBrandPO> getCategoryBrandListByBrandId(List<Long> brandId) {
+    //		LambdaQueryWrapper<CategoryBrandPO> wrapper = new LambdaQueryWrapper<>();
+    //		wrapper.in(CategoryBrandPO::brandId, brandId);
+    //		return list(wrapper);
+    //	}
 
 }

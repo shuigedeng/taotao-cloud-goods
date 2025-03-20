@@ -34,12 +34,11 @@ import io.swagger.v3.oas.annotations.Parameters;
 import io.swagger.v3.oas.annotations.enums.ParameterIn;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.constraints.NotEmpty;
+import java.util.List;
 import lombok.AllArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 /**
  * 管理端,商品管理接口
@@ -57,62 +56,64 @@ public class GoodsManagerController extends BusinessController {
 
     /** 商品服务 */
     private final GoodsQueryService goodsQueryService;
+
     private final GoodsCommandService goodsCommandService;
     /** 规格商品服务 */
     private final GoodsSkuQueryService goodsSkuQueryService;
+
     private final GoodsSkuCommandService goodsSkuCommandService;
 
-	@Operation(summary = "管理员上架商品", description = "管理员上架商品")
-	@Parameters({
-		@Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
-	})
-	@RequestLogger("管理员上架商品")
-	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@PostMapping
-	public Result<GoodsCO> createGoods(@RequestBody GoodsCreateCommand goodsCreateCommand) {
-		return Result.success(this.goodsCommandService.createGoods(goodsCreateCommand));
-	}
+    @Operation(summary = "管理员上架商品", description = "管理员上架商品")
+    @Parameters({
+        @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
+    })
+    @RequestLogger("管理员上架商品")
+    @PreAuthorize("hasAuthority('dept:tree:data')")
+    @PostMapping
+    public Result<GoodsCO> createGoods(@RequestBody GoodsCreateCommand goodsCreateCommand) {
+        return Result.success(this.goodsCommandService.createGoods(goodsCreateCommand));
+    }
 
-//    @Operation(summary = "分页获取", description = "分页获取")
-//    @Parameters({
-//            @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
-//    })
-//    @RequestLogger("分页获取")
-//    @PreAuthorize("hasAuthority('dept:tree:data')")
-//    @GetMapping(value = "/page")
-//    public Result<PageResult<GoodsCO>> getByPage(@Validated GoodsPageQry goodsPageQuery) {
-//        IPage<GoodsPO> goodsPage = goodsQueryService.goodsQueryPage(goodsPageQuery);
-//        return Result.success(MpUtils.convertMybatisPage(goodsPage, GoodsCO.class));
-//    }
+    //    @Operation(summary = "分页获取", description = "分页获取")
+    //    @Parameters({
+    //            @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
+    //    })
+    //    @RequestLogger("分页获取")
+    //    @PreAuthorize("hasAuthority('dept:tree:data')")
+    //    @GetMapping(value = "/page")
+    //    public Result<PageResult<GoodsCO>> getByPage(@Validated GoodsPageQry goodsPageQuery) {
+    //        IPage<GoodsPO> goodsPage = goodsQueryService.goodsQueryPage(goodsPageQuery);
+    //        return Result.success(MpUtils.convertMybatisPage(goodsPage, GoodsCO.class));
+    //    }
 
-    //@Operation(summary = "分页获取商品列表", description = "分页获取商品列表")
-    //@Parameters({
+    // @Operation(summary = "分页获取商品列表", description = "分页获取商品列表")
+    // @Parameters({
     //        @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
-    //})
-    //@RequestLogger("分页获取商品列表")
-    //@PreAuthorize("hasAuthority('dept:tree:data')")
-    //@GetMapping(value = "/sku/page")
-    //public Result<PageResult<GoodsSkuCO>> getSkuByPage(@Validated GoodsPageQry goodsPageQuery) {
+    // })
+    // @RequestLogger("分页获取商品列表")
+    // @PreAuthorize("hasAuthority('dept:tree:data')")
+    // @GetMapping(value = "/sku/page")
+    // public Result<PageResult<GoodsSkuCO>> getSkuByPage(@Validated GoodsPageQry goodsPageQuery) {
     //    IPage<GoodsSkuPO> goodsSkuPage = goodsSkuQueryService.goodsSkuQueryPage(goodsPageQuery);
     //    return Result.success(MpUtils.convertMybatisPage(goodsSkuPage, GoodsSkuConvert.INSTANCE::convert));
-    //}
+    // }
 
-//    @Operation(summary = "分页获取待审核商品", description = "分页获取待审核商品")
-//    @Parameters({
-//            @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
-//    })
-//    @RequestLogger("分页获取待审核商品")
-//    @PreAuthorize("hasAuthority('dept:tree:data')")
-//    @GetMapping(value = "/auth/page")
-//    public Result<PageResult<GoodsCO>> getAuthPage(@Validated GoodsPageQry goodsPageQuery) {
-//        goodsPageQuery.setAuthFlag(GoodsAuthEnum.TOBEAUDITED.name());
-//        IPage<GoodsPO> goodsPage = goodsQueryService.goodsQueryPage(goodsPageQuery);
-//        return Result.success(MpUtils.convertMybatisPage(goodsPage, GoodsCO.class));
-//    }
+    //    @Operation(summary = "分页获取待审核商品", description = "分页获取待审核商品")
+    //    @Parameters({
+    //            @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
+    //    })
+    //    @RequestLogger("分页获取待审核商品")
+    //    @PreAuthorize("hasAuthority('dept:tree:data')")
+    //    @GetMapping(value = "/auth/page")
+    //    public Result<PageResult<GoodsCO>> getAuthPage(@Validated GoodsPageQry goodsPageQuery) {
+    //        goodsPageQuery.setAuthFlag(GoodsAuthEnum.TOBEAUDITED.name());
+    //        IPage<GoodsPO> goodsPage = goodsQueryService.goodsQueryPage(goodsPageQuery);
+    //        return Result.success(MpUtils.convertMybatisPage(goodsPage, GoodsCO.class));
+    //    }
 
     @Operation(summary = "管理员下架商品", description = "管理员下架商品")
     @Parameters({
-            @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
+        @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
     })
     @RequestLogger("管理员下架商品")
     @PreAuthorize("hasAuthority('dept:tree:data')")
@@ -125,7 +126,7 @@ public class GoodsManagerController extends BusinessController {
 
     @Operation(summary = "管理员审核商品", description = "管理员审核商品")
     @Parameters({
-            @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
+        @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
     })
     @RequestLogger("管理员审核商品")
     @PreAuthorize("hasAuthority('dept:tree:data')")
@@ -137,7 +138,7 @@ public class GoodsManagerController extends BusinessController {
 
     @Operation(summary = "管理员上架商品", description = "管理员上架商品")
     @Parameters({
-            @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
+        @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
     })
     @RequestLogger("管理员上架商品")
     @PreAuthorize("hasAuthority('dept:tree:data')")
@@ -148,7 +149,7 @@ public class GoodsManagerController extends BusinessController {
 
     @Operation(summary = "通过id获取商品详情", description = "通过id获取商品详情")
     @Parameters({
-            @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
+        @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
     })
     @RequestLogger("通过id获取商品详情")
     @PreAuthorize("hasAuthority('dept:tree:data')")

@@ -25,17 +25,14 @@ import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
 import java.util.Objects;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.experimental.Accessors;
 import lombok.ToString;
 import lombok.experimental.Accessors;
 import org.hibernate.Hibernate;
 
 /** 自定义分词表 */
-
 @Setter
 @Getter
 @ToString(callSuper = true)
@@ -43,13 +40,14 @@ import org.hibernate.Hibernate;
 @NoArgsConstructor
 @Accessors(fluent = true)
 @Entity
-@Table(name = CustomWordsPO.TABLE_NAME,
-	uniqueConstraints = {
-		@UniqueConstraint(name = "uniq_goods_no", columnNames = "goods_no"),
-	},
-	indexes = {
-		@Index(name = "idx_create_date", columnList = "`create_date`"),
-	})
+@Table(
+        name = CustomWordsPO.TABLE_NAME,
+        uniqueConstraints = {
+            @UniqueConstraint(name = "uniq_goods_no", columnNames = "goods_no"),
+        },
+        indexes = {
+            @Index(name = "idx_create_date", columnList = "`create_date`"),
+        })
 @TableName(CustomWordsPO.TABLE_NAME)
 @org.springframework.data.relational.core.mapping.Table(name = CustomWordsPO.TABLE_NAME)
 public class CustomWordsPO extends BaseSuperEntity<CustomWordsPO, Long> {
@@ -64,23 +62,23 @@ public class CustomWordsPO extends BaseSuperEntity<CustomWordsPO, Long> {
     @Column(name = "`disabled`", columnDefinition = "int null default 0 comment '是否禁用'")
     private Integer disabled;
 
-	public String getName() {
-		return name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public Integer getDisabled() {
-		return disabled;
-	}
+    public Integer getDisabled() {
+        return disabled;
+    }
 
-	public void setDisabled(Integer disabled) {
-		this.disabled = disabled;
-	}
+    public void setDisabled(Integer disabled) {
+        this.disabled = disabled;
+    }
 
-	@Override
+    @Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;

@@ -25,11 +25,9 @@ import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
 import java.util.Objects;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.experimental.Accessors;
 import lombok.ToString;
 import lombok.experimental.Accessors;
 import org.hibernate.Hibernate;
@@ -41,7 +39,6 @@ import org.hibernate.Hibernate;
  * @version 2022.04
  * @since 2022-04-20 16:59:38
  */
-
 @Setter
 @Getter
 @ToString(callSuper = true)
@@ -49,13 +46,14 @@ import org.hibernate.Hibernate;
 @NoArgsConstructor
 @Accessors(fluent = true)
 @Entity
-@Table(name = CategorySpecificationPO.TABLE_NAME,
-	uniqueConstraints = {
-		@UniqueConstraint(name = "uniq_goods_no", columnNames = "goods_no"),
-	},
-	indexes = {
-		@Index(name = "idx_create_date", columnList = "`create_date`"),
-	})
+@Table(
+        name = CategorySpecificationPO.TABLE_NAME,
+        uniqueConstraints = {
+            @UniqueConstraint(name = "uniq_goods_no", columnNames = "goods_no"),
+        },
+        indexes = {
+            @Index(name = "idx_create_date", columnList = "`create_date`"),
+        })
 @TableName(CategorySpecificationPO.TABLE_NAME)
 @org.springframework.data.relational.core.mapping.Table(name = CategorySpecificationPO.TABLE_NAME)
 public class CategorySpecificationPO extends SuperEntity<CategorySpecificationPO, Long> {
@@ -70,23 +68,23 @@ public class CategorySpecificationPO extends SuperEntity<CategorySpecificationPO
     @Column(name = "`specification_id`", columnDefinition = "bigint not null comment '规格id'")
     private Long specificationId;
 
-	public Long getCategoryId() {
-		return categoryId;
-	}
+    public Long getCategoryId() {
+        return categoryId;
+    }
 
-	public void setCategoryId(Long categoryId) {
-		this.categoryId = categoryId;
-	}
+    public void setCategoryId(Long categoryId) {
+        this.categoryId = categoryId;
+    }
 
-	public Long getSpecificationId() {
-		return specificationId;
-	}
+    public Long getSpecificationId() {
+        return specificationId;
+    }
 
-	public void setSpecificationId(Long specificationId) {
-		this.specificationId = specificationId;
-	}
+    public void setSpecificationId(Long specificationId) {
+        this.specificationId = specificationId;
+    }
 
-	@Override
+    @Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;

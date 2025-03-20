@@ -33,29 +33,38 @@ import org.springframework.stereotype.Component;
 @Component
 public class BroadcastExecute implements EveryHourExecute {
 
-	/**
-	 * 商品服务
-	 */
-	@Autowired
-	private CommodityCommandService commodityService;
+    /**
+     * 商品服务
+     */
+    @Autowired
+    private CommodityCommandService commodityService;
 
-	/**
-	 * 执行
-	 */
-	@Override
-	public void execute() {
-		//同步直播商品状态
-		long jobId = XxlJobHelper.getJobId();
-		String jobParam = XxlJobHelper.getJobParam();
-		long shardIndex = XxlJobHelper.getShardIndex();
-		long shardTotal = XxlJobHelper.getShardTotal();
-		String jobLogFileName = XxlJobHelper.getJobLogFileName();
+    /**
+     * 执行
+     */
+    @Override
+    public void execute() {
+        // 同步直播商品状态
+        long jobId = XxlJobHelper.getJobId();
+        String jobParam = XxlJobHelper.getJobParam();
+        long shardIndex = XxlJobHelper.getShardIndex();
+        long shardTotal = XxlJobHelper.getShardTotal();
+        String jobLogFileName = XxlJobHelper.getJobLogFileName();
 
-		XxlJobHelper.log("XXL-JOB, successsssssssssss, jobId: {}, jobParam: {}, shardIndex:{}, shardTotal:{}, jobLogFileName:{}",
-			jobId, jobParam, shardIndex, shardTotal, jobLogFileName);
+        XxlJobHelper.log(
+                "XXL-JOB, successsssssssssss, jobId: {}, jobParam: {}, shardIndex:{}, shardTotal:{}, jobLogFileName:{}",
+                jobId,
+                jobParam,
+                shardIndex,
+                shardTotal,
+                jobLogFileName);
 
-		LogUtils.info("=============xxljob succcccccccccccccc, jobId: {}, jobParam: {}, shardIndex:{}, shardTotal:{}, jobLogFileName:{}",
-			jobId, jobParam, shardIndex, shardTotal, jobLogFileName);
-
-	}
+        LogUtils.info(
+                "=============xxljob succcccccccccccccc, jobId: {}, jobParam: {}, shardIndex:{}, shardTotal:{}, jobLogFileName:{}",
+                jobId,
+                jobParam,
+                shardIndex,
+                shardTotal,
+                jobLogFileName);
+    }
 }

@@ -18,6 +18,4 @@ package com.taotao.cloud.goods.domain.goodstag.adapter;
 
 import com.taotao.boot.ddd.model.domain.Adapter;
 
-public class GoodsTagAdapter implements Adapter {
-
-}
+public class GoodsTagAdapter implements Adapter {}

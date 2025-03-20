@@ -31,8 +31,8 @@ import org.springframework.stereotype.Service;
 @AllArgsConstructor
 public class CategorySpecificationQueryServiceImpl implements CategorySpecificationQueryService {
 
-//	@Override
-//	public List<SpecificationPO> getCategorySpecList(Long categoryId) {
-//		return im().getCategorySpecList(categoryId);
-//	}
+    //	@Override
+    //	public List<SpecificationPO> getCategorySpecList(Long categoryId) {
+    //		return im().getCategorySpecList(categoryId);
+    //	}
 }

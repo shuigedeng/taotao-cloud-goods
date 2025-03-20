@@ -18,7 +18,6 @@ package com.taotao.cloud.goods.application.service.query;
 
 import com.taotao.boot.ddd.model.application.service.QueryService;
 import com.taotao.cloud.goods.application.dto.category.clientobject.CategoryBrandCO;
-
 import java.util.List;
 
 /**
@@ -30,22 +29,21 @@ import java.util.List;
  */
 public interface CategoryBrandQueryService extends QueryService {
 
-	/**
-	 * 根据分类id查询品牌信息
-	 *
-	 * @param categoryId 分类id
-	 * @return {@link List }<{@link CategoryBrandCO }>
-	 * @since 2022-04-27 16:59:19
-	 */
-	List<CategoryBrandCO> getCategoryBrandList(Long categoryId);
+    /**
+     * 根据分类id查询品牌信息
+     *
+     * @param categoryId 分类id
+     * @return {@link List }<{@link CategoryBrandCO }>
+     * @since 2022-04-27 16:59:19
+     */
+    List<CategoryBrandCO> getCategoryBrandList(Long categoryId);
 
-
-	/**
-	 * 根据品牌ID获取分类品牌关联信息
-	 *
-	 * @param brandId 品牌ID
-	 * @return {@link List }<{@link CategoryBrandPO }>
-	 * @since 2022-04-27 16:59:19
-	 */
-//	List<CategoryBrandPO> getCategoryBrandListByBrandId(List<Long> brandId);
+    /**
+     * 根据品牌ID获取分类品牌关联信息
+     *
+     * @param brandId 品牌ID
+     * @return {@link List }<{@link CategoryBrandPO }>
+     * @since 2022-04-27 16:59:19
+     */
+    //	List<CategoryBrandPO> getCategoryBrandListByBrandId(List<Long> brandId);
 }

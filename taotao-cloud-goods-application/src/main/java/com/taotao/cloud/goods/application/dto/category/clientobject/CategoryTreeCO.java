@@ -20,38 +20,81 @@ import com.taotao.cloud.goods.application.dto.brand.clientobject.BrandCO;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Comparator;
 import java.util.List;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.Accessors;
-import lombok.experimental.SuperBuilder;
 
 /**
  * 分类CO
  */
-@Data
-@EqualsAndHashCode(callSuper = true)
+@Setter
+@Getter
+@ToString
+@Accessors(fluent = true)
 @AllArgsConstructor
 @NoArgsConstructor
 public class CategoryTreeCO extends CategoryCO {
 
-	private static final long serialVersionUID = 3775766246075838410L;
+    private static final long serialVersionUID = 3775766246075838410L;
 
-	@Schema(description = "父节点名称")
-	private String parentTitle;
+    @Schema(description = "父节点名称")
+    private String parentTitle;
 
-	@Schema(description = "子分类列表")
-	private List<CategoryTreeCO> children;
+    @Schema(description = "子分类列表")
+    private List<CategoryTreeCO> children;
 
-	@Schema(description = "分类关联的品牌列表")
-	private List<BrandCO> brandList;
+    @Schema(description = "分类关联的品牌列表")
+    private List<BrandCO> brandList;
 
-	public List<CategoryTreeCO> getChildren() {
-		if (children != null) {
-			children.sort(Comparator.comparing(CategoryCO::getSortOrder));
-			return children;
-		}
-		return null;
-	}
+    public List<CategoryTreeCO> getChildren() {
+        if (children != null) {
+            children.sort(Comparator.comparing(CategoryCO::getSortOrder));
+            return children;
+        }
+        return null;
+    }
+
+    /**
+     * 获取
+     * @return parentTitle
+     */
+    public String getParentTitle() {
+        return parentTitle;
+    }
+
+    /**
+     * 设置
+     * @param parentTitle
+     */
+    public void setParentTitle(String parentTitle) {
+        this.parentTitle = parentTitle;
+    }
+
+    /**
+     * 设置
+     * @param children
+     */
+    public void setChildren(List<CategoryTreeCO> children) {
+        this.children = children;
+    }
+
+    /**
+     * 获取
+     * @return brandList
+     */
+    public List<BrandCO> getBrandList() {
+        return brandList;
+    }
+
+    /**
+     * 设置
+     * @param brandList
+     */
+    public void setBrandList(List<BrandCO> brandList) {
+        this.brandList = brandList;
+    }
+
+    public String toString() {
+        return "CategoryTreeCO{serialVersionUID = " + serialVersionUID + ", parentTitle = " + parentTitle
+                + ", children = " + children + ", brandList = " + brandList + "}";
+    }
 }

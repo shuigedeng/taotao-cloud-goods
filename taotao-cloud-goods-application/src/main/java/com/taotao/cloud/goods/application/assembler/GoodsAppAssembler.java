@@ -21,7 +21,6 @@ import com.taotao.cloud.goods.application.dto.goods.clientobject.GoodsCO;
 import com.taotao.cloud.goods.domain.goods.aggregate.GoodsAgg;
 import com.taotao.cloud.goods.domain.goods.valobj.GoodsName;
 import org.mapstruct.Mapper;
-import org.mapstruct.ReportingPolicy;
 import org.mapstruct.factory.Mappers;
 
 /**
@@ -36,22 +35,23 @@ public interface GoodsAppAssembler {
 
     /** 实例 */
     GoodsAppAssembler INSTANCE = Mappers.getMapper(GoodsAppAssembler.class);
-	//
-    ///**
+    //
+    /// **
     // * 参数参数vos
     // *
     // * @param parameters 参数
     // * @return {@link List }<{@link ParametersVO }>
     // * @since 2022-04-27 16:58:27
     // */
-    //List<ParametersVO> convert(List<Parameters> parameters);
+    // List<ParametersVO> convert(List<Parameters> parameters);
 
     GoodsCO convert(GoodsAgg goodsAgg);
 
-	default Long map(BizId value) {
-		return value != null ? value.id() : null;
-	}
-	default String map(GoodsName value) {
-		return value != null ? value.getValue() : null;
-	}
+    default Long map(BizId value) {
+        return value != null ? value.id() : null;
+    }
+
+    default String map(GoodsName value) {
+        return value != null ? value.getValue() : null;
+    }
 }

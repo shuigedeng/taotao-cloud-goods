@@ -16,7 +16,6 @@
 
 package com.taotao.cloud.goods.application.service.query;
 
-
 import com.taotao.boot.ddd.model.application.service.QueryService;
 
 /**

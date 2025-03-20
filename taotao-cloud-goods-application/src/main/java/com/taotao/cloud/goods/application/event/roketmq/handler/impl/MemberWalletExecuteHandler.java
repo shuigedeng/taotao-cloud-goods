@@ -23,12 +23,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class MemberWalletExecuteHandler implements MemberRegisterEventHandler {
 
-//    @Autowired
-//    private IFeignMemberWalletApi memberWalletApi;
-//
-//    @Override
-//    public void memberRegister(Member member) {
-//        // 有些情况下，会同时创建一个member_id的两条数据
-//        memberWalletApi.save(member.getId(), member.getUsername());
-//    }
+    //    @Autowired
+    //    private IFeignMemberWalletApi memberWalletApi;
+    //
+    //    @Override
+    //    public void memberRegister(Member member) {
+    //        // 有些情况下，会同时创建一个member_id的两条数据
+    //        memberWalletApi.save(member.getId(), member.getUsername());
+    //    }
 }

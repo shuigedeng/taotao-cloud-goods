@@ -18,10 +18,9 @@ package com.taotao.cloud.goods.infrastructure.assembler;
 
 import com.taotao.cloud.goods.application.dto.specification.clientobject.SpecificationCO;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.SpecificationPO;
+import java.util.List;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
-
-import java.util.List;
 
 /**
  * ISpecificationMapStruct
@@ -45,7 +44,7 @@ public interface SpecificationInfraAssembler {
      */
     List<SpecificationCO> convert(List<SpecificationPO> specifications);
 
-	SpecificationCO convert(SpecificationPO specification);
+    SpecificationCO convert(SpecificationPO specification);
 
     /**
      * 规范dtoto规范
@@ -54,5 +53,5 @@ public interface SpecificationInfraAssembler {
      * @return {@link Specification }
      * @since 2022-04-27 16:58:30
      */
-	//SpecificationPO convert(SpecificationDTO specificationDTO);
+    // SpecificationPO convert(SpecificationDTO specificationDTO);
 }

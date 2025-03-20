@@ -19,5 +19,4 @@ package com.taotao.cloud.goods.infrastructure.persistent.repository.inf;
 import com.taotao.boot.webagg.repository.BaseInterfaceSuperRepository;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsTagPO;
 
-public interface IGoodsTagRepository extends BaseInterfaceSuperRepository<GoodsTagPO, Long> {
-}
+public interface IGoodsTagRepository extends BaseInterfaceSuperRepository<GoodsTagPO, Long> {}

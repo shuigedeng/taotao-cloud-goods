@@ -20,16 +20,13 @@ import com.taotao.boot.ddd.model.application.dto.ClientObject;
 import com.taotao.cloud.goods.application.dto.commodity.clientobject.CommodityCO;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.List;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.Accessors;
-import lombok.experimental.SuperBuilder;
 
 /** 直播间CO */
-@Data
-@EqualsAndHashCode(callSuper = true)
+@Setter
+@Getter
+@Accessors(fluent = true)
 @AllArgsConstructor
 @NoArgsConstructor
 public class StudioCommodityCO extends ClientObject {

@@ -34,66 +34,65 @@ import org.springframework.stereotype.Service;
 @Service
 public class CategoryParameterGroupCommandServiceImpl implements CategoryParameterGroupCommandService {
 
-	/**
-	 * 商品参数服务
-	 */
-	private final ParametersCommandService parametersService;
-	/**
-	 * 商品服务
-	 */
-	private final GoodsCommandService goodsService;
+    /**
+     * 商品参数服务
+     */
+    private final ParametersCommandService parametersService;
+    /**
+     * 商品服务
+     */
+    private final GoodsCommandService goodsService;
 
-	@Override
-	public boolean updateCategoryGroup(CategoryParameterGroupAddCmd categoryParameterGroupAddCmd) {
-		return false;
-	}
+    @Override
+    public boolean updateCategoryGroup(CategoryParameterGroupAddCmd categoryParameterGroupAddCmd) {
+        return false;
+    }
 
-	@Override
-	public boolean deleteByCategoryId(Long categoryId) {
-		return false;
-	}
+    @Override
+    public boolean deleteByCategoryId(Long categoryId) {
+        return false;
+    }
 
+    // @Override
+    // @Transactional(rollbackFor = Exception.class)
+    // public boolean updateCategoryGroup(CategoryParameterGroupPO categoryParameterGroupPO) {
+    //	CategoryParameterGroupPO origin = this.getById(categoryParameterGroupPO.getId());
+    //	if (origin == null) {
+    //		throw new BusinessException(ResultEnum.CATEGORY_PARAMETER_NOT_EXIST);
+    //	}
+    //
+    //	LambdaQueryWrapper<GoodsPO> queryWrapper = new LambdaQueryWrapper<>();
+    //	queryWrapper.select(GoodsPO::getId, GoodsPO::getParams);
+    //	queryWrapper.like(GoodsPO::getParams, origin.getId());
+    //	List<Map<String, Object>> goodsList = this.goodsService.listMaps(queryWrapper);
+    //
+    //	for (Map<String, Object> goods : goodsList) {
+    //		String params = (String) goods.get("params");
+    //		List<GoodsParamsDTO> goodsParamsDTOS = JSONUtil.toList(params, GoodsParamsDTO.class);
+    //		List<GoodsParamsDTO> goodsParamsDTOList = goodsParamsDTOS.stream()
+    //			.filter(i -> i.getGroupId() != null && i.getGroupId().equals(origin.getId()))
+    //			.toList();
+    //		for (GoodsParamsDTO goodsParamsDTO : goodsParamsDTOList) {
+    //			goodsParamsDTO.setGroupName(categoryParameterGroupPO.getGroupName());
+    //		}
+    //
+    //		this.goodsService.updateGoodsParams(
+    //			Long.valueOf(goods.get("id").toString()), JSONUtil.toJsonStr(goodsParamsDTOS));
+    //	}
+    //
+    //	return this.updateById(categoryParameterGroupPO);
+    // }
 
-	//@Override
-	//@Transactional(rollbackFor = Exception.class)
-	//public boolean updateCategoryGroup(CategoryParameterGroupPO categoryParameterGroupPO) {
-	//	CategoryParameterGroupPO origin = this.getById(categoryParameterGroupPO.getId());
-	//	if (origin == null) {
-	//		throw new BusinessException(ResultEnum.CATEGORY_PARAMETER_NOT_EXIST);
-	//	}
-	//
-	//	LambdaQueryWrapper<GoodsPO> queryWrapper = new LambdaQueryWrapper<>();
-	//	queryWrapper.select(GoodsPO::getId, GoodsPO::getParams);
-	//	queryWrapper.like(GoodsPO::getParams, origin.getId());
-	//	List<Map<String, Object>> goodsList = this.goodsService.listMaps(queryWrapper);
-	//
-	//	for (Map<String, Object> goods : goodsList) {
-	//		String params = (String) goods.get("params");
-	//		List<GoodsParamsDTO> goodsParamsDTOS = JSONUtil.toList(params, GoodsParamsDTO.class);
-	//		List<GoodsParamsDTO> goodsParamsDTOList = goodsParamsDTOS.stream()
-	//			.filter(i -> i.getGroupId() != null && i.getGroupId().equals(origin.getId()))
-	//			.toList();
-	//		for (GoodsParamsDTO goodsParamsDTO : goodsParamsDTOList) {
-	//			goodsParamsDTO.setGroupName(categoryParameterGroupPO.getGroupName());
-	//		}
-	//
-	//		this.goodsService.updateGoodsParams(
-	//			Long.valueOf(goods.get("id").toString()), JSONUtil.toJsonStr(goodsParamsDTOS));
-	//	}
-	//
-	//	return this.updateById(categoryParameterGroupPO);
-	//}
-
-//	@Override
-//	public boolean updateCategoryGroup(CategoryParameterGroupAddCmd categoryParameterGroupAddCmd) {
-//		return false;
-//	}
-//
-//	@Override
-//	public boolean deleteByCategoryId(Long categoryId) {
-//		return this.baseMapper.delete(new LambdaUpdateWrapper<CategoryParameterGroupPO>()
-//			.eq(CategoryParameterGroupPO::categoryId, categoryId))
-//			> 0;
-//	}
+    //	@Override
+    //	public boolean updateCategoryGroup(CategoryParameterGroupAddCmd categoryParameterGroupAddCmd) {
+    //		return false;
+    //	}
+    //
+    //	@Override
+    //	public boolean deleteByCategoryId(Long categoryId) {
+    //		return this.baseMapper.delete(new LambdaUpdateWrapper<CategoryParameterGroupPO>()
+    //			.eq(CategoryParameterGroupPO::categoryId, categoryId))
+    //			> 0;
+    //	}
 
 }

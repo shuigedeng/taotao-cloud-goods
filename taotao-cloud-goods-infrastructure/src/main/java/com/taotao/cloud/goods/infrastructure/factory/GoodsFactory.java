@@ -18,6 +18,4 @@ package com.taotao.cloud.goods.infrastructure.factory;
 
 import com.taotao.boot.ddd.model.types.Factory;
 
-public class GoodsFactory implements Factory {
-
-}
+public class GoodsFactory implements Factory {}

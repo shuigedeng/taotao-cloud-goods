@@ -18,7 +18,6 @@ package com.taotao.cloud.goods.application.service.query;
 
 import com.taotao.boot.ddd.model.application.service.QueryService;
 import com.taotao.cloud.goods.application.dto.store.clientobject.StoreGoodsLabelCO;
-
 import java.util.List;
 import java.util.Map;
 
@@ -31,29 +30,27 @@ import java.util.Map;
  */
 public interface StoreGoodsLabelQueryService extends QueryService {
 
-	/**
-	 * 根据商家ID获取店铺分类列表
-	 *
-	 * @param storeId 商家ID
-	 * @return 店铺分类列表
-	 */
-	List<StoreGoodsLabelCO> listByStoreId(Long storeId);
+    /**
+     * 根据商家ID获取店铺分类列表
+     *
+     * @param storeId 商家ID
+     * @return 店铺分类列表
+     */
+    List<StoreGoodsLabelCO> listByStoreId(Long storeId);
 
-	/**
-	 * 根据分类id集合获取所有店铺分类根据层级排序
-	 *
-	 * @param ids 商家ID
-	 * @return 店铺分类列表
-	 */
-//	List<StoreGoodsLabelPO> listByStoreIds(List<Long> ids);
+    /**
+     * 根据分类id集合获取所有店铺分类根据层级排序
+     *
+     * @param ids 商家ID
+     * @return 店铺分类列表
+     */
+    //	List<StoreGoodsLabelPO> listByStoreIds(List<Long> ids);
 
-	/**
-	 * 根据分类id集合获取所有店铺分类根据层级排序
-	 *
-	 * @param ids 商家ID
-	 * @return 店铺分类列表
-	 */
-	List<Map<String, Object>> listMapsByStoreIds(List<Long> ids, String columns);
-
-
+    /**
+     * 根据分类id集合获取所有店铺分类根据层级排序
+     *
+     * @param ids 商家ID
+     * @return 店铺分类列表
+     */
+    List<Map<String, Object>> listMapsByStoreIds(List<Long> ids, String columns);
 }

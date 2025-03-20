@@ -19,7 +19,6 @@ package com.taotao.cloud.goods.application.service.command;
 import com.taotao.boot.ddd.model.application.service.CommandService;
 import com.taotao.cloud.goods.application.dto.brand.cmmond.BrandAddCmd;
 import com.taotao.cloud.goods.application.dto.brand.cmmond.BrandUpdateCmd;
-
 import java.util.List;
 
 /**
@@ -31,38 +30,35 @@ import java.util.List;
  */
 public interface BrandCommandService extends CommandService {
 
+    /**
+     * 删除品牌
+     *
+     * @param ids 品牌id
+     */
+    boolean deleteBrands(List<Long> ids);
 
+    /**
+     * 添加品牌
+     *
+     * @param brandAddCmd 品牌信息
+     * @return 添加结果
+     */
+    boolean addBrand(BrandAddCmd brandAddCmd);
 
-	/**
-	 * 删除品牌
-	 *
-	 * @param ids 品牌id
-	 */
-	boolean deleteBrands(List<Long> ids);
+    /**
+     * 更新品牌
+     *
+     * @param brandUpdateCmd 品牌信息
+     * @return 更新结果
+     */
+    boolean updateBrand(BrandUpdateCmd brandUpdateCmd);
 
-
-	/**
-	 * 添加品牌
-	 *
-	 * @param brandAddCmd 品牌信息
-	 * @return 添加结果
-	 */
-	boolean addBrand(BrandAddCmd brandAddCmd);
-
-	/**
-	 * 更新品牌
-	 *
-	 * @param brandUpdateCmd 品牌信息
-	 * @return 更新结果
-	 */
-	boolean updateBrand(BrandUpdateCmd brandUpdateCmd);
-
-	/**
-	 * 更新品牌是否可用
-	 *
-	 * @param brandId 品牌ID
-	 * @param disable 是否不可用
-	 * @return 更新结果
-	 */
-	boolean brandDisable(Long brandId, boolean disable);
+    /**
+     * 更新品牌是否可用
+     *
+     * @param brandId 品牌ID
+     * @param disable 是否不可用
+     * @return 更新结果
+     */
+    boolean brandDisable(Long brandId, boolean disable);
 }

@@ -19,19 +19,16 @@ package com.taotao.cloud.goods.application.dto.parameter.cmmond;
 import com.taotao.boot.ddd.model.application.dto.Command;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
-import java.io.Serializable;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.Accessors;
 
 /** 商品参数 */
-@Data
+@Setter
+@Getter
 @Accessors(fluent = true)
 @AllArgsConstructor
 @NoArgsConstructor
-public class ParametersAddCmd  extends Command {
+public class ParametersAddCmd extends Command {
 
     @Serial
     private static final long serialVersionUID = 724427321881170297L;

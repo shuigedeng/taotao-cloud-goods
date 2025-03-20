@@ -24,11 +24,9 @@ import jakarta.persistence.Index;
 import jakarta.persistence.Table;
 import java.util.Objects;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.experimental.Accessors;
 import lombok.ToString;
 import lombok.experimental.Accessors;
 import org.hibernate.Hibernate;
@@ -40,7 +38,6 @@ import org.hibernate.Hibernate;
  * @version 2022.04
  * @since 2022-04-20 16:59:38
  */
-
 @Setter
 @Getter
 @ToString(callSuper = true)
@@ -48,12 +45,13 @@ import org.hibernate.Hibernate;
 @NoArgsConstructor
 @Accessors(fluent = true)
 @Entity
-@Table(name = CategoryBrandPO.TABLE_NAME,
-	indexes = {
-		@Index(name = "idx_create_date", columnList = "`create_date`"),
-		@Index(name = "idx_category_id", columnList = "`category_id`"),
-		@Index(name = "idx_brand_id", columnList = "`brand_id`"),
-	})
+@Table(
+        name = CategoryBrandPO.TABLE_NAME,
+        indexes = {
+            @Index(name = "idx_create_date", columnList = "`create_date`"),
+            @Index(name = "idx_category_id", columnList = "`category_id`"),
+            @Index(name = "idx_brand_id", columnList = "`brand_id`"),
+        })
 @TableName(CategoryBrandPO.TABLE_NAME)
 @org.springframework.data.relational.core.mapping.Table(name = CategoryBrandPO.TABLE_NAME)
 public class CategoryBrandPO extends SuperEntity<CategoryBrandPO, Long> {
@@ -68,23 +66,23 @@ public class CategoryBrandPO extends SuperEntity<CategoryBrandPO, Long> {
     @Column(name = "`brand_id`", columnDefinition = "bigint not null comment '品牌id'")
     private Long brandId;
 
-	public Long getCategoryId() {
-		return categoryId;
-	}
+    public Long getCategoryId() {
+        return categoryId;
+    }
 
-	public void setCategoryId(Long categoryId) {
-		this.categoryId = categoryId;
-	}
+    public void setCategoryId(Long categoryId) {
+        this.categoryId = categoryId;
+    }
 
-	public Long getBrandId() {
-		return brandId;
-	}
+    public Long getBrandId() {
+        return brandId;
+    }
 
-	public void setBrandId(Long brandId) {
-		this.brandId = brandId;
-	}
+    public void setBrandId(Long brandId) {
+        this.brandId = brandId;
+    }
 
-	@Override
+    @Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;

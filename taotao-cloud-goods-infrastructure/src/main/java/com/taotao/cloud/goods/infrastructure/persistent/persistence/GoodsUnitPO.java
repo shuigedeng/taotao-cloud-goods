@@ -25,17 +25,14 @@ import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
 import java.util.Objects;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.experimental.Accessors;
 import lombok.ToString;
 import lombok.experimental.Accessors;
 import org.hibernate.Hibernate;
 
 /** 商品计量单位表 */
-
 @Setter
 @Getter
 @ToString(callSuper = true)
@@ -43,13 +40,14 @@ import org.hibernate.Hibernate;
 @NoArgsConstructor
 @Accessors(fluent = true)
 @Entity
-@Table(name = GoodsUnitPO.TABLE_NAME,
-	uniqueConstraints = {
-		@UniqueConstraint(name = "uniq_goods_no", columnNames = "goods_no"),
-	},
-	indexes = {
-		@Index(name = "idx_create_date", columnList = "`create_date`"),
-	})
+@Table(
+        name = GoodsUnitPO.TABLE_NAME,
+        uniqueConstraints = {
+            @UniqueConstraint(name = "uniq_goods_no", columnNames = "goods_no"),
+        },
+        indexes = {
+            @Index(name = "idx_create_date", columnList = "`create_date`"),
+        })
 @TableName(GoodsUnitPO.TABLE_NAME)
 @org.springframework.data.relational.core.mapping.Table(name = GoodsUnitPO.TABLE_NAME)
 public class GoodsUnitPO extends BaseSuperEntity<GoodsUnitPO, Long> {
@@ -60,15 +58,15 @@ public class GoodsUnitPO extends BaseSuperEntity<GoodsUnitPO, Long> {
     @Column(name = "`name`", columnDefinition = "varchar(255) not null comment '计量单位名称'")
     private String name;
 
-	public String getName() {
-		return name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	@Override
+    @Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;

@@ -18,9 +18,7 @@ package com.taotao.cloud.goods.service;
 
 import com.taotao.cloud.goods.TaoTaoCloudGoodsApplicationTests;
 import com.taotao.cloud.goods.application.dto.brand.clientobject.BrandCO;
-import com.taotao.cloud.goods.application.dto.goods.clientobject.GoodsSkuParamsCO;
 import com.taotao.cloud.goods.application.service.query.BrandQueryService;
-import com.taotao.cloud.goods.application.service.query.GoodsQueryService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -29,12 +27,11 @@ public class BrandQueryServiceTest extends TaoTaoCloudGoodsApplicationTests {
     @Autowired
     private BrandQueryService brandQueryService;
 
-    //@TtcTest(duration = 1000, reporter = HtmlReporter.class)
-	@Test
+    // @TtcTest(duration = 1000, reporter = HtmlReporter.class)
+    @Test
     public void helloTest111() throws InterruptedException {
 
-		BrandCO byId = brandQueryService.getById(1L);
-		System.out.println("asdfasdfsadfsadf");
-	}
-
+        BrandCO byId = brandQueryService.getById(1L);
+        System.out.println("asdfasdfsadfsadf");
+    }
 }

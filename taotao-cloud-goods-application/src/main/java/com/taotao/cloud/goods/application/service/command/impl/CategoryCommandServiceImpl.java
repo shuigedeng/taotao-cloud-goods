@@ -42,39 +42,39 @@ import org.springframework.stereotype.Service;
 @CacheConfig(cacheNames = "{category}")
 public class CategoryCommandServiceImpl implements CategoryCommandService {
 
-	private final RedisRepository redisRepository;
-	/**
-	 * 商品品牌业务层
-	 */
-	//private final BrandCommandService brandService;
+    private final RedisRepository redisRepository;
+    /**
+     * 商品品牌业务层
+     */
+    // private final BrandCommandService brandService;
 
-	private final CategoryTreeCmdExe categoryTreeCmdExe;
-	private final CategoryChildrenCmdExe categoryChildrenCmdExe;
-	private final CategorySearchQryExe categorySearchQryExe;
-	private final CategoryUpdateCmdExe categoryUpdateCmdExe;
-	private final CategorySaveCmdExe categorySaveCmdExe;
-	private final CategoryDelCmdExe categoryDelCmdExe;
+    private final CategoryTreeCmdExe categoryTreeCmdExe;
 
+    private final CategoryChildrenCmdExe categoryChildrenCmdExe;
+    private final CategorySearchQryExe categorySearchQryExe;
+    private final CategoryUpdateCmdExe categoryUpdateCmdExe;
+    private final CategorySaveCmdExe categorySaveCmdExe;
+    private final CategoryDelCmdExe categoryDelCmdExe;
 
-	@Override
-	public boolean saveCategory(CategoryAddCmd category) {
-		//return categorySaveCmdExe.saveCategory(categoryPO);
-		return true;
-	}
+    @Override
+    public boolean saveCategory(CategoryAddCmd category) {
+        // return categorySaveCmdExe.saveCategory(categoryPO);
+        return true;
+    }
 
-	@Override
-	public boolean updateCategory(CategoryUpdateCmd category) {
-		//return categoryUpdateCmdExe.updateCategory(categoryPO);
-		return true;
-	}
+    @Override
+    public boolean updateCategory(CategoryUpdateCmd category) {
+        // return categoryUpdateCmdExe.updateCategory(categoryPO);
+        return true;
+    }
 
-	@Override
-	public void delete(Long id) {
-		categoryDelCmdExe.delete(id);
-	}
+    @Override
+    public void delete(Long id) {
+        categoryDelCmdExe.delete(id);
+    }
 
-	@Override
-	public void updateCategoryStatus(Long categoryId, boolean enableOperations) {
-		//categoryUpdateCmdExe.updateCategoryStatus(categoryId, enableOperations);
-	}
+    @Override
+    public void updateCategoryStatus(Long categoryId, boolean enableOperations) {
+        // categoryUpdateCmdExe.updateCategoryStatus(categoryId, enableOperations);
+    }
 }

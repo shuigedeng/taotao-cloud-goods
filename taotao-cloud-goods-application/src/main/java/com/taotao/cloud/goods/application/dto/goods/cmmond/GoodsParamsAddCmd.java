@@ -20,12 +20,9 @@ import com.taotao.boot.ddd.model.application.dto.Command;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.Valid;
 import java.io.Serial;
-import java.io.Serializable;
 import java.util.List;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.experimental.SuperBuilder;
+import lombok.*;
+import lombok.experimental.Accessors;
 
 /**
  * 商品关联参数
@@ -34,11 +31,14 @@ import lombok.experimental.SuperBuilder;
  * @version 2022.04
  * @since 2022-04-14 21:36:45
  */
-@Data
+@Setter
+@Getter
+@ToString
+@Accessors(fluent = true)
 @AllArgsConstructor
 @NoArgsConstructor
 @Schema(description = "商品参数分组")
-public class GoodsParamsAddCmd  extends Command {
+public class GoodsParamsAddCmd extends Command {
 
     @Serial
     private static final long serialVersionUID = 4892783539320159200L;

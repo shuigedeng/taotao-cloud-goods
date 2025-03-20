@@ -20,24 +20,23 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.Valid;
 import java.util.List;
 import java.util.Map;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.experimental.SuperBuilder;
+import lombok.*;
+import lombok.experimental.Accessors;
 
 /** 草稿商品DTO */
 @Setter
 @Getter
+@ToString
+@Accessors(fluent = true)
 @AllArgsConstructor
 @NoArgsConstructor
 public class DraftGoodsSkuParamsSaveCmd extends DraftGoodsBaseCmd {
 
     private static final long serialVersionUID = 5255666163196674178L;
 
-    //@Valid
-    //@Schema(description = "商品参数")
-    //private List<GoodsParamsDTO> goodsParamsDTOList;
+    // @Valid
+    // @Schema(description = "商品参数")
+    // private List<GoodsParamsDTO> goodsParamsDTOList;
 
     @Schema(description = "商品图片")
     private List<String> goodsGalleryList;
@@ -45,4 +44,36 @@ public class DraftGoodsSkuParamsSaveCmd extends DraftGoodsBaseCmd {
     @Valid
     @Schema(description = "sku列表")
     private List<Map<String, Object>> skuList;
+
+    /**
+     * 获取
+     * @return goodsGalleryList
+     */
+    public List<String> getGoodsGalleryList() {
+        return goodsGalleryList;
+    }
+
+    /**
+     * 设置
+     * @param goodsGalleryList
+     */
+    public void setGoodsGalleryList(List<String> goodsGalleryList) {
+        this.goodsGalleryList = goodsGalleryList;
+    }
+
+    /**
+     * 获取
+     * @return skuList
+     */
+    public List<Map<String, Object>> getSkuList() {
+        return skuList;
+    }
+
+    /**
+     * 设置
+     * @param skuList
+     */
+    public void setSkuList(List<Map<String, Object>> skuList) {
+        this.skuList = skuList;
+    }
 }

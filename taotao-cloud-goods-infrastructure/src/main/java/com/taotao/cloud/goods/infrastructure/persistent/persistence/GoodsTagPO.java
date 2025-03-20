@@ -19,14 +19,12 @@ package com.taotao.cloud.goods.infrastructure.persistent.persistence;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.taotao.boot.webagg.entity.BaseSuperEntity;
 import jakarta.persistence.*;
+import java.util.Objects;
 import lombok.*;
 import lombok.experimental.Accessors;
 import org.hibernate.Hibernate;
 
-import java.util.Objects;
-
 /** 商品计量单位表 */
-
 @Setter
 @Getter
 @ToString(callSuper = true)
@@ -34,11 +32,12 @@ import java.util.Objects;
 @NoArgsConstructor
 @Accessors(fluent = true)
 @Entity
-@Table(name = GoodsTagPO.TABLE_NAME,
-	indexes = {
-		@Index(name = "idx_create_date", columnList = "`create_date`"),
-		@Index(name = "idx_name", columnList = "`name`"),
-	})
+@Table(
+        name = GoodsTagPO.TABLE_NAME,
+        indexes = {
+            @Index(name = "idx_create_date", columnList = "`create_date`"),
+            @Index(name = "idx_name", columnList = "`name`"),
+        })
 @TableName(GoodsTagPO.TABLE_NAME)
 @org.springframework.data.relational.core.mapping.Table(name = GoodsTagPO.TABLE_NAME)
 public class GoodsTagPO extends BaseSuperEntity<GoodsTagPO, Long> {
@@ -49,26 +48,26 @@ public class GoodsTagPO extends BaseSuperEntity<GoodsTagPO, Long> {
     @Column(name = "`name`", columnDefinition = "varchar(255) not null comment '计量单位名称'")
     private String name;
 
-	@Column(name = "`desc`", columnDefinition = "varchar(255) not null comment '计量单位名称'")
-	private String desc;
+    @Column(name = "`desc`", columnDefinition = "varchar(255) not null comment '计量单位名称'")
+    private String desc;
 
-	public String getName() {
-		return name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public String getDesc() {
-		return desc;
-	}
+    public String getDesc() {
+        return desc;
+    }
 
-	public void setDesc(String desc) {
-		this.desc = desc;
-	}
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
 
-	@Override
+    @Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;

@@ -31,7 +31,7 @@ package com.taotao.cloud.goods.infrastructure.persistent.persistence; // package
 // * @author shuigedeng
 // */
 // @Setter
-// 
+//
 // @Accessors(fluent = true)
 // @AllArgsConstructor
 // @NoArgsConstructor
