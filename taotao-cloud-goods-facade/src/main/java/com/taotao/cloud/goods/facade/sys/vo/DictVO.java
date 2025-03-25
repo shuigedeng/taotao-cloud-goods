@@ -16,9 +16,11 @@
 
 package com.taotao.cloud.goods.facade.sys.vo;
 
-import lombok.Data;
+import lombok.*;
 
-@Data
+@Setter
+@Getter
+@ToString
 public class DictVO {
 
     private Long id;

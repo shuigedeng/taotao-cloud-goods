@@ -16,9 +16,11 @@
 
 package com.taotao.cloud.goods.infrastructure.dataparam;
 
-import lombok.Data;
+import lombok.*;
 
-@Data
+@Setter
+@Getter
+@ToString
 public class GoodsParam {
     private String name;
     private String id;

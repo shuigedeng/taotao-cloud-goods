@@ -17,11 +17,13 @@
 package com.taotao.cloud.goods.infrastructure.dataparam;
 
 import com.taotao.boot.common.model.PageQuery;
-import lombok.Data;
+import lombok.*;
 import lombok.EqualsAndHashCode;
 
 @EqualsAndHashCode(callSuper = true)
-@Data
+@Setter
+@Getter
+@ToString
 public class BrandPageParam extends PageQuery {
 
     // 品牌名称

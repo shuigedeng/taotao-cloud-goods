@@ -16,9 +16,11 @@
 
 package com.taotao.cloud.goods.infrastructure.dataobject;
 
-import lombok.Data;
+import lombok.*;
 
-@Data
+@Setter
+@Getter
+@ToString
 public class CategoryBrandDO {
     private Long id;
     private String name;
