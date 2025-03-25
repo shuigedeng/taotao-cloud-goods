@@ -19,13 +19,15 @@ package com.taotao.cloud.goods.application.dto.goods.cmmond;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Set;
-import lombok.Data;
+import lombok.*;
 
 /**
  * 创建商品Command
  *
  */
-@Data
+@Setter
+@Getter
+@ToString
 public class GoodsCreateCommand {
 
     /**

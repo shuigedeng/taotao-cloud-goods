@@ -20,7 +20,7 @@ import com.taotao.boot.common.model.PageQuery;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import lombok.Data;
+import lombok.*;
 import lombok.ToString;
 
 /**
@@ -29,7 +29,8 @@ import lombok.ToString;
  * @author luohq
  * @date 2022-11-27 19:07
  */
-@Data
+@Setter
+@Getter
 @ToString(callSuper = true)
 public class GoodsPageQuery extends PageQuery {
     /**

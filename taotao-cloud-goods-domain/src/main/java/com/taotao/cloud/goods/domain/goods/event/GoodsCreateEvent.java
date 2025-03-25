@@ -20,7 +20,7 @@ import com.taotao.boot.ddd.model.domain.event.DomainEvent;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.*;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
@@ -28,7 +28,9 @@ import lombok.NoArgsConstructor;
  *
  */
 @EqualsAndHashCode(callSuper = true)
-@Data
+@Setter
+@Getter
+@ToString
 @AllArgsConstructor
 @NoArgsConstructor
 @Schema(name = "OperateLogEvent", description = "操作日志事件")

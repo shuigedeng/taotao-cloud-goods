@@ -23,7 +23,7 @@ import com.taotao.cloud.goods.api.enums.GoodsTypeEnum;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.*;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
@@ -34,7 +34,9 @@ import lombok.NoArgsConstructor;
  * @version 2022.04
  * @since 2022-04-25 16:33:15
  */
-@Data
+@Setter
+@Getter
+@ToString
 @EqualsAndHashCode(callSuper = true)
 @AllArgsConstructor
 @NoArgsConstructor

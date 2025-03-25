@@ -19,7 +19,7 @@ package com.taotao.cloud.goods.api.feign.response;
 import java.io.Serial;
 import java.io.Serializable;
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.*;
 import lombok.NoArgsConstructor;
 
 /**
@@ -29,7 +29,9 @@ import lombok.NoArgsConstructor;
  * @version 2022.04
  * @since 2022-04-25 16:18:03
  */
-@Data
+@Setter
+@Getter
+@ToString
 @AllArgsConstructor
 @NoArgsConstructor
 public class EsGoodsAttributeApiResponse implements Serializable {

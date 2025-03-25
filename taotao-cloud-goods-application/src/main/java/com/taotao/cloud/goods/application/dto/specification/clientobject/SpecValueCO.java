@@ -47,7 +47,9 @@ public class SpecValueCO extends ClientObject {
     @Schema(description = "规格的图片")
     private List<SpecImages> specImage;
 
-    @Data
+    @Setter
+@Getter
+@ToString
     public static class SpecImages implements Serializable {
 
         private static final long serialVersionUID = 1816357809660916086L;

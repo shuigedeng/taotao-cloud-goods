@@ -17,7 +17,7 @@
 package com.taotao.cloud.goods.application.dto.goods.query;
 
 import java.io.Serial;
-import lombok.Data;
+import lombok.*;
 import lombok.EqualsAndHashCode;
 
 /**
@@ -27,7 +27,9 @@ import lombok.EqualsAndHashCode;
  * @version 2022.04
  * @since 2022-04-25 16:33:23
  */
-@Data
+@Setter
+@Getter
+@ToString
 @EqualsAndHashCode(callSuper = true)
 public class GoodsSkuPageQry extends GoodsPageQry {
 

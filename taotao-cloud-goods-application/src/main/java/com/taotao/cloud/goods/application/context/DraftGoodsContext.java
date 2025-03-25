@@ -16,7 +16,9 @@
 
 package com.taotao.cloud.goods.application.context;
 
-import lombok.Data;
+import lombok.*;
 
-@Data
+@Setter
+@Getter
+@ToString
 public class DraftGoodsContext {}

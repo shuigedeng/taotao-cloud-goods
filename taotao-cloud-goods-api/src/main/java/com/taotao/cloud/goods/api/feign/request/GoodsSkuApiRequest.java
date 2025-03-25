@@ -24,7 +24,7 @@ import java.io.Serial;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.*;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
@@ -35,7 +35,9 @@ import lombok.experimental.SuperBuilder;
  * @version 2022.04
  * @since 2022-04-14 21:15:33
  */
-@Data
+@Setter
+@Getter
+@ToString
 @AllArgsConstructor
 @NoArgsConstructor
 @Schema(description = "商品sku基础VO")

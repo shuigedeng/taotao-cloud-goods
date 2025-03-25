@@ -22,13 +22,15 @@ import java.io.Serializable;
 import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
+import lombok.*;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 import lombok.experimental.Accessors;
 
 /** 规格值 */
-@Data
+@Setter
+@Getter
+@ToString
 @Accessors(fluent = true)
 @AllArgsConstructor
 @NoArgsConstructor
@@ -49,7 +51,9 @@ public class SpecValueApiRequest implements Serializable {
     @Schema(description = "规格的图片")
     private List<SpecImages> specImage;
 
-    @Data
+    @Setter
+@Getter
+@ToString
     public static class SpecImages implements Serializable {
 
         private static final long serialVersionUID = 1816357809660916086L;

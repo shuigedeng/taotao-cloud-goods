@@ -28,7 +28,7 @@ import com.taotao.boot.cache.redis.delay.message.RedissonMessage;
 import com.taotao.boot.common.utils.common.JsonUtils;
 import com.taotao.boot.common.utils.log.LogUtils;
 import java.util.Map;
-import lombok.Data;
+import lombok.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.messaging.handler.annotation.Header;
@@ -85,7 +85,9 @@ public class RedissonDelayApplication {
         LogUtils.info("receive " + carLbsDto + ", delayed " + actualDelay + " millis");
     }
 
-    @Data
+    @Setter
+@Getter
+@ToString
     public static class CarLbsDto {
 
         private String cid;

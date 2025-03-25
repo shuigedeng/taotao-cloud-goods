@@ -22,7 +22,7 @@ import java.io.Serial;
 import java.util.List;
 import java.util.Map;
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.*;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
@@ -34,7 +34,9 @@ import lombok.experimental.Accessors;
  * @version 2022.04
  * @since 2022-04-25 16:33:11
  */
-@Data
+@Setter
+@Getter
+@ToString
 @EqualsAndHashCode(callSuper = true)
 @Accessors(fluent = true)
 @AllArgsConstructor
