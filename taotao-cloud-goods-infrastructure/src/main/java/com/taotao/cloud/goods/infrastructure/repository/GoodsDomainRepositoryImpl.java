@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.goods.infrastructure.repository;
 
-import com.taotao.boot.data.datasource.tx.TransactionalUtil;
+import com.taotao.boot.data.datasource.tx.TransactionalUtils;
 import com.taotao.boot.data.mybatis.utils.MybatisUtil;
 import com.taotao.boot.ddd.model.types.BizId;
 import com.taotao.cloud.goods.domain.goods.aggregate.GoodsAgg;
@@ -26,20 +26,21 @@ import com.taotao.cloud.goods.infrastructure.assembler.GoodsInfraAssembler;
 import com.taotao.cloud.goods.infrastructure.persistent.mapper.GoodsMapper;
 import com.taotao.cloud.goods.infrastructure.persistent.mapper.GoodsSkuMapper;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsPO;
-import java.math.BigDecimal;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.Collection;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.Collection;
+
 @Service
 @AllArgsConstructor
 public class GoodsDomainRepositoryImpl implements GoodsDomainRepository {
 
-    private final TransactionalUtil transactionalUtil;
+    private final TransactionalUtils transactionalUtil;
     private final MybatisUtil mybatisUtil;
     private final GoodsMapper goodsMapper;
     private final GoodsSkuMapper goodsSkuMapper;

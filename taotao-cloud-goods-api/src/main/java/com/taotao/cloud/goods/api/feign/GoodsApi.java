@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.goods.api.feign;
 
-import com.taotao.boot.common.constant.ServiceName;
+import com.taotao.boot.common.constant.ServiceNameConstants;
 import com.taotao.cloud.goods.api.feign.fallback.CategoryApiFallback;
 import com.taotao.cloud.goods.api.feign.fallback.GoodsApiFallback;
 import com.taotao.cloud.openfeign.annotation.FeignInner;
@@ -33,7 +33,7 @@ import org.springframework.web.bind.annotation.PostMapping;
  */
 @FeignClient(
 	contextId = "GoodsApi",
-        value = ServiceName.TAOTAO_CLOUD_GOODS,
+        value = ServiceNameConstants.TAOTAO_CLOUD_GOODS,
         fallbackFactory = GoodsApiFallback.class)
 public interface GoodsApi {
 	@FeignInner

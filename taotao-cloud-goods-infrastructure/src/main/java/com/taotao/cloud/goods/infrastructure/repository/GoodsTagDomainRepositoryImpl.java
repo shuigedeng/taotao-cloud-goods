@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.goods.infrastructure.repository;
 
-import com.taotao.boot.data.datasource.tx.TransactionalUtil;
+import com.taotao.boot.data.datasource.tx.TransactionalUtils;
 import com.taotao.boot.data.mybatis.utils.MybatisUtil;
 import com.taotao.boot.ddd.model.types.BizId;
 import com.taotao.boot.ddd.util.validation.Validates;
@@ -34,7 +34,7 @@ import org.springframework.stereotype.Service;
 @AllArgsConstructor
 public class GoodsTagDomainRepositoryImpl implements GoodsTagDomainRepository {
 
-    private final TransactionalUtil transactionalUtil;
+    private final TransactionalUtils transactionalUtil;
     private final MybatisUtil mybatisUtil;
     private final GoodsMapper goodsMapper;
     private final GoodsSkuMapper goodsSkuMapper;
