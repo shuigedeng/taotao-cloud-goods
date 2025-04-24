@@ -40,7 +40,7 @@ dependencies {
     testImplementation "org.projectlombok:lombok"
     testAnnotationProcessor  "org.projectlombok:lombok:${lombokVersion}"
 
-    testImplementation "io.soabase.record-builder:record-builder-core:44"
+    testImplementation "io.soabase.record-builder:record-builder-core:45"
     testAnnotationProcessor "io.soabase.record-builder:record-builder-processor:${recordBuilderVersion}"
 
     testImplementation "org.mapstruct:mapstruct"
