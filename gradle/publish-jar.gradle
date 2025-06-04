@@ -5,12 +5,12 @@ apply plugin: 'maven-publish'
 apply plugin: 'signing'
 
 javadoc {
-    failOnError false
+    failOnError = false
 
     options {
-        author true
-        version true
-        title project.name
+        author = true
+        version = true
+        title = project.name
         links "https://docs.oracle.com/en/java/javase/21/docs/api"
     }
 
@@ -230,9 +230,9 @@ publishing {
 
     publications {
         mavenJava(MavenPublication) {
-            groupId rootProject.group
-            artifactId project.name
-            version rootProject.version
+            groupId = rootProject.group
+            artifactId = project.name
+            version = rootProject.version
 
             //打包类型 war: components.web jar: components.java
             from components.java

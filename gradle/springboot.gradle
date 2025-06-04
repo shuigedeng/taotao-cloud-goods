@@ -41,7 +41,7 @@ bootJar {
         //'Class-Path': configurations.runtimeClasspath.files.collect { "lib/$it.name" }.join(' ')
     }
 
-    duplicatesStrategy(DuplicatesStrategy.EXCLUDE)
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 
     //layered {
     //    application {
