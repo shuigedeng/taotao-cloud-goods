@@ -49,52 +49,6 @@ jasypt:
       prefix: "ENC@["
       suffix: "]"
 
-#jetcache:
-#  statIntervalMinutes: 1
-#  areaInCacheName: false
-#  local:
-#    default:
-#      type: linkedhashmap
-#      keyConvertor: jacksonKeyConvertor
-#  remote:
-#    default:
-#      type: redis
-#      keyConvertor: jacksonKeyConvertor
-#      valueEncoder: jacksonValueEncoder
-#      valueDecoder: jacksonValueDecoder
-#      poolConfig:
-#        minIdle: 5
-#        maxIdle: 20
-#        maxTotal: 50
-#      host: 192.168.218.2
-#      port: 6379
-
-pulsar:
-  service-url: pulsar://192.168.218.2:6650
-  io-threads: 10
-  listener-threads: 10
-  enable-tcp-no-delay: false
-  keep-alive-interval-sec: 20
-  connection-timeout-sec: 10
-  operation-timeout-sec: 15
-  starting-backoff-interval-ms: 100
-  max-backoff-interval-sec: 10
-  consumer-name-delimiter:
-  namespace: taotao-cloud-namespace
-  tenant: taotao-cloud-tenant
-  auto-start: true
-  allow-interceptor: true
-  #token-auth-value: 43th4398gh340gf34gj349gh304ghryj34fh
-  consumer:
-    default:
-      dead-letter-policy-max-redeliver-count: -1
-      ack-timeout-ms: 3000
-      subscription-type: Exclusive
-
-easy-es:
-  enable: false
-  banner: false
-
 redisson:
   client-name: ${spring.application.name}   #在Redis节点里显示的客户端名称。
   #password: taotao-cloud   #用于节点身份验证的密码
@@ -443,6 +397,16 @@ rocketmq:
     pull-batch-size: 10
 
 spring:
+  task:
+    execution:
+      mode: FORCE
+      thread-name-prefix: ttc-goods-task-
+      pool:
+        core-size: 16
+        max-size: 200
+        queue-capacity: 500
+        allow-core-thread-timeout: true
+        keep-alive: 60s
   threads:
     virtual:
       #1.Tomcat将使用虚拟线程来处理HTTP请求。这意味着处理Web请求的应用程序代码（例如控制器中的方法）将在虚拟线程上运行。
@@ -456,148 +420,6 @@ spring:
     exclude:
       - org.dromara.easyes.starter.config.GeneratorConfiguration
       - org.dromara.easyes.spring.config.EasyEsConfiguration
-  dynamic:
-    tp:
-      enabled: false
-      enabledBanner: true           # 是否开启banner打印，默认true
-      enabledCollect: true          # 是否开启监控指标采集，默认false
-      collectorTypes: micrometer,logging     # 监控数据采集器类型（logging | micrometer | internal_logging），默认micrometer
-      logPath: /home/logs           # 监控日志数据路径，默认 ${user.home}/logs，采集类型非logging不用配置
-      monitorInterval: 5            # 监控时间间隔（报警判断、指标采集），默认5s
-      configType: yml               # 配置文件类型，非cloud nacos 和 apollo需配置，其他不用配
-      platforms: # 通知报警平台配置
-        - platform: wechat
-          urlKey: 3a700-127-4bd-a798-c53d8b69c     # 替换
-          receivers: "test1,test2"                   # 接受人企微名称
-        - platform: ding
-          urlKey: f80dad441fcd655438f4a08dcd6a     # 替换
-          secret: SECb5441fa6f375d5b9d21           # 替换，非sign模式可以没有此值
-          receivers: "18888888888"                   # 钉钉账号手机号
-        - platform: lark
-          urlKey: 0d944ae7-b24a-40                 # 替换
-          receivers: "test1,test2"                   # 接受人飞书名称/openid
-        - platform: email
-          receivers: "981376577@qq.com"            # 接受人邮箱 多个逗号连接
-      tomcat-tp: # tomcat webserver线程池配置
-        threadPoolName: taotao-cloud-goods-tomcat-executor
-        threadPoolAliasName: tomcat线程池
-        corePoolSize: 100
-        maximumPoolSize: 200
-        keepAliveTime: 60
-      jettyTp: # jetty weberver线程池配置
-        threadPoolName: taotao-cloud-goods-jetty-executor
-        threadPoolAliasName: jetty线程池
-        corePoolSize: 100
-        maximumPoolSize: 200
-        keepAliveTime: 60
-      undertowTp: # undertow webserver线程池配置
-        threadPoolName: taotao-cloud-goods-undertow-executor
-        threadPoolAliasName: undertow线程池
-        corePoolSize: 100
-        maximumPoolSize: 200
-        keepAliveTime: 60
-        notifyItems: # 报警项，不配置自动会按默认值配置（变更通知、容量报警、活性报警）
-          - type: capacity                       # 报警项类型，查看源码 NotifyTypeEnum枚举类
-            enabled: true
-            threshold: 80                        # 报警阈值
-            platform-ids: [ ding,wechat,email ]             # 可选配置，不配置默认拿上层platforms配置的所以平台
-            interval: 120                        # 报警间隔（单位：s）
-      dubboTp: # dubbo 线程池配置
-        - threadPoolName: dubboTp#20883            # 名称规则：dubboTp + "#" + 协议端口
-          threadPoolAliasName: 测试线程池             # dubbo线程池
-          corePoolSize: 100
-          maximumPoolSize: 200
-          keepAliveTime: 60
-          notifyItems: # 报警项，不配置自动会按默认值配置（变更通知、容量报警、活性报警）
-            - type: capacity                       # 报警项类型，查看源码 NotifyTypeEnum枚举类
-              enabled: true
-              threshold: 80                        # 报警阈值
-              platform-ids: [ ding,wechat,email ]             # 可选配置，不配置默认拿上层platforms配置的所以平台
-              interval: 120                        # 报警间隔（单位：s）
-      rocketMqTp: # rocketmq 线程池配置
-        - threadPoolName: group1#topic1            # 名称规则：group + "#" + topic
-          corePoolSize: 200
-          maximumPoolSize: 200
-          keepAliveTime: 60
-          notifyItems: # 报警项，不配置自动会按默认值配置（变更通知、容量报警、活性报警）
-            - type: capacity                       # 报警项类型，查看源码 NotifyTypeEnum枚举类
-              enabled: true
-              threshold: 80                        # 报警阈值
-              platform-ids: [ ding,wechat,email ]             # 可选配置，不配置默认拿上层platforms配置的所以平台
-              interval: 120                        # 报警间隔（单位：s）
-      executors: # 动态线程池配置，都有默认值，采用默认值的可以不配置该项，减少配置量
-        - threadPoolName: taotao-cloud-goods-executor
-          threadNamePrefix: taotao-cloud-goods-executor  # 线程名前缀
-          threadPoolAliasName: 测试线程池             # 线程池别名
-          executorType: common                     # 线程池类型common、eager：适用于io密集型
-          corePoolSize: 6
-          maximumPoolSize: 8
-          queueCapacity: 200
-          queueType: VariableLinkedBlockingQueue   # 任务队列，查看源码QueueTypeEnum枚举类
-          rejectedHandlerType: CallerRunsPolicy    # 拒绝策略，查看RejectedTypeEnum枚举类
-          keepAliveTime: 50
-          allowCoreThreadTimeOut: false                  # 是否允许核心线程池超时
-          waitForTasksToCompleteOnShutdown: false        # 参考spring线程池设计，优雅关闭线程池
-          awaitTerminationSeconds: 5                     # 单位（s）
-          preStartAllCoreThreads: false                  # 是否预热所有核心线程，默认false
-          runTimeout: 200                                # 任务执行超时阈值，目前只做告警用，单位（ms）
-          queueTimeout: 100                              # 任务在队列等待超时阈值，目前只做告警用，单位（ms）
-          taskWrapperNames: [ "ttl", "mdc", "swTrace" ]                      # 任务包装器名称，集成TaskWrapper接口
-          notifyItems: # 报警项，不配置自动会按默认值配置（变更通知、容量报警、活性报警、拒绝报警、任务超时报警）
-            - type: capacity               # 报警项类型，查看源码 NotifyTypeEnum枚举类
-              enabled: true
-              threshold: 80                # 报警阈值
-              platform-ids:
-                - ding
-                - wechat
-                - email
-              interval: 120                # 报警间隔（单位：s）
-              clusterLimit: 1
-            - type: change
-              enabled: true
-              threshold: 80                # 报警阈值
-              platform-ids:
-                - ding
-                - wechat
-                - email
-              interval: 120                # 报警间隔（单位：s）
-              clusterLimit: 1
-            - type: liveness
-              enabled: true
-              threshold: 80                # 报警阈值
-              platform-ids:
-                - ding
-                - wechat
-                - email
-              interval: 120                # 报警间隔（单位：s）
-              clusterLimit: 1
-            - type: reject
-              enabled: true
-              threshold: 1                # 报警阈值
-              platform-ids:
-                - ding
-                - wechat
-                - email
-              interval: 120                # 报警间隔（单位：s）
-              clusterLimit: 1
-            - type: run_timeout
-              enabled: true
-              threshold: 1                # 报警阈值
-              platform-ids:
-                - ding
-                - wechat
-                - email
-              interval: 120                # 报警间隔（单位：s）
-              clusterLimit: 1
-            - type: queue_timeout
-              enabled: true
-              threshold: 1                # 报警阈值
-              platform-ids:
-                - ding
-                - wechat
-                - email
-              interval: 120                # 报警间隔（单位：s）
-              clusterLimit: 1
   lifecycle:
     timeout-per-shutdown-phase: 30s
   thymeleaf:
@@ -612,7 +434,7 @@ spring:
     allow-bean-definition-overriding: true
     banner-mode: console
     register-shutdown-hook: true
-    cloud-platform: kubernetes
+    cloud-platform: none
     web-application-type: servlet
   application:
     name: taotao-cloud-goods
@@ -1101,8 +923,6 @@ taotao:
       pulsar:
         enabled: false
     cache:
-      caffeine:
-        enabled: false
       redis:
         enabled: true
         cache-manager:
@@ -1118,7 +938,7 @@ taotao:
         dynamic:
           enabled: false
       elasticsearch:
-        enabled: true
+        enabled: false
       mybatis:
         enabled: true
         interceptor:
@@ -1223,6 +1043,8 @@ taotao:
       request-log: true
     core:
       enabled: true
+      async:
+        enabled: false
     captcha:
       enabled: false
     security:
@@ -1308,14 +1130,18 @@ management:
       exposure:
         include: '*'
   endpoint:
+    threaddump:
+      access: unrestricted
     metrics:
-      enabled: true
+      access: unrestricted
     prometheus:
-      enabled: true
+      access: unrestricted
     health:
       show-details: ALWAYS
     shutdown:
-      enabled: true
+      access: unrestricted
+    beans:
+      access: unrestricted
   health:
     mail:
       enabled: false
