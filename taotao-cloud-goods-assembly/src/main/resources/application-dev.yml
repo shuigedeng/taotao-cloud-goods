@@ -89,48 +89,6 @@ redisson:
     connection_pool_size: 64     #连接池最大容量。连接池的连接数量自动弹性伸缩。
     database: 3     #尝试连接的数据库编号。
     dns_monitoring_interval: 5000     #用来指定检查节点DNS变化的时间间隔。使用的时候应该确保JVM里的DNS数据的缓存时间保持在足够低的范围才有意义。用-1来禁用该功能。
-  #multiple-server-config:
-  #  #在多Redis服务节点的环境里，可以选用以下几种负载均衡方式选择一个节点：
-  #  #org.redisson.connection.balancer.WeightedRoundRobinBalancer - 权重轮询调度算法
-  #  #org.redisson.connection.balancer.RoundRobinLoadBalancer - 轮询调度算法
-  #  #org.redisson.connection.balancer.RandomLoadBalancer - 随机调度算法
-  #  loadBalancer: "org.redisson.connection.balancer.RoundRobinLoadBalancer"
-  #  #多从节点的环境里，每个 从服务节点里用于普通操作（非 发布和订阅）的最小保持连接数（长连接）。长期保持一定数量的连接有利于提高瞬时读取反映速度。
-  #  slaveConnectionMinimumIdleSize: 32
-  #  #多从节点的环境里，每个 从服务节点里用于普通操作（非 发布和订阅）连接的连接池最大容量。连接池的连接数量自动弹性伸缩。
-  #  slaveConnectionPoolSize: 64
-  #  failedSlaveReconnectionInterval: 3000
-  #  failedSlaveCheckInterval: 180000
-  #  #多节点的环境里，每个 主节点的最小保持连接数（长连接）。长期保持一定数量的连接有利于提高瞬时写入反应速度。
-  #  masterConnectionMinimumIdleSize: 32
-  #  #多主节点的环境里，每个 主节点的连接池最大容量。连接池的连接数量自动弹性伸缩。
-  #  masterConnectionPoolSize: 64
-  #  #设置读取操作选择节点的模式。 可用值为： SLAVE - 只在从服务节点里读取。 MASTER - 只在主服务节点里读取。 MASTER_SLAVE - 在主从服务节点里都可以读取。
-  #  readMode: slave
-  #  #设置订阅操作选择节点的模式。 可用值为： SLAVE - 只在从服务节点里订阅。 MASTER - 只在主服务节点里订阅。
-  #  subscriptionMode: slave
-  #  #用于发布和订阅连接的最小保持连接数（长连接）。Redisson内部经常通过发布和订阅来实现许多功能。长期保持一定数量的发布订阅连接是必须的。 redisson.multiple-server-config.subscriptionConnectionPoolSize
-  #  subscriptionConnectionMinimumIdleSize: 1
-  #  subscriptionConnectionPoolSize: 50
-  #  #监测DNS的变化情况的时间间隔。
-  #  dnsMonitoringInterval: 5000
-  #  #服务器节点地址.必填
-  #  #redisson.multiple-server-config.node-addresses[0]=192.168.218.2:6379
-  #  #redisson.multiple-server-config.node-addresses[1]=192.168.218.2:6380
-  #  #redisson.multiple-server-config.node-addresses[2]=192.168.218.2:6381
-  #  nodeAddresses:
-  #    - "192.168.218.2:6381"
-  #    - "192.168.218.2:6382"
-  #    - "192.168.218.2:6383"
-  #    - "192.168.218.2:6384"
-  #    - "192.168.218.2:6385"
-  #    - "192.168.218.2:6386"
-  #  #(哨兵模式,云托管,主从模式特有)尝试连接的数据库编号。
-  #  database: 1
-  #  #(哨兵模式特有)主服务器的名称是哨兵进程中用来监测主从服务切换情况的。
-  #  masterName:
-  #  #(集群,哨兵,云托管模特特有) 对Redis集群节点状态扫描的时间间隔。单位是毫秒。
-  #  scanInterval: 1000
 
 arthas:
   # telnetPort、httpPort为 -1 ，则不listen telnet端口，为 0 ，则随机telnet端口
@@ -168,6 +126,10 @@ dubbo:
     parameters:
       namespace: 213336af-bf44-45ce-850d-6ae563173799
       cluster-name: CQ
+      # 为了在测试时nacos未启动一直阻塞线程
+      nacos.retry: 1
+      nacos.retry-wait: 1000
+      nacos.check: false
     timeout: 15000
     username: nacos
     password: nacos
@@ -247,6 +209,10 @@ dubbo:
     parameters:
       namespace: 213336af-bf44-45ce-850d-6ae563173799
       cluster-name: CQ
+      # 为了在测试时nacos未启动一直阻塞线程
+      nacos.retry: 1
+      nacos.retry-wait: 1000
+      nacos.check: false
   config-center:
     id: ${spring.application.name}
     address: nacos://192.168.218.2:8848
@@ -255,6 +221,10 @@ dubbo:
     group: DUBBO_REGISTRY_GROUP
     parameters:
       namespace: 213336af-bf44-45ce-850d-6ae563173799
+      # 为了在测试时nacos未启动一直阻塞线程
+      nacos.retry: 1
+      nacos.retry-wait: 1000
+      nacos.check: false
     check: false
   #tracing:
   #  enabled: true # 默认为false
@@ -476,7 +446,7 @@ spring:
     password: 123456
     hikari:
       auto-commit: true # 从池返回的连接的默认自动提交行为 默认true 是否自动提交，默认true
-      connection-timeout: 350000 # 客户端等待连接池的最大毫秒数 从连接池获取连接的超时时间，默认30s
+      connection-timeout: 1000 # 客户端等待连接池的最大毫秒数 从连接池获取连接的超时时间，默认30s
       idle-timeout: 180000 # 允许连接在连接池中空闲的最大时间（毫秒） 连接空闲时间，当最小连接数 < 最大连接数生效。默认10min
       login-timeout: 5
       validation-timeout: 3000   # 连接测试活动的最大时间量 检验连接是否有效的超时时间，默认5s
@@ -1367,43 +1337,6 @@ knife4j:
     enableDebug: true
     enableOpenApi: true
     enableGroup: true
-
-grpc:
-  port: 6565
-  enableReflection: true
-  shutdownGrace: 30
-  enabled: true
-
-  server:
-    port: 9898 #服务端端口
-    #in-process-name: test #自己的应用程序中调用自己的 grpc服务 使用 grpc 的 InProcessServer 来节省网络间开销
-    #security: #为了允许 grpc-server 使用 TLS 您必须使用以下选项来配置它：
-    #  enabled: true
-    #  certificateChain: file:certificates/server.crt
-    #  privateKey: file:certificates/server.key
-    #  privateKeyPassword: MyStrongPassword
-    health-service-enabled: false
-  client:
-    #inProcess:
-    #  address: in-process:test #这允许客户端在同一应用程序内使用以下配置连接到服务器：
-    grpc-server:
-      address: 'static://192.168.218.2:9898'
-    # 服务名（不同服务名可对应不同配置）
-    #grpc-sb-server:
-    #  # 服务端地址
-    #  address: 'static://192.168.218.2:9898'
-    #  # 是否开启保持连接（长连接）
-    #  enableKeepAlive: true
-    #  # 保持连接时长（默认20s）
-    #  keepAliveTimeout: 20s
-    #  # 没有RPC调用时是否保持连接（默认false，可禁用避免额外消耗CPU）
-    #  keepAliveWithoutCalls: false
-    #  # 客户端负载均衡策略(round_robin（默认）, pick_first)
-    #  defaultLoadBalancingPolicy: round_robin
-    #  # 通信类型
-    #  # plaintext | plaintext_upgrade | tls
-    #  # 明文通信且http/2 | 明文通信且升级http/1.1为http/2 | 使用TLS（ALPN/NPN）通信
-    #  negotiationType: plaintext
 
 herodotus:
   endpoint:

@@ -18,6 +18,7 @@ package com.taotao.cloud.goods;
 
 import com.taotao.boot.test.TtcBootTestBase;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.context.SpringBootTestContextBootstrapper;
 
 @SpringBootTest
 public abstract class TaoTaoCloudGoodsApplicationTests extends TtcBootTestBase {

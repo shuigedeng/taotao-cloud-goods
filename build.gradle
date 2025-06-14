@@ -342,7 +342,6 @@ subprojects {
     apply from: rootProject.file('gradle/springboot.gradle')
     //apply from: rootProject.file('gradle/sonar.gradle')
 
-
     dependencies {
         implementation platform("io.github.shuigedeng:taotao-cloud-dependencies:$ttcVersion")
 
@@ -369,6 +368,8 @@ subprojects {
                 cacheDynamicVersionsFor 0, "seconds"
             }
 
+            exclude group: 'com.vaadin.external.google', module: 'android-json'
+
             resolutionStrategy {
                 force 'net.minidev:json-smart:2.5.2'
                 //https://search.maven.org/artifact/com.google.protobuf/protobuf-java
@@ -376,6 +377,9 @@ subprojects {
                 //https://search.maven.org/artifact/com.google.protobuf/protobuf-java-util
                 force "com.google.protobuf:protobuf-java-util:3.25.6"
                 force "com.google.protobuf:protobuf-javalite:3.25.6"
+                force "org.glassfish.jaxb:jaxb-runtime:4.0.5"
+                force "org.glassfish.jaxb:jaxb-core:4.0.5"
+                force "org.glassfish.jaxb:jaxb-xjc:4.0.5"
             }
         }
 
