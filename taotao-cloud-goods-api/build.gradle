@@ -65,7 +65,7 @@ configurations {
             force "com.google.protobuf:protobuf-javalite:3.25.6"
         }
         //resolutionStrategy {
-        //    //force "org.codehaus.groovy:groovy:3.0.23"
+        //    //force "org.codehaus.groovy:groovy:3.0.25"
         //    force 'jakarta.annotation:jakarta.annotation-api:1.3.5'
         //}
 
