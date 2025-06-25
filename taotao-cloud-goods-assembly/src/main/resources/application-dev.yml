@@ -119,6 +119,10 @@ dubbo:
     logger: slf4j
     shutwait: 3000
     dump-directory: ${user.home}/logs/${spring.application.name}/dubbo/
+    #https://cn.dubbo.apache.org/zh-cn/overview/mannual/java-sdk/tasks/security/class-check/
+    check-serializable: false
+    #STRICT 严格检查，WARN 告警，DISABLE 禁用
+    serialize-check-status: DISABLE
   registry:
     address: nacos://192.168.218.2:8848
     group: DUBBO_REGISTRY_GROUP
@@ -162,7 +166,6 @@ dubbo:
     #group: taotao-cloud-goods-dev
     #delay: 3000     #延时注册服务（毫秒）
     protocol: tri
-    port: 50053
     retries: 3
     loadbalance: shortestresponse
     async: true
@@ -214,6 +217,7 @@ dubbo:
       nacos.retry-wait: 1000
       nacos.check: false
   config-center:
+    check: false
     id: ${spring.application.name}
     address: nacos://192.168.218.2:8848
     username: nacos
@@ -225,7 +229,6 @@ dubbo:
       nacos.retry: 1
       nacos.retry-wait: 1000
       nacos.check: false
-    check: false
   #tracing:
   #  enabled: true # 默认为false
   #  sampling:
@@ -367,6 +370,12 @@ rocketmq:
     pull-batch-size: 10
 
 spring:
+  autoconfigure:
+    exclude:
+      #此处排除掉此配置类  是因为在走api请求或者静态资源请求的时候会走FunctionHandlerMapping 导致出现静态资源获取不到
+      - org.springframework.cloud.function.web.mvc.ReactorAutoConfiguration
+      - org.dromara.easyes.starter.config.GeneratorConfiguration
+      - org.dromara.easyes.spring.config.EasyEsConfiguration
   task:
     execution:
       mode: FORCE
@@ -386,10 +395,7 @@ spring:
   config:
     activate:
       on-profile: dev
-  autoconfigure:
-    exclude:
-      - org.dromara.easyes.starter.config.GeneratorConfiguration
-      - org.dromara.easyes.spring.config.EasyEsConfiguration
+
   lifecycle:
     timeout-per-shutdown-phase: 30s
   thymeleaf:
