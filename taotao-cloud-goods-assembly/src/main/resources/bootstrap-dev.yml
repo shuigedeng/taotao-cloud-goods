@@ -20,6 +20,10 @@ spring:
   application:
     name: taotao-cloud-goods
   cloud:
+    function:
+      web:
+        export:
+          enabled: false
     circuitbreaker:
       sentinel:
         enabled: true
