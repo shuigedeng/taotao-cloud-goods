@@ -17,12 +17,19 @@
 package com.taotao.cloud.goods.api.feign;
 
 import com.taotao.boot.common.constant.ServiceNameConstants;
+import com.taotao.boot.common.model.FeignRequest;
+import com.taotao.boot.common.model.FeignResponse;
 import com.taotao.cloud.goods.api.feign.fallback.CategoryApiFallback;
+import com.taotao.cloud.goods.api.feign.request.CategoryApiRequest;
+import com.taotao.cloud.goods.api.feign.request.GoodsApiRequest;
 import com.taotao.cloud.goods.api.feign.response.CategoryTreeApiResponse;
 import java.util.List;
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 /**
  * 远程调用订单模块
@@ -36,6 +43,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 	fallbackFactory = CategoryApiFallback.class)
 public interface CategoryApi {
 
-	@GetMapping(value = "/category/first/id/{id:[0-9]*}")
-	List<CategoryTreeApiResponse> firstCategory(@PathVariable("id") Long id);
+	@PostMapping(value = "/category/first/id/{id:[0-9]*}")
+	FeignResponse<List<CategoryTreeApiResponse>> firstCategory(
+		@Validated @RequestBody FeignRequest<CategoryApiRequest> id);
 }

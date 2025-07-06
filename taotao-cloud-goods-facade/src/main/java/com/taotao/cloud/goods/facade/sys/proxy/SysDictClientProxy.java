@@ -16,11 +16,14 @@
 
 package com.taotao.cloud.goods.facade.sys.proxy;
 
+import com.taotao.boot.common.model.FeignRequest;
+import com.taotao.boot.common.model.FeignResponse;
 import com.taotao.cloud.goods.facade.sys.adapter.SysClientAdapter;
 import com.taotao.cloud.goods.facade.sys.vo.DictVO;
 import com.taotao.cloud.sys.api.dubbo.DictRpcService;
 import com.taotao.cloud.sys.api.dubbo.response.DictRpcResponse;
 import com.taotao.cloud.sys.api.feign.DictApi;
+import com.taotao.cloud.sys.api.feign.request.DictQueryApiRequest;
 import com.taotao.cloud.sys.api.feign.response.DictApiResponse;
 import jakarta.annotation.Resource;
 import org.apache.dubbo.config.annotation.DubboReference;
@@ -41,10 +44,11 @@ public class SysDictClientProxy {
 
     // 查询用户
     public DictVO findByCode() {
-        DictApiResponse dictApiResponse = dictApi.findByCode("abcd");
+		FeignRequest<DictQueryApiRequest> dictQueryApiRequest = FeignRequest.<DictQueryApiRequest>builder().data(new DictQueryApiRequest()).build();
+		FeignResponse<DictApiResponse> dictApiResponse = dictApi.findByCode(dictQueryApiRequest);
 
-        DictRpcResponse dictRpcResponse = dictRpcService.findByCode(123);
+//        DictRpcResponse dictRpcResponse = dictRpcService.findByCode(123);
 
-        return sysClientAdapter.convert(dictApiResponse);
+        return sysClientAdapter.convert(dictApiResponse.getData());
     }
 }

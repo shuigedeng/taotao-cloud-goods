@@ -17,14 +17,16 @@
 package com.taotao.cloud.goods.api.feign;
 
 import com.taotao.boot.common.constant.ServiceNameConstants;
-import com.taotao.cloud.goods.api.feign.fallback.CategoryApiFallback;
+import com.taotao.boot.common.model.FeignRequest;
+import com.taotao.boot.common.model.FeignResponse;
 import com.taotao.cloud.goods.api.feign.fallback.GoodsEsIndexApiFallback;
+import com.taotao.cloud.goods.api.feign.request.GoodsApiRequest;
 import com.taotao.cloud.goods.api.feign.response.EsGoodsIndexApiResponse;
 import java.util.List;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestBody;
 
 /**
  * 远程调用订单模块
@@ -38,9 +40,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 	fallbackFactory = GoodsEsIndexApiFallback.class)
 public interface GoodsEsIndexApi {
 
-	@GetMapping(value = "/es/goods/sku/ids")
-	List<EsGoodsIndexApiResponse> getEsGoodsBySkuIds(@RequestParam("skuIdList") List<String> skuIdList);
+	@PostMapping(value = "/es/goods/sku/ids")
+	FeignResponse<List<EsGoodsIndexApiResponse>> getEsGoodsBySkuIds(
+		@Validated @RequestBody FeignRequest<List<GoodsApiRequest>> skuIdList);
 
 	@PostMapping(value = "/es/clean/invalid-promotion")
-	Boolean cleanInvalidPromotion();
+	FeignResponse<Boolean> cleanInvalidPromotion(@Validated @RequestBody FeignRequest<GoodsApiRequest> feignRequest);
 }

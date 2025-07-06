@@ -17,13 +17,16 @@
 package com.taotao.cloud.goods.api.feign;
 
 import com.taotao.boot.common.constant.ServiceNameConstants;
-import com.taotao.cloud.goods.api.feign.fallback.CategoryApiFallback;
+import com.taotao.boot.common.model.FeignRequest;
+import com.taotao.boot.common.model.FeignResponse;
 import com.taotao.cloud.goods.api.feign.fallback.StoreGoodsLabelApiFallback;
+import com.taotao.cloud.goods.api.feign.request.GoodsApiRequest;
 import com.taotao.cloud.goods.api.feign.response.StoreGoodsLabelApiResponse;
 import java.util.List;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 @FeignClient(
 	contextId = "StoreGoodsLabelApi",
@@ -31,6 +34,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 	fallbackFactory = StoreGoodsLabelApiFallback.class)
 public interface StoreGoodsLabelApi {
 
-	@GetMapping(value = "/store/{id}")
-	List<StoreGoodsLabelApiResponse> listByStoreId(@PathVariable("id") String id);
+	@PostMapping(value = "/store/{id}")
+	FeignResponse<List<StoreGoodsLabelApiResponse>> listByStoreId(
+		@Validated @RequestBody FeignRequest<GoodsApiRequest> id);
 }

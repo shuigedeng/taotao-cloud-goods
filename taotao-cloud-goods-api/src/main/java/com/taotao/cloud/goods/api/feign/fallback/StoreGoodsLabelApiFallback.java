@@ -16,7 +16,10 @@
 
 package com.taotao.cloud.goods.api.feign.fallback;
 
+import com.taotao.boot.common.model.FeignRequest;
+import com.taotao.boot.common.model.FeignResponse;
 import com.taotao.cloud.goods.api.feign.StoreGoodsLabelApi;
+import com.taotao.cloud.goods.api.feign.request.GoodsApiRequest;
 import com.taotao.cloud.goods.api.feign.response.StoreGoodsLabelApiResponse;
 import java.util.List;
 import org.springframework.cloud.openfeign.FallbackFactory;
@@ -26,10 +29,9 @@ public class StoreGoodsLabelApiFallback implements FallbackFactory<StoreGoodsLab
 	@Override
 	public StoreGoodsLabelApi create(Throwable throwable) {
 		return new StoreGoodsLabelApi() {
-
 			@Override
-			public List<StoreGoodsLabelApiResponse> listByStoreId(String id) {
-				return List.of();
+			public FeignResponse<List<StoreGoodsLabelApiResponse>> listByStoreId(FeignRequest<GoodsApiRequest> id) {
+				return null;
 			}
 		};
 	}

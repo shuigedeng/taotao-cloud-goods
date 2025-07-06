@@ -16,7 +16,10 @@
 
 package com.taotao.cloud.goods.api.feign.fallback;
 
+import com.taotao.boot.common.model.FeignRequest;
+import com.taotao.boot.common.model.FeignResponse;
 import com.taotao.cloud.goods.api.feign.GoodsSkuApi;
+import com.taotao.cloud.goods.api.feign.request.GoodsApiRequest;
 import com.taotao.cloud.goods.api.feign.request.GoodsSkuSpecGalleryApiRequest;
 import com.taotao.cloud.goods.api.feign.response.GoodsSkuSpecGalleryApiResponse;
 import java.util.List;
@@ -32,30 +35,27 @@ public class GoodsSkuApiFallback implements FallbackFactory<GoodsSkuApi> {
     @Override
     public GoodsSkuApi create(Throwable throwable) {
         return new GoodsSkuApi() {
-            @Override
-            public Boolean updateGoodsStuck(List<GoodsSkuSpecGalleryApiRequest> goodsSkus) {
-                return null;
-            }
+			@Override
+			public FeignResponse<Boolean> updateGoodsStuck(
+				FeignRequest<List<GoodsSkuSpecGalleryApiRequest>> goodsSkus) {
+				return null;
+			}
 
-            @Override
-            public Boolean updateBatchById(List<GoodsSkuSpecGalleryApiRequest> goodsSkus) {
-                return null;
-            }
+			@Override
+			public FeignResponse<Boolean> updateBatchById(FeignRequest<List<GoodsSkuSpecGalleryApiRequest>> goodsSkus) {
+				return null;
+			}
 
-            @Override
-            public List<GoodsSkuSpecGalleryApiResponse> getGoodsSkuByIdFromCache(List<Long> skuIds) {
-                return null;
-            }
+			@Override
+			public FeignResponse<List<GoodsSkuSpecGalleryApiResponse>> getGoodsSkuByIdFromCache(
+				FeignRequest<GoodsApiRequest> skuIds) {
+				return null;
+			}
 
-            @Override
-            public GoodsSkuSpecGalleryApiResponse getGoodsSkuByIdFromCache(Long skuId) {
-                return null;
-            }
-
-            @Override
-            public Integer getStock(String skuId) {
-                return null;
-            }
-        };
+			@Override
+			public FeignResponse<Integer> getStock(FeignRequest<GoodsApiRequest> skuId) {
+				return null;
+			}
+		};
     }
 }

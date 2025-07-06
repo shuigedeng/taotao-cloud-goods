@@ -17,12 +17,16 @@
 package com.taotao.cloud.goods.api.feign;
 
 import com.taotao.boot.common.constant.ServiceNameConstants;
+import com.taotao.boot.common.model.FeignRequest;
+import com.taotao.boot.common.model.FeignResponse;
 import com.taotao.cloud.goods.api.feign.fallback.CategoryApiFallback;
 import com.taotao.cloud.goods.api.feign.fallback.GoodsSkuApiFallback;
+import com.taotao.cloud.goods.api.feign.request.GoodsApiRequest;
 import com.taotao.cloud.goods.api.feign.request.GoodsSkuSpecGalleryApiRequest;
 import com.taotao.cloud.goods.api.feign.response.GoodsSkuSpecGalleryApiResponse;
 import java.util.List;
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -41,17 +45,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 public interface GoodsSkuApi {
 
 	@PostMapping(value = "/product/updateGoodsStuck")
-	Boolean updateGoodsStuck(@RequestBody List<GoodsSkuSpecGalleryApiRequest> goodsSkus);
+	FeignResponse<Boolean> updateGoodsStuck(@Validated @RequestBody FeignRequest<List<GoodsSkuSpecGalleryApiRequest>> goodsSkus);
 
 	@PostMapping(value = "/product/updateBatchById")
-	Boolean updateBatchById(@RequestBody List<GoodsSkuSpecGalleryApiRequest> goodsSkus);
+	FeignResponse<Boolean> updateBatchById(@Validated @RequestBody FeignRequest<List<GoodsSkuSpecGalleryApiRequest>> goodsSkus);
 
-	@GetMapping(value = "/product/getGoodsSkuByIdFromCache/sku-ids")
-	List<GoodsSkuSpecGalleryApiResponse> getGoodsSkuByIdFromCache(@RequestParam("skuIds")  List<Long> skuIds);
+	@PostMapping(value = "/product/getGoodsSkuByIdFromCache/sku-ids")
+	FeignResponse<List<GoodsSkuSpecGalleryApiResponse>> getGoodsSkuByIdFromCache(@Validated @RequestBody FeignRequest<GoodsApiRequest> skuIds);
 
-	@GetMapping(value = "/product/getGoodsSkuByIdFromCache/sku-id")
-	GoodsSkuSpecGalleryApiResponse getGoodsSkuByIdFromCache(@RequestParam("skuId") Long skuId);
-
-	@GetMapping(value = "/product/getStock")
-	Integer getStock(@RequestParam("skuId") String skuId);
+	@PostMapping(value = "/product/getStock")
+	FeignResponse<Integer> getStock(@Validated @RequestBody FeignRequest<GoodsApiRequest> skuId);
 }

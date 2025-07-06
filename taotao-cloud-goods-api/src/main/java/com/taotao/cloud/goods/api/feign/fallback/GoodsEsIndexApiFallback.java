@@ -16,7 +16,10 @@
 
 package com.taotao.cloud.goods.api.feign.fallback;
 
+import com.taotao.boot.common.model.FeignRequest;
+import com.taotao.boot.common.model.FeignResponse;
 import com.taotao.cloud.goods.api.feign.GoodsEsIndexApi;
+import com.taotao.cloud.goods.api.feign.request.GoodsApiRequest;
 import com.taotao.cloud.goods.api.feign.response.EsGoodsIndexApiResponse;
 import java.util.List;
 import org.springframework.cloud.openfeign.FallbackFactory;
@@ -31,15 +34,16 @@ public class GoodsEsIndexApiFallback implements FallbackFactory<GoodsEsIndexApi>
     @Override
     public GoodsEsIndexApi create(Throwable throwable) {
         return new GoodsEsIndexApi() {
-            @Override
-            public List<EsGoodsIndexApiResponse> getEsGoodsBySkuIds(List<String> skuIdList) {
-                return null;
-            }
+			@Override
+			public FeignResponse<List<EsGoodsIndexApiResponse>> getEsGoodsBySkuIds(
+				FeignRequest<List<GoodsApiRequest>> skuIdList) {
+				return null;
+			}
 
-            @Override
-            public Boolean cleanInvalidPromotion() {
-                return null;
-            }
-        };
+			@Override
+			public FeignResponse<Boolean> cleanInvalidPromotion(FeignRequest<GoodsApiRequest> feignRequest) {
+				return null;
+			}
+		};
     }
 }
