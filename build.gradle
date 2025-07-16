@@ -210,7 +210,7 @@ plugins {
     //https://github.com/vanniktech/gradle-maven-publish-plugin
     //https://vanniktech.github.io/gradle-maven-publish-plugin/central/v
     //https://vanniktech.github.io/gradle-maven-publish-plugin/other/
-    id "com.vanniktech.maven.publish" version "0.33.0"
+    id "com.vanniktech.maven.publish" version "0.34.0"
 }
 
 // 定义库引用
@@ -330,9 +330,6 @@ allprojects {
         maven { url = "https://s01.oss.sonatype.org/content/repositories/snapshots/" }
     }
 }
-
-import com.vanniktech.maven.publish.SonatypeHost
-import com.vanniktech.maven.publish.JavaPlatform
 
 subprojects {
     apply plugin: 'java'
