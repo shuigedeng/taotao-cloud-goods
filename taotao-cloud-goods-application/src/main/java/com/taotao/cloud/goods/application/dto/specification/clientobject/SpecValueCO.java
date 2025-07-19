@@ -32,8 +32,7 @@ import lombok.experimental.Accessors;
 @NoArgsConstructor
 public class SpecValueCO extends ClientObject {
 
-    @Serial
-    private static final long serialVersionUID = -4433579132929428572L;
+    @Serial private static final long serialVersionUID = -4433579132929428572L;
 
     @Schema(description = "规格项名字")
     private String specName;
@@ -48,8 +47,8 @@ public class SpecValueCO extends ClientObject {
     private List<SpecImages> specImage;
 
     @Setter
-@Getter
-@ToString
+    @Getter
+    @ToString
     public static class SpecImages implements Serializable {
 
         private static final long serialVersionUID = 1816357809660916086L;

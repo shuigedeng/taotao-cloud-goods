@@ -29,8 +29,8 @@ import java.io.Serial;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
-import lombok.AllArgsConstructor;
 import lombok.*;
+import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 import org.hibernate.validator.constraints.Length;
@@ -44,8 +44,7 @@ import org.hibernate.validator.constraints.Length;
 @NoArgsConstructor
 public class GoodsAddCmd extends Command {
 
-    @Serial
-    private static final long serialVersionUID = -509667581371776913L;
+    @Serial private static final long serialVersionUID = -509667581371776913L;
 
     @Schema(description = "商品id")
     private Long goodsId;

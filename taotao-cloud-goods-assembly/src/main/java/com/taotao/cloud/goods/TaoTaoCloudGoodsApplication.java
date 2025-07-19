@@ -60,13 +60,14 @@ import com.taotao.cloud.bootstrap.annotation.TaoTaoCloudApplication;
 // @ComponentScan(basePackages = {
 //	"com.taotao.cloud.goods.biz.repository.cls"
 // } )
-// @EnableFeignClients(basePackages = {"com.taotao.cloud.goods.api.feign","com.taotao.cloud.goods.api.feign"})
+// @EnableFeignClients(basePackages =
+// {"com.taotao.cloud.goods.api.feign","com.taotao.cloud.goods.api.feign"})
 @TaoTaoBootApplication
 @TaoTaoCloudApplication
 public class TaoTaoCloudGoodsApplication {
 
     public static void main(String[] args) {
-		System.setProperty("com.google.protobuf.use_unsafe_pre22_gencode", "true");
+        System.setProperty("com.google.protobuf.use_unsafe_pre22_gencode", "true");
 
         new StartupSpringApplication(TaoTaoCloudGoodsApplication.class)
                 .setTtcBanner()

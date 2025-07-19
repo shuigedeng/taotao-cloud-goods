@@ -30,7 +30,8 @@ import org.apache.ibatis.annotations.Select;
  * @version 2022.04
  * @since 2022-04-27 16:55:35
  */
-public interface CategorySpecificationMapper extends BaseSuperMapper<CategorySpecificationPO, Long> {
+public interface CategorySpecificationMapper
+        extends BaseSuperMapper<CategorySpecificationPO, Long> {
 
     /**
      * 根据分类id查分类绑定规格
@@ -41,9 +42,9 @@ public interface CategorySpecificationMapper extends BaseSuperMapper<CategorySpe
      */
     @Select(
             """
-		select s.*
-		from  tt_specification s
-		INNER join tt_category_specification cs on s.id = cs.specification_id and cs.category_id = #{categoryId}
-		""")
+        select s.*
+        from  tt_specification s
+        INNER join tt_category_specification cs on s.id = cs.specification_id and cs.category_id = #{categoryId}
+        """)
     List<SpecificationPO> getCategorySpecList(@Param("categoryId") Long categoryId);
 }

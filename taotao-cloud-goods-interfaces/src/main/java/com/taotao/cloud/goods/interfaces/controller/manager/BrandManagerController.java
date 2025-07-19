@@ -59,7 +59,11 @@ public class BrandManagerController extends BusinessController {
 
     @Operation(summary = "通过id获取", description = "通过id获取")
     @Parameters({
-        @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
+        @Parameter(
+                name = "parentId",
+                required = true,
+                description = "父ID 0-最上级id",
+                in = ParameterIn.PATH),
     })
     @RequestLogger
     @PreAuthorize("hasAuthority('dept:tree:data')")
@@ -71,7 +75,8 @@ public class BrandManagerController extends BusinessController {
 
     //    @Operation(summary = "获取所有可用品牌", description = "获取所有可用品牌")
     //    @Parameters({
-    //            @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
+    //            @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in =
+    // ParameterIn.PATH),
     //    })
     //    @RequestLogger
     //    @PreAuthorize("hasAuthority('dept:tree:data')")
@@ -83,7 +88,8 @@ public class BrandManagerController extends BusinessController {
 
     //    @Operation(summary = "分页获取", description = "分页获取")
     //    @Parameters({
-    //            @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
+    //            @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in =
+    // ParameterIn.PATH),
     //    })
     //    @RequestLogger
     //    @PreAuthorize("hasAuthority('dept:tree:data')")
@@ -95,7 +101,11 @@ public class BrandManagerController extends BusinessController {
 
     @Operation(summary = "新增品牌", description = "新增品牌")
     @Parameters({
-        @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
+        @Parameter(
+                name = "parentId",
+                required = true,
+                description = "父ID 0-最上级id",
+                in = ParameterIn.PATH),
     })
     @RequestLogger
     @PreAuthorize("hasAuthority('dept:tree:data')")
@@ -106,7 +116,11 @@ public class BrandManagerController extends BusinessController {
 
     @Operation(summary = "更新品牌", description = "更新品牌")
     @Parameters({
-        @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
+        @Parameter(
+                name = "parentId",
+                required = true,
+                description = "父ID 0-最上级id",
+                in = ParameterIn.PATH),
     })
     @RequestLogger
     @PreAuthorize("hasAuthority('dept:tree:data')")
@@ -118,7 +132,11 @@ public class BrandManagerController extends BusinessController {
 
     @Operation(summary = "后台禁用品牌", description = "后台禁用品牌")
     @Parameters({
-        @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
+        @Parameter(
+                name = "parentId",
+                required = true,
+                description = "父ID 0-最上级id",
+                in = ParameterIn.PATH),
     })
     @RequestLogger
     @PreAuthorize("hasAuthority('dept:tree:data')")
@@ -129,7 +147,11 @@ public class BrandManagerController extends BusinessController {
 
     @Operation(summary = "批量删除", description = "批量删除")
     @Parameters({
-        @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
+        @Parameter(
+                name = "parentId",
+                required = true,
+                description = "父ID 0-最上级id",
+                in = ParameterIn.PATH),
     })
     @RequestLogger
     @PreAuthorize("hasAuthority('dept:tree:data')")

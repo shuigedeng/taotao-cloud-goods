@@ -77,7 +77,9 @@ public class GoodsGalleryPO extends BaseSuperEntity<GoodsGalleryPO, Long> {
     private String original;
 
     /** 是否是默认图片1 0没有默认 */
-    @Column(name = "`is_default`", columnDefinition = "int not null default 0 comment '是否是默认图片1  0没有默认'")
+    @Column(
+            name = "`is_default`",
+            columnDefinition = "int not null default 0 comment '是否是默认图片1  0没有默认'")
     private Integer isDefault;
 
     /** 排序 */

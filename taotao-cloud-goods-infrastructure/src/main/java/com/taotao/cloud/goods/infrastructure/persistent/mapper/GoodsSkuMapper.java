@@ -40,10 +40,11 @@ public interface GoodsSkuMapper extends BaseSuperMapper<GoodsSkuPO, Long> {
      * @return {@link List }<{@link String }>
      * @since 2022-04-27 16:57:22
      */
-    @Select("""
-		SELECT id
-		FROM tt_goods_sku
-		WHERE goods_id = #{goodsId}
-		""")
+    @Select(
+            """
+        SELECT id
+        FROM tt_goods_sku
+        WHERE goods_id = #{goodsId}
+        """)
     List<String> getGoodsSkuIdByGoodsId(@Param(value = "goodsId") Long goodsId);
 }

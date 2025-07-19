@@ -18,7 +18,6 @@ package com.taotao.cloud.goods;
 
 import com.taotao.boot.test.TtcBootTestBase;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.context.SpringBootTestContextBootstrapper;
 
 @SpringBootTest
 public abstract class TaoTaoCloudGoodsApplicationTests extends TtcBootTestBase {
@@ -29,6 +28,7 @@ public abstract class TaoTaoCloudGoodsApplicationTests extends TtcBootTestBase {
         System.setProperty("spring.banner.location", "ttc-banner.txt");
         System.setProperty("spring.profiles.active", "dev");
         System.setProperty("spring.output.ansi.enabled", "ALWAYS");
-        System.setProperty("arthas.outputPath", "${user.home}/logs/taotao-cloud-goods/arthas-output");
+        System.setProperty(
+                "arthas.outputPath", "${user.home}/logs/taotao-cloud-goods/arthas-output");
     }
 }

@@ -42,12 +42,14 @@ package com.taotao.cloud.goods.interfaces.grpc; /// *
 // public class GoodsSkuGrpcServiceImpl extends GoodsSkuGrpcServiceImplBase {
 //
 //    @Override
-//    public void updateBatchById(GoodsSkuGrpcRequest request, StreamObserver<GoodsSkuGrpcResponse> responseObserver) {
+//    public void updateBatchById(GoodsSkuGrpcRequest request, StreamObserver<GoodsSkuGrpcResponse>
+// responseObserver) {
 //        super.updateBatchById(request, responseObserver);
 //    }
 //
 //    @Override
-//    public void updateGoodsStuck(GoodsSkuGrpcRequest request, StreamObserver<GoodsSkuGrpcResponse> responseObserver) {
+//    public void updateGoodsStuck(GoodsSkuGrpcRequest request, StreamObserver<GoodsSkuGrpcResponse>
+// responseObserver) {
 //        super.updateGoodsStuck(request, responseObserver);
 //    }
 //

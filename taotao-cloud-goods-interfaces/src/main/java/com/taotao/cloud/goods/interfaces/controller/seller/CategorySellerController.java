@@ -53,10 +53,12 @@ public class CategorySellerController extends BusinessController {
     private final CategoryQueryService categoryQueryService;
 
     private final CategoryCommandService categoryCommandService;
+
     /** 分类品牌服务 */
     private final CategoryBrandQueryService categoryBrandQueryService;
 
     private final CategoryBrandCommandService categoryBrandCommandService;
+
     /// ** 店铺详情服务 */
     // private final FeignStoreDetailApi storeDetailApi;
 
@@ -67,8 +69,10 @@ public class CategorySellerController extends BusinessController {
     // public Result<List<CategoryTreeCO>> getListAll() {
     //    Long storeId = SecurityUtils.getCurrentUser().getStoreId();
     //    // 获取店铺经营范围
-    //    String goodsManagementCategory = storeDetailApi.getStoreDetailVO(storeId).getGoodsManagementCategory();
-    //    return Result.success(this.categoryQueryService.getStoreCategory(goodsManagementCategory.split(",")));
+    //    String goodsManagementCategory =
+    // storeDetailApi.getStoreDetailVO(storeId).getGoodsManagementCategory();
+    //    return
+    // Result.success(this.categoryQueryService.getStoreCategory(goodsManagementCategory.split(",")));
     // }
 
     @Operation(summary = "获取所选分类关联的品牌信息", description = "获取所选分类关联的品牌信息")

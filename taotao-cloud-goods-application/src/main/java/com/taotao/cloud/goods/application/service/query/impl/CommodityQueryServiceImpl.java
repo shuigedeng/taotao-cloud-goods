@@ -39,7 +39,8 @@ public class CommodityQueryServiceImpl implements CommodityQueryService {
     }
 
     @Override
-    public IPage<CommoditySkuCO> commodityList(PageQuery pageQuery, String name, String auditStatus) {
+    public IPage<CommoditySkuCO> commodityList(
+            PageQuery pageQuery, String name, String auditStatus) {
         return null;
     }
 

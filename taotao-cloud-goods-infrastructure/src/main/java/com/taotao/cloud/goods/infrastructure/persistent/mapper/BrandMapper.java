@@ -35,7 +35,10 @@ public interface BrandMapper extends BaseSuperMapper<BrandPO, Long> {
     default IPage<BrandPO> findBrandPage(BrandPageParam brandPageParam) {
         LambdaQueryWrapper<BrandPO> queryWrapper = new LambdaQueryWrapper<>();
 
-        queryWrapper.like(StringUtils.isNotBlank(brandPageParam.getName()), BrandPO::getName, brandPageParam.getName());
+        queryWrapper.like(
+                StringUtils.isNotBlank(brandPageParam.getName()),
+                BrandPO::getName,
+                brandPageParam.getName());
 
         return this.selectPage(queryWrapper, brandPageParam);
     }

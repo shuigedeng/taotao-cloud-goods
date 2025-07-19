@@ -19,4 +19,5 @@ package com.taotao.cloud.goods.infrastructure.persistent.repository.inf;
 import com.taotao.boot.webagg.repository.BaseInterfaceSuperRepository;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsGalleryPO;
 
-public interface IGoodsGalleryRepository extends BaseInterfaceSuperRepository<GoodsGalleryPO, Long> {}
+public interface IGoodsGalleryRepository
+        extends BaseInterfaceSuperRepository<GoodsGalleryPO, Long> {}

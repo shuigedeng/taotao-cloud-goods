@@ -58,6 +58,7 @@ public class GoodsManagerController extends BusinessController {
     private final GoodsQueryService goodsQueryService;
 
     private final GoodsCommandService goodsCommandService;
+
     /** 规格商品服务 */
     private final GoodsSkuQueryService goodsSkuQueryService;
 
@@ -65,7 +66,11 @@ public class GoodsManagerController extends BusinessController {
 
     @Operation(summary = "管理员上架商品", description = "管理员上架商品")
     @Parameters({
-        @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
+        @Parameter(
+                name = "parentId",
+                required = true,
+                description = "父ID 0-最上级id",
+                in = ParameterIn.PATH),
     })
     @RequestLogger("管理员上架商品")
     @PreAuthorize("hasAuthority('dept:tree:data')")
@@ -76,7 +81,8 @@ public class GoodsManagerController extends BusinessController {
 
     //    @Operation(summary = "分页获取", description = "分页获取")
     //    @Parameters({
-    //            @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
+    //            @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in =
+    // ParameterIn.PATH),
     //    })
     //    @RequestLogger("分页获取")
     //    @PreAuthorize("hasAuthority('dept:tree:data')")
@@ -88,19 +94,22 @@ public class GoodsManagerController extends BusinessController {
 
     // @Operation(summary = "分页获取商品列表", description = "分页获取商品列表")
     // @Parameters({
-    //        @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
+    //        @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in =
+    // ParameterIn.PATH),
     // })
     // @RequestLogger("分页获取商品列表")
     // @PreAuthorize("hasAuthority('dept:tree:data')")
     // @GetMapping(value = "/sku/page")
     // public Result<PageResult<GoodsSkuCO>> getSkuByPage(@Validated GoodsPageQry goodsPageQuery) {
     //    IPage<GoodsSkuPO> goodsSkuPage = goodsSkuQueryService.goodsSkuQueryPage(goodsPageQuery);
-    //    return Result.success(MpUtils.convertMybatisPage(goodsSkuPage, GoodsSkuConvert.INSTANCE::convert));
+    //    return Result.success(MpUtils.convertMybatisPage(goodsSkuPage,
+    // GoodsSkuConvert.INSTANCE::convert));
     // }
 
     //    @Operation(summary = "分页获取待审核商品", description = "分页获取待审核商品")
     //    @Parameters({
-    //            @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
+    //            @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in =
+    // ParameterIn.PATH),
     //    })
     //    @RequestLogger("分页获取待审核商品")
     //    @PreAuthorize("hasAuthority('dept:tree:data')")
@@ -113,43 +122,64 @@ public class GoodsManagerController extends BusinessController {
 
     @Operation(summary = "管理员下架商品", description = "管理员下架商品")
     @Parameters({
-        @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
+        @Parameter(
+                name = "parentId",
+                required = true,
+                description = "父ID 0-最上级id",
+                in = ParameterIn.PATH),
     })
     @RequestLogger("管理员下架商品")
     @PreAuthorize("hasAuthority('dept:tree:data')")
     @PutMapping(value = "/{goodsId}/under")
     public Result<Boolean> underGoods(
-            @PathVariable Long goodsId, @NotEmpty(message = "下架原因不能为空") @RequestParam String reason) {
+            @PathVariable Long goodsId,
+            @NotEmpty(message = "下架原因不能为空") @RequestParam String reason) {
         List<Long> goodsIds = List.of(goodsId);
-        return Result.success(goodsCommandService.managerUpdateGoodsMarketAble(goodsIds, GoodsStatusEnum.DOWN, reason));
+        return Result.success(
+                goodsCommandService.managerUpdateGoodsMarketAble(
+                        goodsIds, GoodsStatusEnum.DOWN, reason));
     }
 
     @Operation(summary = "管理员审核商品", description = "管理员审核商品")
     @Parameters({
-        @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
+        @Parameter(
+                name = "parentId",
+                required = true,
+                description = "父ID 0-最上级id",
+                in = ParameterIn.PATH),
     })
     @RequestLogger("管理员审核商品")
     @PreAuthorize("hasAuthority('dept:tree:data')")
     @PutMapping(value = "{goodsIds}/auth")
     public Result<Boolean> auth(@PathVariable List<Long> goodsIds, @RequestParam String authFlag) {
         // 校验商品是否存在
-        return Result.success(goodsCommandService.auditGoods(goodsIds, GoodsAuthEnum.valueOf(authFlag)));
+        return Result.success(
+                goodsCommandService.auditGoods(goodsIds, GoodsAuthEnum.valueOf(authFlag)));
     }
 
     @Operation(summary = "管理员上架商品", description = "管理员上架商品")
     @Parameters({
-        @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
+        @Parameter(
+                name = "parentId",
+                required = true,
+                description = "父ID 0-最上级id",
+                in = ParameterIn.PATH),
     })
     @RequestLogger("管理员上架商品")
     @PreAuthorize("hasAuthority('dept:tree:data')")
     @PutMapping(value = "/{goodsId}/up")
     public Result<Boolean> unpGoods(@PathVariable List<Long> goodsId) {
-        return Result.success(goodsCommandService.updateGoodsMarketAble(goodsId, GoodsStatusEnum.UPPER, ""));
+        return Result.success(
+                goodsCommandService.updateGoodsMarketAble(goodsId, GoodsStatusEnum.UPPER, ""));
     }
 
     @Operation(summary = "通过id获取商品详情", description = "通过id获取商品详情")
     @Parameters({
-        @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
+        @Parameter(
+                name = "parentId",
+                required = true,
+                description = "父ID 0-最上级id",
+                in = ParameterIn.PATH),
     })
     @RequestLogger("通过id获取商品详情")
     @PreAuthorize("hasAuthority('dept:tree:data')")

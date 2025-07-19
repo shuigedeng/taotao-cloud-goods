@@ -31,8 +31,7 @@ import lombok.experimental.Accessors;
 @Schema(description = "参数组关联的参数集合")
 public class SpecificationCO extends ClientObject {
 
-    @Serial
-    private static final long serialVersionUID = -4433579132929428572L;
+    @Serial private static final long serialVersionUID = -4433579132929428572L;
 
     @Schema(description = "id")
     private Long id;

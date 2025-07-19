@@ -163,7 +163,8 @@ public class GoodsQueryServiceImpl implements GoodsQueryService {
     //		.toList());
     //
     //	// 商品sku赋值
-    //	List<GoodsSkuSpecGalleryCO> goodsListByGoodsId = goodsSkuService.getGoodsListByGoodsId(goodsId);
+    //	List<GoodsSkuSpecGalleryCO> goodsListByGoodsId =
+    // goodsSkuService.getGoodsListByGoodsId(goodsId);
     //	if (goodsListByGoodsId != null && !goodsListByGoodsId.isEmpty()) {
     //		goodsSkuParamsCO.setSkuList(goodsListByGoodsId);
     //	}
@@ -179,7 +180,8 @@ public class GoodsQueryServiceImpl implements GoodsQueryService {
     //
     //	// 参数非空则填写参数
     //	if (StrUtil.isNotEmpty(goods.getParams())) {
-    //		goodsSkuParamsCO.setGoodsParamsDTOList(JSONUtil.toList(goods.getParams(), GoodsParamsDTO.class));
+    //		goodsSkuParamsCO.setGoodsParamsDTOList(JSONUtil.toList(goods.getParams(),
+    // GoodsParamsDTO.class));
     //	}
     //
     //	redisRepository.set(CachePrefix.GOODS.getPrefix() + goodsId, goodsSkuParamsCO);
@@ -188,7 +190,8 @@ public class GoodsQueryServiceImpl implements GoodsQueryService {
     //
     // @Override
     // public IPage<GoodsPO> goodsQueryPage(GoodsPageQuery goodsPageQuery) {
-    //	return this.page(goodsPageQuery.buildMpPage(), goodsManager.goodsQueryWrapper(goodsPageQuery));
+    //	return this.page(goodsPageQuery.buildMpPage(),
+    // goodsManager.goodsQueryWrapper(goodsPageQuery));
     // }
     //
     // @Override

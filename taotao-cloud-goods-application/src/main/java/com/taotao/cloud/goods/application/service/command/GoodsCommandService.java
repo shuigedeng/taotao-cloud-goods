@@ -90,7 +90,8 @@ public interface GoodsCommandService extends CommandService {
      * @return {@link boolean }
      * @since 2022-04-27 17:00:16
      */
-    boolean updateGoodsMarketAble(List<Long> goodsIds, GoodsStatusEnum goodsStatusEnum, String underReason);
+    boolean updateGoodsMarketAble(
+            List<Long> goodsIds, GoodsStatusEnum goodsStatusEnum, String underReason);
 
     /**
      * 更新商品上架状态状态
@@ -101,7 +102,8 @@ public interface GoodsCommandService extends CommandService {
      * @return {@link boolean }
      * @since 2022-04-27 17:00:16
      */
-    boolean managerUpdateGoodsMarketAble(List<Long> goodsIds, GoodsStatusEnum goodsStatusEnum, String underReason);
+    boolean managerUpdateGoodsMarketAble(
+            List<Long> goodsIds, GoodsStatusEnum goodsStatusEnum, String underReason);
 
     /**
      * 删除商品

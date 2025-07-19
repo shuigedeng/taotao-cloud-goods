@@ -22,7 +22,8 @@ import jakarta.persistence.EntityManager;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class CategoryParameterGroupRepository extends BaseClassSuperRepository<CategoryParameterGroupPO, Long> {
+public class CategoryParameterGroupRepository
+        extends BaseClassSuperRepository<CategoryParameterGroupPO, Long> {
 
     public CategoryParameterGroupRepository(EntityManager em) {
         super(CategoryParameterGroupPO.class, em);

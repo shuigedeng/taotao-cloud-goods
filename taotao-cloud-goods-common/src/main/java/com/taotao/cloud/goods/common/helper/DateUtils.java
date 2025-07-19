@@ -35,21 +35,26 @@ public enum DateUtils {
     private static final String DEFAULT_DATE_FORMAT = "yyyy-MM-dd";
     private static final String DEFAULT_DATE_TIME_FORMAT = "yyyy-MM-dd HH:mm:ss";
     private static final ZoneId DEFAULT_ZONE_ID = ZoneId.systemDefault();
-    private static final DateTimeFormatter DEFAULT_DATE_FORMATTER = DateTimeFormatter.ofPattern(DEFAULT_DATE_FORMAT);
+    private static final DateTimeFormatter DEFAULT_DATE_FORMATTER =
+            DateTimeFormatter.ofPattern(DEFAULT_DATE_FORMAT);
     private static final DateTimeFormatter DEFAULT_DATE_TIME_FORMATTER =
             DateTimeFormatter.ofPattern(DEFAULT_DATE_TIME_FORMAT);
+
     /**
      * S 秒
      */
     private static final int S = 1000;
+
     /**
      * MIN 分钟
      */
     private static final int MIN = S * 60;
+
     /**
      * H 小时
      */
     private static final int H = MIN * 60;
+
     /**
      * D 天
      */
@@ -144,12 +149,13 @@ public enum DateUtils {
      * 日期是否是今天
      */
     public static boolean isCurrentDate(@NonNull Date date) {
-        return date.after(
-                        Date.from(LocalDate.now().atStartOfDay(DEFAULT_ZONE_ID).toInstant()))
-                && date.before(Date.from(LocalDate.now()
-                        .plusDays(1)
-                        .atStartOfDay(DEFAULT_ZONE_ID)
-                        .toInstant()));
+        return date.after(Date.from(LocalDate.now().atStartOfDay(DEFAULT_ZONE_ID).toInstant()))
+                && date.before(
+                        Date.from(
+                                LocalDate.now()
+                                        .plusDays(1)
+                                        .atStartOfDay(DEFAULT_ZONE_ID)
+                                        .toInstant()));
     }
 
     /**
@@ -260,7 +266,8 @@ public enum DateUtils {
      * @param second      秒
      * @param millisecond 毫秒
      */
-    private static void setCalendarTime(Calendar calendar, int hour, int minute, int second, int millisecond) {
+    private static void setCalendarTime(
+            Calendar calendar, int hour, int minute, int second, int millisecond) {
         calendar.set(Calendar.HOUR_OF_DAY, hour);
         calendar.set(Calendar.MINUTE, minute);
         calendar.set(Calendar.SECOND, second);

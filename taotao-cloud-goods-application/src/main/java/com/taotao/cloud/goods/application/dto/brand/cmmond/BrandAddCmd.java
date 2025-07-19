@@ -94,7 +94,14 @@ public class BrandAddCmd extends Command {
     }
 
     public String toString() {
-        return "BrandAddCmd{serialVersionUID = " + serialVersionUID + ", id = " + id + ", name = " + name + ", logo = "
-                + logo + "}";
+        return "BrandAddCmd{serialVersionUID = "
+                + serialVersionUID
+                + ", id = "
+                + id
+                + ", name = "
+                + name
+                + ", logo = "
+                + logo
+                + "}";
     }
 }

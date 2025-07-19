@@ -45,6 +45,7 @@ import org.springframework.stereotype.Service;
 public class CategoryQueryServiceImpl implements CategoryQueryService {
 
     private final RedisRepository redisRepository;
+
     /**
      * 商品品牌业务层
      */
@@ -121,9 +122,7 @@ public class CategoryQueryServiceImpl implements CategoryQueryService {
     @Override
     public List<CategoryTreeCO> getStoreCategory(String[] categories) {
         List<String> arr = Arrays.asList(categories.clone());
-        return categoryTree().stream()
-                .filter(item -> arr.contains(item.getId()))
-                .toList();
+        return categoryTree().stream().filter(item -> arr.contains(item.getId())).toList();
     }
 
     //	@Override

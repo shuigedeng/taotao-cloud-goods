@@ -30,14 +30,12 @@ public class GoodsWeight implements ValueObject {
     /**
      * 重量值
      */
-    @NotNull
-    @PositiveOrZero
-    private BigDecimal weight;
+    @NotNull @PositiveOrZero private BigDecimal weight;
+
     /**
      * 重量单位
      */
-    @NotNull
-    private WeightUnit unit;
+    @NotNull private WeightUnit unit;
 
     GoodsWeight() {}
 

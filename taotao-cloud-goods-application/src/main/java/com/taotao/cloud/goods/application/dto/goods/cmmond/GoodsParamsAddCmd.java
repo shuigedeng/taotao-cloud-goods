@@ -40,8 +40,7 @@ import lombok.experimental.Accessors;
 @Schema(description = "商品参数分组")
 public class GoodsParamsAddCmd extends Command {
 
-    @Serial
-    private static final long serialVersionUID = 4892783539320159200L;
+    @Serial private static final long serialVersionUID = 4892783539320159200L;
 
     @Schema(description = "分组id")
     private Long groupId;

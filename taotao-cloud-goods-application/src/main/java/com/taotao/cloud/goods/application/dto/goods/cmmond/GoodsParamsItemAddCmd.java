@@ -19,8 +19,8 @@ package com.taotao.cloud.goods.application.dto.goods.cmmond;
 import com.taotao.boot.ddd.model.application.dto.Command;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
-import lombok.AllArgsConstructor;
 import lombok.*;
+import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
@@ -40,8 +40,7 @@ import lombok.experimental.Accessors;
 @Schema(description = "商品参数列表")
 public class GoodsParamsItemAddCmd extends Command {
 
-    @Serial
-    private static final long serialVersionUID = -8823775607604091035L;
+    @Serial private static final long serialVersionUID = -8823775607604091035L;
 
     @Schema(description = "参数ID")
     private Long paramId;

@@ -35,6 +35,7 @@ public interface GoodsAppAssembler {
 
     /** 实例 */
     GoodsAppAssembler INSTANCE = Mappers.getMapper(GoodsAppAssembler.class);
+
     //
     /// **
     // * 参数参数vos

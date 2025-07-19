@@ -37,8 +37,7 @@ import lombok.experimental.Accessors;
 @Schema(description = "规格查询参数")
 public class SpecificationAddCmd extends Command {
 
-    @Serial
-    private static final long serialVersionUID = 8906820486037326039L;
+    @Serial private static final long serialVersionUID = 8906820486037326039L;
 
     @Schema(description = "名称")
     private String specName;

@@ -42,8 +42,7 @@ import lombok.experimental.Accessors;
 @Schema(description = "商品基础CO")
 public class GoodsCO extends ClientObject {
 
-    @Serial
-    private static final long serialVersionUID = 1450550797436233753L;
+    @Serial private static final long serialVersionUID = 1450550797436233753L;
 
     private Long id;
 

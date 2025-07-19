@@ -21,8 +21,8 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
 import java.util.List;
 import java.util.Map;
-import lombok.AllArgsConstructor;
 import lombok.*;
+import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
@@ -43,8 +43,7 @@ import lombok.experimental.Accessors;
 @NoArgsConstructor
 public class EsGoodsSearchQry extends PageQuery {
 
-    @Serial
-    private static final long serialVersionUID = -7605952923416404638L;
+    @Serial private static final long serialVersionUID = -7605952923416404638L;
 
     @Schema(description = "关键字")
     private String keyword;

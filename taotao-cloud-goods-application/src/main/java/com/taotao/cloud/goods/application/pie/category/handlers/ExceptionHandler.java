@@ -26,7 +26,8 @@ public class ExceptionHandler extends ChannelHandlerAdapter {
     private Logger logger = LoggerFactory.getLogger(ExceptionHandler.class);
 
     @Override
-    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause, Object in, Object out) throws Exception {
+    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause, Object in, Object out)
+            throws Exception {
 
         logger.error("异常处理器中的异常处理逻辑");
 

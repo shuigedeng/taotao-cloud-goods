@@ -34,8 +34,7 @@ public class HotWordsEveryDayTaskExecute implements EveryDayExecute {
     /**
      * 复述,库
      */
-    @Autowired
-    private RedisRepository redisRepository;
+    @Autowired private RedisRepository redisRepository;
 
     /**
      * 执行每日任务

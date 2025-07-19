@@ -24,13 +24,12 @@ import com.taotao.cloud.goods.api.enums.GoodsStatusEnum;
 import com.taotao.cloud.goods.api.enums.GoodsTypeEnum;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.Max;
-import lombok.AllArgsConstructor;
+import java.util.Date;
 import lombok.*;
+import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.Length;
-
-import java.util.Date;
 
 /**
  * @since 2022/6/13
@@ -93,6 +92,7 @@ public class GoodsSkuSearchQry extends Query {
     @Schema(description = "重量")
     @Max(value = 99999999, message = "重量不能超过99999999")
     private Double weight;
+
     /**
      * @see GoodsStatusEnum
      */
@@ -179,6 +179,7 @@ public class GoodsSkuSearchQry extends Query {
      */
     @Schema(description = "销售模式", requiredMode = Schema.RequiredMode.REQUIRED)
     private String salesModel;
+
     /**
      * @see GoodsTypeEnum
      */

@@ -56,7 +56,8 @@ public class MemberPointExecuteHandler implements MemberRegisterEventHandler {
     //     * @return 积分设置
     //     */
     //    private PointSettingVO getPointSetting() {
-    //        PointSettingVO setting = settingApi.getPointSetting(SettingCategoryEnum.POINT_SETTING.name());
+    //        PointSettingVO setting =
+    // settingApi.getPointSetting(SettingCategoryEnum.POINT_SETTING.name());
     //        return setting;
     //    }
 }

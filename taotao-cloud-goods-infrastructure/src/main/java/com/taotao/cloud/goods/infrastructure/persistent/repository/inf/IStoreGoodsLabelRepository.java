@@ -19,4 +19,5 @@ package com.taotao.cloud.goods.infrastructure.persistent.repository.inf;
 import com.taotao.boot.webagg.repository.BaseInterfaceSuperRepository;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.StoreGoodsLabelPO;
 
-public interface IStoreGoodsLabelRepository extends BaseInterfaceSuperRepository<StoreGoodsLabelPO, Long> {}
+public interface IStoreGoodsLabelRepository
+        extends BaseInterfaceSuperRepository<StoreGoodsLabelPO, Long> {}

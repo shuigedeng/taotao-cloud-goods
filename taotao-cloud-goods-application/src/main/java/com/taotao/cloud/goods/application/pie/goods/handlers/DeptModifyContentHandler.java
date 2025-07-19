@@ -39,5 +39,6 @@ public class DeptModifyContentHandler implements ChannelHandler {
     }
 
     @Override
-    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause, Object in, Object out) throws Exception {}
+    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause, Object in, Object out)
+            throws Exception {}
 }

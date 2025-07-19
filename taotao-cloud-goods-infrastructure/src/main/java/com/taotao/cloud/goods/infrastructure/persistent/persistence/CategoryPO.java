@@ -84,7 +84,9 @@ public class CategoryPO extends BaseSuperEntity<CategoryPO, Long> {
     private String image;
 
     /** 是否支持频道 */
-    @Column(name = "`support_channel`", columnDefinition = "boolean null default false comment '是否支持频道'")
+    @Column(
+            name = "`support_channel`",
+            columnDefinition = "boolean null default false comment '是否支持频道'")
     private Boolean supportChannel;
 
     public String getName() {

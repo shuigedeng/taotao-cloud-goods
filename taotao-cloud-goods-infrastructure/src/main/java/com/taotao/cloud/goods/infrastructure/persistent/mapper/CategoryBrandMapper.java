@@ -41,9 +41,9 @@ public interface CategoryBrandMapper extends BaseSuperMapper<CategoryBrandPO, Lo
      */
     @Select(
             """
-		SELECT b.id,b.name,b.logo
-		FROM tt_brand b INNER join tt_category_brand cb on b.id = cb.brand_id and cb.category_id = #{categoryId}
-		where b.delete_flag = 0
-		""")
+        SELECT b.id,b.name,b.logo
+        FROM tt_brand b INNER join tt_category_brand cb on b.id = cb.brand_id and cb.category_id = #{categoryId}
+        where b.delete_flag = 0
+        """)
     List<CategoryBrandDO> getCategoryBrandList(@Param(value = "categoryId") Long categoryId);
 }

@@ -71,8 +71,10 @@ public class SpecificationManagerController extends BusinessController {
     //    @RequestLogger("搜索规格")
     //    @PreAuthorize("hasAuthority('dept:tree:data')")
     //    @GetMapping
-    //    public Result<PageResult<SpecificationCO>> page(@Validated SpecificationPageQry specificationPageQuery) {
-    //        IPage<SpecificationPO> specificationPage = specificationQueryService.getPage(specificationPageQuery);
+    //    public Result<PageResult<SpecificationCO>> page(@Validated SpecificationPageQry
+    // specificationPageQuery) {
+    //        IPage<SpecificationPO> specificationPage =
+    // specificationQueryService.getPage(specificationPageQuery);
     //        return Result.success(MpUtils.convertMybatisPage(specificationPage,
     // SpecificationAssembler.INSTANCE::convert));
     //    }
@@ -109,7 +111,10 @@ public class SpecificationManagerController extends BusinessController {
     @PreAuthorize("hasAuthority('dept:tree:data')")
     @DeleteMapping("/batch")
     public Result<Boolean> delAllByIds(
-            @Valid @NotNull(message = "id列表不能为空") @Size(min = 1, max = 3, message = "id个数只能在1至3个") @RequestParam
+            @Valid
+                    @NotNull(message = "id列表不能为空")
+                    @Size(min = 1, max = 3, message = "id个数只能在1至3个")
+                    @RequestParam
                     List<Long> ids) {
         return Result.success(specificationCommandService.deleteSpecification(ids));
     }

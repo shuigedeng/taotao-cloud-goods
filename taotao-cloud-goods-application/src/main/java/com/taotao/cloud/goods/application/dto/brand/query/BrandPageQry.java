@@ -38,8 +38,7 @@ import lombok.experimental.Accessors;
 @Schema(description = "商品品牌dto")
 public class BrandPageQry extends PageQuery {
 
-    @Serial
-    private static final long serialVersionUID = 8906820486037326039L;
+    @Serial private static final long serialVersionUID = 8906820486037326039L;
 
     @Schema(description = "品牌名称")
     private String name;

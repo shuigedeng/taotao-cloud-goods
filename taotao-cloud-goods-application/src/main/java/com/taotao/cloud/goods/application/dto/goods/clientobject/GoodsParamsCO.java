@@ -29,8 +29,7 @@ import lombok.experimental.Accessors;
 @NoArgsConstructor
 public class GoodsParamsCO {
 
-    @Serial
-    private static final long serialVersionUID = -4904700751774005326L;
+    @Serial private static final long serialVersionUID = -4904700751774005326L;
 
     @Schema(description = "1 输入项   2 选择项")
     private Integer paramType;
@@ -40,6 +39,7 @@ public class GoodsParamsCO {
 
     @Schema(description = "是否必填是  1    否   0")
     private Integer required;
+
     // @Schema(description = "参数组id")
     // private String groupId;
     @Schema(description = "是否可索引  1 可以   0不可以")

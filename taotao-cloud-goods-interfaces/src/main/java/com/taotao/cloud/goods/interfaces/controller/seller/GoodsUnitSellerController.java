@@ -50,6 +50,7 @@ public class GoodsUnitSellerController extends BusinessController {
     //    @GetMapping("/page")
     //    public Result<PageResult<GoodsUnitCO>> getByPage(@Validated PageQuery pageQuery) {
     //        IPage<GoodsUnitPO> page = goodsUnitQueryService.page(MpUtils.buildMpPage(pageQuery));
-    //        return Result.success(MpUtils.convertMybatisPage(page, GoodsUnitAssembler.INSTANCE::convert));
+    //        return Result.success(MpUtils.convertMybatisPage(page,
+    // GoodsUnitAssembler.INSTANCE::convert));
     //    }
 }

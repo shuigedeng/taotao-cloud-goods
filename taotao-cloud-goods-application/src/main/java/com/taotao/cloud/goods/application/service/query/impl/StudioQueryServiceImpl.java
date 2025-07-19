@@ -74,7 +74,8 @@ public class StudioQueryServiceImpl implements StudioQueryService {
     //    // 直播间添加成功发送直播间开启、关闭延时任务
     //    if (this.save(studioPO)) {
     //        // 直播开启延时任务
-    //        BroadcastMessage broadcastMessage = new BroadcastMessage(studioPO.getId(), StudioStatusEnum.START.name());
+    //        BroadcastMessage broadcastMessage = new BroadcastMessage(studioPO.getId(),
+    // StudioStatusEnum.START.name());
     //        TimeTriggerMsg timeTriggerMsg = new TimeTriggerMsg(
     //                TimeExecuteConstant.BROADCAST_EXECUTOR,
     //                Long.parseLong(studioPO.getStartTime()) * 1000L,
@@ -87,7 +88,8 @@ public class StudioQueryServiceImpl implements StudioQueryService {
     //        this.timeTrigger.addDelay(timeTriggerMsg);
     //
     //        // 直播结束延时任务
-    //        broadcastMessage = new BroadcastMessage(studioPO.getId(), StudioStatusEnum.END.name());
+    //        broadcastMessage = new BroadcastMessage(studioPO.getId(),
+    // StudioStatusEnum.END.name());
     //        timeTriggerMsg = new TimeTriggerMsg(
     //                TimeExecuteConstant.BROADCAST_EXECUTOR,
     //                Long.parseLong(studioPO.getEndTime()) * 1000L,
@@ -110,7 +112,8 @@ public class StudioQueryServiceImpl implements StudioQueryService {
     //    if (this.updateById(studioPO)) {
     //        // 发送更新延时任务
     //        // 直播间开始
-    //        BroadcastMessage broadcastMessage = new BroadcastMessage(studioPO.getId(), StudioStatusEnum.START.name());
+    //        BroadcastMessage broadcastMessage = new BroadcastMessage(studioPO.getId(),
+    // StudioStatusEnum.START.name());
     //        this.timeTrigger.edit(
     //                TimeExecuteConstant.BROADCAST_EXECUTOR,
     //                broadcastMessage,
@@ -122,7 +125,8 @@ public class StudioQueryServiceImpl implements StudioQueryService {
     //                rocketmqCustomProperties.getPromotionTopic());
     //
     //        // 直播间结束
-    //        broadcastMessage = new BroadcastMessage(studioPO.getId(), StudioStatusEnum.START.name());
+    //        broadcastMessage = new BroadcastMessage(studioPO.getId(),
+    // StudioStatusEnum.START.name());
     //        this.timeTrigger.edit(
     //                TimeExecuteConstant.BROADCAST_EXECUTOR,
     //                broadcastMessage,
@@ -148,7 +152,8 @@ public class StudioQueryServiceImpl implements StudioQueryService {
     //    // 获取直播间信息
     //    BeanUtils.copyProperties(studioPO, studioCommodityCO);
     //    // 获取直播间商品信息
-    //    List<CommodityPO> commodities = commodityMapper.getCommodityByRoomId(studioCommodityCO.getRoomId());
+    //    List<CommodityPO> commodities =
+    // commodityMapper.getCommodityByRoomId(studioCommodityCO.getRoomId());
     //    studioCommodityCO.setCommodityList(OrikaUtils.converts(commodities, CommodityCO.class));
     //    return studioCommodityCO;
     // }
@@ -179,7 +184,8 @@ public class StudioQueryServiceImpl implements StudioQueryService {
     //    }
     //
     //    GoodsPO goods = goodsService.getOne(
-    //            new LambdaQueryWrapper<GoodsPO>().eq(GoodsPO::getId, goodsId).eq(GoodsPO::getStoreId, storeId));
+    //            new LambdaQueryWrapper<GoodsPO>().eq(GoodsPO::getId,
+    // goodsId).eq(GoodsPO::getStoreId, storeId));
     //    if (goods == null) {
     //        throw new BusinessException(ResultEnum.USER_AUTHORITY_ERROR);
     //    }
@@ -193,7 +199,8 @@ public class StudioQueryServiceImpl implements StudioQueryService {
     //			studioPO.getRoomGoodsNum() != null ? studioPO.getRoomGoodsNum() + 1 : 1);
     //        // 设置直播间默认的商品（前台展示）只展示两个
     //        if (studioPO.getRoomGoodsNum() < 3) {
-    //            studioPO.setRoomGoodsList(JSONUtil.toJsonStr(commodityMapper.getSimpleCommodityByRoomId(roomId)));
+    //
+    // studioPO.setRoomGoodsList(JSONUtil.toJsonStr(commodityMapper.getSimpleCommodityByRoomId(roomId)));
     //        }
     //        return this.updateById(studioPO);
     //    }
@@ -204,20 +211,23 @@ public class StudioQueryServiceImpl implements StudioQueryService {
     // @Transactional(rollbackFor = Exception.class)
     // public boolean goodsDeleteInRoom(Integer roomId, Long goodsId, Long storeId) {
     //    GoodsPO goods = goodsService.getOne(
-    //            new LambdaQueryWrapper<GoodsPO>().eq(GoodsPO::getId, goodsId).eq(GoodsPO::getStoreId, storeId));
+    //            new LambdaQueryWrapper<GoodsPO>().eq(GoodsPO::getId,
+    // goodsId).eq(GoodsPO::getStoreId, storeId));
     //    if (goods == null) {
     //        throw new BusinessException(ResultEnum.USER_AUTHORITY_ERROR);
     //    }
     //    // 调用微信接口删除直播间商品并进行记录
     //    if (boolean.TRUE.equals(wechatLivePlayerUtil.goodsDeleteInRoom(roomId, goodsId))) {
     //        studioCommodityService.remove(
-    //                new QueryWrapper<StudioCommodityPO>().eq("room_id", roomId).eq("goods_id", goodsId));
+    //                new QueryWrapper<StudioCommodityPO>().eq("room_id", roomId).eq("goods_id",
+    // goodsId));
     //        // 减少直播间商品数量
     //        StudioPO studioPO = this.getByRoomId(roomId);
     //        studioPO.setRoomGoodsNum(studioPO.getRoomGoodsNum() - 1);
     //        // 设置直播间默认的商品（前台展示）只展示两个
     //        if (studioPO.getRoomGoodsNum() < 3) {
-    //            studioPO.setRoomGoodsList(JSONUtil.toJsonStr(commodityMapper.getSimpleCommodityByRoomId(roomId)));
+    //
+    // studioPO.setRoomGoodsList(JSONUtil.toJsonStr(commodityMapper.getSimpleCommodityByRoomId(roomId)));
     //        }
     //        return this.updateById(studioPO);
     //    }

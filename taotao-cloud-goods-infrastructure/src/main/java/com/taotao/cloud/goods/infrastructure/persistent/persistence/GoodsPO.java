@@ -71,11 +71,13 @@ import org.hibernate.annotations.Type;
 public class GoodsPO extends BaseSuperEntity<GoodsPO, Long> {
 
     public static final String TABLE_NAME = "ttc_goods";
+
     /**
      * 商品名称
      */
     @Column(name = "`goods_no`", columnDefinition = "varchar(255) not null comment '商品编码'")
     private String goodsNo;
+
     /**
      * 商品名称
      */
@@ -163,7 +165,9 @@ public class GoodsPO extends BaseSuperEntity<GoodsPO, Long> {
     /**
      * 店铺分类id
      */
-    @Column(name = "`store_category_path`", columnDefinition = "varchar(255) not null comment '店铺分类id'")
+    @Column(
+            name = "`store_category_path`",
+            columnDefinition = "varchar(255) not null comment '店铺分类id'")
     private String storeCategoryPath;
 
     /**
@@ -213,7 +217,9 @@ public class GoodsPO extends BaseSuperEntity<GoodsPO, Long> {
     /**
      * 是否自营
      */
-    @Column(name = "`self_operated`", columnDefinition = "boolean not null default false comment '是否自营'")
+    @Column(
+            name = "`self_operated`",
+            columnDefinition = "boolean not null default false comment '是否自营'")
     private Boolean selfOperated;
 
     /**
@@ -231,7 +237,9 @@ public class GoodsPO extends BaseSuperEntity<GoodsPO, Long> {
     /**
      * 是否为推荐商品
      */
-    @Column(name = "`recommend`", columnDefinition = "boolean not null default false comment '是否为推荐商品'")
+    @Column(
+            name = "`recommend`",
+            columnDefinition = "boolean not null default false comment '是否为推荐商品'")
     private Boolean recommend;
 
     /**
@@ -501,6 +509,7 @@ public class GoodsPO extends BaseSuperEntity<GoodsPO, Long> {
     public void setParams(String params) {
         this.params = params;
     }
+
     //
     // public GoodsPO(GoodsOperationDTO goodsOperationDTO) {
     //    this.goodsName = goodsOperationDTO.getGoodsName();

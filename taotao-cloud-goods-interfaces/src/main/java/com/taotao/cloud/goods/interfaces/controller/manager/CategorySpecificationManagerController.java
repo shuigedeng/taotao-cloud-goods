@@ -55,6 +55,7 @@ public class CategorySpecificationManagerController extends BusinessController {
     private final CategorySpecificationQueryService categorySpecificationQueryService;
 
     private final CategorySpecificationCommandService categorySpecificationCommandService;
+
     /** 规格服务 */
     private final SpecificationQueryService specificationQueryService;
 
@@ -62,18 +63,21 @@ public class CategorySpecificationManagerController extends BusinessController {
 
     //    @Operation(summary = "查询某分类下绑定的规格信息", description = "查询某分类下绑定的规格信息")
     //    @Parameters({
-    //            @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
+    //            @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in =
+    // ParameterIn.PATH),
     //    })
     //    @RequestLogger
     //    @PreAuthorize("hasAuthority('dept:tree:data')")
     //    @GetMapping(value = "/{categoryId}")
     //    public Result<List<SpecificationPO>> getCategorySpec(@PathVariable Long categoryId) {
-    //        return Result.success(categorySpecificationQueryService.getCategorySpecList(categoryId));
+    //        return
+    // Result.success(categorySpecificationQueryService.getCategorySpecList(categoryId));
     //    }
 
     //    @Operation(summary = "查询某分类下绑定的规格信息,商品操作使用", description = "查询某分类下绑定的规格信息,商品操作使用")
     //    @Parameters({
-    //            @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
+    //            @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in =
+    // ParameterIn.PATH),
     //    })
     //    @RequestLogger
     //    @PreAuthorize("hasAuthority('dept:tree:data')")
@@ -84,12 +88,18 @@ public class CategorySpecificationManagerController extends BusinessController {
 
     @Operation(summary = "保存某分类下绑定的规格信息", description = "保存某分类下绑定的规格信息")
     @Parameters({
-        @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
+        @Parameter(
+                name = "parentId",
+                required = true,
+                description = "父ID 0-最上级id",
+                in = ParameterIn.PATH),
     })
     @RequestLogger
     @PreAuthorize("hasAuthority('dept:tree:data')")
     @PostMapping(value = "/{categoryId}")
-    public Result<Boolean> saveCategoryBrand(@PathVariable Long categoryId, @RequestParam String[] categorySpecs) {
-        return Result.success(specificationCommandService.saveCategoryBrand(categoryId, categorySpecs));
+    public Result<Boolean> saveCategoryBrand(
+            @PathVariable Long categoryId, @RequestParam String[] categorySpecs) {
+        return Result.success(
+                specificationCommandService.saveCategoryBrand(categoryId, categorySpecs));
     }
 }

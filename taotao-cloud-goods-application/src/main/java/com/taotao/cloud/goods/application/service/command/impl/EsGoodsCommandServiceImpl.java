@@ -99,7 +99,8 @@ public class EsGoodsCommandServiceImpl implements EsGoodsCommandService {
     //				skuQueryWrapper.eq("gs.delete_flag", false);
     //				skuQueryWrapper.gt("gs.quantity", 0);
     //
-    //				Map<String, Long> resultMap = (Map<String, Long>) cache.get(INIT_INDEX_PROCESS.getPrefix());
+    //				Map<String, Long> resultMap = (Map<String, Long>)
+    // cache.get(INIT_INDEX_PROCESS.getPrefix());
     //
     //				if (CollUtil.isEmpty(resultMap)) {
     //					QueryWrapper<GoodsSku> skuCountQueryWrapper = new QueryWrapper<>();
@@ -118,7 +119,8 @@ public class EsGoodsCommandServiceImpl implements EsGoodsCommandService {
     //				for (int i = 1; ; i++) {
     //					List<EsGoodsIndex> esGoodsIndices = new ArrayList<>();
     //					Page<GoodsSkuDTO> skuPage = new Page<>(i, 2000);
-    //					IPage<GoodsSkuDTO> skuIPage = goodsSkuService.getGoodsSkuDTOByPage(skuPage, skuQueryWrapper);
+    //					IPage<GoodsSkuDTO> skuIPage = goodsSkuService.getGoodsSkuDTOByPage(skuPage,
+    // skuQueryWrapper);
     //
     //					if (skuIPage == null || CollUtil.isEmpty(skuIPage.getRecords())) {
     //						break;
@@ -126,7 +128,8 @@ public class EsGoodsCommandServiceImpl implements EsGoodsCommandService {
     //					List<GoodsSkuDTO> skus = skuIPage.getRecords();
     //					List<String> categories = skus.stream().map(GoodsSkuDTO::getCategoryPath).toList();
     //					List<String> skuIds = skus.stream().map(GoodsSkuDTO::getId).toList();
-    //					List<PromotionGoodsCO> skuValidPromotions = promotionGoodsApi.findSkuValidPromotions(categories, skuIds);
+    //					List<PromotionGoodsCO> skuValidPromotions =
+    // promotionGoodsApi.findSkuValidPromotions(categories, skuIds);
     //
     //					List<String> brandIds = new ArrayList<>();
     //					List<String> categoryPaths = new ArrayList<>();
@@ -137,7 +140,8 @@ public class EsGoodsCommandServiceImpl implements EsGoodsCommandService {
     //							brandIds.add(goodsSkuDTO.getBrandId());
     //						}
     //						if (CharSequenceUtil.isNotEmpty(goodsSkuDTO.getStoreCategoryPath())) {
-    //							storeCategoryPaths.addAll(Arrays.asList(goodsSkuDTO.getStoreCategoryPath().split(",")));
+    //
+    //	storeCategoryPaths.addAll(Arrays.asList(goodsSkuDTO.getStoreCategoryPath().split(",")));
     //						}
     //						if (CharSequenceUtil.isNotEmpty((goodsSkuDTO.getCategoryPath()))) {
     //							categoryPaths.addAll(Arrays.asList(goodsSkuDTO.getCategoryPath().split(",")));
@@ -146,22 +150,27 @@ public class EsGoodsCommandServiceImpl implements EsGoodsCommandService {
     //
     //					List<Map<String, Object>> brandList = new ArrayList<>();
     //					if (CollUtil.isNotEmpty(brandIds)) {
-    //						brandList = brandService.getBrandsMapsByCategory(CollUtil.distinct(brandIds), "id,name,logo");
+    //						brandList = brandService.getBrandsMapsByCategory(CollUtil.distinct(brandIds),
+    // "id,name,logo");
     //					}
     //					List<Map<String, Object>> categoryList = new ArrayList<>();
     //					if (CollUtil.isNotEmpty(categoryPaths)) {
-    //						categoryList = categoryService.listMapsByIdsOrderByLevel(CollUtil.distinct(categoryPaths), "id,name");
+    //						categoryList =
+    // categoryService.listMapsByIdsOrderByLevel(CollUtil.distinct(categoryPaths), "id,name");
     //					}
     //					List<Map<String, Object>> storeCategoryList = new ArrayList<>();
     //					if (CollUtil.isNotEmpty(storeCategoryPaths)) {
-    //						storeCategoryList = storeGoodsLabelService.listMapsByStoreIds(CollUtil.distinct(storeCategoryPaths),
+    //						storeCategoryList =
+    // storeGoodsLabelService.listMapsByStoreIds(CollUtil.distinct(storeCategoryPaths),
     // "id,label_name");
     //					}
     //
     //					for (GoodsSkuDTO goodsSku : skuIPage.getRecords()) {
     //						int skuSource = 100;
-    //						EsGoodsIndex esGoodsIndex = wrapperEsGoodsIndex(goodsSku, brandList, categoryList, storeCategoryList);
-    //						long count = esGoodsIndices.stream().filter(j -> j.getGoodsId().equals(esGoodsIndex.getGoodsId())).count();
+    //						EsGoodsIndex esGoodsIndex = wrapperEsGoodsIndex(goodsSku, brandList, categoryList,
+    // storeCategoryList);
+    //						long count = esGoodsIndices.stream().filter(j ->
+    // j.getGoodsId().equals(esGoodsIndex.getGoodsId())).count();
     //						if (count >= 1) {
     //							skuSource -= count;
     //						}
@@ -171,14 +180,16 @@ public class EsGoodsCommandServiceImpl implements EsGoodsCommandService {
     //						List<PromotionGoodsCO> promotionGoods = skuValidPromotions.stream()
     //							.filter(j ->
     //								(Objects.nonNull(j.getSkuId()) && j.getSkuId().equals(goodsSku.getId())) ||
-    //									(j.getScopeType().equals(PromotionsScopeTypeEnum.ALL.name()) && j.getStoreId().equals("0")) ||
+    //									(j.getScopeType().equals(PromotionsScopeTypeEnum.ALL.name()) &&
+    // j.getStoreId().equals("0")) ||
     //									(j.getScopeType().equals(PromotionsScopeTypeEnum.ALL.name()) &&
     // j.getStoreId().equals(esGoodsIndex.getStoreId())) ||
     //									(j.getScopeType().equals(PromotionsScopeTypeEnum.PORTION_GOODS_CATEGORY.name()) &&
     // j.getScopeId().contains(goodsSku.getCategoryPath())))
     //							.toList();
     //						if (CollUtil.isNotEmpty(promotionGoods)) {
-    //							esGoodsIndex.setPromotionMapJson(JSONUtil.toJsonStr(promotionApi.wrapperPromotionMapList(promotionGoods)));
+    //
+    //	esGoodsIndex.setPromotionMapJson(JSONUtil.toJsonStr(promotionApi.wrapperPromotionMapList(promotionGoods)));
     //						}
     //
     //						esGoodsIndices.add(esGoodsIndex);
@@ -285,7 +296,8 @@ public class EsGoodsCommandServiceImpl implements EsGoodsCommandService {
     //				}
     //			}
     //			// 根据商品名称生成分词
-    //			keywordsList.add(goods.getGoodsName().substring(0, Math.min(goods.getGoodsName().length(), 10)));
+    //			keywordsList.add(goods.getGoodsName().substring(0, Math.min(goods.getGoodsName().length(),
+    // 10)));
     //
     //			// 去除重复词
     //			removeDuplicate(keywordsList);
@@ -344,7 +356,8 @@ public class EsGoodsCommandServiceImpl implements EsGoodsCommandService {
     //		update.setScript(new Script(script.toString()));
     //		update.setConflicts("proceed");
     //		try {
-    //			BulkByScrollResponse bulkByScrollResponse = client.updateByQuery(update, RequestOptions.DEFAULT);
+    //			BulkByScrollResponse bulkByScrollResponse = client.updateByQuery(update,
+    // RequestOptions.DEFAULT);
     //			if (bulkByScrollResponse.getVersionConflicts() > 0) {
     //				throw new RetryException("更新商品索引失败，es内容版本冲突");
     //			}
@@ -366,7 +379,8 @@ public class EsGoodsCommandServiceImpl implements EsGoodsCommandService {
     //
     //			BulkRequest request = new BulkRequest();
     //			for (EsGoodsIndex goodsIndex : goodsIndices) {
-    //				UpdateRequest updateRequest = new UpdateRequest(indexName, String.valueOf(goodsIndex.getId()));
+    //				UpdateRequest updateRequest = new UpdateRequest(indexName,
+    // String.valueOf(goodsIndex.getId()));
     //				JSONObject jsonObject = JSONUtil.parseObj(goodsIndex);
     //				jsonObject.set("releaseTime", goodsIndex.getReleaseTime());
     //				updateRequest.doc(jsonObject);
@@ -387,7 +401,8 @@ public class EsGoodsCommandServiceImpl implements EsGoodsCommandService {
     //	public void deleteIndex(Map<String, Object> queryFields) {
     //		BoolQueryBuilder boolQueryBuilder = QueryBuilders.boolQuery();
     //		for (Map.Entry<String, Object> entry : queryFields.entrySet()) {
-    //			boolQueryBuilder.filter(QueryBuilders.termsQuery(entry.getKey(), entry.getValue().toString()));
+    //			boolQueryBuilder.filter(QueryBuilders.termsQuery(entry.getKey(),
+    // entry.getValue().toString()));
     //		}
     //
     //		DeleteByQueryRequest deleteByQueryRequest = new DeleteByQueryRequest();
@@ -395,7 +410,8 @@ public class EsGoodsCommandServiceImpl implements EsGoodsCommandService {
     //		deleteByQueryRequest.indices(getIndexName());
     //		deleteByQueryRequest.setConflicts("proceed");
     //		try {
-    //			BulkByScrollResponse bulkByScrollResponse = client.deleteByQuery(deleteByQueryRequest, RequestOptions.DEFAULT);
+    //			BulkByScrollResponse bulkByScrollResponse = client.deleteByQuery(deleteByQueryRequest,
+    // RequestOptions.DEFAULT);
     //			if (bulkByScrollResponse.getVersionConflicts() > 0) {
     //				throw new RetryException("删除索引失败，es内容版本冲突");
     //			}
@@ -469,7 +485,8 @@ public class EsGoodsCommandServiceImpl implements EsGoodsCommandService {
     //	}
     //
     //	@Override
-    //	public UpdateRequest updateEsGoodsIndexPromotions(String id, BasePromotionsCO promotion, String key) {
+    //	public UpdateRequest updateEsGoodsIndexPromotions(String id, BasePromotionsCO promotion,
+    // String key) {
     //		EsGoodsIndex goodsIndex = findById(id);
     //		if (goodsIndex != null) {
     //			// 批发商品不参与促销（除优惠券和满减）
@@ -493,7 +510,8 @@ public class EsGoodsCommandServiceImpl implements EsGoodsCommandService {
     //	 * @param key       促销信息的key
     //	 */
     //	@Override
-    //	public void updateEsGoodsIndexPromotions(List<String> ids, BasePromotionsCO promotion, String key) {
+    //	public void updateEsGoodsIndexPromotions(List<String> ids, BasePromotionsCO promotion, String
+    // key) {
     //		BulkRequest bulkRequest = new BulkRequest();
     //		LogUtils.info("更新商品索引的促销信息----------");
     //		LogUtils.info("商品ids: {}", ids);
@@ -510,7 +528,8 @@ public class EsGoodsCommandServiceImpl implements EsGoodsCommandService {
     //
     //
     //	@Override
-    //	public void updateEsGoodsIndexByList(List<PromotionGoodsCO> promotionGoodsList, BasePromotionsCO promotion,
+    //	public void updateEsGoodsIndexByList(List<PromotionGoodsCO> promotionGoodsList,
+    // BasePromotionsCO promotion,
     // String key) {
     //		BulkRequest bulkRequest = new BulkRequest();
     //		LogUtils.info("修改商品活动索引");
@@ -522,7 +541,8 @@ public class EsGoodsCommandServiceImpl implements EsGoodsCommandService {
     //			for (PromotionGoodsCO promotionGoods : promotionGoodsList) {
     //				promotion.setStartTime(promotionGoods.getStartTime());
     //				promotion.setEndTime(promotionGoods.getEndTime());
-    //				UpdateRequest updateRequest = this.updateEsGoodsIndexPromotions(promotionGoods.getSkuId(), promotion, key);
+    //				UpdateRequest updateRequest = this.updateEsGoodsIndexPromotions(promotionGoods.getSkuId(),
+    // promotion, key);
     //				if (updateRequest != null) {
     //					bulkRequest.add(updateRequest);
     //				}
@@ -554,12 +574,14 @@ public class EsGoodsCommandServiceImpl implements EsGoodsCommandService {
     //				searchDTO.setSalesModel(GoodsSalesModeEnum.RETAIL.name());
     //			}
     //			// 如果storeId不为空，则表示是店铺活动
-    //			if (promotion.getStoreId() != null && !promotion.getStoreId().equals(PromotionTools.PLATFORM_ID)) {
+    //			if (promotion.getStoreId() != null &&
+    // !promotion.getStoreId().equals(PromotionTools.PLATFORM_ID)) {
     //				searchDTO.setStoreId(promotion.getStoreId());
     //			}
     //
     //			// 查询出店铺商品
-    //			SearchPage<EsGoodsIndex> esGoodsIndices = goodsSearchService.searchGoods(searchDTO, pageCO);
+    //			SearchPage<EsGoodsIndex> esGoodsIndices = goodsSearchService.searchGoods(searchDTO,
+    // pageCO);
     //
     //			skuIds = esGoodsIndices.isEmpty() ? new ArrayList<>() :
     //				esGoodsIndices.getContent().stream().map(SearchHit::getId).toList();
@@ -584,7 +606,8 @@ public class EsGoodsCommandServiceImpl implements EsGoodsCommandService {
     //			EsGoodsIndex goodsIndex = findById(skuId);
     //			// 商品索引不为空
     //			if (goodsIndex != null) {
-    //				UpdateRequest updateRequest = this.removePromotionByPromotionKey(goodsIndex, promotionsKey);
+    //				UpdateRequest updateRequest = this.removePromotionByPromotionKey(goodsIndex,
+    // promotionsKey);
     //				if (updateRequest != null) {
     //					bulkRequest.add(updateRequest);
     //				}
@@ -605,7 +628,8 @@ public class EsGoodsCommandServiceImpl implements EsGoodsCommandService {
     //		ThreadUtil.execAsync(() -> {
     //			BulkRequest bulkRequest = new BulkRequest();
     //			for (EsGoodsIndex goodsIndex : this.goodsIndexRepository.findAll()) {
-    //				UpdateRequest updateRequest = this.removePromotionByPromotionKey(goodsIndex, promotionsKey);
+    //				UpdateRequest updateRequest = this.removePromotionByPromotionKey(goodsIndex,
+    // promotionsKey);
     //				if (updateRequest != null) {
     //					bulkRequest.add(updateRequest);
     //				}
@@ -620,12 +644,14 @@ public class EsGoodsCommandServiceImpl implements EsGoodsCommandService {
     //	 * @param goodsIndex    索引
     //	 * @param promotionsKey 促销活动key
     //	 */
-    //	private UpdateRequest removePromotionByPromotionKey(EsGoodsIndex goodsIndex, String promotionsKey) {
+    //	private UpdateRequest removePromotionByPromotionKey(EsGoodsIndex goodsIndex, String
+    // promotionsKey) {
     //		Map<String, Object> promotionMap = goodsIndex.getOriginPromotionMap();
     //		if (promotionMap != null && !promotionMap.isEmpty()) {
     //			// 如果存在同促销ID的活动删除
     //			Map<String, Object> filterPromotionMap = promotionMap.entrySet().stream().filter(i ->
-    // !i.getKey().equals(promotionsKey)).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+    // !i.getKey().equals(promotionsKey)).collect(Collectors.toMap(Map.Entry::getKey,
+    // Map.Entry::getValue));
     //			return this.getGoodsIndexPromotionUpdateRequest(goodsIndex.getId(), filterPromotionMap);
     //		}
     //		return null;
@@ -641,7 +667,8 @@ public class EsGoodsCommandServiceImpl implements EsGoodsCommandService {
     //
     //	private void executeCleanInvalidPromotions() {
     //		for (int i = 1; ; i++) {
-    //			org.springframework.data.domain.Page<EsGoodsIndex> all = goodsIndexRepository.findAll(PageRequest.of(i, 1000));
+    //			org.springframework.data.domain.Page<EsGoodsIndex> all =
+    // goodsIndexRepository.findAll(PageRequest.of(i, 1000));
     //			if (all.isEmpty()) {
     //				break;
     //			}
@@ -653,7 +680,8 @@ public class EsGoodsCommandServiceImpl implements EsGoodsCommandService {
     //					promotionMap.entrySet().removeIf(j -> {
     //						JSONObject promotionJson = JSONUtil.parseObj(j.getValue());
     //						BasePromotionsCO promotion = promotionJson.toBean(BasePromotionsCO.class);
-    //						return promotion.getEndTime() != null && promotion.getEndTime().getTime() < DateUtil.date().getTime();
+    //						return promotion.getEndTime() != null && promotion.getEndTime().getTime() <
+    // DateUtil.date().getTime();
     //					});
     //				}
     //			}
@@ -701,7 +729,8 @@ public class EsGoodsCommandServiceImpl implements EsGoodsCommandService {
     //	 * @return 当前商品参与的促销活动id集合
     //	 */
     //	@Override
-    //	public List<String> getPromotionIdByPromotionType(Long id, PromotionTypeEnum promotionTypeEnum) {
+    //	public List<String> getPromotionIdByPromotionType(Long id, PromotionTypeEnum
+    // promotionTypeEnum) {
     //		Map<String, Object> promotionMap = this.getPromotionMap(id);
     //		// 如果没有促销信息，则返回新的
     //		if (promotionMap == null || promotionMap.isEmpty()) {
@@ -727,17 +756,21 @@ public class EsGoodsCommandServiceImpl implements EsGoodsCommandService {
     //	 * @return 商品索引
     //	 */
     //	@Override
-    //	public EsGoodsIndex getResetEsGoodsIndex(GoodsSku goodsSku, List<GoodsParamsDTO> goodsParamDTOS) {
+    //	public EsGoodsIndex getResetEsGoodsIndex(GoodsSku goodsSku, List<GoodsParamsDTO>
+    // goodsParamDTOS) {
     //		EsGoodsIndex index = new EsGoodsIndex(goodsSku, goodsParamDTOS);
     //		// 获取活动信息
-    //		Map<String, Object> goodsCurrentPromotionMap = promotionApi.getGoodsSkuPromotionMap(index.getStoreId(),
+    //		Map<String, Object> goodsCurrentPromotionMap =
+    // promotionApi.getGoodsSkuPromotionMap(index.getStoreId(),
     // index.getId());
     //		// 写入促销信息
     //		index.setPromotionMapJson(JSONUtil.toJsonStr(goodsCurrentPromotionMap));
     //
     //		// 发送mq消息
-    //		String destination = rocketmqCustomProperties.getGoodsTopic() + ":" + GoodsTagsEnum.RESET_GOODS_INDEX.name();
-    //		rocketMQTemplate.asyncSend(destination, JSONUtil.toJsonStr(Collections.singletonList(index)),
+    //		String destination = rocketmqCustomProperties.getGoodsTopic() + ":" +
+    // GoodsTagsEnum.RESET_GOODS_INDEX.name();
+    //		rocketMQTemplate.asyncSend(destination,
+    // JSONUtil.toJsonStr(Collections.singletonList(index)),
     // RocketmqSendCallbackBuilder.commonCallback());
     //		return index;
     //	}
@@ -749,11 +782,13 @@ public class EsGoodsCommandServiceImpl implements EsGoodsCommandService {
     //	 * @param key        关键字
     //	 * @param promotion  活动
     //	 */
-    //	private UpdateRequest updateGoodsIndexPromotion(EsGoodsIndex goodsIndex, String key, BasePromotionsCO promotion)
+    //	private UpdateRequest updateGoodsIndexPromotion(EsGoodsIndex goodsIndex, String key,
+    // BasePromotionsCO promotion)
     // {
     //		Map<String, Object> promotionMap;
     //		// 数据非空处理，如果空给一个新的信息
-    //		if (goodsIndex.getOriginPromotionMap() == null || goodsIndex.getOriginPromotionMap().isEmpty()) {
+    //		if (goodsIndex.getOriginPromotionMap() == null ||
+    // goodsIndex.getOriginPromotionMap().isEmpty()) {
     //			promotionMap = new HashMap<>(1);
     //		} else {
     //			promotionMap = goodsIndex.getOriginPromotionMap();
@@ -778,7 +813,8 @@ public class EsGoodsCommandServiceImpl implements EsGoodsCommandService {
     //	 * @param id           索引id
     //	 * @param promotionMap 促销信息
     //	 */
-    //	private UpdateRequest getGoodsIndexPromotionUpdateRequest(String id, Map<String, Object> promotionMap) {
+    //	private UpdateRequest getGoodsIndexPromotionUpdateRequest(String id, Map<String, Object>
+    // promotionMap) {
     //		UpdateRequest updateRequest = new UpdateRequest();
     //		updateRequest.index(getIndexName());
     //		updateRequest.id(id);
@@ -786,7 +822,8 @@ public class EsGoodsCommandServiceImpl implements EsGoodsCommandService {
     ////        updateRequest.version(promotionMap.size());
     //		Map<String, Object> params = new HashMap<>();
     //		params.put("promotionMap", JSONUtil.toJsonStr(promotionMap));
-    //		Script script = new Script(ScriptType.INLINE, "painless", "ctx._source.promotionMapJson=params.promotionMap;",
+    //		Script script = new Script(ScriptType.INLINE, "painless",
+    // "ctx._source.promotionMapJson=params.promotionMap;",
     // params);
     //		updateRequest.script(script);
     //		return updateRequest;
@@ -820,7 +857,8 @@ public class EsGoodsCommandServiceImpl implements EsGoodsCommandService {
     //	 * @param promotionMap   促销活动
     //	 * @param needRemoveKeys 需移除的促销活动
     //	 */
-    //	private void removePromotionKey(String currentKey, Map<String, Object> promotionMap, String... needRemoveKeys) {
+    //	private void removePromotionKey(String currentKey, Map<String, Object> promotionMap,
+    // String... needRemoveKeys) {
     //		// 判定是否需要移除
     //		if (CharSequenceUtil.containsAny(currentKey, needRemoveKeys)) {
     //
@@ -845,19 +883,23 @@ public class EsGoodsCommandServiceImpl implements EsGoodsCommandService {
     //		return elasticsearchProperties.getIndexPrefix() + "_" + EsSuffix.GOODS_INDEX_NAME;
     //	}
     //
-    //	private EsGoodsIndex wrapperEsGoodsIndex(GoodsSkuDTO goodsSku, List<Map<String, Object>> brandList,
+    //	private EsGoodsIndex wrapperEsGoodsIndex(GoodsSkuDTO goodsSku, List<Map<String, Object>>
+    // brandList,
     // List<Map<String, Object>> categoryList, List<Map<String, Object>> storeCategoryList) {
     //		EsGoodsIndex index = new EsGoodsIndex(goodsSku);
     //
     //		// 商品参数索引
     //		if (CharSequenceUtil.isNotEmpty(goodsSku.getParams())) {
-    //			List<GoodsParamsDTO> goodsParamDTOS = JSONUtil.toList(goodsSku.getParams(), GoodsParamsDTO.class);
+    //			List<GoodsParamsDTO> goodsParamDTOS = JSONUtil.toList(goodsSku.getParams(),
+    // GoodsParamsDTO.class);
     //			index = new EsGoodsIndex(goodsSku, goodsParamDTOS);
     //		}
     //		// 商品分类索引
-    //		if (CollUtil.isNotEmpty(categoryList) && CharSequenceUtil.isNotEmpty(goodsSku.getCategoryPath())) {
+    //		if (CollUtil.isNotEmpty(categoryList) &&
+    // CharSequenceUtil.isNotEmpty(goodsSku.getCategoryPath())) {
     //			StringBuilder categoryNamePath = new StringBuilder();
-    //			categoryList.stream().filter(o -> goodsSku.getCategoryPath().contains(o.get("id").toString())).forEach(p ->
+    //			categoryList.stream().filter(o ->
+    // goodsSku.getCategoryPath().contains(o.get("id").toString())).forEach(p ->
     // categoryNamePath.append(p.get("name")).append(","));
     //			if (CharSequenceUtil.isNotEmpty(categoryNamePath)) {
     //				categoryNamePath.deleteCharAt(categoryNamePath.length() - 1);
@@ -874,7 +916,8 @@ public class EsGoodsCommandServiceImpl implements EsGoodsCommandService {
     //			}
     //		}
     //		// 店铺分类索引
-    //		if (CollUtil.isNotEmpty(storeCategoryList) && CharSequenceUtil.isNotEmpty(goodsSku.getStoreCategoryPath())) {
+    //		if (CollUtil.isNotEmpty(storeCategoryList) &&
+    // CharSequenceUtil.isNotEmpty(goodsSku.getStoreCategoryPath())) {
     //			StringBuilder storeCategoryNamePath = new StringBuilder();
     //			storeCategoryList.stream().filter(o ->
     // goodsSku.getStoreCategoryPath().contains(o.get("id").toString())).forEach(p ->

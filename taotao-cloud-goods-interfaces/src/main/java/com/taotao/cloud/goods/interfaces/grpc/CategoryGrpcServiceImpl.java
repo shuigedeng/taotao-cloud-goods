@@ -45,7 +45,8 @@ package com.taotao.cloud.goods.interfaces.grpc; /// *
 //
 //    @Override
 //    public void firstCategory(
-//            FirstCategoryGrpcRequest request, StreamObserver<FirstCategoryGrpcResponse> responseObserver) {
+//            FirstCategoryGrpcRequest request, StreamObserver<FirstCategoryGrpcResponse>
+// responseObserver) {
 //        super.firstCategory(request, responseObserver);
 //    }
 // }

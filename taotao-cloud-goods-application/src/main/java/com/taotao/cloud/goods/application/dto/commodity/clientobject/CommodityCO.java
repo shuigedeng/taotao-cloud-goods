@@ -75,9 +75,30 @@ public class CommodityCO extends ClientObject {
     private Long skuId;
 
     public String toString() {
-        return "CommodityCO{goodsImage = " + goodsImage + ", name = " + name + ", priceType = " + priceType
-                + ", price = " + price + ", price2 = " + price2 + ", url = " + url + ", liveGoodsId = " + liveGoodsId
-                + ", auditId = " + auditId + ", auditStatus = " + auditStatus + ", storeId = " + storeId
-                + ", goodsId = " + goodsId + ", skuId = " + skuId + "}";
+        return "CommodityCO{goodsImage = "
+                + goodsImage
+                + ", name = "
+                + name
+                + ", priceType = "
+                + priceType
+                + ", price = "
+                + price
+                + ", price2 = "
+                + price2
+                + ", url = "
+                + url
+                + ", liveGoodsId = "
+                + liveGoodsId
+                + ", auditId = "
+                + auditId
+                + ", auditStatus = "
+                + auditStatus
+                + ", storeId = "
+                + storeId
+                + ", goodsId = "
+                + goodsId
+                + ", skuId = "
+                + skuId
+                + "}";
     }
 }

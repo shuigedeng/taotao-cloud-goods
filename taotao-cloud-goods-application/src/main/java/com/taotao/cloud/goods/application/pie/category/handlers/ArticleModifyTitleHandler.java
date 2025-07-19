@@ -40,7 +40,8 @@ public class ArticleModifyTitleHandler implements ChannelHandler {
     }
 
     @Override
-    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause, Object in, Object out) throws Exception {
+    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause, Object in, Object out)
+            throws Exception {
         logger.info("修改标题的异常处理逻辑:不处理直接向后传递");
         ctx.fireExceptionCaught(cause, in, out);
     }

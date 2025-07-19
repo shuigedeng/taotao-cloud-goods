@@ -69,13 +69,16 @@ public class GoodsGalleryQueryServiceImpl implements GoodsGalleryQueryService {
     // public GoodsGalleryPO getGoodsGallery(String origin) {
     //	GoodsGalleryPO goodsGalleryPO = new GoodsGalleryPO();
     //	// 获取商品系统配置决定是否审核
-    //	GoodsSettingCO goodsSetting = settingApi.getGoodsSetting(SettingCategoryEnum.GOODS_SETTING.name());
+    //	GoodsSettingCO goodsSetting =
+    // settingApi.getGoodsSetting(SettingCategoryEnum.GOODS_SETTING.name());
     //	// 缩略图
     //	String thumbnail = FileUtils.getUrl(
-    //		origin, goodsSetting.getAbbreviationPictureWidth(), goodsSetting.getAbbreviationPictureHeight());
+    //		origin, goodsSetting.getAbbreviationPictureWidth(),
+    // goodsSetting.getAbbreviationPictureHeight());
     //	// 小图
     //	String small =
-    //		FileUtils.getUrl(origin, goodsSetting.getSmallPictureWidth(), goodsSetting.getSmallPictureHeight());
+    //		FileUtils.getUrl(origin, goodsSetting.getSmallPictureWidth(),
+    // goodsSetting.getSmallPictureHeight());
     //	// 赋值
     //	goodsGalleryPO.setSmall(small);
     //	goodsGalleryPO.setThumbnail(thumbnail);

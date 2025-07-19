@@ -37,8 +37,7 @@ public class StoreGoodsLabelQueryServiceImpl implements StoreGoodsLabelQueryServ
     /**
      * 缓存
      */
-    @Autowired
-    private RedisRepository redisRepository;
+    @Autowired private RedisRepository redisRepository;
 
     @Override
     public List<StoreGoodsLabelCO> listByStoreId(Long storeId) {

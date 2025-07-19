@@ -24,8 +24,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 public class BrandQueryServiceTest extends TaoTaoCloudGoodsApplicationTests {
 
-    @Autowired
-    private BrandQueryService brandQueryService;
+    @Autowired private BrandQueryService brandQueryService;
 
     // @TtcTest(duration = 1000, reporter = HtmlReporter.class)
     @Test

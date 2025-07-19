@@ -14,7 +14,8 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.infrastructure.persistent.persistence; // package com.taotao.cloud.goods.biz.entity;
+package com.taotao.cloud.goods.infrastructure.persistent.persistence; // package
+                                                                      // com.taotao.cloud.goods.biz.entity;
 //
 //
 // import com.taotao.boot.data.jpa.entity.JpaSuperEntity;
@@ -42,7 +43,8 @@ package com.taotao.cloud.goods.infrastructure.persistent.persistence; // package
 // @NoArgsConstructor
 //// @Entity
 // @Table(name = "ttc_product_ext")
-// @org.springframework.data.relational.core.mapping.Table(name = "ttc_product_ext", comment = "商品信息扩展表")
+// @org.springframework.data.relational.core.mapping.Table(name = "ttc_product_ext", comment =
+// "商品信息扩展表")
 // public class ProductExt extends JpaSuperEntity {
 //
 //	@Column(name = "`member_id`", columnDefinition = "varchar(255) not null comment '会员ID'")

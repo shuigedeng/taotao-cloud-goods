@@ -38,6 +38,7 @@ public class SpecificationCommandServiceImpl implements SpecificationCommandServ
      * 分类-规格绑定服务
      */
     private final CategorySpecificationCommandService categorySpecificationService;
+
     /**
      * 分类服务
      */

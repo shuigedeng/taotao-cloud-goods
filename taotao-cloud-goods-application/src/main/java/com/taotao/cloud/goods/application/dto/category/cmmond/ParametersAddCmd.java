@@ -31,8 +31,7 @@ import lombok.experimental.Accessors;
 @NoArgsConstructor
 public class ParametersAddCmd extends Command {
 
-    @Serial
-    private static final long serialVersionUID = 724427321881170297L;
+    @Serial private static final long serialVersionUID = 724427321881170297L;
 
     @Schema(description = "参数名称")
     private String paramName;
@@ -168,8 +167,22 @@ public class ParametersAddCmd extends Command {
     }
 
     public String toString() {
-        return "ParametersAddCmd{serialVersionUID = " + serialVersionUID + ", paramName = " + paramName + ", options = "
-                + options + ", isIndex = " + isIndex + ", required = " + required + ", groupId = " + groupId
-                + ", categoryId = " + categoryId + ", sort = " + sort + "}";
+        return "ParametersAddCmd{serialVersionUID = "
+                + serialVersionUID
+                + ", paramName = "
+                + paramName
+                + ", options = "
+                + options
+                + ", isIndex = "
+                + isIndex
+                + ", required = "
+                + required
+                + ", groupId = "
+                + groupId
+                + ", categoryId = "
+                + categoryId
+                + ", sort = "
+                + sort
+                + "}";
     }
 }

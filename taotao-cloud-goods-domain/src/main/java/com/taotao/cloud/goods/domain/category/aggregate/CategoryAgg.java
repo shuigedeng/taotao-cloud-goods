@@ -35,8 +35,7 @@ public class CategoryAgg extends AggregateRoot<BizId> {
     /**
      * 分类ID
      */
-    @NotNull
-    private BizId id;
+    @NotNull private BizId id;
 
     /**
      * 上级分类ID
@@ -46,8 +45,7 @@ public class CategoryAgg extends AggregateRoot<BizId> {
     /**
      * 分类名称
      */
-    @NotNull
-    private CategoryName categoryName;
+    @NotNull private CategoryName categoryName;
 
     /**
      * 分类描述
@@ -58,6 +56,7 @@ public class CategoryAgg extends AggregateRoot<BizId> {
      * 创建时间
      */
     private LocalDateTime createTime;
+
     /**
      * 修改时间
      */
@@ -73,7 +72,11 @@ public class CategoryAgg extends AggregateRoot<BizId> {
      * @param categoryName     分类名称
      * @param categoryDesc     分类描述
      */
-    CategoryAgg(BizId id, BizId parentCategoryId, CategoryName categoryName, CategoryDesc categoryDesc) {
+    CategoryAgg(
+            BizId id,
+            BizId parentCategoryId,
+            CategoryName categoryName,
+            CategoryDesc categoryDesc) {
         this.id = id;
         this.parentCategoryId = parentCategoryId;
         this.categoryName = categoryName;
@@ -106,7 +109,8 @@ public class CategoryAgg extends AggregateRoot<BizId> {
      * @param categoryName     分类名称
      * @param categoryDesc     分类描述
      */
-    public void modifyBasicInfo(BizId parentCategoryId, CategoryName categoryName, CategoryDesc categoryDesc) {
+    public void modifyBasicInfo(
+            BizId parentCategoryId, CategoryName categoryName, CategoryDesc categoryDesc) {
         this.parentCategoryId = parentCategoryId;
         this.categoryName = categoryName;
         this.categoryDesc = categoryDesc;
@@ -158,12 +162,19 @@ public class CategoryAgg extends AggregateRoot<BizId> {
 
     @Override
     public String toString() {
-        return "Category{" + "id="
-                + id + ", parentCategoryId="
-                + parentCategoryId + ", categoryName="
-                + categoryName + ", categoryDesc="
-                + categoryDesc + ", createTime="
-                + createTime + ", updateTime="
-                + updateTime + '}';
+        return "Category{"
+                + "id="
+                + id
+                + ", parentCategoryId="
+                + parentCategoryId
+                + ", categoryName="
+                + categoryName
+                + ", categoryDesc="
+                + categoryDesc
+                + ", createTime="
+                + createTime
+                + ", updateTime="
+                + updateTime
+                + '}';
     }
 }

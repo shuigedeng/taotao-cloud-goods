@@ -58,10 +58,12 @@ public class EsGoodsQueryServiceImpl implements EsGoodsQueryService {
     //    }
     //
     //    if (CharSequenceUtil.isNotEmpty(esGoodsSearchQuery.getKeyword())) {
-    //        redisRepository.hincr(CachePrefix.HOT_WORD.getPrefix(), esGoodsSearchQuery.getKeyword(), 1.0);
+    //        redisRepository.hincr(CachePrefix.HOT_WORD.getPrefix(),
+    // esGoodsSearchQuery.getKeyword(), 1.0);
     //    }
     //
-    //    NativeSearchQueryBuilder searchQueryBuilder = createSearchQueryBuilder(esGoodsSearchQuery);
+    //    NativeSearchQueryBuilder searchQueryBuilder =
+    // createSearchQueryBuilder(esGoodsSearchQuery);
     //    NativeSearchQuery searchQuery = searchQueryBuilder.build();
     //    LogUtils.info("searchGoods DSL:{}", searchQuery.getQuery());
     //    SearchHits<EsGoodsIndex> search = restTemplate.search(searchQuery, EsGoodsIndex.class);
@@ -77,7 +79,8 @@ public class EsGoodsQueryServiceImpl implements EsGoodsQueryService {
     //    // redis 排序中，下标从0开始，所以这里需要 -1 处理 reverseRangeWithScores
     //    count = count - 1;
     //    Set<TypedTuple<Object>> set =
-    //            redisRepository.zReverseRangeByScoreWithScores(CachePrefix.HOT_WORD.getPrefix(), 0, count);
+    //            redisRepository.zReverseRangeByScoreWithScores(CachePrefix.HOT_WORD.getPrefix(),
+    // 0, count);
     //    if (set == null || set.isEmpty()) {
     //        return new ArrayList<>();
     //    }
@@ -90,7 +93,8 @@ public class EsGoodsQueryServiceImpl implements EsGoodsQueryService {
     // @Override
     // public boolean setHotWords(HotWordsDTO hotWords) {
     //    redisRepository.hincr(
-    //            CachePrefix.HOT_WORD.getPrefix(), hotWords.getKeywords(), Double.valueOf(hotWords.getPoint()));
+    //            CachePrefix.HOT_WORD.getPrefix(), hotWords.getKeywords(),
+    // Double.valueOf(hotWords.getPoint()));
     //    return true;
     // }
     //
@@ -112,7 +116,8 @@ public class EsGoodsQueryServiceImpl implements EsGoodsQueryService {
     //    AggregationBuilder categoryNameBuilder =
     //            AggregationBuilders.terms("categoryNameAgg").field("categoryNamePath.keyword");
     //    builder.withAggregations(
-    //            AggregationBuilders.terms("categoryAgg").field("categoryPath").subAggregation(categoryNameBuilder));
+    //
+    // AggregationBuilders.terms("categoryAgg").field("categoryPath").subAggregation(categoryNameBuilder));
     //
     //    // 品牌
     //    AggregationBuilder brandNameBuilder =
@@ -129,7 +134,8 @@ public class EsGoodsQueryServiceImpl implements EsGoodsQueryService {
     //            .subAggregation(brandUrlBuilder));
     //
     //    // 参数
-    //    AggregationBuilder valuesBuilder = AggregationBuilders.terms("valueAgg").field(ATTR_VALUE);
+    //    AggregationBuilder valuesBuilder =
+    // AggregationBuilders.terms("valueAgg").field(ATTR_VALUE);
     //    AggregationBuilder sortBuilder = AggregationBuilders.sum("sortAgg").field(ATTR_SORT);
     //    AggregationBuilder paramsNameBuilder = AggregationBuilders.terms("nameAgg")
     //            .field(ATTR_NAME)
@@ -137,7 +143,8 @@ public class EsGoodsQueryServiceImpl implements EsGoodsQueryService {
     //            .order(BucketOrder.aggregation("sortAgg", false))
     //            .subAggregation(valuesBuilder);
     //    builder.withAggregations(
-    //            AggregationBuilders.nested("attrAgg", ATTR_PATH).subAggregation(paramsNameBuilder));
+    //            AggregationBuilders.nested("attrAgg",
+    // ATTR_PATH).subAggregation(paramsNameBuilder));
     //    NativeSearchQuery searchQuery = builder.build();
     //    SearchHits<EsGoodsIndex> search = restTemplate.search(searchQuery, EsGoodsIndex.class);
     //
@@ -185,7 +192,8 @@ public class EsGoodsQueryServiceImpl implements EsGoodsQueryService {
     //    esGoodsRelatedInfo.setCategories(categoryOptions);
     //
     //    // 品牌
-    //    ParsedStringTerms brandNameTerms = (ParsedStringTerms) aggregationMap.get("brandIdNameAgg");
+    //    ParsedStringTerms brandNameTerms = (ParsedStringTerms)
+    // aggregationMap.get("brandIdNameAgg");
     //    ParsedStringTerms brandUrlTerms = (ParsedStringTerms) aggregationMap.get("brandIdUrlAgg");
     //    List<? extends Terms.Bucket> brandBuckets = brandNameTerms.getBuckets();
     //    List<? extends Terms.Bucket> brandUrlBuckets = brandUrlTerms.getBuckets();
@@ -201,7 +209,8 @@ public class EsGoodsQueryServiceImpl implements EsGoodsQueryService {
     //        if (goodsSearch.getNotShowCol().containsKey(ATTR_NAME_KEY)
     //                && goodsSearch.getNotShowCol().containsKey(ATTR_VALUE_KEY)) {
     //            esGoodsRelatedInfo.setParamOptions(
-    //                    buildGoodsParam(attrTerms, goodsSearch.getNotShowCol().get(ATTR_NAME_KEY)));
+    //                    buildGoodsParam(attrTerms,
+    // goodsSearch.getNotShowCol().get(ATTR_NAME_KEY)));
     //        }
     //    } else {
     //        esGoodsRelatedInfo.setParamOptions(buildGoodsParam(attrTerms, null));
@@ -284,11 +293,13 @@ public class EsGoodsQueryServiceImpl implements EsGoodsQueryService {
     // * @param categoryBuckets 分类聚合结果
     // * @return 分类选择项集合
     // */
-    // private List<SelectorOptions> convertCategoryOptions(List<? extends Terms.Bucket> categoryBuckets) {
+    // private List<SelectorOptions> convertCategoryOptions(List<? extends Terms.Bucket>
+    // categoryBuckets) {
     //    List<SelectorOptions> categoryOptions = new ArrayList<>();
     //    for (Terms.Bucket categoryBucket : categoryBuckets) {
     //        String categoryPath = categoryBucket.getKey().toString();
-    //        ParsedStringTerms categoryNameAgg = categoryBucket.getAggregations().get("categoryNameAgg");
+    //        ParsedStringTerms categoryNameAgg =
+    // categoryBucket.getAggregations().get("categoryNameAgg");
     //        List<? extends Terms.Bucket> categoryNameBuckets = categoryNameAgg.getBuckets();
     //
     //        String categoryNamePath = categoryPath;
@@ -338,7 +349,8 @@ public class EsGoodsQueryServiceImpl implements EsGoodsQueryService {
     // * @param nameList 查询的规格名
     // * @return 商品参数属性集合
     // */
-    // private List<ParamOptions> buildGoodsParamOptions(ParsedStringTerms nameAgg, List<String> nameList) {
+    // private List<ParamOptions> buildGoodsParamOptions(ParsedStringTerms nameAgg, List<String>
+    // nameList) {
     //    List<ParamOptions> paramOptions = new ArrayList<>();
     //    List<? extends Terms.Bucket> nameBuckets = nameAgg.getBuckets();
     //
@@ -371,7 +383,8 @@ public class EsGoodsQueryServiceImpl implements EsGoodsQueryService {
     // * @param esGoodsSearchQuery 搜索条件
     // * @return es搜索builder
     // */
-    // private NativeSearchQueryBuilder createSearchQueryBuilder(EsGoodsSearchQuery esGoodsSearchQuery) {
+    // private NativeSearchQueryBuilder createSearchQueryBuilder(EsGoodsSearchQuery
+    // esGoodsSearchQuery) {
     //    NativeSearchQueryBuilder nativeSearchQueryBuilder = new NativeSearchQueryBuilder();
     //    if (esGoodsSearchQuery != null) {
     //        int pageNumber = esGoodsSearchQuery.getCurrentPage() - 1;
@@ -392,23 +405,29 @@ public class EsGoodsQueryServiceImpl implements EsGoodsQueryService {
     //        this.commonSearch(filterBuilder, esGoodsSearchQuery);
     //
     //        // 未上架的商品不显示
-    //        filterBuilder.must(QueryBuilders.matchQuery("marketEnable", GoodsStatusEnum.UPPER.name()));
+    //        filterBuilder.must(QueryBuilders.matchQuery("marketEnable",
+    // GoodsStatusEnum.UPPER.name()));
     //        // 待审核和审核不通过的商品不显示
     //        filterBuilder.must(QueryBuilders.matchQuery("authFlag", GoodsAuthEnum.PASS.name()));
     //
     //        // 关键字检索
     //        if (CharSequenceUtil.isEmpty(esGoodsSearchQuery.getKeyword())) {
-    //            List<FunctionScoreQueryBuilder.FilterFunctionBuilder> filterFunctionBuilders = new ArrayList<>();
-    //            GaussDecayFunctionBuilder skuNoScore = ScoreFunctionBuilders.gaussDecayFunction("skuSource", 100, 10)
+    //            List<FunctionScoreQueryBuilder.FilterFunctionBuilder> filterFunctionBuilders = new
+    // ArrayList<>();
+    //            GaussDecayFunctionBuilder skuNoScore =
+    // ScoreFunctionBuilders.gaussDecayFunction("skuSource", 100, 10)
     //                    .setWeight(10);
     //            FunctionScoreQueryBuilder.FilterFunctionBuilder skuNoBuilder =
-    //                    new FunctionScoreQueryBuilder.FilterFunctionBuilder(QueryBuilders.matchAllQuery(),
+    //                    new
+    // FunctionScoreQueryBuilder.FilterFunctionBuilder(QueryBuilders.matchAllQuery(),
     // skuNoScore);
     //            filterFunctionBuilders.add(skuNoBuilder);
     //            FunctionScoreQueryBuilder.FilterFunctionBuilder[] builders =
-    //                    new FunctionScoreQueryBuilder.FilterFunctionBuilder[filterFunctionBuilders.size()];
+    //                    new
+    // FunctionScoreQueryBuilder.FilterFunctionBuilder[filterFunctionBuilders.size()];
     //            filterFunctionBuilders.toArray(builders);
-    //            FunctionScoreQueryBuilder functionScoreQueryBuilder = QueryBuilders.functionScoreQuery(builders)
+    //            FunctionScoreQueryBuilder functionScoreQueryBuilder =
+    // QueryBuilders.functionScoreQuery(builders)
     //                    .scoreMode(FunctionScoreQuery.ScoreMode.SUM)
     //                    .setMinScore(2);
     //            // 聚合搜索则将结果放入过滤条件
@@ -423,10 +442,12 @@ public class EsGoodsQueryServiceImpl implements EsGoodsQueryService {
     //        if (esGoodsSearchQuery != null
     //                && CharSequenceUtil.isNotEmpty(esGoodsSearchQuery.getOrder())
     //                && CharSequenceUtil.isNotEmpty(esGoodsSearchQuery.getSort())) {
-    //            nativeSearchQueryBuilder.withSorts(SortBuilders.fieldSort(esGoodsSearchQuery.getSort())
+    //
+    // nativeSearchQueryBuilder.withSorts(SortBuilders.fieldSort(esGoodsSearchQuery.getSort())
     //                    .order(SortOrder.valueOf(esGoodsSearchQuery.getOrder().toUpperCase())));
     //        } else {
-    //            nativeSearchQueryBuilder.withSorts(SortBuilders.scoreSort().order(SortOrder.DESC));
+    //
+    // nativeSearchQueryBuilder.withSorts(SortBuilders.scoreSort().order(SortOrder.DESC));
     //        }
     //    }
     //    return nativeSearchQueryBuilder;
@@ -456,15 +477,18 @@ public class EsGoodsQueryServiceImpl implements EsGoodsQueryService {
     //    // 规格项判定
     //    if (searchDTO.getNameIds() != null && !searchDTO.getNameIds().isEmpty()) {
     //        filterBuilder.must(QueryBuilders.nestedQuery(
-    //                ATTR_PATH, QueryBuilders.termsQuery("attrList.nameId", searchDTO.getNameIds()), ScoreMode.None));
+    //                ATTR_PATH, QueryBuilders.termsQuery("attrList.nameId",
+    // searchDTO.getNameIds()), ScoreMode.None));
     //    }
     //    // 分类判定
     //    if (CharSequenceUtil.isNotEmpty(searchDTO.getCategoryId())) {
-    //        filterBuilder.must(QueryBuilders.wildcardQuery("categoryPath", "*" + searchDTO.getCategoryId() + "*"));
+    //        filterBuilder.must(QueryBuilders.wildcardQuery("categoryPath", "*" +
+    // searchDTO.getCategoryId() + "*"));
     //    }
     //    // 店铺分类判定
     //    if (CharSequenceUtil.isNotEmpty(searchDTO.getStoreCatId())) {
-    //        filterBuilder.must(QueryBuilders.wildcardQuery("storeCategoryPath", "*" + searchDTO.getStoreCatId() +
+    //        filterBuilder.must(QueryBuilders.wildcardQuery("storeCategoryPath", "*" +
+    // searchDTO.getStoreCatId() +
     // "*"));
     //    }
     //    // 店铺判定
@@ -537,11 +561,13 @@ public class EsGoodsQueryServiceImpl implements EsGoodsQueryService {
     //    // 遍历所有的规格
     //    for (Map.Entry<String, List<String>> entry : valueMap.entrySet()) {
     //        filterBuilder.must(QueryBuilders.nestedQuery(
-    //                ATTR_PATH, QueryBuilders.matchQuery(ATTR_NAME, entry.getKey()), ScoreMode.None));
+    //                ATTR_PATH, QueryBuilders.matchQuery(ATTR_NAME, entry.getKey()),
+    // ScoreMode.None));
     //        BoolQueryBuilder shouldBuilder = QueryBuilders.boolQuery();
     //        for (String s : entry.getValue()) {
     //            shouldBuilder.should(
-    //                    QueryBuilders.nestedQuery(ATTR_PATH, QueryBuilders.matchQuery(ATTR_VALUE, s),
+    //                    QueryBuilders.nestedQuery(ATTR_PATH, QueryBuilders.matchQuery(ATTR_VALUE,
+    // s),
     // ScoreMode.None));
     //        }
     //        filterBuilder.must(shouldBuilder);
@@ -557,7 +583,8 @@ public class EsGoodsQueryServiceImpl implements EsGoodsQueryService {
     // * @param keyword 关键字
     // */
     // private void keywordSearch(BoolQueryBuilder filterBuilder, String keyword) {
-    //    List<FunctionScoreQueryBuilder.FilterFunctionBuilder> filterFunctionBuilders = new ArrayList<>();
+    //    List<FunctionScoreQueryBuilder.FilterFunctionBuilder> filterFunctionBuilders = new
+    // ArrayList<>();
     //    if (keyword.contains(" ")) {
     //        for (String s : keyword.split(" ")) {
     //            filterFunctionBuilders.addAll(this.buildKeywordSearch(s));
@@ -567,9 +594,11 @@ public class EsGoodsQueryServiceImpl implements EsGoodsQueryService {
     //    }
     //
     //    FunctionScoreQueryBuilder.FilterFunctionBuilder[] builders =
-    //            new FunctionScoreQueryBuilder.FilterFunctionBuilder[filterFunctionBuilders.size()];
+    //            new
+    // FunctionScoreQueryBuilder.FilterFunctionBuilder[filterFunctionBuilders.size()];
     //    filterFunctionBuilders.toArray(builders);
-    //    FunctionScoreQueryBuilder functionScoreQueryBuilder = QueryBuilders.functionScoreQuery(builders)
+    //    FunctionScoreQueryBuilder functionScoreQueryBuilder =
+    // QueryBuilders.functionScoreQuery(builders)
     //            .scoreMode(FunctionScoreQuery.ScoreMode.SUM)
     //            .setMinScore(2);
     //    // 聚合搜索则将结果放入过滤条件
@@ -582,8 +611,10 @@ public class EsGoodsQueryServiceImpl implements EsGoodsQueryService {
     // * @param keyword 关键字
     // * @return 构造查询的集合
     // */
-    // private List<FunctionScoreQueryBuilder.FilterFunctionBuilder> buildKeywordSearch(String keyword) {
-    //    List<FunctionScoreQueryBuilder.FilterFunctionBuilder> filterFunctionBuilders = new ArrayList<>();
+    // private List<FunctionScoreQueryBuilder.FilterFunctionBuilder> buildKeywordSearch(String
+    // keyword) {
+    //    List<FunctionScoreQueryBuilder.FilterFunctionBuilder> filterFunctionBuilders = new
+    // ArrayList<>();
     //    MatchQueryBuilder goodsNameQuery =
     //            QueryBuilders.matchQuery("goodsName", keyword).operator(Operator.AND);
     //    // 分词匹配
@@ -592,7 +623,8 @@ public class EsGoodsQueryServiceImpl implements EsGoodsQueryService {
     //    // 属性匹配
     //    filterFunctionBuilders.add(new FunctionScoreQueryBuilder.FilterFunctionBuilder(
     //            QueryBuilders.nestedQuery(
-    //                    ATTR_PATH, QueryBuilders.wildcardQuery(ATTR_VALUE, "*" + keyword + "*"), ScoreMode.None),
+    //                    ATTR_PATH, QueryBuilders.wildcardQuery(ATTR_VALUE, "*" + keyword + "*"),
+    // ScoreMode.None),
     //            ScoreFunctionBuilders.weightFactorFunction(8)));
     //
     //    GaussDecayFunctionBuilder skuNoScore =
@@ -601,11 +633,13 @@ public class EsGoodsQueryServiceImpl implements EsGoodsQueryService {
     //            new FunctionScoreQueryBuilder.FilterFunctionBuilder(goodsNameQuery, skuNoScore);
     //    filterFunctionBuilders.add(skuNoBuilder);
     //
-    //    FieldValueFactorFunctionBuilder buyCountScore = ScoreFunctionBuilders.fieldValueFactorFunction("buyCount")
+    //    FieldValueFactorFunctionBuilder buyCountScore =
+    // ScoreFunctionBuilders.fieldValueFactorFunction("buyCount")
     //            .modifier(FieldValueFactorFunction.Modifier.LOG1P)
     //            .setWeight(6);
     //    FunctionScoreQueryBuilder.FilterFunctionBuilder buyCountBuilder =
-    //            new FunctionScoreQueryBuilder.FilterFunctionBuilder(goodsNameQuery, buyCountScore);
+    //            new FunctionScoreQueryBuilder.FilterFunctionBuilder(goodsNameQuery,
+    // buyCountScore);
     //    filterFunctionBuilders.add(buyCountBuilder);
     //    return filterFunctionBuilders;
     // }

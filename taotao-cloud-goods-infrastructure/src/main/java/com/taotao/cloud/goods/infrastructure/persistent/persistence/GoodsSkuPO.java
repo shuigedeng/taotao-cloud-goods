@@ -143,7 +143,9 @@ public class GoodsSkuPO extends BaseSuperEntity<GoodsSkuPO, Long> {
     private Integer quantity;
 
     /** 商品好评率 */
-    @Column(name = "`grade`", columnDefinition = "decimal(10,2) not null default  0 comment '商品好评率'")
+    @Column(
+            name = "`grade`",
+            columnDefinition = "decimal(10,2) not null default  0 comment '商品好评率'")
     private BigDecimal grade;
 
     /** 缩略图路径 */
@@ -163,7 +165,9 @@ public class GoodsSkuPO extends BaseSuperEntity<GoodsSkuPO, Long> {
     private String original;
 
     /** 店铺分类路径 */
-    @Column(name = "`store_category_path`", columnDefinition = "varchar(255) not null comment '店铺分类路径'")
+    @Column(
+            name = "`store_category_path`",
+            columnDefinition = "varchar(255) not null comment '店铺分类路径'")
     private String storeCategoryPath;
 
     /** 评论数量 */
@@ -199,7 +203,9 @@ public class GoodsSkuPO extends BaseSuperEntity<GoodsSkuPO, Long> {
     private String underMessage;
 
     /** 是否自营 */
-    @Column(name = "`self_operated`", columnDefinition = "boolean not null default false comment '是否自营'")
+    @Column(
+            name = "`self_operated`",
+            columnDefinition = "boolean not null default false comment '是否自营'")
     private Boolean selfOperated;
 
     /** 商品移动端详情 */
@@ -211,7 +217,9 @@ public class GoodsSkuPO extends BaseSuperEntity<GoodsSkuPO, Long> {
     private String goodsVideo;
 
     /** 是否为推荐商品 */
-    @Column(name = "`recommend`", columnDefinition = "boolean not null default false comment '是否为推荐商品'")
+    @Column(
+            name = "`recommend`",
+            columnDefinition = "boolean not null default false comment '是否为推荐商品'")
     private Boolean recommend;
 
     /** 销售模式 */

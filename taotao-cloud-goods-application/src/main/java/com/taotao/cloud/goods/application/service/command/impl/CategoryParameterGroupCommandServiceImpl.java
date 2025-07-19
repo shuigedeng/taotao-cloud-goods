@@ -32,12 +32,14 @@ import org.springframework.stereotype.Service;
  */
 @AllArgsConstructor
 @Service
-public class CategoryParameterGroupCommandServiceImpl implements CategoryParameterGroupCommandService {
+public class CategoryParameterGroupCommandServiceImpl
+        implements CategoryParameterGroupCommandService {
 
     /**
      * 商品参数服务
      */
     private final ParametersCommandService parametersService;
+
     /**
      * 商品服务
      */
@@ -84,7 +86,8 @@ public class CategoryParameterGroupCommandServiceImpl implements CategoryParamet
     // }
 
     //	@Override
-    //	public boolean updateCategoryGroup(CategoryParameterGroupAddCmd categoryParameterGroupAddCmd) {
+    //	public boolean updateCategoryGroup(CategoryParameterGroupAddCmd categoryParameterGroupAddCmd)
+    // {
     //		return false;
     //	}
     //

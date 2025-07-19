@@ -42,12 +42,16 @@ public class GoodsOperateAllowableCO extends ClientObject {
 
     /** 是否允许下架 */
     private Boolean allowDown;
+
     /** 是否允许放入回收站 */
     private Boolean allowDelete;
+
     /** 是否允许回收站的商品还原 */
     private Boolean allowReduction;
+
     /** 是否允许回收站的商品彻底删除 */
     private Boolean allowClear;
+
     /** 是否允许上架 */
     private Boolean allowUpper;
 

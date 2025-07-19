@@ -48,7 +48,8 @@ package com.taotao.cloud.goods.interfaces.dubbo; /// *
 //
 //    @Override
 //    public void firstCategory(
-//            FirstCategoryGrpcRequest request, StreamObserver<FirstCategoryGrpcResponse> responseObserver) {
+//            FirstCategoryGrpcRequest request, StreamObserver<FirstCategoryGrpcResponse>
+// responseObserver) {
 //        super.firstCategory(request, responseObserver);
 //    }
 // }

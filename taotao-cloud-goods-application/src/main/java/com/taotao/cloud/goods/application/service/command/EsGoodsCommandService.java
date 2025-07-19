@@ -125,7 +125,8 @@ public interface EsGoodsCommandService extends CommandService {
     // * @param promotion 促销信息
     // * @param key       促销信息的key
     // */
-    // UpdateRequest updateEsGoodsIndexPromotions(String id, BasePromotionsVO promotion, String key);
+    // UpdateRequest updateEsGoodsIndexPromotions(String id, BasePromotionsVO promotion, String
+    // key);
     //
     /// **
     // * 更新商品索引的促销信息
@@ -143,7 +144,8 @@ public interface EsGoodsCommandService extends CommandService {
     // * @param promotion          促销信息
     // * @param key                促销信息的key
     // */
-    // void updateEsGoodsIndexByList(List<PromotionGoodsVO> promotionGoodsList, BasePromotionsVO promotion, String key);
+    // void updateEsGoodsIndexByList(List<PromotionGoodsVO> promotionGoodsList, BasePromotionsVO
+    // promotion, String key);
     //
     /// **
     // * 更新全部商品索引的促销信息

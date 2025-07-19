@@ -65,6 +65,7 @@ public class CategoryManagerController extends BusinessController {
     private final CategoryQueryService categoryQueryService;
 
     private final CategoryCommandService categoryCommandService;
+
     /** 商品服务 */
     private final GoodsQueryService goodsQueryService;
 
@@ -72,7 +73,8 @@ public class CategoryManagerController extends BusinessController {
 
     //    @Operation(summary = "查询某分类下的全部子分类列表", description = "查询某分类下的全部子分类列表")
     //    @Parameters({
-    //            @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
+    //            @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in =
+    // ParameterIn.PATH),
     //    })
     //    @RequestLogger
     //    @PreAuthorize("hasAuthority('dept:tree:data')")
@@ -84,7 +86,11 @@ public class CategoryManagerController extends BusinessController {
 
     @Operation(summary = "查询全部分类列表", description = "查询全部分类列表")
     @Parameters({
-        @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
+        @Parameter(
+                name = "parentId",
+                required = true,
+                description = "父ID 0-最上级id",
+                in = ParameterIn.PATH),
     })
     @RequestLogger
     @PreAuthorize("hasAuthority('dept:tree:data')")
@@ -95,7 +101,11 @@ public class CategoryManagerController extends BusinessController {
 
     @Operation(summary = "添加商品分类", description = "添加商品分类")
     @Parameters({
-        @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
+        @Parameter(
+                name = "parentId",
+                required = true,
+                description = "父ID 0-最上级id",
+                in = ParameterIn.PATH),
     })
     @RequestLogger
     @PreAuthorize("hasAuthority('dept:tree:data')")
@@ -117,7 +127,11 @@ public class CategoryManagerController extends BusinessController {
 
     @Operation(summary = "修改商品分类", description = "修改商品分类")
     @Parameters({
-        @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
+        @Parameter(
+                name = "parentId",
+                required = true,
+                description = "父ID 0-最上级id",
+                in = ParameterIn.PATH),
     })
     @RequestLogger
     @PreAuthorize("hasAuthority('dept:tree:data')")
@@ -133,7 +147,11 @@ public class CategoryManagerController extends BusinessController {
 
     @Operation(summary = "通过id删除分类", description = "通过id删除分类")
     @Parameters({
-        @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
+        @Parameter(
+                name = "parentId",
+                required = true,
+                description = "父ID 0-最上级id",
+                in = ParameterIn.PATH),
     })
     @RequestLogger
     @PreAuthorize("hasAuthority('dept:tree:data')")
@@ -157,17 +175,20 @@ public class CategoryManagerController extends BusinessController {
 
     //    @Operation(summary = "后台 禁用/启用 分类", description = "后台 禁用/启用 分类")
     //    @Parameters({
-    //            @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
+    //            @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in =
+    // ParameterIn.PATH),
     //    })
     //    @RequestLogger
     //    @PreAuthorize("hasAuthority('dept:tree:data')")
     //    @PutMapping(value = "/disable/{id}")
-    //    public Result<Boolean> disable(@PathVariable Long id, @RequestParam Boolean enableOperations) {
+    //    public Result<Boolean> disable(@PathVariable Long id, @RequestParam Boolean
+    // enableOperations) {
     //		GoodsPO category = goodsQueryService.getById(id);
     //        if (category == null) {
     //            throw new BusinessException(ResultEnum.CATEGORY_NOT_EXIST);
     //        }
-    //        //return Result.success(categoryCommandService.updateCategoryStatus(id, enableOperations));
+    //        //return Result.success(categoryCommandService.updateCategoryStatus(id,
+    // enableOperations));
     //		return null;
     //    }
 }

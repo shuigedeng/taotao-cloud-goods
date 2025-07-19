@@ -48,13 +48,15 @@ public class SpecificationSellerController extends BusinessController {
     //
     //	@Operation(summary = "获取分类规格", description = "获取分类规格")
     //	@Parameters({
-    //		@Parameter(name = "categoryId", required = true, description = "分类id", in = ParameterIn.PATH),
+    //		@Parameter(name = "categoryId", required = true, description = "分类id", in =
+    // ParameterIn.PATH),
     //	})
     //	@RequestLogger
     //	@PreAuthorize("hasAuthority('dept:tree:data')")
     //	@GetMapping(value = "/{categoryId}")
     //	public Result<List<SpecificationCO>> getSpecifications(@PathVariable Long categoryId) {
-    //		List<SpecificationPO> categorySpecList = categorySpecificationQueryService.getCategorySpecList(
+    //		List<SpecificationPO> categorySpecList =
+    // categorySpecificationQueryService.getCategorySpecList(
     //			categoryId);
     //		return Result.success(SpecificationAssembler.INSTANCE.convert(categorySpecList));
     //	}

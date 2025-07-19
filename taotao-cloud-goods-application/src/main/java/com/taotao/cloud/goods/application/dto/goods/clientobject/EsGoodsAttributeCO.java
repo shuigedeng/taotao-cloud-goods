@@ -35,8 +35,7 @@ import lombok.experimental.Accessors;
 @NoArgsConstructor
 public class EsGoodsAttributeCO extends ClientObject {
 
-    @Serial
-    private static final long serialVersionUID = 4018042777559970062L;
+    @Serial private static final long serialVersionUID = 4018042777559970062L;
 
     /** 属性参数：0->规格；1->参数 */
     private Integer type;

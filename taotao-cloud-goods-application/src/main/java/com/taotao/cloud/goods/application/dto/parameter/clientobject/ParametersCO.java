@@ -30,8 +30,7 @@ import lombok.experimental.Accessors;
 @NoArgsConstructor
 public class ParametersCO extends ClientObject {
 
-    @Serial
-    private static final long serialVersionUID = 724427321881170297L;
+    @Serial private static final long serialVersionUID = 724427321881170297L;
 
     @Schema(description = "id")
     private String id;

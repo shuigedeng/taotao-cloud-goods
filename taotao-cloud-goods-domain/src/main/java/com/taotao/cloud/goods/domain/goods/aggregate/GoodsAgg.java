@@ -32,8 +32,7 @@ public class GoodsAgg extends AggregateRoot<BizId> {
     /**
      * 商品ID
      */
-    @NotNull
-    private BizId id;
+    @NotNull private BizId id;
 
     /**
      * 商品标签集合
@@ -43,32 +42,27 @@ public class GoodsAgg extends AggregateRoot<BizId> {
     /**
      * 商品所属分类
      */
-    @NotNull
-    private BizId categoryId;
+    @NotNull private BizId categoryId;
 
     /**
      * 商品名称
      */
-    @NotNull
-    private GoodsName goodsName;
+    @NotNull private GoodsName goodsName;
 
     /**
      * 商品描述
      */
-    @NotNull
-    private GoodsSpec goodsSpec;
+    @NotNull private GoodsSpec goodsSpec;
 
     /**
      * 商品价格
      */
-    @NotNull
-    private Price goodsPrice;
+    @NotNull private Price goodsPrice;
 
     /**
      * 商品状态
      */
-    @NotNull
-    private GoodsStatus goodsStatus;
+    @NotNull private GoodsStatus goodsStatus;
 
     /**
      * 创建时间
@@ -143,7 +137,11 @@ public class GoodsAgg extends AggregateRoot<BizId> {
      * @param goodsPrice 商品价格
      */
     public void modifyBasicInfo(
-            BizId categoryId, GoodsName goodsName, GoodsSpec goodsSpec, Price goodsPrice, Set<BizId> tagIds) {
+            BizId categoryId,
+            GoodsName goodsName,
+            GoodsSpec goodsSpec,
+            Price goodsPrice,
+            Set<BizId> tagIds) {
         this.categoryId = categoryId;
         this.goodsName = goodsName;
         this.goodsSpec = goodsSpec;
@@ -221,15 +219,25 @@ public class GoodsAgg extends AggregateRoot<BizId> {
 
     @Override
     public String toString() {
-        return "Goods{" + "id="
-                + id + ", tags="
-                + tagIds + ", categoryId="
-                + categoryId + ", goodsName="
-                + goodsName + ", goodsSpec="
-                + goodsSpec + ", goodsPrice="
-                + goodsPrice + ", goodsStatus="
-                + goodsStatus + ", createTime="
-                + createTime + ", updateTime="
-                + updateTime + '}';
+        return "Goods{"
+                + "id="
+                + id
+                + ", tags="
+                + tagIds
+                + ", categoryId="
+                + categoryId
+                + ", goodsName="
+                + goodsName
+                + ", goodsSpec="
+                + goodsSpec
+                + ", goodsPrice="
+                + goodsPrice
+                + ", goodsStatus="
+                + goodsStatus
+                + ", createTime="
+                + createTime
+                + ", updateTime="
+                + updateTime
+                + '}';
     }
 }

@@ -37,9 +37,9 @@ import org.springframework.stereotype.Service;
 @DubboService(interfaceClass = GoodsRpcService.class, validation = "true")
 public class GoodsRpcServiceImpl implements GoodsRpcService {
 
-	@Override
-	public RpcResponse<GoodsQueryRpcResponse> queryGoodsByParams(
-		RpcRequest<GoodsQueryRpcRequest> goodsQueryRpcRequest) {
-		return null;
-	}
+    @Override
+    public RpcResponse<GoodsQueryRpcResponse> queryGoodsByParams(
+            RpcRequest<GoodsQueryRpcRequest> goodsQueryRpcRequest) {
+        return null;
+    }
 }

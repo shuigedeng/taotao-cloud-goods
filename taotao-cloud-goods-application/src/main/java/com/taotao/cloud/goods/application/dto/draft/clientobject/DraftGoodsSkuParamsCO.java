@@ -32,8 +32,7 @@ import lombok.experimental.Accessors;
 @NoArgsConstructor
 public class DraftGoodsSkuParamsCO extends DraftGoodsCO {
 
-    @Serial
-    private static final long serialVersionUID = 6377623919990713567L;
+    @Serial private static final long serialVersionUID = 6377623919990713567L;
 
     @Schema(description = "分类名称")
     private List<String> categoryName;

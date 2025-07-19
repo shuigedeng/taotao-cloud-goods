@@ -59,7 +59,11 @@ public class CategoryBrandManagerController extends BusinessController {
 
     @Operation(summary = "查询某分类下绑定的品牌信息", description = "查询某分类下绑定的品牌信息")
     @Parameters({
-        @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
+        @Parameter(
+                name = "parentId",
+                required = true,
+                description = "父ID 0-最上级id",
+                in = ParameterIn.PATH),
     })
     @RequestLogger
     @PreAuthorize("hasAuthority('dept:tree:data')")
@@ -71,14 +75,20 @@ public class CategoryBrandManagerController extends BusinessController {
 
     @Operation(summary = "保存某分类下绑定的品牌信息", description = "保存某分类下绑定的品牌信息")
     @Parameters({
-        @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
+        @Parameter(
+                name = "parentId",
+                required = true,
+                description = "父ID 0-最上级id",
+                in = ParameterIn.PATH),
     })
     @RequestLogger
     @PreAuthorize("hasAuthority('dept:tree:data')")
     @PostMapping(value = "/{categoryId}/{categoryBrands}")
     public Result<Boolean> saveCategoryBrand(
             @NotBlank(message = "分类id不能为空") @PathVariable(value = "categoryId") Long categoryId,
-            @NotBlank(message = "品牌id列表不能为空") @PathVariable(value = "categoryBrands") List<Long> categoryBrands) {
-        return Result.success(categoryBrandCommandService.saveCategoryBrandList(categoryId, categoryBrands));
+            @NotBlank(message = "品牌id列表不能为空") @PathVariable(value = "categoryBrands")
+                    List<Long> categoryBrands) {
+        return Result.success(
+                categoryBrandCommandService.saveCategoryBrandList(categoryId, categoryBrands));
     }
 }

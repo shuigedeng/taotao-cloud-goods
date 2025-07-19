@@ -113,7 +113,8 @@ public class GoodsSkuQueryServiceImpl implements GoodsSkuQueryService {
     //	}
     //
     //	@Override
-    //	public IPage<GoodsSkuSearchQry> getGoodsSkuDTOByPage(Page<GoodsSkuSearchQry> page, Wrapper<GoodsSkuSearchQry>
+    //	public IPage<GoodsSkuSearchQry> getGoodsSkuDTOByPage(Page<GoodsSkuSearchQry> page,
+    // Wrapper<GoodsSkuSearchQry>
     // queryWrapper) {
     //		return null;
     //	}

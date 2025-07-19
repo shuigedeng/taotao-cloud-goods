@@ -33,8 +33,7 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = true)
 public class GoodsSkuPageQry extends GoodsPageQry {
 
-    @Serial
-    private static final long serialVersionUID = -6235885068610635045L;
+    @Serial private static final long serialVersionUID = -6235885068610635045L;
 
     // @Schema(description = "商品id")
     // private String goodsId;

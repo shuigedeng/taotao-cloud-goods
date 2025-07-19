@@ -43,7 +43,8 @@ package com.taotao.cloud.goods.interfaces.grpc; /// *
 //
 //    @Override
 //    public void countStoreGoodsNum(
-//            CountStoreGoodsNumGrpcRequest request, StreamObserver<CountStoreGoodsNumGrpcResponse> responseObserver) {
+//            CountStoreGoodsNumGrpcRequest request, StreamObserver<CountStoreGoodsNumGrpcResponse>
+// responseObserver) {
 //        super.countStoreGoodsNum(request, responseObserver);
 //    }
 // }

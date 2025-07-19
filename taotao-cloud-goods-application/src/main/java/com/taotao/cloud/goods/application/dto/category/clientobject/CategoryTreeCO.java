@@ -94,7 +94,14 @@ public class CategoryTreeCO extends CategoryCO {
     }
 
     public String toString() {
-        return "CategoryTreeCO{serialVersionUID = " + serialVersionUID + ", parentTitle = " + parentTitle
-                + ", children = " + children + ", brandList = " + brandList + "}";
+        return "CategoryTreeCO{serialVersionUID = "
+                + serialVersionUID
+                + ", parentTitle = "
+                + parentTitle
+                + ", children = "
+                + children
+                + ", brandList = "
+                + brandList
+                + "}";
     }
 }

@@ -40,8 +40,7 @@ import lombok.experimental.Accessors;
 @NoArgsConstructor
 public class EsGoodsIndexCO extends ClientObject {
 
-    @Serial
-    private static final long serialVersionUID = -6856471777036048874L;
+    @Serial private static final long serialVersionUID = -6856471777036048874L;
 
     private Long id;
 

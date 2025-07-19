@@ -93,7 +93,8 @@ public class ParametersCommandServiceImpl implements ParametersCommandService {
     //	private void setGoodsItemDTOList(List<GoodsParamsAddCmd> goodsParamsAddCmdList,
     //									 ParametersPO parametersPO) {
     //		for (GoodsParamsAddCmd goodsParamsAddCmd : goodsParamsAddCmdList) {
-    //			List<GoodsParamsItemAddCmd> goodsParamsItemAddCmdList = goodsParamsAddCmd.getGoodsParamsItemAddCmdList()
+    //			List<GoodsParamsItemAddCmd> goodsParamsItemAddCmdList =
+    // goodsParamsAddCmd.getGoodsParamsItemAddCmdList()
     //				.stream()
     //				.filter(i -> i.paramId() != null && i.paramId().equals(parametersPO.getId()))
     //				.toList();
@@ -109,7 +110,8 @@ public class ParametersCommandServiceImpl implements ParametersCommandService {
     //	 * @param goodsParamsItemAddCmd 商品参数项信息
     //	 * @param parametersPO          参数信息
     //	 */
-    //	private void setGoodsItemDTO(GoodsParamsItemAddCmd goodsParamsItemAddCmd, ParametersPO parametersPO) {
+    //	private void setGoodsItemDTO(GoodsParamsItemAddCmd goodsParamsItemAddCmd, ParametersPO
+    // parametersPO) {
     //		if (goodsParamsItemAddCmd.paramId().equals(parametersPO.getId())) {
     //			goodsParamsItemAddCmd.paramId(parametersPO.getId());
     //			goodsParamsItemAddCmd.paramName(parametersPO.paramName());

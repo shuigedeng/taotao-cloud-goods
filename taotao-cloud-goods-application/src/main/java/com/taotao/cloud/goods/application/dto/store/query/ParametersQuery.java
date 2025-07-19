@@ -30,8 +30,7 @@ import lombok.experimental.Accessors;
 @NoArgsConstructor
 public class ParametersQuery extends Query {
 
-    @Serial
-    private static final long serialVersionUID = 724427321881170297L;
+    @Serial private static final long serialVersionUID = 724427321881170297L;
 
     @Schema(description = "参数名称")
     private String paramName;

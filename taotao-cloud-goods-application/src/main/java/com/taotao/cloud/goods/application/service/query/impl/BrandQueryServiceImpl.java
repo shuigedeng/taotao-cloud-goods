@@ -42,10 +42,12 @@ public class BrandQueryServiceImpl implements BrandQueryService {
      * 分类品牌绑定服务
      */
     private final CategoryBrandCommandService categoryBrandService;
+
     /**
      * 分类服务
      */
     private final CategoryCommandService categoryService;
+
     /**
      * 商品服务
      */
@@ -54,7 +56,8 @@ public class BrandQueryServiceImpl implements BrandQueryService {
     private final BrandQueryRepository brandQueryRepository;
 
     @Override
-    public List<Map<String, Object>> getBrandsMapsByCategory(List<Long> categoryIds, String columns) {
+    public List<Map<String, Object>> getBrandsMapsByCategory(
+            List<Long> categoryIds, String columns) {
         return List.of();
     }
 

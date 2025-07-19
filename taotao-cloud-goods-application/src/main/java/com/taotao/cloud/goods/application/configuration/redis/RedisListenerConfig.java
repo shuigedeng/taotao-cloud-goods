@@ -53,12 +53,15 @@ public class RedisListenerConfig {
     //    MessageListenerAdapter requestLogMessageListenerAdapter =
     //            new MessageListenerAdapter(requestLogTopicMessageDelegate, "handleRequestLog");
     //    requestLogMessageListenerAdapter.afterPropertiesSet();
-    //    listeners.put(requestLogMessageListenerAdapter, List.of(ChannelTopic.of(RedisConstant.REQUEST_LOG_TOPIC)));
+    //    listeners.put(requestLogMessageListenerAdapter,
+    // List.of(ChannelTopic.of(RedisConstant.REQUEST_LOG_TOPIC)));
     //
     //    MessageListenerAdapter dataVersionLogListenerAdapter =
-    //            new MessageListenerAdapter(dataVersionLogTopicMessageDelegate, "handleRequestLog");
+    //            new MessageListenerAdapter(dataVersionLogTopicMessageDelegate,
+    // "handleRequestLog");
     //    dataVersionLogListenerAdapter.afterPropertiesSet();
-    //    listeners.put(dataVersionLogListenerAdapter, List.of(ChannelTopic.of(RedisConstant.DATA_VERSION_LOG_TOPIC)));
+    //    listeners.put(dataVersionLogListenerAdapter,
+    // List.of(ChannelTopic.of(RedisConstant.DATA_VERSION_LOG_TOPIC)));
     //
     //    container.setMessageListeners(listeners);
     //    return container;
@@ -71,9 +74,11 @@ public class RedisListenerConfig {
     //    return new RedisKeyExpirationEventMessageListener(listenerContainer);
     // }
     //
-    // public static class RedisKeyExpirationEventMessageListener extends KeyExpirationEventMessageListener {
+    // public static class RedisKeyExpirationEventMessageListener extends
+    // KeyExpirationEventMessageListener {
     //
-    //    public RedisKeyExpirationEventMessageListener(RedisMessageListenerContainer listenerContainer) {
+    //    public RedisKeyExpirationEventMessageListener(RedisMessageListenerContainer
+    // listenerContainer) {
     //        super(listenerContainer);
     //    }
     //

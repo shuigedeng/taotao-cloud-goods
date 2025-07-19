@@ -34,14 +34,21 @@ public class DeptModifyCBootstrap {
         // 创建引导类
         BootStrap bootStrap = new BootStrap();
 
-        GoodsContext result = (GoodsContext) bootStrap
-                .inboundParameter(dto) // 入参
-                .outboundFactory(new ResultFactory()) // 出参工厂
-                .channel(new DeptModifyChannel()) // 自定义channel
-                .addChannelHandlerAtLast("checkParameter", new CheckParameterHandler()) // 第一个handler
-                .addChannelHandlerAtLast("modifyTitle", new ArticleModifyTitleHandler()) // 第二个handler
-                .addChannelHandlerAtLast("modifyContent", new ArticleModifyContentHandler()) // 第三个handler
-                .process(); // 执行
+        GoodsContext result =
+                (GoodsContext)
+                        bootStrap
+                                .inboundParameter(dto) // 入参
+                                .outboundFactory(new ResultFactory()) // 出参工厂
+                                .channel(new DeptModifyChannel()) // 自定义channel
+                                .addChannelHandlerAtLast(
+                                        "checkParameter", new CheckParameterHandler()) // 第一个handler
+                                .addChannelHandlerAtLast(
+                                        "modifyTitle",
+                                        new ArticleModifyTitleHandler()) // 第二个handler
+                                .addChannelHandlerAtLast(
+                                        "modifyContent",
+                                        new ArticleModifyContentHandler()) // 第三个handler
+                                .process(); // 执行
         // result为执行结果
         // logger.info("result:code={},msg={}", result.getDeptModifyCmd(), result.getDeptAgg());
     }

@@ -66,12 +66,14 @@ public class GoodsBuyerController extends BusinessController {
     private final GoodsCommandService goodsCommandService;
 
     private final GoodsQueryService goodsQueryService;
+
     /**
      * 商品SKU
      */
     private final GoodsSkuCommandService goodsSkuCommandService;
 
     private final GoodsSkuQueryService goodsSkuQueryService;
+
     /**
      * ES商品搜索
      */
@@ -141,7 +143,8 @@ public class GoodsBuyerController extends BusinessController {
     @RequestLogger
     @PreAuthorize("hasAuthority('dept:tree:data')")
     @GetMapping("/hot-words")
-    public Result<List<String>> getGoodsHotWords(@NotNull(message = "热词数量不能为空") @RequestParam Integer count) {
+    public Result<List<String>> getGoodsHotWords(
+            @NotNull(message = "热词数量不能为空") @RequestParam Integer count) {
         // List<String> hotWords = esGoodsQueryService.getHotWords(count);
         return Result.success(new ArrayList<>());
     }

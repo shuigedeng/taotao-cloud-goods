@@ -18,10 +18,9 @@ package com.taotao.cloud.goods.application.dto.goods.cmmond;
 
 import com.taotao.boot.ddd.model.application.dto.Command;
 import io.swagger.v3.oas.annotations.media.Schema;
+import java.math.BigDecimal;
 import lombok.*;
 import lombok.experimental.Accessors;
-
-import java.math.BigDecimal;
 
 /** 微信小程序直播商品DTO */
 @Setter

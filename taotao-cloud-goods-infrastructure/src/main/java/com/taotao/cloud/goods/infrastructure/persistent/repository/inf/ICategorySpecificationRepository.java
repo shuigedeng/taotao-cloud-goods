@@ -19,4 +19,5 @@ package com.taotao.cloud.goods.infrastructure.persistent.repository.inf;
 import com.taotao.boot.webagg.repository.BaseInterfaceSuperRepository;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.CategorySpecificationPO;
 
-public interface ICategorySpecificationRepository extends BaseInterfaceSuperRepository<CategorySpecificationPO, Long> {}
+public interface ICategorySpecificationRepository
+        extends BaseInterfaceSuperRepository<CategorySpecificationPO, Long> {}

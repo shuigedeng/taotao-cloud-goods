@@ -78,8 +78,10 @@ public class GoodsLabelSellerController extends BusinessController {
     //	@RequestLogger("添加店铺商品分类")
     //	@PreAuthorize("hasAuthority('dept:tree:data')")
     //	@PostMapping
-    //	public Result<Boolean> add(@Validated @RequestBody StoreGoodsLabelAddCmd storeGoodsLabelDTO) {
-    //		StoreGoodsLabelPO storeGoodsLabel = GoodsLabelStoreAssembler.INSTANCE.convert(storeGoodsLabelDTO);
+    //	public Result<Boolean> add(@Validated @RequestBody StoreGoodsLabelAddCmd storeGoodsLabelDTO)
+    // {
+    //		StoreGoodsLabelPO storeGoodsLabel =
+    // GoodsLabelStoreAssembler.INSTANCE.convert(storeGoodsLabelDTO);
     //		return Result.success(storeGoodsLabelCommandService.addStoreGoodsLabel(storeGoodsLabel));
     //	}
     //
@@ -87,9 +89,11 @@ public class GoodsLabelSellerController extends BusinessController {
     //	@RequestLogger("修改店铺商品分类")
     //	@PreAuthorize("hasAuthority('dept:tree:data')")
     //	@PutMapping("/{id}")
-    //	public Result<Boolean> edit(@PathVariable Long id, @Validated @RequestBody StoreGoodsLabelEditCmd
+    //	public Result<Boolean> edit(@PathVariable Long id, @Validated @RequestBody
+    // StoreGoodsLabelEditCmd
     // storeGoodsLabelDTO) {
-    //		StoreGoodsLabelPO storeGoodsLabel = GoodsLabelStoreAssembler.INSTANCE.convert(storeGoodsLabelDTO);
+    //		StoreGoodsLabelPO storeGoodsLabel =
+    // GoodsLabelStoreAssembler.INSTANCE.convert(storeGoodsLabelDTO);
     //		storeGoodsLabel.setId(id);
     //		return Result.success(storeGoodsLabelCommandService.editStoreGoodsLabel(storeGoodsLabel));
     //	}

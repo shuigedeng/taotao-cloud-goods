@@ -34,8 +34,7 @@ import lombok.experimental.Accessors;
 @NoArgsConstructor
 public class GoodsSkuSpecGalleryCO extends GoodsSkuCO {
 
-    @Serial
-    private static final long serialVersionUID = -7651149660489332344L;
+    @Serial private static final long serialVersionUID = -7651149660489332344L;
 
     @Schema(description = "规格列表")
     private List<SpecValueCO> specList;

@@ -62,7 +62,8 @@ public class RedissonDelayApplication {
             }
 
             @Override
-            public Object fromMessage(RedissonMessage redissonMessage) throws MessageConversionException {
+            public Object fromMessage(RedissonMessage redissonMessage)
+                    throws MessageConversionException {
                 String payload = redissonMessage.getPayload();
                 String payloadStr = new String(payload);
                 return JsonUtils.toObject(payloadStr, CarLbsDto.class);
@@ -86,8 +87,8 @@ public class RedissonDelayApplication {
     }
 
     @Setter
-@Getter
-@ToString
+    @Getter
+    @ToString
     public static class CarLbsDto {
 
         private String cid;

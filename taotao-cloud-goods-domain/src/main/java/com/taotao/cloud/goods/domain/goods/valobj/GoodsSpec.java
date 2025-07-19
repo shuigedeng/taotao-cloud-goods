@@ -33,21 +33,17 @@ public class GoodsSpec implements ValueObject {
     /**
      * 生产日期
      */
-    @NotNull
-    @PastOrPresent
-    private LocalDate manufactureDate;
+    @NotNull @PastOrPresent private LocalDate manufactureDate;
 
     /**
      * 过期日期
      */
-    @NotNull
-    private LocalDate expirationDate;
+    @NotNull private LocalDate expirationDate;
 
     /**
      * 商品重量
      */
-    @NotNull
-    private GoodsWeight goodsWeight;
+    @NotNull private GoodsWeight goodsWeight;
 
     /**
      * 商品介绍
@@ -108,11 +104,17 @@ public class GoodsSpec implements ValueObject {
 
     @Override
     public String toString() {
-        return "GoodsSpec{" + "manufactureDate="
-                + manufactureDate + ", expirationDate="
-                + expirationDate + ", goodsWeight="
-                + goodsWeight + ", goodsDesc='"
-                + goodsDesc + '\'' + '}';
+        return "GoodsSpec{"
+                + "manufactureDate="
+                + manufactureDate
+                + ", expirationDate="
+                + expirationDate
+                + ", goodsWeight="
+                + goodsWeight
+                + ", goodsDesc='"
+                + goodsDesc
+                + '\''
+                + '}';
     }
 
     @Override

@@ -125,7 +125,8 @@ public class DraftGoodsCommandServiceImpl implements DraftGoodsCommandService {
     //	}
     //	draftGoodsSkuParamsCO.setCategoryName(categoryName);
     //	draftGoodsSkuParamsCO.setGoodsParamsDTOList(
-    //		JSONUtil.toList(JSONUtil.parseArray(draftGoodsPO.getGoodsParamsListJson()), GoodsParamsAddCmd.class));
+    //		JSONUtil.toList(JSONUtil.parseArray(draftGoodsPO.getGoodsParamsListJson()),
+    // GoodsParamsAddCmd.class));
     //	draftGoodsSkuParamsCO.setGoodsGalleryList(
     //		JSONUtil.toList(JSONUtil.parseArray(draftGoodsPO.getGoodsGalleryListJson()), String.class));
     //	JSONArray jsonArray = JSONUtil.parseArray(draftGoodsPO.getSkuListJson());

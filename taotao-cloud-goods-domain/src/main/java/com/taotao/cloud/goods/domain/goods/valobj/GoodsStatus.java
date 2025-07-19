@@ -32,6 +32,7 @@ public enum GoodsStatus implements ValueObjectEnum<Integer> {
      * 状态编码
      */
     private Integer value;
+
     /**
      * 状态描述
      */

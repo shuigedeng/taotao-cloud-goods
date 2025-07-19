@@ -30,8 +30,7 @@ import lombok.experimental.Accessors;
 // public class DeptCO extends TreeUtil.TreeNode<DeptCO> {
 public class HotWordsCO extends ClientObject {
 
-    @Serial
-    private static final long serialVersionUID = 4116703987840123059L;
+    @Serial private static final long serialVersionUID = 4116703987840123059L;
 
     @Schema(name = "sort", description = "部门排序")
     private Integer sort;

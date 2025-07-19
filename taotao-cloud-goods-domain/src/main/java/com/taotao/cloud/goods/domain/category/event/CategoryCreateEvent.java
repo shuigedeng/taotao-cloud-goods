@@ -30,8 +30,7 @@ import lombok.NoArgsConstructor;
 @Schema(name = "OperateLogEvent", description = "操作日志事件")
 public class CategoryCreateEvent extends DomainEvent<Long> {
 
-    @Serial
-    private static final long serialVersionUID = -6523521638764501311L;
+    @Serial private static final long serialVersionUID = -6523521638764501311L;
 
     @Schema(name = "name", description = "操作名称")
     private String name;

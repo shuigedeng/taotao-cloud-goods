@@ -22,8 +22,8 @@ import com.taotao.cloud.goods.api.enums.GoodsStatusEnum;
 import com.taotao.cloud.goods.api.enums.GoodsTypeEnum;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
-import lombok.AllArgsConstructor;
 import lombok.*;
+import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
@@ -42,8 +42,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class GoodsPageQry extends PageQuery {
 
-    @Serial
-    private static final long serialVersionUID = 2544015852728566887L;
+    @Serial private static final long serialVersionUID = 2544015852728566887L;
 
     @Schema(description = "商品编号")
     private Long goodsId;

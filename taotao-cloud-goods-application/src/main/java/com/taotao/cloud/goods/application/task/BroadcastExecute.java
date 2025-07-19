@@ -36,8 +36,7 @@ public class BroadcastExecute implements EveryHourExecute {
     /**
      * 商品服务
      */
-    @Autowired
-    private CommodityCommandService commodityService;
+    @Autowired private CommodityCommandService commodityService;
 
     /**
      * 执行

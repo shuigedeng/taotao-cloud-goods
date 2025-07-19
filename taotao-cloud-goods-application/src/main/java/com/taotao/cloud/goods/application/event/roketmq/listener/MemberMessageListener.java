@@ -54,7 +54,8 @@
 ////            case MEMBER_REGISTER -> {
 ////                for (MemberRegisterEvent memberRegisterEvent : memberSignEvents) {
 ////                    try {
-////                        Member member = JSONUtil.toBean(new String(messageExt.getBody()), Member.class);
+////                        Member member = JSONUtil.toBean(new String(messageExt.getBody()),
+// Member.class);
 ////                        memberRegisterEvent.memberRegister(member);
 ////                    } catch (Exception e) {
 ////                        LogUtils.error(
@@ -68,7 +69,8 @@
 ////            case MEMBER_LOGIN -> {
 ////                for (MemberLoginEvent memberLoginEvent : memberLoginEvents) {
 ////                    try {
-////                        Member member = JSONUtil.toBean(new String(messageExt.getBody()), Member.class);
+////                        Member member = JSONUtil.toBean(new String(messageExt.getBody()),
+// Member.class);
 ////                        memberLoginEvent.memberLogin(member);
 ////                    } catch (Exception e) {
 ////                        LogUtils.error(
@@ -81,15 +83,18 @@
 ////            }
 ////                // 会员签到
 ////            case MEMBER_SING -> {
-////                MemberSign memberSign = JSONUtil.toBean(new String(messageExt.getBody()), MemberSign.class);
-////                memberSignService.memberSignSendPoint(memberSign.getMemberId(), memberSign.getSignDay());
+////                MemberSign memberSign = JSONUtil.toBean(new String(messageExt.getBody()),
+// MemberSign.class);
+////                memberSignService.memberSignSendPoint(memberSign.getMemberId(),
+// memberSign.getSignDay());
 ////            }
 ////                // 会员积分变动
 ////            case MEMBER_POINT_CHANGE -> {
 ////                for (MemberPointChangeEvent memberPointChangeEvent : memberPointChangeEvents) {
 ////                    try {
 ////                        MemberPointMessageDTO memberPointMessageDTO =
-////                                JSONUtil.toBean(new String(messageExt.getBody()), MemberPointMessageDTO.class);
+////                                JSONUtil.toBean(new String(messageExt.getBody()),
+// MemberPointMessageDTO.class);
 ////                        memberPointChangeEvent.memberPointChange(memberPointMessageDTO);
 ////                    } catch (Exception e) {
 ////                        LogUtils.error(
@@ -105,7 +110,8 @@
 ////                for (MemberWithdrawalEvent memberWithdrawalEvent : memberWithdrawalEvents) {
 ////                    try {
 ////                        MemberWithdrawalMessage memberWithdrawalMessage =
-////                                JSONUtil.toBean(new String(messageExt.getBody()), MemberWithdrawalMessage.class);
+////                                JSONUtil.toBean(new String(messageExt.getBody()),
+// MemberWithdrawalMessage.class);
 ////                        memberWithdrawalEvent.memberWithdrawal(memberWithdrawalMessage);
 ////                    } catch (Exception e) {
 ////                        LogUtils.error(

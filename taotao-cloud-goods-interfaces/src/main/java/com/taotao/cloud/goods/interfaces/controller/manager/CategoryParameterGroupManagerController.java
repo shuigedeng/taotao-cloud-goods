@@ -55,6 +55,7 @@ public class CategoryParameterGroupManagerController extends BusinessController 
     private final ParametersQueryService parametersQueryService;
 
     private final ParametersCommandService parametersCommandService;
+
     /** 分类绑定参数组服务 */
     private final CategoryParameterGroupQueryService categoryParameterGroupQueryService;
 
@@ -62,7 +63,11 @@ public class CategoryParameterGroupManagerController extends BusinessController 
 
     @Operation(summary = "查询某分类下绑定的参数信息", description = "查询某分类下绑定的参数信息")
     @io.swagger.v3.oas.annotations.Parameters({
-        @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
+        @Parameter(
+                name = "parentId",
+                required = true,
+                description = "父ID 0-最上级id",
+                in = ParameterIn.PATH),
     })
     @RequestLogger
     @PreAuthorize("hasAuthority('dept:tree:data')")
@@ -73,29 +78,34 @@ public class CategoryParameterGroupManagerController extends BusinessController 
 
     // @Operation(summary = "保存数据", description = "保存数据")
     // @io.swagger.v3.oas.annotations.Parameters({
-    //        @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
+    //        @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in =
+    // ParameterIn.PATH),
     // })
     // @RequestLogger
     // @PreAuthorize("hasAuthority('dept:tree:data')")
     // @PostMapping
-    // public Result<Boolean> saveOrUpdate(@Validated CategoryParameterGroup categoryParameterGroup) {
+    // public Result<Boolean> saveOrUpdate(@Validated CategoryParameterGroup categoryParameterGroup)
+    // {
     //    return Result.success(categoryParameterGroupCommandService.save(categoryParameterGroup));
     // }
 
     // @Operation(summary = "更新数据", description = "更新数据")
     // @io.swagger.v3.oas.annotations.Parameters({
-    //        @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
+    //        @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in =
+    // ParameterIn.PATH),
     // })
     // @RequestLogger
     // @PreAuthorize("hasAuthority('dept:tree:data')")
     // @PutMapping
     // public Result<Boolean> update(@Validated CategoryParameterGroup categoryParameterGroup) {
-    //    return Result.success(categoryParameterGroupCommandService.updateById(categoryParameterGroup));
+    //    return
+    // Result.success(categoryParameterGroupCommandService.updateById(categoryParameterGroup));
     // }
 
     //    @Operation(summary = "通过id删除参数组", description = "通过id删除参数组")
     //    @io.swagger.v3.oas.annotations.Parameters({
-    //            @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in = ParameterIn.PATH),
+    //            @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in =
+    // ParameterIn.PATH),
     //    })
     //    @RequestLogger
     //    @PreAuthorize("hasAuthority('dept:tree:data')")

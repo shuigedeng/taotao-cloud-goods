@@ -19,4 +19,5 @@ package com.taotao.cloud.goods.infrastructure.persistent.repository.inf;
 import com.taotao.boot.webagg.repository.BaseInterfaceSuperRepository;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.StudioCommodityPO;
 
-public interface IStudioCommodityRepository extends BaseInterfaceSuperRepository<StudioCommodityPO, Long> {}
+public interface IStudioCommodityRepository
+        extends BaseInterfaceSuperRepository<StudioCommodityPO, Long> {}

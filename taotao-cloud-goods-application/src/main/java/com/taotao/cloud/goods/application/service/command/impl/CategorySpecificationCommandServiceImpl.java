@@ -29,7 +29,8 @@ import org.springframework.stereotype.Service;
  */
 @Service
 @AllArgsConstructor
-public class CategorySpecificationCommandServiceImpl implements CategorySpecificationCommandService {
+public class CategorySpecificationCommandServiceImpl
+        implements CategorySpecificationCommandService {
     @Override
     public boolean deleteByCategoryId(Long categoryId) {
         return false;

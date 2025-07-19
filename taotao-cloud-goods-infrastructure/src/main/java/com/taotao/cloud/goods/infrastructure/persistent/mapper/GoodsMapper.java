@@ -42,11 +42,12 @@ public interface GoodsMapper extends BaseSuperMapper<GoodsPO, Long> {
      * @return {@link List }<{@link Long }>
      * @since 2022-04-27 16:56:00
      */
-    @Select("""
-		SELECT id
-		FROM tt_goods
-		WHERE store_id = #{storeId}
-		""")
+    @Select(
+            """
+        SELECT id
+        FROM tt_goods
+        WHERE store_id = #{storeId}
+        """)
     List<Long> getGoodsIdByStoreId(@Param("storeId") Long storeId);
 
     /**
@@ -56,12 +57,14 @@ public interface GoodsMapper extends BaseSuperMapper<GoodsPO, Long> {
      * @param goodsId    商品ID
      * @since 2022-04-27 16:56:00
      */
-    @Update("""
-		UPDATE tt_goods
-		SET comment_num = comment_num + #{commentNum}
-		WHERE id = #{goodsId}
-		""")
-    void addGoodsCommentNum(@Param("commentNum") Integer commentNum, @Param("goodsId") Long goodsId);
+    @Update(
+            """
+        UPDATE tt_goods
+        SET comment_num = comment_num + #{commentNum}
+        WHERE id = #{goodsId}
+        """)
+    void addGoodsCommentNum(
+            @Param("commentNum") Integer commentNum, @Param("goodsId") Long goodsId);
 
     /// **
     // * 查询商品VO分页

@@ -34,8 +34,7 @@ public class GoodsTagAgg extends AggregateRoot<BizId> {
     /**
      * 商品ID
      */
-    @NotNull
-    private BizId id;
+    @NotNull private BizId id;
 
     /**
      *标签名称
@@ -54,6 +53,7 @@ public class GoodsTagAgg extends AggregateRoot<BizId> {
      * 创建时间
      */
     private LocalDateTime createTime;
+
     /**
      * 修改时间
      */
@@ -70,7 +70,12 @@ public class GoodsTagAgg extends AggregateRoot<BizId> {
         this.validateSelf();
     }
 
-    public GoodsTagAgg(BizId id, String tagName, String tagDesc, LocalDateTime createTime, LocalDateTime updateTime) {
+    public GoodsTagAgg(
+            BizId id,
+            String tagName,
+            String tagDesc,
+            LocalDateTime createTime,
+            LocalDateTime updateTime) {
         this.id = id;
         this.tagName = tagName;
         this.tagDesc = tagDesc;
@@ -126,11 +131,19 @@ public class GoodsTagAgg extends AggregateRoot<BizId> {
 
     @Override
     public String toString() {
-        return "GoodsTag{" + "id="
-                + id + ", tagName='"
-                + tagName + '\'' + ", tagDesc='"
-                + tagDesc + '\'' + ", createTime="
-                + createTime + ", updateTime="
-                + updateTime + '}';
+        return "GoodsTag{"
+                + "id="
+                + id
+                + ", tagName='"
+                + tagName
+                + '\''
+                + ", tagDesc='"
+                + tagDesc
+                + '\''
+                + ", createTime="
+                + createTime
+                + ", updateTime="
+                + updateTime
+                + '}';
     }
 }

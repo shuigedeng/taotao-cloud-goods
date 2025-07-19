@@ -40,8 +40,7 @@ import lombok.experimental.Accessors;
 @NoArgsConstructor
 public class StoreGoodsLabelCO extends ClientObject {
 
-    @Serial
-    private static final long serialVersionUID = -7605952923416404638L;
+    @Serial private static final long serialVersionUID = -7605952923416404638L;
 
     @Schema(description = "店铺商品分类ID")
     private Long id;
@@ -146,7 +145,18 @@ public class StoreGoodsLabelCO extends ClientObject {
     }
 
     public String toString() {
-        return "StoreGoodsLabelCO{serialVersionUID = " + serialVersionUID + ", id = " + id + ", labelName = "
-                + labelName + ", level = " + level + ", sortOrder = " + sortOrder + ", children = " + children + "}";
+        return "StoreGoodsLabelCO{serialVersionUID = "
+                + serialVersionUID
+                + ", id = "
+                + id
+                + ", labelName = "
+                + labelName
+                + ", level = "
+                + level
+                + ", sortOrder = "
+                + sortOrder
+                + ", children = "
+                + children
+                + "}";
     }
 }

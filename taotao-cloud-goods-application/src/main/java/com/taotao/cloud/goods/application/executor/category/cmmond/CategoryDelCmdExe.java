@@ -33,14 +33,17 @@ public class CategoryDelCmdExe extends Executor {
 
     private final RedisRepository redisRepository;
     private final CategoryCacheDelCmdExe categoryCacheDelCmdExe;
+
     /**
      * 分类绑定参数服务
      */
     private final CategoryParameterGroupCommandService categoryParameterGroupService;
+
     /**
      * 分类规格服务
      */
     private final CategorySpecificationCommandService categorySpecificationService;
+
     /**
      * 分类品牌服务
      */

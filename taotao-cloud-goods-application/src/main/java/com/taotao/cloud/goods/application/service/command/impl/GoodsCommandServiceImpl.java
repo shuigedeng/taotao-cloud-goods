@@ -72,7 +72,8 @@ public class GoodsCommandServiceImpl implements GoodsCommandService {
     }
 
     @Override
-    public boolean updateGoodsMarketAble(List<Long> goodsIds, GoodsStatusEnum goodsStatusEnum, String underReason) {
+    public boolean updateGoodsMarketAble(
+            List<Long> goodsIds, GoodsStatusEnum goodsStatusEnum, String underReason) {
         return false;
     }
 
@@ -247,7 +248,8 @@ public class GoodsCommandServiceImpl implements GoodsCommandService {
     //	// 修改商品
     //	this.updateById(goods);
     //	// 修改商品sku信息
-    //	this.goodsSkuService.update(goodsAddCmd.getSkuList(), goods, goodsAddCmd.getRegeneratorSkuFlag());
+    //	this.goodsSkuService.update(goodsAddCmd.getSkuList(), goods,
+    // goodsAddCmd.getRegeneratorSkuFlag());
     //	// 添加相册
     //	if (goodsAddCmd.getGoodsGalleryList() != null
     //		&& !goodsAddCmd.getGoodsGalleryList().isEmpty()) {
@@ -288,7 +290,8 @@ public class GoodsCommandServiceImpl implements GoodsCommandService {
     //		.toList());
     //
     //	// 商品sku赋值
-    //	List<GoodsSkuSpecGalleryCO> goodsListByGoodsId = goodsSkuService.getGoodsListByGoodsId(goodsId);
+    //	List<GoodsSkuSpecGalleryCO> goodsListByGoodsId =
+    // goodsSkuService.getGoodsListByGoodsId(goodsId);
     //	if (goodsListByGoodsId != null && !goodsListByGoodsId.isEmpty()) {
     //		goodsSkuParamsCO.setSkuList(goodsListByGoodsId);
     //	}
@@ -304,7 +307,8 @@ public class GoodsCommandServiceImpl implements GoodsCommandService {
     //
     //	// 参数非空则填写参数
     //	if (StrUtil.isNotEmpty(goods.getParams())) {
-    //		goodsSkuParamsCO.setGoodsParamsDTOList(JSONUtil.toList(goods.getParams(), GoodsParamsDTO.class));
+    //		goodsSkuParamsCO.setGoodsParamsDTOList(JSONUtil.toList(goods.getParams(),
+    // GoodsParamsDTO.class));
     //	}
     //
     //	redisRepository.set(CachePrefix.GOODS.getPrefix() + goodsId, goodsSkuParamsCO);
@@ -313,7 +317,8 @@ public class GoodsCommandServiceImpl implements GoodsCommandService {
     //
     // @Override
     // public IPage<GoodsPO> goodsQueryPage(GoodsPageQuery goodsPageQuery) {
-    //	return this.page(goodsPageQuery.buildMpPage(), goodsManager.goodsQueryWrapper(goodsPageQuery));
+    //	return this.page(goodsPageQuery.buildMpPage(),
+    // goodsManager.goodsQueryWrapper(goodsPageQuery));
     // }
     //
     // @Override
@@ -333,7 +338,8 @@ public class GoodsCommandServiceImpl implements GoodsCommandService {
     //		// 删除之前的缓存
     //		redisRepository.del(CachePrefix.GOODS.getPrefix() + goodsId);
     //		// 商品审核消息
-    //		String destination = rocketmqCustomProperties.getGoodsTopic() + ":" + GoodsTagsEnum.GOODS_AUDIT.name();
+    //		String destination = rocketmqCustomProperties.getGoodsTopic() + ":" +
+    // GoodsTagsEnum.GOODS_AUDIT.name();
     //		// 发送mq消息
     //		rocketMQTemplate.asyncSend(
     //			destination, JSONUtil.toJsonStr(goods), RocketmqSendCallbackBuilder.commonCallback());
@@ -343,7 +349,8 @@ public class GoodsCommandServiceImpl implements GoodsCommandService {
     //
     // @Override
     // @Transactional(rollbackFor = Exception.class)
-    // public boolean updateGoodsMarketAble(List<Long> goodsIds, GoodsStatusEnum goodsStatusEnum, String underReason) {
+    // public boolean updateGoodsMarketAble(List<Long> goodsIds, GoodsStatusEnum goodsStatusEnum,
+    // String underReason) {
     //	boolean result;
     //
     //	// 如果商品为空，直接返回
@@ -466,7 +473,8 @@ public class GoodsCommandServiceImpl implements GoodsCommandService {
     //
     //	// 好评率
     //	BigDecimal grade = NumberUtil.mul(
-    //		NumberUtil.div(BigDecimal.valueOf(highPraiseNum), BigDecimal.valueOf(goods.getCommentNum()), 2), 100);
+    //		NumberUtil.div(BigDecimal.valueOf(highPraiseNum), BigDecimal.valueOf(goods.getCommentNum()),
+    // 2), 100);
     //
     //	// 修改商品好评率
     //	goods.setGrade(grade);
@@ -475,7 +483,8 @@ public class GoodsCommandServiceImpl implements GoodsCommandService {
     //
     // @Override
     // public boolean updateGoodsBuyCount(Long goodsId, int buyCount) {
-    //	this.update(new LambdaUpdateWrapper<GoodsPO>().eq(GoodsPO::getId, goodsId).set(GoodsPO::getBuyCount, buyCount));
+    //	this.update(new LambdaUpdateWrapper<GoodsPO>().eq(GoodsPO::getId,
+    // goodsId).set(GoodsPO::getBuyCount, buyCount));
     //	return true;
     // }
     //

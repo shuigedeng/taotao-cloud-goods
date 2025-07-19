@@ -21,7 +21,6 @@ import com.taotao.boot.common.model.FeignResponse;
 import com.taotao.cloud.goods.facade.sys.adapter.SysClientAdapter;
 import com.taotao.cloud.goods.facade.sys.vo.DictVO;
 import com.taotao.cloud.sys.api.dubbo.DictRpcService;
-import com.taotao.cloud.sys.api.dubbo.response.DictRpcResponse;
 import com.taotao.cloud.sys.api.feign.DictApi;
 import com.taotao.cloud.sys.api.feign.request.DictQueryApiRequest;
 import com.taotao.cloud.sys.api.feign.response.DictApiResponse;
@@ -33,21 +32,19 @@ import org.springframework.stereotype.Component;
 @Component
 public class SysDictClientProxy {
 
-    @Autowired
-    private DictApi dictApi;
+    @Autowired private DictApi dictApi;
 
-    @DubboReference
-    private DictRpcService dictRpcService;
+    @DubboReference private DictRpcService dictRpcService;
 
-    @Resource
-    private SysClientAdapter sysClientAdapter;
+    @Resource private SysClientAdapter sysClientAdapter;
 
     // 查询用户
     public DictVO findByCode() {
-		FeignRequest<DictQueryApiRequest> dictQueryApiRequest = FeignRequest.<DictQueryApiRequest>builder().data(new DictQueryApiRequest()).build();
-		FeignResponse<DictApiResponse> dictApiResponse = dictApi.findByCode(dictQueryApiRequest);
+        FeignRequest<DictQueryApiRequest> dictQueryApiRequest =
+                FeignRequest.<DictQueryApiRequest>builder().data(new DictQueryApiRequest()).build();
+        FeignResponse<DictApiResponse> dictApiResponse = dictApi.findByCode(dictQueryApiRequest);
 
-//        DictRpcResponse dictRpcResponse = dictRpcService.findByCode(123);
+        //        DictRpcResponse dictRpcResponse = dictRpcService.findByCode(123);
 
         return sysClientAdapter.convert(dictApiResponse.getData());
     }

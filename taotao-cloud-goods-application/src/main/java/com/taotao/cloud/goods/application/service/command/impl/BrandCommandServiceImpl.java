@@ -46,12 +46,14 @@ public class BrandCommandServiceImpl implements BrandCommandService {
     private final CategoryBrandCommandService categoryBrandCommandService;
 
     private final CategoryBrandQueryService categoryBrandQueryService;
+
     /**
      * 分类服务
      */
     private final CategoryCommandService categoryCommandService;
 
     private final CategoryQueryService categoryQueryService;
+
     /**
      * 商品服务
      */
@@ -130,7 +132,8 @@ public class BrandCommandServiceImpl implements BrandCommandService {
     //	 */
     //	private void checkBind(List<Long> brandIds) {
     //		// 分了绑定关系查询
-    //		List<CategoryBrandPO> categoryBrands = categoryBrandQueryService.getCategoryBrandListByBrandId(
+    //		List<CategoryBrandPO> categoryBrands =
+    // categoryBrandQueryService.getCategoryBrandListByBrandId(
     //			brandIds);
     //
     //		if (!categoryBrands.isEmpty()) {

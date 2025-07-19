@@ -31,8 +31,7 @@ import lombok.experimental.Accessors;
 @NoArgsConstructor
 public class ParameterGroupCO extends ClientObject {
 
-    @Serial
-    private static final long serialVersionUID = 724427321881170297L;
+    @Serial private static final long serialVersionUID = 724427321881170297L;
 
     @Schema(description = "参数组关联的参数集合")
     private List<ParametersCO> params;

@@ -133,7 +133,9 @@ public class DraftGoodsPO extends BaseSuperEntity<DraftGoodsPO, Long> {
     private String original;
 
     /** 店铺分类路径 */
-    @Column(name = "`store_category_path`", columnDefinition = "varchar(255) not null comment '店铺分类路径'")
+    @Column(
+            name = "`store_category_path`",
+            columnDefinition = "varchar(255) not null comment '店铺分类路径'")
     private String storeCategoryPath;
 
     /** 评论数量 */
@@ -153,7 +155,9 @@ public class DraftGoodsPO extends BaseSuperEntity<DraftGoodsPO, Long> {
     private Long templateId;
 
     /** 是否自营 */
-    @Column(name = "`self_operated`", columnDefinition = "boolean null default false comment '是否自营'")
+    @Column(
+            name = "`self_operated`",
+            columnDefinition = "boolean null default false comment '是否自营'")
     private Boolean selfOperated;
 
     /** 商品视频 */
@@ -181,11 +185,15 @@ public class DraftGoodsPO extends BaseSuperEntity<DraftGoodsPO, Long> {
     private String categoryNameJson;
 
     /** 商品参数JSON */
-    @Column(name = "`goods_params_list_json`", columnDefinition = "json not null comment '商品参数JSON'")
+    @Column(
+            name = "`goods_params_list_json`",
+            columnDefinition = "json not null comment '商品参数JSON'")
     private String goodsParamsListJson;
 
     /** 商品图片JSON */
-    @Column(name = "`goods_gallery_list_json`", columnDefinition = "json not null comment '商品图片JSON'")
+    @Column(
+            name = "`goods_gallery_list_json`",
+            columnDefinition = "json not null comment '商品图片JSON'")
     private String goodsGalleryListJson;
 
     /** sku列表JSON */

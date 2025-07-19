@@ -72,9 +72,10 @@ public class CommodityPO extends BaseSuperEntity<CommodityPO, Long> {
      */
     @Column(
             name = "price_type",
-            columnDefinition = "int not null comment '1：一口价（只需要传入price，price2不传）"
-                    + "2：价格区间（price字段为左边界，price2字段为右边界，price和price2必传）"
-                    + "3：显示折扣价（price字段为原价，price2字段为现价， price和price2必传'")
+            columnDefinition =
+                    "int not null comment '1：一口价（只需要传入price，price2不传）"
+                            + "2：价格区间（price字段为左边界，price2字段为右边界，price和price2必传）"
+                            + "3：显示折扣价（price字段为原价，price2字段为现价， price和price2必传'")
     private Integer priceType;
 
     /** 价格 */

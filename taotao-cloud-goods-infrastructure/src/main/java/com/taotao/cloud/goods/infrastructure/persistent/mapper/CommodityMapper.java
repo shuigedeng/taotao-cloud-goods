@@ -36,11 +36,12 @@ public interface CommodityMapper extends BaseSuperMapper<CommodityPO, Long> {
      * @return {@link List }<{@link String }>
      * @since 2022-04-27 16:55:41
      */
-    @Select("""
-		SELECT live_goods_id
-		FROM tt_commodity
-		WHERE audit_status='0' or audit_status='1'
-		""")
+    @Select(
+            """
+        SELECT live_goods_id
+        FROM tt_commodity
+        WHERE audit_status='0' or audit_status='1'
+        """)
     List<String> getAuditCommodity();
 
     /**
@@ -52,10 +53,10 @@ public interface CommodityMapper extends BaseSuperMapper<CommodityPO, Long> {
      */
     @Select(
             """
-		SELECT *
-		FROM tt_commodity c INNER JOIN tt_studio_commodity sc ON sc.goods_id = c.live_goods_id
-		WHERE sc.room_id =#{roomId}
-		""")
+        SELECT *
+        FROM tt_commodity c INNER JOIN tt_studio_commodity sc ON sc.goods_id = c.live_goods_id
+        WHERE sc.room_id =#{roomId}
+        """)
     List<CommodityPO> getCommodityByRoomId(Integer roomId);
 
     /**
@@ -67,10 +68,10 @@ public interface CommodityMapper extends BaseSuperMapper<CommodityPO, Long> {
      */
     @Select(
             """
-		SELECT goods_image
-		FROM tt_commodity c INNER JOIN tt_studio_commodity sc ON sc.goods_id = c.live_goods_id
-		WHERE sc.room_id =#{roomId}
-		""")
+        SELECT goods_image
+        FROM tt_commodity c INNER JOIN tt_studio_commodity sc ON sc.goods_id = c.live_goods_id
+        WHERE sc.room_id =#{roomId}
+        """)
     List<String> getSimpleCommodityByRoomId(Integer roomId);
 
     /// **
@@ -84,9 +85,11 @@ public interface CommodityMapper extends BaseSuperMapper<CommodityPO, Long> {
     // @Select(
     //        """
     //	SELECT c.*,gs.quantity,s.store_name
-    //	FROM tt_commodity c INNER JOIN tt_goods_sku gs ON c.sku_id = gs.id INNER JOIN tt_store s ON s.id=c.store_id
+    //	FROM tt_commodity c INNER JOIN tt_goods_sku gs ON c.sku_id = gs.id INNER JOIN tt_store s ON
+    // s.id=c.store_id
     //	${ew.customSqlSegment}
     //	""")
     // IPage<CommoditySkuVO> commodityVOList(
-    //        IPage<CommoditySkuVO> page, @Param(Constants.WRAPPER) Wrapper<CommoditySkuVO> queryWrapper);
+    //        IPage<CommoditySkuVO> page, @Param(Constants.WRAPPER) Wrapper<CommoditySkuVO>
+    // queryWrapper);
 }

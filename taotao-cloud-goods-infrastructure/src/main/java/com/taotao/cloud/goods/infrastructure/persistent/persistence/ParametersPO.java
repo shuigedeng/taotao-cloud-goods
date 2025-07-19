@@ -69,7 +69,9 @@ public class ParametersPO extends BaseSuperEntity<ParametersPO, Long> {
     private String options;
 
     /** 是否可索引，0 不显示 1 显示 */
-    @Column(name = "`is_index`", columnDefinition = "int not null default 1 comment '是否可索引，0 不显示 1 显示'")
+    @Column(
+            name = "`is_index`",
+            columnDefinition = "int not null default 1 comment '是否可索引，0 不显示 1 显示'")
     private Integer isIndex;
 
     /** 是否必填 是1否0 */

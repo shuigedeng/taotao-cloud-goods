@@ -41,8 +41,7 @@ import lombok.experimental.Accessors;
 @NoArgsConstructor
 public class CategorySearchQry extends Query {
 
-    @Serial
-    private static final long serialVersionUID = -7605952923416404638L;
+    @Serial private static final long serialVersionUID = -7605952923416404638L;
 
     @Schema(description = "分类名称")
     private String name;

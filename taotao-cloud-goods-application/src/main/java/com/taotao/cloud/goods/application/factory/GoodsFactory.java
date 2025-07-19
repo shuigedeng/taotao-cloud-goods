@@ -39,9 +39,19 @@ public class GoodsFactory {
      * @return 初始商品
      */
     public static GoodsAgg createGoods(
-            BizId categoryId, GoodsName goodsName, GoodsSpec goodsSpec, Price goodsPrice, Set<BizId> tagIds) {
+            BizId categoryId,
+            GoodsName goodsName,
+            GoodsSpec goodsSpec,
+            Price goodsPrice,
+            Set<BizId> tagIds) {
         return new GoodsAgg(
-                BizId.newBizId(), categoryId, goodsName, goodsSpec, goodsPrice, GoodsStatus.UNSHELVED, tagIds);
+                BizId.newBizId(),
+                categoryId,
+                goodsName,
+                goodsSpec,
+                goodsPrice,
+                GoodsStatus.UNSHELVED,
+                tagIds);
     }
 
     /**
@@ -58,10 +68,13 @@ public class GoodsFactory {
                 GoodsSpec.builder()
                         .manufactureDate(goodsCreateCommand.getManufactureDate())
                         .expirationDate(goodsCreateCommand.getExpirationDate())
-                        .goodsWeight(GoodsWeight.builder()
-                                .weight(goodsCreateCommand.getGoodsWeight())
-                                .unit(WeightUnit.of(goodsCreateCommand.getGoodsWeightUnit()))
-                                .build())
+                        .goodsWeight(
+                                GoodsWeight.builder()
+                                        .weight(goodsCreateCommand.getGoodsWeight())
+                                        .unit(
+                                                WeightUnit.of(
+                                                        goodsCreateCommand.getGoodsWeightUnit()))
+                                        .build())
                         .goodsDesc(goodsCreateCommand.getGoodsDesc())
                         .build(),
                 Price.of(goodsCreateCommand.getGoodsPrice()),

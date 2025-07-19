@@ -39,6 +39,7 @@ public class CategoryParameterGroupQueryServiceImpl implements CategoryParameter
      * 商品参数服务
      */
     private final ParametersCommandService parametersService;
+
     /**
      * 商品服务
      */
@@ -69,7 +70,8 @@ public class CategoryParameterGroupQueryServiceImpl implements CategoryParameter
      * @param paramList 商品参数list
      * @return 参数组和参数的返回值
      */
-    // public List<ParameterGroupCO> convertParamList(List<CategoryParameterGroupPO> groupList, List<Parameters>
+    // public List<ParameterGroupCO> convertParamList(List<CategoryParameterGroupPO> groupList,
+    // List<Parameters>
     // paramList) {
     //	Map<Long, List<Parameters>> map = new HashMap<>(paramList.size());
     //	for (Parameters param : paramList) {

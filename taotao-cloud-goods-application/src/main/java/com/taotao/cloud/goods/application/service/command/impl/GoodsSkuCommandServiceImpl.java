@@ -38,7 +38,8 @@ public class GoodsSkuCommandServiceImpl implements GoodsSkuCommandService {
     }
 
     @Override
-    public boolean updateGoodsSkuStatusByStoreId(Long storeId, String marketEnable, String authFlag) {
+    public boolean updateGoodsSkuStatusByStoreId(
+            Long storeId, String marketEnable, String authFlag) {
         return false;
     }
 
@@ -82,7 +83,8 @@ public class GoodsSkuCommandServiceImpl implements GoodsSkuCommandService {
     //	}
     //
     //	@Override
-    //	public boolean updateGoodsSkuStatusByStoreId(Long storeId, String marketEnable, String authFlag) {
+    //	public boolean updateGoodsSkuStatusByStoreId(Long storeId, String marketEnable, String
+    // authFlag) {
     //		return false;
     //	}
     //

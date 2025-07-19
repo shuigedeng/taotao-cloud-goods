@@ -40,8 +40,7 @@ import lombok.experimental.Accessors;
 @Schema(description = "商品计量CO")
 public class GoodsUnitCO extends ClientObject {
 
-    @Serial
-    private static final long serialVersionUID = -4433579132929428572L;
+    @Serial private static final long serialVersionUID = -4433579132929428572L;
 
     private Long id;
 

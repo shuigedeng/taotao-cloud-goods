@@ -62,6 +62,7 @@ public class GoodsPageQuery extends PageQuery {
      * 过期时间（在此之前过期）
      */
     private LocalDate beforeExpirationDate;
+
     /**
      * 起始创建时间
      */

@@ -34,8 +34,7 @@ public class StoreGoodsLabelCommandServiceImpl implements StoreGoodsLabelCommand
     /**
      * 缓存
      */
-    @Autowired
-    private RedisRepository redisRepository;
+    @Autowired private RedisRepository redisRepository;
 
     @Override
     public boolean removeStoreGoodsLabel(Long storeLabelId) {

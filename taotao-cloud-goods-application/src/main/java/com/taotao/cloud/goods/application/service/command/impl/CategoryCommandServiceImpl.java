@@ -43,6 +43,7 @@ import org.springframework.stereotype.Service;
 public class CategoryCommandServiceImpl implements CategoryCommandService {
 
     private final RedisRepository redisRepository;
+
     /**
      * 商品品牌业务层
      */
