@@ -117,8 +117,8 @@ dependencies {
     //https://search.maven.org/artifact/org.freemarker/freemarker
     api 'org.springframework.boot:spring-boot-starter-freemarker'
 
-    //api "io.github.shuigedeng:taotao-boot-starter-apt")
-    //annotationProcessor "io.github.shuigedeng:taotao-boot-starter-apt")
+    //api "io.github.shuigedeng:taotao-boot-starter-processor")
+    //annotationProcessor "io.github.shuigedeng:taotao-boot-starter-processor")
 
     annotationProcessor "com.querydsl:querydsl-apt:5.1.0:jakarta"
     api "com.querydsl:querydsl-jpa:5.1.0:jakarta"
