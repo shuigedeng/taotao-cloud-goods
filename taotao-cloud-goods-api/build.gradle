@@ -50,7 +50,7 @@ protobuf {
 configurations {
     configureEach {
         resolutionStrategy {
-            force 'net.minidev:json-smart:2.5.2'
+            force 'net.minidev:json-smart:2.6.0'
             //https://search.maven.org/artifact/com.google.protobuf/protobuf-java
             force "com.google.protobuf:protobuf-java:3.25.6"
             //https://search.maven.org/artifact/com.google.protobuf/protobuf-java-util
