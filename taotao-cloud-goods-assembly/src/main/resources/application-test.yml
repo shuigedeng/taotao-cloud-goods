@@ -719,7 +719,7 @@ spring:
       port: 6379
       database: 1
       #password: ${TAOTAO_CLOUD_REDIS_PASSWORD:taotao-cloud}
-      connect-timeout: 60000
+      connect-timeout: 60s
       #sentinel:
       #  master:
       #  nodes:
@@ -855,7 +855,7 @@ spring:
       # 消费监听接口监听的主题不存在时，默认会报错，所以设置为false忽略错误
       missing-topics-fatal: false
       # 两次poll之间的最大间隔，默认值为5分钟。如果超过这个间隔会触发reBalance
-      poll-timeout: 600000
+      poll-timeout: 60s
       type: batch #设置批量消费
   security:
     oauth2:
@@ -1300,8 +1300,8 @@ management:
       enabled: true
   zipkin:
     tracing:
-      connect-timeout: 1
-      read-timeout: 10
+      connect-timeout: 60s
+      read-timeout: 60s
       endpoint: http://192.168.218.2:9411/api/v2/spans
   tracing:
     enabled: true
