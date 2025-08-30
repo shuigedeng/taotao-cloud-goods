@@ -76,7 +76,7 @@ public class GoodsJobHandler {
                 shardTotal,
                 jobLogFileName);
 
-        return ReturnT.SUCCESS;
+        return ReturnT.ofSuccess();
     }
 
     @XxlJob("UserJobHandler")
@@ -98,7 +98,7 @@ public class GoodsJobHandler {
 
         // throw new RuntimeException("XXL-JOB测试异常");
 
-        return ReturnT.FAIL;
+        return ReturnT.ofFail();
     }
 
     /** 1、简单任务示例（Bean模式） */
