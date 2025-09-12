@@ -90,7 +90,7 @@ buildscript {
         /* 添加插件依赖路径（通过jar方式） */
 
         //https://plugins.gradle.org/m2/com/github/spotbugs/snom/spotbugs-gradle-plugin/
-        classpath "com.github.spotbugs.snom:spotbugs-gradle-plugin:6.2.4"
+        classpath "com.github.spotbugs.snom:spotbugs-gradle-plugin:6.3.0"
 
         //https://github.com/spring-io/spring-javaformat/
         classpath "io.spring.javaformat:spring-javaformat-gradle-plugin:0.0.47"
@@ -150,7 +150,7 @@ plugins {
 
     //smart-doc gradle 插件
     // https://plugins.gradle.org/plugin/com.ly.smart-doc
-    id "com.ly.smart-doc" version "3.1.1"
+    id "com.ly.smart-doc" version "3.1.2"
 
     //OWASP 依赖检查插件。
     //https://plugins.gradle.org/plugin/org.owasp.dependencycheck
@@ -162,7 +162,7 @@ plugins {
 
     //Gradle 插件，用于将所有依赖项和项目代码折叠到一个 Jar 文件中。
     //https://plugins.gradle.org/plugin/com.github.johnrengelman.shadow
-    id "com.gradleup.shadow" version "9.0.0"
+    id "com.gradleup.shadow" version "9.1.0"
 
     //用于运行 SonarQube 分析的 Gradle 插件。
     //https://plugins.gradle.org/plugin/org.sonarqube
@@ -363,7 +363,7 @@ subprojects {
         annotationProcessor "org.mapstruct:mapstruct-processor:${mapstructProcessorVersion}"
         //https://github.com/entur/mapstruct-spi-protobuf
         //https://search.maven.org/artifact/no.entur.mapstruct.spi/protobuf-spi-impl
-        annotationProcessor "no.entur.mapstruct.spi:protobuf-spi-impl:1.50.0"
+        annotationProcessor "no.entur.mapstruct.spi:protobuf-spi-impl:1.52.0"
 
         annotationProcessor "org.springframework.boot:spring-boot-configuration-processor:${springBootVersion}"
     }

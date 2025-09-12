@@ -36,6 +36,8 @@ bootJar {
     // lib目录的清除和复制任务
     //dependsOn copyJar
 
+    archiveBaseName = "taotao-cloud-goods"
+
     manifest {
         attributes project.tasks.jar.manifest.attributes
         //'Class-Path': configurations.runtimeClasspath.files.collect { "lib/$it.name" }.join(' ')
