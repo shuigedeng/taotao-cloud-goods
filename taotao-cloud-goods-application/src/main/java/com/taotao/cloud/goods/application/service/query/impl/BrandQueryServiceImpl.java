@@ -21,7 +21,7 @@ import com.taotao.cloud.goods.application.service.command.CategoryBrandCommandSe
 import com.taotao.cloud.goods.application.service.command.CategoryCommandService;
 import com.taotao.cloud.goods.application.service.command.GoodsCommandService;
 import com.taotao.cloud.goods.application.service.query.BrandQueryService;
-import com.taotao.cloud.goods.application.service.query.repository.BrandQueryRepository;
+import com.taotao.cloud.goods.application.repository.BrandQueryRepository;
 import java.util.List;
 import java.util.Map;
 import lombok.AllArgsConstructor;

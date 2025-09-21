@@ -1,0 +1,47 @@
+/*
+ * Copyright (c) 2020-2030, Shuigedeng (981376577@qq.com & https://blog.taotaocloud.top/).
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package com.taotao.cloud.goods.infrastructure.repository.application;
+
+import com.taotao.cloud.goods.application.dto.brand.clientobject.BrandCO;
+import com.taotao.cloud.goods.application.repository.BrandQueryRepository;
+import com.taotao.cloud.goods.infrastructure.assembler.BrandInfraAssembler;
+import com.taotao.cloud.goods.infrastructure.persistent.mapper.BrandMapper;
+import com.taotao.cloud.goods.infrastructure.persistent.persistence.BrandPO;
+import com.taotao.cloud.goods.infrastructure.persistent.repository.BrandRepository;
+import java.util.Optional;
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
+
+@Service
+@AllArgsConstructor
+public class BrandQueryRepositoryImpl implements BrandQueryRepository {
+
+    private final BrandMapper brandMapper;
+
+    private final BrandRepository brandRepository;
+
+    @Override
+    public BrandCO getById(Long id) {
+		BrandPO brandPO = brandMapper.selectById(id);
+
+		Optional<BrandPO> byId1 = brandRepository.findById(id);
+
+		brandRepository.test();
+
+		return BrandInfraAssembler.INSTANCE.convert(brandMapper.selectById(id));
+    }
+}

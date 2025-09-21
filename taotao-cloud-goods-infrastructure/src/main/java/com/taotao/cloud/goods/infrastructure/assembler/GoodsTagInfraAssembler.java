@@ -22,7 +22,7 @@ package com.taotao.cloud.goods.infrastructure.assembler;
  * @author luohq
  * @date 2023-08-03
  */
-public class GoodsTagInfraAssembler {
+public interface GoodsTagInfraAssembler {
 
     /**
      * 转换商品标签实体为VO

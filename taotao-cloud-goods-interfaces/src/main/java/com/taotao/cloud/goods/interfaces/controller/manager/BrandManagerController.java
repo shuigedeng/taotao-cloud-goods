@@ -17,6 +17,7 @@
 package com.taotao.cloud.goods.interfaces.controller.manager;
 
 import com.taotao.boot.common.model.Result;
+import com.taotao.boot.security.spring.annotation.NotAuth;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
 import com.taotao.cloud.goods.application.dto.brand.clientobject.BrandCO;
@@ -30,6 +31,7 @@ import io.swagger.v3.oas.annotations.Parameters;
 import io.swagger.v3.oas.annotations.enums.ParameterIn;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import java.util.List;
 import lombok.AllArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -66,9 +68,10 @@ public class BrandManagerController extends BusinessController {
                 in = ParameterIn.PATH),
     })
     @RequestLogger
-    @PreAuthorize("hasAuthority('dept:tree:data')")
+	@NotAuth
+    //@PreAuthorize("hasAuthority('dept:tree:data')")
     @GetMapping(value = "/{id}")
-    public Result<BrandCO> getById(@NotBlank(message = "id不能为空") @PathVariable Long id) {
+    public Result<BrandCO> getById(@NotNull(message = "id不能为空") @PathVariable Long id) {
         BrandCO brandCo = brandQueryService.getById(id);
         return Result.success(brandCo);
     }
