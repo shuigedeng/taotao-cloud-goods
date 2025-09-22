@@ -16,8 +16,10 @@
 
 package com.taotao.cloud.goods.infrastructure.persistent.repository;
 
-import com.taotao.boot.webagg.repository.BaseInterfaceSuperRepository;
+import com.taotao.boot.data.jpa.base.repository.JpaExtendRepository;
+import com.taotao.boot.data.jpa.base.repository.JpaSuperRepository;
+import com.taotao.cloud.goods.infrastructure.persistent.persistence.BrandPO;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.CategoryParameterGroupPO;
 
 public interface CategoryParameterGroupRepository
-        extends BaseInterfaceSuperRepository<CategoryParameterGroupPO, Long> {}
+        extends JpaSuperRepository<CategoryParameterGroupPO, Long>, JpaExtendRepository<CategoryParameterGroupPO, Long> {}

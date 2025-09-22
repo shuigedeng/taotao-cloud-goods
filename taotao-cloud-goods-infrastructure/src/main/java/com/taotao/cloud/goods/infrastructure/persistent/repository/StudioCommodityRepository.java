@@ -16,8 +16,11 @@
 
 package com.taotao.cloud.goods.infrastructure.persistent.repository;
 
-import com.taotao.boot.webagg.repository.BaseInterfaceSuperRepository;
+import com.taotao.boot.data.jpa.base.repository.JpaExtendRepository;
+import com.taotao.boot.data.jpa.base.repository.JpaSuperRepository;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.StudioCommodityPO;
 
 public interface StudioCommodityRepository
-        extends BaseInterfaceSuperRepository<StudioCommodityPO, Long> {}
+	extends JpaSuperRepository<StudioCommodityPO, Long>, JpaExtendRepository<StudioCommodityPO, Long> {
+
+}

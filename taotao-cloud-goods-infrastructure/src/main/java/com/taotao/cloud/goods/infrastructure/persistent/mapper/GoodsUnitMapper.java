@@ -16,7 +16,8 @@
 
 package com.taotao.cloud.goods.infrastructure.persistent.mapper;
 
-import com.taotao.boot.webagg.mapper.BaseSuperMapper;
+import com.taotao.boot.data.mybatis.mybatisplus.base.mapper.MpSuperMapper;
+
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsUnitPO;
 
 /**
@@ -26,4 +27,4 @@ import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsUnitPO;
  * @version 2022.04
  * @since 2022-04-27 16:57:27
  */
-public interface GoodsUnitMapper extends BaseSuperMapper<GoodsUnitPO, Long> {}
+public interface GoodsUnitMapper extends MpSuperMapper<GoodsUnitPO, Long> {}

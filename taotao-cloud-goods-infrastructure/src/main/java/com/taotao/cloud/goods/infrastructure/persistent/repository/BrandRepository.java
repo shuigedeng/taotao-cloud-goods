@@ -16,19 +16,31 @@
 
 package com.taotao.cloud.goods.infrastructure.persistent.repository;
 
-import com.taotao.boot.data.jpa.base.repository.JpaBaseSuperRepository;
-import com.taotao.boot.data.jpa.base.repository.JpaInterfaceSuperRepository;
+import com.taotao.boot.data.jpa.base.repository.JpaExtendRepository;
+import com.taotao.boot.data.jpa.base.repository.JpaSuperRepository;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.BrandPO;
+import java.util.List;
+import java.util.Map;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.simple.JdbcClient;
 
 /**
  * @author 1
  */
-public interface BrandRepository extends JpaInterfaceSuperRepository<BrandPO, Long>,
-	JpaBaseSuperRepository<BrandPO, Long> {
+public interface BrandRepository extends JpaSuperRepository<BrandPO, Long>, JpaExtendRepository<BrandPO, Long> {
 
-	default void test(){
+	default void test() {
 		JdbcClient jdbcClient = jdbcClient();
-		System.out.println("sadfasdf");
+		List<BrandPO> maps = jdbcClient.sql("select * from brand").query(BrandPO.class).list();
+
+		JdbcTemplate jdbcTemplate = jdbcTemplate();
+		List<Map<String, Object>> maps1 = jdbcTemplate.queryForList("select * from brand");
+
+		List<BrandPO> all = findAll();
+
+		System.out.println("sadfSFD");
 	}
+
+
+
 }

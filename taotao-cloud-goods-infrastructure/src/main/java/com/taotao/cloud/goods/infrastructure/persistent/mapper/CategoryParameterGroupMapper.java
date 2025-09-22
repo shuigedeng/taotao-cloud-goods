@@ -16,9 +16,10 @@
 
 package com.taotao.cloud.goods.infrastructure.persistent.mapper;
 
-import com.taotao.boot.webagg.mapper.BaseSuperMapper;
-import com.taotao.cloud.goods.infrastructure.persistent.persistence.CategoryParameterGroupPO;
+import com.taotao.boot.data.mybatis.mybatisplus.base.mapper.MpSuperMapper;
 
+import com.taotao.cloud.goods.infrastructure.persistent.persistence.CategoryParameterGroupPO;
+import com.taotao.boot.data.mybatis.mybatisplus.base.mapper.MpSuperMapper;
 /**
  * 分类绑定参数组数据处理层
  *
@@ -27,4 +28,4 @@ import com.taotao.cloud.goods.infrastructure.persistent.persistence.CategoryPara
  * @since 2022-04-27 16:55:31
  */
 public interface CategoryParameterGroupMapper
-        extends BaseSuperMapper<CategoryParameterGroupPO, Long> {}
+        extends MpSuperMapper<CategoryParameterGroupPO, Long> {}
