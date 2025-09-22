@@ -31,10 +31,10 @@ public interface BrandRepository extends JpaSuperRepository<BrandPO, Long>, JpaE
 
 	default void test() {
 		JdbcClient jdbcClient = jdbcClient();
-		List<BrandPO> maps = jdbcClient.sql("select * from brand").query(BrandPO.class).list();
+		List<BrandPO> maps = jdbcClient.sql("select * from ttc_brand").query(BrandPO.class).list();
 
 		JdbcTemplate jdbcTemplate = jdbcTemplate();
-		List<Map<String, Object>> maps1 = jdbcTemplate.queryForList("select * from brand");
+		List<Map<String, Object>> maps1 = jdbcTemplate.queryForList("select * from ttc_brand");
 
 		List<BrandPO> all = findAll();
 

@@ -19,8 +19,12 @@ package com.taotao.cloud.goods.application.factory;
 import com.taotao.boot.ddd.model.types.BizId;
 import com.taotao.boot.ddd.model.types.Price;
 import com.taotao.cloud.goods.application.dto.goods.cmmond.GoodsCreateCommand;
-import com.taotao.cloud.goods.domain.goods.aggregate.GoodsAgg;
-import com.taotao.cloud.goods.domain.goods.valobj.*;
+import com.taotao.cloud.goods.domain.aggregate.GoodsAgg;
+import com.taotao.cloud.goods.domain.valobj.GoodsName;
+import com.taotao.cloud.goods.domain.valobj.GoodsSpec;
+import com.taotao.cloud.goods.domain.valobj.GoodsStatus;
+import com.taotao.cloud.goods.domain.valobj.GoodsWeight;
+import com.taotao.cloud.goods.domain.valobj.WeightUnit;
 import java.util.Set;
 
 /**
