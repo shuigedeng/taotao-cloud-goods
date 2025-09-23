@@ -27,20 +27,18 @@ import org.springframework.jdbc.core.simple.JdbcClient;
 /**
  * @author 1
  */
-public interface BrandRepository extends JpaSuperRepository<BrandPO, Long>, JpaExtendRepository<BrandPO, Long> {
+public interface BrandRepository
+        extends JpaSuperRepository<BrandPO, Long>, JpaExtendRepository<BrandPO, Long> {
 
-	default void test() {
-		JdbcClient jdbcClient = jdbcClient();
-		List<BrandPO> maps = jdbcClient.sql("select * from ttc_brand").query(BrandPO.class).list();
+    default void test() {
+        JdbcClient jdbcClient = jdbcClient();
+        List<BrandPO> maps = jdbcClient.sql("select * from ttc_brand").query(BrandPO.class).list();
 
-		JdbcTemplate jdbcTemplate = jdbcTemplate();
-		List<Map<String, Object>> maps1 = jdbcTemplate.queryForList("select * from ttc_brand");
+        JdbcTemplate jdbcTemplate = jdbcTemplate();
+        List<Map<String, Object>> maps1 = jdbcTemplate.queryForList("select * from ttc_brand");
 
-		List<BrandPO> all = findAll();
+        List<BrandPO> all = findAll();
 
-		System.out.println("sadfSFD");
-	}
-
-
-
+        System.out.println("sadfSFD");
+    }
 }

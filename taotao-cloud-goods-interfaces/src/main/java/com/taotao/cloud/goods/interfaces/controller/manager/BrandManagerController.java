@@ -30,7 +30,6 @@ import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.Parameters;
 import io.swagger.v3.oas.annotations.enums.ParameterIn;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import java.util.List;
 import lombok.AllArgsConstructor;
@@ -68,8 +67,8 @@ public class BrandManagerController extends BusinessController {
                 in = ParameterIn.PATH),
     })
     @RequestLogger
-	@NotAuth
-    //@PreAuthorize("hasAuthority('dept:tree:data')")
+    @NotAuth
+    // @PreAuthorize("hasAuthority('dept:tree:data')")
     @GetMapping(value = "/{id}")
     public Result<BrandCO> getById(@NotNull(message = "id不能为空") @PathVariable Long id) {
         BrandCO brandCo = brandQueryService.getById(id);

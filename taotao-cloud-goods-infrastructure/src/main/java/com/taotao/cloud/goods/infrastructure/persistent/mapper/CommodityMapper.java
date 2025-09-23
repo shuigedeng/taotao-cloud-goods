@@ -17,7 +17,6 @@
 package com.taotao.cloud.goods.infrastructure.persistent.mapper;
 
 import com.taotao.boot.data.mybatis.mybatisplus.base.mapper.MpSuperMapper;
-
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.CommodityPO;
 import java.util.List;
 import org.apache.ibatis.annotations.Select;

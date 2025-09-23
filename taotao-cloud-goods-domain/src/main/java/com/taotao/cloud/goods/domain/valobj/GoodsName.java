@@ -70,9 +70,8 @@ public class GoodsName implements ValueObject<GoodsName> {
         return "GoodsName{" + "value='" + value + '\'' + '}';
     }
 
-
-	@Override
-	public boolean sameValueAs(GoodsName other) {
-		return false;
-	}
+    @Override
+    public boolean sameValueAs(GoodsName other) {
+        return false;
+    }
 }

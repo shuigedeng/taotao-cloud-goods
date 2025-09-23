@@ -17,6 +17,7 @@
 package com.taotao.cloud.goods.infrastructure.repository.domain;
 
 import com.taotao.boot.data.datasource.tx.TransactionalUtils;
+import com.taotao.boot.data.datasource.tx.TxWrapper;
 import com.taotao.boot.data.mybatis.utils.MybatisUtil;
 import com.taotao.boot.ddd.model.types.BizId;
 import com.taotao.cloud.goods.domain.aggregate.GoodsTagAgg;
@@ -34,9 +35,11 @@ public class GoodsTagDomainRepositoryImpl implements GoodsTagDomainRepository {
 
     private final TransactionalUtils transactionalUtil;
     private final MybatisUtil mybatisUtil;
+    private final TxWrapper txWrapper;
     private final GoodsMapper goodsMapper;
     private final GoodsSkuMapper goodsSkuMapper;
-//    private final GoodsTagRepository goodsTagRepository;
+
+    //    private final GoodsTagRepository goodsTagRepository;
 
     @Override
     public void create(GoodsTagAgg dept) {}
@@ -54,8 +57,9 @@ public class GoodsTagDomainRepositoryImpl implements GoodsTagDomainRepository {
             return true;
         }
         // 查询存在的标签数量
-//        Integer existGoodsTagCount = this.goodsTagRepository.countByIdIn(goodsTagIds);
-//        Validates.isTrue(existGoodsTagCount.equals(goodsTagIds.size()), "goods tags don't exist");
+        //        Integer existGoodsTagCount = this.goodsTagRepository.countByIdIn(goodsTagIds);
+        //        Validates.isTrue(existGoodsTagCount.equals(goodsTagIds.size()), "goods tags don't
+        // exist");
         return true;
     }
 }

@@ -21,6 +21,5 @@ import com.taotao.boot.data.jpa.base.repository.JpaSuperRepository;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.StudioCommodityPO;
 
 public interface StudioCommodityRepository
-	extends JpaSuperRepository<StudioCommodityPO, Long>, JpaExtendRepository<StudioCommodityPO, Long> {
-
-}
+        extends JpaSuperRepository<StudioCommodityPO, Long>,
+                JpaExtendRepository<StudioCommodityPO, Long> {}

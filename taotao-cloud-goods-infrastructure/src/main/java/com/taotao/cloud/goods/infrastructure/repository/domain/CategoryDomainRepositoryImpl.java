@@ -34,7 +34,8 @@ public class CategoryDomainRepositoryImpl implements CategoryDomainRepository {
     private final MybatisUtil mybatisUtil;
     private final GoodsMapper goodsMapper;
     private final GoodsSkuMapper goodsSkuMapper;
-//    private final CategoryRepository categoryRepository;
+
+    //    private final CategoryRepository categoryRepository;
 
     @Override
     public void create(CategoryAgg categoryEntity) {}
@@ -48,8 +49,8 @@ public class CategoryDomainRepositoryImpl implements CategoryDomainRepository {
     @Override
     public boolean isSatisfiedBy(BizId categoryId) {
         // 验证分类ID是否存在
-//        Boolean existParentId = this.categoryRepository.existsById(categoryId.getId());
-//        Validates.isTrue(existParentId, "category id does not exist");
+        //        Boolean existParentId = this.categoryRepository.existsById(categoryId.getId());
+        //        Validates.isTrue(existParentId, "category id does not exist");
         return true;
     }
 }

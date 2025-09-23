@@ -17,7 +17,6 @@
 package com.taotao.cloud.goods.infrastructure.persistent.mapper;
 
 import com.taotao.boot.data.mybatis.mybatisplus.base.mapper.MpSuperMapper;
-
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.CategorySpecificationPO;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.SpecificationPO;
 import java.util.List;
@@ -31,8 +30,7 @@ import org.apache.ibatis.annotations.Select;
  * @version 2022.04
  * @since 2022-04-27 16:55:35
  */
-public interface CategorySpecificationMapper
-        extends MpSuperMapper<CategorySpecificationPO, Long> {
+public interface CategorySpecificationMapper extends MpSuperMapper<CategorySpecificationPO, Long> {
 
     /**
      * 根据分类id查分类绑定规格

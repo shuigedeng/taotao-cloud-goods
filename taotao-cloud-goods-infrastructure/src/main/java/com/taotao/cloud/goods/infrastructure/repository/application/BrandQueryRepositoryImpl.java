@@ -36,12 +36,12 @@ public class BrandQueryRepositoryImpl implements BrandQueryRepository {
 
     @Override
     public BrandCO getById(Long id) {
-		BrandPO brandPO = brandMapper.selectById(id);
+        BrandPO brandPO = brandMapper.selectById(id);
 
-		Optional<BrandPO> byId1 = brandRepository.findById(id);
+        Optional<BrandPO> byId1 = brandRepository.findById(id);
 
-		brandRepository.test();
+        brandRepository.test();
 
-		return BrandInfraAssembler.INSTANCE.convert(brandMapper.selectById(id));
+        return BrandInfraAssembler.INSTANCE.convert(brandMapper.selectById(id));
     }
 }

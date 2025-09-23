@@ -17,9 +17,8 @@
 package com.taotao.cloud.goods.infrastructure.persistent.mapper;
 
 import com.taotao.boot.data.mybatis.mybatisplus.base.mapper.MpSuperMapper;
-
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.CategoryParameterGroupPO;
-import com.taotao.boot.data.mybatis.mybatisplus.base.mapper.MpSuperMapper;
+
 /**
  * 分类绑定参数组数据处理层
  *

@@ -18,10 +18,7 @@ package com.taotao.cloud.goods.infrastructure.persistent.repository;
 
 import com.taotao.boot.data.jpa.base.repository.JpaExtendRepository;
 import com.taotao.boot.data.jpa.base.repository.JpaSuperRepository;
-import com.taotao.cloud.goods.infrastructure.persistent.persistence.BrandPO;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.ParametersPO;
 
-public interface ParametersRepository extends JpaSuperRepository<ParametersPO, Long>,
-	JpaExtendRepository<ParametersPO, Long> {
-
-}
+public interface ParametersRepository
+        extends JpaSuperRepository<ParametersPO, Long>, JpaExtendRepository<ParametersPO, Long> {}

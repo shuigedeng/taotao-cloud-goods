@@ -20,7 +20,6 @@ import com.taotao.boot.data.datasource.tx.TransactionalUtils;
 import com.taotao.boot.data.datasource.tx.TxWrapper;
 import com.taotao.boot.data.mybatis.utils.MybatisUtil;
 import com.taotao.boot.ddd.model.types.BizId;
-import com.taotao.boot.flowengine.state.retry.TxWrapperOther;
 import com.taotao.cloud.goods.domain.aggregate.GoodsAgg;
 import com.taotao.cloud.goods.domain.repository.GoodsDomainRepository;
 import com.taotao.cloud.goods.domain.valobj.GoodsStatus;
