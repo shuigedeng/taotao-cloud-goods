@@ -43,9 +43,6 @@ import org.hibernate.Hibernate;
 @Entity
 @Table(
         name = CommodityPO.TABLE_NAME,
-        uniqueConstraints = {
-            @UniqueConstraint(name = "uniq_goods_no", columnNames = "goods_no"),
-        },
         indexes = {
             @Index(name = "idx_create_date", columnList = "`create_date`"),
         })

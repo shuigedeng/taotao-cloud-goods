@@ -59,7 +59,6 @@ import org.hibernate.annotations.Type;
         name = GoodsPO.TABLE_NAME,
         uniqueConstraints = {
             @UniqueConstraint(name = "uniq_goods_no", columnNames = "goods_no"),
-            @UniqueConstraint(name = "uniq_gn_ti", columnNames = "goods_no,template_id"),
         },
         indexes = {
             @Index(name = "idx_goods_name", columnList = "goods_name"),

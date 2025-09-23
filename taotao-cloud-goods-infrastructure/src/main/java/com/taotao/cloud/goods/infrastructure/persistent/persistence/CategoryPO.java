@@ -50,7 +50,6 @@ import org.hibernate.Hibernate;
         name = CategoryPO.TABLE_NAME,
         indexes = {
             @Index(name = "idx_create_date", columnList = "`create_date`"),
-            @Index(name = "idx_group_name", columnList = "`group_name`"),
             @Index(name = "idx_sort_order", columnList = "`sort_order`"),
         })
 @TableName(CategoryPO.TABLE_NAME)
