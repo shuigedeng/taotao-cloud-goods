@@ -840,12 +840,12 @@ taotao:
       xxl:
         enabled: true
         admin:
-          addresses: http://192.168.218.2:58080/xxl-job-admin
+          addresses: http://192.168.218.2:48080/xxl-job-admin
           username: admin
           password: 123456
         executor:
-          access-token:
-          ip: 192.168.1.3
+          access-token: 123456
+          ip: 192.168.1.4
     zookeeper:
       enabled: false
       connectString: 192.168.218.2:2181
