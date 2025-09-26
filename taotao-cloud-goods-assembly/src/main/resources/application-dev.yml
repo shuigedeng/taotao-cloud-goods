@@ -495,7 +495,7 @@ spring:
       #update：每次运行程序，没有表时会创建表，如果对象发生改变会更新表结构，原有数据不会清空，只会更新（推荐使用）
       #validate：运行程序会校验数据于数据库的字段类型是否相同，字段不同会报错
       #none：禁用DDL处理
-      ddl-auto: update
+      ddl-auto: none
       naming:
         implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
         physical-strategy: org.hibernate.boot.model.naming.CamelCaseToUnderscoresNamingStrategy
@@ -839,6 +839,7 @@ taotao:
     job:
       xxl:
         enabled: true
+        autoRegister: false
         admin:
           addresses: http://192.168.218.2:48080/xxl-job-admin
           username: admin
@@ -846,6 +847,8 @@ taotao:
         executor:
           access-token: 123456
           ip: 192.168.1.4
+          appname: ttc-goods
+          title: ttc-goods
     zookeeper:
       enabled: false
       connectString: 192.168.218.2:2181
