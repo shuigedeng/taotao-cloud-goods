@@ -37,7 +37,7 @@ public interface GoodsInfraAssembler {
     /** 实例 */
     GoodsInfraAssembler INSTANCE = Mappers.getMapper(GoodsInfraAssembler.class);
 
-    GoodsPO convert(GoodsAgg goods);
+    GoodsPO toPO(GoodsAgg goods);
 
     default Long map(BizId value) {
         return value != null ? value.id() : null;

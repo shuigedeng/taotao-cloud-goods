@@ -45,6 +45,7 @@ public class GoodsCommandServiceImpl implements GoodsCommandService {
     private final CategoryDomainRepository categoryDomainRepository;
     private final GoodsTagDomainRepository goodsTagDomainRepository;
     private final GoodsDomainRepository goodsDomainRepository;
+    private final GoodsAppAssembler goodsAppAssembler;
 
     @Override
     public boolean underStoreGoods(Long storeId) {
@@ -119,7 +120,7 @@ public class GoodsCommandServiceImpl implements GoodsCommandService {
         // 保存商品
         goodsDomainRepository.save(goods);
         // 转换GoodsDto
-        return GoodsAppAssembler.INSTANCE.convert(goods);
+        return goodsAppAssembler.toResult(goods);
     }
 
     // private final GoodsManager goodsManager;

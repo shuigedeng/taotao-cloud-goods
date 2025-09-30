@@ -43,5 +43,5 @@ public interface CategoryBrandInfraAssembler {
      * @return {@link List }<{@link CategoryVO }>
      * @since 2022-04-27 16:58:05
      */
-    List<CategoryBrandResult> convert(List<CategoryBrandDO> categoryBrandList);
+    List<CategoryBrandResult> toResult(List<CategoryBrandDO> categoryBrandList);
 }

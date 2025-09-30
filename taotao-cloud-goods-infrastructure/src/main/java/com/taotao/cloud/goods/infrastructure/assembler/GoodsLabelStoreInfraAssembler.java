@@ -44,7 +44,7 @@ public interface GoodsLabelStoreInfraAssembler {
      * @return {@link StoreGoodsLabelInfoVO }
      * @since 2022-04-27 16:58:17
      */
-    StoreGoodsLabelInfoResult convert(StoreGoodsLabelPO storeGoodsLabel);
+    StoreGoodsLabelInfoResult toResult(StoreGoodsLabelPO storeGoodsLabel);
 
     /**
      * 商店商品标签dtoto商店商品标签
@@ -53,7 +53,7 @@ public interface GoodsLabelStoreInfraAssembler {
      * @return {@link StoreGoodsLabel }
      * @since 2022-04-27 16:58:17
      */
-    StoreGoodsLabelPO convert(StoreGoodsLabelAddCommand storeGoodsLabelDTO);
+    StoreGoodsLabelPO toPO(StoreGoodsLabelAddCommand storeGoodsLabelDTO);
 
-    StoreGoodsLabelPO convert(StoreGoodsLabelEditCommand storeGoodsLabelDTO);
+    StoreGoodsLabelPO toPO(StoreGoodsLabelEditCommand storeGoodsLabelDTO);
 }

@@ -20,6 +20,7 @@ import com.taotao.cloud.goods.application.dto.brand.command.BrandAddCommand;
 import com.taotao.cloud.goods.application.dto.brand.result.BrandResult;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.BrandPO;
 import java.util.List;
+import nl.basjes.parse.useragent.clienthints.ClientHints.Brand;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingConstants;
 import org.mapstruct.factory.Mappers;
@@ -46,7 +47,7 @@ public interface BrandInfraAssembler {
      * @return {@link BrandVO }
      * @since 2022-04-27 16:57:56
      */
-    BrandResult convert(BrandPO brand);
+    BrandResult toResult(BrandPO brand);
 
     /**
      * 品牌品牌vos
@@ -55,7 +56,7 @@ public interface BrandInfraAssembler {
      * @return {@link List }<{@link BrandVO }>
      * @since 2022-04-27 16:57:56
      */
-    List<BrandResult> convert(List<BrandPO> brands);
+    List<BrandResult> toResult(List<BrandPO> brands);
 
     /**
      * 品牌dtoto品牌
@@ -64,5 +65,5 @@ public interface BrandInfraAssembler {
      * @return {@link Brand }
      * @since 2022-04-27 16:57:56
      */
-    BrandPO convert(BrandAddCommand brandDTO);
+    BrandPO toPO(BrandAddCommand brandDTO);
 }

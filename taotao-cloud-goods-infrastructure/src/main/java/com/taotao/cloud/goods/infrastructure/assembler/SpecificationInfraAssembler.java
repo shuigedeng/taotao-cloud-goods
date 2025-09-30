@@ -43,9 +43,9 @@ public interface SpecificationInfraAssembler {
      * @return {@link List }<{@link SpecificationVO }>
      * @since 2022-04-27 16:58:30
      */
-    List<SpecificationResult> convert(List<SpecificationPO> specifications);
+    List<SpecificationResult> toResult(List<SpecificationPO> specifications);
 
-    SpecificationResult convert(SpecificationPO specification);
+    SpecificationResult toResult(SpecificationPO specification);
 
     /**
      * 规范dtoto规范

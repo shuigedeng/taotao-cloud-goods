@@ -42,5 +42,5 @@ public interface GoodsUnitInfraAssembler {
      * @return {@link GoodsUnitVO }
      * @since 2023-08-11 14:54:25
      */
-    GoodsUnitResult convert(GoodsUnitPO goodsUnit);
+    GoodsUnitResult toResult(GoodsUnitPO goodsUnit);
 }

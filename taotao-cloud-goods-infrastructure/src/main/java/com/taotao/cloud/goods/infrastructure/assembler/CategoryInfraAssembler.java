@@ -49,7 +49,7 @@ public interface CategoryInfraAssembler {
      * @return {@link CategoryTreeVO }
      * @since 2022-04-27 16:58:05
      */
-    CategoryTreeResult convert(CategoryPO category);
+    CategoryTreeResult toResult(CategoryPO category);
 
     /**
      * 类别基础vos思想史范畴
@@ -58,7 +58,7 @@ public interface CategoryInfraAssembler {
      * @return {@link List }<{@link CategoryVO }>
      * @since 2022-04-27 16:58:05
      */
-    List<CategoryResult> convert(List<CategoryPO> categorys);
+    List<CategoryResult> toResult(List<CategoryPO> categorys);
 
 	List<CategoryAgg> toAggs(Iterable<CategoryPO> categoryPOs);
 

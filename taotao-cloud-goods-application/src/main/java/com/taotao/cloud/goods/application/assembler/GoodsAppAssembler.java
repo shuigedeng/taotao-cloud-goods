@@ -47,7 +47,7 @@ public interface GoodsAppAssembler {
     // */
     // List<ParametersVO> convert(List<Parameters> parameters);
 
-    GoodsResult convert(GoodsAgg goodsAgg);
+    GoodsResult toResult(GoodsAgg goodsAgg);
 
     default Long map(BizId value) {
         return value != null ? value.id() : null;

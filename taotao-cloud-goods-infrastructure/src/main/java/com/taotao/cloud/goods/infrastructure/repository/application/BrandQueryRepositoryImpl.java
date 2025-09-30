@@ -33,6 +33,7 @@ public class BrandQueryRepositoryImpl implements BrandQueryRepository {
     private final BrandMapper brandMapper;
 
     private final BrandRepository brandRepository;
+    private final BrandInfraAssembler brandInfraAssembler;
 
     @Override
     public BrandResult getById(Long id) {
@@ -42,6 +43,6 @@ public class BrandQueryRepositoryImpl implements BrandQueryRepository {
 
         brandRepository.test();
 
-        return BrandInfraAssembler.INSTANCE.convert(brandMapper.selectById(id));
+        return brandInfraAssembler.toResult(brandMapper.selectById(id));
     }
 }
