@@ -19,6 +19,7 @@ package com.taotao.cloud.goods.infrastructure.assembler;
 import com.taotao.cloud.goods.application.dto.goods.result.GoodsUnitResult;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsUnitPO;
 import org.mapstruct.Mapper;
+import org.mapstruct.MappingConstants;
 import org.mapstruct.factory.Mappers;
 
 /**
@@ -28,7 +29,7 @@ import org.mapstruct.factory.Mappers;
  * @version 2022.04
  * @since 2022-04-27 16:58:21
  */
-@Mapper
+@Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
 public interface GoodsUnitInfraAssembler {
 
     /** 实例 */

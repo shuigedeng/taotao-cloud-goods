@@ -16,12 +16,16 @@
 
 package com.taotao.cloud.goods.infrastructure.assembler;
 
+import org.mapstruct.Mapper;
+import org.mapstruct.MappingConstants;
+
 /**
  * GoodsTag转换器
  *
  * @author luohq
  * @date 2023-08-03
  */
+@Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
 public interface GoodsTagInfraAssembler {
 
     /**

@@ -21,6 +21,7 @@ import com.taotao.cloud.goods.domain.aggregate.GoodsAgg;
 import com.taotao.cloud.goods.domain.valobj.GoodsName;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsPO;
 import org.mapstruct.Mapper;
+import org.mapstruct.MappingConstants;
 import org.mapstruct.factory.Mappers;
 
 /**
@@ -30,7 +31,7 @@ import org.mapstruct.factory.Mappers;
  * @version 2022.04
  * @since 2022-04-27 16:58:21
  */
-@Mapper
+@Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
 public interface GoodsInfraAssembler {
 
     /** 实例 */

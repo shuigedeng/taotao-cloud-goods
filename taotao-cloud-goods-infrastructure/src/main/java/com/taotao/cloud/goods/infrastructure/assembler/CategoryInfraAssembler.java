@@ -18,9 +18,11 @@ package com.taotao.cloud.goods.infrastructure.assembler;
 
 import com.taotao.cloud.goods.application.dto.category.result.CategoryResult;
 import com.taotao.cloud.goods.application.dto.category.result.CategoryTreeResult;
+import com.taotao.cloud.goods.domain.aggregate.CategoryAgg;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.CategoryPO;
 import java.util.List;
 import org.mapstruct.Mapper;
+import org.mapstruct.MappingConstants;
 import org.mapstruct.factory.Mappers;
 
 /**
@@ -30,7 +32,7 @@ import org.mapstruct.factory.Mappers;
  * @version 2022.04
  * @since 2022-04-27 16:58:05
  */
-@Mapper
+@Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
 public interface CategoryInfraAssembler {
 
     /** 实例 */
@@ -53,4 +55,6 @@ public interface CategoryInfraAssembler {
      * @since 2022-04-27 16:58:05
      */
     List<CategoryResult> convert(List<CategoryPO> categorys);
+
+	List<CategoryAgg> toAgg(Iterable<CategoryPO> categoryPOs);
 }

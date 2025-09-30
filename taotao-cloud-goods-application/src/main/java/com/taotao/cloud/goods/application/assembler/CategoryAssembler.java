@@ -16,6 +16,12 @@
 
 package com.taotao.cloud.goods.application.assembler;
 
+import com.taotao.boot.ddd.model.types.BizId;
+import com.taotao.cloud.goods.application.dto.category.result.CategoryTreeResult;
+import com.taotao.cloud.goods.application.dto.goods.result.GoodsResult;
+import com.taotao.cloud.goods.domain.aggregate.CategoryAgg;
+import com.taotao.cloud.goods.domain.aggregate.GoodsAgg;
+import com.taotao.cloud.goods.domain.valobj.GoodsName;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingConstants;
 import org.mapstruct.factory.Mappers;
@@ -28,26 +34,20 @@ import org.mapstruct.factory.Mappers;
  * @since 2022-04-27 16:58:27
  */
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
-public interface ParametersAppAssembler {
+public interface CategoryAssembler {
 
     /** 实例 */
-    ParametersAppAssembler INSTANCE = Mappers.getMapper(ParametersAppAssembler.class);
-    //
-    /// **
-    // * 参数参数vos
-    // *
-    // * @param parameters 参数
-    // * @return {@link List }<{@link ParametersVO }>
-    // * @since 2022-04-27 16:58:27
-    // */
-    // List<ParametersVO> convert(List<Parameters> parameters);
-    //
-    /// **
-    // * 参数dtoto参数
-    // *
-    // * @param parametersDTO 参数dto
-    // * @return {@link Parameters }
-    // * @since 2022-04-27 16:58:27
-    // */
-    // Parameters convert(ParametersDTO parametersDTO);
+    CategoryAssembler INSTANCE = Mappers.getMapper(CategoryAssembler.class);
+
+
+	CategoryTreeResult toResult(CategoryAgg categoryAgg);
+
+
+    default Long map(BizId value) {
+        return value != null ? value.id() : null;
+    }
+
+    default String map(GoodsName value) {
+        return value != null ? value.getValue() : null;
+    }
 }

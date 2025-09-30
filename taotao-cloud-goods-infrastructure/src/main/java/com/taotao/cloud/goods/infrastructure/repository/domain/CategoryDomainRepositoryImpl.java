@@ -16,15 +16,24 @@
 
 package com.taotao.cloud.goods.infrastructure.repository.domain;
 
+import com.querydsl.core.types.Predicate;
+import com.querydsl.core.types.dsl.BooleanExpression;
+import com.taotao.boot.common.enums.DelFlagEnum;
 import com.taotao.boot.data.datasource.tx.TransactionalUtils;
 import com.taotao.boot.data.mybatis.utils.MybatisUtil;
 import com.taotao.boot.ddd.model.types.BizId;
 import com.taotao.cloud.goods.domain.aggregate.CategoryAgg;
 import com.taotao.cloud.goods.domain.repository.CategoryDomainRepository;
+import com.taotao.cloud.goods.infrastructure.assembler.CategoryInfraAssembler;
 import com.taotao.cloud.goods.infrastructure.persistent.mapper.GoodsMapper;
 import com.taotao.cloud.goods.infrastructure.persistent.mapper.GoodsSkuMapper;
+import com.taotao.cloud.goods.infrastructure.persistent.persistence.CategoryPO;
+import com.taotao.cloud.goods.infrastructure.persistent.persistence.QCategoryPO;
+import com.taotao.cloud.goods.infrastructure.persistent.repository.CategoryRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 @AllArgsConstructor
@@ -35,9 +44,18 @@ public class CategoryDomainRepositoryImpl implements CategoryDomainRepository {
     private final GoodsMapper goodsMapper;
     private final GoodsSkuMapper goodsSkuMapper;
 
-    //    private final CategoryRepository categoryRepository;
+	private final CategoryRepository categoryRepository;
+	private final CategoryInfraAssembler categoryInfraAssembler;
 
-    @Override
+	@Override
+	public List<CategoryAgg> findCategory(DelFlagEnum delFlg) {
+		QCategoryPO qCategoryPO = QCategoryPO.categoryPO;
+		Predicate predicate = qCategoryPO.delFlag.eq(delFlg.delFlag());
+		Iterable<CategoryPO> categoryPOs = categoryRepository.findAll(predicate);
+		return categoryInfraAssembler.toAgg(categoryPOs);
+	}
+
+	@Override
     public void create(CategoryAgg categoryEntity) {}
 
     @Override

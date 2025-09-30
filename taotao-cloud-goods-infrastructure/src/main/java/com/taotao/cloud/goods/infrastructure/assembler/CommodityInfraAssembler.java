@@ -18,6 +18,7 @@ package com.taotao.cloud.goods.infrastructure.assembler;
 
 import org.mapstruct.Builder;
 import org.mapstruct.Mapper;
+import org.mapstruct.MappingConstants;
 import org.mapstruct.ReportingPolicy;
 import org.mapstruct.factory.Mappers;
 
@@ -28,7 +29,7 @@ import org.mapstruct.factory.Mappers;
  * @version 2022.04
  * @since 2022-04-27 16:58:21
  */
-@Mapper(
+@Mapper(componentModel = MappingConstants.ComponentModel.SPRING,
         builder = @Builder(disableBuilder = true),
         unmappedSourcePolicy = ReportingPolicy.IGNORE,
         unmappedTargetPolicy = ReportingPolicy.IGNORE)

@@ -21,6 +21,7 @@ import com.taotao.cloud.goods.application.dto.brand.result.BrandResult;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.BrandPO;
 import java.util.List;
 import org.mapstruct.Mapper;
+import org.mapstruct.MappingConstants;
 import org.mapstruct.factory.Mappers;
 
 /**
@@ -30,7 +31,7 @@ import org.mapstruct.factory.Mappers;
  * @version 2022.04
  * @since 2022-04-27 16:57:55
  */
-@Mapper
+@Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
 public interface BrandInfraAssembler {
 
     /**

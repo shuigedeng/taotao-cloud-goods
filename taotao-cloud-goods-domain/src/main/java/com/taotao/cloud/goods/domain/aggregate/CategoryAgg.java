@@ -126,9 +126,15 @@ public class CategoryAgg extends AggregateRoot<BizId> {
     public BizId getParentCategoryId() {
         return parentCategoryId;
     }
+    public Long parentCategoryId() {
+        return parentCategoryId.getId();
+    }
 
     public CategoryName getCategoryName() {
         return categoryName;
+    }
+    public String categoryName() {
+        return categoryName.getValue();
     }
 
     public CategoryDesc getCategoryDesc() {

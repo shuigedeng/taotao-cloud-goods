@@ -16,11 +16,16 @@
 
 package com.taotao.cloud.goods.domain.repository;
 
+import com.taotao.boot.common.enums.DelFlagEnum;
 import com.taotao.boot.ddd.model.domain.repository.DomainRepository;
 import com.taotao.boot.ddd.model.types.BizId;
 import com.taotao.cloud.goods.domain.aggregate.CategoryAgg;
 
+import java.util.List;
+
 public interface CategoryDomainRepository extends DomainRepository {
+
+	List<CategoryAgg> findCategory(DelFlagEnum delFlg);
 
     /**
      * 新增部门.
