@@ -17,8 +17,8 @@
 package com.taotao.cloud.goods.application.service.command;
 
 import com.taotao.boot.ddd.model.application.service.CommandService;
-import com.taotao.cloud.goods.application.dto.category.cmmond.CategoryAddCmd;
-import com.taotao.cloud.goods.application.dto.category.cmmond.CategoryUpdateCmd;
+import com.taotao.cloud.goods.application.dto.category.command.CategoryAddCommand;
+import com.taotao.cloud.goods.application.dto.category.command.CategoryUpdateCommand;
 
 /**
  * 商品分类业务层
@@ -35,7 +35,7 @@ public interface CategoryCommandService extends CommandService {
      * @param category 商品分类信息
      * @return 添加结果
      */
-    boolean saveCategory(CategoryAddCmd category);
+    boolean saveCategory(CategoryAddCommand category);
 
     /**
      * 修改商品分类
@@ -43,7 +43,7 @@ public interface CategoryCommandService extends CommandService {
      * @param category 商品分类信息
      * @return 修改结果
      */
-    boolean updateCategory(CategoryUpdateCmd category);
+    boolean updateCategory(CategoryUpdateCommand category);
 
     /**
      * 批量删除分类

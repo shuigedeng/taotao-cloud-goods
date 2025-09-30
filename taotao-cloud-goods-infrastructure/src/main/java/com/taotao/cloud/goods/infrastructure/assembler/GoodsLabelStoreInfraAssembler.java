@@ -16,9 +16,9 @@
 
 package com.taotao.cloud.goods.infrastructure.assembler;
 
-import com.taotao.cloud.goods.application.dto.store.clientobject.StoreGoodsLabelInfoCO;
-import com.taotao.cloud.goods.application.dto.store.cmmond.StoreGoodsLabelAddCmd;
-import com.taotao.cloud.goods.application.dto.store.cmmond.StoreGoodsLabelEditCmd;
+import com.taotao.cloud.goods.application.dto.store.command.StoreGoodsLabelAddCommand;
+import com.taotao.cloud.goods.application.dto.store.command.StoreGoodsLabelEditCommand;
+import com.taotao.cloud.goods.application.dto.store.result.StoreGoodsLabelInfoResult;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.StoreGoodsLabelPO;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
@@ -43,7 +43,7 @@ public interface GoodsLabelStoreInfraAssembler {
      * @return {@link StoreGoodsLabelInfoVO }
      * @since 2022-04-27 16:58:17
      */
-    StoreGoodsLabelInfoCO convert(StoreGoodsLabelPO storeGoodsLabel);
+    StoreGoodsLabelInfoResult convert(StoreGoodsLabelPO storeGoodsLabel);
 
     /**
      * 商店商品标签dtoto商店商品标签
@@ -52,7 +52,7 @@ public interface GoodsLabelStoreInfraAssembler {
      * @return {@link StoreGoodsLabel }
      * @since 2022-04-27 16:58:17
      */
-    StoreGoodsLabelPO convert(StoreGoodsLabelAddCmd storeGoodsLabelDTO);
+    StoreGoodsLabelPO convert(StoreGoodsLabelAddCommand storeGoodsLabelDTO);
 
-    StoreGoodsLabelPO convert(StoreGoodsLabelEditCmd storeGoodsLabelDTO);
+    StoreGoodsLabelPO convert(StoreGoodsLabelEditCommand storeGoodsLabelDTO);
 }

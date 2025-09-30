@@ -21,9 +21,9 @@ import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
 import com.taotao.cloud.goods.api.enums.GoodsAuthEnum;
 import com.taotao.cloud.goods.api.enums.GoodsStatusEnum;
-import com.taotao.cloud.goods.application.dto.goods.clientobject.GoodsCO;
-import com.taotao.cloud.goods.application.dto.goods.clientobject.GoodsSkuParamsCO;
-import com.taotao.cloud.goods.application.dto.goods.cmmond.GoodsCreateCommand;
+import com.taotao.cloud.goods.application.dto.goods.result.GoodsResult;
+import com.taotao.cloud.goods.application.dto.goods.result.GoodsSkuParamsResult;
+import com.taotao.cloud.goods.application.dto.goods.command.GoodsCreateCommand;
 import com.taotao.cloud.goods.application.service.command.GoodsCommandService;
 import com.taotao.cloud.goods.application.service.command.GoodsSkuCommandService;
 import com.taotao.cloud.goods.application.service.query.GoodsQueryService;
@@ -75,7 +75,7 @@ public class GoodsManagerController extends BusinessController {
     @RequestLogger("管理员上架商品")
     @PreAuthorize("hasAuthority('dept:tree:data')")
     @PostMapping
-    public Result<GoodsCO> createGoods(@RequestBody GoodsCreateCommand goodsCreateCommand) {
+    public Result<GoodsResult> createGoods(@RequestBody GoodsCreateCommand goodsCreateCommand) {
         return Result.success(this.goodsCommandService.createGoods(goodsCreateCommand));
     }
 
@@ -184,7 +184,7 @@ public class GoodsManagerController extends BusinessController {
     @RequestLogger("通过id获取商品详情")
     @PreAuthorize("hasAuthority('dept:tree:data')")
     @GetMapping(value = "/{id}")
-    public Result<GoodsSkuParamsCO> get(@PathVariable Long id) {
+    public Result<GoodsSkuParamsResult> get(@PathVariable Long id) {
         return Result.success(goodsQueryService.getGoodsVO(id));
     }
 }

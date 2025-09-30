@@ -17,7 +17,7 @@
 package com.taotao.cloud.goods.application.service.query;
 
 import com.taotao.boot.ddd.model.application.service.QueryService;
-import com.taotao.cloud.goods.application.dto.draft.clientobject.DraftGoodsSkuParamsCO;
+import com.taotao.cloud.goods.application.dto.draft.result.DraftGoodsSkuParamsResult;
 
 /**
  * 草稿商品业务层
@@ -32,10 +32,10 @@ public interface DraftGoodsQueryService extends QueryService {
      * 获取草稿商品详情
      *
      * @param id 草稿商品ID
-     * @return {@link DraftGoodsSkuParamsCO }
+     * @return {@link DraftGoodsSkuParamsResult }
      * @since 2022-04-27 16:59:57
      */
-    DraftGoodsSkuParamsCO getDraftGoods(Long id);
+    DraftGoodsSkuParamsResult getDraftGoods(Long id);
 
     /**
      * 分页获取草稿商品

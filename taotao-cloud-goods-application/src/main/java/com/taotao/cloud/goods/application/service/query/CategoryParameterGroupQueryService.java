@@ -17,7 +17,7 @@
 package com.taotao.cloud.goods.application.service.query;
 
 import com.taotao.boot.ddd.model.application.service.QueryService;
-import com.taotao.cloud.goods.application.dto.parameter.clientobject.ParameterGroupCO;
+import com.taotao.cloud.goods.application.dto.parameter.result.ParameterGroupResult;
 import java.util.List;
 
 /**
@@ -33,10 +33,10 @@ public interface CategoryParameterGroupQueryService extends QueryService {
      * 查询分类绑定参数集合
      *
      * @param categoryId 分类Id
-     * @return {@link List }<{@link ParameterGroupCO }>
+     * @return {@link List }<{@link ParameterGroupResult }>
      * @since 2022-04-27 16:59:23
      */
-    List<ParameterGroupCO> getCategoryParams(Long categoryId);
+    List<ParameterGroupResult> getCategoryParams(Long categoryId);
 
     /**
      * 查询分类绑定参数组信息

@@ -18,7 +18,7 @@ package com.taotao.cloud.goods.application.service.query.impl;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.taotao.boot.common.model.clazz.PageQuery;
-import com.taotao.cloud.goods.application.dto.commodity.clientobject.CommoditySkuCO;
+import com.taotao.cloud.goods.application.dto.commodity.result.CommoditySkuResult;
 import com.taotao.cloud.goods.application.service.query.CommodityQueryService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -39,7 +39,7 @@ public class CommodityQueryServiceImpl implements CommodityQueryService {
     }
 
     @Override
-    public IPage<CommoditySkuCO> commodityList(
+    public IPage<CommoditySkuResult> commodityList(
             PageQuery pageQuery, String name, String auditStatus) {
         return null;
     }

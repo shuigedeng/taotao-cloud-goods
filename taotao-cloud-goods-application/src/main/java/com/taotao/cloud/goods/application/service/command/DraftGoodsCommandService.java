@@ -17,9 +17,9 @@
 package com.taotao.cloud.goods.application.service.command;
 
 import com.taotao.boot.ddd.model.application.service.CommandService;
-import com.taotao.cloud.goods.application.dto.draft.cmmond.DraftGoodsSkuParamsAddCmd;
-import com.taotao.cloud.goods.application.dto.draft.cmmond.DraftGoodsSkuParamsSaveCmd;
-import com.taotao.cloud.goods.application.dto.draft.cmmond.DraftGoodsSkuParamsUpdateCmd;
+import com.taotao.cloud.goods.application.dto.draft.command.DraftGoodsSkuParamsAddCommand;
+import com.taotao.cloud.goods.application.dto.draft.command.DraftGoodsSkuParamsSaveCommand;
+import com.taotao.cloud.goods.application.dto.draft.command.DraftGoodsSkuParamsUpdateCommand;
 
 /**
  * 草稿商品业务层
@@ -37,7 +37,7 @@ public interface DraftGoodsCommandService extends CommandService {
      * @return {@link boolean }
      * @since 2022-04-27 16:59:56
      */
-    boolean addGoodsDraft(DraftGoodsSkuParamsAddCmd draftGoods);
+    boolean addGoodsDraft(DraftGoodsSkuParamsAddCommand draftGoods);
 
     /**
      * 更新草稿商品
@@ -46,7 +46,7 @@ public interface DraftGoodsCommandService extends CommandService {
      * @return {@link boolean }
      * @since 2022-04-27 16:59:56
      */
-    boolean updateGoodsDraft(DraftGoodsSkuParamsUpdateCmd draftGoods);
+    boolean updateGoodsDraft(DraftGoodsSkuParamsUpdateCommand draftGoods);
 
     /**
      * 保存草稿商品
@@ -55,7 +55,7 @@ public interface DraftGoodsCommandService extends CommandService {
      * @return {@link boolean }
      * @since 2022-04-27 16:59:56
      */
-    boolean saveGoodsDraft(DraftGoodsSkuParamsSaveCmd draftGoodsVO);
+    boolean saveGoodsDraft(DraftGoodsSkuParamsSaveCommand draftGoodsVO);
 
     /**
      * 根据ID删除草稿商品

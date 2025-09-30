@@ -19,9 +19,9 @@ package com.taotao.cloud.goods.application.service.command.impl;
 import com.taotao.cloud.goods.api.enums.GoodsAuthEnum;
 import com.taotao.cloud.goods.api.enums.GoodsStatusEnum;
 import com.taotao.cloud.goods.application.assembler.GoodsAppAssembler;
-import com.taotao.cloud.goods.application.dto.goods.clientobject.GoodsCO;
-import com.taotao.cloud.goods.application.dto.goods.cmmond.GoodsAddCmd;
-import com.taotao.cloud.goods.application.dto.goods.cmmond.GoodsCreateCommand;
+import com.taotao.cloud.goods.application.dto.goods.result.GoodsResult;
+import com.taotao.cloud.goods.application.dto.goods.command.GoodsAddCommand;
+import com.taotao.cloud.goods.application.dto.goods.command.GoodsCreateCommand;
 import com.taotao.cloud.goods.application.factory.GoodsFactory;
 import com.taotao.cloud.goods.application.service.command.GoodsCommandService;
 import com.taotao.cloud.goods.domain.aggregate.GoodsAgg;
@@ -57,12 +57,12 @@ public class GoodsCommandServiceImpl implements GoodsCommandService {
     }
 
     @Override
-    public boolean addGoods(GoodsAddCmd goodsAddCmd) {
+    public boolean addGoods(GoodsAddCommand goodsAddCmd) {
         return false;
     }
 
     @Override
-    public boolean editGoods(GoodsAddCmd goodsAddCmd, Long goodsId) {
+    public boolean editGoods(GoodsAddCommand goodsAddCmd, Long goodsId) {
         return false;
     }
 
@@ -109,7 +109,7 @@ public class GoodsCommandServiceImpl implements GoodsCommandService {
     }
 
     @Override
-    public GoodsCO createGoods(GoodsCreateCommand goodsCreateCommand) {
+    public GoodsResult createGoods(GoodsCreateCommand goodsCreateCommand) {
         // 创建商品实体
         GoodsAgg goods = GoodsFactory.createGoods(goodsCreateCommand);
         // 验证新增商品分类是否存在

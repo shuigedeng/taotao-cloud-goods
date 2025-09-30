@@ -16,9 +16,9 @@
 
 package com.taotao.cloud.goods.application.service.command.impl;
 
-import com.taotao.cloud.goods.application.dto.draft.cmmond.DraftGoodsSkuParamsAddCmd;
-import com.taotao.cloud.goods.application.dto.draft.cmmond.DraftGoodsSkuParamsSaveCmd;
-import com.taotao.cloud.goods.application.dto.draft.cmmond.DraftGoodsSkuParamsUpdateCmd;
+import com.taotao.cloud.goods.application.dto.draft.command.DraftGoodsSkuParamsAddCommand;
+import com.taotao.cloud.goods.application.dto.draft.command.DraftGoodsSkuParamsSaveCommand;
+import com.taotao.cloud.goods.application.dto.draft.command.DraftGoodsSkuParamsUpdateCommand;
 import com.taotao.cloud.goods.application.service.command.DraftGoodsCommandService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -34,17 +34,17 @@ import org.springframework.stereotype.Service;
 @Service
 public class DraftGoodsCommandServiceImpl implements DraftGoodsCommandService {
     @Override
-    public boolean addGoodsDraft(DraftGoodsSkuParamsAddCmd draftGoods) {
+    public boolean addGoodsDraft(DraftGoodsSkuParamsAddCommand draftGoods) {
         return false;
     }
 
     @Override
-    public boolean updateGoodsDraft(DraftGoodsSkuParamsUpdateCmd draftGoods) {
+    public boolean updateGoodsDraft(DraftGoodsSkuParamsUpdateCommand draftGoods) {
         return false;
     }
 
     @Override
-    public boolean saveGoodsDraft(DraftGoodsSkuParamsSaveCmd draftGoodsVO) {
+    public boolean saveGoodsDraft(DraftGoodsSkuParamsSaveCommand draftGoodsVO) {
         return false;
     }
 

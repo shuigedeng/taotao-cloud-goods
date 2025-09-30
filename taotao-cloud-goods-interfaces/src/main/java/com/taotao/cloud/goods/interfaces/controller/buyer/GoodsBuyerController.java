@@ -20,9 +20,9 @@ import com.taotao.boot.common.model.PageResult;
 import com.taotao.boot.common.model.Result;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
-import com.taotao.cloud.goods.application.dto.goods.clientobject.GoodsCO;
-import com.taotao.cloud.goods.application.dto.goods.clientobject.GoodsSkuParamsCO;
-import com.taotao.cloud.goods.application.dto.goods.query.GoodsPageQry;
+import com.taotao.cloud.goods.application.dto.goods.result.GoodsResult;
+import com.taotao.cloud.goods.application.dto.goods.result.GoodsSkuParamsResult;
+import com.taotao.cloud.goods.application.dto.goods.query.GoodsOtherPageQuery;
 import com.taotao.cloud.goods.application.service.command.GoodsCommandService;
 import com.taotao.cloud.goods.application.service.command.GoodsSkuCommandService;
 import com.taotao.cloud.goods.application.service.query.EsGoodsQueryService;
@@ -86,7 +86,7 @@ public class GoodsBuyerController extends BusinessController {
     @RequestLogger
     @PreAuthorize("hasAuthority('dept:tree:data')")
     @GetMapping(value = "/{goodsId}")
-    public Result<GoodsSkuParamsCO> get(@NotNull(message = "商品ID不能为空") @PathVariable Long goodsId) {
+    public Result<GoodsSkuParamsResult> get(@NotNull(message = "商品ID不能为空") @PathVariable Long goodsId) {
         return Result.success(goodsQueryService.getGoodsVO(goodsId));
     }
 
@@ -110,7 +110,7 @@ public class GoodsBuyerController extends BusinessController {
     @RequestLogger
     @PreAuthorize("hasAuthority('dept:tree:data')")
     @GetMapping("/page")
-    public Result<PageResult<GoodsCO>> getByPage(@Validated GoodsPageQry goodsPageQuery) {
+    public Result<PageResult<GoodsResult>> getByPage(@Validated GoodsOtherPageQuery goodsPageQuery) {
         //		IPage<GoodsPO> goodsPage = goodsQueryService.goodsQueryPage(goodsPageQuery);
         //		return Result.success(MpUtils.convertMybatisPage(goodsPage, GoodsCO.class));
         return null;

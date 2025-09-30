@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.goods.application.service.query.impl;
 
-import com.taotao.cloud.goods.application.dto.brand.clientobject.BrandCO;
+import com.taotao.cloud.goods.application.dto.brand.result.BrandResult;
 import com.taotao.cloud.goods.application.repository.BrandQueryRepository;
 import com.taotao.cloud.goods.application.service.command.CategoryBrandCommandService;
 import com.taotao.cloud.goods.application.service.command.CategoryCommandService;
@@ -62,7 +62,7 @@ public class BrandQueryServiceImpl implements BrandQueryService {
     }
 
     @Override
-    public BrandCO getById(Long id) {
+    public BrandResult getById(Long id) {
         return brandQueryRepository.getById(id);
     }
 

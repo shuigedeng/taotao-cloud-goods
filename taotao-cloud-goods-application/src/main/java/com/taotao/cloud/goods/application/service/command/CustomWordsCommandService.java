@@ -17,8 +17,8 @@
 package com.taotao.cloud.goods.application.service.command;
 
 import com.taotao.boot.ddd.model.application.service.CommandService;
-import com.taotao.cloud.goods.application.dto.goods.cmmond.CustomWordsAddCmd;
-import com.taotao.cloud.goods.application.dto.goods.cmmond.CustomWordsUpdateCmd;
+import com.taotao.cloud.goods.application.dto.goods.command.CustomWordsAddCommand;
+import com.taotao.cloud.goods.application.dto.goods.command.CustomWordsUpdateCommand;
 import java.util.List;
 
 /**
@@ -43,7 +43,7 @@ public interface CustomWordsCommandService extends CommandService {
      * @param customWordsAddCmd 自定义分词信息
      * @return 是否添加成功
      */
-    boolean addCustomWords(CustomWordsAddCmd customWordsAddCmd);
+    boolean addCustomWords(CustomWordsAddCommand customWordsAddCmd);
 
     /**
      * 修改自定义分词
@@ -51,7 +51,7 @@ public interface CustomWordsCommandService extends CommandService {
      * @param customWordsUpdateCmd 自定义分词信息
      * @return 是否修改成功
      */
-    boolean updateCustomWords(CustomWordsUpdateCmd customWordsUpdateCmd);
+    boolean updateCustomWords(CustomWordsUpdateCommand customWordsUpdateCmd);
 
     /**
      * 删除自定义分词

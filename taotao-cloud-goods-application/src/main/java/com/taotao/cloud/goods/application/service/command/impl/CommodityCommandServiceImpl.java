@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.goods.application.service.command.impl;
 
-import com.taotao.cloud.goods.application.dto.commodity.cmmond.CommodityAddCmd;
+import com.taotao.cloud.goods.application.dto.commodity.command.CommodityAddCommand;
 import com.taotao.cloud.goods.application.service.command.CommodityCommandService;
 import com.taotao.cloud.goods.application.service.command.GoodsSkuCommandService;
 import java.util.List;
@@ -39,7 +39,7 @@ public class CommodityCommandServiceImpl implements CommodityCommandService {
     private final GoodsSkuCommandService goodsSkuService;
 
     @Override
-    public boolean addCommodity(List<CommodityAddCmd> commodityAddCmdList) {
+    public boolean addCommodity(List<CommodityAddCommand> commodityAddCmdList) {
         return false;
     }
 

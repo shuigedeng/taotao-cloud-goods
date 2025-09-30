@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.goods.application.service.query.impl;
 
-import com.taotao.cloud.goods.application.dto.draft.clientobject.DraftGoodsSkuParamsCO;
+import com.taotao.cloud.goods.application.dto.draft.result.DraftGoodsSkuParamsResult;
 import com.taotao.cloud.goods.application.service.query.DraftGoodsQueryService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -32,7 +32,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class DraftGoodsQueryServiceImpl implements DraftGoodsQueryService {
     @Override
-    public DraftGoodsSkuParamsCO getDraftGoods(Long id) {
+    public DraftGoodsSkuParamsResult getDraftGoods(Long id) {
         return null;
     }
 

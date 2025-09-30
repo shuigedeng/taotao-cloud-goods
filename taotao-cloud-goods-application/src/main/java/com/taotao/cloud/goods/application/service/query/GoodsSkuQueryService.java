@@ -21,8 +21,8 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.taotao.boot.ddd.model.application.service.QueryService;
 import com.taotao.boot.webagg.service.BaseSuperService;
-import com.taotao.cloud.goods.application.dto.goods.clientobject.GoodsSkuCO;
-import com.taotao.cloud.goods.application.dto.goods.query.GoodsSkuSearchQry;
+import com.taotao.cloud.goods.application.dto.goods.result.GoodsSkuResult;
+import com.taotao.cloud.goods.application.dto.goods.query.GoodsSkuSearchQuery;
 import java.util.List;
 import java.util.Map;
 
@@ -99,10 +99,10 @@ public interface GoodsSkuQueryService extends QueryService {
      * 获取goodsId下所有的goodsSku
      *
      * @param goodsId 商品id
-     * @return {@link List }<{@link GoodsSkuCO }>
+     * @return {@link List }<{@link GoodsSkuResult }>
      * @since 2023-08-18 16:00:59
      */
-    List<GoodsSkuCO> getGoodsListByGoodsId(Long goodsId);
+    List<GoodsSkuResult> getGoodsListByGoodsId(Long goodsId);
 
     /**
      * 获取goodsId下所有的goodsSku
@@ -117,7 +117,7 @@ public interface GoodsSkuQueryService extends QueryService {
      * 根据goodsSku组装goodsSkuCO
      *
      * @param list 商品id
-     * @return {@link List }<{@link GoodsSkuCO }>
+     * @return {@link List }<{@link GoodsSkuResult }>
      * @since 2023-08-18 16:00:59
      */
     //	List<GoodsSkuCO> getGoodsSkuVOList(List<GoodsSkuPO> list);
@@ -126,7 +126,7 @@ public interface GoodsSkuQueryService extends QueryService {
      * 根据goodsSku组装goodsSkuCO
      *
      * @param goodsSkuPO 商品规格
-     * @return {@link GoodsSkuCO }
+     * @return {@link GoodsSkuResult }
      * @since 2023-08-18 16:00:59
      */
     //	GoodsSkuCO getGoodsSkuVO(GoodsSkuPO goodsSkuPO);
@@ -145,11 +145,11 @@ public interface GoodsSkuQueryService extends QueryService {
      *
      * @param page         分页参数
      * @param queryWrapper 查询参数
-     * @return {@link IPage }<{@link GoodsSkuSearchQry }>
+     * @return {@link IPage }<{@link GoodsSkuSearchQuery }>
      * @since 2023-08-18 16:00:59
      */
-    IPage<GoodsSkuSearchQry> getGoodsSkuDTOByPage(
-            Page<GoodsSkuSearchQry> page, Wrapper<GoodsSkuSearchQry> queryWrapper);
+    IPage<GoodsSkuSearchQuery> getGoodsSkuDTOByPage(
+		Page<GoodsSkuSearchQuery> page, Wrapper<GoodsSkuSearchQuery> queryWrapper);
 
     /**
      * 列表查询商品sku信息

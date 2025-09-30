@@ -17,7 +17,7 @@
 package com.taotao.cloud.goods.application.service.query;
 
 import com.taotao.boot.ddd.model.application.service.QueryService;
-import com.taotao.cloud.goods.application.dto.goods.clientobject.GoodsSkuParamsCO;
+import com.taotao.cloud.goods.application.dto.goods.result.GoodsSkuParamsResult;
 
 /**
  * 商品业务层
@@ -41,10 +41,10 @@ public interface GoodsQueryService extends QueryService {
      * 查询商品CO
      *
      * @param goodsId 商品id
-     * @return {@link GoodsSkuParamsCO }
+     * @return {@link GoodsSkuParamsResult }
      * @since 2022-04-27 17:00:16
      */
-    GoodsSkuParamsCO getGoodsVO(Long goodsId);
+    GoodsSkuParamsResult getGoodsVO(Long goodsId);
 
     //    /**
     //     * 商品查询

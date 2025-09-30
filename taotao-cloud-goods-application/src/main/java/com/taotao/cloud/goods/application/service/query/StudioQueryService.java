@@ -17,7 +17,7 @@
 package com.taotao.cloud.goods.application.service.query;
 
 import com.taotao.boot.ddd.model.application.service.QueryService;
-import com.taotao.cloud.goods.application.dto.store.clientobject.StudioCommodityCO;
+import com.taotao.cloud.goods.application.dto.store.result.StudioCommodityResult;
 
 /**
  * 直播间业务层
@@ -32,10 +32,10 @@ public interface StudioQueryService extends QueryService {
      * 获取直播间信息
      *
      * @param id 直播间ID
-     * @return {@link StudioCommodityCO }
+     * @return {@link StudioCommodityResult }
      * @since 2022-04-27 17:01:11
      */
-    StudioCommodityCO getStudioVO(Long id);
+    StudioCommodityResult getStudioVO(Long id);
 
     /**
      * 获取直播间回放

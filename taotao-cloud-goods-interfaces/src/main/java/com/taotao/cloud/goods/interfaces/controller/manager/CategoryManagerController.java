@@ -19,8 +19,8 @@ package com.taotao.cloud.goods.interfaces.controller.manager;
 import com.taotao.boot.common.model.Result;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
-import com.taotao.cloud.goods.application.dto.category.clientobject.CategoryTreeCO;
-import com.taotao.cloud.goods.application.dto.category.cmmond.CategoryAddCmd;
+import com.taotao.cloud.goods.application.dto.category.result.CategoryTreeResult;
+import com.taotao.cloud.goods.application.dto.category.command.CategoryAddCommand;
 import com.taotao.cloud.goods.application.service.command.CategoryCommandService;
 import com.taotao.cloud.goods.application.service.command.GoodsCommandService;
 import com.taotao.cloud.goods.application.service.query.CategoryQueryService;
@@ -95,7 +95,7 @@ public class CategoryManagerController extends BusinessController {
     @RequestLogger
     @PreAuthorize("hasAuthority('dept:tree:data')")
     @GetMapping(value = "/children/all")
-    public Result<List<CategoryTreeCO>> list() {
+    public Result<List<CategoryTreeResult>> list() {
         return Result.success(this.categoryQueryService.listAllChildren());
     }
 
@@ -110,7 +110,7 @@ public class CategoryManagerController extends BusinessController {
     @RequestLogger
     @PreAuthorize("hasAuthority('dept:tree:data')")
     @PostMapping
-    public Result<Boolean> saveCategory(@Validated @RequestBody CategoryAddCmd category) {
+    public Result<Boolean> saveCategory(@Validated @RequestBody CategoryAddCommand category) {
         //// 非顶级分类
         // if (category.getParentId() != null && !Long.valueOf(0).equals(category.getParentId())) {
         //    Category parent = categoryQueryService.getById(category.getParentId());
@@ -136,7 +136,7 @@ public class CategoryManagerController extends BusinessController {
     @RequestLogger
     @PreAuthorize("hasAuthority('dept:tree:data')")
     @PutMapping
-    public Result<Boolean> updateCategory(@Valid @RequestBody CategoryTreeCO category) {
+    public Result<Boolean> updateCategory(@Valid @RequestBody CategoryTreeResult category) {
         // CategoryPO catTemp = categoryQueryService.getById(category.getId());
         // if (catTemp == null) {
         //    throw new BusinessException(ResultEnum.CATEGORY_NOT_EXIST);

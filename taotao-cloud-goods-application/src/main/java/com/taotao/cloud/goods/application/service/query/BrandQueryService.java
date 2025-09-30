@@ -17,7 +17,7 @@
 package com.taotao.cloud.goods.application.service.query;
 
 import com.taotao.boot.ddd.model.application.service.QueryService;
-import com.taotao.cloud.goods.application.dto.brand.clientobject.BrandCO;
+import com.taotao.cloud.goods.application.dto.brand.result.BrandResult;
 import java.util.List;
 import java.util.Map;
 
@@ -61,5 +61,5 @@ public interface BrandQueryService extends QueryService {
      */
     List<Map<String, Object>> getBrandsMapsByCategory(List<Long> categoryIds, String columns);
 
-    BrandCO getById(Long id);
+    BrandResult getById(Long id);
 }

@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.goods.application.service.query.impl;
 
-import com.taotao.cloud.goods.application.dto.store.clientobject.StudioCommodityCO;
+import com.taotao.cloud.goods.application.dto.store.result.StudioCommodityResult;
 import com.taotao.cloud.goods.application.service.query.StudioQueryService;
 import org.springframework.stereotype.Service;
 
@@ -30,7 +30,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class StudioQueryServiceImpl implements StudioQueryService {
     @Override
-    public StudioCommodityCO getStudioVO(Long id) {
+    public StudioCommodityResult getStudioVO(Long id) {
         return null;
     }
 

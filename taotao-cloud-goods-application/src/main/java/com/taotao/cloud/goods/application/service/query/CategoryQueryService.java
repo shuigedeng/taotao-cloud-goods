@@ -17,7 +17,7 @@
 package com.taotao.cloud.goods.application.service.query;
 
 import com.taotao.boot.ddd.model.application.service.QueryService;
-import com.taotao.cloud.goods.application.dto.category.clientobject.CategoryTreeCO;
+import com.taotao.cloud.goods.application.dto.category.result.CategoryTreeResult;
 import java.util.List;
 import java.util.Map;
 
@@ -73,7 +73,7 @@ public interface CategoryQueryService extends QueryService {
      *
      * @return 分类树
      */
-    List<CategoryTreeCO> categoryTree();
+    List<CategoryTreeResult> categoryTree();
 
     /**
      * 查询所有的分类，父子关系
@@ -81,14 +81,14 @@ public interface CategoryQueryService extends QueryService {
      * @param parentId 分类父ID
      * @return 所有的分类，父子关系
      */
-    List<CategoryTreeCO> listAllChildren(Long parentId);
+    List<CategoryTreeResult> listAllChildren(Long parentId);
 
     /**
      * 查询所有的分类，父子关系 数据库获取
      *
      * @return 所有的分类，父子关系
      */
-    List<CategoryTreeCO> listAllChildren();
+    List<CategoryTreeResult> listAllChildren();
 
     /**
      * 获取指定分类的分类名称
@@ -112,7 +112,7 @@ public interface CategoryQueryService extends QueryService {
      * @param categories 经营范围
      * @return 分类VO列表
      */
-    List<CategoryTreeCO> getStoreCategory(String[] categories);
+    List<CategoryTreeResult> getStoreCategory(String[] categories);
 
     /**
      * 获取一级分类列表 用于商家入驻选择

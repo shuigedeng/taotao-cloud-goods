@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.goods.application.service.query.impl;
 
-import com.taotao.cloud.goods.application.dto.parameter.clientobject.ParameterGroupCO;
+import com.taotao.cloud.goods.application.dto.parameter.result.ParameterGroupResult;
 import com.taotao.cloud.goods.application.service.command.GoodsCommandService;
 import com.taotao.cloud.goods.application.service.command.ParametersCommandService;
 import com.taotao.cloud.goods.application.service.query.CategoryParameterGroupQueryService;
@@ -46,7 +46,7 @@ public class CategoryParameterGroupQueryServiceImpl implements CategoryParameter
     private final GoodsCommandService goodsService;
 
     @Override
-    public List<ParameterGroupCO> getCategoryParams(Long categoryId) {
+    public List<ParameterGroupResult> getCategoryParams(Long categoryId) {
         //// 根据id查询参数组
         // List<CategoryParameterGroupPO> groups = this.getCategoryGroup(categoryId);
         //// 查询参数

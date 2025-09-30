@@ -16,9 +16,9 @@
 
 package com.taotao.cloud.goods.application.repository;
 
-import com.taotao.cloud.goods.application.dto.brand.clientobject.BrandCO;
+import com.taotao.cloud.goods.application.dto.brand.result.BrandResult;
 
 public interface BrandQueryRepository {
 
-    BrandCO getById(Long id);
+    BrandResult getById(Long id);
 }

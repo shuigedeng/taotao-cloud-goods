@@ -19,7 +19,7 @@ package com.taotao.cloud.goods.interfaces.controller.manager;
 import com.taotao.boot.common.model.Result;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
-import com.taotao.cloud.goods.application.dto.parameter.clientobject.ParameterGroupCO;
+import com.taotao.cloud.goods.application.dto.parameter.result.ParameterGroupResult;
 import com.taotao.cloud.goods.application.service.command.CategoryParameterGroupCommandService;
 import com.taotao.cloud.goods.application.service.command.ParametersCommandService;
 import com.taotao.cloud.goods.application.service.query.CategoryParameterGroupQueryService;
@@ -72,7 +72,7 @@ public class CategoryParameterGroupManagerController extends BusinessController 
     @RequestLogger
     @PreAuthorize("hasAuthority('dept:tree:data')")
     @GetMapping(value = "/{categoryId}")
-    public Result<List<ParameterGroupCO>> getCategoryParam(@PathVariable Long categoryId) {
+    public Result<List<ParameterGroupResult>> getCategoryParam(@PathVariable Long categoryId) {
         return Result.success(categoryParameterGroupQueryService.getCategoryParams(categoryId));
     }
 

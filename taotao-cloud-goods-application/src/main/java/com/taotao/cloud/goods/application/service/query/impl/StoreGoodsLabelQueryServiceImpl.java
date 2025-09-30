@@ -17,7 +17,7 @@
 package com.taotao.cloud.goods.application.service.query.impl;
 
 import com.taotao.boot.cache.redis.repository.RedisRepository;
-import com.taotao.cloud.goods.application.dto.store.clientobject.StoreGoodsLabelCO;
+import com.taotao.cloud.goods.application.dto.store.result.StoreGoodsLabelResult;
 import com.taotao.cloud.goods.application.service.query.StoreGoodsLabelQueryService;
 import java.util.List;
 import java.util.Map;
@@ -40,7 +40,7 @@ public class StoreGoodsLabelQueryServiceImpl implements StoreGoodsLabelQueryServ
     @Autowired private RedisRepository redisRepository;
 
     @Override
-    public List<StoreGoodsLabelCO> listByStoreId(Long storeId) {
+    public List<StoreGoodsLabelResult> listByStoreId(Long storeId) {
         return List.of();
     }
 

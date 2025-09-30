@@ -19,9 +19,9 @@ package com.taotao.cloud.goods.application.service.command;
 import com.taotao.boot.ddd.model.application.service.CommandService;
 import com.taotao.cloud.goods.api.enums.GoodsAuthEnum;
 import com.taotao.cloud.goods.api.enums.GoodsStatusEnum;
-import com.taotao.cloud.goods.application.dto.goods.clientobject.GoodsCO;
-import com.taotao.cloud.goods.application.dto.goods.cmmond.GoodsAddCmd;
-import com.taotao.cloud.goods.application.dto.goods.cmmond.GoodsCreateCommand;
+import com.taotao.cloud.goods.application.dto.goods.result.GoodsResult;
+import com.taotao.cloud.goods.application.dto.goods.command.GoodsAddCommand;
+import com.taotao.cloud.goods.application.dto.goods.command.GoodsCreateCommand;
 import java.util.List;
 
 /**
@@ -59,7 +59,7 @@ public interface GoodsCommandService extends CommandService {
      * @return {@link boolean }
      * @since 2022-04-27 17:00:15
      */
-    boolean addGoods(GoodsAddCmd goodsAddCmd);
+    boolean addGoods(GoodsAddCommand goodsAddCmd);
 
     /**
      * 修改商品
@@ -69,7 +69,7 @@ public interface GoodsCommandService extends CommandService {
      * @return {@link boolean }
      * @since 2022-04-27 17:00:15
      */
-    boolean editGoods(GoodsAddCmd goodsAddCmd, Long goodsId);
+    boolean editGoods(GoodsAddCommand goodsAddCmd, Long goodsId);
 
     /**
      * 批量审核商品
@@ -153,7 +153,7 @@ public interface GoodsCommandService extends CommandService {
      */
     boolean updateGoodsBuyCount(Long goodsId, int buyCount);
 
-    GoodsCO createGoods(GoodsCreateCommand goodsCreateCommand);
+    GoodsResult createGoods(GoodsCreateCommand goodsCreateCommand);
 
     /**
      * 批量更新商品的店铺信息

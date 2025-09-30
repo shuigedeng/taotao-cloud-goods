@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.goods.infrastructure.repository.application;
 
-import com.taotao.cloud.goods.application.dto.brand.clientobject.BrandCO;
+import com.taotao.cloud.goods.application.dto.brand.result.BrandResult;
 import com.taotao.cloud.goods.application.repository.BrandQueryRepository;
 import com.taotao.cloud.goods.infrastructure.assembler.BrandInfraAssembler;
 import com.taotao.cloud.goods.infrastructure.persistent.mapper.BrandMapper;
@@ -35,7 +35,7 @@ public class BrandQueryRepositoryImpl implements BrandQueryRepository {
     private final BrandRepository brandRepository;
 
     @Override
-    public BrandCO getById(Long id) {
+    public BrandResult getById(Long id) {
         BrandPO brandPO = brandMapper.selectById(id);
 
         Optional<BrandPO> byId1 = brandRepository.findById(id);

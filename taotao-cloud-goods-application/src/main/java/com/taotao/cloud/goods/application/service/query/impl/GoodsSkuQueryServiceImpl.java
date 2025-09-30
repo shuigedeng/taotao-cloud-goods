@@ -19,8 +19,8 @@ package com.taotao.cloud.goods.application.service.query.impl;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.taotao.cloud.goods.application.dto.goods.clientobject.GoodsSkuCO;
-import com.taotao.cloud.goods.application.dto.goods.query.GoodsSkuSearchQry;
+import com.taotao.cloud.goods.application.dto.goods.result.GoodsSkuResult;
+import com.taotao.cloud.goods.application.dto.goods.query.GoodsSkuSearchQuery;
 import com.taotao.cloud.goods.application.service.query.GoodsSkuQueryService;
 import java.util.List;
 import java.util.Map;
@@ -43,13 +43,13 @@ public class GoodsSkuQueryServiceImpl implements GoodsSkuQueryService {
     }
 
     @Override
-    public List<GoodsSkuCO> getGoodsListByGoodsId(Long goodsId) {
+    public List<GoodsSkuResult> getGoodsListByGoodsId(Long goodsId) {
         return List.of();
     }
 
     @Override
-    public IPage<GoodsSkuSearchQry> getGoodsSkuDTOByPage(
-            Page<GoodsSkuSearchQry> page, Wrapper<GoodsSkuSearchQry> queryWrapper) {
+    public IPage<GoodsSkuSearchQuery> getGoodsSkuDTOByPage(
+		Page<GoodsSkuSearchQuery> page, Wrapper<GoodsSkuSearchQuery> queryWrapper) {
         return null;
     }
 

@@ -20,9 +20,9 @@ import com.taotao.boot.common.model.Result;
 import com.taotao.boot.security.spring.annotation.NotAuth;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
-import com.taotao.cloud.goods.application.dto.brand.clientobject.BrandCO;
-import com.taotao.cloud.goods.application.dto.brand.cmmond.BrandAddCmd;
-import com.taotao.cloud.goods.application.dto.brand.cmmond.BrandUpdateCmd;
+import com.taotao.cloud.goods.application.dto.brand.result.BrandResult;
+import com.taotao.cloud.goods.application.dto.brand.command.BrandAddCommand;
+import com.taotao.cloud.goods.application.dto.brand.command.BrandUpdateCommand;
 import com.taotao.cloud.goods.application.service.command.BrandCommandService;
 import com.taotao.cloud.goods.application.service.query.BrandQueryService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -70,8 +70,8 @@ public class BrandManagerController extends BusinessController {
     @NotAuth
     // @PreAuthorize("hasAuthority('dept:tree:data')")
     @GetMapping(value = "/{id}")
-    public Result<BrandCO> getById(@NotNull(message = "id不能为空") @PathVariable Long id) {
-        BrandCO brandCo = brandQueryService.getById(id);
+    public Result<BrandResult> getById(@NotNull(message = "id不能为空") @PathVariable Long id) {
+        BrandResult brandCo = brandQueryService.getById(id);
         return Result.success(brandCo);
     }
 
@@ -112,7 +112,7 @@ public class BrandManagerController extends BusinessController {
     @RequestLogger
     @PreAuthorize("hasAuthority('dept:tree:data')")
     @PostMapping
-    public Result<Boolean> save(@Validated @RequestBody BrandAddCmd brand) {
+    public Result<Boolean> save(@Validated @RequestBody BrandAddCommand brand) {
         return Result.success(brandCommandService.addBrand(brand));
     }
 
@@ -127,7 +127,7 @@ public class BrandManagerController extends BusinessController {
     @RequestLogger
     @PreAuthorize("hasAuthority('dept:tree:data')")
     @PutMapping("/{id}")
-    public Result<Boolean> update(@PathVariable Long id, @Validated BrandUpdateCmd brand) {
+    public Result<Boolean> update(@PathVariable Long id, @Validated BrandUpdateCommand brand) {
         brand.id(id);
         return Result.success(brandCommandService.updateBrand(brand));
     }

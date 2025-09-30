@@ -17,7 +17,7 @@
 package com.taotao.cloud.goods.application.service.query;
 
 import com.taotao.boot.ddd.model.application.service.QueryService;
-import com.taotao.cloud.goods.application.dto.store.clientobject.StoreGoodsLabelCO;
+import com.taotao.cloud.goods.application.dto.store.result.StoreGoodsLabelResult;
 import java.util.List;
 import java.util.Map;
 
@@ -36,7 +36,7 @@ public interface StoreGoodsLabelQueryService extends QueryService {
      * @param storeId 商家ID
      * @return 店铺分类列表
      */
-    List<StoreGoodsLabelCO> listByStoreId(Long storeId);
+    List<StoreGoodsLabelResult> listByStoreId(Long storeId);
 
     /**
      * 根据分类id集合获取所有店铺分类根据层级排序

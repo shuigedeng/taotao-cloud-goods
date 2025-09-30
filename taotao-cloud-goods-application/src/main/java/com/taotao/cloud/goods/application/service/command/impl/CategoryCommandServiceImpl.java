@@ -17,14 +17,9 @@
 package com.taotao.cloud.goods.application.service.command.impl;
 
 import com.taotao.boot.cache.redis.repository.RedisRepository;
-import com.taotao.cloud.goods.application.dto.category.cmmond.CategoryAddCmd;
-import com.taotao.cloud.goods.application.dto.category.cmmond.CategoryUpdateCmd;
-import com.taotao.cloud.goods.application.executor.category.cmmond.CategoryDelCmdExe;
-import com.taotao.cloud.goods.application.executor.category.cmmond.CategorySaveCmdExe;
-import com.taotao.cloud.goods.application.executor.category.cmmond.CategoryUpdateCmdExe;
-import com.taotao.cloud.goods.application.executor.category.query.CategoryChildrenCmdExe;
-import com.taotao.cloud.goods.application.executor.category.query.CategorySearchQryExe;
-import com.taotao.cloud.goods.application.executor.category.query.CategoryTreeCmdExe;
+import com.taotao.cloud.goods.application.dto.category.command.CategoryAddCommand;
+import com.taotao.cloud.goods.application.dto.category.command.CategoryUpdateCommand;
+import com.taotao.cloud.goods.application.service.command.BrandCommandService;
 import com.taotao.cloud.goods.application.service.command.CategoryCommandService;
 import lombok.AllArgsConstructor;
 import org.springframework.cache.annotation.CacheConfig;
@@ -44,34 +39,23 @@ public class CategoryCommandServiceImpl implements CategoryCommandService {
 
     private final RedisRepository redisRepository;
 
-    /**
-     * 商品品牌业务层
-     */
-    // private final BrandCommandService brandService;
-
-    private final CategoryTreeCmdExe categoryTreeCmdExe;
-
-    private final CategoryChildrenCmdExe categoryChildrenCmdExe;
-    private final CategorySearchQryExe categorySearchQryExe;
-    private final CategoryUpdateCmdExe categoryUpdateCmdExe;
-    private final CategorySaveCmdExe categorySaveCmdExe;
-    private final CategoryDelCmdExe categoryDelCmdExe;
+    private final BrandCommandService brandCommandService;
 
     @Override
-    public boolean saveCategory(CategoryAddCmd category) {
+    public boolean saveCategory(CategoryAddCommand category) {
         // return categorySaveCmdExe.saveCategory(categoryPO);
         return true;
     }
 
     @Override
-    public boolean updateCategory(CategoryUpdateCmd category) {
+    public boolean updateCategory(CategoryUpdateCommand category) {
         // return categoryUpdateCmdExe.updateCategory(categoryPO);
         return true;
     }
 
     @Override
     public void delete(Long id) {
-        categoryDelCmdExe.delete(id);
+		//brandCommandService.delete(id);
     }
 
     @Override

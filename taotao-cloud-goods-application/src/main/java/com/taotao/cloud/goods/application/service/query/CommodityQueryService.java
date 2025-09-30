@@ -19,7 +19,7 @@ package com.taotao.cloud.goods.application.service.query;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.taotao.boot.common.model.clazz.PageQuery;
 import com.taotao.boot.ddd.model.application.service.QueryService;
-import com.taotao.cloud.goods.application.dto.commodity.clientobject.CommoditySkuCO;
+import com.taotao.cloud.goods.application.dto.commodity.result.CommoditySkuResult;
 
 /**
  * 直播商品业务层
@@ -44,8 +44,8 @@ public interface CommodityQueryService extends QueryService {
      * @param pageQuery   分页
      * @param name        商品名称
      * @param auditStatus 审核状态
-     * @return {@link IPage }<{@link CommoditySkuCO }>
+     * @return {@link IPage }<{@link CommoditySkuResult }>
      * @since 2022-04-27 16:59:47
      */
-    IPage<CommoditySkuCO> commodityList(PageQuery pageQuery, String name, String auditStatus);
+    IPage<CommoditySkuResult> commodityList(PageQuery pageQuery, String name, String auditStatus);
 }

@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.goods.application.service.query.impl;
 
-import com.taotao.cloud.goods.application.dto.category.clientobject.CategoryBrandCO;
+import com.taotao.cloud.goods.application.dto.category.result.CategoryBrandResult;
 import com.taotao.cloud.goods.application.service.query.CategoryBrandQueryService;
 import java.util.List;
 import org.springframework.stereotype.Service;
@@ -31,7 +31,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class CategoryBrandQueryServiceImpl implements CategoryBrandQueryService {
     @Override
-    public List<CategoryBrandCO> getCategoryBrandList(Long categoryId) {
+    public List<CategoryBrandResult> getCategoryBrandList(Long categoryId) {
         return List.of();
     }
 

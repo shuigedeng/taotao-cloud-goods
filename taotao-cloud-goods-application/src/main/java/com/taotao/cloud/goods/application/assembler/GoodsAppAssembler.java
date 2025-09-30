@@ -17,7 +17,7 @@
 package com.taotao.cloud.goods.application.assembler;
 
 import com.taotao.boot.ddd.model.types.BizId;
-import com.taotao.cloud.goods.application.dto.goods.clientobject.GoodsCO;
+import com.taotao.cloud.goods.application.dto.goods.result.GoodsResult;
 import com.taotao.cloud.goods.domain.aggregate.GoodsAgg;
 import com.taotao.cloud.goods.domain.valobj.GoodsName;
 import org.mapstruct.Mapper;
@@ -46,7 +46,7 @@ public interface GoodsAppAssembler {
     // */
     // List<ParametersVO> convert(List<Parameters> parameters);
 
-    GoodsCO convert(GoodsAgg goodsAgg);
+    GoodsResult convert(GoodsAgg goodsAgg);
 
     default Long map(BizId value) {
         return value != null ? value.id() : null;

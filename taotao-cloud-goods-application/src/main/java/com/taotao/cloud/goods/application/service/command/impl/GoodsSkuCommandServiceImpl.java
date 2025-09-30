@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.goods.application.service.command.impl;
 
-import com.taotao.cloud.goods.application.dto.goods.cmmond.GoodsSkuStockUpdateCmd;
+import com.taotao.cloud.goods.application.dto.goods.command.GoodsSkuStockUpdateCommand;
 import com.taotao.cloud.goods.application.service.command.GoodsSkuCommandService;
 import java.util.List;
 import lombok.AllArgsConstructor;
@@ -44,7 +44,7 @@ public class GoodsSkuCommandServiceImpl implements GoodsSkuCommandService {
     }
 
     @Override
-    public boolean updateStocks(List<GoodsSkuStockUpdateCmd> goodsSkuStockUpdateCmds) {
+    public boolean updateStocks(List<GoodsSkuStockUpdateCommand> goodsSkuStockUpdateCmds) {
         return false;
     }
 

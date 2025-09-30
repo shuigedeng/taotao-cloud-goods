@@ -19,7 +19,7 @@ package com.taotao.cloud.goods.interfaces.controller.seller;
 import com.taotao.boot.common.model.Result;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
-import com.taotao.cloud.goods.application.dto.category.clientobject.CategoryBrandCO;
+import com.taotao.cloud.goods.application.dto.category.result.CategoryBrandResult;
 import com.taotao.cloud.goods.application.service.command.CategoryBrandCommandService;
 import com.taotao.cloud.goods.application.service.command.CategoryCommandService;
 import com.taotao.cloud.goods.application.service.query.CategoryBrandQueryService;
@@ -79,7 +79,7 @@ public class CategorySellerController extends BusinessController {
     @RequestLogger("获取所选分类关联的品牌信息")
     @PreAuthorize("hasAuthority('dept:tree:data')")
     @GetMapping(value = "/{categoryId}/brands")
-    public Result<List<CategoryBrandCO>> queryBrands(@PathVariable Long categoryId) {
+    public Result<List<CategoryBrandResult>> queryBrands(@PathVariable Long categoryId) {
         return Result.success(this.categoryBrandQueryService.getCategoryBrandList(categoryId));
     }
 }

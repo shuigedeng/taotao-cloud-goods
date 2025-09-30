@@ -17,13 +17,8 @@
 package com.taotao.cloud.goods.application.service.query.impl;
 
 import com.taotao.boot.cache.redis.repository.RedisRepository;
-import com.taotao.cloud.goods.application.dto.category.clientobject.CategoryTreeCO;
-import com.taotao.cloud.goods.application.executor.category.cmmond.CategoryDelCmdExe;
-import com.taotao.cloud.goods.application.executor.category.cmmond.CategorySaveCmdExe;
-import com.taotao.cloud.goods.application.executor.category.cmmond.CategoryUpdateCmdExe;
-import com.taotao.cloud.goods.application.executor.category.query.CategoryChildrenCmdExe;
-import com.taotao.cloud.goods.application.executor.category.query.CategorySearchQryExe;
-import com.taotao.cloud.goods.application.executor.category.query.CategoryTreeCmdExe;
+import com.taotao.cloud.goods.application.dto.category.result.CategoryTreeResult;
+import com.taotao.cloud.goods.application.service.command.CategoryCommandService;
 import com.taotao.cloud.goods.application.service.query.CategoryQueryService;
 import java.util.Arrays;
 import java.util.List;
@@ -46,18 +41,8 @@ public class CategoryQueryServiceImpl implements CategoryQueryService {
 
     private final RedisRepository redisRepository;
 
-    /**
-     * 商品品牌业务层
-     */
-    // private final BrandCommandService brandService;
+    private final CategoryCommandService categoryCommandService;
 
-    private final CategoryTreeCmdExe categoryTreeCmdExe;
-
-    private final CategoryChildrenCmdExe categoryChildrenCmdExe;
-    private final CategorySearchQryExe categorySearchQryExe;
-    private final CategoryUpdateCmdExe categoryUpdateCmdExe;
-    private final CategorySaveCmdExe categorySaveCmdExe;
-    private final CategoryDelCmdExe categoryDelCmdExe;
 
     //	@Override
     //	public List<CategoryPO> childrenList(Long parentId) {
@@ -90,19 +75,19 @@ public class CategoryQueryServiceImpl implements CategoryQueryService {
     }
 
     @Override
-    public List<CategoryTreeCO> categoryTree() {
+    public List<CategoryTreeResult> categoryTree() {
         //		return categoryTreeCmdExe.categoryTree();
         return null;
     }
 
     @Override
-    public List<CategoryTreeCO> listAllChildren(Long parentId) {
+    public List<CategoryTreeResult> listAllChildren(Long parentId) {
         //		return categoryChildrenCmdExe.listAllChildren(parentId);
         return null;
     }
 
     @Override
-    public List<CategoryTreeCO> listAllChildren() {
+    public List<CategoryTreeResult> listAllChildren() {
         //		return categoryChildrenCmdExe.listAllChildren();
         return null;
     }
@@ -120,7 +105,7 @@ public class CategoryQueryServiceImpl implements CategoryQueryService {
     //	}
 
     @Override
-    public List<CategoryTreeCO> getStoreCategory(String[] categories) {
+    public List<CategoryTreeResult> getStoreCategory(String[] categories) {
         List<String> arr = Arrays.asList(categories.clone());
         return categoryTree().stream().filter(item -> arr.contains(item.getId())).toList();
     }

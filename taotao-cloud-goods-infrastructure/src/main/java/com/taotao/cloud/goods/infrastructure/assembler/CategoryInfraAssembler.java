@@ -16,8 +16,8 @@
 
 package com.taotao.cloud.goods.infrastructure.assembler;
 
-import com.taotao.cloud.goods.application.dto.category.clientobject.CategoryCO;
-import com.taotao.cloud.goods.application.dto.category.clientobject.CategoryTreeCO;
+import com.taotao.cloud.goods.application.dto.category.result.CategoryResult;
+import com.taotao.cloud.goods.application.dto.category.result.CategoryTreeResult;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.CategoryPO;
 import java.util.List;
 import org.mapstruct.Mapper;
@@ -43,7 +43,7 @@ public interface CategoryInfraAssembler {
      * @return {@link CategoryTreeVO }
      * @since 2022-04-27 16:58:05
      */
-    CategoryTreeCO convert(CategoryPO category);
+    CategoryTreeResult convert(CategoryPO category);
 
     /**
      * 类别基础vos思想史范畴
@@ -52,5 +52,5 @@ public interface CategoryInfraAssembler {
      * @return {@link List }<{@link CategoryVO }>
      * @since 2022-04-27 16:58:05
      */
-    List<CategoryCO> convert(List<CategoryPO> categorys);
+    List<CategoryResult> convert(List<CategoryPO> categorys);
 }

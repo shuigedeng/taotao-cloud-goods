@@ -20,7 +20,7 @@ import com.taotao.boot.common.model.Result;
 import com.taotao.boot.security.spring.annotation.NotAuth;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
-import com.taotao.cloud.goods.application.dto.category.clientobject.CategoryTreeCO;
+import com.taotao.cloud.goods.application.dto.category.result.CategoryTreeResult;
 import com.taotao.cloud.goods.application.service.command.CategoryCommandService;
 import com.taotao.cloud.goods.application.service.query.CategoryQueryService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -69,7 +69,7 @@ public class CategoryBuyerController extends BusinessController {
     })
     @NotAuth
     @GetMapping(value = "parentId")
-    public Result<List<CategoryTreeCO>> list(
+    public Result<List<CategoryTreeResult>> list(
             @NotNull(message = "父ID不能为空") @RequestParam(value = "parentId") Long parentId) {
         return Result.success(categoryQueryService.listAllChildren(parentId));
     }
