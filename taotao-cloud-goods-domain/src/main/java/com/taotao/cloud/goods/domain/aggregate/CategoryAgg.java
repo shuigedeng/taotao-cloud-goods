@@ -149,7 +149,13 @@ public class CategoryAgg extends AggregateRoot<BizId> {
         return updateTime;
     }
 
-    @Override
+	@Override
+	public void setId(BizId id) {
+		this.id = id;
+	}
+
+
+	@Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;

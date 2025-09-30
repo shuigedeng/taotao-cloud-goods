@@ -16,12 +16,16 @@
 
 package com.taotao.cloud.goods.infrastructure.assembler;
 
+import com.taotao.boot.ddd.model.types.BizId;
 import com.taotao.cloud.goods.application.dto.category.result.CategoryResult;
 import com.taotao.cloud.goods.application.dto.category.result.CategoryTreeResult;
 import com.taotao.cloud.goods.domain.aggregate.CategoryAgg;
+import com.taotao.cloud.goods.domain.valobj.CategoryDesc;
+import com.taotao.cloud.goods.domain.valobj.CategoryName;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.CategoryPO;
 import java.util.List;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 import org.mapstruct.MappingConstants;
 import org.mapstruct.factory.Mappers;
 
@@ -56,5 +60,27 @@ public interface CategoryInfraAssembler {
      */
     List<CategoryResult> convert(List<CategoryPO> categorys);
 
-	List<CategoryAgg> toAgg(Iterable<CategoryPO> categoryPOs);
+	List<CategoryAgg> toAggs(Iterable<CategoryPO> categoryPOs);
+
+	@Mapping(target = "id", source = "id")
+	@Mapping(target = "parentCategoryId", source = "parentId")
+	@Mapping(target = "categoryName", source = "name")
+	@Mapping(target = "categoryDesc", source = "name")
+	@Mapping(target = "createTime", source = "createDate")
+	CategoryAgg toAgg(CategoryPO po);
+
+	default BizId map(Long id) {
+		if (id == null) {
+			return null;
+		}
+		return BizId.fromValue(id);
+	}
+
+	default CategoryName mapName(String name) {
+		return name != null ? CategoryName.of(name) : null;
+	}
+
+	default CategoryDesc mapDesc(String desc) {
+		return desc != null ? CategoryDesc.of(desc) : null;
+	}
 }

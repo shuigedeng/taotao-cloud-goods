@@ -17,7 +17,6 @@
 package com.taotao.cloud.goods.infrastructure.repository.domain;
 
 import com.querydsl.core.types.Predicate;
-import com.querydsl.core.types.dsl.BooleanExpression;
 import com.taotao.boot.common.enums.DelFlagEnum;
 import com.taotao.boot.data.datasource.tx.TransactionalUtils;
 import com.taotao.boot.data.mybatis.utils.MybatisUtil;
@@ -52,7 +51,7 @@ public class CategoryDomainRepositoryImpl implements CategoryDomainRepository {
 		QCategoryPO qCategoryPO = QCategoryPO.categoryPO;
 		Predicate predicate = qCategoryPO.delFlag.eq(delFlg.delFlag());
 		Iterable<CategoryPO> categoryPOs = categoryRepository.findAll(predicate);
-		return categoryInfraAssembler.toAgg(categoryPOs);
+		return categoryInfraAssembler.toAggs(categoryPOs);
 	}
 
 	@Override
