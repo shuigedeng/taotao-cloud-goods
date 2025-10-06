@@ -16,19 +16,21 @@
 
 package com.taotao.cloud.goods.facade.sys.adapter;
 
+import com.taotao.cloud.goods.facade.sys.vo.DictVO;
+import com.taotao.cloud.sys.api.feign.response.DictApiResponse;
 import org.springframework.stereotype.Component;
 
 @Component
 public class SysClientAdapter {
 
-    //    public DictVO convert(DictApiResponse dictApiResponse) {
-    //        DictVO dictVO = new DictVO();
-    //        dictVO.setDictName(dictApiResponse.dictName());
-    //        dictVO.setDictCode(dictApiResponse.dictCode());
-    //        dictVO.setRemark(dictApiResponse.remark());
-    //        dictVO.setDescription(dictApiResponse.description());
-    //        dictVO.setId(dictApiResponse.id());
-    //        dictVO.setSortNum(dictApiResponse.sortNum());
-    //        return dictVO;
-    //    }
+        public DictVO convert(DictApiResponse dictApiResponse) {
+            DictVO dictVO = new DictVO();
+            dictVO.setDictName(dictApiResponse.dictName());
+            dictVO.setDictCode(dictApiResponse.dictCode());
+            dictVO.setRemark(dictApiResponse.remark());
+            dictVO.setDescription(dictApiResponse.description());
+            dictVO.setId(dictApiResponse.id());
+            dictVO.setSortNum(dictApiResponse.sortNum());
+            return dictVO;
+        }
 }

@@ -16,4 +16,9 @@
 
 package com.taotao.cloud.goods.application.acl;
 
-public interface SysAclService {}
+import com.taotao.cloud.goods.common.info.DictInfo;
+
+public interface SysAclService {
+
+	DictInfo findByCode(String code);
+}

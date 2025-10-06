@@ -14,26 +14,32 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.facade.acl;
+package com.taotao.cloud.goods.facade.assembler;
 
-import com.taotao.cloud.goods.application.acl.SysAclService;
+import com.taotao.boot.ddd.model.types.BizId;
+import com.taotao.cloud.goods.application.dto.category.result.CategoryTreeResult;
 import com.taotao.cloud.goods.common.info.DictInfo;
-import com.taotao.cloud.goods.facade.assembler.FacadeAssembler;
-import com.taotao.cloud.goods.facade.sys.proxy.SysClientProxy;
+import com.taotao.cloud.goods.domain.aggregate.CategoryAgg;
+import com.taotao.cloud.goods.domain.valobj.GoodsName;
 import com.taotao.cloud.goods.facade.sys.vo.DictVO;
-import lombok.AllArgsConstructor;
-import org.springframework.stereotype.Service;
+import org.mapstruct.Mapper;
+import org.mapstruct.MappingConstants;
+import org.mapstruct.factory.Mappers;
 
-@AllArgsConstructor
-@Service
-public class SysAclServiceImpl implements SysAclService {
+/**
+ * IParametersMapStruct
+ *
+ * @author shuigedeng
+ * @version 2022.04
+ * @since 2022-04-27 16:58:27
+ */
+@Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
+public interface FacadeAssembler {
 
-	private final SysClientProxy sysClientProxy;
-	private final FacadeAssembler facadeAssembler;
+    /** 实例 */
+    FacadeAssembler INSTANCE = Mappers.getMapper(FacadeAssembler.class);
 
-	@Override
-	public DictInfo findByCode(String code) {
-		DictVO dictVO = sysClientProxy.findByCode();
-		return facadeAssembler.toInfo(dictVO);
-	}
+
+	DictInfo toInfo(DictVO dictVO);
+
 }

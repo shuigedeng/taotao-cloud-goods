@@ -39,8 +39,6 @@ public class CategoryCommandServiceImpl implements CategoryCommandService {
 
     private final RedisRepository redisRepository;
 
-    private final BrandCommandService brandCommandService;
-
     @Override
     public boolean saveCategory(CategoryAddCommand category) {
         // return categorySaveCmdExe.saveCategory(categoryPO);

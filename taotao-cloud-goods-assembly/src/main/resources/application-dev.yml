@@ -111,7 +111,7 @@ dubbo:
     owner: 981376577
     architecture: china
     organization: taotao-cloud
-    metadata-type: local
+    metadata-type: remote
     environment: product
     qos-port: 20883     #禁用qos同一台集群可能会有端口冲突现象
     qos-enable: false
@@ -135,6 +135,7 @@ dubbo:
       nacos.retry: 1
       nacos.retry-wait: 1000
       nacos.check: false
+      register-ip: 192.168.218.1
     timeout: 15000
     username: nacos
     password: nacos
@@ -146,7 +147,7 @@ dubbo:
     use-as-config-center: false
     use-as-metadata-center: false
   protocol:
-    host: 192.168.1.4
+    host: 192.168.218.1
     name: tri
     port: 50053
     ssl-enabled: false
@@ -160,13 +161,12 @@ dubbo:
     threads: 20
     queues: 200
   provider:
-    host: 192.168.1.4
+    host: 192.168.218.1
     timeout: 3000
     version: ${ttcVersion}
     threads: 500
     #group: taotao-cloud-goods-dev
     #delay: 3000     #延时注册服务（毫秒）
-    protocol: tri
     retries: 3
     loadbalance: shortestresponse
     async: true
@@ -187,8 +187,8 @@ dubbo:
     actives: 10
     cluster: failover
     validation: true
-    protocol: tri
     #group: taotao-cloud-dev
+    filter: -connectivity
   module:
     name: ${spring.application.name}
     version: ${ttcVersion}
@@ -217,6 +217,8 @@ dubbo:
       nacos.retry: 1
       nacos.retry-wait: 1000
       nacos.check: false
+    check: false
+    timeout: 10000
   config-center:
     check: false
     id: ${spring.application.name}
@@ -499,37 +501,33 @@ spring:
       naming:
         implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
         physical-strategy: org.hibernate.boot.model.naming.CamelCaseToUnderscoresNamingStrategy
-    #properties:
-    #  hibernate:
-    #    eclipselink.logging.level.sql: FINE
-    #    format_sql: true
-    #    hbm2ddl.auto: update
-    #    dialect: org.hibernate.dialect.MySQL8Dialect
-    #properties:
-    #  eclipselink:
-    #    logging:
-    #      level:
-    #        sql=FINE:
-    #  javax:
-    #    persistence:
-    #      sharedCache:
-    #        mode: ENABLE_SELECTIVE
-    #  hibernate:
-    #    use_sql_comments: true
-    #    dialect: mysql
-    #    format_sql: true 输出sql语句 此种方式是直接通过System.out方式进行输出，并且还不会记录预处理语句的参数；不推荐此做法。
-    #    show_sql: false
-    #    generate_statistics: false
-    #    cache:
-    #      use_query_cache: true
-    #      use_second_level_cache: true
-    #      region:
-    #        factory_class: 二级缓存class
-    #    javax:
-    #      cache:
-    #        missing_cache_strategy: create
-    #    temp:
-    #      use_jdbc_metadata_defaults: false
+    properties:
+      eclipselink:
+        logging:
+          level:
+            sql: FINE
+      javax:
+        persistence:
+          sharedCache:
+            mode: ENABLE_SELECTIVE
+      hibernate:
+        eclipselink.logging.level.sql: FINE
+        hbm2ddl.auto: update
+        use_sql_comments: true
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        format_sql: true #输出sql语句 此种方式是直接通过System.out方式进行输出，并且还不会记录预处理语句的参数；不推荐此做法。
+        show_sql: false
+        generate_statistics: false
+        #cache:
+        #  use_query_cache: true
+        #  use_second_level_cache: true
+        #  region:
+        #    factory_class: 二级缓存class
+        javax:
+          cache:
+            missing_cache_strategy: create
+        temp:
+          use_jdbc_metadata_defaults: false
   data:
     redis:
       host: 192.168.218.2
