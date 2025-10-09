@@ -19,7 +19,7 @@ package com.taotao.cloud.goods.interfaces.controller.manager;
 import com.taotao.boot.common.model.Result;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
-import com.taotao.cloud.goods.application.dto.category.result.CategoryBrandResult;
+import com.taotao.cloud.goods.application.dto.own.category.result.CategoryBrandResult;
 import com.taotao.cloud.goods.application.service.command.CategoryBrandCommandService;
 import com.taotao.cloud.goods.application.service.query.CategoryBrandQueryService;
 import io.swagger.v3.oas.annotations.Operation;

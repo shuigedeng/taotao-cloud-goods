@@ -20,7 +20,7 @@ import com.taotao.boot.common.model.Result;
 import com.taotao.boot.security.spring.utils.SecurityUtils;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
-import com.taotao.cloud.goods.application.dto.store.result.StoreGoodsLabelResult;
+import com.taotao.cloud.goods.application.dto.own.store.result.StoreGoodsLabelResult;
 import com.taotao.cloud.goods.application.service.command.StoreGoodsLabelCommandService;
 import com.taotao.cloud.goods.application.service.query.StoreGoodsLabelQueryService;
 import io.swagger.v3.oas.annotations.Operation;

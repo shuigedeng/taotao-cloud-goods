@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.goods.application.service.query.impl;
 
-import com.taotao.cloud.goods.application.dto.category.result.CategoryBrandResult;
+import com.taotao.cloud.goods.application.dto.own.category.result.CategoryBrandResult;
 import com.taotao.cloud.goods.application.service.query.CategoryBrandQueryService;
 import java.util.List;
 import org.springframework.stereotype.Service;

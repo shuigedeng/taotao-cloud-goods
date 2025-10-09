@@ -16,8 +16,8 @@
 
 package com.taotao.cloud.goods.application.service.command.impl;
 
-import com.taotao.cloud.goods.application.dto.brand.command.BrandAddCommand;
-import com.taotao.cloud.goods.application.dto.brand.command.BrandUpdateCommand;
+import com.taotao.cloud.goods.application.dto.own.brand.command.BrandAddCommand;
+import com.taotao.cloud.goods.application.dto.own.brand.command.BrandUpdateCommand;
 import com.taotao.cloud.goods.application.service.command.BrandCommandService;
 import com.taotao.cloud.goods.application.service.command.CategoryBrandCommandService;
 import com.taotao.cloud.goods.application.service.command.CategoryCommandService;

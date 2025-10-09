@@ -17,26 +17,14 @@
 package com.taotao.cloud.goods.interfaces.controller.open;
 
 import com.taotao.boot.common.model.Result;
-import com.taotao.boot.security.spring.annotation.NotAuth;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
-import com.taotao.cloud.goods.application.dto.brand.command.BrandAddCommand;
-import com.taotao.cloud.goods.application.dto.brand.command.BrandUpdateCommand;
-import com.taotao.cloud.goods.application.dto.brand.result.BrandResult;
-import com.taotao.cloud.goods.application.service.command.BrandCommandService;
-import com.taotao.cloud.goods.application.service.query.BrandQueryService;
+import com.taotao.cloud.goods.application.dto.own.brand.command.BrandAddCommand;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.Parameter;
-import io.swagger.v3.oas.annotations.Parameters;
-import io.swagger.v3.oas.annotations.enums.ParameterIn;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 /**
  * 管理端-品牌管理API

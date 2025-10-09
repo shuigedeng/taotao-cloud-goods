@@ -16,9 +16,11 @@
 
 package com.taotao.cloud.goods.application.acl;
 
-import com.taotao.cloud.goods.common.info.DictInfo;
+import com.taotao.cloud.goods.application.dto.sys.req.DictReq;
+import com.taotao.cloud.goods.application.dto.sys.res.DictRes;
 
 public interface SysAclService {
 
-	DictInfo findByCode(String code);
+	DictRes findByCode(DictReq dictReq);
+
 }

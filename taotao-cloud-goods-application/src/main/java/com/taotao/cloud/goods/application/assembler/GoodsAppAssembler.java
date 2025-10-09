@@ -17,7 +17,7 @@
 package com.taotao.cloud.goods.application.assembler;
 
 import com.taotao.boot.ddd.model.types.BizId;
-import com.taotao.cloud.goods.application.dto.goods.result.GoodsResult;
+import com.taotao.cloud.goods.application.dto.own.goods.result.GoodsResult;
 import com.taotao.cloud.goods.domain.aggregate.GoodsAgg;
 import com.taotao.cloud.goods.domain.valobj.GoodsName;
 import org.mapstruct.Mapper;

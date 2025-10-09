@@ -17,7 +17,7 @@
 package com.taotao.cloud.goods.application.service.query;
 
 import com.taotao.boot.ddd.model.application.service.QueryService;
-import com.taotao.cloud.goods.application.dto.store.result.StudioCommodityResult;
+import com.taotao.cloud.goods.application.dto.own.store.result.StudioCommodityResult;
 
 /**
  * 直播间业务层

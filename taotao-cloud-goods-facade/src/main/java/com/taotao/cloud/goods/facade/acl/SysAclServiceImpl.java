@@ -17,10 +17,11 @@
 package com.taotao.cloud.goods.facade.acl;
 
 import com.taotao.cloud.goods.application.acl.SysAclService;
-import com.taotao.cloud.goods.common.info.DictInfo;
-import com.taotao.cloud.goods.facade.assembler.FacadeAssembler;
-import com.taotao.cloud.goods.facade.sys.proxy.SysClientProxy;
-import com.taotao.cloud.goods.facade.sys.vo.DictVO;
+import com.taotao.cloud.goods.application.dto.sys.req.DictReq;
+import com.taotao.cloud.goods.application.dto.sys.res.DictRes;
+import com.taotao.cloud.goods.facade.assembler.SysFacadeAssembler;
+import com.taotao.cloud.goods.facade.sys.DictClientProxy;
+import com.taotao.cloud.sys.api.feign.response.DictApiResponse;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -28,12 +29,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class SysAclServiceImpl implements SysAclService {
 
-	private final SysClientProxy sysClientProxy;
-	private final FacadeAssembler facadeAssembler;
+	private final DictClientProxy dictClientProxy;
+	private final SysFacadeAssembler facadeAssembler;
 
 	@Override
-	public DictInfo findByCode(String code) {
-		DictVO dictVO = sysClientProxy.findByCode();
-		return facadeAssembler.toInfo(dictVO);
+	public DictRes findByCode(DictReq dictReq) {
+		DictApiResponse dictApiResponse = dictClientProxy.findByCode();
+		return facadeAssembler.toRes(dictApiResponse);
 	}
 }

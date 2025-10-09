@@ -18,7 +18,7 @@ package com.taotao.cloud.goods.application.service.command;
 
 import com.taotao.boot.ddd.model.application.service.CommandService;
 import com.taotao.boot.webagg.service.BaseSuperService;
-import com.taotao.cloud.goods.application.dto.goods.command.GoodsSkuStockUpdateCommand;
+import com.taotao.cloud.goods.application.dto.own.goods.command.GoodsSkuStockUpdateCommand;
 import java.util.List;
 
 /**

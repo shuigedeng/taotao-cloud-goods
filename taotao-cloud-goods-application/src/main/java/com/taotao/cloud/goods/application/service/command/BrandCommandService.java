@@ -17,8 +17,8 @@
 package com.taotao.cloud.goods.application.service.command;
 
 import com.taotao.boot.ddd.model.application.service.CommandService;
-import com.taotao.cloud.goods.application.dto.brand.command.BrandAddCommand;
-import com.taotao.cloud.goods.application.dto.brand.command.BrandUpdateCommand;
+import com.taotao.cloud.goods.application.dto.own.brand.command.BrandAddCommand;
+import com.taotao.cloud.goods.application.dto.own.brand.command.BrandUpdateCommand;
 import java.util.List;
 
 /**

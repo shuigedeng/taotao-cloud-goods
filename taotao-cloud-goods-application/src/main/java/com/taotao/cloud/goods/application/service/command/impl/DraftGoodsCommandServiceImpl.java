@@ -16,9 +16,9 @@
 
 package com.taotao.cloud.goods.application.service.command.impl;
 
-import com.taotao.cloud.goods.application.dto.draft.command.DraftGoodsSkuParamsAddCommand;
-import com.taotao.cloud.goods.application.dto.draft.command.DraftGoodsSkuParamsSaveCommand;
-import com.taotao.cloud.goods.application.dto.draft.command.DraftGoodsSkuParamsUpdateCommand;
+import com.taotao.cloud.goods.application.dto.own.draft.command.DraftGoodsSkuParamsAddCommand;
+import com.taotao.cloud.goods.application.dto.own.draft.command.DraftGoodsSkuParamsSaveCommand;
+import com.taotao.cloud.goods.application.dto.own.draft.command.DraftGoodsSkuParamsUpdateCommand;
 import com.taotao.cloud.goods.application.service.command.DraftGoodsCommandService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;

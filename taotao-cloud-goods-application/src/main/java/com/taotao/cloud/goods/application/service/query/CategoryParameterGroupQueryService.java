@@ -17,7 +17,7 @@
 package com.taotao.cloud.goods.application.service.query;
 
 import com.taotao.boot.ddd.model.application.service.QueryService;
-import com.taotao.cloud.goods.application.dto.parameter.result.ParameterGroupResult;
+import com.taotao.cloud.goods.application.dto.own.parameter.result.ParameterGroupResult;
 import java.util.List;
 
 /**

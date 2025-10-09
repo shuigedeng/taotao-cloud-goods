@@ -17,8 +17,8 @@
 package com.taotao.cloud.goods.application.service.command;
 
 import com.taotao.boot.ddd.model.application.service.CommandService;
-import com.taotao.cloud.goods.application.dto.category.command.CategoryAddCommand;
-import com.taotao.cloud.goods.application.dto.category.command.CategoryUpdateCommand;
+import com.taotao.cloud.goods.application.dto.own.category.command.CategoryAddCommand;
+import com.taotao.cloud.goods.application.dto.own.category.command.CategoryUpdateCommand;
 
 /**
  * 商品分类业务层

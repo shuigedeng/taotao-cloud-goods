@@ -17,7 +17,7 @@
 package com.taotao.cloud.goods.infrastructure.repository.application;
 
 import com.taotao.cloud.goods.application.acl.SysAclService;
-import com.taotao.cloud.goods.application.dto.brand.result.BrandResult;
+import com.taotao.cloud.goods.application.dto.own.brand.result.BrandResult;
 import com.taotao.cloud.goods.application.repository.BrandQueryRepository;
 import com.taotao.cloud.goods.common.info.DictInfo;
 import com.taotao.cloud.goods.infrastructure.assembler.BrandInfraAssembler;

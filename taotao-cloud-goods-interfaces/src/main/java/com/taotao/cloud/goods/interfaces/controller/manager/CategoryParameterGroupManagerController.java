@@ -19,7 +19,7 @@ package com.taotao.cloud.goods.interfaces.controller.manager;
 import com.taotao.boot.common.model.Result;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
-import com.taotao.cloud.goods.application.dto.parameter.result.ParameterGroupResult;
+import com.taotao.cloud.goods.application.dto.own.parameter.result.ParameterGroupResult;
 import com.taotao.cloud.goods.application.service.command.CategoryParameterGroupCommandService;
 import com.taotao.cloud.goods.application.service.command.ParametersCommandService;
 import com.taotao.cloud.goods.application.service.query.CategoryParameterGroupQueryService;

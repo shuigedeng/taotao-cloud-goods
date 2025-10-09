@@ -17,7 +17,7 @@
 package com.taotao.cloud.goods.application.service.query;
 
 import com.taotao.boot.ddd.model.application.service.QueryService;
-import com.taotao.cloud.goods.application.dto.category.result.CategoryTreeResult;
+import com.taotao.cloud.goods.application.dto.own.category.result.CategoryTreeResult;
 import java.util.List;
 import java.util.Map;
 

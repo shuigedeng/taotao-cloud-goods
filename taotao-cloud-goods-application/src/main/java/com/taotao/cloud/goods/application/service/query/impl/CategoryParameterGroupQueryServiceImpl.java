@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.goods.application.service.query.impl;
 
-import com.taotao.cloud.goods.application.dto.parameter.result.ParameterGroupResult;
+import com.taotao.cloud.goods.application.dto.own.parameter.result.ParameterGroupResult;
 import com.taotao.cloud.goods.application.service.command.GoodsCommandService;
 import com.taotao.cloud.goods.application.service.command.ParametersCommandService;
 import com.taotao.cloud.goods.application.service.query.CategoryParameterGroupQueryService;

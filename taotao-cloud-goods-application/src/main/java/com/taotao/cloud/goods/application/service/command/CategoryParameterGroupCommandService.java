@@ -17,7 +17,7 @@
 package com.taotao.cloud.goods.application.service.command;
 
 import com.taotao.boot.ddd.model.application.service.CommandService;
-import com.taotao.cloud.goods.application.dto.category.command.CategoryParameterGroupAddCommand;
+import com.taotao.cloud.goods.application.dto.own.category.command.CategoryParameterGroupAddCommand;
 
 /**
  * 分类绑定参数组业务层

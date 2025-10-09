@@ -17,7 +17,7 @@
 package com.taotao.cloud.goods.application.service.query;
 
 import com.taotao.boot.ddd.model.application.service.QueryService;
-import com.taotao.cloud.goods.application.dto.goods.result.GoodsSkuParamsResult;
+import com.taotao.cloud.goods.application.dto.own.goods.result.GoodsSkuParamsResult;
 
 /**
  * 商品业务层

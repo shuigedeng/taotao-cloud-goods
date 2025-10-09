@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.goods.application.service.query.impl;
 
-import com.taotao.cloud.goods.application.dto.store.result.StudioCommodityResult;
+import com.taotao.cloud.goods.application.dto.own.store.result.StudioCommodityResult;
 import com.taotao.cloud.goods.application.service.query.StudioQueryService;
 import org.springframework.stereotype.Service;
 

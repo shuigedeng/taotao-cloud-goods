@@ -19,8 +19,7 @@ package com.taotao.cloud.goods.application.service.query.impl;
 import com.taotao.boot.cache.redis.repository.RedisRepository;
 import com.taotao.boot.common.enums.DelFlagEnum;
 import com.taotao.cloud.goods.application.assembler.CategoryAssembler;
-import com.taotao.cloud.goods.application.dto.category.result.CategoryTreeResult;
-import com.taotao.cloud.goods.application.service.command.CategoryCommandService;
+import com.taotao.cloud.goods.application.dto.own.category.result.CategoryTreeResult;
 import com.taotao.cloud.goods.application.service.query.CategoryQueryService;
 
 import java.util.*;

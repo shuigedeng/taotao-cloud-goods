@@ -16,8 +16,8 @@
 
 package com.taotao.cloud.goods.application.service.command.impl;
 
-import com.taotao.cloud.goods.application.dto.goods.command.CustomWordsAddCommand;
-import com.taotao.cloud.goods.application.dto.goods.command.CustomWordsUpdateCommand;
+import com.taotao.cloud.goods.application.dto.own.goods.command.CustomWordsAddCommand;
+import com.taotao.cloud.goods.application.dto.own.goods.command.CustomWordsUpdateCommand;
 import com.taotao.cloud.goods.application.service.command.CustomWordsCommandService;
 import java.util.List;
 import org.springframework.stereotype.Service;

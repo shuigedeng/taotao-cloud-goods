@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.goods.application.service.query.impl;
 
-import com.taotao.cloud.goods.application.dto.draft.result.DraftGoodsSkuParamsResult;
+import com.taotao.cloud.goods.application.dto.own.draft.result.DraftGoodsSkuParamsResult;
 import com.taotao.cloud.goods.application.service.query.DraftGoodsQueryService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;

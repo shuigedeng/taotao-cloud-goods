@@ -17,7 +17,7 @@
 package com.taotao.cloud.goods.service;
 
 import com.taotao.cloud.goods.TaoTaoCloudGoodsApplicationTests;
-import com.taotao.cloud.goods.application.dto.brand.result.BrandResult;
+import com.taotao.cloud.goods.application.dto.own.brand.result.BrandResult;
 import com.taotao.cloud.goods.application.service.query.BrandQueryService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

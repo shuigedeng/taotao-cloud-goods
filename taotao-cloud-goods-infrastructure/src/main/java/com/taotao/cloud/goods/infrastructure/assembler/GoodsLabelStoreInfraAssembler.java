@@ -16,9 +16,9 @@
 
 package com.taotao.cloud.goods.infrastructure.assembler;
 
-import com.taotao.cloud.goods.application.dto.store.command.StoreGoodsLabelAddCommand;
-import com.taotao.cloud.goods.application.dto.store.command.StoreGoodsLabelEditCommand;
-import com.taotao.cloud.goods.application.dto.store.result.StoreGoodsLabelInfoResult;
+import com.taotao.cloud.goods.application.dto.own.store.command.StoreGoodsLabelAddCommand;
+import com.taotao.cloud.goods.application.dto.own.store.command.StoreGoodsLabelEditCommand;
+import com.taotao.cloud.goods.application.dto.own.store.result.StoreGoodsLabelInfoResult;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.StoreGoodsLabelPO;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingConstants;

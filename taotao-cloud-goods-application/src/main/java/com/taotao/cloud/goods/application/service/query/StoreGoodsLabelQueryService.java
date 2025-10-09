@@ -17,7 +17,7 @@
 package com.taotao.cloud.goods.application.service.query;
 
 import com.taotao.boot.ddd.model.application.service.QueryService;
-import com.taotao.cloud.goods.application.dto.store.result.StoreGoodsLabelResult;
+import com.taotao.cloud.goods.application.dto.own.store.result.StoreGoodsLabelResult;
 import java.util.List;
 import java.util.Map;
 

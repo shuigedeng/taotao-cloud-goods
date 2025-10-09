@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.goods.application.service.command.impl;
 
-import com.taotao.cloud.goods.application.dto.category.command.CategoryParameterGroupAddCommand;
+import com.taotao.cloud.goods.application.dto.own.category.command.CategoryParameterGroupAddCommand;
 import com.taotao.cloud.goods.application.service.command.CategoryParameterGroupCommandService;
 import com.taotao.cloud.goods.application.service.command.GoodsCommandService;
 import com.taotao.cloud.goods.application.service.command.ParametersCommandService;

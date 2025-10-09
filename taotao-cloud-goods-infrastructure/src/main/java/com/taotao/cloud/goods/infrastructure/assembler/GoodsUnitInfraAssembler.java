@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.goods.infrastructure.assembler;
 
-import com.taotao.cloud.goods.application.dto.goods.result.GoodsUnitResult;
+import com.taotao.cloud.goods.application.dto.own.goods.result.GoodsUnitResult;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsUnitPO;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingConstants;

@@ -19,7 +19,7 @@ package com.taotao.cloud.goods.application.service.query;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.taotao.boot.common.model.clazz.PageQuery;
 import com.taotao.boot.ddd.model.application.service.QueryService;
-import com.taotao.cloud.goods.application.dto.commodity.result.CommoditySkuResult;
+import com.taotao.cloud.goods.application.dto.own.commodity.result.CommoditySkuResult;
 
 /**
  * 直播商品业务层

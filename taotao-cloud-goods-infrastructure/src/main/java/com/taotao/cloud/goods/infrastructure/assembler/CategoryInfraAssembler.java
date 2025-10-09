@@ -17,8 +17,8 @@
 package com.taotao.cloud.goods.infrastructure.assembler;
 
 import com.taotao.boot.ddd.model.types.BizId;
-import com.taotao.cloud.goods.application.dto.category.result.CategoryResult;
-import com.taotao.cloud.goods.application.dto.category.result.CategoryTreeResult;
+import com.taotao.cloud.goods.application.dto.own.category.result.CategoryResult;
+import com.taotao.cloud.goods.application.dto.own.category.result.CategoryTreeResult;
 import com.taotao.cloud.goods.domain.aggregate.CategoryAgg;
 import com.taotao.cloud.goods.domain.valobj.CategoryDesc;
 import com.taotao.cloud.goods.domain.valobj.CategoryName;

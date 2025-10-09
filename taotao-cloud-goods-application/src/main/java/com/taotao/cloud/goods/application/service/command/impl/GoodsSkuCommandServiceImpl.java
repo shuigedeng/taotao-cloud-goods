@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.goods.application.service.command.impl;
 
-import com.taotao.cloud.goods.application.dto.goods.command.GoodsSkuStockUpdateCommand;
+import com.taotao.cloud.goods.application.dto.own.goods.command.GoodsSkuStockUpdateCommand;
 import com.taotao.cloud.goods.application.service.command.GoodsSkuCommandService;
 import java.util.List;
 import lombok.AllArgsConstructor;

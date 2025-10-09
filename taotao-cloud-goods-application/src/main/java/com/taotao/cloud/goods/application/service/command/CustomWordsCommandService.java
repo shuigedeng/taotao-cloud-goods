@@ -17,8 +17,8 @@
 package com.taotao.cloud.goods.application.service.command;
 
 import com.taotao.boot.ddd.model.application.service.CommandService;
-import com.taotao.cloud.goods.application.dto.goods.command.CustomWordsAddCommand;
-import com.taotao.cloud.goods.application.dto.goods.command.CustomWordsUpdateCommand;
+import com.taotao.cloud.goods.application.dto.own.goods.command.CustomWordsAddCommand;
+import com.taotao.cloud.goods.application.dto.own.goods.command.CustomWordsUpdateCommand;
 import java.util.List;
 
 /**
