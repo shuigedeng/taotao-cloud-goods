@@ -50,7 +50,12 @@ public class GoodsDomainRepositoryImpl implements GoodsDomainRepository {
     @Override
     public void save(GoodsAgg goods) {
         GoodsPO goodsPo = goodsInfraAssembler.toPO(goods);
-
+//txWrapper.doInTransaction(()->{
+//
+//});
+//txWrapper.doInNewTransaction(()->{
+//
+//});
         goodsMapper.insert(goodsPo);
     }
 

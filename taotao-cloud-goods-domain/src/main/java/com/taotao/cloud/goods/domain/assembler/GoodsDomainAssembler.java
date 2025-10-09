@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.domain.adapter;
+package com.taotao.cloud.goods.domain.assembler;
 
 import com.taotao.boot.ddd.model.domain.Adapter;
 
-public class CategoryAdapter implements Adapter {}
+public class GoodsDomainAssembler implements Adapter {}
