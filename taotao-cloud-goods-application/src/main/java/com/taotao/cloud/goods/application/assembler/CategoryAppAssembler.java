@@ -32,10 +32,10 @@ import org.mapstruct.factory.Mappers;
  * @since 2022-04-27 16:58:27
  */
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
-public interface CategoryAssembler {
+public interface CategoryAppAssembler {
 
     /** 实例 */
-    CategoryAssembler INSTANCE = Mappers.getMapper(CategoryAssembler.class);
+    CategoryAppAssembler INSTANCE = Mappers.getMapper(CategoryAppAssembler.class);
 
 
 	CategoryTreeResult toResult(CategoryAgg categoryAgg);
