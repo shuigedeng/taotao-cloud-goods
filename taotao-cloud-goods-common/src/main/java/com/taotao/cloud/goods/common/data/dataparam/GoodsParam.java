@@ -14,6 +14,14 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.infrastructure.dataobject;
+package com.taotao.cloud.goods.common.data.dataparam;
 
-public class GoodsDO {}
+import lombok.*;
+
+@Setter
+@Getter
+@ToString
+public class GoodsParam {
+    private String name;
+    private String id;
+}

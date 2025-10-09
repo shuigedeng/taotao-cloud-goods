@@ -29,8 +29,7 @@ import org.springframework.lang.NonNull;
  * @author EalenXie Created on 2019/6/5 10:42.
  * 日期工具类
  */
-public enum BizParamUtils {
-    ;
+public class BizParamUtils {
 
     private static final String DEFAULT_DATE_FORMAT = "yyyy-MM-dd";
     private static final String DEFAULT_DATE_TIME_FORMAT = "yyyy-MM-dd HH:mm:ss";

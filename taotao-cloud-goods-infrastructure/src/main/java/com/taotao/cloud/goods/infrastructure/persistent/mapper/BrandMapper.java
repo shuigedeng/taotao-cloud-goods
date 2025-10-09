@@ -20,7 +20,7 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.taotao.boot.common.utils.lang.StringUtils;
 import com.taotao.boot.data.mybatis.mybatisplus.base.mapper.MpSuperMapper;
-import com.taotao.cloud.goods.infrastructure.dataparam.BrandPageParam;
+import com.taotao.cloud.goods.common.data.dataparam.BrandPageParam;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.BrandPO;
 
 /**

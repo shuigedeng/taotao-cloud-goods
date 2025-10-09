@@ -14,14 +14,15 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.infrastructure.dataobject;
+package com.taotao.cloud.goods.common.data.dataobj;
 
 import lombok.*;
 
 @Setter
 @Getter
 @ToString
-public class CategoryDO {
+public class CategoryBrandDO {
+    private Long id;
     private String name;
-    private String id;
+    private String logo;
 }
