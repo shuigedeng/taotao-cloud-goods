@@ -4,6 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 public class TimeElapseInterceptor implements GatewayPreInterceptor, GatewayPostInterceptor {
+
 	private static final String START_TIME_MARK = "START_TIME_MARK";
 	public static TimeElapseInterceptor instance = new TimeElapseInterceptor();
 
@@ -21,7 +22,7 @@ public class TimeElapseInterceptor implements GatewayPreInterceptor, GatewayPost
 	public void intercept(GatewayResponse response, GatewayContext context) {
 		long endTime = System.currentTimeMillis();
 		long startTime = (long) context.getExtraInfo().get(START_TIME_MARK);
-		log.info("Gateway description:}, cost:} ms",
+		log.info("Gateway description:{}, cost:{} ms",
 			context.getDescription(),
 			endTime - startTime);
 	}

@@ -3,9 +3,10 @@ package com.taotao.cloud.goods.facade.domain;
 import lombok.Data;
 
 import java.util.LinkedList;
+import lombok.extern.slf4j.Slf4j;
 
 @Data
-@slf4j
+@Slf4j
 public class GatewayInvokeTemplate<P, R> {
 	private LinkedList<GatewayPreInterceptor<P>> preInterceptors;
 	private LinkedList<GatewayPostInterceptor<R>> postInterceptors;
@@ -70,7 +71,6 @@ public class GatewayInvokeTemplate<P, R> {
 			doPost(responseHolder, context);
 			//return responseHolder;
 			return responseHolder;
-
 		}
 	}
 
