@@ -24,10 +24,10 @@ public class GatewayInvokeTemplate<P, R> {
 		this.postInterceptors = postInterceptors;
 		this.gatewayRouter = gatewayRouter;
 		this.description = description;
-		this.preInterceptors.addLast(LogInterceptor.instance);
-		this.preInterceptors.addLast(TimeElapseInterceptor.instance);
-		this.postInterceptors.addFirst(LogInterceptor.instance);
-		this.postInterceptors.addFirst(TimeElapseInterceptor.instance);
+		this.preInterceptors.addLast(LogInterceptor.getInstance());
+		this.preInterceptors.addLast(TimeElapseInterceptor.getInstance());
+		this.postInterceptors.addFirst(LogInterceptor.getInstance());
+		this.postInterceptors.addFirst(TimeElapseInterceptor.getInstance());
 		this.postInterceptors.addLast(ExceptionProcessFilter.getInstance());
 	}
 
@@ -39,10 +39,10 @@ public class GatewayInvokeTemplate<P, R> {
 		this.postInterceptors = postInterceptors;
 		this.gatewayRouter = gatewayRouter;
 		this.description = description;
-		this.preInterceptors.addLast(LogExtInterceptor.instance);
-		this.preInterceptors.addLast(TimeElapseInterceptor.instance);
-		this.postInterceptors.addFirst(LogExtInterceptor.instance);
-		this.postInterceptors.addFirst(TimeElapseInterceptor.instance);
+		this.preInterceptors.addLast(LogExtInterceptor.getInstance());
+		this.preInterceptors.addLast(TimeElapseInterceptor.getInstance());
+		this.postInterceptors.addFirst(LogExtInterceptor.getInstance());
+		this.postInterceptors.addFirst(TimeElapseInterceptor.getInstance());
 		this.postInterceptors.addLast(ExceptionProcessFilter.getInstance());
 
 	}

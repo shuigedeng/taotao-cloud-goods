@@ -12,11 +12,11 @@ public enum GatewayResponseStatus {
 	L,
 	;
 
-	public static boolean isSuccess(GatewayResponse gatewayResponse) {
+	public static boolean isSuccess(GatewayResponse<?> gatewayResponse) {
 		return S == gatewayResponse.getStatus();
 	}
 
-	public static boolean isFinish(GatewayResponse gatewayResponse) {
+	public static boolean isFinish(GatewayResponse<?> gatewayResponse) {
 		return S == gatewayResponse.getStatus() || F == gatewayResponse.getStatus();
 	}
 }

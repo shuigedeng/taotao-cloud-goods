@@ -5,18 +5,26 @@ import lombok.extern.slf4j.Slf4j;
 import org.dromara.dynamictp.common.util.JsonUtil;
 
 @Slf4j
-public class LogInterceptor implements GatewayPreInterceptor, GatewayPostInterceptor {
+public class LogInterceptor<T> implements GatewayPreInterceptor<T>, GatewayPostInterceptor<T> {
 
-	public static LogInterceptor instance = new LogInterceptor();
+	@SuppressWarnings("rawtypes")
+	private static final LogInterceptor INSTANCE = new LogInterceptor();
+
+	private LogInterceptor() {}
+
+	@SuppressWarnings("unchecked")
+	public static <T> LogInterceptor<T> getInstance() {
+		return (LogInterceptor<T>) INSTANCE;
+	}
 
 	@Override
-	public void intercept(GatewayResponse response, GatewayContext context) {
+	public void intercept(GatewayResponse<T> response, GatewayContext context) {
 		log.info("Gateway description:{}, output:{}", context.getDescription(),
 			substring(JsonUtil.toJson((context.getRawResponse()))));
 	}
 
 	@Override
-	public void intercept(GatewayRequest request, GatewayContext context) {
+	public void intercept(GatewayRequest<T> request, GatewayContext context) {
 //		if (request.getParam() instanceof ContractUploadReqDto || request.getParam() instanceof ContractFileSignReqDto) {
 //			log.info("Gateway description:}, input:{}", context.getDescription()
 //				, request.getParam());

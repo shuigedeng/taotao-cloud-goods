@@ -5,17 +5,25 @@ import org.apache.commons.lang3.StringUtils;
 import org.dromara.dynamictp.common.util.JsonUtil;
 
 @Slf4j
-public class LogExtInterceptor implements GatewayPreInterceptor, GatewayPostInterceptor {
+public class LogExtInterceptor<T> implements GatewayPreInterceptor<T> , GatewayPostInterceptor<T>  {
 
-	public static LogExtInterceptor instance = new LogExtInterceptor();
+	@SuppressWarnings("rawtypes")
+	private static final LogExtInterceptor INSTANCE = new LogExtInterceptor();
+
+	private LogExtInterceptor() {}
+
+	@SuppressWarnings("unchecked")
+	public static <T> LogExtInterceptor<T> getInstance() {
+		return (LogExtInterceptor<T>) INSTANCE;
+	}
 
 	@Override
-	public void intercept(GatewayRequest request, GatewayContext context) {
+	public void intercept(GatewayRequest<T>  request, GatewayContext context) {
 		log.info("Gateway description:{}, input:{}", context.getDescription(), request.getParam());
 	}
 
 	@Override
-	public void intercept(GatewayResponse response, GatewayContext context) {
+	public void intercept(GatewayResponse<T>  response, GatewayContext context) {
 		log.info("Gateway description:{}, output:{}", context.getDescription(),
 			substring(JsonUtil.toJson((context.getRawResponse()))));
 	}
