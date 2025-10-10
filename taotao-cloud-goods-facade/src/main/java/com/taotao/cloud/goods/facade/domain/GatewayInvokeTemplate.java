@@ -5,6 +5,9 @@ import lombok.Data;
 import java.util.LinkedList;
 import lombok.extern.slf4j.Slf4j;
 
+/**
+ * @author shuigedeng
+ */
 @Data
 @Slf4j
 public class GatewayInvokeTemplate<P, R> {
@@ -25,7 +28,7 @@ public class GatewayInvokeTemplate<P, R> {
 		this.preInterceptors.addLast(TimeElapseInterceptor.instance);
 		this.postInterceptors.addFirst(LogInterceptor.instance);
 		this.postInterceptors.addFirst(TimeElapseInterceptor.instance);
-		this.postInterceptors.addLast(ExceptionProcessFilter.instance);
+		this.postInterceptors.addLast(ExceptionProcessFilter.getInstance());
 	}
 
 	public GatewayInvokeTemplate(LinkedList<GatewayPreInterceptor<P>> preInterceptors,
@@ -40,7 +43,7 @@ public class GatewayInvokeTemplate<P, R> {
 		this.preInterceptors.addLast(TimeElapseInterceptor.instance);
 		this.postInterceptors.addFirst(LogExtInterceptor.instance);
 		this.postInterceptors.addFirst(TimeElapseInterceptor.instance);
-		this.postInterceptors.addLast(ExceptionProcessFilter.instance);
+		this.postInterceptors.addLast(ExceptionProcessFilter.getInstance());
 
 	}
 
