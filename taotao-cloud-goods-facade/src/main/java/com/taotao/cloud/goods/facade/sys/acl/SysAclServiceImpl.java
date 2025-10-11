@@ -14,26 +14,34 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.facade.acl;
+package com.taotao.cloud.goods.facade.sys.acl;
 
 import com.taotao.cloud.goods.application.acl.SysAclService;
 import com.taotao.cloud.goods.application.dto.sys.req.DictReq;
 import com.taotao.cloud.goods.application.dto.sys.res.DictRes;
+import com.taotao.cloud.goods.facade.acl.BaseAclService;
 import com.taotao.cloud.goods.facade.assembler.SysFacadeAssembler;
+import com.taotao.cloud.goods.facade.gateway.model.GatewayResponse;
 import com.taotao.cloud.goods.facade.sys.DictClientProxy;
+import com.taotao.cloud.goods.facade.sys.invoker.SysInvoker;
 import com.taotao.cloud.sys.api.feign.response.DictApiResponse;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @AllArgsConstructor
 @Service
-public class SysAclServiceImpl implements SysAclService {
+public class SysAclServiceImpl extends BaseAclService implements SysAclService {
 
 	private final DictClientProxy dictClientProxy;
 	private final SysFacadeAssembler facadeAssembler;
+	private final SysInvoker sysInvoker;
 
 	@Override
 	public DictRes findByCode(DictReq dictReq) {
+		GatewayResponse<DictApiResponse> gatewayResponse = sysInvoker.findByCode(makeRequest(facadeAssembler.toReq(dictReq)));
+		DictApiResponse result = this.getResult(gatewayResponse);
+
+
 		DictApiResponse dictApiResponse = dictClientProxy.findByCode();
 		return facadeAssembler.toRes(dictApiResponse);
 	}

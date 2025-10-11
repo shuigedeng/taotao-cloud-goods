@@ -1,21 +1,24 @@
-package com.taotao.cloud.goods.facade.domain;
+package com.taotao.cloud.goods.facade.gateway.interceptor;
 
+import com.taotao.cloud.goods.facade.gateway.model.GatewayContext;
+import com.taotao.cloud.goods.facade.gateway.model.GatewayResponse;
+import com.taotao.cloud.goods.facade.gateway.model.GatewayResponseStatus;
 import lombok.extern.slf4j.Slf4j;
 
 /**
  * @author 1
  */
 @Slf4j
-public class ExceptionProcessFilter<T> implements GatewayPostInterceptor<T> {
+public class ExceptionProcessInterceptor<T> implements GatewayPostInterceptor<T> {
 
 	@SuppressWarnings("rawtypes")
-	private static final ExceptionProcessFilter INSTANCE = new ExceptionProcessFilter();
+	private static final ExceptionProcessInterceptor INSTANCE = new ExceptionProcessInterceptor();
 
-	private ExceptionProcessFilter() {}
+	private ExceptionProcessInterceptor() {}
 
 	@SuppressWarnings("unchecked")
-	public static <T> ExceptionProcessFilter<T> getInstance() {
-		return (ExceptionProcessFilter<T>) INSTANCE;
+	public static <T> ExceptionProcessInterceptor<T> getInstance() {
+		return (ExceptionProcessInterceptor<T>) INSTANCE;
 	}
 
 

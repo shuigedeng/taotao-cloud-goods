@@ -1,4 +1,4 @@
-package com.taotao.cloud.goods.facade.domain;
+package com.taotao.cloud.goods.facade.gateway.model;
 
 public enum GatewayResultEnum{
     GATEWAY_ERROR("F900001","网关异常"),

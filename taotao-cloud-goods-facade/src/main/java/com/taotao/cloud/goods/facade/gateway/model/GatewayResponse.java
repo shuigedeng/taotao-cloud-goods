@@ -1,4 +1,4 @@
-package com.taotao.cloud.goods.facade.domain;
+package com.taotao.cloud.goods.facade.gateway.model;
 
 import lombok.Data;
 

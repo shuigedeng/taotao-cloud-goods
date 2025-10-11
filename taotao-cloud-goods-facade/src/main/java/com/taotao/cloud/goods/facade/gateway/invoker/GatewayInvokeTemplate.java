@@ -1,5 +1,10 @@
-package com.taotao.cloud.goods.facade.domain;
+package com.taotao.cloud.goods.facade.gateway.invoker;
 
+import com.taotao.cloud.goods.facade.gateway.model.GatewayContext;
+import com.taotao.cloud.goods.facade.gateway.model.GatewayRequest;
+import com.taotao.cloud.goods.facade.gateway.model.GatewayResponse;
+import com.taotao.cloud.goods.facade.gateway.model.GatewayRouter;
+import com.taotao.cloud.goods.facade.gateway.interceptor.*;
 import lombok.Data;
 
 import java.util.LinkedList;
@@ -28,7 +33,7 @@ public class GatewayInvokeTemplate<P, R> {
 		this.preInterceptors.addLast(TimeElapseInterceptor.getInstance());
 		this.postInterceptors.addFirst(LogInterceptor.getInstance());
 		this.postInterceptors.addFirst(TimeElapseInterceptor.getInstance());
-		this.postInterceptors.addLast(ExceptionProcessFilter.getInstance());
+		this.postInterceptors.addLast(ExceptionProcessInterceptor.getInstance());
 	}
 
 	public GatewayInvokeTemplate(LinkedList<GatewayPreInterceptor<P>> preInterceptors,
@@ -43,7 +48,7 @@ public class GatewayInvokeTemplate<P, R> {
 		this.preInterceptors.addLast(TimeElapseInterceptor.getInstance());
 		this.postInterceptors.addFirst(LogExtInterceptor.getInstance());
 		this.postInterceptors.addFirst(TimeElapseInterceptor.getInstance());
-		this.postInterceptors.addLast(ExceptionProcessFilter.getInstance());
+		this.postInterceptors.addLast(ExceptionProcessInterceptor.getInstance());
 
 	}
 

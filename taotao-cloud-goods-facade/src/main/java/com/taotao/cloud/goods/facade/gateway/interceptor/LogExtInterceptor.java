@@ -1,11 +1,14 @@
-package com.taotao.cloud.goods.facade.domain;
+package com.taotao.cloud.goods.facade.gateway.interceptor;
 
+import com.taotao.cloud.goods.facade.gateway.model.GatewayContext;
+import com.taotao.cloud.goods.facade.gateway.model.GatewayRequest;
+import com.taotao.cloud.goods.facade.gateway.model.GatewayResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.dromara.dynamictp.common.util.JsonUtil;
 
 @Slf4j
-public class LogExtInterceptor<T> implements GatewayPreInterceptor<T> , GatewayPostInterceptor<T>  {
+public class LogExtInterceptor<T> implements GatewayPreInterceptor<T>, GatewayPostInterceptor<T> {
 
 	@SuppressWarnings("rawtypes")
 	private static final LogExtInterceptor INSTANCE = new LogExtInterceptor();
@@ -18,12 +21,12 @@ public class LogExtInterceptor<T> implements GatewayPreInterceptor<T> , GatewayP
 	}
 
 	@Override
-	public void intercept(GatewayRequest<T>  request, GatewayContext context) {
+	public void intercept(GatewayRequest<T> request, GatewayContext context) {
 		log.info("Gateway description:{}, input:{}", context.getDescription(), request.getParam());
 	}
 
 	@Override
-	public void intercept(GatewayResponse<T>  response, GatewayContext context) {
+	public void intercept(GatewayResponse<T> response, GatewayContext context) {
 		log.info("Gateway description:{}, output:{}", context.getDescription(),
 			substring(JsonUtil.toJson((context.getRawResponse()))));
 	}

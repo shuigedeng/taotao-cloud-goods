@@ -1,6 +1,9 @@
-package com.taotao.cloud.goods.facade.domain;
+package com.taotao.cloud.goods.facade.gateway.interceptor;
 
 import com.taotao.boot.common.extension.StringUtils;
+import com.taotao.cloud.goods.facade.gateway.model.GatewayContext;
+import com.taotao.cloud.goods.facade.gateway.model.GatewayRequest;
+import com.taotao.cloud.goods.facade.gateway.model.GatewayResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.dromara.dynamictp.common.util.JsonUtil;
 

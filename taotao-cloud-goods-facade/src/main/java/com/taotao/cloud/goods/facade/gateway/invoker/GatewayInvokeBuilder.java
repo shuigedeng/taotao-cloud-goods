@@ -1,4 +1,8 @@
-package com.taotao.cloud.goods.facade.domain;
+package com.taotao.cloud.goods.facade.gateway.invoker;
+
+import com.taotao.cloud.goods.facade.gateway.model.GatewayRouter;
+import com.taotao.cloud.goods.facade.gateway.interceptor.GatewayPostInterceptor;
+import com.taotao.cloud.goods.facade.gateway.interceptor.GatewayPreInterceptor;
 
 import java.util.LinkedList;
 
