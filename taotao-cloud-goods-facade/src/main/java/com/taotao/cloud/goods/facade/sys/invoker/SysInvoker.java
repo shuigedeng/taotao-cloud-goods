@@ -1,10 +1,10 @@
 package com.taotao.cloud.goods.facade.sys.invoker;
 
 import com.taotao.boot.common.model.request.Request;
+import com.taotao.boot.ddd.gateway.invoker.GatewayInvokeBuilder;
+import com.taotao.boot.ddd.gateway.model.GatewayRequest;
+import com.taotao.boot.ddd.gateway.model.GatewayResponse;
 import com.taotao.cloud.goods.application.dto.sys.req.DictReq;
-import com.taotao.cloud.goods.facade.gateway.invoker.GatewayInvokeBuilder;
-import com.taotao.cloud.goods.facade.gateway.model.GatewayRequest;
-import com.taotao.cloud.goods.facade.gateway.model.GatewayResponse;
 import com.taotao.cloud.goods.facade.sys.interceptor.SysInterceptor;
 import com.taotao.cloud.sys.api.dubbo.DictRpcService;
 import com.taotao.cloud.sys.api.feign.DictApi;

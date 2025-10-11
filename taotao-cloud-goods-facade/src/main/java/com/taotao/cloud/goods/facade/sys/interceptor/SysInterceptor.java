@@ -1,8 +1,8 @@
 package com.taotao.cloud.goods.facade.sys.interceptor;
 
-import com.taotao.cloud.goods.facade.gateway.interceptor.GatewayPostInterceptor;
-import com.taotao.cloud.goods.facade.gateway.model.GatewayContext;
-import com.taotao.cloud.goods.facade.gateway.model.GatewayResponse;
+import com.taotao.boot.ddd.gateway.interceptor.GatewayPostInterceptor;
+import com.taotao.boot.ddd.gateway.model.GatewayContext;
+import com.taotao.boot.ddd.gateway.model.GatewayResponse;
 
 public class SysInterceptor<T> implements GatewayPostInterceptor<T> {
 	@Override
