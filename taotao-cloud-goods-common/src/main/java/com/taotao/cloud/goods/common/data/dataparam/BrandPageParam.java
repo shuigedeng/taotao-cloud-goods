@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.goods.common.data.dataparam;
 
-import com.taotao.boot.common.model.PageQuery;
+import com.taotao.boot.common.model.request.PageQuery;
 import lombok.*;
 import lombok.EqualsAndHashCode;
 

@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.goods.interfaces.controller.seller;
 
-import com.taotao.boot.common.model.Result;
+import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.security.spring.utils.SecurityUtils;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;

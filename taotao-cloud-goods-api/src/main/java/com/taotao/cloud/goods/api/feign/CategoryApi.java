@@ -17,8 +17,8 @@
 package com.taotao.cloud.goods.api.feign;
 
 import com.taotao.boot.common.constant.ServiceNameConstants;
-import com.taotao.boot.common.model.FeignRequest;
-import com.taotao.boot.common.model.FeignResponse;
+import com.taotao.boot.common.model.request.Request;
+import com.taotao.boot.common.model.response.Response;
 import com.taotao.cloud.goods.api.feign.fallback.CategoryApiFallback;
 import com.taotao.cloud.goods.api.feign.request.CategoryApiRequest;
 import com.taotao.cloud.goods.api.feign.request.GoodsApiRequest;
@@ -44,6 +44,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 public interface CategoryApi {
 
 	@PostMapping(value = "/category/first/id/{id:[0-9]*}")
-	FeignResponse<List<CategoryTreeApiResponse>> firstCategory(
-		@Validated @RequestBody FeignRequest<CategoryApiRequest> id);
+	Response<List<CategoryTreeApiResponse>> firstCategory(
+		@Validated @RequestBody Request<CategoryApiRequest> id);
 }

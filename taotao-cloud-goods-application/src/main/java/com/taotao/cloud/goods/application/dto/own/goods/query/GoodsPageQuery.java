@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.goods.application.dto.own.goods.query;
 
-import com.taotao.boot.common.model.PageQuery;
+import com.taotao.boot.common.model.request.PageQuery;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;

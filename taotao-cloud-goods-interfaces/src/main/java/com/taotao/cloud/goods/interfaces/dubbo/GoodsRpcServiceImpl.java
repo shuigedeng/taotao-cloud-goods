@@ -16,8 +16,8 @@
 
 package com.taotao.cloud.goods.interfaces.dubbo;
 
-import com.taotao.boot.common.model.RpcRequest;
-import com.taotao.boot.common.model.RpcResponse;
+import com.taotao.boot.common.model.request.Request;
+import com.taotao.boot.common.model.response.Response;
 import com.taotao.cloud.goods.api.dubbo.GoodsRpcService;
 import com.taotao.cloud.goods.api.dubbo.request.GoodsQueryRpcRequest;
 import com.taotao.cloud.goods.api.dubbo.response.GoodsQueryRpcResponse;
@@ -38,8 +38,8 @@ import org.springframework.stereotype.Service;
 public class GoodsRpcServiceImpl implements GoodsRpcService {
 
     @Override
-    public RpcResponse<GoodsQueryRpcResponse> queryGoodsByParams(
-            RpcRequest<GoodsQueryRpcRequest> goodsQueryRpcRequest) {
+    public Response<GoodsQueryRpcResponse> queryGoodsByParams(
+            Request<GoodsQueryRpcRequest> goodsQueryRpcRequest) {
         return null;
     }
 }

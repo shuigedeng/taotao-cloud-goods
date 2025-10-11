@@ -16,8 +16,8 @@
 
 package com.taotao.cloud.goods.api.feign.fallback;
 
-import com.taotao.boot.common.model.FeignRequest;
-import com.taotao.boot.common.model.FeignResponse;
+import com.taotao.boot.common.model.request.Request;
+import com.taotao.boot.common.model.response.Response;
 import com.taotao.cloud.goods.api.feign.CategoryApi;
 import com.taotao.cloud.goods.api.feign.request.CategoryApiRequest;
 import com.taotao.cloud.goods.api.feign.response.CategoryTreeApiResponse;
@@ -37,7 +37,7 @@ public class CategoryApiFallback implements FallbackFactory<CategoryApi> {
 		return new CategoryApi() {
 
 			@Override
-			public FeignResponse<List<CategoryTreeApiResponse>> firstCategory(FeignRequest<CategoryApiRequest> id) {
+			public Response<List<CategoryTreeApiResponse>> firstCategory(Request<CategoryApiRequest> id) {
 				return null;
 			}
 		};

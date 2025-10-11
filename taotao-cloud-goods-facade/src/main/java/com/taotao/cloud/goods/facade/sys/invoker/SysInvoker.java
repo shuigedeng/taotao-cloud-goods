@@ -1,6 +1,6 @@
 package com.taotao.cloud.goods.facade.sys.invoker;
 
-import com.taotao.boot.common.model.FeignRequest;
+import com.taotao.boot.common.model.request.Request;
 import com.taotao.cloud.goods.application.dto.sys.req.DictReq;
 import com.taotao.cloud.goods.facade.gateway.invoker.GatewayInvokeBuilder;
 import com.taotao.cloud.goods.facade.gateway.model.GatewayRequest;
@@ -25,7 +25,7 @@ public class SysInvoker {
 	public GatewayResponse<DictApiResponse> findByCode(GatewayRequest<DictQueryApiRequest> gatewayRequest) {
 		return new GatewayInvokeBuilder<DictQueryApiRequest,DictApiResponse >()
 			.description("sys系统-字典信息查询")
-			.gatewayRouter(request -> dictApi.findByCode(FeignRequest.success(request)))
+			.gatewayRouter(request -> dictApi.findByCode(Request.from(request)))
 			.addFirst(new SysInterceptor<>())
 			.build()
 			.invoke(gatewayRequest);

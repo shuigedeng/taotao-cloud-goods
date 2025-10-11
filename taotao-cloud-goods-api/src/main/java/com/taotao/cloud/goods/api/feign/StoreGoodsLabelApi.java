@@ -17,8 +17,8 @@
 package com.taotao.cloud.goods.api.feign;
 
 import com.taotao.boot.common.constant.ServiceNameConstants;
-import com.taotao.boot.common.model.FeignRequest;
-import com.taotao.boot.common.model.FeignResponse;
+import com.taotao.boot.common.model.request.Request;
+import com.taotao.boot.common.model.response.Response;
 import com.taotao.cloud.goods.api.feign.fallback.StoreGoodsLabelApiFallback;
 import com.taotao.cloud.goods.api.feign.request.GoodsApiRequest;
 import com.taotao.cloud.goods.api.feign.response.StoreGoodsLabelApiResponse;
@@ -35,6 +35,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 public interface StoreGoodsLabelApi {
 
 	@PostMapping(value = "/store/{id}")
-	FeignResponse<List<StoreGoodsLabelApiResponse>> listByStoreId(
-		@Validated @RequestBody FeignRequest<GoodsApiRequest> id);
+	Response<List<StoreGoodsLabelApiResponse>> listByStoreId(
+		@Validated @RequestBody Request<GoodsApiRequest> id);
 }

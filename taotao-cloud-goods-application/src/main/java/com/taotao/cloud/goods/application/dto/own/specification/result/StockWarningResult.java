@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.goods.application.dto.own.specification.result;
 
-import com.taotao.boot.common.model.PageResult;
+import com.taotao.boot.common.model.result.PageResult;
 import com.taotao.boot.ddd.model.application.dto.BaseResult;
 import com.taotao.cloud.goods.application.dto.own.goods.result.GoodsSkuResult;
 import io.swagger.v3.oas.annotations.media.Schema;

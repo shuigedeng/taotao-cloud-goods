@@ -17,8 +17,8 @@
 package com.taotao.cloud.goods.api.feign;
 
 import com.taotao.boot.common.constant.ServiceNameConstants;
-import com.taotao.boot.common.model.FeignRequest;
-import com.taotao.boot.common.model.FeignResponse;
+import com.taotao.boot.common.model.request.Request;
+import com.taotao.boot.common.model.response.Response;
 import com.taotao.cloud.goods.api.feign.fallback.CategoryApiFallback;
 import com.taotao.cloud.goods.api.feign.fallback.GoodsApiFallback;
 import com.taotao.cloud.goods.api.feign.request.GoodsApiRequest;
@@ -44,13 +44,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 public interface GoodsApi {
 	@FeignInner
     @PostMapping(value = "/product/strore/detail/{id:[0-9]*}")
-	FeignResponse<GoodsApiResponse> updateStoreDetail(@Validated @RequestBody FeignRequest<GoodsApiRequest> id);
+	Response<GoodsApiResponse> updateStoreDetail(@Validated @RequestBody Request<GoodsApiRequest> id);
 
 	@FeignInner
     @PostMapping(value = "/product/strore/goods/{id:[0-9]*}")
-	FeignResponse<GoodsApiResponse> underStoreGoods(@Validated @RequestBody FeignRequest<GoodsApiRequest> id);
+	Response<GoodsApiResponse> underStoreGoods(@Validated @RequestBody Request<GoodsApiRequest> id);
 
 	@FeignInner
     @PostMapping(value = "/product/strore/goods/num/{storeId:[0-9]*}")
-	FeignResponse<GoodsApiResponse> countStoreGoodsNum(@Validated @RequestBody FeignRequest<GoodsApiRequest> storeId);
+	Response<GoodsApiResponse> countStoreGoodsNum(@Validated @RequestBody Request<GoodsApiRequest> storeId);
 }

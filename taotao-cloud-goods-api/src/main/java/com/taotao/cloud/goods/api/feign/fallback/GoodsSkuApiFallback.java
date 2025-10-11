@@ -16,8 +16,8 @@
 
 package com.taotao.cloud.goods.api.feign.fallback;
 
-import com.taotao.boot.common.model.FeignRequest;
-import com.taotao.boot.common.model.FeignResponse;
+import com.taotao.boot.common.model.request.Request;
+import com.taotao.boot.common.model.response.Response;
 import com.taotao.cloud.goods.api.feign.GoodsSkuApi;
 import com.taotao.cloud.goods.api.feign.request.GoodsApiRequest;
 import com.taotao.cloud.goods.api.feign.request.GoodsSkuSpecGalleryApiRequest;
@@ -36,24 +36,24 @@ public class GoodsSkuApiFallback implements FallbackFactory<GoodsSkuApi> {
     public GoodsSkuApi create(Throwable throwable) {
         return new GoodsSkuApi() {
 			@Override
-			public FeignResponse<Boolean> updateGoodsStuck(
-				FeignRequest<List<GoodsSkuSpecGalleryApiRequest>> goodsSkus) {
+			public Response<Boolean> updateGoodsStuck(
+				Request<List<GoodsSkuSpecGalleryApiRequest>> goodsSkus) {
 				return null;
 			}
 
 			@Override
-			public FeignResponse<Boolean> updateBatchById(FeignRequest<List<GoodsSkuSpecGalleryApiRequest>> goodsSkus) {
+			public Response<Boolean> updateBatchById(Request<List<GoodsSkuSpecGalleryApiRequest>> goodsSkus) {
 				return null;
 			}
 
 			@Override
-			public FeignResponse<List<GoodsSkuSpecGalleryApiResponse>> getGoodsSkuByIdFromCache(
-				FeignRequest<GoodsApiRequest> skuIds) {
+			public Response<List<GoodsSkuSpecGalleryApiResponse>> getGoodsSkuByIdFromCache(
+				Request<GoodsApiRequest> skuIds) {
 				return null;
 			}
 
 			@Override
-			public FeignResponse<Integer> getStock(FeignRequest<GoodsApiRequest> skuId) {
+			public Response<Integer> getStock(Request<GoodsApiRequest> skuId) {
 				return null;
 			}
 		};

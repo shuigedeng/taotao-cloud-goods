@@ -16,8 +16,8 @@
 
 package com.taotao.cloud.goods.interfaces.feign;
 
-import com.taotao.boot.common.model.FeignRequest;
-import com.taotao.boot.common.model.FeignResponse;
+import com.taotao.boot.common.model.request.Request;
+import com.taotao.boot.common.model.response.Response;
 import com.taotao.boot.web.annotation.FeignApi;
 import com.taotao.boot.webagg.controller.FeignController;
 import com.taotao.cloud.goods.api.feign.GoodsApi;
@@ -41,18 +41,18 @@ import org.springframework.web.bind.annotation.RestController;
 public class GoodsFeignController extends FeignController implements GoodsApi {
 
     @Override
-    public FeignResponse<GoodsApiResponse> updateStoreDetail(FeignRequest<GoodsApiRequest> id) {
+    public Response<GoodsApiResponse> updateStoreDetail(Request<GoodsApiRequest> id) {
         return null;
     }
 
     @Override
-    public FeignResponse<GoodsApiResponse> underStoreGoods(FeignRequest<GoodsApiRequest> id) {
+    public Response<GoodsApiResponse> underStoreGoods(Request<GoodsApiRequest> id) {
         return null;
     }
 
     @Override
-    public FeignResponse<GoodsApiResponse> countStoreGoodsNum(
-            FeignRequest<GoodsApiRequest> storeId) {
+    public Response<GoodsApiResponse> countStoreGoodsNum(
+            Request<GoodsApiRequest> storeId) {
         return null;
     }
 }

@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.goods.application.dto.own.hotwords.query;
 
-import com.taotao.boot.common.model.PageQuery;
+import com.taotao.boot.common.model.request.PageQuery;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;

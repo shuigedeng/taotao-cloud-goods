@@ -17,8 +17,8 @@
 package com.taotao.cloud.goods.api.feign;
 
 import com.taotao.boot.common.constant.ServiceNameConstants;
-import com.taotao.boot.common.model.FeignRequest;
-import com.taotao.boot.common.model.FeignResponse;
+import com.taotao.boot.common.model.request.Request;
+import com.taotao.boot.common.model.response.Response;
 import com.taotao.cloud.goods.api.feign.fallback.GoodsEsIndexApiFallback;
 import com.taotao.cloud.goods.api.feign.request.GoodsApiRequest;
 import com.taotao.cloud.goods.api.feign.response.EsGoodsIndexApiResponse;
@@ -41,9 +41,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 public interface GoodsEsIndexApi {
 
 	@PostMapping(value = "/es/goods/sku/ids")
-	FeignResponse<List<EsGoodsIndexApiResponse>> getEsGoodsBySkuIds(
-		@Validated @RequestBody FeignRequest<List<GoodsApiRequest>> skuIdList);
+	Response<List<EsGoodsIndexApiResponse>> getEsGoodsBySkuIds(
+		@Validated @RequestBody Request<List<GoodsApiRequest>> skuIdList);
 
 	@PostMapping(value = "/es/clean/invalid-promotion")
-	FeignResponse<Boolean> cleanInvalidPromotion(@Validated @RequestBody FeignRequest<GoodsApiRequest> feignRequest);
+	Response<Boolean> cleanInvalidPromotion(@Validated @RequestBody Request<GoodsApiRequest> Request);
 }

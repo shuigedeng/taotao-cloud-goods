@@ -16,9 +16,9 @@
 
 package com.taotao.cloud.goods.api.dubbo;
 
-import com.taotao.boot.common.model.FeignResponse;
-import com.taotao.boot.common.model.RpcRequest;
-import com.taotao.boot.common.model.RpcResponse;
+import com.taotao.boot.common.model.request.Request;
+import com.taotao.boot.common.model.response.Response;
+import com.taotao.boot.common.model.response.Response;
 import com.taotao.cloud.goods.api.dubbo.request.GoodsQueryRpcRequest;
 import com.taotao.cloud.goods.api.dubbo.response.GoodsQueryRpcResponse;
 
@@ -31,5 +31,5 @@ import com.taotao.cloud.goods.api.dubbo.response.GoodsQueryRpcResponse;
  */
 public interface GoodsRpcService {
 
-	RpcResponse<GoodsQueryRpcResponse> queryGoodsByParams(RpcRequest<GoodsQueryRpcRequest> goodsQueryRpcRequest);
+	Response<GoodsQueryRpcResponse> queryGoodsByParams(Request<GoodsQueryRpcRequest> goodsQueryRpcRequest);
 }
