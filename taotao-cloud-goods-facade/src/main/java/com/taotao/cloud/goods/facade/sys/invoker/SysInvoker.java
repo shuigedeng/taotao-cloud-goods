@@ -10,17 +10,20 @@ import com.taotao.cloud.sys.api.dubbo.DictRpcService;
 import com.taotao.cloud.sys.api.feign.DictApi;
 import com.taotao.cloud.sys.api.feign.request.DictQueryApiRequest;
 import com.taotao.cloud.sys.api.feign.response.DictApiResponse;
+import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.apache.dubbo.config.annotation.DubboReference;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
+@RequiredArgsConstructor
 public class SysInvoker {
-	@Autowired
-	private DictApi dictApi;
+
+	private final DictApi dictApi;
 
 	@DubboReference
-	private DictRpcService dictRpcService;
+	private final DictRpcService dictRpcService;
 
 	public GatewayResponse<DictApiResponse> findByCode(GatewayRequest<DictQueryApiRequest> gatewayRequest) {
 		return new GatewayInvokeBuilder<DictQueryApiRequest,DictApiResponse >()

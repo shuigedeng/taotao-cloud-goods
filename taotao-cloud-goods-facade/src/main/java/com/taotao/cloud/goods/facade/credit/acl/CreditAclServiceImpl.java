@@ -1,4 +1,4 @@
-package com.taotao.cloud.goods.facade.acl;
+package com.taotao.cloud.goods.facade.credit.acl;
 
 import com.taotao.cloud.goods.application.acl.CreditAclService;
 import com.taotao.cloud.goods.application.dto.credit.req.CreditReq;
