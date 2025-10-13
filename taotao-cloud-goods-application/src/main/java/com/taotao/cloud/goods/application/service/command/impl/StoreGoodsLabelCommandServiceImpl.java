@@ -18,6 +18,7 @@ package com.taotao.cloud.goods.application.service.command.impl;
 
 import com.taotao.boot.cache.redis.repository.RedisRepository;
 import com.taotao.cloud.goods.application.service.command.StoreGoodsLabelCommandService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,12 +30,13 @@ import org.springframework.stereotype.Service;
  * @since 2022-04-27 17:02:58
  */
 @Service
+@RequiredArgsConstructor
 public class StoreGoodsLabelCommandServiceImpl implements StoreGoodsLabelCommandService {
 
     /**
      * 缓存
      */
-    @Autowired private RedisRepository redisRepository;
+    private final RedisRepository redisRepository;
 
     @Override
     public boolean removeStoreGoodsLabel(Long storeLabelId) {

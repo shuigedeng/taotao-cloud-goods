@@ -18,8 +18,8 @@ package com.taotao.cloud.goods.interfaces.feign;
 
 import com.taotao.boot.common.model.request.Request;
 import com.taotao.boot.common.model.response.Response;
-import com.taotao.boot.web.annotation.FeignApi;
-import com.taotao.boot.webagg.controller.FeignController;
+import com.taotao.boot.web.annotation.Api;
+import com.taotao.boot.webagg.controller.ApiController;
 import com.taotao.cloud.goods.api.feign.GoodsApi;
 import com.taotao.cloud.goods.api.feign.request.GoodsApiRequest;
 import com.taotao.cloud.goods.api.feign.response.GoodsApiResponse;
@@ -34,11 +34,11 @@ import org.springframework.web.bind.annotation.RestController;
  * @version 2021.9
  * @since 2021-10-09 14:24:19
  */
-@FeignApi
+@Api
 @Validated
 @RestController
 @Tag(name = "内部服务-商品API", description = "内部服务-商品API")
-public class GoodsFeignController extends FeignController implements GoodsApi {
+public class GoodsApiController extends ApiController implements GoodsApi {
 
     @Override
     public Response<GoodsApiResponse> updateStoreDetail(Request<GoodsApiRequest> id) {

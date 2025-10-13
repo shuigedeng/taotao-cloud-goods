@@ -20,6 +20,7 @@ import com.taotao.boot.common.utils.log.LogUtils;
 import com.taotao.boot.job.xxl.timetask.EveryHourExecute;
 import com.taotao.cloud.goods.application.service.command.CommodityCommandService;
 import com.xxl.job.core.context.XxlJobHelper;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -31,12 +32,13 @@ import org.springframework.stereotype.Component;
  * @since 2022-04-27 16:54:43
  */
 @Component
+@RequiredArgsConstructor
 public class BroadcastExecute implements EveryHourExecute {
 
     /**
      * 商品服务
      */
-    @Autowired private CommodityCommandService commodityService;
+    private final CommodityCommandService commodityService;
 
     /**
      * 执行

@@ -21,6 +21,7 @@ import com.taotao.cloud.goods.application.dto.own.store.result.StoreGoodsLabelRe
 import com.taotao.cloud.goods.application.service.query.StoreGoodsLabelQueryService;
 import java.util.List;
 import java.util.Map;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -32,12 +33,13 @@ import org.springframework.stereotype.Service;
  * @since 2022-04-27 17:02:58
  */
 @Service
+@RequiredArgsConstructor
 public class StoreGoodsLabelQueryServiceImpl implements StoreGoodsLabelQueryService {
 
     /**
      * 缓存
      */
-    @Autowired private RedisRepository redisRepository;
+    private final RedisRepository redisRepository;
 
     @Override
     public List<StoreGoodsLabelResult> listByStoreId(Long storeId) {

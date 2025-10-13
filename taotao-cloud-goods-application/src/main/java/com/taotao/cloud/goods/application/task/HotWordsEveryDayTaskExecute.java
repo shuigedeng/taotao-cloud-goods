@@ -18,6 +18,7 @@ package com.taotao.cloud.goods.application.task;
 
 import com.taotao.boot.cache.redis.repository.RedisRepository;
 import com.taotao.boot.job.xxl.timetask.EveryDayExecute;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -29,12 +30,13 @@ import org.springframework.stereotype.Component;
  * @since 2022-04-27 16:54:14
  */
 @Component
+@RequiredArgsConstructor
 public class HotWordsEveryDayTaskExecute implements EveryDayExecute {
 
     /**
      * 复述,库
      */
-    @Autowired private RedisRepository redisRepository;
+	private final RedisRepository redisRepository;
 
     /**
      * 执行每日任务
