@@ -1,0 +1,55 @@
+/*
+ * Copyright (c) 2020-2030, Shuigedeng (981376577@qq.com & https://blog.taotaocloud.top/).
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package com.taotao.cloud.goods.api.feign.command;
+
+import com.taotao.boot.common.constant.ServiceNameConstants;
+import com.taotao.boot.common.model.request.Request;
+import com.taotao.boot.common.model.response.Response;
+import com.taotao.cloud.goods.api.feign.command.fallback.GoodsSkuCommandApiFallback;
+import com.taotao.cloud.goods.api.feign.dto.request.GoodsCommandApiRequest;
+import com.taotao.cloud.goods.api.feign.dto.request.GoodsSkuSpecGalleryCommandApiRequest;
+import com.taotao.cloud.goods.api.feign.dto.response.GoodsSkuSpecGalleryCommandApiResponse;
+import java.util.List;
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
+/**
+ * 远程调用订单模块
+ *
+ * @author shuigedeng
+ * @since 2020/5/2 16:42
+ */
+@FeignClient(
+	contextId = "GoodsSkuApi",
+	value = ServiceNameConstants.TAOTAO_CLOUD_GOODS,
+	fallbackFactory = GoodsSkuCommandApiFallback.class)
+public interface GoodsSkuCommandApi {
+
+	@PostMapping(value = "/product/updateGoodsStuck")
+	Response<Boolean> updateGoodsStuck(@Validated @RequestBody Request<List<GoodsSkuSpecGalleryCommandApiRequest>> goodsSkus);
+
+	@PostMapping(value = "/product/updateBatchById")
+	Response<Boolean> updateBatchById(@Validated @RequestBody Request<List<GoodsSkuSpecGalleryCommandApiRequest>> goodsSkus);
+
+	@PostMapping(value = "/product/getGoodsSkuByIdFromCache/sku-ids")
+	Response<List<GoodsSkuSpecGalleryCommandApiResponse>> getGoodsSkuByIdFromCache(@Validated @RequestBody Request<GoodsCommandApiRequest> skuIds);
+
+	@PostMapping(value = "/product/getStock")
+	Response<Integer> getStock(@Validated @RequestBody Request<GoodsCommandApiRequest> skuId);
+}

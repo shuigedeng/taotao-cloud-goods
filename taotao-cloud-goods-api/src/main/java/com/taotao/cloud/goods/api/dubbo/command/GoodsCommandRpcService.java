@@ -14,32 +14,21 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.interfaces.dubbo;
+package com.taotao.cloud.goods.api.dubbo.command;
 
 import com.taotao.boot.common.model.request.Request;
 import com.taotao.boot.common.model.response.Response;
-import com.taotao.cloud.goods.api.dubbo.GoodsRpcService;
 import com.taotao.cloud.goods.api.dubbo.dto.request.GoodsQueryRpcRequest;
 import com.taotao.cloud.goods.api.dubbo.dto.response.GoodsQueryRpcResponse;
-import lombok.AllArgsConstructor;
-import org.apache.dubbo.config.annotation.DubboService;
-import org.springframework.stereotype.Service;
 
 /**
- * DictServiceImpl
+ * 后台部门表服务接口
  *
  * @author shuigedeng
- * @version 2021.10
- * @since 2021-10-09 20:26:36
+ * @version 2022.03
+ * @since 2022-03-25 14:22:32
  */
-@Service
-@AllArgsConstructor
-@DubboService(interfaceClass = GoodsRpcService.class, validation = "true")
-public class GoodsRpcServiceImpl implements GoodsRpcService {
+public interface GoodsCommandRpcService {
 
-    @Override
-    public Response<GoodsQueryRpcResponse> queryGoodsByParams(
-            Request<GoodsQueryRpcRequest> goodsQueryRpcRequest) {
-        return null;
-    }
+	Response<GoodsQueryRpcResponse> queryGoodsByParams(Request<GoodsQueryRpcRequest> goodsQueryRpcRequest);
 }

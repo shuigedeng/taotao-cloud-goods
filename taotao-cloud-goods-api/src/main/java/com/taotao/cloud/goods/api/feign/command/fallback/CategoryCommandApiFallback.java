@@ -14,32 +14,32 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.interfaces.dubbo;
+package com.taotao.cloud.goods.api.feign.command.fallback;
 
 import com.taotao.boot.common.model.request.Request;
 import com.taotao.boot.common.model.response.Response;
-import com.taotao.cloud.goods.api.dubbo.GoodsRpcService;
-import com.taotao.cloud.goods.api.dubbo.dto.request.GoodsQueryRpcRequest;
-import com.taotao.cloud.goods.api.dubbo.dto.response.GoodsQueryRpcResponse;
-import lombok.AllArgsConstructor;
-import org.apache.dubbo.config.annotation.DubboService;
-import org.springframework.stereotype.Service;
+import com.taotao.cloud.goods.api.feign.command.CategoryCommandApi;
+import com.taotao.cloud.goods.api.feign.dto.request.CategoryCommandApiRequest;
+import com.taotao.cloud.goods.api.feign.dto.response.CategoryTreeCommandApiResponse;
+import java.util.List;
+import org.springframework.cloud.openfeign.FallbackFactory;
 
 /**
- * DictServiceImpl
+ * FeignCategoryServiceFallback
  *
  * @author shuigedeng
- * @version 2021.10
- * @since 2021-10-09 20:26:36
+ * @since 2020/4/29 21:43
  */
-@Service
-@AllArgsConstructor
-@DubboService(interfaceClass = GoodsRpcService.class, validation = "true")
-public class GoodsRpcServiceImpl implements GoodsRpcService {
+public class CategoryCommandApiFallback implements FallbackFactory<CategoryCommandApi> {
 
-    @Override
-    public Response<GoodsQueryRpcResponse> queryGoodsByParams(
-            Request<GoodsQueryRpcRequest> goodsQueryRpcRequest) {
-        return null;
-    }
+	@Override
+	public CategoryCommandApi create(Throwable throwable) {
+		return new CategoryCommandApi() {
+
+			@Override
+			public Response<List<CategoryTreeCommandApiResponse>> firstCategory(Request<CategoryCommandApiRequest> id) {
+				return null;
+			}
+		};
+	}
 }
