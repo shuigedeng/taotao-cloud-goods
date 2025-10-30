@@ -19,6 +19,9 @@ package com.taotao.cloud.goods.common.constant;
 /** 代码生成通用常量 */
 public interface GoodsConstants {
 
+	public static String SYSTEM_CODE = "000001";
+	public static String CATEGORY_CODE = "001";
+
     /** 单表（增删改查） */
     String TPL_CRUD = "crud";
 
