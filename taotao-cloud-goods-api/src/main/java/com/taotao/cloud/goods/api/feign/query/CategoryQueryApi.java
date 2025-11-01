@@ -18,6 +18,7 @@ package com.taotao.cloud.goods.api.feign.query;
 
 import com.taotao.boot.common.constant.ServiceNameConstants;
 import com.taotao.boot.common.model.request.Request;
+import com.taotao.boot.common.model.response.BatchResponse;
 import com.taotao.boot.common.model.response.Response;
 import com.taotao.cloud.goods.api.feign.command.fallback.CategoryCommandApiFallback;
 import com.taotao.cloud.goods.api.feign.dto.request.CategoryCommandApiRequest;
@@ -42,6 +43,6 @@ import java.util.List;
 public interface CategoryQueryApi {
 
 	@PostMapping(value = "/category/first/id/{id:[0-9]*}")
-	Response<List<CategoryTreeCommandApiResponse>> firstCategory(
+	Response<BatchResponse<CategoryTreeCommandApiResponse>> firstCategory(
 		@Validated @RequestBody Request<CategoryCommandApiRequest> id);
 }

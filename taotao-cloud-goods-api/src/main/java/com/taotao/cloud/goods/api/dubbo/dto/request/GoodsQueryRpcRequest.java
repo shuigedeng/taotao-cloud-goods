@@ -16,6 +16,7 @@
 
 package com.taotao.cloud.goods.api.dubbo.dto.request;
 
+import com.taotao.boot.common.model.request.RequestBase;
 import java.io.Serial;
 import java.io.Serializable;
 import lombok.AllArgsConstructor;
@@ -38,7 +39,7 @@ import lombok.experimental.Accessors;
 @Accessors(fluent = true)
 @AllArgsConstructor
 @NoArgsConstructor
-public class GoodsQueryRpcRequest implements Serializable {
+public class GoodsQueryRpcRequest extends RequestBase implements Serializable {
     @Serial
     private static final long serialVersionUID = 5126530068827085130L;
 

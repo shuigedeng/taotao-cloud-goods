@@ -16,11 +16,15 @@
 
 package com.taotao.cloud.goods.api.feign.command.fallback;
 
+import com.taotao.boot.common.model.request.BatchRequest;
 import com.taotao.boot.common.model.request.Request;
+import com.taotao.boot.common.model.response.BatchResponse;
+import com.taotao.boot.common.model.response.EmptyResponse;
 import com.taotao.boot.common.model.response.Response;
 import com.taotao.cloud.goods.api.feign.command.GoodsSkuCommandApi;
 import com.taotao.cloud.goods.api.feign.dto.request.GoodsCommandApiRequest;
 import com.taotao.cloud.goods.api.feign.dto.request.GoodsSkuSpecGalleryCommandApiRequest;
+import com.taotao.cloud.goods.api.feign.dto.response.CategoryCommandApiResponse;
 import com.taotao.cloud.goods.api.feign.dto.response.GoodsSkuSpecGalleryCommandApiResponse;
 import java.util.List;
 import org.springframework.cloud.openfeign.FallbackFactory;
@@ -35,25 +39,27 @@ public class GoodsSkuCommandApiFallback implements FallbackFactory<GoodsSkuComma
     @Override
     public GoodsSkuCommandApi create(Throwable throwable) {
         return new GoodsSkuCommandApi() {
+
 			@Override
-			public Response<Boolean> updateGoodsStuck(
-				Request<List<GoodsSkuSpecGalleryCommandApiRequest>> goodsSkus) {
+			public Response<EmptyResponse> updateGoodsStuck(
+				Request<BatchRequest<GoodsSkuSpecGalleryCommandApiRequest>> goodsSkus) {
 				return null;
 			}
 
 			@Override
-			public Response<Boolean> updateBatchById(Request<List<GoodsSkuSpecGalleryCommandApiRequest>> goodsSkus) {
+			public Response<EmptyResponse> updateBatchById(
+				Request<BatchRequest<GoodsSkuSpecGalleryCommandApiRequest>> goodsSkus) {
 				return null;
 			}
 
 			@Override
-			public Response<List<GoodsSkuSpecGalleryCommandApiResponse>> getGoodsSkuByIdFromCache(
+			public Response<BatchResponse<GoodsSkuSpecGalleryCommandApiResponse>> getGoodsSkuByIdFromCache(
 				Request<GoodsCommandApiRequest> skuIds) {
 				return null;
 			}
 
 			@Override
-			public Response<Integer> getStock(Request<GoodsCommandApiRequest> skuId) {
+			public Response<CategoryCommandApiResponse> getStock(Request<GoodsCommandApiRequest> skuId) {
 				return null;
 			}
 		};

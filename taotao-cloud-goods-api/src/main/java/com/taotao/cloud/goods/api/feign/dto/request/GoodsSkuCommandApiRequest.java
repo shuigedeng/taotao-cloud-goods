@@ -16,6 +16,7 @@
 
 package com.taotao.cloud.goods.api.feign.dto.request;
 
+import com.taotao.boot.common.model.request.RequestBase;
 import com.taotao.cloud.goods.api.enums.GoodsAuthEnum;
 import com.taotao.cloud.goods.api.enums.GoodsStatusEnum;
 import com.taotao.cloud.goods.api.enums.GoodsTypeEnum;
@@ -40,7 +41,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Schema(description = "商品sku基础VO")
-public class GoodsSkuCommandApiRequest implements Serializable {
+public class GoodsSkuCommandApiRequest extends RequestBase implements Serializable {
 
     @Serial
     private static final long serialVersionUID = 1450550797436233753L;

@@ -16,6 +16,7 @@
 
 package com.taotao.cloud.goods.api.feign.dto.response;
 
+import com.taotao.boot.common.model.response.ResponseBase;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.math.BigDecimal;
 import lombok.AllArgsConstructor;
@@ -29,7 +30,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Schema(description = "商品分类VO")
-public class CategoryCommandApiResponse {
+public class CategoryCommandApiResponse  extends ResponseBase {
 
     @Schema(description = "id")
     private Long id;

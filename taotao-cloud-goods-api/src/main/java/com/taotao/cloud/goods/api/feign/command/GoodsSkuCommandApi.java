@@ -17,11 +17,15 @@
 package com.taotao.cloud.goods.api.feign.command;
 
 import com.taotao.boot.common.constant.ServiceNameConstants;
+import com.taotao.boot.common.model.request.BatchRequest;
 import com.taotao.boot.common.model.request.Request;
+import com.taotao.boot.common.model.response.BatchResponse;
+import com.taotao.boot.common.model.response.EmptyResponse;
 import com.taotao.boot.common.model.response.Response;
 import com.taotao.cloud.goods.api.feign.command.fallback.GoodsSkuCommandApiFallback;
 import com.taotao.cloud.goods.api.feign.dto.request.GoodsCommandApiRequest;
 import com.taotao.cloud.goods.api.feign.dto.request.GoodsSkuSpecGalleryCommandApiRequest;
+import com.taotao.cloud.goods.api.feign.dto.response.CategoryCommandApiResponse;
 import com.taotao.cloud.goods.api.feign.dto.response.GoodsSkuSpecGalleryCommandApiResponse;
 import java.util.List;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -42,14 +46,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 public interface GoodsSkuCommandApi {
 
 	@PostMapping(value = "/product/updateGoodsStuck")
-	Response<Boolean> updateGoodsStuck(@Validated @RequestBody Request<List<GoodsSkuSpecGalleryCommandApiRequest>> goodsSkus);
+	Response<EmptyResponse> updateGoodsStuck(@Validated @RequestBody Request<BatchRequest<GoodsSkuSpecGalleryCommandApiRequest>> goodsSkus);
 
 	@PostMapping(value = "/product/updateBatchById")
-	Response<Boolean> updateBatchById(@Validated @RequestBody Request<List<GoodsSkuSpecGalleryCommandApiRequest>> goodsSkus);
+	Response<EmptyResponse> updateBatchById(@Validated @RequestBody Request<BatchRequest<GoodsSkuSpecGalleryCommandApiRequest>> goodsSkus);
 
 	@PostMapping(value = "/product/getGoodsSkuByIdFromCache/sku-ids")
-	Response<List<GoodsSkuSpecGalleryCommandApiResponse>> getGoodsSkuByIdFromCache(@Validated @RequestBody Request<GoodsCommandApiRequest> skuIds);
+	Response<BatchResponse<GoodsSkuSpecGalleryCommandApiResponse>> getGoodsSkuByIdFromCache(@Validated @RequestBody Request<GoodsCommandApiRequest> skuIds);
 
 	@PostMapping(value = "/product/getStock")
-	Response<Integer> getStock(@Validated @RequestBody Request<GoodsCommandApiRequest> skuId);
+	Response<CategoryCommandApiResponse> getStock(@Validated @RequestBody Request<GoodsCommandApiRequest> skuId);
 }

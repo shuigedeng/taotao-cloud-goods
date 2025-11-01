@@ -16,6 +16,7 @@
 
 package com.taotao.cloud.goods.api.feign.dto.response;
 
+import com.taotao.boot.common.model.response.ResponseBase;
 import java.io.Serial;
 import java.io.Serializable;
 import lombok.AllArgsConstructor;
@@ -34,7 +35,7 @@ import lombok.NoArgsConstructor;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
-public class EsGoodsAttributeCommandApiResponse implements Serializable {
+public class EsGoodsAttributeCommandApiResponse  extends ResponseBase implements Serializable {
 
     @Serial
     private static final long serialVersionUID = 4018042777559970062L;

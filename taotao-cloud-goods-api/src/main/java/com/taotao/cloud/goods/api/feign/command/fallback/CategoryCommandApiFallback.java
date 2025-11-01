@@ -17,6 +17,7 @@
 package com.taotao.cloud.goods.api.feign.command.fallback;
 
 import com.taotao.boot.common.model.request.Request;
+import com.taotao.boot.common.model.response.BatchResponse;
 import com.taotao.boot.common.model.response.Response;
 import com.taotao.cloud.goods.api.feign.command.CategoryCommandApi;
 import com.taotao.cloud.goods.api.feign.dto.request.CategoryCommandApiRequest;
@@ -37,7 +38,7 @@ public class CategoryCommandApiFallback implements FallbackFactory<CategoryComma
 		return new CategoryCommandApi() {
 
 			@Override
-			public Response<List<CategoryTreeCommandApiResponse>> firstCategory(Request<CategoryCommandApiRequest> id) {
+			public Response<BatchResponse<CategoryTreeCommandApiResponse>> firstCategory(Request<CategoryCommandApiRequest> id) {
 				return null;
 			}
 		};

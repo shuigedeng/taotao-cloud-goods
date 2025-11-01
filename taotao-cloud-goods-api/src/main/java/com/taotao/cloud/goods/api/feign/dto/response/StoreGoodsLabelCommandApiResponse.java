@@ -16,6 +16,7 @@
 
 package com.taotao.cloud.goods.api.feign.dto.response;
 
+import com.taotao.boot.common.model.response.ResponseBase;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
 import java.io.Serializable;
@@ -38,7 +39,7 @@ import lombok.experimental.Accessors;
 @Accessors(fluent = true)
 @AllArgsConstructor
 @NoArgsConstructor
-public class StoreGoodsLabelCommandApiResponse implements Serializable {
+public class StoreGoodsLabelCommandApiResponse  extends ResponseBase implements Serializable {
 
     @Serial
     private static final long serialVersionUID = -7605952923416404638L;

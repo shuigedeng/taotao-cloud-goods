@@ -16,33 +16,35 @@
 
 package com.taotao.cloud.goods.api.dubbo.dto.response;
 
-import io.soabase.recordbuilder.core.RecordBuilder;
-
+import com.taotao.boot.common.model.request.RequestBase;
+import com.taotao.boot.common.model.response.ResponseBase;
+import java.io.Serial;
 import java.io.Serializable;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+import lombok.experimental.Accessors;
 
 /**
- * CompanyBO
+ * 菜单查询对象
  *
  * @author shuigedeng
  * @version 2021.10
- * @since 2021-10-19 20:47:05
+ * @since 2021-10-09 15:27:42
  */
-@RecordBuilder
-public record GoodsQueryRpcResponse(
-	/* 租户id */
-	String tenantId,
+@Setter
+@Getter
+@ToString
+@Accessors(fluent = true)
+@AllArgsConstructor
+@NoArgsConstructor
+public class GoodsQueryRpcResponse extends ResponseBase implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 5126530068827085130L;
 
-	/*
-	  租户密钥
-	 */
-	String tenantSecret,
+    /** id */
+    private Long id;
 
-	/** 公司名称 */
-	String name,
-
-	/** 公司类型 */
-	Integer type)
-	implements Serializable {
-
-	static final long serialVersionUID = 5126530068827085130L;
 }

@@ -17,6 +17,7 @@
 package com.taotao.cloud.goods.api.feign.dto.response;
 
 import com.taotao.boot.common.enums.PromotionTypeEnum;
+import com.taotao.boot.common.model.response.ResponseBase;
 import com.taotao.cloud.goods.api.enums.GoodsTypeEnum;
 import java.io.Serial;
 import java.io.Serializable;
@@ -43,7 +44,7 @@ import lombok.experimental.Accessors;
 @NoArgsConstructor
 @AllArgsConstructor
 @Accessors(fluent = true)
-public class EsGoodsIndexCommandApiResponse implements Serializable {
+public class EsGoodsIndexCommandApiResponse  extends ResponseBase implements Serializable {
 
     @Serial
     private static final long serialVersionUID = -6856471777036048874L;

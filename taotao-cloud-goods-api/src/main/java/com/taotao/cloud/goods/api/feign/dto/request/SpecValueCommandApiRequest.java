@@ -16,6 +16,7 @@
 
 package com.taotao.cloud.goods.api.feign.dto.request;
 
+import com.taotao.boot.common.model.request.RequestBase;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
 import java.io.Serializable;
@@ -32,7 +33,7 @@ import lombok.experimental.Accessors;
 @Accessors(fluent = true)
 @AllArgsConstructor
 @NoArgsConstructor
-public class SpecValueCommandApiRequest implements Serializable {
+public class SpecValueCommandApiRequest extends RequestBase implements Serializable {
 
     @Serial
     private static final long serialVersionUID = -4433579132929428572L;

@@ -16,7 +16,10 @@
 
 package com.taotao.cloud.goods.api.feign.command.fallback;
 
+import com.taotao.boot.common.model.request.BatchRequest;
 import com.taotao.boot.common.model.request.Request;
+import com.taotao.boot.common.model.response.BatchResponse;
+import com.taotao.boot.common.model.response.EmptyResponse;
 import com.taotao.boot.common.model.response.Response;
 import com.taotao.cloud.goods.api.feign.command.GoodsEsIndexCommandApi;
 import com.taotao.cloud.goods.api.feign.dto.request.GoodsCommandApiRequest;
@@ -35,13 +38,13 @@ public class GoodsEsIndexCommandApiFallback implements FallbackFactory<GoodsEsIn
     public GoodsEsIndexCommandApi create(Throwable throwable) {
         return new GoodsEsIndexCommandApi() {
 			@Override
-			public Response<List<EsGoodsIndexCommandApiResponse>> getEsGoodsBySkuIds(
-				Request<List<GoodsCommandApiRequest>> skuIdList) {
+			public Response<BatchResponse<EsGoodsIndexCommandApiResponse>> getEsGoodsBySkuIds(
+				Request<BatchRequest<GoodsCommandApiRequest>> skuIdList) {
 				return null;
 			}
 
 			@Override
-			public Response<Boolean> cleanInvalidPromotion(Request<GoodsCommandApiRequest> Request) {
+			public Response<EmptyResponse> cleanInvalidPromotion(Request<GoodsCommandApiRequest> Request) {
 				return null;
 			}
 		};
