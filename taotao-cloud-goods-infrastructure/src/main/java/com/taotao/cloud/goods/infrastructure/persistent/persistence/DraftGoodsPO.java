@@ -16,6 +16,8 @@
 
 package com.taotao.cloud.goods.infrastructure.persistent.persistence;
 
+import cn.hutool.core.text.CharSequenceUtil;
+import cn.hutool.http.HtmlUtil;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.taotao.boot.webagg.entity.BaseSuperEntity;
 import com.taotao.cloud.goods.api.enums.DraftGoodsSaveTypeEnum;
@@ -25,7 +27,6 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Index;
 import jakarta.persistence.Table;
-import jakarta.persistence.UniqueConstraint;
 import java.math.BigDecimal;
 import java.util.Objects;
 import lombok.AllArgsConstructor;
@@ -34,8 +35,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.Accessors;
-import org.dromara.hutool.core.text.CharSequenceUtil;
-import org.dromara.hutool.http.html.HtmlUtil;
 import org.hibernate.Hibernate;
 
 /** 草稿商品表 */
@@ -464,7 +463,7 @@ public class DraftGoodsPO extends BaseSuperEntity<DraftGoodsPO, Long> {
         if (CharSequenceUtil.isNotEmpty(mobileIntro)) {
             return HtmlUtil.unescape(mobileIntro);
         }
-        return mobileIntro;
+		return mobileIntro;
     }
 
     @Override
