@@ -33,10 +33,10 @@ dependencies {
 
     testImplementation "io.github.shuigedeng:taotao-boot-starter-test"
 
-    testImplementation 'org.junit.jupiter:junit-jupiter:6.0.0'
-    testImplementation 'org.junit.jupiter:junit-jupiter-engine:6.0.0'
-    testImplementation 'org.junit.jupiter:junit-jupiter-params:6.0.0'
-    testRuntimeOnly 'org.junit.platform:junit-platform-launcher:6.0.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter:6.0.1'
+    testImplementation 'org.junit.jupiter:junit-jupiter-engine:6.0.1'
+    testImplementation 'org.junit.jupiter:junit-jupiter-params:6.0.1'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher:6.0.1'
     testImplementation "org.assertj:assertj-core:3.27.6"
 
     testImplementation "org.projectlombok:lombok"
@@ -147,7 +147,7 @@ configurations {
             force 'org.antlr:antlr4:4.13.2'
             force 'net.minidev:json-smart:2.6.0'
             //todo 临时使用
-            force "io.opentelemetry:opentelemetry-api-incubator:1.55.0-alpha"
+            force "io.opentelemetry:opentelemetry-api-incubator:1.56.0-alpha"
         }
 
         //exclude group: "log4j", module: "log4j"
@@ -156,7 +156,8 @@ configurations {
         //exclude group: "org.apache.logging.log4j", module: "log4j-slf4j-impl"
         //exclude group: "org.apache.logging.log4j", module: "log4j-to-slf4j"
         //exclude group: "org.apache.logging.log4j", module: "log4j-api"
-        exclude group: "org.springframework.boot", module: "spring-boot-starter-tomcat"
+        //exclude group: "org.springframework.boot", module: "spring-boot-starter-tomcat"
+exclude group: "org.springframework.boot", module: "spring-boot-starter-undertow"
         exclude group: "commons-logging", module: "commons-logging"
     }
 }

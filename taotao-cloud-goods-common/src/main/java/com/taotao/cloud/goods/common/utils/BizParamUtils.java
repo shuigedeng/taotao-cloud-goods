@@ -23,7 +23,7 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.Calendar;
 import java.util.Date;
-import org.springframework.lang.NonNull;
+import org.jspecify.annotations.NonNull;;
 
 /**
  * @author EalenXie Created on 2019/6/5 10:42.

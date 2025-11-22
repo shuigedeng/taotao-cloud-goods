@@ -264,7 +264,7 @@ public class GoodsPO extends BaseSuperEntity<GoodsPO, Long> {
 	/**
 	 * 商品参数json
 	 */
-	@Type(JsonType.class)
+	//@Type(JsonType.class)
 	@TableField(typeHandler = FastjsonTypeHandler.class)
 	@Column(name = "`params`", columnDefinition = "json not null comment '商品参数json'")
 	private String params;
