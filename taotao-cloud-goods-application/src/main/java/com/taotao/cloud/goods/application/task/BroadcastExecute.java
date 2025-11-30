@@ -50,7 +50,7 @@ public class BroadcastExecute implements EveryHourExecute {
         String jobParam = XxlJobHelper.getJobParam();
         long shardIndex = XxlJobHelper.getShardIndex();
         long shardTotal = XxlJobHelper.getShardTotal();
-        String jobLogFileName = XxlJobHelper.getJobLogFileName();
+        String jobLogFileName = XxlJobHelper.getLogFileName();
 
         XxlJobHelper.log(
                 "XXL-JOB, successsssssssssss, jobId: {}, jobParam: {}, shardIndex:{}, shardTotal:{}, jobLogFileName:{}",

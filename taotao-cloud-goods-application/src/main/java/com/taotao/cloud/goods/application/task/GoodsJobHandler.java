@@ -18,7 +18,7 @@ package com.taotao.cloud.goods.application.task;
 
 import com.taotao.boot.common.utils.log.LogUtils;
 import com.taotao.boot.job.xxl.executor.annotation.XxlRegister;
-import com.xxl.job.core.biz.model.ReturnT;
+import com.xxl.tool.response.Response;
 import com.xxl.job.core.context.XxlJobHelper;
 import com.xxl.job.core.handler.annotation.XxlJob;
 import java.io.BufferedInputStream;
@@ -43,7 +43,7 @@ import org.springframework.stereotype.Component;
 public class GoodsJobHandler {
 
     @XxlJob("ThrowJobHandler")
-    public ReturnT<String> throwJobHandler() throws Exception {
+    public Response<String> throwJobHandler() throws Exception {
         XxlJobHelper.log("XXL-JOB, throwwwwwwwwwwwwww");
 
         LogUtils.info("=============xxljob throwwwwwwwwwwwwwwwwwwwwwwwwww");
@@ -52,13 +52,13 @@ public class GoodsJobHandler {
     }
 
     @XxlJob("TestJobHandler")
-    public ReturnT<String> testJobHandler() throws Exception {
+    public Response<String> testJobHandler() throws Exception {
 
         long jobId = XxlJobHelper.getJobId();
         String jobParam = XxlJobHelper.getJobParam();
         long shardIndex = XxlJobHelper.getShardIndex();
         long shardTotal = XxlJobHelper.getShardTotal();
-        String jobLogFileName = XxlJobHelper.getJobLogFileName();
+        String jobLogFileName = XxlJobHelper.getLogFileName();
 
         XxlJobHelper.log(
                 "XXL-JOB, successsssssssssss, jobId: {}, jobParam: {}, shardIndex:{}, shardTotal:{}, jobLogFileName:{}",
@@ -76,12 +76,12 @@ public class GoodsJobHandler {
                 shardTotal,
                 jobLogFileName);
 
-        return ReturnT.ofSuccess();
+        return Response.ofSuccess();
     }
 
     @XxlJob("UserJobHandler")
     @XxlRegister(cron = "59 59 23 * * ?", author = "shuigedeng")
-    public ReturnT<String> userJobHandler(String param) throws Exception {
+    public Response<String> userJobHandler(String param) throws Exception {
         XxlJobHelper.log("XXL-JOB, Hello World.");
         XxlJobHelper.log("XXL-JOB, Hello World.1");
         XxlJobHelper.log("XXL-JOB, Hello World.2");
@@ -98,7 +98,7 @@ public class GoodsJobHandler {
 
         // throw new RuntimeException("XXL-JOB测试异常");
 
-        return ReturnT.ofFail();
+        return Response.ofFail();
     }
 
     /** 1、简单任务示例（Bean模式） */
