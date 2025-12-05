@@ -60,8 +60,6 @@ import com.taotao.cloud.bootstrap.annotation.TaoTaoCloudApplication;
 // @ComponentScan(basePackages = {
 //	"com.taotao.cloud.goods.biz.repository.cls"
 // } )
-// @EnableFeignClients(basePackages =
-// {"com.taotao.cloud.goods.api.feign","com.taotao.cloud.goods.api.feign"})
 @TaoTaoBootApplication
 @TaoTaoCloudApplication
 public class TaoTaoCloudGoodsApplication {

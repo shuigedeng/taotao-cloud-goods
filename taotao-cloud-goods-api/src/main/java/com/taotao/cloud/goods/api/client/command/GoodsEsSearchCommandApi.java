@@ -14,27 +14,17 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.facade.assembler;
+package com.taotao.cloud.goods.api.client.command;
 
-import com.taotao.cloud.goods.application.dto.sys.res.DictRes;
-import com.taotao.cloud.sys.api.client.response.DictApiResponse;
-import org.mapstruct.Mapper;
-import org.mapstruct.MappingConstants;
-import org.mapstruct.factory.Mappers;
+import com.taotao.boot.common.constant.ServiceNameConstants;
+import com.taotao.cloud.goods.api.client.command.fallback.GoodsEsSearchCommandApiFallback;
+import org.springframework.web.service.annotation.HttpExchange;
 
 /**
- * IParametersMapStruct
+ * 远程调用订单模块
  *
  * @author shuigedeng
- * @version 2022.04
- * @since 2022-04-27 16:58:27
+ * @since 2020/5/2 16:42
  */
-@Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
-public interface OrderFacadeAssembler {
-
-    /** 实例 */
-    OrderFacadeAssembler INSTANCE = Mappers.getMapper(OrderFacadeAssembler.class);
-
-	DictRes toRes(DictApiResponse dictApiResponse);
-
-}
+@HttpExchange(value = ServiceNameConstants.TAOTAO_CLOUD_GOODS)
+public interface GoodsEsSearchCommandApi {}

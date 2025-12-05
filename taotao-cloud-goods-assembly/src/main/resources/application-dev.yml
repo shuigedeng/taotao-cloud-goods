@@ -688,36 +688,7 @@ spring:
       web:
         export:
           enabled: false
-    openfeign:
-      circuitbreaker: #如果 Spring Cloud CircuitBreaker 在 classpath 上，并且feign.circuitbreaker.enabled=true Feign 将使用断路器包装所有方法。
-        enabled: false
-      micrometer: #Feign 指标 MicrometerCapability则会创建并注册一个bean，以便您的 Feign 客户端将指标发布到 Micrometer
-        enabled: true
-      lazy-attributes-resolution: true
-      okhttp:
-        enabled: true
-      httpclient:
-        max-connections: 1000
-        max-connections-per-route: 100
-      client:
-        refresh-enabled: false #@RefreshScope支持
-        config:
-          default:
-            connectTimeout: 30000 #防止由于服务器处理时间长而阻塞调用者
-            readTimeout: 30000 #从连接建立时开始应用，在返回响应时间过长时触发。
-          #feignName:
-          #  connectTimeout: 30000
-          #  readTimeout: 30000
-      compression: #Feign 请求/响应压缩
-        request:
-          enabled: true
-          mime-types: text/xml,application/xml,application/json
-          min-request-size: 2048
-        response:
-          enabled: true
-      autoconfiguration: #您可以考虑启用 Jackson Modules 来支持org.springframework.data.domain.Page和org.springframework.data.domain.Sort解码。
-        jackson:
-          enabled: true
+
     compatibility-verifier:
       enabled: false
     loadbalancer:
@@ -820,10 +791,7 @@ spring:
 
 taotao:
   cloud:
-    feign:
-      enabled: true
-      loadbalancer:
-        enabled: true
+
     alibaba:
       nacos:
         enabled: true
@@ -1089,9 +1057,7 @@ mybatis-plus:
   configuration-properties:
     CONSTANT_CIPHER_TEXT: taotao-cloud
 
-feign:
-  sentinel:
-    enabled: true
+
 
 management:
   httpexchanges:
@@ -1177,7 +1143,7 @@ logging:
     '[org.hibernate.orm.jdbc.bind]': trace
     '[com.pack.mapper]': DEBUG
     org.apache.zookeeper.ZooKeeper: info
-    com.taotao.cloud.goods.api.feign: debug
+    com.taotao.cloud.goods.api.client: debug
     #第三方开源库datasource-proxy，该组件用于拦截SQL查询并记录。
     net.ttddyy.dsproxy.listener: debug
     net.ttddyy.dsproxy.listener.logging.SLF4JQueryLoggingListener: debug
