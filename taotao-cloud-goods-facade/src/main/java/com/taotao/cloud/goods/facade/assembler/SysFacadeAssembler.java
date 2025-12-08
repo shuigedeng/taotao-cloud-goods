@@ -18,8 +18,8 @@ package com.taotao.cloud.goods.facade.assembler;
 
 import com.taotao.cloud.goods.application.dto.sys.req.DictReq;
 import com.taotao.cloud.goods.application.dto.sys.res.DictRes;
-import com.taotao.cloud.sys.api.client.request.DictQueryApiRequest;
-import com.taotao.cloud.sys.api.client.response.DictApiResponse;
+import com.taotao.cloud.sys.api.inner.request.DictQueryApiRequest;
+import com.taotao.cloud.sys.api.inner.response.DictApiResponse;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingConstants;
 import org.mapstruct.factory.Mappers;

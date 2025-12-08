@@ -14,35 +14,52 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.api.client.dto.response;
+package com.taotao.cloud.goods.api.inner.dto.request;
 
-import com.taotao.boot.common.model.response.ResponseBase;
+import com.taotao.boot.common.model.request.RequestBase;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
 import lombok.experimental.Accessors;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.List;
 
-/** 品牌VO */
+/** 规格值 */
 @Setter
 @Getter
 @ToString
 @Accessors(fluent = true)
 @AllArgsConstructor
 @NoArgsConstructor
-@Schema(description = "品牌VO")
-public class BrandCommandApiResponse  extends ResponseBase implements Serializable {
+public class SpecValueCommandApiRequest extends RequestBase implements Serializable {
 
     @Serial
-	private static final long serialVersionUID = 3829199991161122317L;
+    private static final long serialVersionUID = -4433579132929428572L;
 
-    @Schema(description = "id")
-    private String id;
+    @Schema(description = "规格项名字")
+    private String specName;
 
-    @Schema(description = "名称")
-    private String name;
+    @Schema(description = "规格值")
+    private String specValue;
 
-    @Schema(description = "logo")
-    private String logo;
+    @Schema(description = "该规格是否有图片，1 有 0 没有")
+    private Integer specType;
+
+    @Schema(description = "规格的图片")
+    private List<SpecImages> specImage;
+
+    @Setter
+@Getter
+@ToString
+    public static class SpecImages implements Serializable {
+
+        private static final long serialVersionUID = 1816357809660916086L;
+
+        private String url;
+
+        private String name;
+
+        private String status;
+    }
 }

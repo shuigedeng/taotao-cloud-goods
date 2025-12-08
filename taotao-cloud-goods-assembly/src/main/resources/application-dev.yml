@@ -1143,7 +1143,7 @@ logging:
     '[org.hibernate.orm.jdbc.bind]': trace
     '[com.pack.mapper]': DEBUG
     org.apache.zookeeper.ZooKeeper: info
-    com.taotao.cloud.goods.api.client: debug
+    com.taotao.cloud.goods.api.inner: debug
     #第三方开源库datasource-proxy，该组件用于拦截SQL查询并记录。
     net.ttddyy.dsproxy.listener: debug
     net.ttddyy.dsproxy.listener.logging.SLF4JQueryLoggingListener: debug

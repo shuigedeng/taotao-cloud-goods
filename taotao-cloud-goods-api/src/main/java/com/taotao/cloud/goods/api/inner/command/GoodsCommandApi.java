@@ -14,15 +14,13 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.api.client.query;
+package com.taotao.cloud.goods.api.inner.command;
 
 import com.taotao.boot.common.constant.ServiceNameConstants;
 import com.taotao.boot.common.model.request.Request;
-import com.taotao.boot.common.model.response.BatchResponse;
 import com.taotao.boot.common.model.response.Response;
-import com.taotao.cloud.goods.api.client.command.fallback.CategoryCommandApiFallback;
-import com.taotao.cloud.goods.api.client.dto.request.CategoryCommandApiRequest;
-import com.taotao.cloud.goods.api.client.dto.response.CategoryTreeCommandApiResponse;
+import com.taotao.cloud.goods.api.inner.dto.request.GoodsCommandApiRequest;
+import com.taotao.cloud.goods.api.inner.dto.response.GoodsCommandApiResponse;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.service.annotation.HttpExchange;
@@ -35,9 +33,17 @@ import org.springframework.web.service.annotation.PostExchange;
  * @since 2020/5/2 16:42
  */
 @HttpExchange(value = ServiceNameConstants.TAOTAO_CLOUD_GOODS)
-public interface CategoryQueryApi {
+public interface GoodsCommandApi {
 
-	@PostExchange(value = "/category/first/id/{id:[0-9]*}")
-	Response<BatchResponse<CategoryTreeCommandApiResponse>> firstCategory(
-		@Validated @RequestBody Request<CategoryCommandApiRequest> id);
+
+	@PostExchange(value = "/product/strore/detail/{id:[0-9]*}")
+	Response<GoodsCommandApiResponse> updateStoreDetail(@Validated @RequestBody Request<GoodsCommandApiRequest> id);
+
+
+	@PostExchange(value = "/product/strore/goods/{id:[0-9]*}")
+	Response<GoodsCommandApiResponse> underStoreGoods(@Validated @RequestBody Request<GoodsCommandApiRequest> id);
+
+
+	@PostExchange(value = "/product/strore/goods/num/{storeId:[0-9]*}")
+	Response<GoodsCommandApiResponse> countStoreGoodsNum(@Validated @RequestBody Request<GoodsCommandApiRequest> storeId);
 }

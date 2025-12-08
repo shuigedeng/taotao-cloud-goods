@@ -14,44 +14,35 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.api.client.dto.response;
+package com.taotao.cloud.goods.api.inner.dto.response;
 
 import com.taotao.boot.common.model.response.ResponseBase;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
+import lombok.experimental.Accessors;
 
-import java.math.BigDecimal;
+import java.io.Serial;
+import java.io.Serializable;
 
-/** 商品分类 */
+/** 品牌VO */
 @Setter
 @Getter
 @ToString
+@Accessors(fluent = true)
 @AllArgsConstructor
 @NoArgsConstructor
-@Schema(description = "商品分类VO")
-public class CategoryCommandApiResponse  extends ResponseBase {
+@Schema(description = "品牌VO")
+public class BrandCommandApiResponse  extends ResponseBase implements Serializable {
+
+    @Serial
+	private static final long serialVersionUID = 3829199991161122317L;
 
     @Schema(description = "id")
-    private Long id;
+    private String id;
 
-    @Schema(description = "分类名称")
+    @Schema(description = "名称")
     private String name;
 
-    @Schema(description = " 父id, 根节点为0")
-    private Long parentId;
-
-    @Schema(description = "层级, 从0开始")
-    private Integer level;
-
-    @Schema(description = "排序值")
-    private Integer sortOrder;
-
-    @Schema(description = "佣金比例")
-    private BigDecimal commissionRate;
-
-    @Schema(description = "分类图标")
-    private String image;
-
-    @Schema(description = "是否支持频道")
-    private Boolean supportChannel;
+    @Schema(description = "logo")
+    private String logo;
 }

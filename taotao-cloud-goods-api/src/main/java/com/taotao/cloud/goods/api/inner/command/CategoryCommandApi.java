@@ -14,17 +14,14 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.api.client.command;
+package com.taotao.cloud.goods.api.inner.command;
 
 import com.taotao.boot.common.constant.ServiceNameConstants;
-import com.taotao.boot.common.model.request.BatchRequest;
 import com.taotao.boot.common.model.request.Request;
 import com.taotao.boot.common.model.response.BatchResponse;
-import com.taotao.boot.common.model.response.EmptyResponse;
 import com.taotao.boot.common.model.response.Response;
-import com.taotao.cloud.goods.api.client.command.fallback.GoodsEsIndexCommandApiFallback;
-import com.taotao.cloud.goods.api.client.dto.request.GoodsCommandApiRequest;
-import com.taotao.cloud.goods.api.client.dto.response.EsGoodsIndexCommandApiResponse;
+import com.taotao.cloud.goods.api.inner.dto.request.CategoryCommandApiRequest;
+import com.taotao.cloud.goods.api.inner.dto.response.CategoryTreeCommandApiResponse;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.service.annotation.HttpExchange;
@@ -37,12 +34,9 @@ import org.springframework.web.service.annotation.PostExchange;
  * @since 2020/5/2 16:42
  */
 @HttpExchange(value = ServiceNameConstants.TAOTAO_CLOUD_GOODS)
-public interface GoodsEsIndexCommandApi {
+public interface CategoryCommandApi {
 
-	@PostExchange(value = "/es/goods/sku/ids")
-	Response<BatchResponse<EsGoodsIndexCommandApiResponse>> getEsGoodsBySkuIds(
-		@Validated @RequestBody Request<BatchRequest<GoodsCommandApiRequest>> skuIdList);
-
-	@PostExchange(value = "/es/clean/invalid-promotion")
-	Response<EmptyResponse> cleanInvalidPromotion(@Validated @RequestBody Request<GoodsCommandApiRequest> Request);
+	@PostExchange(value = "/category/first/id/{id:[0-9]*}")
+	Response<BatchResponse<CategoryTreeCommandApiResponse>> firstCategory(
+		@Validated @RequestBody Request<CategoryCommandApiRequest> id);
 }

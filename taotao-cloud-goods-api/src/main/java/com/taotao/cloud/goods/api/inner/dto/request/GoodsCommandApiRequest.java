@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.api.client.dto.response;
+package com.taotao.cloud.goods.api.inner.dto.request;
 
-import com.taotao.boot.common.model.response.ResponseBase;
+import com.taotao.boot.common.model.request.RequestBase;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.Pattern;
 import lombok.*;
@@ -36,11 +36,11 @@ import java.io.Serializable;
 @Getter
 @ToString
 @Accessors(fluent = true)
-@EqualsAndHashCode(callSuper = false)
+@EqualsAndHashCode
 @AllArgsConstructor
 @NoArgsConstructor
 @Schema(description = "商品查询请求")
-public class GoodsCommandApiResponse  extends ResponseBase implements Serializable {
+public class GoodsCommandApiRequest extends RequestBase implements Serializable {
 
     @Serial
     private static final long serialVersionUID = -4132785717179910025L;
