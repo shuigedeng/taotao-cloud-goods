@@ -499,7 +499,7 @@ spring:
       #none：禁用DDL处理
       ddl-auto: none
       naming:
-        implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
+        implicit-strategy: org.springframework.boot.hibernate.SpringImplicitNamingStrategy
         physical-strategy: org.hibernate.boot.model.naming.CamelCaseToUnderscoresNamingStrategy
     properties:
       eclipselink:
@@ -1092,15 +1092,37 @@ management:
       enabled: false
     elasticsearch:
       enabled: true
-  zipkin:
+  opentelemetry:
+    logging:
+      export:
+        otlp:
+          compression: none
+          endpoint: http://192.168.218.2:4318/v1/logs
+          timeout: 10s
+          headers:
+            version: 2026.01
     tracing:
-      connect-timeout: 60s
-      read-timeout: 60s
-      endpoint: http://192.168.218.2:9411/api/v2/spans
+      export:
+        otlp:
+          compression: none
+          endpoint: http://192.168.218.2:4318/v1/traces
+          timeout: 10s
+          headers:
+            version: 2026.01
+  otlp:
+    metrics:
+      export:
+        url: http://192.168.218.2:4318/v1/metrics
+        enabled: true
+        batch-size: 10000
+        connect-timeout: 10s
+        headers:
+          version: 2026.01
   tracing:
-    enabled: true
     sampling:
       probability: 1.0
+    export:
+      enabled: true
   observations:
     http:
       client:
