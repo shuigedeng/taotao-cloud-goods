@@ -1306,7 +1306,7 @@ logging:
     web: TRACE
     root: INFO
     org.apache.zookeeper.ZooKeeper: info
-    com.taotao.cloud.goods.api.client: debug
+    com.taotao.cloud.goods.api.inner: debug
     net.ttddyy.dsproxy.listener: debug
     net.ttddyy.dsproxy.listener.logging.SLF4JQueryLoggingListener: debug
     org.springframework.core.log.LogAccessor: error

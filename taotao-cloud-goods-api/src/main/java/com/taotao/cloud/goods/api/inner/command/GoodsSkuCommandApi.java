@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.api.client.command;
+package com.taotao.cloud.goods.api.inner.command;
 
 import com.taotao.boot.common.constant.ServiceNameConstants;
 import com.taotao.boot.common.model.request.BatchRequest;
@@ -22,11 +22,10 @@ import com.taotao.boot.common.model.request.Request;
 import com.taotao.boot.common.model.response.BatchResponse;
 import com.taotao.boot.common.model.response.EmptyResponse;
 import com.taotao.boot.common.model.response.Response;
-import com.taotao.cloud.goods.api.client.command.fallback.GoodsSkuCommandApiFallback;
-import com.taotao.cloud.goods.api.client.dto.request.GoodsCommandApiRequest;
-import com.taotao.cloud.goods.api.client.dto.request.GoodsSkuSpecGalleryCommandApiRequest;
-import com.taotao.cloud.goods.api.client.dto.response.CategoryCommandApiResponse;
-import com.taotao.cloud.goods.api.client.dto.response.GoodsSkuSpecGalleryCommandApiResponse;
+import com.taotao.cloud.goods.api.inner.dto.request.GoodsCommandApiRequest;
+import com.taotao.cloud.goods.api.inner.dto.request.GoodsSkuSpecGalleryCommandApiRequest;
+import com.taotao.cloud.goods.api.inner.dto.response.CategoryCommandApiResponse;
+import com.taotao.cloud.goods.api.inner.dto.response.GoodsSkuSpecGalleryCommandApiResponse;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.service.annotation.HttpExchange;

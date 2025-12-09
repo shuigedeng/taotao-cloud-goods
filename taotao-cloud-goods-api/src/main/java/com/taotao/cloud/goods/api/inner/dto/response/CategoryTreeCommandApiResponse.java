@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.api.client.dto.response;
+package com.taotao.cloud.goods.api.inner.dto.response;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
@@ -29,7 +29,8 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = true)
 @AllArgsConstructor
 @NoArgsConstructor
-public class CategoryTreeCommandApiResponse extends CategoryCommandApiResponse {
+public class CategoryTreeCommandApiResponse extends
+        CategoryCommandApiResponse {
 
     private static final long serialVersionUID = 3775766246075838410L;
 

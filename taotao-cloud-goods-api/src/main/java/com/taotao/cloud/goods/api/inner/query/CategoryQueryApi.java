@@ -14,11 +14,18 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.api.client.command;
+package com.taotao.cloud.goods.api.inner.query;
 
 import com.taotao.boot.common.constant.ServiceNameConstants;
-import com.taotao.cloud.goods.api.client.command.fallback.GoodsEsSearchCommandApiFallback;
+import com.taotao.boot.common.model.request.Request;
+import com.taotao.boot.common.model.response.BatchResponse;
+import com.taotao.boot.common.model.response.Response;
+import com.taotao.cloud.goods.api.inner.dto.request.CategoryCommandApiRequest;
+import com.taotao.cloud.goods.api.inner.dto.response.CategoryTreeCommandApiResponse;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.service.annotation.HttpExchange;
+import org.springframework.web.service.annotation.PostExchange;
 
 /**
  * 远程调用订单模块
@@ -27,4 +34,9 @@ import org.springframework.web.service.annotation.HttpExchange;
  * @since 2020/5/2 16:42
  */
 @HttpExchange(value = ServiceNameConstants.TAOTAO_CLOUD_GOODS)
-public interface GoodsEsSearchCommandApi {}
+public interface CategoryQueryApi {
+
+	@PostExchange(value = "/category/first/id/{id:[0-9]*}")
+	Response<BatchResponse<CategoryTreeCommandApiResponse>> firstCategory(
+		@Validated @RequestBody Request<CategoryCommandApiRequest> id);
+}
