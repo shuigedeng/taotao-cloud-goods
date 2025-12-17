@@ -147,7 +147,7 @@ configurations {
             force 'org.antlr:antlr4:4.13.2'
             force 'net.minidev:json-smart:2.6.0'
             //todo 临时使用
-            force "io.opentelemetry:opentelemetry-api-incubator:1.56.0-alpha"
+            force "io.opentelemetry:opentelemetry-api-incubator:1.57.0-alpha"
         }
 
         //exclude group: "log4j", module: "log4j"
@@ -157,7 +157,7 @@ configurations {
         //exclude group: "org.apache.logging.log4j", module: "log4j-to-slf4j"
         //exclude group: "org.apache.logging.log4j", module: "log4j-api"
         //exclude group: "org.springframework.boot", module: "spring-boot-starter-tomcat"
-exclude group: "org.springframework.boot", module: "spring-boot-starter-undertow"
+        exclude group: "org.springframework.boot", module: "spring-boot-starter-undertow"
         exclude group: "commons-logging", module: "commons-logging"
     }
 }
