@@ -40,15 +40,38 @@ import org.springframework.web.service.annotation.PostExchange;
 @HttpExchange(value = ServiceNameConstants.TAOTAO_CLOUD_GOODS)
 public interface GoodsSkuCommandApi {
 
+	/**
+	 * updateGoodsStuck
+	 *
+	 * @return Response<EmptyResponse>
+	 */
 	@PostExchange(value = "/product/updateGoodsStuck")
-	Response<EmptyResponse> updateGoodsStuck(@Validated @RequestBody Request<BatchRequest<GoodsSkuSpecGalleryCommandApiRequest>> goodsSkus);
+	Response<EmptyResponse> updateGoodsStuck(
+		@Validated @RequestBody Request<BatchRequest<GoodsSkuSpecGalleryCommandApiRequest>> goodsSkus );
 
+	/**
+	 * updateBatchById
+	 *
+	 * @return Response<EmptyResponse>
+	 */
 	@PostExchange(value = "/product/updateBatchById")
-	Response<EmptyResponse> updateBatchById(@Validated @RequestBody Request<BatchRequest<GoodsSkuSpecGalleryCommandApiRequest>> goodsSkus);
+	Response<EmptyResponse> updateBatchById(
+		@Validated @RequestBody Request<BatchRequest<GoodsSkuSpecGalleryCommandApiRequest>> goodsSkus );
 
+	/**
+	 * getGoodsSkuByIdFromCache
+	 *
+	 * @return Response<BatchResponse<GoodsSkuSpecGalleryCommandApiResponse>>
+	 */
 	@PostExchange(value = "/product/getGoodsSkuByIdFromCache/sku-ids")
-	Response<BatchResponse<GoodsSkuSpecGalleryCommandApiResponse>> getGoodsSkuByIdFromCache(@Validated @RequestBody Request<GoodsCommandApiRequest> skuIds);
+	Response<BatchResponse<GoodsSkuSpecGalleryCommandApiResponse>> getGoodsSkuByIdFromCache(
+		@Validated @RequestBody Request<GoodsCommandApiRequest> skuIds );
 
+	/**
+	 * getStock
+	 *
+	 * @return Response<CategoryCommandApiResponse>
+	 */
 	@PostExchange(value = "/product/getStock")
-	Response<CategoryCommandApiResponse> getStock(@Validated @RequestBody Request<GoodsCommandApiRequest> skuId);
+	Response<CategoryCommandApiResponse> getStock( @Validated @RequestBody Request<GoodsCommandApiRequest> skuId );
 }

@@ -30,7 +30,12 @@ import org.springframework.web.service.annotation.PostExchange;
 @HttpExchange(value = ServiceNameConstants.TAOTAO_CLOUD_GOODS)
 public interface StoreGoodsLabelCommandApi {
 
+	/**
+	 * listByStoreId
+	 *
+	 * @return Response<BatchResponse<StoreGoodsLabelCommandApiResponse>>
+	 */
 	@PostExchange(value = "/store/{id}")
 	Response<BatchResponse<StoreGoodsLabelCommandApiResponse>> listByStoreId(
-		@Validated @RequestBody Request<GoodsCommandApiRequest> id);
+		@Validated @RequestBody Request<GoodsCommandApiRequest> id );
 }

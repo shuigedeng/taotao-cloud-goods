@@ -36,7 +36,12 @@ import org.springframework.web.service.annotation.PostExchange;
 @HttpExchange(value = ServiceNameConstants.TAOTAO_CLOUD_GOODS)
 public interface CategoryQueryApi {
 
+	/**
+	 * firstCategory
+	 *
+	 * @return Response<BatchResponse<CategoryTreeCommandApiResponse>>
+	 */
 	@PostExchange(value = "/category/first/id/{id:[0-9]*}")
 	Response<BatchResponse<CategoryTreeCommandApiResponse>> firstCategory(
-		@Validated @RequestBody Request<CategoryCommandApiRequest> id);
+		@Validated @RequestBody Request<CategoryCommandApiRequest> id );
 }

@@ -36,14 +36,30 @@ import org.springframework.web.service.annotation.PostExchange;
 public interface GoodsCommandApi {
 
 
+	/**
+	 * updateStoreDetail
+	 *
+	 * @return Response<GoodsCommandApiResponse>
+	 */
 	@PostExchange(value = "/product/strore/detail/{id:[0-9]*}")
-	Response<GoodsCommandApiResponse> updateStoreDetail(@Validated @RequestBody Request<GoodsCommandApiRequest> id);
+	Response<GoodsCommandApiResponse> updateStoreDetail( @Validated @RequestBody Request<GoodsCommandApiRequest> id );
 
 
+	/**
+	 * underStoreGoods
+	 *
+	 * @return Response<GoodsCommandApiResponse>
+	 */
 	@PostExchange(value = "/product/strore/goods/{id:[0-9]*}")
-	Response<GoodsCommandApiResponse> underStoreGoods(@Validated @RequestBody Request<GoodsCommandApiRequest> id);
+	Response<GoodsCommandApiResponse> underStoreGoods( @Validated @RequestBody Request<GoodsCommandApiRequest> id );
 
 
+	/**
+	 * countStoreGoodsNum
+	 *
+	 * @return Response<GoodsCommandApiResponse>
+	 */
 	@PostExchange(value = "/product/strore/goods/num/{storeId:[0-9]*}")
-	Response<GoodsCommandApiResponse> countStoreGoodsNum(@Validated @RequestBody Request<GoodsCommandApiRequest> storeId);
+	Response<GoodsCommandApiResponse> countStoreGoodsNum(
+		@Validated @RequestBody Request<GoodsCommandApiRequest> storeId );
 }

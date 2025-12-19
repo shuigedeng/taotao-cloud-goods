@@ -38,10 +38,20 @@ import org.springframework.web.service.annotation.PostExchange;
 @HttpExchange(value = ServiceNameConstants.TAOTAO_CLOUD_GOODS)
 public interface GoodsEsIndexCommandApi {
 
+	/**
+	 * getEsGoodsBySkuIds
+	 *
+	 * @return Response<BatchResponse<EsGoodsIndexCommandApiResponse>>
+	 */
 	@PostExchange(value = "/es/goods/sku/ids")
 	Response<BatchResponse<EsGoodsIndexCommandApiResponse>> getEsGoodsBySkuIds(
-		@Validated @RequestBody Request<BatchRequest<GoodsCommandApiRequest>> skuIdList);
+		@Validated @RequestBody Request<BatchRequest<GoodsCommandApiRequest>> skuIdList );
 
+	/**
+	 * cleanInvalidPromotion
+	 *
+	 * @return Response<EmptyResponse>
+	 */
 	@PostExchange(value = "/es/clean/invalid-promotion")
-	Response<EmptyResponse> cleanInvalidPromotion(@Validated @RequestBody Request<GoodsCommandApiRequest> Request);
+	Response<EmptyResponse> cleanInvalidPromotion( @Validated @RequestBody Request<GoodsCommandApiRequest> Request );
 }
