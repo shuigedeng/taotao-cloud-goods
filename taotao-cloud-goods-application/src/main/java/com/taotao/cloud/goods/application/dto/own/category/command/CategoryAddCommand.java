@@ -21,6 +21,13 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
 import lombok.experimental.Accessors;
 
+/**
+ * CategoryAddCommand
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 @Setter
 @Getter
 @ToString
@@ -29,5 +36,6 @@ import lombok.experimental.Accessors;
 @NoArgsConstructor
 @Schema(description = "分类品牌CO")
 public class CategoryAddCommand extends Command {
+
     private String id;
 }

@@ -23,11 +23,19 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.Accessors;
 
+/**
+ * CustomWordsAddCommand
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 @Setter
 @Getter
 @Accessors(fluent = true)
 @AllArgsConstructor
 @NoArgsConstructor
 public class CustomWordsAddCommand extends Command {
+
     private String id;
 }

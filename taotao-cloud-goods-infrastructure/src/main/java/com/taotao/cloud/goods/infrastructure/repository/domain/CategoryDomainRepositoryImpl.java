@@ -34,6 +34,13 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * CategoryDomainRepositoryImpl
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 @Service
 @AllArgsConstructor
 public class CategoryDomainRepositoryImpl implements CategoryDomainRepository {
@@ -43,28 +50,31 @@ public class CategoryDomainRepositoryImpl implements CategoryDomainRepository {
     private final GoodsMapper goodsMapper;
     private final GoodsSkuMapper goodsSkuMapper;
 
-	private final CategoryRepository categoryRepository;
-	private final CategoryInfraAssembler categoryInfraAssembler;
-
-	@Override
-	public List<CategoryAgg> findCategory(DelFlagEnum delFlg) {
-		QCategoryPO qCategoryPO = QCategoryPO.categoryPO;
-		Predicate predicate = qCategoryPO.delFlag.eq(delFlg.delFlag());
-		Iterable<CategoryPO> categoryPOs = categoryRepository.findAll(predicate);
-		return categoryInfraAssembler.toAggs(categoryPOs);
-	}
-
-	@Override
-    public void create(CategoryAgg categoryEntity) {}
+    private final CategoryRepository categoryRepository;
+    private final CategoryInfraAssembler categoryInfraAssembler;
 
     @Override
-    public void modify(CategoryAgg categoryEntity) {}
+    public List<CategoryAgg> findCategory( DelFlagEnum delFlg ) {
+        QCategoryPO qCategoryPO = QCategoryPO.categoryPO;
+        Predicate predicate = qCategoryPO.delFlag.eq(delFlg.delFlag());
+        Iterable<CategoryPO> categoryPOs = categoryRepository.findAll(predicate);
+        return categoryInfraAssembler.toAggs(categoryPOs);
+    }
 
     @Override
-    public void remove(Long[] ids) {}
+    public void create( CategoryAgg categoryEntity ) {
+    }
 
     @Override
-    public boolean isSatisfiedBy(BizId categoryId) {
+    public void modify( CategoryAgg categoryEntity ) {
+    }
+
+    @Override
+    public void remove( Long[] ids ) {
+    }
+
+    @Override
+    public boolean isSatisfiedBy( BizId categoryId ) {
         // 验证分类ID是否存在
         //        Boolean existParentId = this.categoryRepository.existsById(categoryId.getId());
         //        Validates.isTrue(existParentId, "category id does not exist");

@@ -18,10 +18,18 @@ package com.taotao.cloud.goods.common.data.dataparam;
 
 import lombok.*;
 
+/**
+ * GoodsParam
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 @Setter
 @Getter
 @ToString
 public class GoodsParam {
+
     private String name;
     private String id;
 }

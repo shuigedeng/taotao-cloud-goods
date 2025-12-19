@@ -27,15 +27,24 @@ import com.taotao.cloud.goods.infrastructure.assembler.GoodsInfraAssembler;
 import com.taotao.cloud.goods.infrastructure.persistent.mapper.GoodsMapper;
 import com.taotao.cloud.goods.infrastructure.persistent.mapper.GoodsSkuMapper;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsPO;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Collection;
+
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+/**
+ * GoodsDomainRepositoryImpl
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 @Service
 @AllArgsConstructor
 public class GoodsDomainRepositoryImpl implements GoodsDomainRepository {
@@ -48,7 +57,7 @@ public class GoodsDomainRepositoryImpl implements GoodsDomainRepository {
     private final GoodsInfraAssembler goodsInfraAssembler;
 
     @Override
-    public void save(GoodsAgg goods) {
+    public void save( GoodsAgg goods ) {
         GoodsPO goodsPo = goodsInfraAssembler.toPO(goods);
 //txWrapper.doInTransaction(()->{
 //
@@ -60,35 +69,36 @@ public class GoodsDomainRepositoryImpl implements GoodsDomainRepository {
     }
 
     @Override
-    public Integer countByIdIn(Collection<BizId> ids) {
+    public Integer countByIdIn( Collection<BizId> ids ) {
         return 0;
     }
 
     @Override
-    public Boolean existsByCategoryIdIn(Collection<BizId> categoryIds) {
+    public Boolean existsByCategoryIdIn( Collection<BizId> categoryIds ) {
         return null;
     }
 
     @Override
-    public Boolean existsByIdInAndGoodsStatus(Collection<BizId> goodsIds, GoodsStatus goodsStatus) {
+    public Boolean existsByIdInAndGoodsStatus( Collection<BizId> goodsIds, GoodsStatus goodsStatus ) {
         return null;
     }
 
     @Override
-    public Boolean existsShelvedGoodsByIdIn(Collection<BizId> goodsIds) {
+    public Boolean existsShelvedGoodsByIdIn( Collection<BizId> goodsIds ) {
         return null;
     }
 
     @Override
-    public void batchModifyGoodsStatus(Collection<BizId> goodsIds, GoodsStatus goodsStatus) {}
+    public void batchModifyGoodsStatus( Collection<BizId> goodsIds, GoodsStatus goodsStatus ) {
+    }
 
     @Override
-    public GoodsAgg findGoodsWithCNameById(Long id) {
+    public GoodsAgg findGoodsWithCNameById( Long id ) {
         return null;
     }
 
     @Override
-    public Boolean existsByTagIds(Collection<Long> tagIds) {
+    public Boolean existsByTagIds( Collection<Long> tagIds ) {
         return null;
     }
 
@@ -102,7 +112,7 @@ public class GoodsDomainRepositoryImpl implements GoodsDomainRepository {
             LocalDate beforeExpirationDate,
             LocalDateTime createTimeStart,
             LocalDateTime createTimeEnd,
-            Pageable pageable) {
+            Pageable pageable ) {
         return null;
     }
 }

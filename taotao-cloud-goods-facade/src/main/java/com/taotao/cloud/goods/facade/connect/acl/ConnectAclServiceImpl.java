@@ -7,11 +7,19 @@ import com.taotao.cloud.goods.application.dto.connect.res.ConnectRes;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+/**
+ * ConnectAclServiceImpl
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 @AllArgsConstructor
 @Service
 public class ConnectAclServiceImpl extends BaseAclService implements ConnectAclService {
-	@Override
-	public ConnectRes connect(ConnectReq connectReq) {
-		return null;
-	}
+
+    @Override
+    public ConnectRes connect( ConnectReq connectReq ) {
+        return null;
+    }
 }

@@ -21,18 +21,25 @@ import com.taotao.boot.common.support.pie.ChannelHandlerContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * ArticleModifyContentHandler
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 public class ArticleModifyContentHandler implements ChannelHandler {
 
     private Logger logger = LoggerFactory.getLogger(ArticleModifyContentHandler.class);
 
     @Override
-    public void channelProcess(ChannelHandlerContext ctx, Object in, Object out) throws Exception {
+    public void channelProcess( ChannelHandlerContext ctx, Object in, Object out ) throws Exception {
 
         ctx.fireChannelProcess(in, out);
     }
 
     @Override
-    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause, Object in, Object out)
+    public void exceptionCaught( ChannelHandlerContext ctx, Throwable cause, Object in, Object out )
             throws Exception {
         logger.info("修改正文的异常处理逻辑:不处理直接向后传递");
         ctx.fireExceptionCaught(cause, in, out);

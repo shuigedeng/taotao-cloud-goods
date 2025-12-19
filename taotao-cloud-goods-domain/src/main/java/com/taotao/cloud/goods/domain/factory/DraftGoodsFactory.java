@@ -19,5 +19,14 @@ package com.taotao.cloud.goods.domain.factory;
 import com.taotao.boot.ddd.model.types.Factory;
 import org.springframework.stereotype.Component;
 
+/**
+ * DraftGoodsFactory
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 @Component
-public class DraftGoodsFactory implements Factory {}
+public class DraftGoodsFactory implements Factory {
+
+}

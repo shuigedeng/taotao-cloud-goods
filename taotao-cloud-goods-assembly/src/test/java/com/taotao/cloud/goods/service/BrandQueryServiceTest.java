@@ -22,9 +22,17 @@ import com.taotao.cloud.goods.application.service.query.BrandQueryService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
+/**
+ * BrandQueryServiceTest
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 public class BrandQueryServiceTest extends TaoTaoCloudGoodsApplicationTests {
 
-    @Autowired private BrandQueryService brandQueryService;
+    @Autowired
+    private BrandQueryService brandQueryService;
 
     // @TtcTest(duration = 1000, reporter = HtmlReporter.class)
     @Test

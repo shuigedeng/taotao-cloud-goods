@@ -24,6 +24,13 @@ import com.taotao.cloud.goods.application.handler.pie.category.handlers.CheckPar
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * DeptModifyCBootstrap
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 public class DeptModifyCBootstrap {
 
     private static final Logger logger = LoggerFactory.getLogger(DeptModifyCBootstrap.class);

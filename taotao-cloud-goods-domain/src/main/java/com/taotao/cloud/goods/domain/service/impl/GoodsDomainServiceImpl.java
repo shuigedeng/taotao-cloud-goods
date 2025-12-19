@@ -22,6 +22,13 @@ import com.taotao.cloud.goods.domain.service.GoodsDomainService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+/**
+ * GoodsDomainServiceImpl
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 @Service
 @AllArgsConstructor
 public class GoodsDomainServiceImpl implements GoodsDomainService {
@@ -29,8 +36,10 @@ public class GoodsDomainServiceImpl implements GoodsDomainService {
     private GoodsDomainRepository deptDomainRepository;
 
     @Override
-    public void create(GoodsAgg goodsAgg) {}
+    public void create( GoodsAgg goodsAgg ) {
+    }
 
     @Override
-    public void remove(Long[] ids) {}
+    public void remove( Long[] ids ) {
+    }
 }

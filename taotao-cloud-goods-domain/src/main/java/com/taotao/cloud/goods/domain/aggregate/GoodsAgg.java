@@ -23,16 +23,25 @@ import com.taotao.cloud.goods.domain.valobj.GoodsName;
 import com.taotao.cloud.goods.domain.valobj.GoodsSpec;
 import com.taotao.cloud.goods.domain.valobj.GoodsStatus;
 import jakarta.validation.constraints.NotNull;
+
 import java.time.LocalDateTime;
 import java.util.Objects;
 import java.util.Set;
 
+/**
+ * GoodsAgg
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 public class GoodsAgg extends AggregateRoot<BizId> {
 
     /**
      * 商品ID
      */
-    @NotNull private BizId id;
+    @NotNull
+    private BizId id;
 
     /**
      * 商品标签集合
@@ -42,27 +51,32 @@ public class GoodsAgg extends AggregateRoot<BizId> {
     /**
      * 商品所属分类
      */
-    @NotNull private BizId categoryId;
+    @NotNull
+    private BizId categoryId;
 
     /**
      * 商品名称
      */
-    @NotNull private GoodsName goodsName;
+    @NotNull
+    private GoodsName goodsName;
 
     /**
      * 商品描述
      */
-    @NotNull private GoodsSpec goodsSpec;
+    @NotNull
+    private GoodsSpec goodsSpec;
 
     /**
      * 商品价格
      */
-    @NotNull private Price goodsPrice;
+    @NotNull
+    private Price goodsPrice;
 
     /**
      * 商品状态
      */
-    @NotNull private GoodsStatus goodsStatus;
+    @NotNull
+    private GoodsStatus goodsStatus;
 
     /**
      * 创建时间
@@ -74,16 +88,17 @@ public class GoodsAgg extends AggregateRoot<BizId> {
      */
     private LocalDateTime updateTime;
 
-    private GoodsAgg() {}
+    private GoodsAgg() {
+    }
 
     /**
      * 初始创建商品信息
      *
-     * @param id          商品ID
-     * @param categoryId  商品所属分类ID
-     * @param goodsName   商品名称
-     * @param goodsSpec   商品描述
-     * @param goodsPrice  商品价格
+     * @param id 商品ID
+     * @param categoryId 商品所属分类ID
+     * @param goodsName 商品名称
+     * @param goodsSpec 商品描述
+     * @param goodsPrice 商品价格
      * @param goodsStatus 商品状态
      */
     public GoodsAgg(
@@ -93,7 +108,7 @@ public class GoodsAgg extends AggregateRoot<BizId> {
             GoodsSpec goodsSpec,
             Price goodsPrice,
             GoodsStatus goodsStatus,
-            Set<BizId> tagIds) {
+            Set<BizId> tagIds ) {
         this.id = id;
         this.categoryId = categoryId;
         this.goodsName = goodsName;
@@ -115,7 +130,7 @@ public class GoodsAgg extends AggregateRoot<BizId> {
             Price goodsPrice,
             GoodsStatus goodsStatus,
             LocalDateTime createTime,
-            LocalDateTime updateTime) {
+            LocalDateTime updateTime ) {
         this.id = id;
         this.tagIds = tagIds;
         this.categoryId = categoryId;
@@ -132,8 +147,8 @@ public class GoodsAgg extends AggregateRoot<BizId> {
      * 修改基础信息
      *
      * @param categoryId 分类ID
-     * @param goodsName  商品名称
-     * @param goodsSpec  商品规格
+     * @param goodsName 商品名称
+     * @param goodsSpec 商品规格
      * @param goodsPrice 商品价格
      */
     public void modifyBasicInfo(
@@ -141,7 +156,7 @@ public class GoodsAgg extends AggregateRoot<BizId> {
             GoodsName goodsName,
             GoodsSpec goodsSpec,
             Price goodsPrice,
-            Set<BizId> tagIds) {
+            Set<BizId> tagIds ) {
         this.categoryId = categoryId;
         this.goodsName = goodsName;
         this.goodsSpec = goodsSpec;
@@ -201,7 +216,7 @@ public class GoodsAgg extends AggregateRoot<BizId> {
     }
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals( Object o ) {
         if (this == o) {
             return true;
         }

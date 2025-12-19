@@ -22,12 +22,19 @@ import com.taotao.cloud.goods.application.context.GoodsContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * DeptModifyContentHandler
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 public class DeptModifyContentHandler implements ChannelHandler {
 
     private Logger logger = LoggerFactory.getLogger(DeptModifyContentHandler.class);
 
     @Override
-    public void channelProcess(ChannelHandlerContext ctx, Object in, Object out) throws Exception {
+    public void channelProcess( ChannelHandlerContext ctx, Object in, Object out ) throws Exception {
 
         logger.info("修改正文:进入修改正文的Handler");
 
@@ -39,6 +46,7 @@ public class DeptModifyContentHandler implements ChannelHandler {
     }
 
     @Override
-    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause, Object in, Object out)
-            throws Exception {}
+    public void exceptionCaught( ChannelHandlerContext ctx, Throwable cause, Object in, Object out )
+            throws Exception {
+    }
 }

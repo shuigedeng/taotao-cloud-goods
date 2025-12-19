@@ -24,11 +24,20 @@ import com.taotao.cloud.goods.domain.aggregate.GoodsTagAgg;
 import com.taotao.cloud.goods.domain.repository.GoodsTagDomainRepository;
 import com.taotao.cloud.goods.infrastructure.persistent.mapper.GoodsMapper;
 import com.taotao.cloud.goods.infrastructure.persistent.mapper.GoodsSkuMapper;
+
 import java.util.Collection;
 import java.util.Objects;
+
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+/**
+ * GoodsTagDomainRepositoryImpl
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 @Service
 @AllArgsConstructor
 public class GoodsTagDomainRepositoryImpl implements GoodsTagDomainRepository {
@@ -39,19 +48,20 @@ public class GoodsTagDomainRepositoryImpl implements GoodsTagDomainRepository {
     private final GoodsMapper goodsMapper;
     private final GoodsSkuMapper goodsSkuMapper;
 
-    //    private final GoodsTagRepository goodsTagRepository;
+    @Override
+    public void create( GoodsTagAgg dept ) {
+    }
 
     @Override
-    public void create(GoodsTagAgg dept) {}
+    public void modify( GoodsTagAgg dept ) {
+    }
 
     @Override
-    public void modify(GoodsTagAgg dept) {}
+    public void remove( Long[] ids ) {
+    }
 
     @Override
-    public void remove(Long[] ids) {}
-
-    @Override
-    public boolean isSatisfiedBy(Collection<BizId> goodsTagIds) {
+    public boolean isSatisfiedBy( Collection<BizId> goodsTagIds ) {
         // 若标签ID集合为空，则直接验证通过
         if (Objects.isNull(goodsTagIds) || goodsTagIds.isEmpty()) {
             return true;

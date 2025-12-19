@@ -22,7 +22,9 @@ import lombok.*;
 import java.util.Comparator;
 import java.util.List;
 
-/** 分类VO */
+/**
+ * 分类VO
+ */
 @Setter
 @Getter
 @ToString
@@ -30,24 +32,29 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CategoryTreeCommandApiResponse extends
-        CategoryCommandApiResponse {
+	CategoryCommandApiResponse {
 
-    private static final long serialVersionUID = 3775766246075838410L;
+	private static final long serialVersionUID = 3775766246075838410L;
 
-    @Schema(description = "父节点名称")
-    private String parentTitle;
+	@Schema(description = "父节点名称")
+	private String parentTitle;
 
-    @Schema(description = "子分类列表")
-    private List<CategoryTreeCommandApiResponse> children;
+	@Schema(description = "子分类列表")
+	private List<CategoryTreeCommandApiResponse> children;
 
-    @Schema(description = "分类关联的品牌列表")
-    private List<BrandCommandApiResponse> brandList;
+	@Schema(description = "分类关联的品牌列表")
+	private List<BrandCommandApiResponse> brandList;
 
-    public List<CategoryTreeCommandApiResponse> getChildren() {
-        if (children != null) {
-            children.sort(Comparator.comparing(CategoryCommandApiResponse::getSortOrder));
-            return children;
-        }
-        return null;
-    }
+	/**
+	 * getChildren
+	 *
+	 * @return List<CategoryTreeCommandApiResponse>
+	 */
+	public List<CategoryTreeCommandApiResponse> getChildren() {
+		if (children != null) {
+			children.sort(Comparator.comparing(CategoryCommandApiResponse::getSortOrder));
+			return children;
+		}
+		return null;
+	}
 }

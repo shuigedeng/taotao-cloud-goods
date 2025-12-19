@@ -25,26 +25,35 @@ import com.taotao.cloud.goods.infrastructure.assembler.BrandInfraAssembler;
 import com.taotao.cloud.goods.infrastructure.persistent.mapper.BrandMapper;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.BrandPO;
 import com.taotao.cloud.goods.infrastructure.persistent.repository.BrandRepository;
+
 import java.util.Optional;
+
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+/**
+ * BrandQueryRepositoryImpl
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 @Service
 @AllArgsConstructor
 public class BrandQueryRepositoryImpl implements BrandQueryRepository {
 
     private final BrandMapper brandMapper;
-	private final SysAclService sysAclService;
+    private final SysAclService sysAclService;
     private final BrandRepository brandRepository;
     private final BrandInfraAssembler brandInfraAssembler;
 
     @Override
-    public BrandResult getById(Long id) {
+    public BrandResult getById( Long id ) {
         BrandPO brandPO = brandMapper.selectById(id);
 
-		DictRes dictRes = sysAclService.findByCode(DictReq.builder().code("123").build());
+        DictRes dictRes = sysAclService.findByCode(DictReq.builder().code("123").build());
 
-		Optional<BrandPO> brandPOOptional = brandRepository.findById(id);
+        Optional<BrandPO> brandPOOptional = brandRepository.findById(id);
 
         brandRepository.test();
 

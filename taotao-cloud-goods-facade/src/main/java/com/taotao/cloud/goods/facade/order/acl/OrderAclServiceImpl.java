@@ -27,18 +27,15 @@ import com.taotao.cloud.sys.api.inner.response.DictApiResponse;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+/**
+ * OrderAclServiceImpl
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 @AllArgsConstructor
 @Service
-public class OrderAclServiceImpl extends BaseAclService  {
-//
-//	@Override
-//	public DictRes findByCode(DictReq dictReq) {
-////		GatewayResponse<DictApiResponse> gatewayResponse = sysInvoker.findByCode(makeRequest(facadeAssembler.toReq(dictReq)));
-////		DictApiResponse result = this.getResult(gatewayResponse);
-//
-//
-////		DictApiResponse dictApiResponse = dictClientProxy.findByCode();
-////		return facadeAssembler.toRes(null);
-//		return null;
-//	}
+public class OrderAclServiceImpl extends BaseAclService {
+
 }

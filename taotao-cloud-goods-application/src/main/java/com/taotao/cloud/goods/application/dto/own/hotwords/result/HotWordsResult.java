@@ -18,10 +18,19 @@ package com.taotao.cloud.goods.application.dto.own.hotwords.result;
 
 import com.taotao.boot.ddd.model.application.dto.BaseResult;
 import io.swagger.v3.oas.annotations.media.Schema;
+
 import java.io.Serial;
+
 import lombok.*;
 import lombok.experimental.Accessors;
 
+/**
+ * HotWordsResult
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 @Setter
 @Getter
 @Accessors(fluent = true)
@@ -30,7 +39,8 @@ import lombok.experimental.Accessors;
 // public class DeptCO extends TreeUtil.TreeNode<DeptCO> {
 public class HotWordsResult extends BaseResult {
 
-    @Serial private static final long serialVersionUID = 4116703987840123059L;
+    @Serial
+    private static final long serialVersionUID = 4116703987840123059L;
 
     @Schema(name = "sort", description = "部门排序")
     private Integer sort;

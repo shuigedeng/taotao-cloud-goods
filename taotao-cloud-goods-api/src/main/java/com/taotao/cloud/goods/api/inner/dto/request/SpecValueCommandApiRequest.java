@@ -25,7 +25,9 @@ import java.io.Serial;
 import java.io.Serializable;
 import java.util.List;
 
-/** 规格值 */
+/**
+ * 规格值
+ */
 @Setter
 @Getter
 @ToString
@@ -49,9 +51,16 @@ public class SpecValueCommandApiRequest extends RequestBase implements Serializa
     @Schema(description = "规格的图片")
     private List<SpecImages> specImage;
 
+    /**
+     * SpecImages
+     *
+     * @author shuigedeng
+     * @version 2026.01
+     * @since 2025-12-19 09:30:45
+     */
     @Setter
-@Getter
-@ToString
+    @Getter
+    @ToString
     public static class SpecImages implements Serializable {
 
         private static final long serialVersionUID = 1816357809660916086L;

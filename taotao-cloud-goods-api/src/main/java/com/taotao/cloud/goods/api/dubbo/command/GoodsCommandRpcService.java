@@ -30,5 +30,10 @@ import com.taotao.cloud.goods.api.dubbo.dto.response.GoodsQueryRpcResponse;
  */
 public interface GoodsCommandRpcService {
 
-	Response<GoodsQueryRpcResponse> queryGoodsByParams(Request<GoodsQueryRpcRequest> goodsQueryRpcRequest);
+	/**
+	 * queryGoodsByParams
+	 *
+	 * @return Response<GoodsQueryRpcResponse>
+	 */
+	Response<GoodsQueryRpcResponse> queryGoodsByParams( Request<GoodsQueryRpcRequest> goodsQueryRpcRequest );
 }

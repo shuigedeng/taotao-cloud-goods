@@ -18,7 +18,16 @@ package com.taotao.cloud.goods.application.context;
 
 import lombok.*;
 
+/**
+ * DraftGoodsContext
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 @Setter
 @Getter
 @ToString
-public class DraftGoodsContext {}
+public class DraftGoodsContext {
+
+}

@@ -18,4 +18,13 @@ package com.taotao.cloud.goods.application.handler.pie.goods;
 
 import com.taotao.boot.common.support.pie.AbstractChannel;
 
-public class DeptModifyChannel extends AbstractChannel {}
+/**
+ * DeptModifyChannel
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
+public class DeptModifyChannel extends AbstractChannel {
+
+}

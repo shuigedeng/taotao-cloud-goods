@@ -33,17 +33,21 @@ public class GoodsSpec implements ValueObject {
     /**
      * 生产日期
      */
-    @NotNull @PastOrPresent private LocalDate manufactureDate;
+    @NotNull
+    @PastOrPresent
+    private LocalDate manufactureDate;
 
     /**
      * 过期日期
      */
-    @NotNull private LocalDate expirationDate;
+    @NotNull
+    private LocalDate expirationDate;
 
     /**
      * 商品重量
      */
-    @NotNull private GoodsWeight goodsWeight;
+    @NotNull
+    private GoodsWeight goodsWeight;
 
     /**
      * 商品介绍
@@ -52,9 +56,10 @@ public class GoodsSpec implements ValueObject {
     @Length(min = 1, max = 1024)
     private String goodsDesc;
 
-    GoodsSpec() {}
+    GoodsSpec() {
+    }
 
-    private GoodsSpec(Builder builder) {
+    private GoodsSpec( Builder builder ) {
         manufactureDate = builder.manufactureDate;
         expirationDate = builder.expirationDate;
         goodsWeight = builder.goodsWeight;
@@ -83,7 +88,7 @@ public class GoodsSpec implements ValueObject {
     }
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals( Object o ) {
         if (this == o) {
             return true;
         }
@@ -118,34 +123,43 @@ public class GoodsSpec implements ValueObject {
     }
 
     @Override
-    public boolean sameValueAs(Object other) {
+    public boolean sameValueAs( Object other ) {
         return false;
     }
 
+    /**
+     * Builder
+     *
+     * @author shuigedeng
+     * @version 2026.01
+     * @since 2025-12-19 09:30:45
+     */
     public static final class Builder {
+
         private LocalDate manufactureDate;
         private LocalDate expirationDate;
         private GoodsWeight goodsWeight;
         private String goodsDesc;
 
-        private Builder() {}
+        private Builder() {
+        }
 
-        public Builder manufactureDate(LocalDate val) {
+        public Builder manufactureDate( LocalDate val ) {
             manufactureDate = val;
             return this;
         }
 
-        public Builder expirationDate(LocalDate val) {
+        public Builder expirationDate( LocalDate val ) {
             expirationDate = val;
             return this;
         }
 
-        public Builder goodsWeight(GoodsWeight val) {
+        public Builder goodsWeight( GoodsWeight val ) {
             goodsWeight = val;
             return this;
         }
 
-        public Builder goodsDesc(String val) {
+        public Builder goodsDesc( String val ) {
             goodsDesc = val;
             return this;
         }

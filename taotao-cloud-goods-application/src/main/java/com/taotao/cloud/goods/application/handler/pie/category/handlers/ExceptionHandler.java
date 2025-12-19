@@ -21,12 +21,19 @@ import com.taotao.boot.common.support.pie.ChannelHandlerContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * ExceptionHandler
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 public class ExceptionHandler extends ChannelHandlerAdapter {
 
     private Logger logger = LoggerFactory.getLogger(ExceptionHandler.class);
 
     @Override
-    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause, Object in, Object out)
+    public void exceptionCaught( ChannelHandlerContext ctx, Throwable cause, Object in, Object out )
             throws Exception {
 
         logger.error("异常处理器中的异常处理逻辑");

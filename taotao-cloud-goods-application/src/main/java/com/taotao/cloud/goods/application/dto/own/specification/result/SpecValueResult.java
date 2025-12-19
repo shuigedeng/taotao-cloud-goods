@@ -24,7 +24,9 @@ import java.util.List;
 import lombok.*;
 import lombok.experimental.Accessors;
 
-/** 规格值 */
+/**
+ * 规格值
+ */
 @Setter
 @Getter
 @Accessors(fluent = true)
@@ -32,7 +34,8 @@ import lombok.experimental.Accessors;
 @NoArgsConstructor
 public class SpecValueResult extends BaseResult {
 
-    @Serial private static final long serialVersionUID = -4433579132929428572L;
+    @Serial
+    private static final long serialVersionUID = -4433579132929428572L;
 
     @Schema(description = "规格项名字")
     private String specName;
@@ -46,6 +49,13 @@ public class SpecValueResult extends BaseResult {
     @Schema(description = "规格的图片")
     private List<SpecImages> specImage;
 
+    /**
+     * SpecImages
+     *
+     * @author shuigedeng
+     * @version 2026.01
+     * @since 2025-12-19 09:30:45
+     */
     @Setter
     @Getter
     @ToString

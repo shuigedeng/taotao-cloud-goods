@@ -22,6 +22,13 @@ import com.taotao.cloud.goods.domain.service.GoodsTagDomainService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+/**
+ * GoodsTagDomainServiceImpl
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 @Service
 @AllArgsConstructor
 public class GoodsTagDomainServiceImpl implements GoodsTagDomainService {
@@ -29,8 +36,10 @@ public class GoodsTagDomainServiceImpl implements GoodsTagDomainService {
     private GoodsTagDomainRepository deptDomainRepository;
 
     @Override
-    public void create(GoodsTagAgg dept) {}
+    public void create( GoodsTagAgg dept ) {
+    }
 
     @Override
-    public void remove(Long[] ids) {}
+    public void remove( Long[] ids ) {
+    }
 }

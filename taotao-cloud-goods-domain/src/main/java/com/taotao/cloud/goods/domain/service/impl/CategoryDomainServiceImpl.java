@@ -22,6 +22,13 @@ import com.taotao.cloud.goods.domain.service.CategoryDomainService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+/**
+ * CategoryDomainServiceImpl
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 @Service
 @AllArgsConstructor
 public class CategoryDomainServiceImpl implements CategoryDomainService {
@@ -29,11 +36,14 @@ public class CategoryDomainServiceImpl implements CategoryDomainService {
     private CategoryDomainRepository categoryDomainRepository;
 
     @Override
-    public void create(CategoryAgg dept) {}
+    public void create( CategoryAgg dept ) {
+    }
 
     @Override
-    public void modify(CategoryAgg dept) {}
+    public void modify( CategoryAgg dept ) {
+    }
 
     @Override
-    public void remove(Long[] ids) {}
+    public void remove( Long[] ids ) {
+    }
 }

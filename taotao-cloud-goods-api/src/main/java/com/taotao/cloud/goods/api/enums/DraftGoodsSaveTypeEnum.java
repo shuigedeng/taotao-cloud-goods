@@ -25,18 +25,27 @@ package com.taotao.cloud.goods.api.enums;
  */
 public enum DraftGoodsSaveTypeEnum {
 
-    /** "草稿" */
-    DRAFT("草稿"),
-    /** "模版" */
-    TEMPLATE("模版");
+	/**
+	 * "草稿"
+	 */
+	DRAFT("草稿"),
+	/**
+	 * "模版"
+	 */
+	TEMPLATE("模版");
 
-    private final String description;
+	private final String description;
 
-    DraftGoodsSaveTypeEnum(String description) {
-        this.description = description;
-    }
+	DraftGoodsSaveTypeEnum( String description ) {
+		this.description = description;
+	}
 
-    public String description() {
-        return description;
-    }
+	/**
+	 * description
+	 *
+	 * @return String
+	 */
+	public String description() {
+		return description;
+	}
 }

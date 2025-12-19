@@ -22,12 +22,19 @@ import com.taotao.cloud.goods.application.context.GoodsContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * DeptCheckParameterHandler
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 public class DeptCheckParameterHandler implements ChannelHandler {
 
     private Logger logger = LoggerFactory.getLogger(DeptCheckParameterHandler.class);
 
     @Override
-    public void channelProcess(ChannelHandlerContext ctx, Object in, Object out) throws Exception {
+    public void channelProcess( ChannelHandlerContext ctx, Object in, Object out ) throws Exception {
 
         logger.info("参数校验:开始执行");
 
@@ -46,6 +53,7 @@ public class DeptCheckParameterHandler implements ChannelHandler {
     }
 
     @Override
-    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause, Object in, Object out)
-            throws Exception {}
+    public void exceptionCaught( ChannelHandlerContext ctx, Throwable cause, Object in, Object out )
+            throws Exception {
+    }
 }

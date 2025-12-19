@@ -27,31 +27,36 @@ import java.util.Objects;
  *
  */
 public class GoodsWeight implements ValueObject<GoodsWeight> {
+
     /**
      * 重量值
      */
-    @NotNull @PositiveOrZero private BigDecimal weight;
+    @NotNull
+    @PositiveOrZero
+    private BigDecimal weight;
 
     /**
      * 重量单位
      */
-    @NotNull private WeightUnit unit;
+    @NotNull
+    private WeightUnit unit;
 
-    GoodsWeight() {}
+    GoodsWeight() {
+    }
 
-    GoodsWeight(BigDecimal weight, WeightUnit unit) {
+    GoodsWeight( BigDecimal weight, WeightUnit unit ) {
         this.weight = weight;
         this.unit = unit;
         this.validateSelf();
     }
 
-    private GoodsWeight(Builder builder) {
+    private GoodsWeight( Builder builder ) {
         weight = builder.weight;
         unit = builder.unit;
         this.validateSelf();
     }
 
-    public static GoodsWeight of(BigDecimal weight, WeightUnit unit) {
+    public static GoodsWeight of( BigDecimal weight, WeightUnit unit ) {
         return new GoodsWeight(weight, unit);
     }
 
@@ -68,7 +73,7 @@ public class GoodsWeight implements ValueObject<GoodsWeight> {
     }
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals( Object o ) {
         if (this == o) {
             return true;
         }
@@ -90,22 +95,31 @@ public class GoodsWeight implements ValueObject<GoodsWeight> {
     }
 
     @Override
-    public boolean sameValueAs(GoodsWeight other) {
+    public boolean sameValueAs( GoodsWeight other ) {
         return false;
     }
 
+    /**
+     * Builder
+     *
+     * @author shuigedeng
+     * @version 2026.01
+     * @since 2025-12-19 09:30:45
+     */
     public static final class Builder {
+
         private BigDecimal weight;
         private WeightUnit unit;
 
-        private Builder() {}
+        private Builder() {
+        }
 
-        public Builder weight(BigDecimal val) {
+        public Builder weight( BigDecimal val ) {
             weight = val;
             return this;
         }
 
-        public Builder unit(WeightUnit val) {
+        public Builder unit( WeightUnit val ) {
             unit = val;
             return this;
         }

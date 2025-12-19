@@ -18,4 +18,13 @@ package com.taotao.cloud.goods.domain.assembler;
 
 import com.taotao.boot.ddd.model.domain.Adapter;
 
-public class GoodsDomainAssembler implements Adapter {}
+/**
+ * GoodsDomainAssembler
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
+public class GoodsDomainAssembler implements Adapter {
+
+}

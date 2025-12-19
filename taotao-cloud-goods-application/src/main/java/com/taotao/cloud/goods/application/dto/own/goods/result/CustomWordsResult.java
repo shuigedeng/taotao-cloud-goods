@@ -20,6 +20,13 @@ import com.taotao.boot.ddd.model.application.dto.BaseResult;
 import lombok.*;
 import lombok.experimental.Accessors;
 
+/**
+ * CustomWordsResult
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 @Setter
 @Getter
 @Accessors(fluent = true)
@@ -29,9 +36,13 @@ public class CustomWordsResult extends BaseResult {
 
     private Long id;
 
-    /** 分词名称 */
+    /**
+     * 分词名称
+     */
     private String name;
 
-    /** 是否禁用 */
+    /**
+     * 是否禁用
+     */
     private Integer disabled;
 }
