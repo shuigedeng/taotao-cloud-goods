@@ -109,9 +109,9 @@ tasks.register('createProperties') {
     }
 }
 
-classes {
-    dependsOn 'createProperties'
-}
+//classes {
+//    dependsOn 'createProperties'
+//}
 
 tasks.register('bootJarTest') {
     dependsOn 'clean'
