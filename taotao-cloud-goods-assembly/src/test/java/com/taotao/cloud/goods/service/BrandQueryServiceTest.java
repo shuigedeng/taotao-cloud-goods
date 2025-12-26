@@ -34,6 +34,7 @@ public class BrandQueryServiceTest extends TaoTaoCloudGoodsApplicationTests {
     @Autowired
     private BrandQueryService brandQueryService;
 
+
     // @TtcTest(duration = 1000, reporter = HtmlReporter.class)
     @Test
     public void helloTest111() throws InterruptedException {
