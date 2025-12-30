@@ -18,7 +18,7 @@ package com.taotao.cloud.goods.application.service.command.impl;
 
 import com.taotao.cloud.goods.application.service.command.GoodsGalleryCommandService;
 import java.util.List;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 /**
@@ -28,7 +28,7 @@ import org.springframework.stereotype.Service;
  * @version 2022.04
  * @since 2022-04-27 17:02:38
  */
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Service
 public class GoodsGalleryCommandServiceImpl implements GoodsGalleryCommandService {
     @Override

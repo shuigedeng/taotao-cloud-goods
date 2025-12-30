@@ -25,7 +25,7 @@ import com.taotao.boot.cache.redis.delay.message.QueueMessage;
 import com.taotao.boot.cache.redis.delay.message.QueueMessageBuilder;
 import com.taotao.boot.cache.redis.delay.message.RedissonHeaders;
 import com.taotao.boot.cache.redis.delay.message.RedissonMessage;
-import com.taotao.boot.common.utils.common.JsonUtils;
+import com.taotao.boot.common.utils.json.JacksonUtils;
 import com.taotao.boot.common.utils.log.LogUtils;
 import java.util.Map;
 import lombok.*;
@@ -66,7 +66,7 @@ public class RedissonDelayApplication {
                     throws MessageConversionException {
                 String payload = redissonMessage.getPayload();
                 String payloadStr = new String(payload);
-                return JsonUtils.toObject(payloadStr, CarLbsDto.class);
+                return JacksonUtils.toObject(payloadStr, CarLbsDto.class);
             }
         };
     }

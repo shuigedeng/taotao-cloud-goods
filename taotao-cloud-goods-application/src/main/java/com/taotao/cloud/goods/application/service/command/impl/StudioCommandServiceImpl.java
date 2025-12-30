@@ -18,6 +18,7 @@ package com.taotao.cloud.goods.application.service.command.impl;
 
 import com.taotao.cloud.goods.application.service.command.StudioCommandService;
 import com.taotao.cloud.stream.framework.trigger.message.BroadcastMessage;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 /**
@@ -28,6 +29,7 @@ import org.springframework.stereotype.Service;
  * @since 2022-04-27 17:03:04
  */
 @Service
+@RequiredArgsConstructor
 public class StudioCommandServiceImpl implements StudioCommandService {
     //	@Override
     //	public boolean create(StudioPO studioPO) {

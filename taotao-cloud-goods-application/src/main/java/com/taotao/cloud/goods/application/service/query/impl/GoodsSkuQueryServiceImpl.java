@@ -24,7 +24,7 @@ import com.taotao.cloud.goods.application.dto.own.goods.query.GoodsSkuSearchQuer
 import com.taotao.cloud.goods.application.service.query.GoodsSkuQueryService;
 import java.util.List;
 import java.util.Map;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 /**
@@ -34,7 +34,7 @@ import org.springframework.stereotype.Service;
  * @version 2022.04
  * @since 2022-04-27 17:02:44
  */
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Service
 public class GoodsSkuQueryServiceImpl implements GoodsSkuQueryService {
     @Override

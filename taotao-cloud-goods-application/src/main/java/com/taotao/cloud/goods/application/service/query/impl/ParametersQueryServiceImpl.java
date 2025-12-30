@@ -19,7 +19,7 @@ package com.taotao.cloud.goods.application.service.query.impl;
 import com.taotao.cloud.goods.application.service.command.GoodsCommandService;
 import com.taotao.cloud.goods.application.service.query.ParametersQueryService;
 import com.taotao.cloud.stream.properties.RocketmqCustomProperties;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.apache.rocketmq.spring.core.RocketMQTemplate;
 import org.springframework.stereotype.Service;
 
@@ -30,7 +30,7 @@ import org.springframework.stereotype.Service;
  * @version 2022.04
  * @since 2022-04-27 17:02:52
  */
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Service
 public class ParametersQueryServiceImpl implements ParametersQueryService {
 

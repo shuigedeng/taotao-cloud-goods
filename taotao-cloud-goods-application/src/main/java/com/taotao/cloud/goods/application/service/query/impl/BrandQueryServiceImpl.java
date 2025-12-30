@@ -24,7 +24,7 @@ import com.taotao.cloud.goods.application.service.command.GoodsCommandService;
 import com.taotao.cloud.goods.application.service.query.BrandQueryService;
 import java.util.List;
 import java.util.Map;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 /**
@@ -35,7 +35,7 @@ import org.springframework.stereotype.Service;
  * @since 2022-04-27 17:01:19
  */
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class BrandQueryServiceImpl implements BrandQueryService {
 
     /**

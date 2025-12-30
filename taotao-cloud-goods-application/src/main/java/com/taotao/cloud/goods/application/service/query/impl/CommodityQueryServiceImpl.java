@@ -20,7 +20,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.taotao.boot.common.model.request.PageQuery;
 import com.taotao.cloud.goods.application.dto.own.commodity.result.CommoditySkuResult;
 import com.taotao.cloud.goods.application.service.query.CommodityQueryService;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 /**
@@ -30,7 +30,7 @@ import org.springframework.stereotype.Service;
  * @version 2022.04
  * @since 2022-04-27 17:02:18
  */
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Service
 public class CommodityQueryServiceImpl implements CommodityQueryService {
     @Override

@@ -29,6 +29,8 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
+
+import lombok.RequiredArgsConstructor;
 import org.apache.seata.spring.annotation.GlobalTransactional;
 import org.springframework.stereotype.Component;
 
@@ -40,6 +42,7 @@ import org.springframework.stereotype.Component;
  * @since 2022-04-28 11:54:43
  */
 @Component
+@RequiredArgsConstructor
 public class GoodsJobHandler {
 
     @XxlJob("ThrowJobHandler")

@@ -18,7 +18,7 @@ package com.taotao.cloud.goods.application.service.query.impl;
 
 import com.taotao.cloud.goods.application.dto.own.goods.result.GoodsSkuParamsResult;
 import com.taotao.cloud.goods.application.service.query.GoodsQueryService;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 /**
@@ -29,7 +29,7 @@ import org.springframework.stereotype.Service;
  * @since 2022-04-27 17:02:41
  */
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class GoodsQueryServiceImpl implements GoodsQueryService {
     //	@Override
     //	public List<GoodsPO> getByBrandIds(List<Long> brandIds) {

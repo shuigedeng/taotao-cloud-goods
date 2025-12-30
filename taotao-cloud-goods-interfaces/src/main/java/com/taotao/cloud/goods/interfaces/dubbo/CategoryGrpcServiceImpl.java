@@ -37,12 +37,12 @@ package com.taotao.cloud.goods.interfaces.dubbo; /// *
 // import com.taotao.cloud.goods.api.grpc.FirstCategoryGrpcRequest;
 // import com.taotao.cloud.goods.api.grpc.FirstCategoryGrpcResponse;
 // import io.grpc.stub.StreamObserver;
-// import lombok.AllArgsConstructor;
+// import lombok.RequiredArgsConstructor;
 // import lombok.extern.slf4j.Slf4j;
 // import org.apache.dubbo.config.annotation.DubboService;
 // import org.springframework.stereotype.Service;
 //
-// @AllArgsConstructor
+// @RequiredArgsConstructor
 // @DubboService(validation = "true")
 // public class CategoryGrpcServiceImpl extends CategoryGrpcServiceImplBase {
 //

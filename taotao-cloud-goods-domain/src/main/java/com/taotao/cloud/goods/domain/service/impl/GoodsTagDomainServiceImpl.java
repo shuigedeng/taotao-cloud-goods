@@ -20,6 +20,7 @@ import com.taotao.cloud.goods.domain.aggregate.GoodsTagAgg;
 import com.taotao.cloud.goods.domain.repository.GoodsTagDomainRepository;
 import com.taotao.cloud.goods.domain.service.GoodsTagDomainService;
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 /**
@@ -30,10 +31,10 @@ import org.springframework.stereotype.Service;
  * @since 2025-12-19 09:30:45
  */
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class GoodsTagDomainServiceImpl implements GoodsTagDomainService {
 
-    private GoodsTagDomainRepository deptDomainRepository;
+    private final GoodsTagDomainRepository deptDomainRepository;
 
     @Override
     public void create( GoodsTagAgg dept ) {

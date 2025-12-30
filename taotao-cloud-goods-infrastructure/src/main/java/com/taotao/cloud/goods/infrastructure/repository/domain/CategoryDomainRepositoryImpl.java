@@ -30,6 +30,7 @@ import com.taotao.cloud.goods.infrastructure.persistent.persistence.CategoryPO;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.QCategoryPO;
 import com.taotao.cloud.goods.infrastructure.persistent.repository.CategoryRepository;
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -42,7 +43,7 @@ import java.util.List;
  * @since 2025-12-19 09:30:45
  */
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class CategoryDomainRepositoryImpl implements CategoryDomainRepository {
 
     private final TransactionalUtils transactionalUtil;

@@ -26,7 +26,7 @@ import java.util.*;
 
 import com.taotao.cloud.goods.domain.aggregate.CategoryAgg;
 import com.taotao.cloud.goods.domain.repository.CategoryDomainRepository;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.stereotype.Service;
 
@@ -40,7 +40,7 @@ import static com.taotao.boot.common.enums.CachePrefixEnum.CATEGORY_ARRAY;
  * @version 2022.04
  * @since 2022-04-27 17:02:09
  */
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Service
 @CacheConfig(cacheNames = "{category}")
 public class CategoryQueryServiceImpl implements CategoryQueryService {

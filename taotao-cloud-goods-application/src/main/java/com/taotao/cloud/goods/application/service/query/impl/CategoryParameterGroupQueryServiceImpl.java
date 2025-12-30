@@ -21,7 +21,7 @@ import com.taotao.cloud.goods.application.service.command.GoodsCommandService;
 import com.taotao.cloud.goods.application.service.command.ParametersCommandService;
 import com.taotao.cloud.goods.application.service.query.CategoryParameterGroupQueryService;
 import java.util.List;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 /**
@@ -31,7 +31,7 @@ import org.springframework.stereotype.Service;
  * @version 2022.04
  * @since 2022-04-27 17:02:04
  */
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Service
 public class CategoryParameterGroupQueryServiceImpl implements CategoryParameterGroupQueryService {
 

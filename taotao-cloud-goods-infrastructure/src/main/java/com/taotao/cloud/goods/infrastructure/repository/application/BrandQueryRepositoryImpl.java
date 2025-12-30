@@ -29,6 +29,7 @@ import com.taotao.cloud.goods.infrastructure.persistent.repository.BrandReposito
 import java.util.Optional;
 
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 /**
@@ -39,7 +40,7 @@ import org.springframework.stereotype.Service;
  * @since 2025-12-19 09:30:45
  */
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class BrandQueryRepositoryImpl implements BrandQueryRepository {
 
     private final BrandMapper brandMapper;

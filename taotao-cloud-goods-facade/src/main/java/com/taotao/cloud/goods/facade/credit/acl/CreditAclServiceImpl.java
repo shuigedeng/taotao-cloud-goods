@@ -4,6 +4,7 @@ import com.taotao.cloud.goods.application.acl.CreditAclService;
 import com.taotao.cloud.goods.application.dto.credit.req.CreditReq;
 import com.taotao.cloud.goods.application.dto.credit.res.CreditRes;
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 /**
@@ -13,7 +14,7 @@ import org.springframework.stereotype.Service;
  * @version 2026.01
  * @since 2025-12-19 09:30:45
  */
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Service
 public class CreditAclServiceImpl implements CreditAclService {
 

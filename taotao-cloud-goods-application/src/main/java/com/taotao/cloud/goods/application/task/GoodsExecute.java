@@ -17,6 +17,7 @@
 package com.taotao.cloud.goods.application.task;
 
 import com.taotao.boot.job.xxl.timetask.EveryDayExecute;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 /**
@@ -27,6 +28,7 @@ import org.springframework.stereotype.Component;
  * @since 2022-04-27 16:54:37
  */
 @Component
+@RequiredArgsConstructor
 public class GoodsExecute implements EveryDayExecute {
     @Override
     public void execute() {}

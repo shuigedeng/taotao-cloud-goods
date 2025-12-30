@@ -20,7 +20,7 @@ import com.taotao.boot.cache.redis.repository.RedisRepository;
 import com.taotao.cloud.goods.application.dto.own.category.command.CategoryAddCommand;
 import com.taotao.cloud.goods.application.dto.own.category.command.CategoryUpdateCommand;
 import com.taotao.cloud.goods.application.service.command.CategoryCommandService;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.stereotype.Service;
 
@@ -31,7 +31,7 @@ import org.springframework.stereotype.Service;
  * @version 2022.04
  * @since 2022-04-27 17:02:09
  */
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Service
 @CacheConfig(cacheNames = "{category}")
 public class CategoryCommandServiceImpl implements CategoryCommandService {

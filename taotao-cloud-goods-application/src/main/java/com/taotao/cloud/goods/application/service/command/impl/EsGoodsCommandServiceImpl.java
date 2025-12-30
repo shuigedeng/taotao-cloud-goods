@@ -17,6 +17,7 @@
 package com.taotao.cloud.goods.application.service.command.impl;
 
 import com.taotao.cloud.goods.application.service.command.EsGoodsCommandService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 /**
@@ -27,6 +28,7 @@ import org.springframework.stereotype.Service;
  * @since 2022-04-27 17:02:27
  */
 @Service
+@RequiredArgsConstructor
 public class EsGoodsCommandServiceImpl implements EsGoodsCommandService {
 
     private static final String IGNORE_FIELD = "serialVersionUID,promotionMap,id,goodsId";

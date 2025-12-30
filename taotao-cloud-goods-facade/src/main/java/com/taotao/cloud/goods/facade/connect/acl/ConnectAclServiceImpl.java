@@ -5,6 +5,7 @@ import com.taotao.cloud.goods.application.acl.ConnectAclService;
 import com.taotao.cloud.goods.application.dto.connect.req.ConnectReq;
 import com.taotao.cloud.goods.application.dto.connect.res.ConnectRes;
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 /**
@@ -14,7 +15,7 @@ import org.springframework.stereotype.Service;
  * @version 2026.01
  * @since 2025-12-19 09:30:45
  */
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Service
 public class ConnectAclServiceImpl extends BaseAclService implements ConnectAclService {
 

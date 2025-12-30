@@ -17,6 +17,7 @@
 package com.taotao.cloud.goods.application.service.command.impl;
 
 import com.taotao.cloud.goods.application.service.command.GoodsWordsCommandService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 /**
@@ -27,4 +28,5 @@ import org.springframework.stereotype.Service;
  * @since 2022-04-27 17:02:50
  */
 @Service
+@RequiredArgsConstructor
 public class GoodsWordsCommandServiceImpl implements GoodsWordsCommandService {}

@@ -19,7 +19,7 @@ package com.taotao.cloud.goods.application.service.command.impl;
 import com.taotao.cloud.goods.application.dto.own.goods.command.GoodsSkuStockUpdateCommand;
 import com.taotao.cloud.goods.application.service.command.GoodsSkuCommandService;
 import java.util.List;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 /**
@@ -29,7 +29,7 @@ import org.springframework.stereotype.Service;
  * @version 2022.04
  * @since 2022-04-27 17:02:44
  */
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Service
 public class GoodsSkuCommandServiceImpl implements GoodsSkuCommandService {
     @Override

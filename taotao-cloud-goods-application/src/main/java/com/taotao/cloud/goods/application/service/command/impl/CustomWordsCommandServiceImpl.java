@@ -20,6 +20,8 @@ import com.taotao.cloud.goods.application.dto.own.goods.command.CustomWordsAddCo
 import com.taotao.cloud.goods.application.dto.own.goods.command.CustomWordsUpdateCommand;
 import com.taotao.cloud.goods.application.service.command.CustomWordsCommandService;
 import java.util.List;
+
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 /**
@@ -30,6 +32,7 @@ import org.springframework.stereotype.Service;
  * @since 2022-04-27 17:02:21
  */
 @Service
+@RequiredArgsConstructor
 public class CustomWordsCommandServiceImpl implements CustomWordsCommandService {
     @Override
     public String deploy() {

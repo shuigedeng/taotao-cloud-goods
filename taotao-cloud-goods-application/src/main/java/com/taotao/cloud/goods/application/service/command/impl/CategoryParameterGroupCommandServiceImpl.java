@@ -20,7 +20,7 @@ import com.taotao.cloud.goods.application.dto.own.category.command.CategoryParam
 import com.taotao.cloud.goods.application.service.command.CategoryParameterGroupCommandService;
 import com.taotao.cloud.goods.application.service.command.GoodsCommandService;
 import com.taotao.cloud.goods.application.service.command.ParametersCommandService;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 /**
@@ -30,7 +30,7 @@ import org.springframework.stereotype.Service;
  * @version 2022.04
  * @since 2022-04-27 17:02:04
  */
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Service
 public class CategoryParameterGroupCommandServiceImpl
         implements CategoryParameterGroupCommandService {

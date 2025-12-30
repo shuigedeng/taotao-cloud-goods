@@ -33,7 +33,7 @@ public class RequestLogTopicMessageDelegate {
 
     public void handleRequestLog(String message, String channel) {
         // try {
-        //    Log log = JsonUtils.MAPPER.readValue(message, Log.class);
+        //    Log log = JacksonUtils.MAPPER.readValue(message, Log.class);
         //    logService.save(log);
         // } catch (JsonProcessingException e) {
         //    LogUtils.error(e);

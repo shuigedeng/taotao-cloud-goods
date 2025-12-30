@@ -25,6 +25,7 @@ import com.taotao.cloud.goods.facade.assembler.SysFacadeAssembler;
 import com.taotao.cloud.goods.facade.order.invoker.OrderInvoker;
 import com.taotao.cloud.sys.api.inner.response.DictApiResponse;
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 /**
@@ -34,7 +35,7 @@ import org.springframework.stereotype.Service;
  * @version 2026.01
  * @since 2025-12-19 09:30:45
  */
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Service
 public class OrderAclServiceImpl extends BaseAclService {
 

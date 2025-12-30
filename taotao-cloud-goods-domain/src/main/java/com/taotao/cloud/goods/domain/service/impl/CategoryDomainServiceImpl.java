@@ -20,6 +20,7 @@ import com.taotao.cloud.goods.domain.aggregate.CategoryAgg;
 import com.taotao.cloud.goods.domain.repository.CategoryDomainRepository;
 import com.taotao.cloud.goods.domain.service.CategoryDomainService;
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 /**
@@ -30,10 +31,10 @@ import org.springframework.stereotype.Service;
  * @since 2025-12-19 09:30:45
  */
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class CategoryDomainServiceImpl implements CategoryDomainService {
 
-    private CategoryDomainRepository categoryDomainRepository;
+    private final CategoryDomainRepository categoryDomainRepository;
 
     @Override
     public void create( CategoryAgg dept ) {

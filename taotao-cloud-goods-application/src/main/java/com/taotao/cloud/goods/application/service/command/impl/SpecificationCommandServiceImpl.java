@@ -20,7 +20,7 @@ import com.taotao.cloud.goods.application.service.command.CategoryCommandService
 import com.taotao.cloud.goods.application.service.command.CategorySpecificationCommandService;
 import com.taotao.cloud.goods.application.service.command.SpecificationCommandService;
 import java.util.List;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 /**
@@ -30,7 +30,7 @@ import org.springframework.stereotype.Service;
  * @version 2022.04
  * @since 2022-04-27 17:02:55
  */
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Service
 public class SpecificationCommandServiceImpl implements SpecificationCommandService {
 

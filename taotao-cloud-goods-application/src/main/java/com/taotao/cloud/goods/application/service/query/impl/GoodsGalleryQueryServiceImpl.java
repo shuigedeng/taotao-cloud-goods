@@ -17,7 +17,7 @@
 package com.taotao.cloud.goods.application.service.query.impl;
 
 import com.taotao.cloud.goods.application.service.query.GoodsGalleryQueryService;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 /**
@@ -27,7 +27,7 @@ import org.springframework.stereotype.Service;
  * @version 2022.04
  * @since 2022-04-27 17:02:38
  */
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Service
 public class GoodsGalleryQueryServiceImpl implements GoodsGalleryQueryService {
     //	@Override

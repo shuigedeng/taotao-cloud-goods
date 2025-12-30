@@ -18,6 +18,8 @@ package com.taotao.cloud.goods.application.service.command.impl;
 
 import com.taotao.cloud.goods.application.service.command.CategoryBrandCommandService;
 import java.util.List;
+
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 /**
@@ -28,6 +30,7 @@ import org.springframework.stereotype.Service;
  * @since 2022-04-27 17:01:32
  */
 @Service
+@RequiredArgsConstructor
 public class CategoryBrandCommandServiceImpl implements CategoryBrandCommandService {
     @Override
     public boolean deleteByCategoryId(Long categoryId) {

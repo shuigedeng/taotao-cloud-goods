@@ -26,7 +26,7 @@ import com.taotao.cloud.goods.application.service.query.CategoryBrandQueryServic
 import com.taotao.cloud.goods.application.service.query.CategoryQueryService;
 import com.taotao.cloud.goods.application.service.query.GoodsQueryService;
 import java.util.List;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 /**
@@ -37,7 +37,7 @@ import org.springframework.stereotype.Service;
  * @since 2022-04-27 17:01:19
  */
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class BrandCommandServiceImpl implements BrandCommandService {
 
     /**
