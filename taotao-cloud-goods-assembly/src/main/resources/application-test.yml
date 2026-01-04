@@ -772,7 +772,7 @@ spring:
           # Netty线程池数量,默认值: 当前处理核数量 * 2
           nettyThreads: 0
           # 编码
-          codec: !<org.redisson.codec.JsonJacksonCodec> {}
+          codec: !<org.redisson.codec.JsonJackson3Codec> {}
           # 传输模式
           transportMode : "NIO"
           # 配置看门狗的默认超时时间为30s，这里改为 10s
