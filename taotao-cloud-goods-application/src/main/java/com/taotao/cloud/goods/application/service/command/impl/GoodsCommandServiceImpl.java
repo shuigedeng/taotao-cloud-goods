@@ -22,7 +22,7 @@ import com.taotao.cloud.goods.application.assembler.GoodsAppAssembler;
 import com.taotao.cloud.goods.application.dto.own.goods.result.GoodsResult;
 import com.taotao.cloud.goods.application.dto.own.goods.command.GoodsAddCommand;
 import com.taotao.cloud.goods.application.dto.own.goods.command.GoodsCreateCommand;
-import com.taotao.cloud.goods.application.factory.GoodsFactory;
+import com.taotao.cloud.goods.application.support.factory.GoodsFactory;
 import com.taotao.cloud.goods.application.service.command.GoodsCommandService;
 import com.taotao.cloud.goods.domain.aggregate.GoodsAgg;
 import com.taotao.cloud.goods.domain.repository.CategoryDomainRepository;

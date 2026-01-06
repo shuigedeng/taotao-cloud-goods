@@ -17,14 +17,7 @@
 package com.taotao.cloud.goods.facade.order.acl;
 
 import com.taotao.boot.ddd.acl.BaseAclService;
-import com.taotao.boot.ddd.gateway.model.GatewayResponse;
-import com.taotao.cloud.goods.application.acl.SysAclService;
-import com.taotao.cloud.goods.application.dto.sys.req.DictReq;
-import com.taotao.cloud.goods.application.dto.sys.res.DictRes;
-import com.taotao.cloud.goods.facade.assembler.SysFacadeAssembler;
-import com.taotao.cloud.goods.facade.order.invoker.OrderInvoker;
-import com.taotao.cloud.sys.api.inner.response.DictApiResponse;
-import lombok.AllArgsConstructor;
+import com.taotao.cloud.sys.api.api.response.DictApiResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
