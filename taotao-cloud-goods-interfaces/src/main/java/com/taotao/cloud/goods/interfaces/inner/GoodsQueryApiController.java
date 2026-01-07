@@ -23,6 +23,7 @@ import com.taotao.boot.webagg.controller.InnerController;
 import com.taotao.cloud.goods.api.inner.command.GoodsCommandApi;
 import com.taotao.cloud.goods.api.inner.dto.request.GoodsCommandApiRequest;
 import com.taotao.cloud.goods.api.inner.dto.response.GoodsCommandApiResponse;
+import com.taotao.cloud.goods.api.inner.query.GoodsQueryApi;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
@@ -39,7 +40,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 @RestController
 @Tag(name = "内部服务-商品API", description = "内部服务-商品API")
-public class GoodsCommandApiController extends InnerController implements GoodsCommandApi {
+public class GoodsQueryApiController extends InnerController implements GoodsQueryApi {
 
     @Override
     public Response<GoodsCommandApiResponse> updateStoreDetail(Request<GoodsCommandApiRequest> id) {
