@@ -14,11 +14,10 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.api.api.dto.request;
+package com.taotao.cloud.goods.api.inner.dto.response;
 
-import com.taotao.boot.common.model.request.RequestBase;
+import com.taotao.boot.common.model.response.ResponseBase;
 import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.validation.constraints.Pattern;
 import lombok.*;
 import lombok.experimental.Accessors;
 
@@ -39,8 +38,8 @@ import java.io.Serializable;
 @EqualsAndHashCode
 @AllArgsConstructor
 @NoArgsConstructor
-@Schema(description = "商品查询请求")
-public class CategoryCommandApiRequest extends RequestBase implements Serializable {
+@Schema(description = "商品查询结果")
+public class GoodsQueryApiResponse  extends ResponseBase implements Serializable {
 
     @Serial
     private static final long serialVersionUID = -4132785717179910025L;
@@ -57,7 +56,6 @@ public class CategoryCommandApiRequest extends RequestBase implements Serializab
     @Schema(description = "企业全称")
     private String fullName;
 
-    @Pattern(regexp = "^|[a-zA-Z0-9]{18}$", message = "信用代码格式错误")
     @Schema(description = "信用代码")
     private String creditCode;
 

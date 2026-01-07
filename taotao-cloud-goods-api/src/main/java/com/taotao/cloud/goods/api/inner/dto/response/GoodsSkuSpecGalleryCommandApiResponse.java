@@ -1,4 +1,4 @@
-package com.taotao.cloud.goods.api.api.dto.response;
+package com.taotao.cloud.goods.api.inner.dto.response;
 
 import com.taotao.boot.common.model.response.ResponseBase;
 

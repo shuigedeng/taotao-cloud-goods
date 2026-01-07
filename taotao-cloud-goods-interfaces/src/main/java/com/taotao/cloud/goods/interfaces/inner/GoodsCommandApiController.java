@@ -14,15 +14,15 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.interfaces.api;
+package com.taotao.cloud.goods.interfaces.inner;
 
 import com.taotao.boot.common.model.request.Request;
 import com.taotao.boot.common.model.response.Response;
 import com.taotao.boot.web.annotation.InnerApi;
 import com.taotao.boot.webagg.controller.InnerController;
-import com.taotao.cloud.goods.api.api.command.GoodsCommandApi;
-import com.taotao.cloud.goods.api.api.dto.request.GoodsCommandApiRequest;
-import com.taotao.cloud.goods.api.api.dto.response.GoodsCommandApiResponse;
+import com.taotao.cloud.goods.api.inner.command.GoodsCommandApi;
+import com.taotao.cloud.goods.api.inner.dto.request.GoodsCommandApiRequest;
+import com.taotao.cloud.goods.api.inner.dto.response.GoodsCommandApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RestController;

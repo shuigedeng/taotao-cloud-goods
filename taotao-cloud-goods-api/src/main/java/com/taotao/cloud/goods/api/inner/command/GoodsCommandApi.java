@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.api.api.query;
+package com.taotao.cloud.goods.api.inner.command;
 
 import com.taotao.boot.common.constant.ServiceNameConstants;
 import com.taotao.boot.common.model.request.Request;
 import com.taotao.boot.common.model.response.Response;
-import com.taotao.cloud.goods.api.api.dto.request.GoodsCommandApiRequest;
-import com.taotao.cloud.goods.api.api.dto.response.GoodsCommandApiResponse;
+import com.taotao.cloud.goods.api.inner.dto.request.GoodsCommandApiRequest;
+import com.taotao.cloud.goods.api.inner.dto.response.GoodsCommandApiResponse;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.service.annotation.HttpExchange;
@@ -33,7 +33,8 @@ import org.springframework.web.service.annotation.PostExchange;
  * @since 2020/5/2 16:42
  */
 @HttpExchange(value = ServiceNameConstants.TAOTAO_CLOUD_GOODS)
-public interface GoodsQueryApi {
+public interface GoodsCommandApi {
+
 
 	/**
 	 * updateStoreDetail
