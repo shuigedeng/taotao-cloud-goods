@@ -14,15 +14,20 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.application.mq.listener;
+package com.taotao.cloud.goods.application.event.roketmq.handler.impl;
 
-/**
- * DictCreateListener
- *
- * @author shuigedeng
- * @version 2026.02
- * @since 2025-12-19 09:30:45
- */
-public class DictCreateListener {
+import com.taotao.cloud.goods.application.event.roketmq.handler.MemberLoginEventHandler;
+import org.springframework.stereotype.Service;
 
+/** 会员自身业务 */
+@Service
+public class MemberExecuteHandler implements MemberLoginEventHandler {
+
+    //    @Autowired
+    //    private IMemberService memberService;
+    //
+    //    @Override
+    //    public void memberLogin(Member member) {
+    //        memberService.updateMemberLoginTime(member.getId());
+    //    }
 }

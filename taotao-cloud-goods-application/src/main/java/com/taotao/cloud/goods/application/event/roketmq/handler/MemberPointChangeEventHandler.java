@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.application.mq.roketmq.handler;
+package com.taotao.cloud.goods.application.event.roketmq.handler;
 
 // import com.taotao.cloud.member.api.model.dto.MemberPointMessageDTO;
 

@@ -14,20 +14,15 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.application.mq.roketmq.handler.impl;
+package com.taotao.cloud.goods.application.event.subscribe;
 
-import com.taotao.cloud.goods.application.mq.roketmq.handler.MemberLoginEventHandler;
-import org.springframework.stereotype.Service;
+/**
+ * RedisEventSubscriber
+ *
+ * @author shuigedeng
+ * @version 2026.02
+ * @since 2025-12-19 09:30:45
+ */
+public class RedisEventSubscriber {
 
-/** 会员自身业务 */
-@Service
-public class MemberExecuteHandler implements MemberLoginEventHandler {
-
-    //    @Autowired
-    //    private IMemberService memberService;
-    //
-    //    @Override
-    //    public void memberLogin(Member member) {
-    //        memberService.updateMemberLoginTime(member.getId());
-    //    }
 }

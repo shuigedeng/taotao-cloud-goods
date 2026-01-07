@@ -14,17 +14,21 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.application.mq.roketmq.handler;
+package com.taotao.cloud.goods.application.event.roketmq.handler.impl;
 
-// import com.taotao.cloud.member.biz.model.entity.Member;
+import com.taotao.cloud.goods.application.event.roketmq.handler.MemberRegisterEventHandler;
+import org.springframework.stereotype.Service;
 
-/** 会员注册消息 */
-public interface MemberRegisterEventHandler {
+/** 会员钱包创建 */
+@Service
+public class MemberWalletExecuteHandler implements MemberRegisterEventHandler {
 
-    /**
-     * 会员注册
-     *
-     * @param member 会员
-     */
-    //    void memberRegister(Member member);
+    //    @Autowired
+    //    private IFeignMemberWalletApi memberWalletApi;
+    //
+    //    @Override
+    //    public void memberRegister(Member member) {
+    //        // 有些情况下，会同时创建一个member_id的两条数据
+    //        memberWalletApi.save(member.getId(), member.getUsername());
+    //    }
 }

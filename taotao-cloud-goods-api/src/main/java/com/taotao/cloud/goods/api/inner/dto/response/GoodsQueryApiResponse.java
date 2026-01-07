@@ -35,7 +35,7 @@ import java.io.Serializable;
 @Getter
 @ToString
 @Accessors(fluent = true)
-@EqualsAndHashCode
+@EqualsAndHashCode(callSuper = false)
 @AllArgsConstructor
 @NoArgsConstructor
 @Schema(description = "商品查询结果")

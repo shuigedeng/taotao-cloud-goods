@@ -20,7 +20,7 @@ import com.taotao.cloud.goods.application.acl.SysAclService;
 import com.taotao.cloud.goods.application.dto.own.brand.result.BrandResult;
 import com.taotao.cloud.goods.application.dto.sys.req.DictReq;
 import com.taotao.cloud.goods.application.dto.sys.res.DictRes;
-import com.taotao.cloud.goods.application.support.repository.BrandQueryRepository;
+import com.taotao.cloud.goods.application.repository.BrandQueryRepository;
 import com.taotao.cloud.goods.infrastructure.assembler.BrandInfraAssembler;
 import com.taotao.cloud.goods.infrastructure.persistent.mapper.BrandMapper;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.BrandPO;

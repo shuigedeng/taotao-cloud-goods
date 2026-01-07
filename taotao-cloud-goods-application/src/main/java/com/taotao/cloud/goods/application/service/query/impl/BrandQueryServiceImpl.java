@@ -17,7 +17,7 @@
 package com.taotao.cloud.goods.application.service.query.impl;
 
 import com.taotao.cloud.goods.application.dto.own.brand.result.BrandResult;
-import com.taotao.cloud.goods.application.support.repository.BrandQueryRepository;
+import com.taotao.cloud.goods.application.repository.BrandQueryRepository;
 import com.taotao.cloud.goods.application.service.command.CategoryBrandCommandService;
 import com.taotao.cloud.goods.application.service.command.CategoryCommandService;
 import com.taotao.cloud.goods.application.service.command.GoodsCommandService;

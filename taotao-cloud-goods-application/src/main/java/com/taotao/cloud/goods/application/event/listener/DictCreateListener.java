@@ -14,15 +14,15 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.application.mq.subscribe;
+package com.taotao.cloud.goods.application.event.listener;
 
 /**
- * RedisEventSubscriber
+ * DictCreateListener
  *
  * @author shuigedeng
  * @version 2026.02
  * @since 2025-12-19 09:30:45
  */
-public class RedisEventSubscriber {
+public class DictCreateListener {
 
 }
