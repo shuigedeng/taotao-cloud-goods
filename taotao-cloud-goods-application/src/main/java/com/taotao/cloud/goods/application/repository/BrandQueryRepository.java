@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.application.support.repository;
+package com.taotao.cloud.goods.application.repository;
 
 import com.taotao.cloud.goods.application.dto.own.brand.result.BrandResult;
 
