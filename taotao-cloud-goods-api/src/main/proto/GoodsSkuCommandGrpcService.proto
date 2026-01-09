@@ -4,23 +4,23 @@ package com.taotao.cloud.goods.api.grpc;
 
 option java_multiple_files = true;
 option java_package = "com.taotao.cloud.goods.api.grpc";
-option java_outer_classname = "GoodsSkuGrpcServiceProto";
+option java_outer_classname = "GoodsSkuCommandGrpcServiceProto";
 //option objc_class_prefix = "HLW";
 
 // The device service definition.
-service GoodsSkuGrpcService {
+service GoodsSkuCommandGrpcService {
   // Sends a message
-  rpc updateGoodsStuck (GoodsSkuGrpcRequest) returns (GoodsSkuGrpcResponse){}
-  rpc updateBatchById (GoodsSkuGrpcRequest) returns (GoodsSkuGrpcResponse){}
-  rpc getGoodsSkuByIdFromCache (GoodsSkuGrpcRequest) returns (GoodsSkuGrpcResponse){}
+  rpc updateGoodsStuck (GoodsSkuCommandGrpcRequest) returns (GoodsSkuCommandGrpcResponse){}
+  rpc updateBatchById (GoodsSkuCommandGrpcRequest) returns (GoodsSkuCommandGrpcResponse){}
+  rpc getGoodsSkuByIdFromCache (GoodsSkuCommandGrpcRequest) returns (GoodsSkuCommandGrpcResponse){}
 }
 
 // The request message .
-message GoodsSkuGrpcRequest {
+message GoodsSkuCommandGrpcRequest {
   string id = 1;
 }
 
-message GoodsSkuGrpcResponse {
+message GoodsSkuCommandGrpcResponse {
   string id = 1;
   string serialNum = 2;
   string userNum = 3;
