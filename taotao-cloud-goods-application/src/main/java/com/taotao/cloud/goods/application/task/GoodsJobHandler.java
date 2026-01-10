@@ -31,7 +31,6 @@ import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 
 import lombok.RequiredArgsConstructor;
-import org.apache.seata.spring.annotation.GlobalTransactional;
 import org.springframework.stereotype.Component;
 
 /**
@@ -310,7 +309,7 @@ public class GoodsJobHandler {
     }
 
     /** 多服务调用 */
-    @GlobalTransactional(rollbackFor = Exception.class)
+//    @GlobalTransactional(rollbackFor = Exception.class)
     @XxlJob("multiServiceHandler")
     public void multiServiceHandler() throws Exception {
         // LoginUser admin = remoteUserService.getUserInfo("admin");

@@ -1,4 +1,4 @@
-description = "系统中心api"
+description = "商品中心api"
 
 apply plugin: "com.google.protobuf"
 
@@ -6,10 +6,10 @@ dependencies {
     //api "io.github.shuigedeng:taotao-cloud-starter-openfeign"
 
     //https://search.maven.org/artifact/com.google.protobuf/protobuf-java
-    api "com.google.protobuf:protobuf-java:3.25.6"
+    api "com.google.protobuf:protobuf-java:4.33.2"
     //https://search.maven.org/artifact/com.google.protobuf/protobuf-java-util
-    api "com.google.protobuf:protobuf-java-util:3.25.6"
-    api "com.google.protobuf:protobuf-javalite:3.25.6"
+    api "com.google.protobuf:protobuf-java-util:4.33.2"
+    api "com.google.protobuf:protobuf-javalite:4.33.2"
 
     compileOnly "io.github.shuigedeng:taotao-boot-starter-grpc"
 }
@@ -19,7 +19,7 @@ protobuf {
     protoc {
         //https://repo1.maven.org/maven2/com/google/protobuf/protoc/
         //直接使用Maven Central上已经编译好的protoc编译器，
-        artifact = "com.google.protobuf:protoc:3.25.6"
+        artifact = "com.google.protobuf:protoc:4.33.2"
         //指定本地已经安装的protoc编译器
         //path = '/usr/local/bin/protoc'
     }
@@ -30,7 +30,7 @@ protobuf {
     //指定protoc运行插件
     plugins {
         grpc {
-            artifact = "io.grpc:protoc-gen-grpc-java:1.68.2"
+            artifact = "io.grpc:protoc-gen-grpc-java:1.77.0"
         }
         //javalite {
         //    // The codegen for lite comes as a separate artifact
@@ -52,10 +52,10 @@ configurations {
         resolutionStrategy {
             force 'net.minidev:json-smart:2.6.0'
             //https://search.maven.org/artifact/com.google.protobuf/protobuf-java
-            force "com.google.protobuf:protobuf-java:3.25.6"
+            force "com.google.protobuf:protobuf-java:4.33.2"
             //https://search.maven.org/artifact/com.google.protobuf/protobuf-java-util
-            force "com.google.protobuf:protobuf-java-util:3.25.6"
-            force "com.google.protobuf:protobuf-javalite:3.25.6"
+            force "com.google.protobuf:protobuf-java-util:4.33.2"
+            force "com.google.protobuf:protobuf-javalite:4.33.2"
         }
         //resolutionStrategy {
         //    //force "org.codehaus.groovy:groovy:3.0.25"

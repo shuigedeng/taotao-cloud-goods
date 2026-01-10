@@ -15,21 +15,13 @@
  */
 
 package com.taotao.cloud.goods.interfaces.grpc;
- import com.taotao.cloud.goods.api.grpc.CountStoreGoodsNumGrpcRequest;
- import com.taotao.cloud.goods.api.grpc.CountStoreGoodsNumGrpcResponse;
- import com.taotao.cloud.goods.api.grpc.GoodsGrpcServiceGrpc.GoodsGrpcServiceImplBase;
- import io.grpc.stub.StreamObserver;
- import lombok.RequiredArgsConstructor;
-// import net.devh.boot.grpc.server.service.GrpcService;
 
-// @GrpcService
+import com.taotao.cloud.goods.api.grpc.GoodsCommandGrpcServiceGrpc;
+import lombok.RequiredArgsConstructor;
+import org.springframework.grpc.server.service.GrpcService;
+
+@GrpcService
 @RequiredArgsConstructor
- public class GoodsGrpcServiceImpl extends GoodsGrpcServiceImplBase {
+public class GoodsCommandGrpcServiceImpl extends GoodsCommandGrpcServiceGrpc.GoodsCommandGrpcServiceImplBase {
 
-    @Override
-    public void countStoreGoodsNum(
-            CountStoreGoodsNumGrpcRequest request, StreamObserver<CountStoreGoodsNumGrpcResponse>
- responseObserver) {
-        super.countStoreGoodsNum(request, responseObserver);
-    }
- }
+}

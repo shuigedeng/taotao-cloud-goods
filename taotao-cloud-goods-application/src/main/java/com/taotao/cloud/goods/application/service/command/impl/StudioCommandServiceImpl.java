@@ -17,7 +17,6 @@
 package com.taotao.cloud.goods.application.service.command.impl;
 
 import com.taotao.cloud.goods.application.service.command.StudioCommandService;
-import com.taotao.cloud.stream.framework.trigger.message.BroadcastMessage;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -51,10 +50,10 @@ public class StudioCommandServiceImpl implements StudioCommandService {
         return false;
     }
 
-    @Override
-    public boolean updateStudioStatus(BroadcastMessage broadcastMessage) {
-        return false;
-    }
+//    @Override
+//    public boolean updateStudioStatus(BroadcastMessage broadcastMessage) {
+//        return false;
+//    }
 
     // @Autowired
     // private WechatLivePlayerUtil wechatLivePlayerUtil;

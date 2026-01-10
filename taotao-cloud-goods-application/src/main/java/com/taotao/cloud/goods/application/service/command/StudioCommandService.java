@@ -17,7 +17,6 @@
 package com.taotao.cloud.goods.application.service.command;
 
 import com.taotao.boot.ddd.model.application.service.CommandService;
-import com.taotao.cloud.stream.framework.trigger.message.BroadcastMessage;
 
 /**
  * 直播间业务层
@@ -75,5 +74,5 @@ public interface StudioCommandService extends CommandService {
      * @return {@link boolean }
      * @since 2022-04-27 17:01:12
      */
-    boolean updateStudioStatus(BroadcastMessage broadcastMessage);
+//    boolean updateStudioStatus(BroadcastMessage broadcastMessage);
 }
