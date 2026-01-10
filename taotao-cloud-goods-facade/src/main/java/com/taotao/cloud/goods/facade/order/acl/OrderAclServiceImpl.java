@@ -17,7 +17,6 @@
 package com.taotao.cloud.goods.facade.order.acl;
 
 import com.taotao.boot.ddd.acl.BaseAclService;
-import com.taotao.cloud.sys.api.inner.response.DictApiResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

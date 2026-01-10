@@ -18,7 +18,7 @@ package com.taotao.cloud.goods;
 
 import com.taotao.boot.core.startup.StartupSpringApplication;
 import com.taotao.boot.web.annotation.TaoTaoBootApplication;
-import com.taotao.cloud.bootstrap.annotation.TaoTaoCloudApplication;
+//import com.taotao.cloud.bootstrap.annotation.TaoTaoCloudApplication;
 
 /**
  * 系统管理中心
@@ -61,7 +61,7 @@ import com.taotao.cloud.bootstrap.annotation.TaoTaoCloudApplication;
 //	"com.taotao.cloud.goods.biz.repository.cls"
 // } )
 @TaoTaoBootApplication
-@TaoTaoCloudApplication
+//@TaoTaoCloudApplication
 public class TaoTaoCloudGoodsApplication {
 
     public static void main(String[] args) {

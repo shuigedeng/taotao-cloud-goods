@@ -18,8 +18,8 @@ package com.taotao.cloud.goods.facade.assembler;
 
 import com.taotao.cloud.goods.application.dto.sys.req.DictReq;
 import com.taotao.cloud.goods.application.dto.sys.res.DictRes;
-import com.taotao.cloud.sys.api.inner.request.DictQueryApiRequest;
-import com.taotao.cloud.sys.api.inner.response.DictApiResponse;
+import com.taotao.cloud.sys.api.inner.dto.request.DictQueryApiRequest;
+import com.taotao.cloud.sys.api.inner.dto.response.DictQueryApiResponse;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingConstants;
 import org.mapstruct.factory.Mappers;
@@ -37,8 +37,7 @@ public interface SysFacadeAssembler {
     /** 实例 */
     SysFacadeAssembler INSTANCE = Mappers.getMapper(SysFacadeAssembler.class);
 
-	DictRes toRes(DictApiResponse dictApiResponse);
+	DictRes toRes( DictQueryApiResponse dictApiResponse);
 
 	DictQueryApiRequest toReq(DictReq dictReq);
-
 }

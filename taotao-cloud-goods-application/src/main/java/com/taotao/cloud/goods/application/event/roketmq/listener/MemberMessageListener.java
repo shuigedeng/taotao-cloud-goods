@@ -6,10 +6,10 @@ import org.apache.rocketmq.spring.annotation.RocketMQMessageListener;
 import org.apache.rocketmq.spring.core.RocketMQListener;
 import org.springframework.stereotype.Component;
 
-@Component
-@RocketMQMessageListener(
-	topic = "${taotao.data.rocketmq.member-topic}",
-	consumerGroup = "${taotao.data.rocketmq.member-group}")
+//@Component
+//@RocketMQMessageListener(
+//	topic = "${taotao.data.rocketmq.member-topic}",
+//	consumerGroup = "${taotao.data.rocketmq.member-group}")
 public class MemberMessageListener implements RocketMQListener<MessageExt> {
 
 //    /** 会员签到 */

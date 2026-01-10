@@ -23,7 +23,7 @@ import com.taotao.cloud.goods.application.dto.sys.req.DictReq;
 import com.taotao.cloud.goods.application.dto.sys.res.DictRes;
 import com.taotao.cloud.goods.facade.assembler.SysFacadeAssembler;
 import com.taotao.cloud.goods.facade.sys.invoker.SysInvoker;
-import com.taotao.cloud.sys.api.inner.response.DictApiResponse;
+import com.taotao.cloud.sys.api.inner.dto.response.DictQueryApiResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -43,12 +43,11 @@ public class SysAclServiceImpl extends BaseAclService implements SysAclService {
 
     @Override
     public DictRes findByCode( DictReq dictReq ) {
-        GatewayResponse<DictApiResponse> gatewayResponse = sysInvoker.findByCode(
+        GatewayResponse<DictQueryApiResponse> gatewayResponse = sysInvoker.findByCode(
                 makeRequest(facadeAssembler.toReq(dictReq)));
-        DictApiResponse result = this.getResult(gatewayResponse);
+		DictQueryApiResponse result = this.getResult(gatewayResponse);
 
 //		DictApiResponse dictApiResponse = dictClientProxy.findByCode();
-//		return facadeAssembler.toRes(dictApiResponse);
-        return null;
+		return facadeAssembler.toRes(result);
     }
 }
