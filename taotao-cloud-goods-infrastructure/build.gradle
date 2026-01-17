@@ -24,3 +24,27 @@ dependencies {
     annotationProcessor "jakarta.persistence:jakarta.persistence-api:3.2.0"
 
 }
+
+
+
+// 定义一个独立的配置，避免污染主依赖
+configurations {
+    mybatisGen
+}
+
+dependencies {
+    mybatisGen 'org.mybatis.generator:mybatis-generator-core:1.4.2'
+    mybatisGen 'org.mybatis.dynamic-sql:mybatis-dynamic-sql:1.5.2'
+    mybatisGen 'io.github.shuigedeng:taotao-boot-starter-data-mybatis:2026.02'
+    mybatisGen 'com.mysql:mysql-connector-j:9.5.0'
+    //mybatisGenerator 'org.postgresql:postgresql:42.7.8'
+    //mybatisGenerator  // Here add your mariadb dependencies or else
+}
+
+// 自定义 Gradle 任务
+task generateMybatis(type: JavaExec) {
+    classpath = configurations.mybatisGen
+    mainClass = 'org.mybatis.generator.api.ShellRunner'
+    args '-configfile', 'generatorConfiguration.xml'
+    args '-overwrite'
+}

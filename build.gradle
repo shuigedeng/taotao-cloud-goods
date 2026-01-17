@@ -194,7 +194,7 @@ plugins {
 
     //https://github.com/kimichen13/mybatis-generator-plugin
     //https://plugins.gradle.org/plugin/com.qqviaja.gradle.MybatisGenerator
-    id "com.qqviaja.gradle.MybatisGenerator" version "2.5"
+    //id "com.qqviaja.gradle.MybatisGenerator" version "2.5"
 
     //https://plugins.gradle.org/plugin/io.swagger.core.v3.swagger-gradle-plugin
     //https://github.com/swagger-api/swagger-core/tree/master/modules/swagger-gradle-plugin

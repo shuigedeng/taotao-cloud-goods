@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC
+	"-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+	"http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+
+	<!-- 引入配置文件 可以使用配置文件里面的属性-->
+	<!--<properties resource="application-dev.properties" />-->
+
+	<!-- 一个数据库一个context, context子元素必须按照如下顺序
+        property*、plugin*、commentGenerator?、jdbcConnection、javaTypeResolver?
+        javaModelGenerator、sqlMapGenerator?、javaClientGenerator?、table+
+    -->
+	<!--Mybatis Generator
+		targetRuntime 这个配置会影响生成的 dao 和 mapper.xml的内容
+		目前有5种运行模式，分别为：MyBatis3DynamicSql、MyBatis3Kotlin、MyBatis3、MyBatis3Simple、MyBatis3DynamicSqlV1。
+		flat表示一张表对应一个po -->
+	<context id="TaotaoCloudSysMybatisContext" targetRuntime="MyBatis3" defaultModelType="flat">
+		<property name="autoDelimitKeywords" value="true"/>
+		<property name="beginningDelimiter" value="`"/>
+		<property name="endingDelimiter" value="`"/>
+		<property name="javaFileEncoding" value="UTF-8"/>
+
+		<!-- 生成的pojo，将implements Serializable -->
+		<plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+		<!-- 生成的pojo，增加了tostring方法-->
+		<plugin type="org.mybatis.generator.plugins.ToStringPlugin"/>
+		<!-- 生成的pojo，增加了equals 和 hashCode方法-->
+		<plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin"/>
+		<!--生成mapper.xml时覆盖原文件-->
+		<plugin type="org.mybatis.generator.plugins.UnmergeableXmlMappersPlugin" />
+
+		<!--可以自定义生成model的代码注释-->
+		<!--<commentGenerator type="org.mybatis.generator.internal.DefaultCommentGenerator">-->
+		<commentGenerator type="com.taotao.boot.data.mybatis.mbg.CommentGenerator">
+			<!-- 是否去除自动生成的注释 true：是 ：false:否 -->
+			<property name="suppressAllComments" value="true"/>
+			<!--不希望生成的注释中包含时间戳-->
+			<property name="suppressDate" value="true"/>
+			<!--添加 db 表中字段的注释-->
+			<property name="addRemarkComments" value="true"/>
+		</commentGenerator>
+
+		<!--配置数据库连接-->
+		<jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
+						connectionURL="jdbc:mysql://192.168.218.2:3306/taotao-cloud-sys?useUnicode=true&amp;characterEncoding=utf-8&amp;serverTimezone=Asia/Shanghai&amp;useSSL=false"
+						userId="root"
+						password="123456">
+			<!--解决mysql驱动升级到8.0后不生成指定数据库代码的问题-->
+			<!--高版本的 mysql-connector-java 需要设置 nullCatalogMeansCurrent=true-->
+			<property name="nullCatalogMeansCurrent" value="true"/>
+		</jdbcConnection>
+
+		<javaTypeResolver>
+			<!-- 默认false，把JDBC DECIMAL 和 NUMERIC 类型解析为 Integer， 为 true时把JDBC DECIMAL和 NUMERIC 类型解析为java.math.BigDecimal -->
+			<property name="forceBigDecimals" value="false"/>
+			<!--默认false
+                false，将所有 JDBC 的时间类型解析为 java.util.Date
+                true，将 JDBC 的时间类型按如下规则解析
+                   DATE	                -> java.time.LocalDate
+                   TIME	                -> java.time.LocalTime
+                   TIMESTAMP                   -> java.time.LocalDateTime
+                   TIME_WITH_TIMEZONE  	-> java.time.OffsetTime
+                   TIMESTAMP_WITH_TIMEZONE	-> java.time.OffsetDateTime
+       		-->
+			<property name="useJSR310Types" value="true"/>
+		</javaTypeResolver>
+
+		<!-- 配置 po 生成的包路径和项目路径，对应的包路径，以及文件存放路径(targetProject)，targetProject可以指定具体的路径,如src/main/java，
+            也可以使用“MAVEN”来自动生成，这样生成的代码会在target/generated-source目录下 -->
+		<!--<javaModelGenerator targetPackage="com.joey.mybaties.test.pojo" targetProject="MAVEN"> -->
+		<javaModelGenerator
+			targetPackage="com.taotao.cloud.sys.infrastructure.persistent.mbg.entity"
+			targetProject="src/main/java">
+			<!-- enableSubPackages:是否让schema作为包的后缀 -->
+			<property name="enableSubPackages" value="false"/>
+			<!-- 从数据库返回的值被清理前后的空格是否针对string类型的字段在set方法中进行修剪，默认false    -->
+			<property name="trimStrings" value="true"/>
+		</javaModelGenerator>
+
+		<!--对应的mapper.xml文件 -->
+		<sqlMapGenerator targetPackage="mappers"
+			targetProject="src/main/resources">
+			<property name="enableSubPackages" value="false" />
+		</sqlMapGenerator>
+
+		<!-- 对应的Mapper接口类文件
+				 type="XMLMAPPER" 会将接口的实现放在 mapper.xml中，也推荐这样配置。
+				 type="ANNOTATEDMAPPER"，接口的实现通过注解写在接口上面
+				 -->
+		<javaClientGenerator targetPackage="com.taotao.cloud.sys.infrastructure.persistent.mbg.mapper"
+							 targetProject="src/main/java"
+							 type="XMLMAPPER">
+			<property name="rootInterface" value="org.mybatis.dynamic.sql.util.mybatis3.CommonSelectMapper"/>
+			<!-- enableSubPackages:是否让schema作为包的后缀 -->
+			<property name="enableSubPackages" value="false" />
+		</javaClientGenerator>
+
+		<!-- schema为数据库名，oracle需要配置，mysql不需要配置。
+		 tableName为对应的数据库表名
+		 domainObjectName 是要生成的实体类名(可以不指定)
+		 enableXXXByExample 默认为 true， 为 true 会生成一个对应Example帮助类，帮助你进行条件查询，不想要可以设为false
+		 enableXXXByExample 默认为true，但只有在targetRuntime="MyBatis3"时才生效
+		 -->
+		<!-- 列出要生成代码的所有表，这里配置的是不生成Example文件 -->
+		<!--<table tableName="userinfo" domainObjectName="UserInfoPO"-->
+		<!--	enableCountByExample="true" enableUpdateByExample="true"-->
+		<!--	enableDeleteByExample="true" enableSelectByExample="true"-->
+		<!--	selectByExampleQueryId="true">-->
+		<!--	&lt;!&ndash;是否使用实际列名,默认为false&ndash;&gt;-->
+		<!--	<property name="useActualColumnNames" value="false" />-->
+		<!--</table>-->
+
+		<!--生成全部表tableName设为%-->
+		<!-- 指定数据库表 -->
+		<!--<table tableName="tt_%" >-->
+		<!--	<generatedKey column="id" sqlStatement="MySql" identity="true" type="post"/>-->
+		<!--	<domainObjectRenamingRule searchString="^tt_" replaceString=""/>-->
+		<!--</table>-->
+
+		<table tableName="tt_app" domainObjectName="App">
+			<generatedKey column="id" sqlStatement="JDBC" identity="true" type="post"/>
+		</table>
+
+		<!--<table tableName="order" delimitIdentifiers="true" domainObjectName="OrderEntity">-->
+		<!--	<generatedKey column="id" sqlStatement="JDBC" identity="true" type="post"/>-->
+		<!--	<columnOverride column="status"-->
+		<!--					javaType="cc.cc1234.core.domain.enums.OrderStatus"-->
+		<!--					typeHandler="cc.cc1234.dao.EnumOrdinalTypeHandler"/>-->
+		<!--</table>-->
+		<!--<table tableName="order_item" domainObjectName="OrderItemEntity">-->
+		<!--	<generatedKey column="id" sqlStatement="JDBC" identity="true" type="post"/>-->
+		<!--</table>-->
+
+
+		<!-- 指定数据库表
+          schema:数据库的schema,可以使用SQL通配符匹配。如果设置了该值，生成SQL的表名会变成如schema.tableName的形式。
+          domainObjectName:生成对象的基本名称。如果没有指定，MBG会自动根据表名来生成名称。
+          -->
+		<!--<table schema="" tableName="" domainObjectName=""/>-->
+	</context>
+</generatorConfiguration>
+
+

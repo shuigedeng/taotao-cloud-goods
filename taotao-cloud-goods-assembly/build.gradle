@@ -10,7 +10,7 @@ apply from: rootProject.file('gradle/shadow.gradle')
 //apply from: rootProject.file('gradle/graalvm.gradle')
 apply from: rootProject.file('gradle/swagger.gradle')
 apply from: rootProject.file('gradle/test.gradle')
-apply from: rootProject.file('gradle/mybatis-generator.gradle')
+//apply from: rootProject.file('gradle/mybatis-generator.gradle')
 
 application {
     mainClass.set("com.taotao.cloud.goods.TaoTaoCloudGoodsApplication")
