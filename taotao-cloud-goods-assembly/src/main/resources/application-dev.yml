@@ -514,7 +514,7 @@ spring:
         eclipselink.logging.level.sql: FINE
         hbm2ddl.auto: update
         use_sql_comments: true
-        dialect: org.hibernate.dialect.MySQL8Dialect
+        dialect: org.hibernate.dialect.MySQLDialect
         format_sql: true #输出sql语句 此种方式是直接通过System.out方式进行输出，并且还不会记录预处理语句的参数；不推荐此做法。
         show_sql: false
         generate_statistics: false

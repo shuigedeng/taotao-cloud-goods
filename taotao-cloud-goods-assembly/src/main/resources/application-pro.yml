@@ -687,7 +687,7 @@ spring:
     #    eclipselink.logging.level.sql: FINE
     #    format_sql: true
     #    hbm2ddl.auto: update
-    #    dialect: org.hibernate.dialect.MySQL8Dialect
+    #    dialect: org.hibernate.dialect.MySQLDialect
     #properties:
     #  eclipselink:
     #    logging:
