@@ -380,10 +380,10 @@ subprojects {
             resolutionStrategy {
                 force 'net.minidev:json-smart:2.6.0'
                 //https://search.maven.org/artifact/com.google.protobuf/protobuf-java
-                force "com.google.protobuf:protobuf-java:4.33.2"
+                force "com.google.protobuf:protobuf-java:4.33.4"
                 //https://search.maven.org/artifact/com.google.protobuf/protobuf-java-util
-                force "com.google.protobuf:protobuf-java-util:4.33.2"
-                force "com.google.protobuf:protobuf-javalite:4.33.2"
+                force "com.google.protobuf:protobuf-java-util:4.33.4"
+                force "com.google.protobuf:protobuf-javalite:4.33.4"
                 force "org.glassfish.jaxb:jaxb-runtime:4.0.6"
                 force "org.glassfish.jaxb:jaxb-core:4.0.6"
                 force "org.glassfish.jaxb:jaxb-xjc:4.0.6"
