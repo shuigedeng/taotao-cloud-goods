@@ -46,7 +46,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Validated
 @RestController
 @Tag(name = "店铺端-店铺分类API", description = "店铺端-店铺分类API")
-@RequestMapping("/goods/seller/label")
+@RequestMapping("/seller/goods/label")
 public class GoodsLabelSellerController extends BusinessController {
 
     /**
@@ -88,7 +88,7 @@ public class GoodsLabelSellerController extends BusinessController {
     //	@Operation(summary = "修改店铺商品分类", description = "修改店铺商品分类")
     //	@RequestLogger("修改店铺商品分类")
     //	@PreAuthorize("hasAuthority('dept:tree:data')")
-    //	@PutMapping("/{id}")
+    //	@PostMapping("/{id}")
     //	public Result<Boolean> edit(@PathVariable Long id, @Validated @RequestBody
     // StoreGoodsLabelEditCmd
     // storeGoodsLabelDTO) {
@@ -101,7 +101,7 @@ public class GoodsLabelSellerController extends BusinessController {
     @Operation(summary = "删除店铺商品分类", description = "删除店铺商品分类")
     @RequestLogger("删除店铺商品分类")
     @PreAuthorize("hasAuthority('dept:tree:data')")
-    @DeleteMapping("/{id}")
+    @PostMapping("/{id}")
     public Result<Boolean> delete(@PathVariable Long id) {
         return Result.success(storeGoodsLabelCommandService.removeStoreGoodsLabel(id));
     }

@@ -44,7 +44,7 @@ import org.springframework.web.bind.annotation.*;
 @Validated
 @RestController
 @Tag(name = "管理端-商品分类规格管理API", description = "管理端-商品分类规格管理API")
-@RequestMapping("/goods/manager/category/spec")
+@RequestMapping("/manager/goods/category/spec")
 public class CategorySpecificationManagerController extends BusinessController {
 
     /** 分类规格服务 */
@@ -60,7 +60,7 @@ public class CategorySpecificationManagerController extends BusinessController {
         @Operation(summary = "查询某分类下绑定的规格信息", description = "查询某分类下绑定的规格信息")
         @RequestLogger
         @PreAuthorize("hasAuthority('dept:tree:data')")
-        @GetMapping(value = "/{categoryId}")
+        @GetMapping(value = "/query/categoryId")
         public Result<List<SpecificationPO>> getCategorySpec(@PathVariable Long categoryId) {
             return
      Result.success(categorySpecificationQueryService.getCategorySpecList(categoryId));
@@ -69,7 +69,7 @@ public class CategorySpecificationManagerController extends BusinessController {
         @Operation(summary = "查询某分类下绑定的规格信息,商品操作使用", description = "查询某分类下绑定的规格信息,商品操作使用")
         @RequestLogger
         @PreAuthorize("hasAuthority('dept:tree:data')")
-        @GetMapping(value = "/goods/{categoryId}")
+        @GetMapping(value = "/query/goods/categoryId")
         public Result<List<SpecificationPO>> getSpec(@PathVariable Long categoryId) {
             return Result.success(specificationQueryService.list());
         }
@@ -77,8 +77,8 @@ public class CategorySpecificationManagerController extends BusinessController {
     @Operation(summary = "保存某分类下绑定的规格信息", description = "保存某分类下绑定的规格信息")
     @RequestLogger
     @PreAuthorize("hasAuthority('dept:tree:data')")
-    @PostMapping(value = "/{categoryId}")
-    public Result<Boolean> saveCategoryBrand(
+    @PostMapping(value = "/command/save")
+    public Result<Boolean> save(
             @PathVariable Long categoryId, @RequestParam String[] categorySpecs) {
         return Result.success(
                 specificationCommandService.saveCategoryBrand(categoryId, categorySpecs));

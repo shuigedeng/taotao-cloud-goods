@@ -44,7 +44,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Validated
 @RestController
 @Tag(name = "店铺端-分类绑定参数组API", description = "店铺端-分类绑定参数组API")
-@RequestMapping("/goods/seller/category/parameters")
+@RequestMapping("/seller/goods/category/parameters")
 public class CategoryParameterGroupSellerController extends BusinessController {
 
     /** 分类参数组服务 */

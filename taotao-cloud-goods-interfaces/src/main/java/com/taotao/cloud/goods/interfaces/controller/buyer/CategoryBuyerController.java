@@ -48,7 +48,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Validated
 @RestController
 @Tag(name = "买家端-商品分类API", description = "买家端-商品分类API")
-@RequestMapping("/goods/buyer/category")
+@RequestMapping("/buyer/goods/category")
 public class CategoryBuyerController extends BusinessController {
 
     /**
@@ -58,12 +58,12 @@ public class CategoryBuyerController extends BusinessController {
 
     private final CategoryQueryService categoryQueryService;
 
+    @NotAuth
     @RequestLogger
     @Operation(summary = "根据父id获取商品分类列表", description = "根据父id获取商品分类列表")
-    @NotAuth
-    @GetMapping(value = "parentId")
-    public Result<List<CategoryTreeResult>> list(
-            @NotNull(message = "父ID不能为空") @RequestParam(value = "parentId") Long parentId) {
+    @GetMapping(value = "/query/tree/parentId")
+    public Result<List<CategoryTreeResult>> queryTreeByParentId(
+		@Parameter(required = true, description = "商品ID") @NotNull(message = "父ID不能为空") @RequestParam Long parentId) {
         return Result.success(categoryQueryService.listAllChildren(parentId));
     }
 }

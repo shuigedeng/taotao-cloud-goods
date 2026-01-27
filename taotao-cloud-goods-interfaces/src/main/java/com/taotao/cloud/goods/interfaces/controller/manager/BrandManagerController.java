@@ -49,7 +49,7 @@ import java.util.List;
 @Validated
 @RestController
 @Tag(name = "管理端-品牌管理API", description = "管理端-品牌管理API")
-@RequestMapping("/goods/manager/brand")
+@RequestMapping("/manager/goods/brand")
 public class BrandManagerController extends BusinessController {
 
 	/**
@@ -63,8 +63,8 @@ public class BrandManagerController extends BusinessController {
 	@RequestLogger
 	@NotAuth
 	//@PreAuthorize("hasAuthority('dept:tree:data')")
-	@GetMapping(value = "/id")
-	public Result<BrandResult> getById(
+	@GetMapping(value = "/query")
+	public Result<BrandResult> queryById(
 		@Parameter(description = "品牌ID", required = true) @NotNull(message = "id不能为空") @RequestParam Long id ) {
 		BrandResult brandCo = brandQueryService.getById(id);
 		return Result.success(brandCo);
@@ -73,8 +73,8 @@ public class BrandManagerController extends BusinessController {
 	@Operation(summary = "获取所有可用品牌", description = "获取所有可用品牌")
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@GetMapping(value = "/all/available")
-	public Result<List<BrandCO>> getAllAvailable() {
+	@GetMapping(value = "/query/available")
+	public Result<List<BrandCO>> queryAvailable() {
 		List<BrandPO> list = brandQueryService.getAllAvailable();
 		return Result.success(BrandAssembler.INSTANCE.convert(list));
 	}
@@ -82,8 +82,8 @@ public class BrandManagerController extends BusinessController {
 	@Operation(summary = "分页获取", description = "分页获取")
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@GetMapping(value = "/page")
-	public Result<PageResult<BrandCO>> brandsQueryPage( @Validated BrandPageQry page ) {
+	@GetMapping(value = "/query/page")
+	public Result<PageResult<BrandCO>> queryPage( @Validated BrandPageQry page ) {
 		IPage<BrandPO> brandPage = brandQueryService.brandsQueryPage(page);
 		return Result.success(MpUtils.convertMybatisPage(brandPage, BrandCO.class));
 	}
@@ -91,7 +91,7 @@ public class BrandManagerController extends BusinessController {
 	@Operation(summary = "新增品牌", description = "新增品牌")
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@PostMapping
+	@PostMapping("/command/save")
 	public Result<Boolean> save( @Validated @RequestBody BrandAddCommand brand ) {
 		return Result.success(brandCommandService.addBrand(brand));
 	}
@@ -99,25 +99,24 @@ public class BrandManagerController extends BusinessController {
 	@Operation(summary = "更新品牌", description = "更新品牌")
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@PutMapping("/{id}")
-	public Result<Boolean> update( @PathVariable Long id, @Validated BrandUpdateCommand brand ) {
-		brand.id(id);
+	@PostMapping("/command/update")
+	public Result<Boolean> updateById( @Validated @RequestBody BrandUpdateCommand brand ) {
 		return Result.success(brandCommandService.updateBrand(brand));
 	}
 
 	@Operation(summary = "后台禁用品牌", description = "后台禁用品牌")
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@PutMapping(value = "/disable/{brandId}")
-	public Result<Boolean> disable( @PathVariable Long brandId, @RequestParam Boolean disable ) {
+	@PostMapping(value = "/command/disable")
+	public Result<Boolean> disableById( @RequestParam Long brandId, @RequestParam Boolean disable ) {
 		return Result.success(brandCommandService.brandDisable(brandId, disable));
 	}
 
 	@Operation(summary = "批量删除", description = "批量删除")
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@DeleteMapping(value = "/{ids}")
-	public Result<Boolean> delAllByIds( @PathVariable List<Long> ids ) {
+	@PostMapping(value = "/command/del")
+	public Result<Boolean> delByIds( @RequestParam List<Long> ids ) {
 		return Result.success(brandCommandService.deleteBrands(ids));
 	}
 }

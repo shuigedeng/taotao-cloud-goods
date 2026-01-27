@@ -41,7 +41,7 @@ import org.springframework.web.bind.annotation.*;
 @Validated
 @RestController
 @Tag(name = "管理端-商品计量单位管理API", description = "管理端-商品计量单位管理API")
-@RequestMapping("/goods/manager/goods/unit")
+@RequestMapping("/manager/goods/goods/unit")
 public class GoodsUnitManagerController extends BusinessController {
 
     /** 商品计量服务 */
@@ -52,7 +52,7 @@ public class GoodsUnitManagerController extends BusinessController {
      @Operation(summary = "分页获取商品计量单位", description = "分页获取商品计量单位")
      @RequestLogger("分页获取商品计量单位")
      @PreAuthorize("hasAuthority('dept:tree:data')")
-     @GetMapping(value = "/page")
+     @GetMapping(value = "/query/page")
      public Result<PageResult<GoodsUnit>> getByPage(PageQuery pageQuery) {
         IPage<GoodsUnit> page = goodsUnitService.page(pageQuery.buildMpPage());
         return Result.success(MpUtils.convertMybatisPage(page, GoodsUnit.class));
@@ -61,7 +61,7 @@ public class GoodsUnitManagerController extends BusinessController {
      @Operation(summary = "获取商品计量单位", description = "获取商品计量单位")
      @RequestLogger("获取商品计量单位")
      @PreAuthorize("hasAuthority('dept:tree:data')")
-     @GetMapping("/{id}")
+     @GetMapping("/query/")
      public Result<GoodsUnit> getById(@NotNull @PathVariable Long id) {
         return Result.success(goodsUnitService.getById(id));
      }
@@ -69,7 +69,7 @@ public class GoodsUnitManagerController extends BusinessController {
      @Operation(summary = "添加商品计量单位", description = "添加商品计量单位")
      @RequestLogger("添加商品计量单位")
      @PreAuthorize("hasAuthority('dept:tree:data')")
-     @PostMapping
+     @PostMapping("/command/save")
      public Result<Boolean> save(@Valid @RequestBody GoodsUnit goodsUnit) {
         return Result.success(goodsUnitService.save(goodsUnit));
      }
@@ -77,7 +77,7 @@ public class GoodsUnitManagerController extends BusinessController {
      @Operation(summary = "编辑商品计量单位", description = "编辑商品计量单位")
      @RequestLogger("编辑商品计量单位")
      @PreAuthorize("hasAuthority('dept:tree:data')")
-     @PutMapping("/{id}")
+     @PostMapping("/commmand/update")
      public Result<Boolean> update(@NotNull @PathVariable Long id, @Valid @RequestBody GoodsUnit
      goodsUnit) {
         goodsUnit.setId(id);
@@ -85,13 +85,9 @@ public class GoodsUnitManagerController extends BusinessController {
      }
 
         @Operation(summary = "删除商品计量单位", description = "删除商品计量单位")
-        @Parameters({
-                @Parameter(name = "ids", required = true, description = "id列表,逗号连接", example =
-     "1,2,3"),
-        })
         @RequestLogger("删除商品计量单位")
         @PreAuthorize("hasAuthority('dept:tree:data')")
-        @DeleteMapping("/{ids}")
+        @PostMapping("/commnad/dels")
         public Result<Boolean> delete(@NotEmpty(message = "id不能为空") @RequestParam List<Long> ids)
      {
             return Result.success(goodsUnitService.removeByIds(ids));

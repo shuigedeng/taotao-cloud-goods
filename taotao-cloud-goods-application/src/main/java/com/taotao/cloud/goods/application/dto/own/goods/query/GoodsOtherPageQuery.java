@@ -44,7 +44,7 @@ public class GoodsOtherPageQuery extends PageQuery {
 
     @Serial private static final long serialVersionUID = 2544015852728566887L;
 
-    @Schema(description = "商品编号")
+    @Schema(description = "商品编号", requiredMode = Schema.RequiredMode.REQUIRED)
     private Long goodsId;
 
     @Schema(description = "商品名称")

@@ -40,7 +40,7 @@ import org.springframework.web.bind.annotation.*;
 @Validated
 @RestController
 @Tag(name = "管理端-参数管理API", description = "管理端-参数管理API")
-@RequestMapping("/goods/manager/parameters")
+@RequestMapping("/manager/goods/parameters")
 public class ParameterManagerController extends BusinessController {
 
     /** 参数服务 */
@@ -51,7 +51,7 @@ public class ParameterManagerController extends BusinessController {
      @Operation(summary = "添加参数", description = "添加参数")
      @RequestLogger("添加参数添加参数")
      @PreAuthorize("hasAuthority('dept:tree:data')")
-     @PostMapping
+     @PostMapping("/command/save")
      public Result<Boolean> save(@Validated @RequestBody ParametersDTO parametersDTO) {
         Parameters parameters = ParametersConvert.INSTANCE.convert(parametersDTO);
         return Result.success(parametersService.save(parameters));
@@ -60,7 +60,7 @@ public class ParameterManagerController extends BusinessController {
      @Operation(summary = "编辑参数", description = "编辑参数")
      @RequestLogger("编辑参数")
      @PreAuthorize("hasAuthority('dept:tree:data')")
-     @PutMapping("/{id}")
+     @PostMapping("/command/update")
      public Result<Boolean> update(@Validated @RequestBody ParametersDTO parametersDTO,
                                   @PathVariable Long id) {
         Parameters parameters = ParametersConvert.INSTANCE.convert(parametersDTO);
@@ -71,7 +71,7 @@ public class ParameterManagerController extends BusinessController {
      @Operation(summary = "根据id删除参数", description = "根据id删除参数")
      @RequestLogger("根据id删除参数")
      @PreAuthorize("hasAuthority('dept:tree:data')")
-     @DeleteMapping(value = "/{id}")
+     @PostMapping(value = "/command/del")
      public Result<Boolean> delById(@PathVariable Long id) {
         return Result.success(parametersService.removeById(id));
      }

@@ -32,11 +32,7 @@ import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * 管理端,分类品牌接口
@@ -49,7 +45,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Validated
 @RestController
 @Tag(name = "管理端-分类品牌管理API", description = "管理端-分类品牌管理API")
-@RequestMapping("/goods/manager/category/brand")
+@RequestMapping("/manager/goods/category/brand")
 public class CategoryBrandManagerController extends BusinessController {
 
     /** 规格品牌管理服务 */
@@ -60,20 +56,19 @@ public class CategoryBrandManagerController extends BusinessController {
     @Operation(summary = "查询某分类下绑定的品牌信息", description = "查询某分类下绑定的品牌信息")
     @RequestLogger
     @PreAuthorize("hasAuthority('dept:tree:data')")
-    @GetMapping(value = "/{categoryId}")
-    public Result<List<CategoryBrandResult>> getCategoryBrandList(
-            @NotBlank(message = "分类id不能为空") @PathVariable(value = "categoryId") Long categoryId) {
+    @GetMapping(value = "/query/categoryId")
+    public Result<List<CategoryBrandResult>> queryByCategoryId(
+            @NotBlank(message = "分类id不能为空") @RequestParam Long categoryId) {
         return Result.success(categoryBrandQueryService.getCategoryBrandList(categoryId));
     }
 
     @Operation(summary = "保存某分类下绑定的品牌信息", description = "保存某分类下绑定的品牌信息")
     @RequestLogger
     @PreAuthorize("hasAuthority('dept:tree:data')")
-    @PostMapping(value = "/{categoryId}/{categoryBrands}")
+    @PostMapping(value = "/command/category/brands")
     public Result<Boolean> saveCategoryBrand(
-            @NotBlank(message = "分类id不能为空") @PathVariable(value = "categoryId") Long categoryId,
-            @NotBlank(message = "品牌id列表不能为空") @PathVariable(value = "categoryBrands")
-                    List<Long> categoryBrands) {
+            @NotBlank(message = "分类id不能为空") @RequestParam Long categoryId,
+            @NotBlank(message = "品牌id列表不能为空") @RequestParam List<Long> categoryBrands) {
         return Result.success(
                 categoryBrandCommandService.saveCategoryBrandList(categoryId, categoryBrands));
     }

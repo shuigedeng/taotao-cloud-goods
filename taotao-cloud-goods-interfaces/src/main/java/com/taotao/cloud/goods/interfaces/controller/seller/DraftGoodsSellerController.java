@@ -36,7 +36,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Validated
 @RestController
 @Tag(name = "店铺端-草稿商品API", description = "店铺端-草稿商品API")
-@RequestMapping("/goods/seller/draft/goods")
+@RequestMapping("/seller/goods/draft/goods")
 public class DraftGoodsSellerController extends BusinessController {
 
     /** 草稿商品服务 */
@@ -83,7 +83,7 @@ public class DraftGoodsSellerController extends BusinessController {
     // @Operation(summary = "删除草稿商品", description = "删除草稿商品")
     // @RequestLogger("删除草稿商品")
     // @PreAuthorize("hasAuthority('dept:tree:data')")
-    // @DeleteMapping(value = "/{id}")
+    // @PostMapping(value = "/{id}")
     // public Result<Boolean> deleteDraftGoods(@PathVariable Long id) {
     //    draftGoodsService.getDraftGoods(id);
     //    return Result.success(draftGoodsService.deleteGoodsDraft(id));

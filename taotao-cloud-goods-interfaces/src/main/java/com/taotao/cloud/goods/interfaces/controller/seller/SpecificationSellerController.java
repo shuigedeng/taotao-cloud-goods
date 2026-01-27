@@ -36,7 +36,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Validated
 @RestController
 @Tag(name = "店铺端-规格API", description = "店铺端-规格API")
-@RequestMapping("/goods/seller/goods/specification")
+@RequestMapping("/seller/goods/specification")
 public class SpecificationSellerController extends BusinessController {
 
     /**

@@ -31,9 +31,6 @@ import com.taotao.cloud.goods.application.service.command.GoodsSkuCommandService
 import com.taotao.cloud.goods.application.service.query.GoodsQueryService;
 import com.taotao.cloud.goods.application.service.query.GoodsSkuQueryService;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.Parameter;
-import io.swagger.v3.oas.annotations.Parameters;
-import io.swagger.v3.oas.annotations.enums.ParameterIn;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.RequiredArgsConstructor;
@@ -54,7 +51,7 @@ import java.util.List;
 @Validated
 @RestController
 @Tag(name = "管理端-商品管理API", description = "管理端-商品管理API")
-@RequestMapping("/goods/manager/goods")
+@RequestMapping("/manager/goods")
 public class GoodsManagerController extends BusinessController {
 
 	/**
@@ -75,15 +72,15 @@ public class GoodsManagerController extends BusinessController {
 
 	@RequestLogger("管理员上架商品")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@PostMapping
-	public Result<GoodsResult> createGoods( @RequestBody GoodsCreateCommand goodsCreateCommand ) {
+	@PostMapping("/command/create")
+	public Result<GoodsResult> create( @RequestBody GoodsCreateCommand goodsCreateCommand ) {
 		return Result.success(this.goodsCommandService.createGoods(goodsCreateCommand));
 	}
 
 	@Operation(summary = "分页获取", description = "分页获取")
 	@RequestLogger("分页获取")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@GetMapping(value = "/page")
+	@GetMapping(value = "/query/page")
 	public Result<PageResult<GoodsCO>> getByPage( @Validated GoodsPageQry goodsPageQuery ) {
 		IPage<GoodsPO> goodsPage = goodsQueryService.goodsQueryPage(goodsPageQuery);
 		return Result.success(MpUtils.convertMybatisPage(goodsPage, GoodsCO.class));
@@ -92,7 +89,7 @@ public class GoodsManagerController extends BusinessController {
 	@Operation(summary = "分页获取商品列表", description = "分页获取商品列表")
 	@RequestLogger("分页获取商品列表")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@GetMapping(value = "/sku/page")
+	@GetMapping(value = "/query/sku/page")
 	public Result<PageResult<GoodsSkuCO>> getSkuByPage( @Validated GoodsPageQry goodsPageQuery ) {
 		IPage<GoodsSkuPO> goodsSkuPage = goodsSkuQueryService.goodsSkuQueryPage(goodsPageQuery);
 		return Result.success(MpUtils.convertMybatisPage(goodsSkuPage,
@@ -102,7 +99,7 @@ public class GoodsManagerController extends BusinessController {
 	@Operation(summary = "分页获取待审核商品", description = "分页获取待审核商品")
 	@RequestLogger("分页获取待审核商品")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@GetMapping(value = "/auth/page")
+	@GetMapping(value = "/query/auth/page")
 	public Result<PageResult<GoodsCO>> getAuthPage( @Validated GoodsPageQry goodsPageQuery ) {
 		goodsPageQuery.setAuthFlag(GoodsAuthEnum.TOBEAUDITED.name());
 		IPage<GoodsPO> goodsPage = goodsQueryService.goodsQueryPage(goodsPageQuery);
@@ -113,7 +110,7 @@ public class GoodsManagerController extends BusinessController {
 
 	@RequestLogger("管理员下架商品")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@PutMapping(value = "/{goodsId}/under")
+	@PostMapping(value = "/command/under")
 	public Result<Boolean> underGoods(
 		@PathVariable Long goodsId,
 		@NotEmpty(message = "下架原因不能为空") @RequestParam String reason ) {
@@ -127,7 +124,7 @@ public class GoodsManagerController extends BusinessController {
 
 	@RequestLogger("管理员审核商品")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@PutMapping(value = "{goodsIds}/auth")
+	@PostMapping(value = "/command/auth")
 	public Result<Boolean> auth( @PathVariable List<Long> goodsIds, @RequestParam String authFlag ) {
 		// 校验商品是否存在
 		return Result.success(
@@ -138,7 +135,7 @@ public class GoodsManagerController extends BusinessController {
 
 	@RequestLogger("管理员上架商品")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@PutMapping(value = "/{goodsId}/up")
+	@PostMapping(value = "/command/up")
 	public Result<Boolean> unpGoods( @PathVariable List<Long> goodsId ) {
 		return Result.success(
 			goodsCommandService.updateGoodsMarketAble(goodsId, GoodsStatusEnum.UPPER, ""));
@@ -148,7 +145,7 @@ public class GoodsManagerController extends BusinessController {
 
 	@RequestLogger("通过id获取商品详情")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@GetMapping(value = "/{id}")
+	@GetMapping(value = "/query")
 	public Result<GoodsSkuParamsResult> get( @PathVariable Long id ) {
 		return Result.success(goodsQueryService.getGoodsVO(id));
 	}

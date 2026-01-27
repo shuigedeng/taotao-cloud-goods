@@ -46,7 +46,7 @@ import org.springframework.web.bind.annotation.*;
 @Validated
 @RestController
 @Tag(name = "管理端-分类绑定参数组API", description = "管理端-分类绑定参数组API")
-@RequestMapping("/goods/manager/category/parameters")
+@RequestMapping("/manager/goods/category/parameters")
 public class CategoryParameterGroupManagerController extends BusinessController {
 
     /** 商品参数组服务 */
@@ -62,21 +62,16 @@ public class CategoryParameterGroupManagerController extends BusinessController 
     @Operation(summary = "查询某分类下绑定的参数信息", description = "查询某分类下绑定的参数信息")
     @RequestLogger
     @PreAuthorize("hasAuthority('dept:tree:data')")
-    @GetMapping(value = "/{categoryId}")
-    public Result<List<ParameterGroupResult>> getCategoryParam(@Parameter(
-			name = "parentId",
-			required = true,
-			description = "父ID 0-最上级id",
-			in = ParameterIn.PATH)
-    @PathVariable Long categoryId) {
+    @GetMapping(value = "/query/categoryId")
+    public Result<List<ParameterGroupResult>> getCategoryParam( @PathVariable Long categoryId) {
         return Result.success(categoryParameterGroupQueryService.getCategoryParams(categoryId));
     }
 
      @Operation(summary = "保存数据", description = "保存数据")
      @RequestLogger
      @PreAuthorize("hasAuthority('dept:tree:data')")
-     @PostMapping
-     public Result<Boolean> saveOrUpdate(@Validated CategoryParameterGroup categoryParameterGroup)
+     @PostMapping("/command/save")
+     public Result<Boolean> save(@Validated CategoryParameterGroup categoryParameterGroup)
      {
         return Result.success(categoryParameterGroupCommandService.save(categoryParameterGroup));
      }
@@ -84,7 +79,7 @@ public class CategoryParameterGroupManagerController extends BusinessController 
      @Operation(summary = "更新数据", description = "更新数据")
      @RequestLogger
      @PreAuthorize("hasAuthority('dept:tree:data')")
-     @PutMapping
+     @PostMapping("/command/update")
      public Result<Boolean> update(@Validated CategoryParameterGroup categoryParameterGroup) {
         return
      Result.success(categoryParameterGroupCommandService.updateById(categoryParameterGroup));
@@ -93,7 +88,7 @@ public class CategoryParameterGroupManagerController extends BusinessController 
         @Operation(summary = "通过id删除参数组", description = "通过id删除参数组")
         @RequestLogger
         @PreAuthorize("hasAuthority('dept:tree:data')")
-        @DeleteMapping(value = "/{id}")
+        @PostMapping(value = "/command/del")
         public Result<Boolean> delAllByIds(@PathVariable Long id) {
             // 删除参数
     		parametersCommandService.remove(new QueryWrapper<ParametersPO>().eq("group_id", id));
