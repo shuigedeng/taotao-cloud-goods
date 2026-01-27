@@ -58,13 +58,6 @@ public class CategoryBrandManagerController extends BusinessController {
     private final CategoryBrandQueryService categoryBrandQueryService;
 
     @Operation(summary = "查询某分类下绑定的品牌信息", description = "查询某分类下绑定的品牌信息")
-    @Parameters({
-        @Parameter(
-                name = "parentId",
-                required = true,
-                description = "父ID 0-最上级id",
-                in = ParameterIn.PATH),
-    })
     @RequestLogger
     @PreAuthorize("hasAuthority('dept:tree:data')")
     @GetMapping(value = "/{categoryId}")
@@ -74,13 +67,6 @@ public class CategoryBrandManagerController extends BusinessController {
     }
 
     @Operation(summary = "保存某分类下绑定的品牌信息", description = "保存某分类下绑定的品牌信息")
-    @Parameters({
-        @Parameter(
-                name = "parentId",
-                required = true,
-                description = "父ID 0-最上级id",
-                in = ParameterIn.PATH),
-    })
     @RequestLogger
     @PreAuthorize("hasAuthority('dept:tree:data')")
     @PostMapping(value = "/{categoryId}/{categoryBrands}")

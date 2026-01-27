@@ -31,11 +31,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * 管理端,商品分类规格接口
@@ -61,39 +57,24 @@ public class CategorySpecificationManagerController extends BusinessController {
 
     private final SpecificationCommandService specificationCommandService;
 
-    //    @Operation(summary = "查询某分类下绑定的规格信息", description = "查询某分类下绑定的规格信息")
-    //    @Parameters({
-    //            @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in =
-    // ParameterIn.PATH),
-    //    })
-    //    @RequestLogger
-    //    @PreAuthorize("hasAuthority('dept:tree:data')")
-    //    @GetMapping(value = "/{categoryId}")
-    //    public Result<List<SpecificationPO>> getCategorySpec(@PathVariable Long categoryId) {
-    //        return
-    // Result.success(categorySpecificationQueryService.getCategorySpecList(categoryId));
-    //    }
+        @Operation(summary = "查询某分类下绑定的规格信息", description = "查询某分类下绑定的规格信息")
+        @RequestLogger
+        @PreAuthorize("hasAuthority('dept:tree:data')")
+        @GetMapping(value = "/{categoryId}")
+        public Result<List<SpecificationPO>> getCategorySpec(@PathVariable Long categoryId) {
+            return
+     Result.success(categorySpecificationQueryService.getCategorySpecList(categoryId));
+        }
 
-    //    @Operation(summary = "查询某分类下绑定的规格信息,商品操作使用", description = "查询某分类下绑定的规格信息,商品操作使用")
-    //    @Parameters({
-    //            @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in =
-    // ParameterIn.PATH),
-    //    })
-    //    @RequestLogger
-    //    @PreAuthorize("hasAuthority('dept:tree:data')")
-    //    @GetMapping(value = "/goods/{categoryId}")
-    //    public Result<List<SpecificationPO>> getSpec(@PathVariable Long categoryId) {
-    //        return Result.success(specificationQueryService.list());
-    //    }
+        @Operation(summary = "查询某分类下绑定的规格信息,商品操作使用", description = "查询某分类下绑定的规格信息,商品操作使用")
+        @RequestLogger
+        @PreAuthorize("hasAuthority('dept:tree:data')")
+        @GetMapping(value = "/goods/{categoryId}")
+        public Result<List<SpecificationPO>> getSpec(@PathVariable Long categoryId) {
+            return Result.success(specificationQueryService.list());
+        }
 
     @Operation(summary = "保存某分类下绑定的规格信息", description = "保存某分类下绑定的规格信息")
-    @Parameters({
-        @Parameter(
-                name = "parentId",
-                required = true,
-                description = "父ID 0-最上级id",
-                in = ParameterIn.PATH),
-    })
     @RequestLogger
     @PreAuthorize("hasAuthority('dept:tree:data')")
     @PostMapping(value = "/{categoryId}")

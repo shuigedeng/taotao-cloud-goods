@@ -16,14 +16,19 @@
 
 package com.taotao.cloud.goods.interfaces.controller.manager;
 
+import com.taotao.boot.common.model.result.Result;
+import com.taotao.boot.data.mybatis.mybatisplus.MpUtils;
+import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
 import com.taotao.cloud.goods.application.service.command.GoodsUnitCommandService;
 import com.taotao.cloud.goods.application.service.query.GoodsUnitQueryService;
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.constraints.NotEmpty;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * 管理端,商品计量单位接口
@@ -44,67 +49,51 @@ public class GoodsUnitManagerController extends BusinessController {
 
     private final GoodsUnitCommandService goodsUnitCommandService;
 
-    // @Operation(summary = "分页获取商品计量单位", description = "分页获取商品计量单位")
-    // @Parameters({
-    //        @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in =
-    // ParameterIn.PATH),
-    // })
-    // @RequestLogger("分页获取商品计量单位")
-    // @PreAuthorize("hasAuthority('dept:tree:data')")
-    // @GetMapping(value = "/page")
-    // public Result<PageResult<GoodsUnit>> getByPage(PageQuery pageQuery) {
-    //    IPage<GoodsUnit> page = goodsUnitService.page(pageQuery.buildMpPage());
-    //    return Result.success(MpUtils.convertMybatisPage(page, GoodsUnit.class));
-    // }
+     @Operation(summary = "分页获取商品计量单位", description = "分页获取商品计量单位")
+     @RequestLogger("分页获取商品计量单位")
+     @PreAuthorize("hasAuthority('dept:tree:data')")
+     @GetMapping(value = "/page")
+     public Result<PageResult<GoodsUnit>> getByPage(PageQuery pageQuery) {
+        IPage<GoodsUnit> page = goodsUnitService.page(pageQuery.buildMpPage());
+        return Result.success(MpUtils.convertMybatisPage(page, GoodsUnit.class));
+     }
 
-    // @Operation(summary = "获取商品计量单位", description = "获取商品计量单位")
-    // @Parameters({
-    //        @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in =
-    // ParameterIn.PATH),
-    // })
-    // @RequestLogger("获取商品计量单位")
-    // @PreAuthorize("hasAuthority('dept:tree:data')")
-    // @GetMapping("/{id}")
-    // public Result<GoodsUnit> getById(@NotNull @PathVariable Long id) {
-    //    return Result.success(goodsUnitService.getById(id));
-    // }
+     @Operation(summary = "获取商品计量单位", description = "获取商品计量单位")
+     @RequestLogger("获取商品计量单位")
+     @PreAuthorize("hasAuthority('dept:tree:data')")
+     @GetMapping("/{id}")
+     public Result<GoodsUnit> getById(@NotNull @PathVariable Long id) {
+        return Result.success(goodsUnitService.getById(id));
+     }
 
-    // @Operation(summary = "添加商品计量单位", description = "添加商品计量单位")
-    // @Parameters({
-    //        @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in =
-    // ParameterIn.PATH),
-    // })
-    // @RequestLogger("添加商品计量单位")
-    // @PreAuthorize("hasAuthority('dept:tree:data')")
-    // @PostMapping
-    // public Result<Boolean> save(@Valid @RequestBody GoodsUnit goodsUnit) {
-    //    return Result.success(goodsUnitService.save(goodsUnit));
-    // }
-    //
-    // @Operation(summary = "编辑商品计量单位", description = "编辑商品计量单位")
-    // @Parameters({
-    //        @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in =
-    // ParameterIn.PATH),
-    // })
-    // @RequestLogger("编辑商品计量单位")
-    // @PreAuthorize("hasAuthority('dept:tree:data')")
-    // @PutMapping("/{id}")
-    // public Result<Boolean> update(@NotNull @PathVariable Long id, @Valid @RequestBody GoodsUnit
-    // goodsUnit) {
-    //    goodsUnit.setId(id);
-    //    return Result.success(goodsUnitService.updateById(goodsUnit));
-    // }
+     @Operation(summary = "添加商品计量单位", description = "添加商品计量单位")
+     @RequestLogger("添加商品计量单位")
+     @PreAuthorize("hasAuthority('dept:tree:data')")
+     @PostMapping
+     public Result<Boolean> save(@Valid @RequestBody GoodsUnit goodsUnit) {
+        return Result.success(goodsUnitService.save(goodsUnit));
+     }
 
-    //    @Operation(summary = "删除商品计量单位", description = "删除商品计量单位")
-    //    @Parameters({
-    //            @Parameter(name = "ids", required = true, description = "id列表,逗号连接", example =
-    // "1,2,3"),
-    //    })
-    //    @RequestLogger("删除商品计量单位")
-    //    @PreAuthorize("hasAuthority('dept:tree:data')")
-    //    @DeleteMapping("/{ids}")
-    //    public Result<Boolean> delete(@NotEmpty(message = "id不能为空") @RequestParam List<Long> ids)
-    // {
-    //        return Result.success(goodsUnitService.removeByIds(ids));
-    //    }
+     @Operation(summary = "编辑商品计量单位", description = "编辑商品计量单位")
+     @RequestLogger("编辑商品计量单位")
+     @PreAuthorize("hasAuthority('dept:tree:data')")
+     @PutMapping("/{id}")
+     public Result<Boolean> update(@NotNull @PathVariable Long id, @Valid @RequestBody GoodsUnit
+     goodsUnit) {
+        goodsUnit.setId(id);
+        return Result.success(goodsUnitService.updateById(goodsUnit));
+     }
+
+        @Operation(summary = "删除商品计量单位", description = "删除商品计量单位")
+        @Parameters({
+                @Parameter(name = "ids", required = true, description = "id列表,逗号连接", example =
+     "1,2,3"),
+        })
+        @RequestLogger("删除商品计量单位")
+        @PreAuthorize("hasAuthority('dept:tree:data')")
+        @DeleteMapping("/{ids}")
+        public Result<Boolean> delete(@NotEmpty(message = "id不能为空") @RequestParam List<Long> ids)
+     {
+            return Result.success(goodsUnitService.removeByIds(ids));
+        }
 }

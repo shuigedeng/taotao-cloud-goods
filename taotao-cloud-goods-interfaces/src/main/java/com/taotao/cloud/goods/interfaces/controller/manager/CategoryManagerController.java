@@ -16,6 +16,7 @@
 
 package com.taotao.cloud.goods.interfaces.controller.manager;
 
+import com.taotao.boot.common.enums.ResultEnum;
 import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
@@ -37,14 +38,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * 管理端,商品分类接口
@@ -71,27 +65,16 @@ public class CategoryManagerController extends BusinessController {
 
     private final GoodsCommandService goodsCommandService;
 
-    //    @Operation(summary = "查询某分类下的全部子分类列表", description = "查询某分类下的全部子分类列表")
-    //    @Parameters({
-    //            @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in =
-    // ParameterIn.PATH),
-    //    })
-    //    @RequestLogger
-    //    @PreAuthorize("hasAuthority('dept:tree:data')")
-    //    @GetMapping(value = "/{parentId}/children/all")
-    //    public Result<List<CategoryCO>> childrenList(@PathVariable Long parentId) {
-    //        List<CategoryPO> categories = this.categoryQueryService.childrenList(parentId);
-    //        return Result.success(CategoryAssembler.INSTANCE.convert(categories));
-    //    }
+        @Operation(summary = "查询某分类下的全部子分类列表", description = "查询某分类下的全部子分类列表")
+        @RequestLogger
+        @PreAuthorize("hasAuthority('dept:tree:data')")
+        @GetMapping(value = "/{parentId}/children/all")
+        public Result<List<CategoryCO>> childrenList(@PathVariable Long parentId) {
+            List<CategoryPO> categories = this.categoryQueryService.childrenList(parentId);
+            return Result.success(CategoryAssembler.INSTANCE.convert(categories));
+        }
 
     @Operation(summary = "查询全部分类列表", description = "查询全部分类列表")
-    @Parameters({
-        @Parameter(
-                name = "parentId",
-                required = true,
-                description = "父ID 0-最上级id",
-                in = ParameterIn.PATH),
-    })
     @RequestLogger
     @PreAuthorize("hasAuthority('dept:tree:data')")
     @GetMapping(value = "/children/all")
@@ -100,13 +83,6 @@ public class CategoryManagerController extends BusinessController {
     }
 
     @Operation(summary = "添加商品分类", description = "添加商品分类")
-    @Parameters({
-        @Parameter(
-                name = "parentId",
-                required = true,
-                description = "父ID 0-最上级id",
-                in = ParameterIn.PATH),
-    })
     @RequestLogger
     @PreAuthorize("hasAuthority('dept:tree:data')")
     @PostMapping
@@ -126,13 +102,6 @@ public class CategoryManagerController extends BusinessController {
     }
 
     @Operation(summary = "修改商品分类", description = "修改商品分类")
-    @Parameters({
-        @Parameter(
-                name = "parentId",
-                required = true,
-                description = "父ID 0-最上级id",
-                in = ParameterIn.PATH),
-    })
     @RequestLogger
     @PreAuthorize("hasAuthority('dept:tree:data')")
     @PutMapping
@@ -146,13 +115,6 @@ public class CategoryManagerController extends BusinessController {
     }
 
     @Operation(summary = "通过id删除分类", description = "通过id删除分类")
-    @Parameters({
-        @Parameter(
-                name = "parentId",
-                required = true,
-                description = "父ID 0-最上级id",
-                in = ParameterIn.PATH),
-    })
     @RequestLogger
     @PreAuthorize("hasAuthority('dept:tree:data')")
     @DeleteMapping(value = "/{id}")
@@ -173,22 +135,18 @@ public class CategoryManagerController extends BusinessController {
         return Result.success(true);
     }
 
-    //    @Operation(summary = "后台 禁用/启用 分类", description = "后台 禁用/启用 分类")
-    //    @Parameters({
-    //            @Parameter(name = "parentId", required = true, description = "父ID 0-最上级id", in =
-    // ParameterIn.PATH),
-    //    })
-    //    @RequestLogger
-    //    @PreAuthorize("hasAuthority('dept:tree:data')")
-    //    @PutMapping(value = "/disable/{id}")
-    //    public Result<Boolean> disable(@PathVariable Long id, @RequestParam Boolean
-    // enableOperations) {
-    //		GoodsPO category = goodsQueryService.getById(id);
-    //        if (category == null) {
-    //            throw new BusinessException(ResultEnum.CATEGORY_NOT_EXIST);
-    //        }
-    //        //return Result.success(categoryCommandService.updateCategoryStatus(id,
-    // enableOperations));
-    //		return null;
-    //    }
+        @Operation(summary = "后台 禁用/启用 分类", description = "后台 禁用/启用 分类")
+        @RequestLogger
+        @PreAuthorize("hasAuthority('dept:tree:data')")
+        @PutMapping(value = "/disable/{id}")
+        public Result<Boolean> disable(@PathVariable Long id, @RequestParam Boolean
+     enableOperations) {
+    		GoodsPO category = goodsQueryService.getById(id);
+            if (category == null) {
+                throw new BusinessException(ResultEnum.CATEGORY_NOT_EXIST);
+            }
+            //return Result.success(categoryCommandService.updateCategoryStatus(id,
+     enableOperations));
+    		return null;
+        }
 }

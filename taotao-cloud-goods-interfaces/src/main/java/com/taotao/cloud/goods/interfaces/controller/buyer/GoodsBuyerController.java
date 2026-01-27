@@ -20,6 +20,7 @@ import com.taotao.boot.common.model.result.PageResult;
 import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
+import com.taotao.cloud.goods.application.dto.own.goods.query.EsGoodsSearchQuery;
 import com.taotao.cloud.goods.application.dto.own.goods.result.GoodsResult;
 import com.taotao.cloud.goods.application.dto.own.goods.result.GoodsSkuParamsResult;
 import com.taotao.cloud.goods.application.dto.own.goods.query.GoodsOtherPageQuery;
@@ -116,25 +117,25 @@ public class GoodsBuyerController extends BusinessController {
         return null;
     }
 
-    // @Operation(summary = "从ES中获取商品信息", description = "从ES中获取商品信息")
-    // @RequestLogger
-    // @GetMapping("/es")
-    // public Result<SearchPage<EsGoodsIndex>> getGoodsByPageFromEs(
-    //	@Validated EsGoodsSearchQuery goodsSearchParams) {
-    //	SearchPage<EsGoodsIndex> esGoodsIndices = esGoodsQueryService.searchGoods(goodsSearchParams);
-    //	return Result.success(esGoodsIndices);
-    // }
+     @Operation(summary = "从ES中获取商品信息", description = "从ES中获取商品信息")
+     @RequestLogger
+     @GetMapping("/es")
+     public Result<SearchPage<EsGoodsIndex>> getGoodsByPageFromEs(
+    	@Validated EsGoodsSearchQuery goodsSearchParams) {
+    	SearchPage<EsGoodsIndex> esGoodsIndices = esGoodsQueryService.searchGoods(goodsSearchParams);
+    	return Result.success(esGoodsIndices);
+     }
 
-    // @Operation(summary = "从ES中获取相关商品品牌名称，分类名称及属性", description = "从ES中获取相关商品品牌名称，分类名称及属性")
-    // @RequestLogger
-    // @PreAuthorize("hasAuthority('dept:tree:data')")
-    // @GetMapping("/es/related")
-    // public Result<EsGoodsRelatedInfo> getGoodsRelatedByPageFromEs(
-    //	@Validated EsGoodsSearchQuery esGoodsSearchQuery) {
-    //	// pageVO.setNotConvert(true);
-    //	EsGoodsRelatedInfo selector = esGoodsQueryService.getSelector(esGoodsSearchQuery);
-    //	return Result.success(selector);
-    // }
+     @Operation(summary = "从ES中获取相关商品品牌名称，分类名称及属性", description = "从ES中获取相关商品品牌名称，分类名称及属性")
+     @RequestLogger
+     @PreAuthorize("hasAuthority('dept:tree:data')")
+     @GetMapping("/es/related")
+     public Result<EsGoodsRelatedInfo> getGoodsRelatedByPageFromEs(
+    	@Validated EsGoodsSearchQuery esGoodsSearchQuery) {
+    	// pageVO.setNotConvert(true);
+    	EsGoodsRelatedInfo selector = esGoodsQueryService.getSelector(esGoodsSearchQuery);
+    	return Result.success(selector);
+     }
 
     @Operation(summary = "获取热门关键词", description = "获取热门关键词")
     @Parameters({
