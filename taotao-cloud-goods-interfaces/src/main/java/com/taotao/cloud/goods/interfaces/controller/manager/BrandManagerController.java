@@ -17,6 +17,7 @@
 package com.taotao.cloud.goods.interfaces.controller.manager;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.taotao.boot.common.model.result.PageResult;
 import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.data.mybatis.mybatisplus.MpUtils;
 import com.taotao.boot.security.spring.annotation.NotAuth;
@@ -24,6 +25,7 @@ import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
 import com.taotao.cloud.goods.application.dto.own.brand.command.BrandAddCommand;
 import com.taotao.cloud.goods.application.dto.own.brand.command.BrandUpdateCommand;
+import com.taotao.cloud.goods.application.dto.own.brand.query.BrandPageQuery;
 import com.taotao.cloud.goods.application.dto.own.brand.result.BrandResult;
 import com.taotao.cloud.goods.application.service.command.BrandCommandService;
 import com.taotao.cloud.goods.application.service.query.BrandQueryService;
@@ -74,18 +76,20 @@ public class BrandManagerController extends BusinessController {
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/available")
-	public Result<List<BrandCO>> queryAvailable() {
-		List<BrandPO> list = brandQueryService.getAllAvailable();
-		return Result.success(BrandAssembler.INSTANCE.convert(list));
+	public Result<List<BrandResult>> queryAvailable() {
+//		List<BrandPO> list = brandQueryService.getAllAvailable();
+//		return Result.success(BrandAssembler.INSTANCE.convert(list));
+		return null;
 	}
 
 	@Operation(summary = "分页获取", description = "分页获取")
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/page")
-	public Result<PageResult<BrandCO>> queryPage( @Validated BrandPageQry page ) {
-		IPage<BrandPO> brandPage = brandQueryService.brandsQueryPage(page);
-		return Result.success(MpUtils.convertMybatisPage(brandPage, BrandCO.class));
+	public Result<PageResult<BrandResult>> queryPage( @Validated BrandPageQuery page ) {
+//		IPage<BrandPO> brandPage = brandQueryService.brandsQueryPage(page);
+//		return Result.success(MpUtils.convertMybatisPage(brandPage, BrandCO.class));
+		return null;
 	}
 
 	@Operation(summary = "新增品牌", description = "新增品牌")
@@ -93,7 +97,8 @@ public class BrandManagerController extends BusinessController {
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/save")
 	public Result<Boolean> save( @Validated @RequestBody BrandAddCommand brand ) {
-		return Result.success(brandCommandService.addBrand(brand));
+		boolean result = brandCommandService.addBrand(brand);
+		return Result.success(result);
 	}
 
 	@Operation(summary = "更新品牌", description = "更新品牌")
@@ -101,7 +106,8 @@ public class BrandManagerController extends BusinessController {
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/update")
 	public Result<Boolean> updateById( @Validated @RequestBody BrandUpdateCommand brand ) {
-		return Result.success(brandCommandService.updateBrand(brand));
+		boolean result = brandCommandService.updateBrand(brand);
+		return Result.success(result);
 	}
 
 	@Operation(summary = "后台禁用品牌", description = "后台禁用品牌")
@@ -115,7 +121,7 @@ public class BrandManagerController extends BusinessController {
 	@Operation(summary = "批量删除", description = "批量删除")
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@PostMapping(value = "/command/del")
+	@PostMapping(value = "/command/dels")
 	public Result<Boolean> delByIds( @RequestParam List<Long> ids ) {
 		return Result.success(brandCommandService.deleteBrands(ids));
 	}

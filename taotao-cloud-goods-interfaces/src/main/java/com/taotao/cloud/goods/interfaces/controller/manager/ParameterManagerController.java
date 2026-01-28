@@ -22,7 +22,6 @@ import com.taotao.boot.webagg.controller.BusinessController;
 import com.taotao.cloud.goods.application.service.command.ParametersCommandService;
 import com.taotao.cloud.goods.application.service.query.ParametersQueryService;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.enums.ParameterIn;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -43,36 +42,38 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/manager/goods/parameters")
 public class ParameterManagerController extends BusinessController {
 
-    /** 参数服务 */
-    private final ParametersQueryService parametersQueryService;
+	/**
+	 * 参数服务
+	 */
+	private final ParametersQueryService parametersQueryService;
 
-    private final ParametersCommandService parametersCommandService;
+	private final ParametersCommandService parametersCommandService;
 
-     @Operation(summary = "添加参数", description = "添加参数")
-     @RequestLogger("添加参数添加参数")
-     @PreAuthorize("hasAuthority('dept:tree:data')")
-     @PostMapping("/command/save")
-     public Result<Boolean> save(@Validated @RequestBody ParametersDTO parametersDTO) {
-        Parameters parameters = ParametersConvert.INSTANCE.convert(parametersDTO);
-        return Result.success(parametersService.save(parameters));
-     }
+	@Operation(summary = "添加参数", description = "添加参数")
+	@RequestLogger("添加参数添加参数")
+	@PreAuthorize("hasAuthority('dept:tree:data')")
+	@PostMapping("/command/save")
+	public Result<Boolean> save( @Validated @RequestBody ParametersDTO parametersDTO ) {
+		Parameters parameters = ParametersConvert.INSTANCE.convert(parametersDTO);
+		return Result.success(parametersService.save(parameters));
+	}
 
-     @Operation(summary = "编辑参数", description = "编辑参数")
-     @RequestLogger("编辑参数")
-     @PreAuthorize("hasAuthority('dept:tree:data')")
-     @PostMapping("/command/update")
-     public Result<Boolean> update(@Validated @RequestBody ParametersDTO parametersDTO,
-                                  @PathVariable Long id) {
-        Parameters parameters = ParametersConvert.INSTANCE.convert(parametersDTO);
-        parameters.setId(id);
-        return Result.success(parametersService.updateParameter(parameters));
-     }
+	@Operation(summary = "编辑参数", description = "编辑参数")
+	@RequestLogger("编辑参数")
+	@PreAuthorize("hasAuthority('dept:tree:data')")
+	@PostMapping("/command/update")
+	public Result<Boolean> update( @Validated @RequestBody ParametersDTO parametersDTO,
+		@PathVariable Long id ) {
+		Parameters parameters = ParametersConvert.INSTANCE.convert(parametersDTO);
+		parameters.setId(id);
+		return Result.success(parametersService.updateParameter(parameters));
+	}
 
-     @Operation(summary = "根据id删除参数", description = "根据id删除参数")
-     @RequestLogger("根据id删除参数")
-     @PreAuthorize("hasAuthority('dept:tree:data')")
-     @PostMapping(value = "/command/del")
-     public Result<Boolean> delById(@PathVariable Long id) {
-        return Result.success(parametersService.removeById(id));
-     }
+	@Operation(summary = "根据id删除参数", description = "根据id删除参数")
+	@RequestLogger("根据id删除参数")
+	@PreAuthorize("hasAuthority('dept:tree:data')")
+	@PostMapping(value = "/command/del")
+	public Result<Boolean> delById( @PathVariable Long id ) {
+		return Result.success(parametersService.removeById(id));
+	}
 }

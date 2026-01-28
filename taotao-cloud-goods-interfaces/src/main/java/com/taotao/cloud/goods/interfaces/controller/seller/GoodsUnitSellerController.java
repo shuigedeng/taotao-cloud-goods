@@ -16,12 +16,21 @@
 
 package com.taotao.cloud.goods.interfaces.controller.seller;
 
+import com.taotao.boot.common.model.request.PageQuery;
+import com.taotao.boot.common.model.result.PageResult;
+import com.taotao.boot.common.model.result.Result;
+import com.taotao.boot.data.mybatis.mybatisplus.MpUtils;
+import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
+import com.taotao.cloud.goods.application.dto.own.goods.result.GoodsUnitResult;
 import com.taotao.cloud.goods.application.service.command.GoodsUnitCommandService;
 import com.taotao.cloud.goods.application.service.query.GoodsUnitQueryService;
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -44,13 +53,14 @@ public class GoodsUnitSellerController extends BusinessController {
 
     private final GoodsUnitCommandService goodsUnitCommandService;
 
-    //    @Operation(summary = "分页获取商品计量单位", description = "分页获取商品计量单位")
-    //    @RequestLogger
-    //    @PreAuthorize("hasAuthority('dept:tree:data')")
-    //    @GetMapping("/page")
-    //    public Result<PageResult<GoodsUnitCO>> getByPage(@Validated PageQuery pageQuery) {
-    //        IPage<GoodsUnitPO> page = goodsUnitQueryService.page(MpUtils.buildMpPage(pageQuery));
-    //        return Result.success(MpUtils.convertMybatisPage(page,
-    // GoodsUnitAssembler.INSTANCE::convert));
-    //    }
+        @Operation(summary = "分页获取商品计量单位", description = "分页获取商品计量单位")
+        @RequestLogger
+        @PreAuthorize("hasAuthority('dept:tree:data')")
+        @GetMapping("/query/page")
+        public Result<PageResult<GoodsUnitResult>> getByPage(@Validated PageQuery pageQuery) {
+//            IPage<GoodsUnitPO> page = goodsUnitQueryService.page(MpUtils.buildMpPage(pageQuery));
+//            return Result.success(MpUtils.convertMybatisPage(page,
+//     GoodsUnitAssembler.INSTANCE::convert));
+			return null;
+        }
 }

@@ -16,14 +16,25 @@
 
 package com.taotao.cloud.goods.interfaces.controller.seller;
 
+import com.taotao.boot.common.model.result.Result;
+import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
+import com.taotao.cloud.goods.application.dto.own.specification.result.SpecificationResult;
 import com.taotao.cloud.goods.application.service.command.CategorySpecificationCommandService;
 import com.taotao.cloud.goods.application.service.query.CategorySpecificationQueryService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.constraints.NotNull;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 /**
  * 店铺端-规格接口接口
@@ -39,25 +50,23 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/seller/goods/specification")
 public class SpecificationSellerController extends BusinessController {
 
-    /**
-     * 商品规格服务
-     */
-    private final CategorySpecificationQueryService categorySpecificationQueryService;
+	/**
+	 * 商品规格服务
+	 */
+	private final CategorySpecificationQueryService categorySpecificationQueryService;
 
-    private final CategorySpecificationCommandService categorySpecificationCommandService;
-    //
-    //	@Operation(summary = "获取分类规格", description = "获取分类规格")
-    //	@Parameters({
-    //		@Parameter(name = "categoryId", required = true, description = "分类id", in =
-    // ParameterIn.PATH),
-    //	})
-    //	@RequestLogger
-    //	@PreAuthorize("hasAuthority('dept:tree:data')")
-    //	@GetMapping(value = "/{categoryId}")
-    //	public Result<List<SpecificationCO>> getSpecifications(@PathVariable Long categoryId) {
-    //		List<SpecificationPO> categorySpecList =
-    // categorySpecificationQueryService.getCategorySpecList(
-    //			categoryId);
-    //		return Result.success(SpecificationAssembler.INSTANCE.convert(categorySpecList));
-    //	}
+	private final CategorySpecificationCommandService categorySpecificationCommandService;
+
+	@Operation(summary = "获取分类规格", description = "获取分类规格")
+	@RequestLogger
+	@PreAuthorize("hasAuthority('dept:tree:data')")
+	@GetMapping(value = "/query/categoryId")
+	public Result<List<SpecificationResult>> queryByCategoryId(
+		@Parameter(required = true, description = "分类id") @NotNull(message = "分类id不能为空") @RequestParam Long categoryId ) {
+//		List<SpecificationPO> categorySpecList =
+//			categorySpecificationQueryService.getCategorySpecList(
+//				categoryId);
+//		return Result.success(SpecificationAssembler.INSTANCE.convert(categorySpecList));
+		return null;
+	}
 }

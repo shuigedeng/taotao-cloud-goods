@@ -21,6 +21,7 @@ import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
 import com.taotao.cloud.goods.application.dto.own.category.command.CategoryAddCommand;
+import com.taotao.cloud.goods.application.dto.own.category.result.CategoryResult;
 import com.taotao.cloud.goods.application.dto.own.category.result.CategoryTreeResult;
 import com.taotao.cloud.goods.application.service.command.CategoryCommandService;
 import com.taotao.cloud.goods.application.service.command.GoodsCommandService;
@@ -70,9 +71,10 @@ public class CategoryManagerController extends BusinessController {
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/children")
-	public Result<List<CategoryCO>> queryChildrenByParentId( @RequestParam Long parentId ) {
-		List<CategoryPO> categories = this.categoryQueryService.childrenList(parentId);
-		return Result.success(CategoryAssembler.INSTANCE.convert(categories));
+	public Result<List<CategoryResult>> queryChildrenByParentId( @RequestParam Long parentId ) {
+//		List<CategoryPO> categories = this.categoryQueryService.childrenList(parentId);
+//		return Result.success(CategoryAssembler.INSTANCE.convert(categories));
+		return null;
 	}
 
 	@Operation(summary = "查询全部分类列表", description = "查询全部分类列表")
@@ -142,12 +144,12 @@ public class CategoryManagerController extends BusinessController {
 	@PostMapping(value = "/command/disable")
 	public Result<Boolean> disable( @PathVariable Long id, @RequestParam Boolean
 		enableOperations ) {
-		GoodsPO category = goodsQueryService.getById(id);
-		if (category == null) {
-			throw new BusinessException(ResultEnum.CATEGORY_NOT_EXIST);
-		}
-		//return Result.success(categoryCommandService.updateCategoryStatus(id,
-		enableOperations));
+//		GoodsPO category = goodsQueryService.getById(id);
+//		if (category == null) {
+//			throw new BusinessException(ResultEnum.CATEGORY_NOT_EXIST);
+//		}
+//		//return Result.success(categoryCommandService.updateCategoryStatus(id,
+//		enableOperations));
 		return null;
 	}
 }

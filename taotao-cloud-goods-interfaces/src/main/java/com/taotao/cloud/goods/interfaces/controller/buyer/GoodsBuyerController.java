@@ -22,6 +22,8 @@ import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
 import com.taotao.cloud.goods.application.dto.own.goods.query.EsGoodsSearchQuery;
 import com.taotao.cloud.goods.application.dto.own.goods.query.GoodsOtherPageQuery;
+import com.taotao.cloud.goods.application.dto.own.goods.result.EsGoodsRelatedResult;
+import com.taotao.cloud.goods.application.dto.own.goods.result.EsGoodsResult;
 import com.taotao.cloud.goods.application.dto.own.goods.result.GoodsResult;
 import com.taotao.cloud.goods.application.dto.own.goods.result.GoodsSkuParamsResult;
 import com.taotao.cloud.goods.application.service.command.GoodsCommandService;
@@ -80,7 +82,7 @@ public class GoodsBuyerController extends BusinessController {
 	@RequestLogger
 	@Operation(summary = "通过id获取商品信息", description = "通过id获取商品信息")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@GetMapping(value = "/query/goodsId")
+	@GetMapping(value = "/query")
 	public Result<GoodsSkuParamsResult> queryByGoodsId(
 		@Parameter(required = true, description = "商品ID") @NotNull(message = "商品ID不能为空") @RequestParam Long goodsId ) {
 		return Result.success(goodsQueryService.getGoodsVO(goodsId));
@@ -90,7 +92,7 @@ public class GoodsBuyerController extends BusinessController {
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/goodsId/skuId")
-	// @PageViewPoint(type = PageViewEnum.SKU, id = "#id")
+	//@PageViewPoint(type = PageViewEnum.SKU, id = "#id")
 	public Result<Map<String, Object>> querySkuById(
 		@Parameter(required = true, description = "商品ID") @NotNull(message = "商品ID不能为空") @RequestParam Long goodsId,
 		@Parameter(required = true, description = "skuId") @NotNull(message = "skuId不能为空") @RequestParam Long skuId ) {
@@ -102,28 +104,30 @@ public class GoodsBuyerController extends BusinessController {
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping("/query/page")
-	public Result<PageResult<GoodsResult>> querytPage( @Validated GoodsOtherPageQuery goodsPageQuery ) {
-		//		IPage<GoodsPO> goodsPage = goodsQueryService.goodsQueryPage(goodsPageQuery);
-		//		return Result.success(MpUtils.convertMybatisPage(goodsPage, GoodsCO.class));
+	public Result<PageResult<GoodsResult>> queryPage( @Validated GoodsOtherPageQuery goodsPageQuery ) {
+		//IPage<GoodsPO> goodsPage = goodsQueryService.goodsQueryPage(goodsPageQuery);
+		//return Result.success(MpUtils.convertMybatisPage(goodsPage, GoodsCO.class));
 		return null;
 	}
 
 	@Operation(summary = "从ES中获取商品信息", description = "从ES中获取商品信息")
 	@RequestLogger
 	@GetMapping("/query/es")
-	public Result<SearchPage<EsGoodsIndex>> queryEs( @Validated EsGoodsSearchQuery goodsSearchParams ) {
-		SearchPage<EsGoodsIndex> esGoodsIndices = esGoodsQueryService.searchGoods(goodsSearchParams);
-		return Result.success(esGoodsIndices);
+	public Result<PageResult<EsGoodsResult>> queryEs( @Validated EsGoodsSearchQuery goodsSearchParams ) {
+//		SearchPage<EsGoodsIndex> esGoodsIndices = esGoodsQueryService.searchGoods(goodsSearchParams);
+//		return Result.success(esGoodsIndices);
+		return null;
 	}
 
 	@Operation(summary = "从ES中获取相关商品品牌名称，分类名称及属性", description = "从ES中获取相关商品品牌名称，分类名称及属性")
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping("/query/es/related")
-	public Result<EsGoodsRelatedInfo> queryEsRelated( @Validated EsGoodsSearchQuery esGoodsSearchQuery ) {
+	public Result<EsGoodsRelatedResult> queryEsRelated( @Validated EsGoodsSearchQuery esGoodsSearchQuery ) {
 		// pageVO.setNotConvert(true);
-		EsGoodsRelatedInfo selector = esGoodsQueryService.getSelector(esGoodsSearchQuery);
-		return Result.success(selector);
+//		EsGoodsRelatedInfo selector = esGoodsQueryService.getSelector(esGoodsSearchQuery);
+//		return Result.success(selector);
+		return null;
 	}
 
 	@Operation(summary = "获取热门关键词", description = "获取热门关键词")

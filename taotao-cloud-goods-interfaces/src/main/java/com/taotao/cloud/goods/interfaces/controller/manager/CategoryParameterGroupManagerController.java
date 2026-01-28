@@ -26,14 +26,13 @@ import com.taotao.cloud.goods.application.service.command.ParametersCommandServi
 import com.taotao.cloud.goods.application.service.query.CategoryParameterGroupQueryService;
 import com.taotao.cloud.goods.application.service.query.ParametersQueryService;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.Parameter;
-import io.swagger.v3.oas.annotations.enums.ParameterIn;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * 管理端,分类绑定参数组接口
@@ -49,50 +48,53 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/manager/goods/category/parameters")
 public class CategoryParameterGroupManagerController extends BusinessController {
 
-    /** 商品参数组服务 */
-    private final ParametersQueryService parametersQueryService;
+	/**
+	 * 商品参数组服务
+	 */
+	private final ParametersQueryService parametersQueryService;
 
-    private final ParametersCommandService parametersCommandService;
+	private final ParametersCommandService parametersCommandService;
 
-    /** 分类绑定参数组服务 */
-    private final CategoryParameterGroupQueryService categoryParameterGroupQueryService;
+	/**
+	 * 分类绑定参数组服务
+	 */
+	private final CategoryParameterGroupQueryService categoryParameterGroupQueryService;
 
-    private final CategoryParameterGroupCommandService categoryParameterGroupCommandService;
+	private final CategoryParameterGroupCommandService categoryParameterGroupCommandService;
 
-    @Operation(summary = "查询某分类下绑定的参数信息", description = "查询某分类下绑定的参数信息")
-    @RequestLogger
-    @PreAuthorize("hasAuthority('dept:tree:data')")
-    @GetMapping(value = "/query/categoryId")
-    public Result<List<ParameterGroupResult>> getCategoryParam( @PathVariable Long categoryId) {
-        return Result.success(categoryParameterGroupQueryService.getCategoryParams(categoryId));
-    }
+	@Operation(summary = "查询某分类下绑定的参数信息", description = "查询某分类下绑定的参数信息")
+	@RequestLogger
+	@PreAuthorize("hasAuthority('dept:tree:data')")
+	@GetMapping(value = "/query/categoryId")
+	public Result<List<ParameterGroupResult>> getCategoryParam( @PathVariable Long categoryId ) {
+		return Result.success(categoryParameterGroupQueryService.getCategoryParams(categoryId));
+	}
 
-     @Operation(summary = "保存数据", description = "保存数据")
-     @RequestLogger
-     @PreAuthorize("hasAuthority('dept:tree:data')")
-     @PostMapping("/command/save")
-     public Result<Boolean> save(@Validated CategoryParameterGroup categoryParameterGroup)
-     {
-        return Result.success(categoryParameterGroupCommandService.save(categoryParameterGroup));
-     }
+	@Operation(summary = "保存数据", description = "保存数据")
+	@RequestLogger
+	@PreAuthorize("hasAuthority('dept:tree:data')")
+	@PostMapping("/command/save")
+	public Result<Boolean> save( @Validated CategoryParameterGroup categoryParameterGroup ) {
+		return Result.success(categoryParameterGroupCommandService.save(categoryParameterGroup));
+	}
 
-     @Operation(summary = "更新数据", description = "更新数据")
-     @RequestLogger
-     @PreAuthorize("hasAuthority('dept:tree:data')")
-     @PostMapping("/command/update")
-     public Result<Boolean> update(@Validated CategoryParameterGroup categoryParameterGroup) {
-        return
-     Result.success(categoryParameterGroupCommandService.updateById(categoryParameterGroup));
-     }
+	@Operation(summary = "更新数据", description = "更新数据")
+	@RequestLogger
+	@PreAuthorize("hasAuthority('dept:tree:data')")
+	@PostMapping("/command/update")
+	public Result<Boolean> update( @Validated CategoryParameterGroup categoryParameterGroup ) {
+		return
+			Result.success(categoryParameterGroupCommandService.updateById(categoryParameterGroup));
+	}
 
-        @Operation(summary = "通过id删除参数组", description = "通过id删除参数组")
-        @RequestLogger
-        @PreAuthorize("hasAuthority('dept:tree:data')")
-        @PostMapping(value = "/command/del")
-        public Result<Boolean> delAllByIds(@PathVariable Long id) {
-            // 删除参数
-    		parametersCommandService.remove(new QueryWrapper<ParametersPO>().eq("group_id", id));
-            // 删除参数组
-            return Result.success(categoryParameterGroupCommandService.removeById(id));
-        }
+	@Operation(summary = "通过id删除参数组", description = "通过id删除参数组")
+	@RequestLogger
+	@PreAuthorize("hasAuthority('dept:tree:data')")
+	@PostMapping(value = "/command/del")
+	public Result<Boolean> delAllByIds( @PathVariable Long id ) {
+		// 删除参数
+		parametersCommandService.remove(new QueryWrapper<ParametersPO>().eq("group_id", id));
+		// 删除参数组
+		return Result.success(categoryParameterGroupCommandService.removeById(id));
+	}
 }
