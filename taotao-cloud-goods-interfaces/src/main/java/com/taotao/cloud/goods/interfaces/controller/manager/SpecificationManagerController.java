@@ -17,10 +17,12 @@
 package com.taotao.cloud.goods.interfaces.controller.manager;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.taotao.boot.common.model.result.PageResult;
 import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.data.mybatis.mybatisplus.MpUtils;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
+import com.taotao.cloud.goods.application.dto.own.specification.result.SpecificationResult;
 import com.taotao.cloud.goods.application.service.command.SpecificationCommandService;
 import com.taotao.cloud.goods.application.service.query.SpecificationQueryService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -63,7 +65,7 @@ public class SpecificationManagerController extends BusinessController {
 	@RequestLogger("获取所有可用规格")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping("/query/all")
-	public Result<List<SpecificationCO>> getAll() {
+	public Result<List<SpecificationResult>> getAll() {
 		List<SpecificationPO> specifications = specificationQueryService.list();
 		return Result.success(SpecificationAssembler.INSTANCE.convert(specifications));
 	}
@@ -72,7 +74,7 @@ public class SpecificationManagerController extends BusinessController {
 	@RequestLogger("搜索规格")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping("/query/page")
-	public Result<PageResult<SpecificationCO>> page( @Validated SpecificationPageQry
+	public Result<PageResult<SpecificationResult>> page( @Validated SpecificationPageQry
 		specificationPageQuery ) {
 		IPage<SpecificationPO> specificationPage =
 			specificationQueryService.getPage(specificationPageQuery);

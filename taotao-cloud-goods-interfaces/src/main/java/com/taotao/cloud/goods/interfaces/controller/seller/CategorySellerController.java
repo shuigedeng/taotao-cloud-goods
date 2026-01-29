@@ -66,7 +66,7 @@ public class CategorySellerController extends BusinessController {
     // @RequestLogger("获取店铺经营的分类")
     // @PreAuthorize("hasAuthority('dept:tree:data')")
     // @GetMapping(value = "/all")
-    // public Result<List<CategoryTreeCO>> getListAll() {
+    // public Result<List<CategoryTreeResult>> getListAll() {
     //    Long storeId = SecurityUtils.getCurrentUser().getStoreId();
     //    // 获取店铺经营范围
     //    String goodsManagementCategory =

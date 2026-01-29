@@ -62,7 +62,7 @@ public class GoodsSellerController extends BusinessController {
     // @RequestLogger("分页获取商品列表")
     // @PreAuthorize("hasAuthority('dept:tree:data')")
     // @GetMapping("/page")
-    // public Result<PageResult<GoodsCO>> getByPage(@Validated GoodsPageQuery goodsPageQuery) {
+    // public Result<PageResult<GoodsResult>> getByPage(@Validated GoodsPageQuery goodsPageQuery) {
     //	// 当前登录商家账号
     //	Long storeId = SecurityUtils.getCurrentUser().getStoreId();
     //	goodsPageQuery.setStoreId(storeId);
@@ -74,7 +74,7 @@ public class GoodsSellerController extends BusinessController {
     // @RequestLogger("分页获取商品Sku列表")
     // @PreAuthorize("hasAuthority('dept:tree:data')")
     // @GetMapping(value = "/sku/page")
-    // public Result<PageResult<GoodsSkuCO>> getSkuByPage(@Validated GoodsPageQuery goodsPageQuery)
+    // public Result<PageResult<GoodsSkuResult>> getSkuByPage(@Validated GoodsPageQuery goodsPageQuery)
     // {
     //	// 当前登录商家账号
     //	Long storeId = SecurityUtils.getCurrentUser().getStoreId();
@@ -87,7 +87,7 @@ public class GoodsSellerController extends BusinessController {
     // @RequestLogger("分页获取库存告警商品列表")
     // @PreAuthorize("hasAuthority('dept:tree:data')")
     // @GetMapping(value = "/stock/warning")
-    // public Result<StockWarningCO> getWarningStockByPage(@Validated GoodsPageQuery goodsPageQuery)
+    // public Result<StockWarningResult> getWarningStockByPage(@Validated GoodsPageQuery goodsPageQuery)
     // {
     //	// 当前登录商家账号
     //	Long storeId = SecurityUtils.getCurrentUser().getStoreId();
@@ -113,7 +113,7 @@ public class GoodsSellerController extends BusinessController {
     // @RequestLogger("通过id获取")
     // @PreAuthorize("hasAuthority('dept:tree:data')")
     // @GetMapping(value = "/{goodsId}")
-    // public Result<GoodsSkuParamsCO> get(@PathVariable Long goodsId) {
+    // public Result<GoodsSkuParamsResult> get(@PathVariable Long goodsId) {
     //	return Result.success(goodsService.getGoodsVO(goodsId));
     // }
     //
@@ -188,7 +188,7 @@ public class GoodsSellerController extends BusinessController {
     // @RequestLogger("根据goodsId分页获取商品规格列表")
     // @PreAuthorize("hasAuthority('dept:tree:data')")
     // @GetMapping(value = "/sku/{goodsId}/page")
-    // public Result<List<GoodsSkuSpecGalleryCO>> getSkuByList(@PathVariable Long goodsId) {
+    // public Result<List<GoodsSkuSpecGalleryResult>> getSkuByList(@PathVariable Long goodsId) {
     //	Long storeId = SecurityUtils.getCurrentUser().getStoreId();
     //	return Result.success(goodsSkuService.getGoodsSkuVOList(goodsSkuService.list(new
     // LambdaQueryWrapper<GoodsSku>()

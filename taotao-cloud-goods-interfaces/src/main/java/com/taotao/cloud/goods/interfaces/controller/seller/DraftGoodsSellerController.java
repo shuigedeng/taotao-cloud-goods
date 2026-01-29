@@ -48,7 +48,7 @@ public class DraftGoodsSellerController extends BusinessController {
     // @RequestLogger("分页获取草稿商品列表")
     // @PreAuthorize("hasAuthority('dept:tree:data')")
     // @GetMapping(value = "/page")
-    // public Result<PageResult<DraftGoodsCO>> getDraftGoodsByPage(DraftGoodsPageQuery
+    // public Result<PageResult<DraftGoodsResult>> getDraftGoodsByPage(DraftGoodsPageQuery
     // draftGoodsPageQuery) {
     //    Long storeId = SecurityUtils.getCurrentUser().getStoreId();
     //    draftGoodsPageQuery.setStoreId(storeId);
@@ -60,7 +60,7 @@ public class DraftGoodsSellerController extends BusinessController {
     // @RequestLogger("获取草稿商品")
     // @PreAuthorize("hasAuthority('dept:tree:data')")
     // @GetMapping(value = "/{id}")
-    // public Result<DraftGoodsSkuParamsCO> getDraftGoods(@PathVariable Long id) {
+    // public Result<DraftGoodsSkuParamsResult> getDraftGoods(@PathVariable Long id) {
     //    return Result.success(draftGoodsService.getDraftGoods(id));
     // }
     //

@@ -81,7 +81,7 @@ public class GoodsManagerController extends BusinessController {
 	@RequestLogger("分页获取")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/page")
-	public Result<PageResult<GoodsCO>> getByPage( @Validated GoodsPageQry goodsPageQuery ) {
+	public Result<PageResult<GoodsResult>> getByPage( @Validated GoodsPageQry goodsPageQuery ) {
 		IPage<GoodsPO> goodsPage = goodsQueryService.goodsQueryPage(goodsPageQuery);
 		return Result.success(MpUtils.convertMybatisPage(goodsPage, GoodsCO.class));
 	}
@@ -90,7 +90,7 @@ public class GoodsManagerController extends BusinessController {
 	@RequestLogger("分页获取商品列表")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/sku/page")
-	public Result<PageResult<GoodsSkuCO>> getSkuByPage( @Validated GoodsPageQry goodsPageQuery ) {
+	public Result<PageResult<GoodsSkuResult>> getSkuByPage( @Validated GoodsPageQry goodsPageQuery ) {
 		IPage<GoodsSkuPO> goodsSkuPage = goodsSkuQueryService.goodsSkuQueryPage(goodsPageQuery);
 		return Result.success(MpUtils.convertMybatisPage(goodsSkuPage,
 			GoodsSkuConvert.INSTANCE::convert));
@@ -100,7 +100,7 @@ public class GoodsManagerController extends BusinessController {
 	@RequestLogger("分页获取待审核商品")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/auth/page")
-	public Result<PageResult<GoodsCO>> getAuthPage( @Validated GoodsPageQry goodsPageQuery ) {
+	public Result<PageResult<GoodsResult>> getAuthPage( @Validated GoodsPageQry goodsPageQuery ) {
 		goodsPageQuery.setAuthFlag(GoodsAuthEnum.TOBEAUDITED.name());
 		IPage<GoodsPO> goodsPage = goodsQueryService.goodsQueryPage(goodsPageQuery);
 		return Result.success(MpUtils.convertMybatisPage(goodsPage, GoodsCO.class));

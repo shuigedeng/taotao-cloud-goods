@@ -65,7 +65,7 @@ public class GoodsLabelSellerController extends BusinessController {
     //	@RequestLogger("获取店铺商品分类详情")
     //	@PreAuthorize("hasAuthority('dept:tree:data')")
     //	@GetMapping("/{id}")
-    //	public Result<StoreGoodsLabelInfoCO> getStoreGoodsLabel(@PathVariable Long id) {
+    //	public Result<StoreGoodsLabelInfoResult> getStoreGoodsLabel(@PathVariable Long id) {
     //		StoreGoodsLabelPO storeGoodsLabel = storeGoodsLabelQueryService.getById(id);
     //		return Result.success(GoodsLabelStoreAssembler.INSTANCE.convert(storeGoodsLabel));
     //	}
