@@ -16,14 +16,24 @@
 
 package com.taotao.cloud.goods.interfaces.controller.seller;
 
+import com.taotao.boot.common.model.request.IdQuery;
+import com.taotao.boot.common.model.request.IdsCommand;
+import com.taotao.boot.common.model.result.PageResult;
+import com.taotao.boot.common.model.result.Result;
+import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
+import com.taotao.cloud.goods.application.dto.own.draft.command.DraftGoodsSkuParamsSaveCommand;
+import com.taotao.cloud.goods.application.dto.own.draft.query.DraftGoodsPageQuery;
+import com.taotao.cloud.goods.application.dto.own.draft.result.DraftGoodsResult;
+import com.taotao.cloud.goods.application.dto.own.draft.result.DraftGoodsSkuParamsResult;
 import com.taotao.cloud.goods.application.service.command.DraftGoodsCommandService;
 import com.taotao.cloud.goods.application.service.query.DraftGoodsQueryService;
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * 店铺端,草稿商品接口
@@ -39,53 +49,58 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/seller/goods/draft/goods")
 public class DraftGoodsSellerController extends BusinessController {
 
-    /** 草稿商品服务 */
-    private final DraftGoodsQueryService draftGoodsQueryService;
+	/**
+	 * 草稿商品服务
+	 */
+	private final DraftGoodsQueryService draftGoodsQueryService;
 
-    private final DraftGoodsCommandService draftGoodsCommandService;
+	private final DraftGoodsCommandService draftGoodsCommandService;
 
-    // @Operation(summary = "分页获取草稿商品列表", description = "分页获取草稿商品列表")
-    // @RequestLogger("分页获取草稿商品列表")
-    // @PreAuthorize("hasAuthority('dept:tree:data')")
-    // @GetMapping(value = "/page")
-    // public Result<PageResult<DraftGoodsResult>> getDraftGoodsByPage(DraftGoodsPageQuery
-    // draftGoodsPageQuery) {
-    //    Long storeId = SecurityUtils.getCurrentUser().getStoreId();
-    //    draftGoodsPageQuery.setStoreId(storeId);
-    //    IPage<DraftGoods> draftGoods = draftGoodsService.draftGoodsQueryPage(draftGoodsPageQuery);
-    //    return Result.success(MpUtils.convertMybatisPage(draftGoods, DraftGoodsCO.class));
-    // }
-    //
-    // @Operation(summary = "获取草稿商品", description = "获取草稿商品")
-    // @RequestLogger("获取草稿商品")
-    // @PreAuthorize("hasAuthority('dept:tree:data')")
-    // @GetMapping(value = "/{id}")
-    // public Result<DraftGoodsSkuParamsResult> getDraftGoods(@PathVariable Long id) {
-    //    return Result.success(draftGoodsService.getDraftGoods(id));
-    // }
-    //
-    // @Operation(summary = "保存草稿商品", description = "保存草稿商品")
-    // @RequestLogger("保存草稿商品")
-    // @PreAuthorize("hasAuthority('dept:tree:data')")
-    // @PostMapping
-    // public Result<Boolean> saveDraftGoods(@Validated @RequestBody DraftGoodsSkuParamsDTO
-    // draftGoodsSkuParamsDTO) {
-    //    Long storeId = SecurityUtils.getCurrentUser().getStoreId();
-    //    if (draftGoodsSkuParamsDTO.getStoreId() == null) {
-    //        draftGoodsSkuParamsDTO.setStoreId(storeId);
-    //    } else if (draftGoodsSkuParamsDTO.getStoreId() != null
-    //            && !storeId.equals(draftGoodsSkuParamsDTO.getStoreId())) {
-    //        throw new BusinessException(ResultEnum.USER_AUTHORITY_ERROR);
-    //    }
-    //    return Result.success(draftGoodsService.saveGoodsDraft(draftGoodsSkuParamsDTO));
-    // }
-    //
-    // @Operation(summary = "删除草稿商品", description = "删除草稿商品")
-    // @RequestLogger("删除草稿商品")
-    // @PreAuthorize("hasAuthority('dept:tree:data')")
-    // @PostMapping(value = "/{id}")
-    // public Result<Boolean> deleteDraftGoods(@PathVariable Long id) {
-    //    draftGoodsService.getDraftGoods(id);
-    //    return Result.success(draftGoodsService.deleteGoodsDraft(id));
-    // }
+	@Operation(summary = "分页获取草稿商品列表", description = "分页获取草稿商品列表")
+	@RequestLogger("分页获取草稿商品列表")
+	@PreAuthorize("hasAuthority('dept:tree:data')")
+	@GetMapping(value = "/query/page")
+	public Result<PageResult<DraftGoodsResult>> getDraftGoodsByPage( DraftGoodsPageQuery draftGoodsPageQuery ) {
+//        Long storeId = SecurityUtils.getCurrentUser().getStoreId();
+//        draftGoodsPageQuery.setStoreId(storeId);
+//        IPage<DraftGoods> draftGoods = draftGoodsService.draftGoodsQueryPage(draftGoodsPageQuery);
+//        return Result.success(MpUtils.convertMybatisPage(draftGoods, DraftGoodsCO.class));
+		return null;
+	}
+
+	@Operation(summary = "获取草稿商品", description = "获取草稿商品")
+	@RequestLogger("获取草稿商品")
+	@PreAuthorize("hasAuthority('dept:tree:data')")
+	@GetMapping(value = "/query")
+	public Result<DraftGoodsSkuParamsResult> getDraftGoods( IdQuery idQuery ) {
+//        return Result.success(draftGoodsService.getDraftGoods(id));
+		return null;
+	}
+
+	@Operation(summary = "保存草稿商品", description = "保存草稿商品")
+	@RequestLogger("保存草稿商品")
+	@PreAuthorize("hasAuthority('dept:tree:data')")
+	@PostMapping("/command/save")
+	public Result<Boolean> saveDraftGoods( @RequestBody DraftGoodsSkuParamsSaveCommand
+		draftGoodsSkuParamsDTO ) {
+//        Long storeId = SecurityUtils.getCurrentUser().getStoreId();
+//        if (draftGoodsSkuParamsDTO.getStoreId() == null) {
+//            draftGoodsSkuParamsDTO.setStoreId(storeId);
+//        } else if (draftGoodsSkuParamsDTO.getStoreId() != null
+//                && !storeId.equals(draftGoodsSkuParamsDTO.getStoreId())) {
+//            throw new BusinessException(ResultEnum.USER_AUTHORITY_ERROR);
+//        }
+//        return Result.success(draftGoodsService.saveGoodsDraft(draftGoodsSkuParamsDTO));
+		return null;
+	}
+
+	@Operation(summary = "删除草稿商品", description = "删除草稿商品")
+	@RequestLogger("删除草稿商品")
+	@PreAuthorize("hasAuthority('dept:tree:data')")
+	@PostMapping(value = "/command/del")
+	public Result<Boolean> deleteDraftGoods( @RequestBody IdsCommand id ) {
+//        draftGoodsService.getDraftGoods(id);
+//        return Result.success(draftGoodsService.deleteGoodsDraft(id));
+		return null;
+	}
 }

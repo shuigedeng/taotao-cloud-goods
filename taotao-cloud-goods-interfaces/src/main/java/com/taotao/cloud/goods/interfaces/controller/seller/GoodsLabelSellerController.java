@@ -16,20 +16,27 @@
 
 package com.taotao.cloud.goods.interfaces.controller.seller;
 
+import com.taotao.boot.common.model.request.IdCommand;
+import com.taotao.boot.common.model.request.IdQuery;
+import com.taotao.boot.common.model.request.IdsCommand;
 import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.security.spring.utils.SecurityUtils;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
+import com.taotao.cloud.goods.application.dto.own.store.command.StoreGoodsLabelAddCommand;
+import com.taotao.cloud.goods.application.dto.own.store.command.StoreGoodsLabelEditCommand;
+import com.taotao.cloud.goods.application.dto.own.store.result.StoreGoodsLabelInfoResult;
 import com.taotao.cloud.goods.application.dto.own.store.result.StoreGoodsLabelResult;
 import com.taotao.cloud.goods.application.service.command.StoreGoodsLabelCommandService;
 import com.taotao.cloud.goods.application.service.query.StoreGoodsLabelQueryService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * 店铺端,店铺分类接口
@@ -45,60 +52,63 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/seller/goods/label")
 public class GoodsLabelSellerController extends BusinessController {
 
-    /**
-     * 店铺分类服务
-     */
-    private final StoreGoodsLabelQueryService storeGoodsLabelQueryService;
+	/**
+	 * 店铺分类服务
+	 */
+	private final StoreGoodsLabelQueryService storeGoodsLabelQueryService;
 
-    private final StoreGoodsLabelCommandService storeGoodsLabelCommandService;
+	private final StoreGoodsLabelCommandService storeGoodsLabelCommandService;
 
-    @Operation(summary = "获取当前店铺商品分类列表", description = "获取当前店铺商品分类列表")
-    @RequestLogger("获取当前店铺商品分类列表")
-    @PreAuthorize("hasAuthority('dept:tree:data')")
-    @GetMapping
-    public Result<List<StoreGoodsLabelResult>> list() {
-        Long storeId = SecurityUtils.getCurrentUser().getStoreId();
-        return Result.success(storeGoodsLabelQueryService.listByStoreId(storeId));
-    }
+	@Operation(summary = "获取当前店铺商品分类列表", description = "获取当前店铺商品分类列表")
+	@RequestLogger("获取当前店铺商品分类列表")
+	@PreAuthorize("hasAuthority('dept:tree:data')")
+	@GetMapping("/query/list")
+	public Result<List<StoreGoodsLabelResult>> list() {
+		Long storeId = SecurityUtils.getCurrentUser().getStoreId();
+		return Result.success(storeGoodsLabelQueryService.listByStoreId(storeId));
+	}
 
-    //	@Operation(summary = "获取店铺商品分类详情", description = "获取店铺商品分类详情")
-    //	@RequestLogger("获取店铺商品分类详情")
-    //	@PreAuthorize("hasAuthority('dept:tree:data')")
-    //	@GetMapping("/{id}")
-    //	public Result<StoreGoodsLabelInfoResult> getStoreGoodsLabel(@PathVariable Long id) {
-    //		StoreGoodsLabelPO storeGoodsLabel = storeGoodsLabelQueryService.getById(id);
-    //		return Result.success(GoodsLabelStoreAssembler.INSTANCE.convert(storeGoodsLabel));
-    //	}
-    //
-    //	@Operation(summary = "添加店铺商品分类", description = "添加店铺商品分类")
-    //	@RequestLogger("添加店铺商品分类")
-    //	@PreAuthorize("hasAuthority('dept:tree:data')")
-    //	@PostMapping
-    //	public Result<Boolean> add(@Validated @RequestBody StoreGoodsLabelAddCmd storeGoodsLabelDTO)
-    // {
-    //		StoreGoodsLabelPO storeGoodsLabel =
-    // GoodsLabelStoreAssembler.INSTANCE.convert(storeGoodsLabelDTO);
-    //		return Result.success(storeGoodsLabelCommandService.addStoreGoodsLabel(storeGoodsLabel));
-    //	}
-    //
-    //	@Operation(summary = "修改店铺商品分类", description = "修改店铺商品分类")
-    //	@RequestLogger("修改店铺商品分类")
-    //	@PreAuthorize("hasAuthority('dept:tree:data')")
-    //	@PostMapping("/{id}")
-    //	public Result<Boolean> edit(@PathVariable Long id, @Validated @RequestBody
-    // StoreGoodsLabelEditCmd
-    // storeGoodsLabelDTO) {
-    //		StoreGoodsLabelPO storeGoodsLabel =
-    // GoodsLabelStoreAssembler.INSTANCE.convert(storeGoodsLabelDTO);
-    //		storeGoodsLabel.setId(id);
-    //		return Result.success(storeGoodsLabelCommandService.editStoreGoodsLabel(storeGoodsLabel));
-    //	}
+	@Operation(summary = "获取店铺商品分类详情", description = "获取店铺商品分类详情")
+	@RequestLogger("获取店铺商品分类详情")
+	@PreAuthorize("hasAuthority('dept:tree:data')")
+	@GetMapping("/query")
+	public Result<StoreGoodsLabelInfoResult> getStoreGoodsLabel( IdQuery id ) {
+//		StoreGoodsLabelPO storeGoodsLabel = storeGoodsLabelQueryService.getById(id);
+//		return Result.success(GoodsLabelStoreAssembler.INSTANCE.convert(storeGoodsLabel));
+		return null;
+	}
 
-    @Operation(summary = "删除店铺商品分类", description = "删除店铺商品分类")
-    @RequestLogger("删除店铺商品分类")
-    @PreAuthorize("hasAuthority('dept:tree:data')")
-    @PostMapping("/{id}")
-    public Result<Boolean> delete(@PathVariable Long id) {
-        return Result.success(storeGoodsLabelCommandService.removeStoreGoodsLabel(id));
-    }
+	@Operation(summary = "添加店铺商品分类", description = "添加店铺商品分类")
+	@RequestLogger("添加店铺商品分类")
+	@PreAuthorize("hasAuthority('dept:tree:data')")
+	@PostMapping("/command/add")
+	public Result<Boolean> add( @RequestBody StoreGoodsLabelAddCommand storeGoodsLabelDTO ) {
+//		StoreGoodsLabelPO storeGoodsLabel =
+//			GoodsLabelStoreAssembler.INSTANCE.convert(storeGoodsLabelDTO);
+//		return Result.success(storeGoodsLabelCommandService.addStoreGoodsLabel(storeGoodsLabel));
+		return null;
+	}
+
+	@Operation(summary = "修改店铺商品分类", description = "修改店铺商品分类")
+	@RequestLogger("修改店铺商品分类")
+	@PreAuthorize("hasAuthority('dept:tree:data')")
+	@PostMapping("/command/edit")
+	public Result<Boolean> edit(  Long id, @RequestBody
+	StoreGoodsLabelEditCommand
+		storeGoodsLabelDTO ) {
+//		StoreGoodsLabelPO storeGoodsLabel =
+//			GoodsLabelStoreAssembler.INSTANCE.convert(storeGoodsLabelDTO);
+//		storeGoodsLabel.setId(id);
+//		return Result.success(storeGoodsLabelCommandService.editStoreGoodsLabel(storeGoodsLabel));
+		return null;
+	}
+
+	@Operation(summary = "删除店铺商品分类", description = "删除店铺商品分类")
+	@RequestLogger("删除店铺商品分类")
+	@PreAuthorize("hasAuthority('dept:tree:data')")
+	@PostMapping("/command/del")
+	public Result<Boolean> delete( @RequestBody IdCommand id ) {
+//		return Result.success(storeGoodsLabelCommandService.removeStoreGoodsLabel(id));
+		return null;
+	}
 }

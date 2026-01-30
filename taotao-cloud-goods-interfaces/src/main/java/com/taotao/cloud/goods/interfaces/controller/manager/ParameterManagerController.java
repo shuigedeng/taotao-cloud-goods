@@ -53,7 +53,7 @@ public class ParameterManagerController extends BusinessController {
 	@RequestLogger("添加参数添加参数")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/save")
-	public Result<Boolean> save( @Validated @RequestBody ParametersDTO parametersDTO ) {
+	public Result<Boolean> save( @RequestBody ParametersDTO parametersDTO ) {
 		Parameters parameters = ParametersConvert.INSTANCE.convert(parametersDTO);
 		return Result.success(parametersService.save(parameters));
 	}
@@ -62,7 +62,7 @@ public class ParameterManagerController extends BusinessController {
 	@RequestLogger("编辑参数")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/update")
-	public Result<Boolean> update( @Validated @RequestBody ParametersDTO parametersDTO,
+	public Result<Boolean> update( @RequestBody ParametersDTO parametersDTO,
 		@PathVariable Long id ) {
 		Parameters parameters = ParametersConvert.INSTANCE.convert(parametersDTO);
 		parameters.setId(id);

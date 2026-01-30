@@ -19,6 +19,7 @@ package com.taotao.cloud.goods.interfaces.controller.seller;
 import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
+import com.taotao.cloud.goods.application.dto.own.goods.query.CategoryIdQuery;
 import com.taotao.cloud.goods.application.dto.own.specification.result.SpecificationResult;
 import com.taotao.cloud.goods.application.service.command.CategorySpecificationCommandService;
 import com.taotao.cloud.goods.application.service.query.CategorySpecificationQueryService;
@@ -48,6 +49,7 @@ import java.util.List;
 @RestController
 @Tag(name = "店铺端-规格API", description = "店铺端-规格API")
 @RequestMapping("/seller/goods/specification")
+@RequestLogger
 public class SpecificationSellerController extends BusinessController {
 
 	/**
@@ -58,11 +60,9 @@ public class SpecificationSellerController extends BusinessController {
 	private final CategorySpecificationCommandService categorySpecificationCommandService;
 
 	@Operation(summary = "获取分类规格", description = "获取分类规格")
-	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/categoryId")
-	public Result<List<SpecificationResult>> queryByCategoryId(
-		@Parameter(required = true, description = "分类id") @NotNull(message = "分类id不能为空") @RequestParam Long categoryId ) {
+	public Result<List<SpecificationResult>> queryByCategoryId( CategoryIdQuery categoryIdQuery ) {
 //		List<SpecificationPO> categorySpecList =
 //			categorySpecificationQueryService.getCategorySpecList(
 //				categoryId);

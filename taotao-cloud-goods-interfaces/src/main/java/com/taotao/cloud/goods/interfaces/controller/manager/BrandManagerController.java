@@ -96,7 +96,7 @@ public class BrandManagerController extends BusinessController {
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/save")
-	public Result<Boolean> save( @Validated @RequestBody BrandAddCommand brand ) {
+	public Result<Boolean> save( @RequestBody BrandAddCommand brand ) {
 		boolean result = brandCommandService.addBrand(brand);
 		return Result.success(result);
 	}
@@ -105,7 +105,7 @@ public class BrandManagerController extends BusinessController {
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/update")
-	public Result<Boolean> updateById( @Validated @RequestBody BrandUpdateCommand brand ) {
+	public Result<Boolean> updateById( @RequestBody BrandUpdateCommand brand ) {
 		boolean result = brandCommandService.updateBrand(brand);
 		return Result.success(result);
 	}

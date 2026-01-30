@@ -20,20 +20,22 @@ import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
 import com.taotao.cloud.goods.application.dto.own.category.result.CategoryBrandResult;
+import com.taotao.cloud.goods.application.dto.own.category.result.CategoryTreeResult;
+import com.taotao.cloud.goods.application.dto.own.goods.query.CategoryIdQuery;
 import com.taotao.cloud.goods.application.service.command.CategoryBrandCommandService;
 import com.taotao.cloud.goods.application.service.command.CategoryCommandService;
 import com.taotao.cloud.goods.application.service.query.CategoryBrandQueryService;
 import com.taotao.cloud.goods.application.service.query.CategoryQueryService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 /**
  * 店铺端,商品分类接口
@@ -49,37 +51,41 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/seller/goods/category/store")
 public class CategorySellerController extends BusinessController {
 
-    /** 分类服务 */
-    private final CategoryQueryService categoryQueryService;
+	/**
+	 * 分类服务
+	 */
+	private final CategoryQueryService categoryQueryService;
 
-    private final CategoryCommandService categoryCommandService;
+	private final CategoryCommandService categoryCommandService;
 
-    /** 分类品牌服务 */
-    private final CategoryBrandQueryService categoryBrandQueryService;
+	/**
+	 * 分类品牌服务
+	 */
+	private final CategoryBrandQueryService categoryBrandQueryService;
 
-    private final CategoryBrandCommandService categoryBrandCommandService;
+	private final CategoryBrandCommandService categoryBrandCommandService;
 
-    /// ** 店铺详情服务 */
-    // private final FeignStoreDetailApi storeDetailApi;
+	//private final FeignStoreDetailApi storeDetailApi;
 
-    // @Operation(summary = "获取店铺经营的分类", description = "获取店铺经营的分类")
-    // @RequestLogger("获取店铺经营的分类")
-    // @PreAuthorize("hasAuthority('dept:tree:data')")
-    // @GetMapping(value = "/all")
-    // public Result<List<CategoryTreeResult>> getListAll() {
-    //    Long storeId = SecurityUtils.getCurrentUser().getStoreId();
-    //    // 获取店铺经营范围
-    //    String goodsManagementCategory =
-    // storeDetailApi.getStoreDetailVO(storeId).getGoodsManagementCategory();
-    //    return
-    // Result.success(this.categoryQueryService.getStoreCategory(goodsManagementCategory.split(",")));
-    // }
+	@Operation(summary = "获取店铺经营的分类", description = "获取店铺经营的分类")
+	@RequestLogger("获取店铺经营的分类")
+	@PreAuthorize("hasAuthority('dept:tree:data')")
+	@GetMapping(value = "/query/category/all")
+	public Result<List<CategoryTreeResult>> getListAll() {
+//        Long storeId = SecurityUtils.getCurrentUser().getStoreId();
+//        // 获取店铺经营范围
+//        String goodsManagementCategory =
+//     storeDetailApi.getStoreDetailVO(storeId).getGoodsManagementCategory();
+//        return
+//     Result.success(this.categoryQueryService.getStoreCategory(goodsManagementCategory.split(",")));
+		return null;
+	}
 
-    @Operation(summary = "获取所选分类关联的品牌信息", description = "获取所选分类关联的品牌信息")
-    @RequestLogger("获取所选分类关联的品牌信息")
-    @PreAuthorize("hasAuthority('dept:tree:data')")
-    @GetMapping(value = "/{categoryId}/brands")
-    public Result<List<CategoryBrandResult>> queryBrands(@PathVariable Long categoryId) {
-        return Result.success(this.categoryBrandQueryService.getCategoryBrandList(categoryId));
-    }
+	@Operation(summary = "获取所选分类关联的品牌信息", description = "获取所选分类关联的品牌信息")
+	@RequestLogger("获取所选分类关联的品牌信息")
+	@PreAuthorize("hasAuthority('dept:tree:data')")
+	@GetMapping(value = "/query/categoryId/brands")
+	public Result<List<CategoryBrandResult>> queryBrands( CategoryIdQuery categoryIdQuery ) {
+		return Result.success(this.categoryBrandQueryService.getCategoryBrandList(categoryIdQuery.getCategoryId()));
+	}
 }

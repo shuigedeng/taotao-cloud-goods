@@ -17,6 +17,7 @@
 package com.taotao.cloud.goods.interfaces.controller.manager;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.taotao.boot.common.model.request.IdsCommand;
 import com.taotao.boot.common.model.result.PageResult;
 import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.data.mybatis.mybatisplus.MpUtils;
@@ -107,15 +108,10 @@ public class SpecificationManagerController extends BusinessController {
 	}
 
 	@Operation(summary = "批量删除", description = "批量删除")
-	@Parameters({
-		@Parameter(name = "ids", required = true, description = "id列表,逗号连接", example = "1,2,3"),
-	})
 	@RequestLogger("批量删除")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/dels")
-	public Result<Boolean> delAllByIds(
-		@Valid @NotNull(message = "id列表不能为空") @Size(min = 1, max = 3, message = "id个数只能在1至3个")
-		@RequestParam List<Long> ids ) {
+	public Result<Boolean> delAllByIds( IdsCommand ids ) {
 		return Result.success(specificationCommandService.deleteSpecification(ids));
 	}
 }

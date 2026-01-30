@@ -16,16 +16,37 @@
 
 package com.taotao.cloud.goods.interfaces.controller.seller;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.taotao.boot.common.model.result.PageResult;
+import com.taotao.boot.common.model.result.Result;
+import com.taotao.boot.data.mybatis.mybatisplus.MpUtils;
+import com.taotao.boot.security.spring.utils.SecurityUtils;
+import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
+import com.taotao.cloud.goods.api.enums.GoodsStatusEnum;
+import com.taotao.cloud.goods.application.dto.own.goods.command.GoodsOperationCommand;
+import com.taotao.cloud.goods.application.dto.own.goods.command.GoodsSkuStockUpdateCommand;
+import com.taotao.cloud.goods.application.dto.own.goods.query.GoodsPageQuery;
+import com.taotao.cloud.goods.application.dto.own.goods.result.GoodsResult;
+import com.taotao.cloud.goods.application.dto.own.goods.result.GoodsSkuParamsResult;
+import com.taotao.cloud.goods.application.dto.own.goods.result.GoodsSkuResult;
+import com.taotao.cloud.goods.application.dto.own.goods.result.GoodsSkuSpecGalleryResult;
+import com.taotao.cloud.goods.application.dto.own.specification.result.StockWarningResult;
 import com.taotao.cloud.goods.application.service.command.GoodsCommandService;
 import com.taotao.cloud.goods.application.service.command.GoodsSkuCommandService;
 import com.taotao.cloud.goods.application.service.query.GoodsQueryService;
 import com.taotao.cloud.goods.application.service.query.GoodsSkuQueryService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.enums.ParameterIn;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.constraints.NotEmpty;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * 店铺端,商品接口
@@ -41,181 +62,175 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/seller/goods")
 public class GoodsSellerController extends BusinessController {
 
-    /**
-     * 商品
-     */
-    private final GoodsQueryService goodsQueryService;
+	/**
+	 * 商品
+	 */
+	private final GoodsQueryService goodsQueryService;
 
-    private final GoodsCommandService goodsCommandService;
+	private final GoodsCommandService goodsCommandService;
 
-    /**
-     * 商品sku
-     */
-    private final GoodsSkuQueryService goodsSkuQueryService;
+	/**
+	 * 商品sku
+	 */
+	private final GoodsSkuQueryService goodsSkuQueryService;
 
-    private final GoodsSkuCommandService goodsSkuCommandService;
+	private final GoodsSkuCommandService goodsSkuCommandService;
 
-    /// ** 店铺详情 */
-    // private final FeignStoreDetailApi storeDetailApi;
+	//private final FeignStoreDetailApi storeDetailApi;
 
-    // @Operation(summary = "分页获取商品列表", description = "分页获取商品列表")
-    // @RequestLogger("分页获取商品列表")
-    // @PreAuthorize("hasAuthority('dept:tree:data')")
-    // @GetMapping("/page")
-    // public Result<PageResult<GoodsResult>> getByPage(@Validated GoodsPageQuery goodsPageQuery) {
-    //	// 当前登录商家账号
-    //	Long storeId = SecurityUtils.getCurrentUser().getStoreId();
-    //	goodsPageQuery.setStoreId(storeId);
-    //	IPage<Goods> goodsPage = goodsService.goodsQueryPage(goodsPageQuery);
-    //	return Result.success(MpUtils.convertMybatisPage(goodsPage, GoodsCO.class));
-    // }
-    //
-    // @Operation(summary = "分页获取商品Sku列表", description = "分页获取商品Sku列表")
-    // @RequestLogger("分页获取商品Sku列表")
-    // @PreAuthorize("hasAuthority('dept:tree:data')")
-    // @GetMapping(value = "/sku/page")
-    // public Result<PageResult<GoodsSkuResult>> getSkuByPage(@Validated GoodsPageQuery goodsPageQuery)
-    // {
-    //	// 当前登录商家账号
-    //	Long storeId = SecurityUtils.getCurrentUser().getStoreId();
-    //	goodsPageQuery.setStoreId(storeId);
-    //	IPage<GoodsSku> goodsSkuPage = goodsSkuService.goodsSkuQueryPage(goodsPageQuery);
-    //	return Result.success(MpUtils.convertMybatisPage(goodsSkuPage, GoodsSkuCO.class));
-    // }
-    //
-    // @Operation(summary = "分页获取库存告警商品列表", description = "分页获取库存告警商品列表")
-    // @RequestLogger("分页获取库存告警商品列表")
-    // @PreAuthorize("hasAuthority('dept:tree:data')")
-    // @GetMapping(value = "/stock/warning")
-    // public Result<StockWarningResult> getWarningStockByPage(@Validated GoodsPageQuery goodsPageQuery)
-    // {
-    //	// 当前登录商家账号
-    //	Long storeId = SecurityUtils.getCurrentUser().getStoreId();
-    //	StoreDetailCO storeDetail = storeDetailApi.getStoreDetailVO(storeId);
-    //	// 库存预警数量
-    //	Integer stockWarnNum = storeDetail.getStockWarning();
-    //	goodsPageQuery.setStoreId(storeId);
-    //	goodsPageQuery.setLeQuantity(stockWarnNum);
-    //	goodsPageQuery.setMarketEnable(GoodsStatusEnum.UPPER.name());
-    //	// 商品SKU列表
-    //	IPage<GoodsSku> goodsSkuPage = goodsSkuService.goodsSkuQueryPage(goodsPageQuery);
-    //	StockWarningCO stockWarning =
-    //		new StockWarningCO(stockWarnNum, MpUtils.convertMybatisPage(goodsSkuPage,
-    // GoodsSkuCO.class));
-    //	return Result.success(stockWarning);
-    // }
-    //
-    // @Operation(summary = "通过id获取", description = "通过id获取")
-    // @Parameters({
-    //	@Parameter(name = "goodsId", required = true, description = "父ID 0-最上级id", in =
-    // ParameterIn.PATH),
-    // })
-    // @RequestLogger("通过id获取")
-    // @PreAuthorize("hasAuthority('dept:tree:data')")
-    // @GetMapping(value = "/{goodsId}")
-    // public Result<GoodsSkuParamsResult> get(@PathVariable Long goodsId) {
-    //	return Result.success(goodsService.getGoodsVO(goodsId));
-    // }
-    //
-    // @Operation(summary = "新增商品", description = "新增商品")
-    // @RequestLogger("新增商品")
-    // @PreAuthorize("hasAuthority('dept:tree:data')")
-    // @PostMapping
-    // public Result<Boolean> save(@Validated @RequestBody GoodsOperationDTO goodsOperationDTO) {
-    //	return Result.success(goodsService.addGoods(goodsOperationDTO));
-    // }
-    //
-    // @Operation(summary = "修改商品", description = "修改商品")
-    // @Parameters({
-    //	@Parameter(name = "goodsId", required = true, description = "商品ID", in = ParameterIn.PATH),
-    // })
-    // @RequestLogger("修改商品")
-    // @PreAuthorize("hasAuthority('dept:tree:data')")
-    // @PostMapping(value = "/{goodsId}")
-    // public Result<Boolean> update(@Validated @RequestBody GoodsOperationDTO goodsOperationDTO,
-    // @PathVariable Long
-    // goodsId) {
-    //	return Result.success(goodsService.editGoods(goodsOperationDTO, goodsId));
-    // }
-    //
-    // @Operation(summary = "下架商品", description = "下架商品")
-    // @RequestLogger("下架商品")
-    // @PreAuthorize("hasAuthority('dept:tree:data')")
-    // @PostMapping(value = "/under")
-    // public Result<Boolean> underGoods(@Validated @NotEmpty(message = "商品id不能为空") @RequestBody
-    // List<Long> goodsId) {
-    //	return Result.success(goodsService.updateGoodsMarketAble(goodsId, GoodsStatusEnum.DOWN,
-    // "商家下架"));
-    // }
-    //
-    // @Operation(summary = "上架商品", description = "上架商品")
-    //
-    // @RequestLogger("上架商品")
-    // @PreAuthorize("hasAuthority('dept:tree:data')")
-    // @PostMapping(value = "/up")
-    // public Result<Boolean> unpGoods(@RequestParam List<Long> goodsId) {
-    //	return Result.success(goodsService.updateGoodsMarketAble(goodsId, GoodsStatusEnum.UPPER,
-    // ""));
-    // }
-    //
-    // @Operation(summary = "删除商品", description = "删除商品")
-    // @RequestLogger("删除商品")
-    // @PreAuthorize("hasAuthority('dept:tree:data')")
-    // @PostMapping
-    // public Result<Boolean> deleteGoods(@Validated @NotEmpty(message = "商品信息不能为空") @RequestBody
-    // List<Long> goodsIds) {
-    //	return Result.success(goodsService.deleteGoods(goodsIds));
-    // }
-    //
-    // @Operation(summary = "设置商品运费模板", description = "设置商品运费模板")
-    // @Parameters({
-    //	@Parameter(name = "templateId", required = true, description = "模板id", in =
-    // ParameterIn.PATH),
-    // })
-    // @RequestLogger("设置商品运费模板")
-    // @PreAuthorize("hasAuthority('dept:tree:data')")
-    // @PostMapping(value = "/freight/{templateId}")
-    // public Result<Boolean> freight(@Validated @NotEmpty(message = "商品信息不能为空") @RequestBody
-    // List<Long> goodsId,
-    //							   @PathVariable Long templateId) {
-    //	return Result.success(goodsService.freight(goodsId, templateId));
-    // }
-    //
-    // @Operation(summary = "根据goodsId分页获取商品规格列表", description = "根据goodsId分页获取商品规格列表")
-    // @Parameters({
-    //	@Parameter(name = "goodsId", required = true, description = "商品id", in = ParameterIn.PATH),
-    // })
-    // @RequestLogger("根据goodsId分页获取商品规格列表")
-    // @PreAuthorize("hasAuthority('dept:tree:data')")
-    // @GetMapping(value = "/sku/{goodsId}/page")
-    // public Result<List<GoodsSkuSpecGalleryResult>> getSkuByList(@PathVariable Long goodsId) {
-    //	Long storeId = SecurityUtils.getCurrentUser().getStoreId();
-    //	return Result.success(goodsSkuService.getGoodsSkuVOList(goodsSkuService.list(new
-    // LambdaQueryWrapper<GoodsSku>()
-    //		.eq(GoodsSku::getGoodsId, goodsId)
-    //		.eq(GoodsSku::getStoreId, storeId))));
-    // }
-    //
-    // @Operation(summary = "修改商品库存", description = "修改商品库存")
-    // @RequestLogger("修改商品库存")
-    // @PreAuthorize("hasAuthority('dept:tree:data')")
-    // @PostMapping(value = "/stocks")
-    // public Result<Boolean> updateStocks(@Validated @RequestBody List<GoodsSkuStockDTO>
-    // updateStockList) {
-    //	Long storeId = SecurityUtils.getCurrentUser().getStoreId();
-    //	// 获取商品skuId集合
-    //	List<Long> goodsSkuIds =
-    //		updateStockList.stream().map(GoodsSkuStockDTO::getSkuId).toList();
-    //	// 根据skuId集合查询商品信息
-    //	List<GoodsSku> goodsSkuList = goodsSkuService.list(new LambdaQueryWrapper<GoodsSku>()
-    //		.in(GoodsSku::getId, goodsSkuIds)
-    //		.eq(GoodsSku::getStoreId, storeId));
-    //	// 过滤不符合当前店铺的商品
-    //	List<Long> filterGoodsSkuIds =
-    //		goodsSkuList.stream().map(GoodsSku::getId).toList();
-    //	List<GoodsSkuStockDTO> collect = updateStockList.stream()
-    //		.filter(i -> filterGoodsSkuIds.contains(i.getSkuId()))
-    //		.toList();
-    //	return Result.success(goodsSkuService.updateStocks(collect));
-    // }
+	@Operation(summary = "分页获取商品列表", description = "分页获取商品列表")
+	@RequestLogger("分页获取商品列表")
+	@PreAuthorize("hasAuthority('dept:tree:data')")
+	@GetMapping("/query/page")
+	public Result<PageResult<GoodsResult>> getByPage( @Validated GoodsPageQuery goodsPageQuery ) {
+		// 当前登录商家账号
+//		Long storeId = SecurityUtils.getCurrentUser().getStoreId();
+//		goodsPageQuery.setStoreId(storeId);
+//		IPage<Goods> goodsPage = goodsService.goodsQueryPage(goodsPageQuery);
+//		return Result.success(MpUtils.convertMybatisPage(goodsPage, GoodsCO.class));
+		return null;
+	}
+
+	@Operation(summary = "分页获取商品Sku列表", description = "分页获取商品Sku列表")
+	@RequestLogger("分页获取商品Sku列表")
+	@PreAuthorize("hasAuthority('dept:tree:data')")
+	@GetMapping(value = "/query/sku/page")
+	public Result<PageResult<GoodsSkuResult>> getSkuByPage( @Validated GoodsPageQuery goodsPageQuery ) {
+		// 当前登录商家账号
+//		Long storeId = SecurityUtils.getCurrentUser().getStoreId();
+//		goodsPageQuery.setStoreId(storeId);
+//		IPage<GoodsSku> goodsSkuPage = goodsSkuService.goodsSkuQueryPage(goodsPageQuery);
+//		return Result.success(MpUtils.convertMybatisPage(goodsSkuPage, GoodsSkuCO.class));
+		return null;
+	}
+
+	@Operation(summary = "分页获取库存告警商品列表", description = "分页获取库存告警商品列表")
+	@RequestLogger("分页获取库存告警商品列表")
+	@PreAuthorize("hasAuthority('dept:tree:data')")
+	@GetMapping(value = "/query/stock/warning")
+	public Result<StockWarningResult> getWarningStockByPage( @Validated GoodsPageQuery goodsPageQuery ) {
+		// 当前登录商家账号
+//		Long storeId = SecurityUtils.getCurrentUser().getStoreId();
+//		StoreDetailCO storeDetail = storeDetailApi.getStoreDetailVO(storeId);
+//		// 库存预警数量
+//		Integer stockWarnNum = storeDetail.getStockWarning();
+//		goodsPageQuery.setStoreId(storeId);
+//		goodsPageQuery.setLeQuantity(stockWarnNum);
+//		goodsPageQuery.setMarketEnable(GoodsStatusEnum.UPPER.name());
+//		// 商品SKU列表
+//		IPage<GoodsSku> goodsSkuPage = goodsSkuService.goodsSkuQueryPage(goodsPageQuery);
+//		StockWarningCO stockWarning =
+//			new StockWarningCO(stockWarnNum, MpUtils.convertMybatisPage(goodsSkuPage,
+//				GoodsSkuCO.class));
+//		return Result.success(stockWarning);
+		return null;
+	}
+
+	@Operation(summary = "通过id获取", description = "通过id获取")
+	@RequestLogger("通过id获取")
+	@PreAuthorize("hasAuthority('dept:tree:data')")
+	@GetMapping(value = "/query/goodsId")
+	public Result<GoodsSkuParamsResult> get( Long goodsId ) {
+//		return Result.success(goodsService.getGoodsVO(goodsId));
+		return null;
+	}
+
+	@Operation(summary = "新增商品", description = "新增商品")
+	@RequestLogger("新增商品")
+	@PreAuthorize("hasAuthority('dept:tree:data')")
+	@PostMapping("/command/save")
+	public Result<Boolean> save( @RequestBody GoodsOperationCommand goodsOperationDTO ) {
+//		return Result.success(goodsService.addGoods(goodsOperationDTO));
+		return null;
+	}
+
+	@Operation(summary = "修改商品", description = "修改商品")
+	@RequestLogger("修改商品")
+	@PreAuthorize("hasAuthority('dept:tree:data')")
+	@PostMapping(value = "/command/update")
+	public Result<Boolean> update( @RequestBody GoodsOperationCommand goodsOperationDTO,
+		@PathVariable Long
+			goodsId ) {
+//		return Result.success(goodsService.editGoods(goodsOperationDTO, goodsId));
+		return null;
+	}
+
+	@Operation(summary = "下架商品", description = "下架商品")
+	@RequestLogger("下架商品")
+	@PreAuthorize("hasAuthority('dept:tree:data')")
+	@PostMapping(value = "/command/under")
+	public Result<Boolean> underGoods( @Validated @NotEmpty(message = "商品id不能为空") @RequestBody
+	List<Long> goodsId ) {
+//		return Result.success(goodsService.updateGoodsMarketAble(goodsId, GoodsStatusEnum.DOWN,
+//			"商家下架"));
+		return null;
+	}
+
+	@Operation(summary = "上架商品", description = "上架商品")
+	@RequestLogger("上架商品")
+	@PreAuthorize("hasAuthority('dept:tree:data')")
+	@PostMapping(value = "/command/up")
+	public Result<Boolean> unpGoods( @RequestParam List<Long> goodsId ) {
+//		return Result.success(goodsService.updateGoodsMarketAble(goodsId, GoodsStatusEnum.UPPER,
+//			""));
+		return null;
+	}
+
+	@Operation(summary = "删除商品", description = "删除商品")
+	@RequestLogger("删除商品")
+	@PreAuthorize("hasAuthority('dept:tree:data')")
+	@PostMapping("/command/dels")
+	public Result<Boolean> deleteGoods( @Validated @NotEmpty(message = "商品信息不能为空") @RequestBody
+	List<Long> goodsIds ) {
+//		return Result.success(goodsService.deleteGoods(goodsIds));
+		return null;
+	}
+
+	@Operation(summary = "设置商品运费模板", description = "设置商品运费模板")
+	@RequestLogger("设置商品运费模板")
+	@PreAuthorize("hasAuthority('dept:tree:data')")
+	@PostMapping(value = "/command/freight/templateId")
+	public Result<Boolean> freight( @Validated @NotEmpty(message = "商品信息不能为空") @RequestBody
+		List<Long> goodsId,
+		@PathVariable Long templateId ) {
+//		return Result.success(goodsService.freight(goodsId, templateId));
+		return null;
+	}
+
+	@Operation(summary = "根据goodsId分页获取商品规格列表", description = "根据goodsId分页获取商品规格列表")
+	@RequestLogger("根据goodsId分页获取商品规格列表")
+	@PreAuthorize("hasAuthority('dept:tree:data')")
+	@GetMapping(value = "/query/sku/page")
+	public Result<List<GoodsSkuSpecGalleryResult>> getSkuByList( Long goodsId ) {
+//		Long storeId = SecurityUtils.getCurrentUser().getStoreId();
+//		return Result.success(goodsSkuService.getGoodsSkuVOList(goodsSkuService.list(new
+//			LambdaQueryWrapper<GoodsSku>()
+//			.eq(GoodsSku::getGoodsId, goodsId)
+//			.eq(GoodsSku::getStoreId, storeId))));
+		return null;
+	}
+
+	@Operation(summary = "修改商品库存", description = "修改商品库存")
+	@RequestLogger("修改商品库存")
+	@PreAuthorize("hasAuthority('dept:tree:data')")
+	@PostMapping(value = "/command/stocks")
+	public Result<Boolean> updateStocks( @RequestBody List<GoodsSkuStockUpdateCommand>
+		updateStockList ) {
+//		Long storeId = SecurityUtils.getCurrentUser().getStoreId();
+//		// 获取商品skuId集合
+//		List<Long> goodsSkuIds =
+//			updateStockList.stream().map(GoodsSkuStockDTO::getSkuId).toList();
+//		// 根据skuId集合查询商品信息
+//		List<GoodsSku> goodsSkuList = goodsSkuService.list(new LambdaQueryWrapper<GoodsSku>()
+//			.in(GoodsSku::getId, goodsSkuIds)
+//			.eq(GoodsSku::getStoreId, storeId));
+//		// 过滤不符合当前店铺的商品
+//		List<Long> filterGoodsSkuIds =
+//			goodsSkuList.stream().map(GoodsSku::getId).toList();
+//		List<GoodsSkuStockDTO> collect = updateStockList.stream()
+//			.filter(i -> filterGoodsSkuIds.contains(i.getSkuId()))
+//			.toList();
+//		return Result.success(goodsSkuService.updateStocks(collect));
+		return null;
+	}
 }

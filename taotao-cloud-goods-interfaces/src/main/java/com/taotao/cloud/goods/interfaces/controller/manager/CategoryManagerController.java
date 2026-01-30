@@ -89,7 +89,7 @@ public class CategoryManagerController extends BusinessController {
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/save")
-	public Result<Boolean> save( @Validated @RequestBody CategoryAddCommand category ) {
+	public Result<Boolean> save( @RequestBody CategoryAddCommand category ) {
 		//// 非顶级分类
 		// if (category.getParentId() != null && !Long.valueOf(0).equals(category.getParentId())) {
 		//    Category parent = categoryQueryService.getById(category.getParentId());
