@@ -21,4 +21,5 @@ import com.taotao.boot.data.jpa.base.repository.JpaSuperRepository;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsTagPO;
 
 public interface GoodsTagRepository
-        extends JpaSuperRepository<GoodsTagPO, Long>, JpaExtendRepository<GoodsTagPO, Long> {}
+        extends JpaSuperRepository<GoodsTagPO, Long>,
+				JpaExtendRepository<GoodsTagPO, Long> {}

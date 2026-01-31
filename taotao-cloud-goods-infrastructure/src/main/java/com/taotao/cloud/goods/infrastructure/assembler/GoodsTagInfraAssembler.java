@@ -22,7 +22,7 @@ import org.mapstruct.MappingConstants;
 /**
  * GoodsTag转换器
  *
- * @author luohq
+ * @author shuigedeng
  * @date 2023-08-03
  */
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING)

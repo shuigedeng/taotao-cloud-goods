@@ -58,9 +58,9 @@ public interface CategoryInfraAssembler {
      * @return {@link List }<{@link CategoryVO }>
      * @since 2022-04-27 16:58:05
      */
-    List<CategoryResult> toResult(List<CategoryPO> categorys);
+    List<CategoryResult> toResult(List<CategoryPO> categoryPos);
 
-	List<CategoryAgg> toAggs(Iterable<CategoryPO> categoryPOs);
+	List<CategoryAgg> toAggs(Iterable<CategoryPO> categoryPos);
 
 	@Mapping(target = "id", source = "id")
 	@Mapping(target = "parentCategoryId", source = "parentId")

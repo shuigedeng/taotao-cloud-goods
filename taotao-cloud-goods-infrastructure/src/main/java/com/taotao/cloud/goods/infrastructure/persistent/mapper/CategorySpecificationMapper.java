@@ -39,8 +39,7 @@ public interface CategorySpecificationMapper extends MpSuperMapper<CategorySpeci
      * @return {@link List }<{@link SpecificationPO }>
      * @since 2022-04-27 16:55:35
      */
-    @Select(
-            """
+    @Select("""
         select s.*
         from  tt_specification s
         INNER join tt_category_specification cs on s.id = cs.specification_id and cs.category_id = #{categoryId}

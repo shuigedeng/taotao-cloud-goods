@@ -60,12 +60,6 @@ public class GoodsDomainRepositoryImpl implements GoodsDomainRepository {
     @Override
     public void save( GoodsAgg goods ) {
         GoodsPO goodsPo = goodsInfraAssembler.toPO(goods);
-//txWrapper.doInTransaction(()->{
-//
-//});
-//txWrapper.doInNewTransaction(()->{
-//
-//});
         goodsMapper.insert(goodsPo);
     }
 
@@ -94,26 +88,12 @@ public class GoodsDomainRepositoryImpl implements GoodsDomainRepository {
     }
 
     @Override
-    public GoodsAgg findGoodsWithCNameById( Long id ) {
+    public GoodsAgg findGoodsWithNameById( Long id ) {
         return null;
     }
 
     @Override
     public Boolean existsByTagIds( Collection<Long> tagIds ) {
-        return null;
-    }
-
-    @Override
-    public Page<GoodsAgg> findGoodsWithCNamePageJpa(
-            String goodsName,
-            Long categoryId,
-            BigDecimal startGoodsPrice,
-            BigDecimal endGoodsPrice,
-            Integer goodsStatus,
-            LocalDate beforeExpirationDate,
-            LocalDateTime createTimeStart,
-            LocalDateTime createTimeEnd,
-            Pageable pageable ) {
         return null;
     }
 }

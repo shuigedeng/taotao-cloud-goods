@@ -21,4 +21,5 @@ import com.taotao.boot.data.jpa.base.repository.JpaSuperRepository;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.DraftGoodsPO;
 
 public interface DraftGoodsRepository
-        extends JpaSuperRepository<DraftGoodsPO, Long>, JpaExtendRepository<DraftGoodsPO, Long> {}
+        extends JpaSuperRepository<DraftGoodsPO, Long>,
+				JpaExtendRepository<DraftGoodsPO, Long> {}

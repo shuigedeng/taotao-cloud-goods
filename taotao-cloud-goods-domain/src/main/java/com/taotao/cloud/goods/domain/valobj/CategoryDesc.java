@@ -23,7 +23,7 @@ import org.hibernate.validator.constraints.Length;
 /**
  * 分类描述
  *
- * @author luohq
+ * @author shuigedeng
  * @date 2023-01-04 13:21
  */
 public class CategoryDesc implements ValueObject {

@@ -26,5 +26,4 @@ import com.taotao.cloud.goods.infrastructure.persistent.persistence.CategoryPara
  * @version 2022.04
  * @since 2022-04-27 16:55:31
  */
-public interface CategoryParameterGroupMapper
-        extends MpSuperMapper<CategoryParameterGroupPO, Long> {}
+public interface CategoryParameterGroupMapper extends MpSuperMapper<CategoryParameterGroupPO, Long> {}

@@ -28,7 +28,7 @@ import lombok.ToString;
 /**
  * 商品分页查询
  *
- * @author luohq
+ * @author shuigedeng
  * @date 2022-11-27 19:07
  */
 @Setter

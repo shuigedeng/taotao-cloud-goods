@@ -18,10 +18,11 @@ package com.taotao.cloud.goods.infrastructure.persistent.mapper;
 
 import com.taotao.boot.data.mybatis.mybatisplus.base.mapper.MpSuperMapper;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsSkuPO;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 /**
  * 规格项数据处理层
@@ -33,18 +34,17 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface GoodsSkuMapper extends MpSuperMapper<GoodsSkuPO, Long> {
 
-    /**
-     * 根据商品id获取全部skuId的集合
-     *
-     * @param goodsId goodsId
-     * @return {@link List }<{@link String }>
-     * @since 2022-04-27 16:57:22
-     */
-    @Select(
-            """
-        SELECT id
-        FROM tt_goods_sku
-        WHERE goods_id = #{goodsId}
-        """)
-    List<String> getGoodsSkuIdByGoodsId(@Param(value = "goodsId") Long goodsId);
+	/**
+	 * 根据商品id获取全部skuId的集合
+	 *
+	 * @param goodsId goodsId
+	 * @return {@link List }<{@link String }>
+	 * @since 2022-04-27 16:57:22
+	 */
+	@Select("""
+		SELECT id
+		FROM tt_goods_sku
+		WHERE goods_id = #{goodsId}
+		""")
+	List<String> getGoodsSkuIdByGoodsId( @Param(value = "goodsId") Long goodsId );
 }

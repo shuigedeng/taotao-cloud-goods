@@ -19,6 +19,7 @@ package com.taotao.cloud.goods.domain.repository;
 import com.taotao.boot.ddd.model.domain.repository.DomainRepository;
 import com.taotao.boot.ddd.model.types.BizId;
 import com.taotao.cloud.goods.domain.aggregate.GoodsTagAgg;
+
 import java.util.Collection;
 
 public interface GoodsTagDomainRepository extends DomainRepository {
@@ -43,5 +44,10 @@ public interface GoodsTagDomainRepository extends DomainRepository {
      */
     void remove(Long[] ids);
 
-    boolean isSatisfiedBy(Collection<BizId> goodsTagIds);
+	/**
+	 * 商品标签是否存在
+	 *
+	 * @param goodsTagIds 商品标签id
+	 */
+    void isSatisfiedBy( Collection<BizId> goodsTagIds);
 }

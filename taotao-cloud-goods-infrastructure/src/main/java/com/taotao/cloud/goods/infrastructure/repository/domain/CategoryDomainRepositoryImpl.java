@@ -29,7 +29,6 @@ import com.taotao.cloud.goods.infrastructure.persistent.mapper.GoodsSkuMapper;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.CategoryPO;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.QCategoryPO;
 import com.taotao.cloud.goods.infrastructure.persistent.repository.CategoryRepository;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -56,10 +55,10 @@ public class CategoryDomainRepositoryImpl implements CategoryDomainRepository {
 
     @Override
     public List<CategoryAgg> findCategory( DelFlagEnum delFlg ) {
-        QCategoryPO qCategoryPO = QCategoryPO.categoryPO;
-        Predicate predicate = qCategoryPO.delFlag.eq(delFlg.delFlag());
-        Iterable<CategoryPO> categoryPOs = categoryRepository.findAll(predicate);
-        return categoryInfraAssembler.toAggs(categoryPOs);
+        QCategoryPO categoryPo = QCategoryPO.categoryPO;
+        Predicate predicate = categoryPo.delFlag.eq(delFlg.delFlag());
+        Iterable<CategoryPO> categoryPos = categoryRepository.findAll(predicate);
+        return categoryInfraAssembler.toAggs(categoryPos);
     }
 
     @Override
@@ -71,14 +70,13 @@ public class CategoryDomainRepositoryImpl implements CategoryDomainRepository {
     }
 
     @Override
-    public void remove( Long[] ids ) {
+    public void remove( List<Long> ids ) {
     }
 
     @Override
-    public boolean isSatisfiedBy( BizId categoryId ) {
+    public void isSatisfiedBy( BizId categoryId ) {
         // 验证分类ID是否存在
         //        Boolean existParentId = this.categoryRepository.existsById(categoryId.getId());
         //        Validates.isTrue(existParentId, "category id does not exist");
-        return true;
-    }
+	}
 }

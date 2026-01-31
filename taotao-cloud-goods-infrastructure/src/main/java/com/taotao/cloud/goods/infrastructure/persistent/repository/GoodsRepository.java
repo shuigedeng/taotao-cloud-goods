@@ -28,4 +28,5 @@ import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsPO;
  * @since 2021/10/13 22:50
  */
 public interface GoodsRepository
-        extends JpaSuperRepository<GoodsPO, Long>, JpaExtendRepository<GoodsPO, Long> {}
+        extends JpaSuperRepository<GoodsPO, Long>,
+				JpaExtendRepository<GoodsPO, Long> {}

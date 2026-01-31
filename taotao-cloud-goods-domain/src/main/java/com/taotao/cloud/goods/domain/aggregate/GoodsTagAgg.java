@@ -27,7 +27,7 @@ import java.util.Objects;
 /**
  * 商品标签
  *
- * @author luohq
+ * @author shuigedeng
  * @date 2023-08-02
  */
 public class GoodsTagAgg extends AggregateRoot<BizId> {

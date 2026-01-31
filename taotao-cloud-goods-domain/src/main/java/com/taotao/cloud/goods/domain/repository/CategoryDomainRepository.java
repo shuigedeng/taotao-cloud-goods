@@ -25,6 +25,11 @@ import java.util.List;
 
 public interface CategoryDomainRepository extends DomainRepository {
 
+	/**
+	 * 查询商品列表
+	 * @param delFlg 删除标准
+	 * @return 商品列表
+	 */
 	List<CategoryAgg> findCategory(DelFlagEnum delFlg);
 
     /**
@@ -44,9 +49,14 @@ public interface CategoryDomainRepository extends DomainRepository {
     /**
      * 根据ID删除部门.
      *
-     * @param ids IDS
+     * @param ids is
      */
-    void remove(Long[] ids);
+    void remove( List<Long> ids);
 
-    boolean isSatisfiedBy(BizId categoryId);
+	/**
+	 * 商品分类是否存在
+	 *
+	 * @param categoryId categoryId
+	 */
+    void isSatisfiedBy(BizId categoryId);
 }

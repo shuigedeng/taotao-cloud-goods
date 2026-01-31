@@ -21,4 +21,5 @@ import com.taotao.boot.data.jpa.base.repository.JpaSuperRepository;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.ParametersPO;
 
 public interface ParametersRepository
-        extends JpaSuperRepository<ParametersPO, Long>, JpaExtendRepository<ParametersPO, Long> {}
+        extends JpaSuperRepository<ParametersPO, Long>,
+				JpaExtendRepository<ParametersPO, Long> {}

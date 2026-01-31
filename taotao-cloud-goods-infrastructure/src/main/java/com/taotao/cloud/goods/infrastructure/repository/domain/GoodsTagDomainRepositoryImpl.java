@@ -28,7 +28,6 @@ import com.taotao.cloud.goods.infrastructure.persistent.mapper.GoodsSkuMapper;
 import java.util.Collection;
 import java.util.Objects;
 
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -62,15 +61,13 @@ public class GoodsTagDomainRepositoryImpl implements GoodsTagDomainRepository {
     }
 
     @Override
-    public boolean isSatisfiedBy( Collection<BizId> goodsTagIds ) {
+    public void isSatisfiedBy( Collection<BizId> goodsTagIds ) {
         // 若标签ID集合为空，则直接验证通过
         if (Objects.isNull(goodsTagIds) || goodsTagIds.isEmpty()) {
-            return true;
-        }
+		}
         // 查询存在的标签数量
         //        Integer existGoodsTagCount = this.goodsTagRepository.countByIdIn(goodsTagIds);
         //        Validates.isTrue(existGoodsTagCount.equals(goodsTagIds.size()), "goods tags don't
         // exist");
-        return true;
-    }
+	}
 }

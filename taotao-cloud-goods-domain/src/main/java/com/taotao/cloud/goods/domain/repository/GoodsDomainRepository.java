@@ -29,6 +29,10 @@ import org.springframework.data.domain.Pageable;
 
 public interface GoodsDomainRepository extends DomainRepository {
 
+	/**
+	 * 添加商品
+	 * @param goods 商品
+	 */
     void save(GoodsAgg goods);
 
     /**
@@ -78,7 +82,7 @@ public interface GoodsDomainRepository extends DomainRepository {
      * @param id 商品ID
      * @return 商品详情
      */
-    GoodsAgg findGoodsWithCNameById(Long id);
+    GoodsAgg findGoodsWithNameById(Long id);
 
     /**
      * 标签下是否存在商品
@@ -88,29 +92,4 @@ public interface GoodsDomainRepository extends DomainRepository {
      */
     Boolean existsByTagIds(Collection<Long> tagIds);
 
-    /**
-     * 查询商品分页列表<br/>
-     * 注：此处Pageable参数中的Sort排序不生效
-     *
-     * @param goodsName
-     * @param categoryId
-     * @param startGoodsPrice
-     * @param endGoodsPrice
-     * @param goodsStatus
-     * @param beforeExpirationDate
-     * @param createTimeStart
-     * @param createTimeEnd
-     * @param pageable
-     * @return
-     */
-    Page<GoodsAgg> findGoodsWithCNamePageJpa(
-            String goodsName,
-            Long categoryId,
-            BigDecimal startGoodsPrice,
-            BigDecimal endGoodsPrice,
-            Integer goodsStatus,
-            LocalDate beforeExpirationDate,
-            LocalDateTime createTimeStart,
-            LocalDateTime createTimeEnd,
-            Pageable pageable);
 }
