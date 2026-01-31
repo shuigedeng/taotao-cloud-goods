@@ -18,6 +18,7 @@ package com.taotao.cloud.goods.interfaces.controller.seller;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.taotao.boot.common.model.request.IdsCommand;
 import com.taotao.boot.common.model.result.PageResult;
 import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.data.mybatis.mybatisplus.MpUtils;
@@ -25,8 +26,10 @@ import com.taotao.boot.security.spring.utils.SecurityUtils;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
 import com.taotao.cloud.goods.api.enums.GoodsStatusEnum;
+import com.taotao.cloud.goods.application.dto.own.goods.command.FreightCommand;
 import com.taotao.cloud.goods.application.dto.own.goods.command.GoodsOperationCommand;
 import com.taotao.cloud.goods.application.dto.own.goods.command.GoodsSkuStockUpdateCommand;
+import com.taotao.cloud.goods.application.dto.own.goods.query.GoodsIdQuery;
 import com.taotao.cloud.goods.application.dto.own.goods.query.GoodsPageQuery;
 import com.taotao.cloud.goods.application.dto.own.goods.result.GoodsResult;
 import com.taotao.cloud.goods.application.dto.own.goods.result.GoodsSkuParamsResult;
@@ -82,7 +85,7 @@ public class GoodsSellerController extends BusinessController {
 	@RequestLogger("分页获取商品列表")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping("/query/page")
-	public Result<PageResult<GoodsResult>> getByPage( @Validated GoodsPageQuery goodsPageQuery ) {
+	public Result<PageResult<GoodsResult>> queryPage( GoodsPageQuery goodsPageQuery ) {
 		// 当前登录商家账号
 //		Long storeId = SecurityUtils.getCurrentUser().getStoreId();
 //		goodsPageQuery.setStoreId(storeId);
@@ -95,7 +98,7 @@ public class GoodsSellerController extends BusinessController {
 	@RequestLogger("分页获取商品Sku列表")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/sku/page")
-	public Result<PageResult<GoodsSkuResult>> getSkuByPage( @Validated GoodsPageQuery goodsPageQuery ) {
+	public Result<PageResult<GoodsSkuResult>> getSkuPage( GoodsPageQuery goodsPageQuery ) {
 		// 当前登录商家账号
 //		Long storeId = SecurityUtils.getCurrentUser().getStoreId();
 //		goodsPageQuery.setStoreId(storeId);
@@ -108,7 +111,7 @@ public class GoodsSellerController extends BusinessController {
 	@RequestLogger("分页获取库存告警商品列表")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/stock/warning")
-	public Result<StockWarningResult> getWarningStockByPage( @Validated GoodsPageQuery goodsPageQuery ) {
+	public Result<StockWarningResult> getWarningStock( GoodsPageQuery goodsPageQuery ) {
 		// 当前登录商家账号
 //		Long storeId = SecurityUtils.getCurrentUser().getStoreId();
 //		StoreDetailCO storeDetail = storeDetailApi.getStoreDetailVO(storeId);
@@ -130,7 +133,7 @@ public class GoodsSellerController extends BusinessController {
 	@RequestLogger("通过id获取")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/goodsId")
-	public Result<GoodsSkuParamsResult> get( Long goodsId ) {
+	public Result<GoodsSkuParamsResult> queryByGoodsId( GoodsIdQuery goodsIdQuery ) {
 //		return Result.success(goodsService.getGoodsVO(goodsId));
 		return null;
 	}
@@ -148,9 +151,7 @@ public class GoodsSellerController extends BusinessController {
 	@RequestLogger("修改商品")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/update")
-	public Result<Boolean> update( @RequestBody GoodsOperationCommand goodsOperationDTO,
-		@PathVariable Long
-			goodsId ) {
+	public Result<Boolean> update( @RequestBody GoodsOperationCommand goodsOperationDTO ) {
 //		return Result.success(goodsService.editGoods(goodsOperationDTO, goodsId));
 		return null;
 	}
@@ -159,8 +160,7 @@ public class GoodsSellerController extends BusinessController {
 	@RequestLogger("下架商品")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/under")
-	public Result<Boolean> underGoods( @Validated @NotEmpty(message = "商品id不能为空") @RequestBody
-	List<Long> goodsId ) {
+	public Result<Boolean> under( @RequestBody IdsCommand idsCommand ) {
 //		return Result.success(goodsService.updateGoodsMarketAble(goodsId, GoodsStatusEnum.DOWN,
 //			"商家下架"));
 		return null;
@@ -170,7 +170,7 @@ public class GoodsSellerController extends BusinessController {
 	@RequestLogger("上架商品")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/up")
-	public Result<Boolean> unpGoods( @RequestParam List<Long> goodsId ) {
+	public Result<Boolean> up( @RequestBody IdsCommand idsCommand ) {
 //		return Result.success(goodsService.updateGoodsMarketAble(goodsId, GoodsStatusEnum.UPPER,
 //			""));
 		return null;
@@ -180,8 +180,7 @@ public class GoodsSellerController extends BusinessController {
 	@RequestLogger("删除商品")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/dels")
-	public Result<Boolean> deleteGoods( @Validated @NotEmpty(message = "商品信息不能为空") @RequestBody
-	List<Long> goodsIds ) {
+	public Result<Boolean> dels( @RequestBody IdsCommand idsCommand) {
 //		return Result.success(goodsService.deleteGoods(goodsIds));
 		return null;
 	}
@@ -189,10 +188,8 @@ public class GoodsSellerController extends BusinessController {
 	@Operation(summary = "设置商品运费模板", description = "设置商品运费模板")
 	@RequestLogger("设置商品运费模板")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@PostMapping(value = "/command/freight/templateId")
-	public Result<Boolean> freight( @Validated @NotEmpty(message = "商品信息不能为空") @RequestBody
-		List<Long> goodsId,
-		@PathVariable Long templateId ) {
+	@PostMapping(value = "/command/freight")
+	public Result<Boolean> freight( @RequestBody FreightCommand freightCommand) {
 //		return Result.success(goodsService.freight(goodsId, templateId));
 		return null;
 	}
@@ -200,8 +197,8 @@ public class GoodsSellerController extends BusinessController {
 	@Operation(summary = "根据goodsId分页获取商品规格列表", description = "根据goodsId分页获取商品规格列表")
 	@RequestLogger("根据goodsId分页获取商品规格列表")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@GetMapping(value = "/query/sku/page")
-	public Result<List<GoodsSkuSpecGalleryResult>> getSkuByList( Long goodsId ) {
+	@GetMapping(value = "/query/sku/list")
+	public Result<List<GoodsSkuSpecGalleryResult>> getSkuByList( GoodsIdQuery goodsIdQuery ) {
 //		Long storeId = SecurityUtils.getCurrentUser().getStoreId();
 //		return Result.success(goodsSkuService.getGoodsSkuVOList(goodsSkuService.list(new
 //			LambdaQueryWrapper<GoodsSku>()
@@ -213,9 +210,8 @@ public class GoodsSellerController extends BusinessController {
 	@Operation(summary = "修改商品库存", description = "修改商品库存")
 	@RequestLogger("修改商品库存")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@PostMapping(value = "/command/stocks")
-	public Result<Boolean> updateStocks( @RequestBody List<GoodsSkuStockUpdateCommand>
-		updateStockList ) {
+	@PostMapping(value = "/command/update/stocks")
+	public Result<Boolean> updateStocks( @RequestBody List<GoodsSkuStockUpdateCommand> updateStockList ) {
 //		Long storeId = SecurityUtils.getCurrentUser().getStoreId();
 //		// 获取商品skuId集合
 //		List<Long> goodsSkuIds =

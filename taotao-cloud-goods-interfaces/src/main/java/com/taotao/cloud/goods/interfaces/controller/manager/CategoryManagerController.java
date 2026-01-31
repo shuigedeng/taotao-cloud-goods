@@ -17,10 +17,14 @@
 package com.taotao.cloud.goods.interfaces.controller.manager;
 
 import com.taotao.boot.common.enums.ResultEnum;
+import com.taotao.boot.common.model.request.IdCommand;
 import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
 import com.taotao.cloud.goods.application.dto.own.category.command.CategoryAddCommand;
+import com.taotao.cloud.goods.application.dto.own.category.command.CategoryTreeCommand;
+import com.taotao.cloud.goods.application.dto.own.category.command.DisableCommand;
+import com.taotao.cloud.goods.application.dto.own.category.command.ParentIdQuery;
 import com.taotao.cloud.goods.application.dto.own.category.result.CategoryResult;
 import com.taotao.cloud.goods.application.dto.own.category.result.CategoryTreeResult;
 import com.taotao.cloud.goods.application.service.command.CategoryCommandService;
@@ -71,7 +75,7 @@ public class CategoryManagerController extends BusinessController {
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/children")
-	public Result<List<CategoryResult>> queryChildrenByParentId( @RequestParam Long parentId ) {
+	public Result<List<CategoryResult>> queryChildrenByParentId( ParentIdQuery parentIdQuery) {
 //		List<CategoryPO> categories = this.categoryQueryService.childrenList(parentId);
 //		return Result.success(CategoryAssembler.INSTANCE.convert(categories));
 		return null;
@@ -108,7 +112,7 @@ public class CategoryManagerController extends BusinessController {
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/update")
-	public Result<Boolean> update( @Valid @RequestBody CategoryTreeResult category ) {
+	public Result<Boolean> update( @RequestBody CategoryTreeCommand category ) {
 		// CategoryPO catTemp = categoryQueryService.getById(category.getId());
 		// if (catTemp == null) {
 		//    throw new BusinessException(ResultEnum.CATEGORY_NOT_EXIST);
@@ -121,7 +125,7 @@ public class CategoryManagerController extends BusinessController {
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/del")
-	public Result<Boolean> del( @NotBlank(message = "id不能为空") @PathVariable Long id ) {
+	public Result<Boolean> del( @RequestBody IdCommand idCommand ) {
 		// CategoryPO category = new CategoryPO();
 		// category.setParentId(id);
 		// List<CategoryPO> list = categoryQueryService.findByAllBySortOrder(category);
@@ -142,8 +146,7 @@ public class CategoryManagerController extends BusinessController {
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/disable")
-	public Result<Boolean> disable( @PathVariable Long id, @RequestParam Boolean
-		enableOperations ) {
+	public Result<Boolean> disable( @RequestBody DisableCommand disableCommand) {
 //		GoodsPO category = goodsQueryService.getById(id);
 //		if (category == null) {
 //			throw new BusinessException(ResultEnum.CATEGORY_NOT_EXIST);

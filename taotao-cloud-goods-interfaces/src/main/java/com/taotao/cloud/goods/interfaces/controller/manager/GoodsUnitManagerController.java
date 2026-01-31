@@ -17,10 +17,16 @@
 package com.taotao.cloud.goods.interfaces.controller.manager;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.taotao.boot.common.model.request.IdQuery;
+import com.taotao.boot.common.model.request.IdsCommand;
+import com.taotao.boot.common.model.request.PageQuery;
+import com.taotao.boot.common.model.result.PageResult;
 import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.data.mybatis.mybatisplus.MpUtils;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
+import com.taotao.cloud.goods.application.dto.own.goods.command.GoodsUnitCommand;
+import com.taotao.cloud.goods.application.dto.own.goods.result.GoodsUnitResult;
 import com.taotao.cloud.goods.application.service.command.GoodsUnitCommandService;
 import com.taotao.cloud.goods.application.service.query.GoodsUnitQueryService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -56,42 +62,45 @@ public class GoodsUnitManagerController extends BusinessController {
 	@RequestLogger("分页获取商品计量单位")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/page")
-	public Result<PageResult<GoodsUnit>> getByPage( PageQuery pageQuery ) {
-		IPage<GoodsUnit> page = goodsUnitService.page(pageQuery.buildMpPage());
-		return Result.success(MpUtils.convertMybatisPage(page, GoodsUnit.class));
+	public Result<PageResult<GoodsUnitResult>> getByPage( PageQuery pageQuery ) {
+//		IPage<GoodsUnit> page = goodsUnitService.page(pageQuery.buildMpPage());
+//		return Result.success(MpUtils.convertMybatisPage(page, GoodsUnit.class));
+		return null;
 	}
 
 	@Operation(summary = "获取商品计量单位", description = "获取商品计量单位")
 	@RequestLogger("获取商品计量单位")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@GetMapping("/query/")
-	public Result<GoodsUnit> getById( @NotNull @PathVariable Long id ) {
-		return Result.success(goodsUnitService.getById(id));
+	@GetMapping("/query")
+	public Result<GoodsUnitResult> getById( IdQuery idQuery ) {
+//		return Result.success(goodsUnitService.getById(id));
+		return null;
 	}
 
 	@Operation(summary = "添加商品计量单位", description = "添加商品计量单位")
 	@RequestLogger("添加商品计量单位")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/save")
-	public Result<Boolean> save( @Valid @RequestBody GoodsUnit goodsUnit ) {
-		return Result.success(goodsUnitService.save(goodsUnit));
+	public Result<Boolean> save( @RequestBody GoodsUnitCommand goodsUnit ) {
+//		return Result.success(goodsUnitService.save(goodsUnit));
+		return null;
 	}
 
 	@Operation(summary = "编辑商品计量单位", description = "编辑商品计量单位")
 	@RequestLogger("编辑商品计量单位")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/commmand/update")
-	public Result<Boolean> update( @NotNull @PathVariable Long id, @Valid @RequestBody GoodsUnit
-		goodsUnit ) {
-		goodsUnit.setId(id);
-		return Result.success(goodsUnitService.updateById(goodsUnit));
+	public Result<Boolean> update( @RequestBody GoodsUnitCommand goodsUnit ) {
+//		return Result.success(goodsUnitService.updateById(goodsUnit));
+		return null;
 	}
 
 	@Operation(summary = "删除商品计量单位", description = "删除商品计量单位")
 	@RequestLogger("删除商品计量单位")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/commnad/dels")
-	public Result<Boolean> delete( @NotEmpty(message = "id不能为空") @RequestParam List<Long> ids ) {
-		return Result.success(goodsUnitService.removeByIds(ids));
+	public Result<Boolean> dels( @RequestBody IdsCommand idsCommand ) {
+//		return Result.success(goodsUnitService.removeByIds(ids));
+		return null;
 	}
 }

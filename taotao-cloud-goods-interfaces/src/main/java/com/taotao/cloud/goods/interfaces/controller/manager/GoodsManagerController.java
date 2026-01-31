@@ -17,15 +17,22 @@
 package com.taotao.cloud.goods.interfaces.controller.manager;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.taotao.boot.common.model.request.IdQuery;
+import com.taotao.boot.common.model.request.IdsCommand;
+import com.taotao.boot.common.model.result.PageResult;
 import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.data.mybatis.mybatisplus.MpUtils;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
 import com.taotao.cloud.goods.api.enums.GoodsAuthEnum;
 import com.taotao.cloud.goods.api.enums.GoodsStatusEnum;
+import com.taotao.cloud.goods.application.dto.own.goods.command.AuthCommand;
 import com.taotao.cloud.goods.application.dto.own.goods.command.GoodsCreateCommand;
+import com.taotao.cloud.goods.application.dto.own.goods.command.UnderCommand;
+import com.taotao.cloud.goods.application.dto.own.goods.query.GoodsPageQuery;
 import com.taotao.cloud.goods.application.dto.own.goods.result.GoodsResult;
 import com.taotao.cloud.goods.application.dto.own.goods.result.GoodsSkuParamsResult;
+import com.taotao.cloud.goods.application.dto.own.goods.result.GoodsSkuResult;
 import com.taotao.cloud.goods.application.service.command.GoodsCommandService;
 import com.taotao.cloud.goods.application.service.command.GoodsSkuCommandService;
 import com.taotao.cloud.goods.application.service.query.GoodsQueryService;
@@ -81,72 +88,70 @@ public class GoodsManagerController extends BusinessController {
 	@RequestLogger("分页获取")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/page")
-	public Result<PageResult<GoodsResult>> getByPage( @Validated GoodsPageQry goodsPageQuery ) {
-		IPage<GoodsPO> goodsPage = goodsQueryService.goodsQueryPage(goodsPageQuery);
-		return Result.success(MpUtils.convertMybatisPage(goodsPage, GoodsCO.class));
+	public Result<PageResult<GoodsResult>> getByPage( @Validated GoodsPageQuery goodsPageQuery ) {
+//		IPage<GoodsPO> goodsPage = goodsQueryService.goodsQueryPage(goodsPageQuery);
+//		return Result.success(MpUtils.convertMybatisPage(goodsPage, GoodsCO.class));
+		return null;
 	}
 
 	@Operation(summary = "分页获取商品列表", description = "分页获取商品列表")
 	@RequestLogger("分页获取商品列表")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/sku/page")
-	public Result<PageResult<GoodsSkuResult>> getSkuByPage( @Validated GoodsPageQry goodsPageQuery ) {
-		IPage<GoodsSkuPO> goodsSkuPage = goodsSkuQueryService.goodsSkuQueryPage(goodsPageQuery);
-		return Result.success(MpUtils.convertMybatisPage(goodsSkuPage,
-			GoodsSkuConvert.INSTANCE::convert));
+	public Result<PageResult<GoodsSkuResult>> getSkuByPage( GoodsPageQuery goodsPageQuery ) {
+//		IPage<GoodsSkuPO> goodsSkuPage = goodsSkuQueryService.goodsSkuQueryPage(goodsPageQuery);
+//		return Result.success(MpUtils.convertMybatisPage(goodsSkuPage,
+//			GoodsSkuConvert.INSTANCE::convert));
+		return null;
 	}
 
 	@Operation(summary = "分页获取待审核商品", description = "分页获取待审核商品")
 	@RequestLogger("分页获取待审核商品")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/auth/page")
-	public Result<PageResult<GoodsResult>> getAuthPage( @Validated GoodsPageQry goodsPageQuery ) {
-		goodsPageQuery.setAuthFlag(GoodsAuthEnum.TOBEAUDITED.name());
-		IPage<GoodsPO> goodsPage = goodsQueryService.goodsQueryPage(goodsPageQuery);
-		return Result.success(MpUtils.convertMybatisPage(goodsPage, GoodsCO.class));
+	public Result<PageResult<GoodsResult>> getAuthPage(  GoodsPageQuery goodsPageQuery ) {
+//		goodsPageQuery.setAuthFlag(GoodsAuthEnum.TOBEAUDITED.name());
+//		IPage<GoodsPO> goodsPage = goodsQueryService.goodsQueryPage(goodsPageQuery);
+//		return Result.success(MpUtils.convertMybatisPage(goodsPage, GoodsCO.class));
+		return null;
 	}
 
 	@Operation(summary = "管理员下架商品", description = "管理员下架商品")
-
 	@RequestLogger("管理员下架商品")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/under")
-	public Result<Boolean> underGoods(
-		@PathVariable Long goodsId,
-		@NotEmpty(message = "下架原因不能为空") @RequestParam String reason ) {
-		List<Long> goodsIds = List.of(goodsId);
-		return Result.success(
-			goodsCommandService.managerUpdateGoodsMarketAble(
-				goodsIds, GoodsStatusEnum.DOWN, reason));
+	public Result<Boolean> underGoods( @RequestBody UnderCommand underCommand){
+//		return Result.success(
+//			goodsCommandService.managerUpdateGoodsMarketAble(
+//				goodsIds, GoodsStatusEnum.DOWN, reason));
+		return null;
 	}
 
 	@Operation(summary = "管理员审核商品", description = "管理员审核商品")
-
 	@RequestLogger("管理员审核商品")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/auth")
-	public Result<Boolean> auth( @PathVariable List<Long> goodsIds, @RequestParam String authFlag ) {
+	public Result<Boolean> auth( @RequestBody AuthCommand authCommand) {
 		// 校验商品是否存在
-		return Result.success(
-			goodsCommandService.auditGoods(goodsIds, GoodsAuthEnum.valueOf(authFlag)));
+//		return Result.success(
+//			goodsCommandService.auditGoods(goodsIds, GoodsAuthEnum.valueOf(authFlag)));
+		return null;
 	}
 
 	@Operation(summary = "管理员上架商品", description = "管理员上架商品")
-
 	@RequestLogger("管理员上架商品")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/up")
-	public Result<Boolean> unpGoods( @PathVariable List<Long> goodsId ) {
+	public Result<Boolean> unpGoods( @RequestBody IdsCommand idsCommand ) {
 		return Result.success(
-			goodsCommandService.updateGoodsMarketAble(goodsId, GoodsStatusEnum.UPPER, ""));
+			goodsCommandService.updateGoodsMarketAble(idsCommand.getIds(), GoodsStatusEnum.UPPER, ""));
 	}
 
 	@Operation(summary = "通过id获取商品详情", description = "通过id获取商品详情")
-
 	@RequestLogger("通过id获取商品详情")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query")
-	public Result<GoodsSkuParamsResult> get( @PathVariable Long id ) {
-		return Result.success(goodsQueryService.getGoodsVO(id));
+	public Result<GoodsSkuParamsResult> get( IdQuery idQuery ) {
+		return Result.success(goodsQueryService.getGoodsVO(idQuery.getId()));
 	}
 }

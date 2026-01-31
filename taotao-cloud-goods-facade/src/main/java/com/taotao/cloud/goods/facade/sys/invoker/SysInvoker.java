@@ -30,7 +30,7 @@ public class SysInvoker {
     public GatewayResponse<DictQueryApiResponse> findByCode( GatewayRequest<DictQueryApiRequest> gatewayRequest ) {
         return new GatewayInvokeBuilder<DictQueryApiRequest, DictQueryApiResponse>()
                 .description("sys系统-字典信息查询")
-                .gatewayRouter(request -> dictQueryApi.findByCode(Request.from(request)))
+                .gatewayRouter(request -> dictQueryApi.queryByCode(Request.from(request)))
                 .addFirst(new SysInterceptor<>())
                 .build()
                 .invoke(gatewayRequest);

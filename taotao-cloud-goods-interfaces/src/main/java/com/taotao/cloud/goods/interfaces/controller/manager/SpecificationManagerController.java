@@ -23,6 +23,8 @@ import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.data.mybatis.mybatisplus.MpUtils;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
+import com.taotao.cloud.goods.application.dto.own.specification.command.SpecificationAddCommand;
+import com.taotao.cloud.goods.application.dto.own.specification.query.SpecificationPageQuery;
 import com.taotao.cloud.goods.application.dto.own.specification.result.SpecificationResult;
 import com.taotao.cloud.goods.application.service.command.SpecificationCommandService;
 import com.taotao.cloud.goods.application.service.query.SpecificationQueryService;
@@ -67,51 +69,50 @@ public class SpecificationManagerController extends BusinessController {
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping("/query/all")
 	public Result<List<SpecificationResult>> getAll() {
-		List<SpecificationPO> specifications = specificationQueryService.list();
-		return Result.success(SpecificationAssembler.INSTANCE.convert(specifications));
+//		List<SpecificationPO> specifications = specificationQueryService.list();
+//		return Result.success(SpecificationAssembler.INSTANCE.convert(specifications));
+		return null;
 	}
 
 	@Operation(summary = "搜索规格", description = "搜索规格")
 	@RequestLogger("搜索规格")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping("/query/page")
-	public Result<PageResult<SpecificationResult>> page( @Validated SpecificationPageQry
-		specificationPageQuery ) {
-		IPage<SpecificationPO> specificationPage =
-			specificationQueryService.getPage(specificationPageQuery);
-		return Result.success(MpUtils.convertMybatisPage(specificationPage,
-			SpecificationAssembler.INSTANCE::convert));
+	public Result<PageResult<SpecificationResult>> page( SpecificationPageQuery specificationPageQuery ) {
+//		IPage<SpecificationPO> specificationPage =
+//			specificationQueryService.getPage(specificationPageQuery);
+//		return Result.success(MpUtils.convertMybatisPage(specificationPage,
+//			SpecificationAssembler.INSTANCE::convert));
+		return null;
 	}
 
 	@Operation(summary = "保存规格", description = "保存规格")
 	@RequestLogger("保存规格")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/save")
-	public Result<Boolean> save( @Valid @RequestBody SpecificationDTO specificationDTO ) {
-		SpecificationPO specification = SpecificationAssembler.INSTANCE.convert(specificationDTO);
-		return Result.success(specificationCommandService.save(specification));
+	public Result<Boolean> save(  @RequestBody SpecificationAddCommand specificationDTO ) {
+//		SpecificationPO specification = SpecificationAssembler.INSTANCE.convert(specificationDTO);
+//		return Result.success(specificationCommandService.save(specification));
+		return null;
 	}
 
 	@Operation(summary = "更改规格", description = "更改规格")
-	@Parameters({
-		@Parameter(name = "id", required = true, description = "id", in = ParameterIn.PATH),
-	})
 	@RequestLogger("更改规格")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/update")
-	public Result<Boolean> update( @Valid @RequestBody SpecificationDTO specificationDTO,
-		@PathVariable Long id ) {
-		SpecificationPO specification = SpecificationAssembler.INSTANCE.convert(specificationDTO);
-		specification.setId(id);
-
-		return Result.success(specificationCommandService.saveOrUpdate(specification));
+	public Result<Boolean> update( @Valid @RequestBody SpecificationAddCommand specificationDTO ) {
+//		SpecificationPO specification = SpecificationAssembler.INSTANCE.convert(specificationDTO);
+//		specification.setId(id);
+//
+//		return Result.success(specificationCommandService.saveOrUpdate(specification));
+		return null;
 	}
 
 	@Operation(summary = "批量删除", description = "批量删除")
 	@RequestLogger("批量删除")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/dels")
-	public Result<Boolean> delAllByIds( IdsCommand ids ) {
-		return Result.success(specificationCommandService.deleteSpecification(ids));
+	public Result<Boolean> dels( IdsCommand ids ) {
+		return Result.success(specificationCommandService.deleteSpecification(ids.getIds()));
 	}
 }

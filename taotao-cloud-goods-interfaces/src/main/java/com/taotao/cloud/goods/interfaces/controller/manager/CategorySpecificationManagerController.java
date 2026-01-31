@@ -19,6 +19,9 @@ package com.taotao.cloud.goods.interfaces.controller.manager;
 import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
+import com.taotao.cloud.goods.application.dto.own.category.command.CategorySpecCommand;
+import com.taotao.cloud.goods.application.dto.own.goods.query.CategoryIdQuery;
+import com.taotao.cloud.goods.application.dto.own.specification.result.SpecificationResult;
 import com.taotao.cloud.goods.application.service.command.CategorySpecificationCommandService;
 import com.taotao.cloud.goods.application.service.command.SpecificationCommandService;
 import com.taotao.cloud.goods.application.service.query.CategorySpecificationQueryService;
@@ -29,6 +32,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * 管理端,商品分类规格接口
@@ -62,26 +67,28 @@ public class CategorySpecificationManagerController extends BusinessController {
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/categoryId")
-	public Result<List<SpecificationPO>> getCategorySpec( @PathVariable Long categoryId ) {
-		return
-			Result.success(categorySpecificationQueryService.getCategorySpecList(categoryId));
+	public Result<List<SpecificationResult>> getCategorySpec( CategoryIdQuery categoryIdQuery ) {
+//		return
+//			Result.success(categorySpecificationQueryService.getCategorySpecList(categoryId));
+		return null;
 	}
 
 	@Operation(summary = "查询某分类下绑定的规格信息,商品操作使用", description = "查询某分类下绑定的规格信息,商品操作使用")
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/goods/categoryId")
-	public Result<List<SpecificationPO>> getSpec( @PathVariable Long categoryId ) {
-		return Result.success(specificationQueryService.list());
+	public Result<List<SpecificationResult>> getSpec( CategoryIdQuery categoryIdQuery) {
+//		return Result.success(specificationQueryService.list());
+		return null;
 	}
 
 	@Operation(summary = "保存某分类下绑定的规格信息", description = "保存某分类下绑定的规格信息")
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/save")
-	public Result<Boolean> save(
-		@PathVariable Long categoryId, @RequestParam String[] categorySpecs ) {
-		return Result.success(
-			specificationCommandService.saveCategoryBrand(categoryId, categorySpecs));
+	public Result<Boolean> save( @RequestBody CategorySpecCommand categorySpecs ) {
+//		return Result.success(
+//			specificationCommandService.saveCategoryBrand(categoryId, categorySpecs));
+		return null;
 	}
 }

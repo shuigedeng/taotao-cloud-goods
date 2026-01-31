@@ -16,9 +16,12 @@
 
 package com.taotao.cloud.goods.interfaces.controller.manager;
 
+import com.taotao.boot.common.model.request.IdCommand;
+import com.taotao.boot.common.model.request.IdsCommand;
 import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
+import com.taotao.cloud.goods.application.dto.own.store.command.ParametersAddCommand;
 import com.taotao.cloud.goods.application.service.command.ParametersCommandService;
 import com.taotao.cloud.goods.application.service.query.ParametersQueryService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -53,27 +56,30 @@ public class ParameterManagerController extends BusinessController {
 	@RequestLogger("添加参数添加参数")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/save")
-	public Result<Boolean> save( @RequestBody ParametersDTO parametersDTO ) {
-		Parameters parameters = ParametersConvert.INSTANCE.convert(parametersDTO);
-		return Result.success(parametersService.save(parameters));
+	public Result<Boolean> save( @RequestBody ParametersAddCommand parametersDTO ) {
+//		Parameters parameters = ParametersConvert.INSTANCE.convert(parametersDTO);
+//		return Result.success(parametersService.save(parameters));
+		return null;
 	}
 
 	@Operation(summary = "编辑参数", description = "编辑参数")
 	@RequestLogger("编辑参数")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/update")
-	public Result<Boolean> update( @RequestBody ParametersDTO parametersDTO,
+	public Result<Boolean> update( @RequestBody ParametersAddCommand parametersDTO,
 		@PathVariable Long id ) {
-		Parameters parameters = ParametersConvert.INSTANCE.convert(parametersDTO);
-		parameters.setId(id);
-		return Result.success(parametersService.updateParameter(parameters));
+//		Parameters parameters = ParametersConvert.INSTANCE.convert(parametersDTO);
+//		parameters.setId(id);
+//		return Result.success(parametersService.updateParameter(parameters));
+		return null;
 	}
 
 	@Operation(summary = "根据id删除参数", description = "根据id删除参数")
 	@RequestLogger("根据id删除参数")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/del")
-	public Result<Boolean> delById( @PathVariable Long id ) {
-		return Result.success(parametersService.removeById(id));
+	public Result<Boolean> delById( @RequestBody IdCommand idCommand ) {
+//		return Result.success(parametersService.removeById(id));
+		return null;
 	}
 }

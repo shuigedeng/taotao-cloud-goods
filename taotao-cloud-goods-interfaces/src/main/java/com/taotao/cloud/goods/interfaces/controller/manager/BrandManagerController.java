@@ -17,6 +17,8 @@
 package com.taotao.cloud.goods.interfaces.controller.manager;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.taotao.boot.common.model.request.IdQuery;
+import com.taotao.boot.common.model.request.IdsCommand;
 import com.taotao.boot.common.model.result.PageResult;
 import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.data.mybatis.mybatisplus.MpUtils;
@@ -27,6 +29,7 @@ import com.taotao.cloud.goods.application.dto.own.brand.command.BrandAddCommand;
 import com.taotao.cloud.goods.application.dto.own.brand.command.BrandUpdateCommand;
 import com.taotao.cloud.goods.application.dto.own.brand.query.BrandPageQuery;
 import com.taotao.cloud.goods.application.dto.own.brand.result.BrandResult;
+import com.taotao.cloud.goods.application.dto.own.category.command.BrandDisableCommand;
 import com.taotao.cloud.goods.application.service.command.BrandCommandService;
 import com.taotao.cloud.goods.application.service.query.BrandQueryService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -66,9 +69,8 @@ public class BrandManagerController extends BusinessController {
 	@NotAuth
 	//@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query")
-	public Result<BrandResult> queryById(
-		@Parameter(description = "品牌ID", required = true) @NotNull(message = "id不能为空") @RequestParam Long id ) {
-		BrandResult brandCo = brandQueryService.getById(id);
+	public Result<BrandResult> queryById( IdQuery idQuery ) {
+		BrandResult brandCo = brandQueryService.getById(idQuery.getId());
 		return Result.success(brandCo);
 	}
 
@@ -86,7 +88,7 @@ public class BrandManagerController extends BusinessController {
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/page")
-	public Result<PageResult<BrandResult>> queryPage( @Validated BrandPageQuery page ) {
+	public Result<PageResult<BrandResult>> queryPage(  BrandPageQuery page ) {
 //		IPage<BrandPO> brandPage = brandQueryService.brandsQueryPage(page);
 //		return Result.success(MpUtils.convertMybatisPage(brandPage, BrandCO.class));
 		return null;
@@ -114,15 +116,16 @@ public class BrandManagerController extends BusinessController {
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/disable")
-	public Result<Boolean> disableById( @RequestParam Long brandId, @RequestParam Boolean disable ) {
-		return Result.success(brandCommandService.brandDisable(brandId, disable));
+	public Result<Boolean> disableById(@RequestBody BrandDisableCommand brandDisableCommand) {
+//		return Result.success(brandCommandService.brandDisable(brandId, disable));
+		return null;
 	}
 
 	@Operation(summary = "批量删除", description = "批量删除")
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/dels")
-	public Result<Boolean> delByIds( @RequestParam List<Long> ids ) {
-		return Result.success(brandCommandService.deleteBrands(ids));
+	public Result<Boolean> delByIds( @RequestBody IdsCommand idsCommand ) {
+		return Result.success(brandCommandService.deleteBrands(idsCommand.getIds()));
 	}
 }

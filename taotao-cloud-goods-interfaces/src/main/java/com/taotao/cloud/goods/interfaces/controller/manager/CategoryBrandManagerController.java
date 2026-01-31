@@ -19,7 +19,9 @@ package com.taotao.cloud.goods.interfaces.controller.manager;
 import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
+import com.taotao.cloud.goods.application.dto.own.category.command.CategoryBrandsCommand;
 import com.taotao.cloud.goods.application.dto.own.category.result.CategoryBrandResult;
+import com.taotao.cloud.goods.application.dto.own.goods.query.CategoryIdQuery;
 import com.taotao.cloud.goods.application.service.command.CategoryBrandCommandService;
 import com.taotao.cloud.goods.application.service.query.CategoryBrandQueryService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -57,19 +59,17 @@ public class CategoryBrandManagerController extends BusinessController {
     @RequestLogger
     @PreAuthorize("hasAuthority('dept:tree:data')")
     @GetMapping(value = "/query/categoryId")
-    public Result<List<CategoryBrandResult>> queryByCategoryId(
-            @NotBlank(message = "分类id不能为空") @RequestParam Long categoryId) {
-        return Result.success(categoryBrandQueryService.getCategoryBrandList(categoryId));
+    public Result<List<CategoryBrandResult>> queryByCategoryId( CategoryIdQuery categoryIdQuery ) {
+        return Result.success(categoryBrandQueryService.getCategoryBrandList(categoryIdQuery.getCategoryId()));
     }
 
     @Operation(summary = "保存某分类下绑定的品牌信息", description = "保存某分类下绑定的品牌信息")
     @RequestLogger
     @PreAuthorize("hasAuthority('dept:tree:data')")
     @PostMapping(value = "/command/category/brands")
-    public Result<Boolean> saveCategoryBrand(
-            @NotBlank(message = "分类id不能为空") @RequestParam Long categoryId,
-            @NotBlank(message = "品牌id列表不能为空") @RequestParam List<Long> categoryBrands) {
-        return Result.success(
-                categoryBrandCommandService.saveCategoryBrandList(categoryId, categoryBrands));
+    public Result<Boolean> saveCategoryBrand( @RequestBody CategoryBrandsCommand categoryBrands) {
+//        return Result.success(
+//                categoryBrandCommandService.saveCategoryBrandList(categoryId, categoryBrands));
+		return null;
     }
 }

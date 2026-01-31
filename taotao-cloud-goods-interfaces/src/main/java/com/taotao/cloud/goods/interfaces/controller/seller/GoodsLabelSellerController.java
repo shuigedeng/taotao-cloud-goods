@@ -63,7 +63,7 @@ public class GoodsLabelSellerController extends BusinessController {
 	@RequestLogger("获取当前店铺商品分类列表")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping("/query/list")
-	public Result<List<StoreGoodsLabelResult>> list() {
+	public Result<List<StoreGoodsLabelResult>> queryList() {
 		Long storeId = SecurityUtils.getCurrentUser().getStoreId();
 		return Result.success(storeGoodsLabelQueryService.listByStoreId(storeId));
 	}
@@ -93,9 +93,7 @@ public class GoodsLabelSellerController extends BusinessController {
 	@RequestLogger("修改店铺商品分类")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/edit")
-	public Result<Boolean> edit(  Long id, @RequestBody
-	StoreGoodsLabelEditCommand
-		storeGoodsLabelDTO ) {
+	public Result<Boolean> edit( @RequestBody StoreGoodsLabelEditCommand storeGoodsLabelDTO ) {
 //		StoreGoodsLabelPO storeGoodsLabel =
 //			GoodsLabelStoreAssembler.INSTANCE.convert(storeGoodsLabelDTO);
 //		storeGoodsLabel.setId(id);
@@ -107,7 +105,7 @@ public class GoodsLabelSellerController extends BusinessController {
 	@RequestLogger("删除店铺商品分类")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/del")
-	public Result<Boolean> delete( @RequestBody IdCommand id ) {
+	public Result<Boolean> del( @RequestBody IdCommand id ) {
 //		return Result.success(storeGoodsLabelCommandService.removeStoreGoodsLabel(id));
 		return null;
 	}

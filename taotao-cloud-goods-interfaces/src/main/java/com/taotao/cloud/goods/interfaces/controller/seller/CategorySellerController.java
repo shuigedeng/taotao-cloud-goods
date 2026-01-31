@@ -71,7 +71,7 @@ public class CategorySellerController extends BusinessController {
 	@RequestLogger("获取店铺经营的分类")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/category/all")
-	public Result<List<CategoryTreeResult>> getListAll() {
+	public Result<List<CategoryTreeResult>> queryCategoryAll() {
 //        Long storeId = SecurityUtils.getCurrentUser().getStoreId();
 //        // 获取店铺经营范围
 //        String goodsManagementCategory =
@@ -85,7 +85,7 @@ public class CategorySellerController extends BusinessController {
 	@RequestLogger("获取所选分类关联的品牌信息")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/categoryId/brands")
-	public Result<List<CategoryBrandResult>> queryBrands( CategoryIdQuery categoryIdQuery ) {
+	public Result<List<CategoryBrandResult>> queryBrandsByCategoryId( CategoryIdQuery categoryIdQuery ) {
 		return Result.success(this.categoryBrandQueryService.getCategoryBrandList(categoryIdQuery.getCategoryId()));
 	}
 }

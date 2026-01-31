@@ -19,7 +19,6 @@ package com.taotao.cloud.goods.interfaces.controller.seller;
 import com.taotao.boot.common.model.request.PageQuery;
 import com.taotao.boot.common.model.result.PageResult;
 import com.taotao.boot.common.model.result.Result;
-import com.taotao.boot.data.mybatis.mybatisplus.MpUtils;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
 import com.taotao.cloud.goods.application.dto.own.goods.result.GoodsUnitResult;
@@ -48,19 +47,21 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/seller/goods/unit")
 public class GoodsUnitSellerController extends BusinessController {
 
-    /** 商品计量单位服务 */
-    private final GoodsUnitQueryService goodsUnitQueryService;
+	/**
+	 * 商品计量单位服务
+	 */
+	private final GoodsUnitQueryService goodsUnitQueryService;
 
-    private final GoodsUnitCommandService goodsUnitCommandService;
+	private final GoodsUnitCommandService goodsUnitCommandService;
 
-        @Operation(summary = "分页获取商品计量单位", description = "分页获取商品计量单位")
-        @RequestLogger
-        @PreAuthorize("hasAuthority('dept:tree:data')")
-        @GetMapping("/query/page")
-        public Result<PageResult<GoodsUnitResult>> getByPage(@Validated PageQuery pageQuery) {
+	@Operation(summary = "分页获取商品计量单位", description = "分页获取商品计量单位")
+	@RequestLogger
+	@PreAuthorize("hasAuthority('dept:tree:data')")
+	@GetMapping("/query/page")
+	public Result<PageResult<GoodsUnitResult>> getByPage( PageQuery pageQuery ) {
 //            IPage<GoodsUnitPO> page = goodsUnitQueryService.page(MpUtils.buildMpPage(pageQuery));
 //            return Result.success(MpUtils.convertMybatisPage(page,
 //     GoodsUnitAssembler.INSTANCE::convert));
-			return null;
-        }
+		return null;
+	}
 }

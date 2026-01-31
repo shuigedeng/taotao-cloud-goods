@@ -60,7 +60,7 @@ public class CategorySpecificationSellerController extends BusinessController {
 	@RequestLogger("查询某分类下绑定的规格信息")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/categoryId")
-	public Result<List<SpecificationResult>> getCategorySpec( CategoryIdQuery categoryIdQuery) {
+	public Result<List<SpecificationResult>> queryByCategoryId( CategoryIdQuery categoryIdQuery) {
 //		List<SpecificationPO> categorySpecList =
 //			categorySpecificationQueryService.getCategorySpecList(categoryId);
 //

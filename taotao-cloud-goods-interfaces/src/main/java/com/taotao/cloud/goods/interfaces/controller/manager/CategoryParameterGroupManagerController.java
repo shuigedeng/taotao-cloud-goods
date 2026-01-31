@@ -17,9 +17,12 @@
 package com.taotao.cloud.goods.interfaces.controller.manager;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.taotao.boot.common.model.request.IdCommand;
 import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
+import com.taotao.cloud.goods.application.dto.own.category.command.CategoryParameterGroupCommand;
+import com.taotao.cloud.goods.application.dto.own.goods.query.CategoryIdQuery;
 import com.taotao.cloud.goods.application.dto.own.parameter.result.ParameterGroupResult;
 import com.taotao.cloud.goods.application.service.command.CategoryParameterGroupCommandService;
 import com.taotao.cloud.goods.application.service.command.ParametersCommandService;
@@ -66,35 +69,39 @@ public class CategoryParameterGroupManagerController extends BusinessController 
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/categoryId")
-	public Result<List<ParameterGroupResult>> getCategoryParam( @PathVariable Long categoryId ) {
-		return Result.success(categoryParameterGroupQueryService.getCategoryParams(categoryId));
+	public Result<List<ParameterGroupResult>> getCategoryParam( CategoryIdQuery categoryIdQuery ) {
+//		return Result.success(categoryParameterGroupQueryService.getCategoryParams(categoryId));
+		return null;
 	}
 
 	@Operation(summary = "保存数据", description = "保存数据")
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/save")
-	public Result<Boolean> save( @Validated CategoryParameterGroup categoryParameterGroup ) {
-		return Result.success(categoryParameterGroupCommandService.save(categoryParameterGroup));
+	public Result<Boolean> save( @RequestBody  CategoryParameterGroupCommand categoryParameterGroup ) {
+//		return Result.success(categoryParameterGroupCommandService.save(categoryParameterGroup));
+		return null;
 	}
 
 	@Operation(summary = "更新数据", description = "更新数据")
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/update")
-	public Result<Boolean> update( @Validated CategoryParameterGroup categoryParameterGroup ) {
-		return
-			Result.success(categoryParameterGroupCommandService.updateById(categoryParameterGroup));
+	public Result<Boolean> update( @RequestBody CategoryParameterGroupCommand categoryParameterGroup ) {
+//		return
+//			Result.success(categoryParameterGroupCommandService.updateById(categoryParameterGroup));
+		return null;
 	}
 
 	@Operation(summary = "通过id删除参数组", description = "通过id删除参数组")
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/del")
-	public Result<Boolean> delAllByIds( @PathVariable Long id ) {
-		// 删除参数
-		parametersCommandService.remove(new QueryWrapper<ParametersPO>().eq("group_id", id));
-		// 删除参数组
-		return Result.success(categoryParameterGroupCommandService.removeById(id));
+	public Result<Boolean> delAllByIds( @RequestBody IdCommand idCommand ) {
+//		// 删除参数
+//		parametersCommandService.remove(new QueryWrapper<ParametersPO>().eq("group_id", id));
+//		// 删除参数组
+//		return Result.success(categoryParameterGroupCommandService.removeById(id));
+		return null;
 	}
 }

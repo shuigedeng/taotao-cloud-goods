@@ -60,7 +60,7 @@ public class DraftGoodsSellerController extends BusinessController {
 	@RequestLogger("分页获取草稿商品列表")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/page")
-	public Result<PageResult<DraftGoodsResult>> getDraftGoodsByPage( DraftGoodsPageQuery draftGoodsPageQuery ) {
+	public Result<PageResult<DraftGoodsResult>> queryPage( DraftGoodsPageQuery draftGoodsPageQuery ) {
 //        Long storeId = SecurityUtils.getCurrentUser().getStoreId();
 //        draftGoodsPageQuery.setStoreId(storeId);
 //        IPage<DraftGoods> draftGoods = draftGoodsService.draftGoodsQueryPage(draftGoodsPageQuery);
@@ -72,7 +72,7 @@ public class DraftGoodsSellerController extends BusinessController {
 	@RequestLogger("获取草稿商品")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query")
-	public Result<DraftGoodsSkuParamsResult> getDraftGoods( IdQuery idQuery ) {
+	public Result<DraftGoodsSkuParamsResult> query( IdQuery idQuery ) {
 //        return Result.success(draftGoodsService.getDraftGoods(id));
 		return null;
 	}
@@ -81,8 +81,7 @@ public class DraftGoodsSellerController extends BusinessController {
 	@RequestLogger("保存草稿商品")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/save")
-	public Result<Boolean> saveDraftGoods( @RequestBody DraftGoodsSkuParamsSaveCommand
-		draftGoodsSkuParamsDTO ) {
+	public Result<Boolean> save( @RequestBody DraftGoodsSkuParamsSaveCommand draftGoodsSkuParamsDTO ) {
 //        Long storeId = SecurityUtils.getCurrentUser().getStoreId();
 //        if (draftGoodsSkuParamsDTO.getStoreId() == null) {
 //            draftGoodsSkuParamsDTO.setStoreId(storeId);
@@ -97,8 +96,8 @@ public class DraftGoodsSellerController extends BusinessController {
 	@Operation(summary = "删除草稿商品", description = "删除草稿商品")
 	@RequestLogger("删除草稿商品")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@PostMapping(value = "/command/del")
-	public Result<Boolean> deleteDraftGoods( @RequestBody IdsCommand id ) {
+	@PostMapping(value = "/command/dels")
+	public Result<Boolean> dels( @RequestBody IdsCommand id ) {
 //        draftGoodsService.getDraftGoods(id);
 //        return Result.success(draftGoodsService.deleteGoodsDraft(id));
 		return null;

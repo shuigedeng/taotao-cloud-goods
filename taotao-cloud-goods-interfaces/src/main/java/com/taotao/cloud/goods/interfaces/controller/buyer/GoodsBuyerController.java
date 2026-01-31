@@ -16,12 +16,15 @@
 
 package com.taotao.cloud.goods.interfaces.controller.buyer;
 
+import com.taotao.boot.common.model.request.IdCommand;
 import com.taotao.boot.common.model.result.PageResult;
 import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
 import com.taotao.cloud.goods.application.dto.own.goods.query.EsGoodsSearchQuery;
 import com.taotao.cloud.goods.application.dto.own.goods.query.GoodsOtherPageQuery;
+import com.taotao.cloud.goods.application.dto.own.goods.query.GoodsSkuQuery;
+import com.taotao.cloud.goods.application.dto.own.goods.query.HotwordsQuery;
 import com.taotao.cloud.goods.application.dto.own.goods.result.EsGoodsRelatedResult;
 import com.taotao.cloud.goods.application.dto.own.goods.result.EsGoodsResult;
 import com.taotao.cloud.goods.application.dto.own.goods.result.GoodsResult;
@@ -83,9 +86,8 @@ public class GoodsBuyerController extends BusinessController {
 	@Operation(summary = "通过id获取商品信息", description = "通过id获取商品信息")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query")
-	public Result<GoodsSkuParamsResult> queryByGoodsId(
-		@Parameter(required = true, description = "商品ID") @NotNull(message = "商品ID不能为空") @RequestParam Long goodsId ) {
-		return Result.success(goodsQueryService.getGoodsVO(goodsId));
+	public Result<GoodsSkuParamsResult> queryByGoodsId( IdCommand idCommand ) {
+		return Result.success(goodsQueryService.getGoodsVO(idCommand.getId()));
 	}
 
 	@Operation(summary = "通过skuId获取商品信息", description = "通过skuId获取商品信息")
@@ -93,18 +95,17 @@ public class GoodsBuyerController extends BusinessController {
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/goodsId/skuId")
 	//@PageViewPoint(type = PageViewEnum.SKU, id = "#id")
-	public Result<Map<String, Object>> querySkuById(
-		@Parameter(required = true, description = "商品ID") @NotNull(message = "商品ID不能为空") @RequestParam Long goodsId,
-		@Parameter(required = true, description = "skuId") @NotNull(message = "skuId不能为空") @RequestParam Long skuId ) {
-		Map<String, Object> map = goodsSkuQueryService.getGoodsSkuDetail(goodsId, skuId);
-		return Result.success(map);
+	public Result<Map<String, Object>> querySkuById( GoodsSkuQuery goodsId) {
+//		Map<String, Object> map = goodsSkuQueryService.getGoodsSkuDetail(goodsId, skuId);
+//		return Result.success(map);
+		return null;
 	}
 
 	@Operation(summary = "获取商品分页列表", description = "获取商品分页列表")
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping("/query/page")
-	public Result<PageResult<GoodsResult>> queryPage( @Validated GoodsOtherPageQuery goodsPageQuery ) {
+	public Result<PageResult<GoodsResult>> queryPage( GoodsOtherPageQuery goodsPageQuery ) {
 		//IPage<GoodsPO> goodsPage = goodsQueryService.goodsQueryPage(goodsPageQuery);
 		//return Result.success(MpUtils.convertMybatisPage(goodsPage, GoodsCO.class));
 		return null;
@@ -113,7 +114,7 @@ public class GoodsBuyerController extends BusinessController {
 	@Operation(summary = "从ES中获取商品信息", description = "从ES中获取商品信息")
 	@RequestLogger
 	@GetMapping("/query/es")
-	public Result<PageResult<EsGoodsResult>> queryEs( @Validated EsGoodsSearchQuery goodsSearchParams ) {
+	public Result<PageResult<EsGoodsResult>> queryEs( EsGoodsSearchQuery goodsSearchParams ) {
 //		SearchPage<EsGoodsIndex> esGoodsIndices = esGoodsQueryService.searchGoods(goodsSearchParams);
 //		return Result.success(esGoodsIndices);
 		return null;
@@ -123,7 +124,7 @@ public class GoodsBuyerController extends BusinessController {
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping("/query/es/related")
-	public Result<EsGoodsRelatedResult> queryEsRelated( @Validated EsGoodsSearchQuery esGoodsSearchQuery ) {
+	public Result<EsGoodsRelatedResult> queryEsRelated( EsGoodsSearchQuery esGoodsSearchQuery ) {
 		// pageVO.setNotConvert(true);
 //		EsGoodsRelatedInfo selector = esGoodsQueryService.getSelector(esGoodsSearchQuery);
 //		return Result.success(selector);
@@ -134,8 +135,7 @@ public class GoodsBuyerController extends BusinessController {
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping("/query/hotwords")
-	public Result<List<String>> queryHotwords(
-		@Parameter(required = true, description = "热词数量") @NotNull(message = "热词数量不能为空") @RequestParam Integer count ) {
+	public Result<List<String>> queryHotwords( HotwordsQuery hotwordsQuery ) {
 		// List<String> hotWords = esGoodsQueryService.getHotWords(count);
 		return Result.success(new ArrayList<>());
 	}
