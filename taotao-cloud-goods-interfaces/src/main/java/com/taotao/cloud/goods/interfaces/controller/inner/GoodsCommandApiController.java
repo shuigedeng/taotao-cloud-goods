@@ -42,7 +42,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Validated
 @RequiredArgsConstructor
 @RestController
-@Tag(name = "内部服务-商品API", description = "内部服务-商品API")
+@Tag(name = "内部服务-商品CommandAPI", description = "内部服务-商品CommandAPI")
 public class GoodsCommandApiController extends InnerController implements GoodsCommandApi {
 
     @Override

@@ -41,4 +41,21 @@ public class GoodsSkuSpecGalleryResult extends GoodsSkuResult {
 
     @Schema(description = "商品图片")
     private List<String> goodsGalleryList;
+
+	public List<SpecValueResult> getSpecList() {
+		return specList;
+	}
+
+	public void setSpecList(
+		List<SpecValueResult> specList ) {
+		this.specList = specList;
+	}
+
+	public List<String> getGoodsGalleryList() {
+		return goodsGalleryList;
+	}
+
+	public void setGoodsGalleryList( List<String> goodsGalleryList ) {
+		this.goodsGalleryList = goodsGalleryList;
+	}
 }

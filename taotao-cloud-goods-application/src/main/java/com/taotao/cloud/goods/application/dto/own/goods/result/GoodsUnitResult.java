@@ -41,9 +41,25 @@ import lombok.experimental.Accessors;
 public class GoodsUnitResult extends BaseResult {
 
     @Serial private static final long serialVersionUID = -4433579132929428572L;
-
+	@Schema(description = "id")
     private Long id;
 
     @Schema(description = "计量单位名称")
     private String name;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId( Long id ) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName( String name ) {
+		this.name = name;
+	}
 }

@@ -35,7 +35,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * 店铺端,分类绑定参数组接口
+ * 商户端,分类绑定参数组接口
  *
  * @author shuigedeng
  * @version 2022.04
@@ -44,7 +44,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 @Validated
 @RestController
-@Tag(name = "店铺端-分类绑定参数组API", description = "店铺端-分类绑定参数组API")
+@Tag(name = "商户端-分类绑定参数组API", description = "商户端-分类绑定参数组API")
 @RequestMapping("/seller/goods/category/parameters")
 public class CategoryParameterGroupSellerController extends BusinessController {
 

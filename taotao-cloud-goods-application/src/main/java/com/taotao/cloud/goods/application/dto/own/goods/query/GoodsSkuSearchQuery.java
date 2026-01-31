@@ -188,4 +188,372 @@ public class GoodsSkuSearchQuery extends Query {
 
     @Schema(description = "商品参数json")
     private String params;
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId( String id ) {
+		this.id = id;
+	}
+
+	public String getCreateBy() {
+		return createBy;
+	}
+
+	public void setCreateBy( String createBy ) {
+		this.createBy = createBy;
+	}
+
+	public Date getCreateTime() {
+		return createTime;
+	}
+
+	public void setCreateTime( Date createTime ) {
+		this.createTime = createTime;
+	}
+
+	public String getUpdateBy() {
+		return updateBy;
+	}
+
+	public void setUpdateBy( String updateBy ) {
+		this.updateBy = updateBy;
+	}
+
+	public Date getUpdateTime() {
+		return updateTime;
+	}
+
+	public void setUpdateTime( Date updateTime ) {
+		this.updateTime = updateTime;
+	}
+
+	public Boolean getDeleteFlag() {
+		return deleteFlag;
+	}
+
+	public void setDeleteFlag( Boolean deleteFlag ) {
+		this.deleteFlag = deleteFlag;
+	}
+
+	public String getGoodsId() {
+		return goodsId;
+	}
+
+	public void setGoodsId( String goodsId ) {
+		this.goodsId = goodsId;
+	}
+
+	public String getSpecs() {
+		return specs;
+	}
+
+	public void setSpecs( String specs ) {
+		this.specs = specs;
+	}
+
+	public String getSimpleSpecs() {
+		return simpleSpecs;
+	}
+
+	public void setSimpleSpecs( String simpleSpecs ) {
+		this.simpleSpecs = simpleSpecs;
+	}
+
+	public String getFreightTemplateId() {
+		return freightTemplateId;
+	}
+
+	public void setFreightTemplateId( String freightTemplateId ) {
+		this.freightTemplateId = freightTemplateId;
+	}
+
+	public Boolean getPromotionFlag() {
+		return promotionFlag;
+	}
+
+	public void setPromotionFlag( Boolean promotionFlag ) {
+		this.promotionFlag = promotionFlag;
+	}
+
+	public Double getPromotionPrice() {
+		return promotionPrice;
+	}
+
+	public void setPromotionPrice( Double promotionPrice ) {
+		this.promotionPrice = promotionPrice;
+	}
+
+	public String getGoodsName() {
+		return goodsName;
+	}
+
+	public void setGoodsName( String goodsName ) {
+		this.goodsName = goodsName;
+	}
+
+	public String getSn() {
+		return sn;
+	}
+
+	public void setSn( String sn ) {
+		this.sn = sn;
+	}
+
+	public String getBrandId() {
+		return brandId;
+	}
+
+	public void setBrandId( String brandId ) {
+		this.brandId = brandId;
+	}
+
+	public String getCategoryPath() {
+		return categoryPath;
+	}
+
+	public void setCategoryPath( String categoryPath ) {
+		this.categoryPath = categoryPath;
+	}
+
+	public String getGoodsUnit() {
+		return goodsUnit;
+	}
+
+	public void setGoodsUnit( String goodsUnit ) {
+		this.goodsUnit = goodsUnit;
+	}
+
+	public String getSellingPoint() {
+		return sellingPoint;
+	}
+
+	public void setSellingPoint( String sellingPoint ) {
+		this.sellingPoint = sellingPoint;
+	}
+
+	public Double getWeight() {
+		return weight;
+	}
+
+	public void setWeight( Double weight ) {
+		this.weight = weight;
+	}
+
+	public String getMarketEnable() {
+		return marketEnable;
+	}
+
+	public void setMarketEnable( String marketEnable ) {
+		this.marketEnable = marketEnable;
+	}
+
+	public String getIntro() {
+		return intro;
+	}
+
+	public void setIntro( String intro ) {
+		this.intro = intro;
+	}
+
+	public Double getPrice() {
+		return price;
+	}
+
+	public void setPrice( Double price ) {
+		this.price = price;
+	}
+
+	public Double getCost() {
+		return cost;
+	}
+
+	public void setCost( Double cost ) {
+		this.cost = cost;
+	}
+
+	public Integer getViewCount() {
+		return viewCount;
+	}
+
+	public void setViewCount( Integer viewCount ) {
+		this.viewCount = viewCount;
+	}
+
+	public Integer getBuyCount() {
+		return buyCount;
+	}
+
+	public void setBuyCount( Integer buyCount ) {
+		this.buyCount = buyCount;
+	}
+
+	public Integer getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity( Integer quantity ) {
+		this.quantity = quantity;
+	}
+
+	public Double getGrade() {
+		return grade;
+	}
+
+	public void setGrade( Double grade ) {
+		this.grade = grade;
+	}
+
+	public String getThumbnail() {
+		return thumbnail;
+	}
+
+	public void setThumbnail( String thumbnail ) {
+		this.thumbnail = thumbnail;
+	}
+
+	public String getBig() {
+		return big;
+	}
+
+	public void setBig( String big ) {
+		this.big = big;
+	}
+
+	public String getSmall() {
+		return small;
+	}
+
+	public void setSmall( String small ) {
+		this.small = small;
+	}
+
+	public String getOriginal() {
+		return original;
+	}
+
+	public void setOriginal( String original ) {
+		this.original = original;
+	}
+
+	public String getStoreCategoryPath() {
+		return storeCategoryPath;
+	}
+
+	public void setStoreCategoryPath( String storeCategoryPath ) {
+		this.storeCategoryPath = storeCategoryPath;
+	}
+
+	public Integer getCommentNum() {
+		return commentNum;
+	}
+
+	public void setCommentNum( Integer commentNum ) {
+		this.commentNum = commentNum;
+	}
+
+	public String getStoreId() {
+		return storeId;
+	}
+
+	public void setStoreId( String storeId ) {
+		this.storeId = storeId;
+	}
+
+	public String getStoreName() {
+		return storeName;
+	}
+
+	public void setStoreName( String storeName ) {
+		this.storeName = storeName;
+	}
+
+	public String getTemplateId() {
+		return templateId;
+	}
+
+	public void setTemplateId( String templateId ) {
+		this.templateId = templateId;
+	}
+
+	public String getAuthFlag() {
+		return authFlag;
+	}
+
+	public void setAuthFlag( String authFlag ) {
+		this.authFlag = authFlag;
+	}
+
+	public String getAuthMessage() {
+		return authMessage;
+	}
+
+	public void setAuthMessage( String authMessage ) {
+		this.authMessage = authMessage;
+	}
+
+	public String getUnderMessage() {
+		return underMessage;
+	}
+
+	public void setUnderMessage( String underMessage ) {
+		this.underMessage = underMessage;
+	}
+
+	public Boolean getSelfOperated() {
+		return selfOperated;
+	}
+
+	public void setSelfOperated( Boolean selfOperated ) {
+		this.selfOperated = selfOperated;
+	}
+
+	public String getMobileIntro() {
+		return mobileIntro;
+	}
+
+	public void setMobileIntro( String mobileIntro ) {
+		this.mobileIntro = mobileIntro;
+	}
+
+	public String getGoodsVideo() {
+		return goodsVideo;
+	}
+
+	public void setGoodsVideo( String goodsVideo ) {
+		this.goodsVideo = goodsVideo;
+	}
+
+	public Boolean getRecommend() {
+		return recommend;
+	}
+
+	public void setRecommend( Boolean recommend ) {
+		this.recommend = recommend;
+	}
+
+	public String getSalesModel() {
+		return salesModel;
+	}
+
+	public void setSalesModel( String salesModel ) {
+		this.salesModel = salesModel;
+	}
+
+	public String getGoodsType() {
+		return goodsType;
+	}
+
+	public void setGoodsType( String goodsType ) {
+		this.goodsType = goodsType;
+	}
+
+	public String getParams() {
+		return params;
+	}
+
+	public void setParams( String params ) {
+		this.params = params;
+	}
 }

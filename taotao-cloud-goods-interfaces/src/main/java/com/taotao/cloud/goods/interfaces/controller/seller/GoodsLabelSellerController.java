@@ -19,6 +19,7 @@ package com.taotao.cloud.goods.interfaces.controller.seller;
 import com.taotao.boot.common.model.request.IdCommand;
 import com.taotao.boot.common.model.request.IdQuery;
 import com.taotao.boot.common.model.request.IdsCommand;
+import com.taotao.boot.common.model.result.EmptyResult;
 import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.security.spring.utils.SecurityUtils;
 import com.taotao.boot.web.request.annotation.RequestLogger;
@@ -39,7 +40,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
- * 店铺端,店铺分类接口
+ * 商户端,店铺分类接口
  *
  * @author shuigedeng
  * @version 2022.04
@@ -48,7 +49,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @Validated
 @RestController
-@Tag(name = "店铺端-店铺分类API", description = "店铺端-店铺分类API")
+@Tag(name = "商户端-店铺分类API", description = "商户端-店铺分类API")
 @RequestMapping("/seller/goods/label")
 public class GoodsLabelSellerController extends BusinessController {
 
@@ -82,31 +83,31 @@ public class GoodsLabelSellerController extends BusinessController {
 	@RequestLogger("添加店铺商品分类")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/add")
-	public Result<Boolean> add( @RequestBody StoreGoodsLabelAddCommand storeGoodsLabelDTO ) {
+	public Result<EmptyResult> add( @RequestBody StoreGoodsLabelAddCommand storeGoodsLabelDTO ) {
 //		StoreGoodsLabelPO storeGoodsLabel =
 //			GoodsLabelStoreAssembler.INSTANCE.convert(storeGoodsLabelDTO);
 //		return Result.success(storeGoodsLabelCommandService.addStoreGoodsLabel(storeGoodsLabel));
-		return null;
+		return Result.empty();
 	}
 
 	@Operation(summary = "修改店铺商品分类", description = "修改店铺商品分类")
 	@RequestLogger("修改店铺商品分类")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/edit")
-	public Result<Boolean> edit( @RequestBody StoreGoodsLabelEditCommand storeGoodsLabelDTO ) {
+	public Result<EmptyResult> edit( @RequestBody StoreGoodsLabelEditCommand storeGoodsLabelDTO ) {
 //		StoreGoodsLabelPO storeGoodsLabel =
 //			GoodsLabelStoreAssembler.INSTANCE.convert(storeGoodsLabelDTO);
 //		storeGoodsLabel.setId(id);
 //		return Result.success(storeGoodsLabelCommandService.editStoreGoodsLabel(storeGoodsLabel));
-		return null;
+		return Result.empty();
 	}
 
 	@Operation(summary = "删除店铺商品分类", description = "删除店铺商品分类")
 	@RequestLogger("删除店铺商品分类")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/del")
-	public Result<Boolean> del( @RequestBody IdCommand id ) {
+	public Result<EmptyResult> del( @RequestBody IdCommand id ) {
 //		return Result.success(storeGoodsLabelCommandService.removeStoreGoodsLabel(id));
-		return null;
+		return Result.empty();
 	}
 }

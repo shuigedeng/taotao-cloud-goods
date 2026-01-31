@@ -36,7 +36,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 /**
- * 店铺端,商品分类规格接口
+ * 商户端,商品分类规格接口
  *
  * @author shuigedeng
  * @version 2022.04
@@ -45,7 +45,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @Validated
 @RestController
-@Tag(name = "店铺端-商品分类规格API", description = "店铺端-商品分类规格API")
+@Tag(name = "商户端-商品分类规格API", description = "商户端-商品分类规格API")
 @RequestMapping("/seller/goods/category/spec")
 public class CategorySpecificationSellerController extends BusinessController {
 

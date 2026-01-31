@@ -50,4 +50,29 @@ public class GoodsSkuParamsResult extends GoodsResult {
 
     @Schema(description = "sku列表")
     private List<GoodsSkuSpecGalleryResult> skuList;
+
+	public List<String> getCategoryName() {
+		return categoryName;
+	}
+
+	public void setCategoryName( List<String> categoryName ) {
+		this.categoryName = categoryName;
+	}
+
+	public List<String> getGoodsGalleryList() {
+		return goodsGalleryList;
+	}
+
+	public void setGoodsGalleryList( List<String> goodsGalleryList ) {
+		this.goodsGalleryList = goodsGalleryList;
+	}
+
+	public List<GoodsSkuSpecGalleryResult> getSkuList() {
+		return skuList;
+	}
+
+	public void setSkuList(
+		List<GoodsSkuSpecGalleryResult> skuList ) {
+		this.skuList = skuList;
+	}
 }

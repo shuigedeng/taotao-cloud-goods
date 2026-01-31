@@ -41,4 +41,28 @@ public class GoodsParamsGroupResult extends BaseResult {
 
     @Schema(description = "参数组id")
     private String groupId;
+
+	public List<GoodsParamsResult> getParams() {
+		return params;
+	}
+
+	public void setParams( List<GoodsParamsResult> params ) {
+		this.params = params;
+	}
+
+	public String getGroupName() {
+		return groupName;
+	}
+
+	public void setGroupName( String groupName ) {
+		this.groupName = groupName;
+	}
+
+	public String getGroupId() {
+		return groupId;
+	}
+
+	public void setGroupId( String groupId ) {
+		this.groupId = groupId;
+	}
 }

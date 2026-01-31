@@ -137,4 +137,185 @@ public class GoodsAddCommand extends Command {
         // 业务中，全局代码中只有商品名称不能拥有英文逗号，是由于商品名称存在一个数据库联合查询，结果要根据逗号分组
         return goodsName.replace(",", "");
     }
+
+	public Long getGoodsId() {
+		return goodsId;
+	}
+
+	public void setGoodsId( Long goodsId ) {
+		this.goodsId = goodsId;
+	}
+
+	public BigDecimal getPrice() {
+		return price;
+	}
+
+	public void setPrice( BigDecimal price ) {
+		this.price = price;
+	}
+
+	public String getCategoryPath() {
+		return categoryPath;
+	}
+
+	public void setCategoryPath( String categoryPath ) {
+		this.categoryPath = categoryPath;
+	}
+
+	public String getStoreCategoryPath() {
+		return storeCategoryPath;
+	}
+
+	public void setStoreCategoryPath( String storeCategoryPath ) {
+		this.storeCategoryPath = storeCategoryPath;
+	}
+
+	public Long getBrandId() {
+		return brandId;
+	}
+
+	public void setBrandId( Long brandId ) {
+		this.brandId = brandId;
+	}
+
+	public void setGoodsName( String goodsName ) {
+		this.goodsName = goodsName;
+	}
+
+	public String getIntro() {
+		return intro;
+	}
+
+	public void setIntro( String intro ) {
+		this.intro = intro;
+	}
+
+	public String getMobileIntro() {
+		return mobileIntro;
+	}
+
+	public void setMobileIntro( String mobileIntro ) {
+		this.mobileIntro = mobileIntro;
+	}
+
+	public Integer getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity( Integer quantity ) {
+		this.quantity = quantity;
+	}
+
+	public Boolean getRelease() {
+		return release;
+	}
+
+	public void setRelease( Boolean release ) {
+		this.release = release;
+	}
+
+	public Boolean getRecommend() {
+		return recommend;
+	}
+
+	public void setRecommend( Boolean recommend ) {
+		this.recommend = recommend;
+	}
+
+	public List<GoodsParamsAddCommand> getGoodsParamsAddCmdList() {
+		return goodsParamsAddCmdList;
+	}
+
+	public void setGoodsParamsAddCmdList(
+		List<GoodsParamsAddCommand> goodsParamsAddCmdList ) {
+		this.goodsParamsAddCmdList = goodsParamsAddCmdList;
+	}
+
+	public List<String> getGoodsGalleryList() {
+		return goodsGalleryList;
+	}
+
+	public void setGoodsGalleryList( List<String> goodsGalleryList ) {
+		this.goodsGalleryList = goodsGalleryList;
+	}
+
+	public Long getTemplateId() {
+		return templateId;
+	}
+
+	public void setTemplateId( Long templateId ) {
+		this.templateId = templateId;
+	}
+
+	public List<Map<String, Object>> getSkuList() {
+		return skuList;
+	}
+
+	public void setSkuList( List<Map<String, Object>> skuList ) {
+		this.skuList = skuList;
+	}
+
+	public String getSellingPoint() {
+		return sellingPoint;
+	}
+
+	public void setSellingPoint( String sellingPoint ) {
+		this.sellingPoint = sellingPoint;
+	}
+
+	public String getSalesModel() {
+		return salesModel;
+	}
+
+	public void setSalesModel( String salesModel ) {
+		this.salesModel = salesModel;
+	}
+
+	public String getHaveSpec() {
+		return haveSpec;
+	}
+
+	public void setHaveSpec( String haveSpec ) {
+		this.haveSpec = haveSpec;
+	}
+
+	public String getGoodsUnit() {
+		return goodsUnit;
+	}
+
+	public void setGoodsUnit( String goodsUnit ) {
+		this.goodsUnit = goodsUnit;
+	}
+
+	public String getInfo() {
+		return info;
+	}
+
+	public void setInfo( String info ) {
+		this.info = info;
+	}
+
+	public Boolean getRegeneratorSkuFlag() {
+		return regeneratorSkuFlag;
+	}
+
+	public void setRegeneratorSkuFlag( Boolean regeneratorSkuFlag ) {
+		this.regeneratorSkuFlag = regeneratorSkuFlag;
+	}
+
+	public String getGoodsType() {
+		return goodsType;
+	}
+
+	public void setGoodsType( String goodsType ) {
+		this.goodsType = goodsType;
+	}
+
+	public String getGoodsVideo() {
+		return goodsVideo;
+	}
+
+	public void setGoodsVideo( String goodsVideo ) {
+		this.goodsVideo = goodsVideo;
+	}
 }

@@ -20,6 +20,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.taotao.boot.common.model.request.IdQuery;
 import com.taotao.boot.common.model.request.IdsCommand;
 import com.taotao.boot.common.model.request.PageQuery;
+import com.taotao.boot.common.model.result.EmptyResult;
 import com.taotao.boot.common.model.result.PageResult;
 import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.data.mybatis.mybatisplus.MpUtils;
@@ -47,7 +48,7 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 @Validated
 @RestController
-@Tag(name = "管理端-商品计量单位管理API", description = "管理端-商品计量单位管理API")
+@Tag(name = "平台管理端-商品计量单位API", description = "平台管理端-商品计量单位API")
 @RequestMapping("/manager/goods/goods/unit")
 public class GoodsUnitManagerController extends BusinessController {
 
@@ -81,26 +82,26 @@ public class GoodsUnitManagerController extends BusinessController {
 	@RequestLogger("添加商品计量单位")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/save")
-	public Result<Boolean> save( @RequestBody GoodsUnitCommand goodsUnit ) {
+	public Result<EmptyResult> save( @RequestBody GoodsUnitCommand goodsUnit ) {
 //		return Result.success(goodsUnitService.save(goodsUnit));
-		return null;
+		return Result.empty();
 	}
 
 	@Operation(summary = "编辑商品计量单位", description = "编辑商品计量单位")
 	@RequestLogger("编辑商品计量单位")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/commmand/update")
-	public Result<Boolean> update( @RequestBody GoodsUnitCommand goodsUnit ) {
+	public Result<EmptyResult> update( @RequestBody GoodsUnitCommand goodsUnit ) {
 //		return Result.success(goodsUnitService.updateById(goodsUnit));
-		return null;
+		return Result.empty();
 	}
 
 	@Operation(summary = "删除商品计量单位", description = "删除商品计量单位")
 	@RequestLogger("删除商品计量单位")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/commnad/dels")
-	public Result<Boolean> dels( @RequestBody IdsCommand idsCommand ) {
+	public Result<EmptyResult> dels( @RequestBody IdsCommand idsCommand ) {
 //		return Result.success(goodsUnitService.removeByIds(ids));
-		return null;
+		return Result.empty();
 	}
 }

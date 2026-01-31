@@ -54,4 +54,52 @@ public class EsGoodsAttributeResult extends BaseResult {
 
     /** 排序 */
     private Integer sort;
+
+	public Integer getType() {
+		return type;
+	}
+
+	public void setType( Integer type ) {
+		this.type = type;
+	}
+
+	public String getNameId() {
+		return nameId;
+	}
+
+	public void setNameId( String nameId ) {
+		this.nameId = nameId;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName( String name ) {
+		this.name = name;
+	}
+
+	public String getValueId() {
+		return valueId;
+	}
+
+	public void setValueId( String valueId ) {
+		this.valueId = valueId;
+	}
+
+	public String getValue() {
+		return value;
+	}
+
+	public void setValue( String value ) {
+		this.value = value;
+	}
+
+	public Integer getSort() {
+		return sort;
+	}
+
+	public void setSort( Integer sort ) {
+		this.sort = sort;
+	}
 }

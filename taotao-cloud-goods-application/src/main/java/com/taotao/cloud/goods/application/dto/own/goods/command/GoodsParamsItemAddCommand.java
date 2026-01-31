@@ -59,4 +59,52 @@ public class GoodsParamsItemAddCommand extends Command {
 
     @Schema(description = "排序")
     private Integer sort;
+
+	public Long getParamId() {
+		return paramId;
+	}
+
+	public void setParamId( Long paramId ) {
+		this.paramId = paramId;
+	}
+
+	public String getParamName() {
+		return paramName;
+	}
+
+	public void setParamName( String paramName ) {
+		this.paramName = paramName;
+	}
+
+	public String getParamValue() {
+		return paramValue;
+	}
+
+	public void setParamValue( String paramValue ) {
+		this.paramValue = paramValue;
+	}
+
+	public Integer getIsIndex() {
+		return isIndex;
+	}
+
+	public void setIsIndex( Integer isIndex ) {
+		this.isIndex = isIndex;
+	}
+
+	public Integer getRequired() {
+		return required;
+	}
+
+	public void setRequired( Integer required ) {
+		this.required = required;
+	}
+
+	public Integer getSort() {
+		return sort;
+	}
+
+	public void setSort( Integer sort ) {
+		this.sort = sort;
+	}
 }

@@ -97,4 +97,124 @@ public class GoodsOtherPageQuery extends PageQuery {
      */
     @Schema(description = "商品类型")
     private String goodsType;
+
+	public Long getGoodsId() {
+		return goodsId;
+	}
+
+	public void setGoodsId( Long goodsId ) {
+		this.goodsId = goodsId;
+	}
+
+	public String getGoodsName() {
+		return goodsName;
+	}
+
+	public void setGoodsName( String goodsName ) {
+		this.goodsName = goodsName;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId( String id ) {
+		this.id = id;
+	}
+
+	public Long getStoreId() {
+		return storeId;
+	}
+
+	public void setStoreId( Long storeId ) {
+		this.storeId = storeId;
+	}
+
+	public String getStoreName() {
+		return storeName;
+	}
+
+	public void setStoreName( String storeName ) {
+		this.storeName = storeName;
+	}
+
+	public String getPrice() {
+		return price;
+	}
+
+	public void setPrice( String price ) {
+		this.price = price;
+	}
+
+	public String getCategoryPath() {
+		return categoryPath;
+	}
+
+	public void setCategoryPath( String categoryPath ) {
+		this.categoryPath = categoryPath;
+	}
+
+	public String getStoreCategoryPath() {
+		return storeCategoryPath;
+	}
+
+	public void setStoreCategoryPath( String storeCategoryPath ) {
+		this.storeCategoryPath = storeCategoryPath;
+	}
+
+	public Boolean getSelfOperated() {
+		return selfOperated;
+	}
+
+	public void setSelfOperated( Boolean selfOperated ) {
+		this.selfOperated = selfOperated;
+	}
+
+	public String getMarketEnable() {
+		return marketEnable;
+	}
+
+	public void setMarketEnable( String marketEnable ) {
+		this.marketEnable = marketEnable;
+	}
+
+	public String getAuthFlag() {
+		return authFlag;
+	}
+
+	public void setAuthFlag( String authFlag ) {
+		this.authFlag = authFlag;
+	}
+
+	public Integer getLeQuantity() {
+		return leQuantity;
+	}
+
+	public void setLeQuantity( Integer leQuantity ) {
+		this.leQuantity = leQuantity;
+	}
+
+	public Integer getGeQuantity() {
+		return geQuantity;
+	}
+
+	public void setGeQuantity( Integer geQuantity ) {
+		this.geQuantity = geQuantity;
+	}
+
+	public Boolean getRecommend() {
+		return recommend;
+	}
+
+	public void setRecommend( Boolean recommend ) {
+		this.recommend = recommend;
+	}
+
+	public String getGoodsType() {
+		return goodsType;
+	}
+
+	public void setGoodsType( String goodsType ) {
+		this.goodsType = goodsType;
+	}
 }

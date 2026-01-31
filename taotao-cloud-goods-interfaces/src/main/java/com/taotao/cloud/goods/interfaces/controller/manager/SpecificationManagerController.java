@@ -18,6 +18,7 @@ package com.taotao.cloud.goods.interfaces.controller.manager;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.taotao.boot.common.model.request.IdsCommand;
+import com.taotao.boot.common.model.result.EmptyResult;
 import com.taotao.boot.common.model.result.PageResult;
 import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.data.mybatis.mybatisplus.MpUtils;
@@ -53,7 +54,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @Validated
 @RestController
-@Tag(name = "管理端-商品规格管理API", description = "管理端-商品规格管理API")
+@Tag(name = "平台管理端-商品规格API", description = "平台管理端-商品规格API")
 @RequestMapping("/manager/goods/spec")
 public class SpecificationManagerController extends BusinessController {
 
@@ -90,29 +91,30 @@ public class SpecificationManagerController extends BusinessController {
 	@RequestLogger("保存规格")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/save")
-	public Result<Boolean> save(  @RequestBody SpecificationAddCommand specificationDTO ) {
+	public Result<EmptyResult> save(  @RequestBody SpecificationAddCommand specificationDTO ) {
 //		SpecificationPO specification = SpecificationAssembler.INSTANCE.convert(specificationDTO);
 //		return Result.success(specificationCommandService.save(specification));
-		return null;
+		return Result.empty();
 	}
 
 	@Operation(summary = "更改规格", description = "更改规格")
 	@RequestLogger("更改规格")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/update")
-	public Result<Boolean> update( @Valid @RequestBody SpecificationAddCommand specificationDTO ) {
+	public Result<EmptyResult> update( @Valid @RequestBody SpecificationAddCommand specificationDTO ) {
 //		SpecificationPO specification = SpecificationAssembler.INSTANCE.convert(specificationDTO);
 //		specification.setId(id);
 //
 //		return Result.success(specificationCommandService.saveOrUpdate(specification));
-		return null;
+		return Result.empty();
 	}
 
 	@Operation(summary = "批量删除", description = "批量删除")
 	@RequestLogger("批量删除")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/dels")
-	public Result<Boolean> dels( IdsCommand ids ) {
-		return Result.success(specificationCommandService.deleteSpecification(ids.getIds()));
+	public Result<EmptyResult> dels( IdsCommand ids ) {
+		specificationCommandService.deleteSpecification(ids.getIds());
+		return Result.empty();
 	}
 }

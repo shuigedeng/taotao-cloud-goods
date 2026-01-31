@@ -38,7 +38,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 /**
- * 店铺端-规格接口接口
+ * 商户端-规格接口接口
  *
  * @author shuigedeng
  * @version 2022.04
@@ -47,7 +47,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @Validated
 @RestController
-@Tag(name = "店铺端-规格API", description = "店铺端-规格API")
+@Tag(name = "商户端-规格API", description = "商户端-规格API")
 @RequestMapping("/seller/goods/specification")
 @RequestLogger
 public class SpecificationSellerController extends BusinessController {

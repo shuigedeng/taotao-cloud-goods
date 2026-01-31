@@ -19,6 +19,7 @@ package com.taotao.cloud.goods.interfaces.controller.manager;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.taotao.boot.common.model.request.IdQuery;
 import com.taotao.boot.common.model.request.IdsCommand;
+import com.taotao.boot.common.model.result.EmptyResult;
 import com.taotao.boot.common.model.result.PageResult;
 import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.data.mybatis.mybatisplus.MpUtils;
@@ -44,7 +45,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
- * 管理端-品牌管理API
+ * 平台管理端-品牌API
  *
  * @author shuigedeng
  * @version 2022.04
@@ -53,7 +54,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @Validated
 @RestController
-@Tag(name = "管理端-品牌管理API", description = "管理端-品牌管理API")
+@Tag(name = "平台管理端-品牌API", description = "平台管理端-品牌API")
 @RequestMapping("/manager/goods/brand")
 public class BrandManagerController extends BusinessController {
 
@@ -98,34 +99,35 @@ public class BrandManagerController extends BusinessController {
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/save")
-	public Result<Boolean> save( @RequestBody BrandAddCommand brand ) {
+	public Result<EmptyResult> save( @RequestBody BrandAddCommand brand ) {
 		boolean result = brandCommandService.addBrand(brand);
-		return Result.success(result);
+		return Result.empty();
 	}
 
 	@Operation(summary = "更新品牌", description = "更新品牌")
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/update")
-	public Result<Boolean> updateById( @RequestBody BrandUpdateCommand brand ) {
+	public Result<EmptyResult> updateById( @RequestBody BrandUpdateCommand brand ) {
 		boolean result = brandCommandService.updateBrand(brand);
-		return Result.success(result);
+		return Result.empty();
 	}
 
 	@Operation(summary = "后台禁用品牌", description = "后台禁用品牌")
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/disable")
-	public Result<Boolean> disableById(@RequestBody BrandDisableCommand brandDisableCommand) {
+	public Result<EmptyResult> disableById(@RequestBody BrandDisableCommand brandDisableCommand) {
 //		return Result.success(brandCommandService.brandDisable(brandId, disable));
-		return null;
+		return Result.empty();
 	}
 
 	@Operation(summary = "批量删除", description = "批量删除")
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/dels")
-	public Result<Boolean> delByIds( @RequestBody IdsCommand idsCommand ) {
-		return Result.success(brandCommandService.deleteBrands(idsCommand.getIds()));
+	public Result<EmptyResult> delByIds( @RequestBody IdsCommand idsCommand ) {
+		brandCommandService.deleteBrands(idsCommand.getIds());
+		return Result.empty();
 	}
 }

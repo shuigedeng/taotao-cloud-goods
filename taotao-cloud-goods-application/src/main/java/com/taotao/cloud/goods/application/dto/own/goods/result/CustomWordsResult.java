@@ -45,4 +45,28 @@ public class CustomWordsResult extends BaseResult {
      * 是否禁用
      */
     private Integer disabled;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId( Long id ) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName( String name ) {
+		this.name = name;
+	}
+
+	public Integer getDisabled() {
+		return disabled;
+	}
+
+	public void setDisabled( Integer disabled ) {
+		this.disabled = disabled;
+	}
 }

@@ -18,6 +18,7 @@ package com.taotao.cloud.goods.interfaces.controller.seller;
 
 import com.taotao.boot.common.model.request.IdQuery;
 import com.taotao.boot.common.model.request.IdsCommand;
+import com.taotao.boot.common.model.result.EmptyResult;
 import com.taotao.boot.common.model.result.PageResult;
 import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.web.request.annotation.RequestLogger;
@@ -36,7 +37,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * 店铺端,草稿商品接口
+ * 商户端,草稿商品接口
  *
  * @author shuigedeng
  * @version 2022.04
@@ -45,7 +46,7 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 @Validated
 @RestController
-@Tag(name = "店铺端-草稿商品API", description = "店铺端-草稿商品API")
+@Tag(name = "商户端-草稿商品API", description = "商户端-草稿商品API")
 @RequestMapping("/seller/goods/draft/goods")
 public class DraftGoodsSellerController extends BusinessController {
 
@@ -81,7 +82,7 @@ public class DraftGoodsSellerController extends BusinessController {
 	@RequestLogger("保存草稿商品")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/save")
-	public Result<Boolean> save( @RequestBody DraftGoodsSkuParamsSaveCommand draftGoodsSkuParamsDTO ) {
+	public Result<EmptyResult> save( @RequestBody DraftGoodsSkuParamsSaveCommand draftGoodsSkuParamsDTO ) {
 //        Long storeId = SecurityUtils.getCurrentUser().getStoreId();
 //        if (draftGoodsSkuParamsDTO.getStoreId() == null) {
 //            draftGoodsSkuParamsDTO.setStoreId(storeId);
@@ -90,16 +91,16 @@ public class DraftGoodsSellerController extends BusinessController {
 //            throw new BusinessException(ResultEnum.USER_AUTHORITY_ERROR);
 //        }
 //        return Result.success(draftGoodsService.saveGoodsDraft(draftGoodsSkuParamsDTO));
-		return null;
+		return Result.empty();
 	}
 
 	@Operation(summary = "删除草稿商品", description = "删除草稿商品")
 	@RequestLogger("删除草稿商品")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/dels")
-	public Result<Boolean> dels( @RequestBody IdsCommand id ) {
+	public Result<EmptyResult> dels( @RequestBody IdsCommand id ) {
 //        draftGoodsService.getDraftGoods(id);
 //        return Result.success(draftGoodsService.deleteGoodsDraft(id));
-		return null;
+		return Result.empty();
 	}
 }

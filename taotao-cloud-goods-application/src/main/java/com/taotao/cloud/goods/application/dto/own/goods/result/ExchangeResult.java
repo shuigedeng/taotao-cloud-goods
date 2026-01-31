@@ -41,4 +41,36 @@ public class ExchangeResult extends BaseResult {
 
     @Schema(description = "积分兑换使用的积分 ")
     private Integer exchangePoint;
+
+	public Integer getEnableExchange() {
+		return enableExchange;
+	}
+
+	public void setEnableExchange( Integer enableExchange ) {
+		this.enableExchange = enableExchange;
+	}
+
+	public BigDecimal getExchangeMoney() {
+		return exchangeMoney;
+	}
+
+	public void setExchangeMoney( BigDecimal exchangeMoney ) {
+		this.exchangeMoney = exchangeMoney;
+	}
+
+	public Integer getCategoryId() {
+		return categoryId;
+	}
+
+	public void setCategoryId( Integer categoryId ) {
+		this.categoryId = categoryId;
+	}
+
+	public Integer getExchangePoint() {
+		return exchangePoint;
+	}
+
+	public void setExchangePoint( Integer exchangePoint ) {
+		this.exchangePoint = exchangePoint;
+	}
 }

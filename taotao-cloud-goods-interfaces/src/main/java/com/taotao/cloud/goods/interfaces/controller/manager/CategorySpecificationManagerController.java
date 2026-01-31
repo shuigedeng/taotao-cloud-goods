@@ -16,6 +16,7 @@
 
 package com.taotao.cloud.goods.interfaces.controller.manager;
 
+import com.taotao.boot.common.model.result.EmptyResult;
 import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
@@ -45,7 +46,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @Validated
 @RestController
-@Tag(name = "管理端-商品分类规格管理API", description = "管理端-商品分类规格管理API")
+@Tag(name = "平台管理端-商品分类规格API", description = "平台管理端-商品分类规格API")
 @RequestMapping("/manager/goods/category/spec")
 public class CategorySpecificationManagerController extends BusinessController {
 
@@ -86,9 +87,9 @@ public class CategorySpecificationManagerController extends BusinessController {
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/save")
-	public Result<Boolean> save( @RequestBody CategorySpecCommand categorySpecs ) {
+	public Result<EmptyResult> save( @RequestBody CategorySpecCommand categorySpecs ) {
 //		return Result.success(
 //			specificationCommandService.saveCategoryBrand(categoryId, categorySpecs));
-		return null;
+		return Result.empty();
 	}
 }

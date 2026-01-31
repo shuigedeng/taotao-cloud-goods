@@ -18,6 +18,7 @@ package com.taotao.cloud.goods.interfaces.controller.manager;
 
 import com.taotao.boot.common.enums.ResultEnum;
 import com.taotao.boot.common.model.request.IdCommand;
+import com.taotao.boot.common.model.result.EmptyResult;
 import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
@@ -53,7 +54,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @Validated
 @RestController
-@Tag(name = "管理端-商品分类管理API", description = "管理端-商品分类管理API")
+@Tag(name = "平台管理端-商品分类API", description = "平台管理端-商品分类API")
 @RequestMapping("/manager/goods/category")
 public class CategoryManagerController extends BusinessController {
 
@@ -93,7 +94,7 @@ public class CategoryManagerController extends BusinessController {
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/save")
-	public Result<Boolean> save( @RequestBody CategoryAddCommand category ) {
+	public Result<EmptyResult> save( @RequestBody CategoryAddCommand category ) {
 		//// 非顶级分类
 		// if (category.getParentId() != null && !Long.valueOf(0).equals(category.getParentId())) {
 		//    Category parent = categoryQueryService.getById(category.getParentId());
@@ -105,27 +106,27 @@ public class CategoryManagerController extends BusinessController {
 		//    }
 		// }
 		// return Result.success(categoryCommandService.saveCategory(category));
-		return Result.success(true);
+		return Result.empty();
 	}
 
 	@Operation(summary = "修改商品分类", description = "修改商品分类")
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/update")
-	public Result<Boolean> update( @RequestBody CategoryTreeCommand category ) {
+	public Result<EmptyResult> update( @RequestBody CategoryTreeCommand category ) {
 		// CategoryPO catTemp = categoryQueryService.getById(category.getId());
 		// if (catTemp == null) {
 		//    throw new BusinessException(ResultEnum.CATEGORY_NOT_EXIST);
 		// }
 		// return Result.success(categoryCommandService.updateCategory(catTemp));
-		return Result.success(true);
+		return Result.empty();
 	}
 
 	@Operation(summary = "通过id删除分类", description = "通过id删除分类")
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/del")
-	public Result<Boolean> del( @RequestBody IdCommand idCommand ) {
+	public Result<EmptyResult> del( @RequestBody IdCommand idCommand ) {
 		// CategoryPO category = new CategoryPO();
 		// category.setParentId(id);
 		// List<CategoryPO> list = categoryQueryService.findByAllBySortOrder(category);
@@ -139,20 +140,20 @@ public class CategoryManagerController extends BusinessController {
 		//    throw new BusinessException(ResultEnum.CATEGORY_HAS_GOODS);
 		// }
 		// return Result.success(categoryCommandService.delete(id));
-		return Result.success(true);
+		return Result.empty();
 	}
 
 	@Operation(summary = "后台 禁用/启用 分类", description = "后台 禁用/启用 分类")
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/disable")
-	public Result<Boolean> disable( @RequestBody DisableCommand disableCommand) {
+	public Result<EmptyResult> disable( @RequestBody DisableCommand disableCommand) {
 //		GoodsPO category = goodsQueryService.getById(id);
 //		if (category == null) {
 //			throw new BusinessException(ResultEnum.CATEGORY_NOT_EXIST);
 //		}
 //		//return Result.success(categoryCommandService.updateCategoryStatus(id,
 //		enableOperations));
-		return null;
+		return Result.empty();
 	}
 }

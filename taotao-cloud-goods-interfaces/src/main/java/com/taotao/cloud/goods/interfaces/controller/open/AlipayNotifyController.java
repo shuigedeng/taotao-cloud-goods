@@ -16,6 +16,7 @@
 
 package com.taotao.cloud.goods.interfaces.controller.open;
 
+import com.taotao.boot.common.model.result.EmptyResult;
 import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
@@ -27,7 +28,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * 管理端-品牌管理API
+ * 管理端-品牌API
  *
  * @author shuigedeng
  * @version 2022.04
@@ -36,14 +37,14 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 @Validated
 @RestController
-@Tag(name = "管理端-品牌管理API", description = "管理端-品牌管理API")
+@Tag(name = "开放平台-阿里回调通知API", description = "开放平台-阿里回调通知API")
 @RequestMapping("/goods/open/alipay")
 public class AlipayNotifyController extends BusinessController {
 
 	@Operation(summary = "阿里支付状态通知", description = "阿里支付状态通知")
 	@RequestLogger
 	@PostMapping("/notify")
-	public Result<Boolean> notify(@Validated @RequestBody BrandAddCommand brand) {
-		return Result.success();
+	public Result<EmptyResult> notify(@Validated @RequestBody BrandAddCommand brand) {
+		return Result.empty();
 	}
 }

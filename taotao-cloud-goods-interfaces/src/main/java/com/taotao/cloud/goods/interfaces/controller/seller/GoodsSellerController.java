@@ -18,7 +18,9 @@ package com.taotao.cloud.goods.interfaces.controller.seller;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.taotao.boot.common.model.request.EmptyRequest;
 import com.taotao.boot.common.model.request.IdsCommand;
+import com.taotao.boot.common.model.result.EmptyResult;
 import com.taotao.boot.common.model.result.PageResult;
 import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.data.mybatis.mybatisplus.MpUtils;
@@ -52,7 +54,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
- * 店铺端,商品接口
+ * 商户端,商品接口
  *
  * @author shuigedeng
  * @version 2022.04
@@ -61,7 +63,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @Validated
 @RestController
-@Tag(name = "店铺端-商品API", description = "店铺端-商品API")
+@Tag(name = "商户端-商品API", description = "商户端-商品API")
 @RequestMapping("/seller/goods")
 public class GoodsSellerController extends BusinessController {
 
@@ -142,56 +144,56 @@ public class GoodsSellerController extends BusinessController {
 	@RequestLogger("新增商品")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/save")
-	public Result<Boolean> save( @RequestBody GoodsOperationCommand goodsOperationDTO ) {
+	public Result<EmptyResult> save( @RequestBody GoodsOperationCommand goodsOperationDTO ) {
 //		return Result.success(goodsService.addGoods(goodsOperationDTO));
-		return null;
+		return Result.empty();
 	}
 
 	@Operation(summary = "修改商品", description = "修改商品")
 	@RequestLogger("修改商品")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/update")
-	public Result<Boolean> update( @RequestBody GoodsOperationCommand goodsOperationDTO ) {
+	public Result<EmptyResult> update( @RequestBody GoodsOperationCommand goodsOperationDTO ) {
 //		return Result.success(goodsService.editGoods(goodsOperationDTO, goodsId));
-		return null;
+		return Result.empty();
 	}
 
 	@Operation(summary = "下架商品", description = "下架商品")
 	@RequestLogger("下架商品")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/under")
-	public Result<Boolean> under( @RequestBody IdsCommand idsCommand ) {
+	public Result<EmptyResult> under( @RequestBody IdsCommand idsCommand ) {
 //		return Result.success(goodsService.updateGoodsMarketAble(goodsId, GoodsStatusEnum.DOWN,
 //			"商家下架"));
-		return null;
+		return Result.empty();
 	}
 
 	@Operation(summary = "上架商品", description = "上架商品")
 	@RequestLogger("上架商品")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/up")
-	public Result<Boolean> up( @RequestBody IdsCommand idsCommand ) {
+	public Result<EmptyResult> up( @RequestBody IdsCommand idsCommand ) {
 //		return Result.success(goodsService.updateGoodsMarketAble(goodsId, GoodsStatusEnum.UPPER,
 //			""));
-		return null;
+		return Result.empty();
 	}
 
 	@Operation(summary = "删除商品", description = "删除商品")
 	@RequestLogger("删除商品")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/dels")
-	public Result<Boolean> dels( @RequestBody IdsCommand idsCommand) {
+	public Result<EmptyResult> dels( @RequestBody IdsCommand idsCommand) {
 //		return Result.success(goodsService.deleteGoods(goodsIds));
-		return null;
+		return Result.empty();
 	}
 
 	@Operation(summary = "设置商品运费模板", description = "设置商品运费模板")
 	@RequestLogger("设置商品运费模板")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/freight")
-	public Result<Boolean> freight( @RequestBody FreightCommand freightCommand) {
+	public Result<EmptyResult> freight( @RequestBody FreightCommand freightCommand) {
 //		return Result.success(goodsService.freight(goodsId, templateId));
-		return null;
+		return Result.empty();
 	}
 
 	@Operation(summary = "根据goodsId分页获取商品规格列表", description = "根据goodsId分页获取商品规格列表")
@@ -211,7 +213,7 @@ public class GoodsSellerController extends BusinessController {
 	@RequestLogger("修改商品库存")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/update/stocks")
-	public Result<Boolean> updateStocks( @RequestBody List<GoodsSkuStockUpdateCommand> updateStockList ) {
+	public Result<EmptyResult> updateStocks( @RequestBody List<GoodsSkuStockUpdateCommand> updateStockList ) {
 //		Long storeId = SecurityUtils.getCurrentUser().getStoreId();
 //		// 获取商品skuId集合
 //		List<Long> goodsSkuIds =
@@ -227,6 +229,6 @@ public class GoodsSellerController extends BusinessController {
 //			.filter(i -> filterGoodsSkuIds.contains(i.getSkuId()))
 //			.toList();
 //		return Result.success(goodsSkuService.updateStocks(collect));
-		return null;
+		return Result.empty();
 	}
 }

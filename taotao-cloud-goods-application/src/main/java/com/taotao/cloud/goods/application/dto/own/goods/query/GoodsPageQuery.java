@@ -20,6 +20,8 @@ import com.taotao.boot.common.model.request.PageQuery;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
 import lombok.ToString;
 
@@ -33,43 +35,91 @@ import lombok.ToString;
 @Getter
 @ToString(callSuper = true)
 public class GoodsPageQuery extends PageQuery {
-    /**
-     * 商品名称
-     */
+	@Schema(description = "商品名称")
     private String goodsName;
 
-    /**
-     * 商品分类ID
-     */
+	@Schema(description = "商品分类ID")
     private Long categoryId;
 
-    /**
-     * 起始商品价格
-     */
+	@Schema(description = "起始商品价格")
     private BigDecimal startGoodsPrice;
 
-    /**
-     * 终止商品价格
-     */
+	@Schema(description = "终止商品价格")
     private BigDecimal endGoodsPrice;
 
-    /**
-     * 商品状态(10已上架, 20已下架)
-     */
+	@Schema(description = "商品状态(10已上架, 20已下架)")
     private Integer goodsStatus;
 
-    /**
-     * 过期时间（在此之前过期）
-     */
+	@Schema(description = "过期时间（在此之前过期）")
     private LocalDate beforeExpirationDate;
 
-    /**
-     * 起始创建时间
-     */
+	@Schema(description = "起始创建时间")
     private LocalDateTime createTimeStart;
 
-    /**
-     * 结束创建时间
-     */
+	@Schema(description = "结束创建时间")
     private LocalDateTime createTimeEnd;
+
+	public String getGoodsName() {
+		return goodsName;
+	}
+
+	public void setGoodsName( String goodsName ) {
+		this.goodsName = goodsName;
+	}
+
+	public Long getCategoryId() {
+		return categoryId;
+	}
+
+	public void setCategoryId( Long categoryId ) {
+		this.categoryId = categoryId;
+	}
+
+	public BigDecimal getStartGoodsPrice() {
+		return startGoodsPrice;
+	}
+
+	public void setStartGoodsPrice( BigDecimal startGoodsPrice ) {
+		this.startGoodsPrice = startGoodsPrice;
+	}
+
+	public BigDecimal getEndGoodsPrice() {
+		return endGoodsPrice;
+	}
+
+	public void setEndGoodsPrice( BigDecimal endGoodsPrice ) {
+		this.endGoodsPrice = endGoodsPrice;
+	}
+
+	public Integer getGoodsStatus() {
+		return goodsStatus;
+	}
+
+	public void setGoodsStatus( Integer goodsStatus ) {
+		this.goodsStatus = goodsStatus;
+	}
+
+	public LocalDate getBeforeExpirationDate() {
+		return beforeExpirationDate;
+	}
+
+	public void setBeforeExpirationDate( LocalDate beforeExpirationDate ) {
+		this.beforeExpirationDate = beforeExpirationDate;
+	}
+
+	public LocalDateTime getCreateTimeStart() {
+		return createTimeStart;
+	}
+
+	public void setCreateTimeStart( LocalDateTime createTimeStart ) {
+		this.createTimeStart = createTimeStart;
+	}
+
+	public LocalDateTime getCreateTimeEnd() {
+		return createTimeEnd;
+	}
+
+	public void setCreateTimeEnd( LocalDateTime createTimeEnd ) {
+		this.createTimeEnd = createTimeEnd;
+	}
 }

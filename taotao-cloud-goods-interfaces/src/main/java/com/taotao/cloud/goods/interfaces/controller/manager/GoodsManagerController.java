@@ -19,9 +19,11 @@ package com.taotao.cloud.goods.interfaces.controller.manager;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.taotao.boot.common.model.request.IdQuery;
 import com.taotao.boot.common.model.request.IdsCommand;
+import com.taotao.boot.common.model.result.EmptyResult;
 import com.taotao.boot.common.model.result.PageResult;
 import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.data.mybatis.mybatisplus.MpUtils;
+import com.taotao.boot.security.spring.annotation.NotAuth;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
 import com.taotao.cloud.goods.api.enums.GoodsAuthEnum;
@@ -57,7 +59,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @Validated
 @RestController
-@Tag(name = "管理端-商品管理API", description = "管理端-商品管理API")
+@Tag(name = "平台管理端-商品API", description = "平台管理端-商品API")
 @RequestMapping("/manager/goods")
 public class GoodsManagerController extends BusinessController {
 
@@ -75,18 +77,10 @@ public class GoodsManagerController extends BusinessController {
 
 	private final GoodsSkuCommandService goodsSkuCommandService;
 
-	@Operation(summary = "管理员上架商品", description = "管理员上架商品")
-
-	@RequestLogger("管理员上架商品")
-	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@PostMapping("/command/create")
-	public Result<GoodsResult> create( @RequestBody GoodsCreateCommand goodsCreateCommand ) {
-		return Result.success(this.goodsCommandService.createGoods(goodsCreateCommand));
-	}
-
-	@Operation(summary = "分页获取", description = "分页获取")
-	@RequestLogger("分页获取")
-	@PreAuthorize("hasAuthority('dept:tree:data')")
+	@Operation(summary = "分页获取商品列表", description = "分页获取商品列表")
+	@RequestLogger("分页获取商品列表")
+	@NotAuth
+	//@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/page")
 	public Result<PageResult<GoodsResult>> getByPage( @Validated GoodsPageQuery goodsPageQuery ) {
 //		IPage<GoodsPO> goodsPage = goodsQueryService.goodsQueryPage(goodsPageQuery);
@@ -94,9 +88,9 @@ public class GoodsManagerController extends BusinessController {
 		return null;
 	}
 
-	@Operation(summary = "分页获取商品列表", description = "分页获取商品列表")
-	@RequestLogger("分页获取商品列表")
-	@PreAuthorize("hasAuthority('dept:tree:data')")
+	@Operation(summary = "分页获取商品SKU列表", description = "分页获取商品SKU列表")
+	@RequestLogger("分页获取商品SKU列表")
+	//@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/sku/page")
 	public Result<PageResult<GoodsSkuResult>> getSkuByPage( GoodsPageQuery goodsPageQuery ) {
 //		IPage<GoodsSkuPO> goodsSkuPage = goodsSkuQueryService.goodsSkuQueryPage(goodsPageQuery);
@@ -104,7 +98,6 @@ public class GoodsManagerController extends BusinessController {
 //			GoodsSkuConvert.INSTANCE::convert));
 		return null;
 	}
-
 	@Operation(summary = "分页获取待审核商品", description = "分页获取待审核商品")
 	@RequestLogger("分页获取待审核商品")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
@@ -115,36 +108,45 @@ public class GoodsManagerController extends BusinessController {
 //		return Result.success(MpUtils.convertMybatisPage(goodsPage, GoodsCO.class));
 		return null;
 	}
+	@Operation(summary = "管理员上架商品", description = "管理员上架商品")
+	@RequestLogger("管理员上架商品")
+	@PreAuthorize("hasAuthority('dept:tree:data')")
+	@PostMapping("/command/create")
+	public Result<GoodsResult> create( @RequestBody GoodsCreateCommand goodsCreateCommand ) {
+		return Result.success(this.goodsCommandService.createGoods(goodsCreateCommand));
+	}
+
 
 	@Operation(summary = "管理员下架商品", description = "管理员下架商品")
 	@RequestLogger("管理员下架商品")
-	@PreAuthorize("hasAuthority('dept:tree:data')")
+	@NotAuth
+	//@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/under")
-	public Result<Boolean> underGoods( @RequestBody UnderCommand underCommand){
+	public Result<EmptyResult> underGoods( @RequestBody UnderCommand underCommand){
 //		return Result.success(
 //			goodsCommandService.managerUpdateGoodsMarketAble(
 //				goodsIds, GoodsStatusEnum.DOWN, reason));
-		return null;
+		return Result.empty();
 	}
 
 	@Operation(summary = "管理员审核商品", description = "管理员审核商品")
 	@RequestLogger("管理员审核商品")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/auth")
-	public Result<Boolean> auth( @RequestBody AuthCommand authCommand) {
+	public Result<EmptyResult> auth( @RequestBody AuthCommand authCommand) {
 		// 校验商品是否存在
 //		return Result.success(
 //			goodsCommandService.auditGoods(goodsIds, GoodsAuthEnum.valueOf(authFlag)));
-		return null;
+		return Result.empty();
 	}
 
 	@Operation(summary = "管理员上架商品", description = "管理员上架商品")
 	@RequestLogger("管理员上架商品")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/up")
-	public Result<Boolean> unpGoods( @RequestBody IdsCommand idsCommand ) {
-		return Result.success(
-			goodsCommandService.updateGoodsMarketAble(idsCommand.getIds(), GoodsStatusEnum.UPPER, ""));
+	public Result<EmptyResult> unpGoods( @RequestBody IdsCommand idsCommand ) {
+		goodsCommandService.updateGoodsMarketAble(idsCommand.getIds(), GoodsStatusEnum.UPPER, "");
+		return Result.empty();
 	}
 
 	@Operation(summary = "通过id获取商品详情", description = "通过id获取商品详情")

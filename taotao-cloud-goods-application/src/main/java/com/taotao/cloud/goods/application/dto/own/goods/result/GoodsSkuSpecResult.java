@@ -39,4 +39,29 @@ public class GoodsSkuSpecResult extends BaseResult {
 
     @Schema(description = "库存")
     private Integer quantity;
+
+	public Long getSkuId() {
+		return skuId;
+	}
+
+	public void setSkuId( Long skuId ) {
+		this.skuId = skuId;
+	}
+
+	public List<SpecValueResult> getSpecValues() {
+		return specValues;
+	}
+
+	public void setSpecValues(
+		List<SpecValueResult> specValues ) {
+		this.specValues = specValues;
+	}
+
+	public Integer getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity( Integer quantity ) {
+		this.quantity = quantity;
+	}
 }

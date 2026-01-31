@@ -18,6 +18,7 @@ package com.taotao.cloud.goods.interfaces.controller.manager;
 
 import com.taotao.boot.common.model.request.IdCommand;
 import com.taotao.boot.common.model.request.IdsCommand;
+import com.taotao.boot.common.model.result.EmptyResult;
 import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
@@ -41,7 +42,7 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 @Validated
 @RestController
-@Tag(name = "管理端-参数管理API", description = "管理端-参数管理API")
+@Tag(name = "平台管理端-参数API", description = "平台管理端-参数API")
 @RequestMapping("/manager/goods/parameters")
 public class ParameterManagerController extends BusinessController {
 
@@ -56,30 +57,30 @@ public class ParameterManagerController extends BusinessController {
 	@RequestLogger("添加参数添加参数")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/save")
-	public Result<Boolean> save( @RequestBody ParametersAddCommand parametersDTO ) {
+	public Result<EmptyResult> save( @RequestBody ParametersAddCommand parametersDTO ) {
 //		Parameters parameters = ParametersConvert.INSTANCE.convert(parametersDTO);
 //		return Result.success(parametersService.save(parameters));
-		return null;
+		return Result.empty();
 	}
 
 	@Operation(summary = "编辑参数", description = "编辑参数")
 	@RequestLogger("编辑参数")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/update")
-	public Result<Boolean> update( @RequestBody ParametersAddCommand parametersDTO,
+	public Result<EmptyResult> update( @RequestBody ParametersAddCommand parametersDTO,
 		@PathVariable Long id ) {
 //		Parameters parameters = ParametersConvert.INSTANCE.convert(parametersDTO);
 //		parameters.setId(id);
 //		return Result.success(parametersService.updateParameter(parameters));
-		return null;
+		return Result.empty();
 	}
 
 	@Operation(summary = "根据id删除参数", description = "根据id删除参数")
 	@RequestLogger("根据id删除参数")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/del")
-	public Result<Boolean> delById( @RequestBody IdCommand idCommand ) {
+	public Result<EmptyResult> delById( @RequestBody IdCommand idCommand ) {
 //		return Result.success(parametersService.removeById(id));
-		return null;
+		return Result.empty();
 	}
 }

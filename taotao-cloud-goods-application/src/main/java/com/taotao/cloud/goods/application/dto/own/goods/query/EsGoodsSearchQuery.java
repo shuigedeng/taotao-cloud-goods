@@ -74,4 +74,84 @@ public class EsGoodsSearchQuery extends PageQuery {
 
     @Schema(hidden = true)
     private Map<String, List<String>> notShowCol;
+
+	public String getKeyword() {
+		return keyword;
+	}
+
+	public void setKeyword( String keyword ) {
+		this.keyword = keyword;
+	}
+
+	public String getCategoryId() {
+		return categoryId;
+	}
+
+	public void setCategoryId( String categoryId ) {
+		this.categoryId = categoryId;
+	}
+
+	public String getBrandId() {
+		return brandId;
+	}
+
+	public void setBrandId( String brandId ) {
+		this.brandId = brandId;
+	}
+
+	public Boolean getRecommend() {
+		return recommend;
+	}
+
+	public void setRecommend( Boolean recommend ) {
+		this.recommend = recommend;
+	}
+
+	public String getPrice() {
+		return price;
+	}
+
+	public void setPrice( String price ) {
+		this.price = price;
+	}
+
+	public String getProp() {
+		return prop;
+	}
+
+	public void setProp( String prop ) {
+		this.prop = prop;
+	}
+
+	public List<String> getNameIds() {
+		return nameIds;
+	}
+
+	public void setNameIds( List<String> nameIds ) {
+		this.nameIds = nameIds;
+	}
+
+	public String getStoreId() {
+		return storeId;
+	}
+
+	public void setStoreId( String storeId ) {
+		this.storeId = storeId;
+	}
+
+	public String getStoreCatId() {
+		return storeCatId;
+	}
+
+	public void setStoreCatId( String storeCatId ) {
+		this.storeCatId = storeCatId;
+	}
+
+	public Map<String, List<String>> getNotShowCol() {
+		return notShowCol;
+	}
+
+	public void setNotShowCol( Map<String, List<String>> notShowCol ) {
+		this.notShowCol = notShowCol;
+	}
 }

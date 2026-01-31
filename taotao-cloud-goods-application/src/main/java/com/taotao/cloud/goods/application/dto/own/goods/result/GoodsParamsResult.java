@@ -47,14 +47,46 @@ public class GoodsParamsResult {
 
     private String[] optionList;
 
-    public void setOptionList(String[] optionList) {
-        this.optionList = optionList;
-    }
+//    public void setOptionList(String[] optionList) {
+//        this.optionList = optionList;
+//    }
+//
+//    public String[] getOptionList() {
+//        if (options != null) {
+//            return options.replaceAll("\r|\n", "").split(",");
+//        }
+//        return optionList;
+//    }
 
-    public String[] getOptionList() {
-        if (options != null) {
-            return options.replaceAll("\r|\n", "").split(",");
-        }
-        return optionList;
-    }
+	public Integer getParamType() {
+		return paramType;
+	}
+
+	public void setParamType( Integer paramType ) {
+		this.paramType = paramType;
+	}
+
+	public String getOptions() {
+		return options;
+	}
+
+	public void setOptions( String options ) {
+		this.options = options;
+	}
+
+	public Integer getRequired() {
+		return required;
+	}
+
+	public void setRequired( Integer required ) {
+		this.required = required;
+	}
+
+	public Integer getIsIndex() {
+		return isIndex;
+	}
+
+	public void setIsIndex( Integer isIndex ) {
+		this.isIndex = isIndex;
+	}
 }

@@ -37,4 +37,20 @@ public class GoodsSkuStockUpdateCommand extends Command {
 
     @Schema(description = "库存")
     private Integer quantity;
+
+	public Long getSkuId() {
+		return skuId;
+	}
+
+	public void setSkuId( Long skuId ) {
+		this.skuId = skuId;
+	}
+
+	public Integer getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity( Integer quantity ) {
+		this.quantity = quantity;
+	}
 }
