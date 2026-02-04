@@ -16,6 +16,7 @@
 
 package com.taotao.cloud.goods.interfaces.controller.manager;
 
+import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.taotao.boot.common.model.request.IdQuery;
 import com.taotao.boot.common.model.request.IdsCommand;
@@ -23,6 +24,9 @@ import com.taotao.boot.common.model.result.EmptyResult;
 import com.taotao.boot.common.model.result.PageResult;
 import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.data.mybatis.mybatisplus.MpUtils;
+import com.taotao.boot.idempotent.annotation.Idempotent;
+import com.taotao.boot.ratelimit.ratelimitguava.GuavaLimit;
+import com.taotao.boot.ratelimit.ratelimitguava.Limit;
 import com.taotao.boot.security.spring.annotation.NotAuth;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
@@ -33,6 +37,7 @@ import com.taotao.cloud.goods.application.dto.own.brand.result.BrandResult;
 import com.taotao.cloud.goods.application.dto.own.category.command.BrandDisableCommand;
 import com.taotao.cloud.goods.application.service.command.BrandCommandService;
 import com.taotao.cloud.goods.application.service.query.BrandQueryService;
+import com.yomahub.tlog.core.annotation.TLogAspect;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -97,7 +102,13 @@ public class BrandManagerController extends BusinessController {
 
 	@Operation(summary = "新增品牌", description = "新增品牌")
 	@RequestLogger
-	@PreAuthorize("hasAuthority('dept:tree:data')")
+	@NotAuth
+	@Idempotent(perFix = "test")
+	@TLogAspect(value = {"code"}, pattern = "{{}}", joint = ",", str = "nihao")
+	@Limit(key = "limitTest", period = 10, count = 3)
+	@GuavaLimit
+	@SentinelResource("test")
+	//@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/save")
 	public Result<EmptyResult> save( @RequestBody BrandAddCommand brand ) {
 		boolean result = brandCommandService.addBrand(brand);
