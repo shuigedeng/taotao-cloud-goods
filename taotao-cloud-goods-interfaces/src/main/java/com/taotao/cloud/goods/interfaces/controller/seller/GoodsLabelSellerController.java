@@ -21,7 +21,7 @@ import com.taotao.boot.common.model.request.IdQuery;
 import com.taotao.boot.common.model.request.IdsCommand;
 import com.taotao.boot.common.model.result.EmptyResult;
 import com.taotao.boot.common.model.result.Result;
-import com.taotao.boot.security.spring.utils.SecurityUtils;
+import com.taotao.boot.security.spring.support.utils.SecurityUtils;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
 import com.taotao.cloud.goods.application.dto.own.store.command.StoreGoodsLabelAddCommand;
