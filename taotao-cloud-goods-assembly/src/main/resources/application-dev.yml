@@ -997,6 +997,10 @@ taotao:
     captcha:
       enabled: false
     security:
+      authorization:
+        ignore-url:
+          - /sys/buyer/dict/test/{code}
+          - /sys/manager/dept/tree
       oauth2:
         endpoint:
           uaa-service-name: dante-cloud-uaa
@@ -1023,9 +1027,7 @@ taotao:
           validate: local
           jwk:
             certificate: standard
-      ignore-url:
-        - /sys/buyer/dict/test/{code}
-        - /sys/manager/dept/tree
+
 
 mybatis-plus:
   typeAliasesPackage: com.taotao.cloud.goods.infrastructure.persistent.persistence  #实体扫描 多个package用户逗号或者分号分割
