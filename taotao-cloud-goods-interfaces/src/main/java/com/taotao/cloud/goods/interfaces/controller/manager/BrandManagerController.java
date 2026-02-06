@@ -27,7 +27,7 @@ import com.taotao.boot.data.mybatis.mybatisplus.MpUtils;
 import com.taotao.boot.idempotent.annotation.Idempotent;
 import com.taotao.boot.ratelimit.ratelimitguava.GuavaLimit;
 import com.taotao.boot.ratelimit.ratelimitguava.Limit;
-import com.taotao.boot.security.spring.support.annotation.NotAuth;
+import com.taotao.boot.security.spring.annotation.NotAuth;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
 import com.taotao.cloud.goods.application.dto.own.brand.command.BrandAddCommand;
