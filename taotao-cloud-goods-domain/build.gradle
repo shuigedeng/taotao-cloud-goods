@@ -59,10 +59,10 @@ dependencies {
 
     //cloud
     //api "io.github.shuigedeng:taotao-cloud-starter-seata"
-    //api "io.github.shuigedeng:taotao-cloud-starter-sentinel"
+    api "io.github.shuigedeng:taotao-cloud-starter-sentinel"
     //api "io.github.shuigedeng:taotao-cloud-starter-stream"
-    //api "io.github.shuigedeng:taotao-cloud-starter-alibaba"
-    //api "io.github.shuigedeng:taotao-cloud-starter-ttc"
+    api "io.github.shuigedeng:taotao-cloud-starter-alibaba"
+    api "io.github.shuigedeng:taotao-cloud-starter-ttc"
     //api "io.github.shuigedeng:taotao-cloud-starter-openfeign"
 
     //boot
