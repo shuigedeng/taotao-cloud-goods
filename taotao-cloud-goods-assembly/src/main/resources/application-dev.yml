@@ -897,14 +897,13 @@ spring:
 
 taotao:
   cloud:
-
     alibaba:
       nacos:
         enabled: true
       seata:
-        enabled: true
-      sentinel:
         enabled: false
+      sentinel:
+        enabled: true
     stream:
       enabled: true
   boot:
