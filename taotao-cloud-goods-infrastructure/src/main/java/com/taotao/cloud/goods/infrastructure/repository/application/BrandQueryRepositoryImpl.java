@@ -49,7 +49,7 @@ public class BrandQueryRepositoryImpl implements BrandQueryRepository {
 
     @Override
     public BrandResult getById( Long id ) {
-        BrandPO brandPO = brandMapper.selectById(id);
+//        BrandPO brandPO = brandMapper.selectById(id);
 
         DictRes dictRes = sysAclService.findByCode(DictReq.builder().code("123").build());
 
