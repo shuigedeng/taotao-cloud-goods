@@ -373,6 +373,23 @@ rocketmq:
     pull-batch-size: 10
 
 spring:
+  http:
+    clients:
+      connect-timeout: 30s
+      read-timeout: 30s
+#    serviceclient:
+#      sys:
+#        base-url: lb://taotao-cloud-sys
+#        connectTimeout: 30s
+#        readTimeout: 30s
+#        defaultHeader:
+#          Authorization: "Bearer aaaa"
+#      stackoverflow:
+#        base-url: https://api.stackexchange.com?site=stackoverflow
+#        connectTimeout: 30s
+#        readTimeout: 30s
+#        defaultHeader:
+#          Authorization: "Bearer aaaa"
   autoconfigure:
     exclude:
       #此处排除掉此配置类  是因为在走api请求或者静态资源请求的时候会走FunctionHandlerMapping 导致出现静态资源获取不到
