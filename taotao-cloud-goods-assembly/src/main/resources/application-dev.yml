@@ -373,23 +373,48 @@ rocketmq:
     pull-batch-size: 10
 
 spring:
+  grpc:
+    server:
+      port: 9098
+      enabled: true
+      servlet:
+        enabled: false
+    client:
+      enabled: true
+      channels:
+        local:
+          address: static://localhost:9098
+          enableKeepAlive: true
+          idle-timeout: 60s
+        #laokou-common-grpc:
+        #  address: discovery://laokou-common-grpc
+        #  enable-keep-alive: true
+        #  idle-timeout: 60s
   http:
     clients:
       connect-timeout: 30s
       read-timeout: 30s
-#    serviceclient:
-#      sys:
-#        base-url: lb://taotao-cloud-sys
-#        connectTimeout: 30s
-#        readTimeout: 30s
-#        defaultHeader:
-#          Authorization: "Bearer aaaa"
-#      stackoverflow:
-#        base-url: https://api.stackexchange.com?site=stackoverflow
-#        connectTimeout: 30s
-#        readTimeout: 30s
-#        defaultHeader:
-#          Authorization: "Bearer aaaa"
+    serviceclient:
+      taotao-cloud-sys:
+        base-url: lb://taotao-cloud-sys
+        connectTimeout: 30s
+        readTimeout: 30s
+        defaultHeader:
+          Authorization: "Bearer 123"
+      stackoverflow:
+        base-url: https://api.stackexchange.com/2.3
+        connectTimeout: 30s
+        readTimeout: 30s
+        defaultHeader:
+          Accept: "application/json"
+          Accept-Encoding: "gzip"
+      github:
+        base-url: https://api.github.com
+        connectTimeout: 30s
+        readTimeout: 30s
+        defaultHeader:
+          Authorization: "Bearer 123"
+          X-GitHub-Api-Version: "2022-11-28"
   autoconfigure:
     exclude:
       #此处排除掉此配置类  是因为在走api请求或者静态资源请求的时候会走FunctionHandlerMapping 导致出现静态资源获取不到
