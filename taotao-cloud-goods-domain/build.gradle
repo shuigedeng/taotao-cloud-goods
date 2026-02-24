@@ -85,6 +85,8 @@ dependencies {
     api "io.github.shuigedeng:taotao-boot-starter-mq-rocketmq"
     api "io.github.shuigedeng:taotao-boot-starter-mq-kafka"
 
+    api 'com.scalar.maven:scalar-webmvc:0.5.55'
+
     //AVIATOR——轻量级JAVA表达式求值引擎 https://blog.csdn.net/ZhangQingmu/article/details/125087255
     //https://code.google.com/p/aviator/
     //http://code.google.com/p/aviator/wiki/User_Guide_zh

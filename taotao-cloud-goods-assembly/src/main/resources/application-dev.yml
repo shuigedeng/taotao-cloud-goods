@@ -1148,6 +1148,7 @@ taotao:
         ignore-url:
           - /sys/buyer/dict/test/{code}
           - /sys/manager/dept/tree
+          - /docs
       oauth2:
         endpoint:
           uaa-service-name: dante-cloud-uaa
@@ -1493,3 +1494,14 @@ herodotus:
       validate: local
       jwk:
         certificate: standard
+
+scalar:
+  enabled: true
+  actuatorEnabled: true
+  url: http://127.0.0.1:33332/v3/api-docs/taotao-cloud-goods
+  path: /docs
+  pageTitle: My API Documentation
+  tagSorter: ALPHA
+  operationSorter: ALPHA
+  schemaPropertyOrder: ALPHA
+  persistAuth: true
