@@ -725,7 +725,7 @@ spring:
         jwt:
           issuer-uri: ${herodotus.endpoint.issuer-uri}
           #jwk-set-uri: ${herodotus.endpoint.jwk-set-uri}
-          jwk-set-uri: http://192.168.10.45:33336/oauth2/jwks
+          jwk-set-uri: http://127.0.0.1:33334/oauth2/jwks
         opaquetoken:
           client-id: 25953fda237841689743a94871915661
           client-secret: a667ed5606f44e159db062239ed5a838
@@ -1160,7 +1160,7 @@ taotao:
           authorization-uri: http://127.0.0.1:33336/oauth2/authorize
           token-revocation-uri: http://127.0.0.1:33336/oauth2/revoke
           token-introspection-uri: http://127.0.0.1:33336/oauth2/introspect
-          jwk-set-uri: http://127.0.0.1:33336/oauth2/jwks
+          jwk-set-uri: http://127.0.0.1:33334/oauth2/jwks
           issuer-uri: ${herodotus.endpoint.uaa-service-uri}
           oidc-client-registration-uri: http://127.0.0.1:33336/connect/register
           oidc-user-info-uri: http://127.0.0.1:33336/userinfo
@@ -1482,7 +1482,7 @@ herodotus:
     authorization-uri: http://127.0.0.1:33336/oauth2/authorize
     token-revocation-uri: http://127.0.0.1:33336/oauth2/revoke
     token-introspection-uri: http://127.0.0.1:33336/oauth2/introspect
-    jwk-set-uri: http://127.0.0.1:33336/oauth2/jwks
+    jwk-set-uri: http://127.0.0.1:33334/oauth2/jwks
     issuer-uri: ${herodotus.endpoint.uaa-service-uri}
     oidc-client-registration-uri: http://127.0.0.1:33336/connect/register
     oidc-user-info-uri: http://127.0.0.1:33336/userinfo
