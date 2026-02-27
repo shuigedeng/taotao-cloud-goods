@@ -1,11 +1,10 @@
 package com.taotao.cloud.goods.application.dto.own.goods.command;
 
-import jakarta.validation.constraints.NotEmpty;
-import lombok.Data;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
+import com.taotao.boot.ddd.model.application.dto.MarkerCommand;
+import jakarta.validation.ConstraintViolationException;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 
-import java.util.List;
+import java.io.Serial;
 
 /**
  * UnderCommand 类
@@ -14,8 +13,13 @@ import java.util.List;
  * @version 2022.05
  * @since 2026/1/31
  */
-@Data
-public class UnderCommand {
-	private Long goodsId;
-	private String reason ;
+public record UnderCommand(Long goodsId, String reason) implements MarkerCommand {
+	@Serial
+	private static final long serialVersionUID = -8823775607604091035L;
+
+	@Override
+	public void check() throws MethodArgumentNotValidException, ConstraintViolationException {
+		System.out.println("========");
+		MarkerCommand.super.check();
+	}
 }

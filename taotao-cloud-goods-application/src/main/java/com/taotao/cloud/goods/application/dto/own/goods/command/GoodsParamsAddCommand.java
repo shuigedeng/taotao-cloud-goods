@@ -16,13 +16,14 @@
 
 package com.taotao.cloud.goods.application.dto.own.goods.command;
 
-import com.taotao.boot.ddd.model.application.dto.Command;
+import com.taotao.boot.ddd.model.application.dto.MarkerCommand;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
+
 import java.io.Serial;
 import java.util.List;
-import lombok.*;
-import lombok.experimental.Accessors;
 
 /**
  * 商品关联参数
@@ -31,24 +32,13 @@ import lombok.experimental.Accessors;
  * @version 2022.04
  * @since 2022-04-14 21:36:45
  */
-@Setter
-@Getter
-@ToString
-@Accessors(fluent = true)
-@AllArgsConstructor
-@NoArgsConstructor
 @Schema(description = "商品参数分组")
-public class GoodsParamsAddCommand extends Command {
+public record GoodsParamsAddCommand(@Schema(description = "分组id") @NotEmpty(message = "xxxx") Long groupId,
+									@Schema(description = "分组名称") @NotBlank(message = "xxxx") String groupName,
+									@Schema(description = "分组内的商品参数列表") @NotEmpty(message = "xxxx") @Valid List<GoodsParamsItemAddCommand> goodsParamsItemAddCmdList)
+	implements MarkerCommand {
 
-    @Serial private static final long serialVersionUID = 4892783539320159200L;
+	@Serial
+	private static final long serialVersionUID = 4892783539320159200L;
 
-    @Schema(description = "分组id")
-    private Long groupId;
-
-    @Schema(description = "分组名称")
-    private String groupName;
-
-    @Valid
-    @Schema(description = "分组内的商品参数列表")
-    private List<GoodsParamsItemAddCommand> goodsParamsItemAddCmdList;
 }

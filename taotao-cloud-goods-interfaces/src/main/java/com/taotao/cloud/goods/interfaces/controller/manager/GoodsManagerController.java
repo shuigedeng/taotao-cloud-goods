@@ -30,6 +30,7 @@ import com.taotao.cloud.goods.api.enums.GoodsAuthEnum;
 import com.taotao.cloud.goods.api.enums.GoodsStatusEnum;
 import com.taotao.cloud.goods.application.dto.own.goods.command.AuthCommand;
 import com.taotao.cloud.goods.application.dto.own.goods.command.GoodsCreateCommand;
+import com.taotao.cloud.goods.application.dto.own.goods.command.GoodsParamsAddCommand;
 import com.taotao.cloud.goods.application.dto.own.goods.command.UnderCommand;
 import com.taotao.cloud.goods.application.dto.own.goods.query.GoodsPageQuery;
 import com.taotao.cloud.goods.application.dto.own.goods.result.GoodsResult;
@@ -123,6 +124,18 @@ public class GoodsManagerController extends BusinessController {
 	//@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/under")
 	public Result<EmptyResult> underGoods( @RequestBody UnderCommand underCommand){
+//		return Result.success(
+//			goodsCommandService.managerUpdateGoodsMarketAble(
+//				goodsIds, GoodsStatusEnum.DOWN, reason));
+		return Result.empty();
+	}
+
+	@Operation(summary = "管理员下架商品xxx", description = "管理员下架商品")
+	@RequestLogger("管理员下架商品xxx")
+	@NotAuth
+	//@PreAuthorize("hasAuthority('dept:tree:data')")
+	@PostMapping(value = "/command/underxx")
+	public Result<EmptyResult> underGoodsxx( @RequestBody GoodsParamsAddCommand underCommand){
 //		return Result.success(
 //			goodsCommandService.managerUpdateGoodsMarketAble(
 //				goodsIds, GoodsStatusEnum.DOWN, reason));
