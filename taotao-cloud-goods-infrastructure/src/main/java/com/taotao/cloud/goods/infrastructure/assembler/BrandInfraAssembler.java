@@ -66,4 +66,5 @@ public interface BrandInfraAssembler {
      * @since 2022-04-27 16:57:56
      */
     BrandPO toPO(BrandAddCommand brandDTO);
+	BrandAddCommand toCommand(BrandPO brandPO);
 }
