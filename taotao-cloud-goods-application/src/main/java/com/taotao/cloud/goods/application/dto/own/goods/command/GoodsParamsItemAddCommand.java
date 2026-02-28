@@ -16,13 +16,9 @@
 
 package com.taotao.cloud.goods.application.dto.own.goods.command;
 
-import com.taotao.boot.ddd.model.application.dto.Command;
+import com.taotao.boot.ddd.model.application.dto.MarkerCommand;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
-import lombok.*;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-import lombok.experimental.Accessors;
 
 /**
  * 商品参数项
@@ -31,80 +27,16 @@ import lombok.experimental.Accessors;
  * @version 2022.04
  * @since 2022-04-14 21:36:45
  */
-@Setter
-@Getter
-@ToString
-@Accessors(fluent = true)
-@AllArgsConstructor
-@NoArgsConstructor
 @Schema(description = "商品参数列表")
-public class GoodsParamsItemAddCommand extends Command {
+public record GoodsParamsItemAddCommand(@Schema(description = "参数ID") Long paramId,
+										@Schema(description = "参数名字") String paramName,
+										@Schema(description = "参数值") String paramValue,
+										@Schema(description = "是否可索引，0 不索引 1 索引") Integer isIndex,
+										@Schema(description = "是否必填，0 不显示 1 显示") Integer required,
+										@Schema(description = "排序") Integer sort)
+	implements MarkerCommand {
 
-    @Serial private static final long serialVersionUID = -8823775607604091035L;
+	@Serial
+	private static final long serialVersionUID = 4892783539320159200L;
 
-    @Schema(description = "参数ID")
-    private Long paramId;
-
-    @Schema(description = "参数名字")
-    private String paramName;
-
-    @Schema(description = "参数值")
-    private String paramValue;
-
-    @Schema(description = "是否可索引，0 不索引 1 索引")
-    private Integer isIndex;
-
-    @Schema(description = "是否必填，0 不显示 1 显示")
-    private Integer required;
-
-    @Schema(description = "排序")
-    private Integer sort;
-
-	public Long getParamId() {
-		return paramId;
-	}
-
-	public void setParamId( Long paramId ) {
-		this.paramId = paramId;
-	}
-
-	public String getParamName() {
-		return paramName;
-	}
-
-	public void setParamName( String paramName ) {
-		this.paramName = paramName;
-	}
-
-	public String getParamValue() {
-		return paramValue;
-	}
-
-	public void setParamValue( String paramValue ) {
-		this.paramValue = paramValue;
-	}
-
-	public Integer getIsIndex() {
-		return isIndex;
-	}
-
-	public void setIsIndex( Integer isIndex ) {
-		this.isIndex = isIndex;
-	}
-
-	public Integer getRequired() {
-		return required;
-	}
-
-	public void setRequired( Integer required ) {
-		this.required = required;
-	}
-
-	public Integer getSort() {
-		return sort;
-	}
-
-	public void setSort( Integer sort ) {
-		this.sort = sort;
-	}
 }
