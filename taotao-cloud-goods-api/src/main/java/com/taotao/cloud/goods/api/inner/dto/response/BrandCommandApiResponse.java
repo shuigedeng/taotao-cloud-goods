@@ -16,15 +16,16 @@
 
 package com.taotao.cloud.goods.api.inner.dto.response;
 
-import com.taotao.boot.common.model.response.ResponseBase;
+import com.taotao.boot.common.model.ddd.types.MarkerResponse;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
 import lombok.experimental.Accessors;
 
 import java.io.Serial;
-import java.io.Serializable;
 
-/** 品牌VO */
+/**
+ * 品牌VO
+ */
 @Setter
 @Getter
 @ToString
@@ -32,17 +33,17 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 @Schema(description = "品牌VO")
-public class BrandCommandApiResponse  extends ResponseBase implements Serializable {
+public class BrandCommandApiResponse implements MarkerResponse {
 
-    @Serial
+	@Serial
 	private static final long serialVersionUID = 3829199991161122317L;
 
-    @Schema(description = "id")
-    private String id;
+	@Schema(description = "id")
+	private String id;
 
-    @Schema(description = "名称")
-    private String name;
+	@Schema(description = "名称")
+	private String name;
 
-    @Schema(description = "logo")
-    private String logo;
+	@Schema(description = "logo")
+	private String logo;
 }

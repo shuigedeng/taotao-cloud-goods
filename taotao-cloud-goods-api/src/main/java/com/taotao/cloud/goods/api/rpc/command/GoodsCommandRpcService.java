@@ -18,7 +18,7 @@ package com.taotao.cloud.goods.api.rpc.command;
 
 import com.taotao.boot.common.model.request.Request;
 import com.taotao.boot.common.model.response.Response;
-import com.taotao.cloud.goods.api.rpc.dto.request.GoodsQueryRpcRequest;
+import com.taotao.cloud.goods.api.rpc.dto.query.GoodsRpcQuery;
 import com.taotao.cloud.goods.api.rpc.dto.response.GoodsQueryRpcResponse;
 
 /**
@@ -35,5 +35,5 @@ public interface GoodsCommandRpcService {
 	 *
 	 * @return Response<GoodsQueryRpcResponse>
 	 */
-	Response<GoodsQueryRpcResponse> queryGoodsByParams( Request<GoodsQueryRpcRequest> goodsQueryRpcRequest );
+	Response<GoodsQueryRpcResponse> queryGoodsByParams( Request<GoodsRpcQuery> goodsQueryRpcRequest );
 }

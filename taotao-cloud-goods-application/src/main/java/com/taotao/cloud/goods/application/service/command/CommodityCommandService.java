@@ -27,7 +27,7 @@ import java.util.List;
  * @version 2022.04
  * @since 2022-04-27 16:59:47
  */
-public interface CommodityCommandService extends CommandService {
+public interface CommodityCommandService implements CommandService {
 
     /**
      * 添加直播商品

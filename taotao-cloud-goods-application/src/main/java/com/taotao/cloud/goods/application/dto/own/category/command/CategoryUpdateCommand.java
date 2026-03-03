@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.goods.application.dto.own.category.command;
 
-import com.taotao.boot.ddd.model.application.dto.Command;
+import com.taotao.boot.common.model.ddd.types.Command;;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
 import lombok.experimental.Accessors;
@@ -35,7 +35,7 @@ import lombok.experimental.Accessors;
 @AllArgsConstructor
 @NoArgsConstructor
 @Schema(description = "分类品牌CO")
-public class CategoryUpdateCommand extends Command {
+public class CategoryUpdateCommand implements Command {
 
     private String id;
 }

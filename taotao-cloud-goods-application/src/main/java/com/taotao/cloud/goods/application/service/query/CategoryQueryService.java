@@ -28,7 +28,7 @@ import java.util.Map;
  * @version 2022.04
  * @since 2022-04-27 16:59:28
  */
-public interface CategoryQueryService extends QueryService {
+public interface CategoryQueryService implements Query Service {
 
     //	List<CategoryPO> childrenList(Long parentId);
     //

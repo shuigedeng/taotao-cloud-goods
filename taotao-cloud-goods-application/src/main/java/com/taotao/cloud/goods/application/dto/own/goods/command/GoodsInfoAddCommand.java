@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.goods.application.dto.own.goods.command;
 
-import com.taotao.boot.ddd.model.application.dto.Command;
+import com.taotao.boot.common.model.ddd.types.Command;;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.math.BigDecimal;
 import lombok.*;
@@ -29,7 +29,7 @@ import lombok.experimental.Accessors;
 @Accessors(fluent = true)
 @AllArgsConstructor
 @NoArgsConstructor
-public class GoodsInfoAddCommand extends Command {
+public class GoodsInfoAddCommand implements Command {
 
     @Schema(description = "图片mediaID")
     private String coverImgUrl;

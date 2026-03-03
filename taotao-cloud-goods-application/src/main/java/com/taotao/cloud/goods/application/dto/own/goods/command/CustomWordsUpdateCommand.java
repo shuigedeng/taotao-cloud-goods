@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.goods.application.dto.own.goods.command;
 
-import com.taotao.boot.ddd.model.application.dto.Command;
+import com.taotao.boot.common.model.ddd.types.Command;;
 
 /**
  * CustomWordsUpdateCommand
@@ -25,6 +25,6 @@ import com.taotao.boot.ddd.model.application.dto.Command;
  * @version 2026.04
  * @since 2025-12-19 09:30:45
  */
-public class CustomWordsUpdateCommand extends Command {
+public class CustomWordsUpdateCommand implements Command {
 
 }

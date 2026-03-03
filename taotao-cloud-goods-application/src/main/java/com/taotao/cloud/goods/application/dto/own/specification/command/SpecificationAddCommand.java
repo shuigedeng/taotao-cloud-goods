@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.goods.application.dto.own.specification.command;
 
-import com.taotao.boot.ddd.model.application.dto.Command;
+import com.taotao.boot.common.model.ddd.types.Command;;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
 import lombok.*;
@@ -35,7 +35,7 @@ import lombok.experimental.Accessors;
 @AllArgsConstructor
 @NoArgsConstructor
 @Schema(description = "规格查询参数")
-public class SpecificationAddCommand extends Command {
+public class SpecificationAddCommand implements Command {
 
     @Serial private static final long serialVersionUID = 8906820486037326039L;
 

@@ -28,7 +28,7 @@ import com.taotao.cloud.goods.application.dto.own.draft.command.DraftGoodsSkuPar
  * @version 2022.04
  * @since 2022-04-27 16:59:56
  */
-public interface DraftGoodsCommandService extends CommandService {
+public interface DraftGoodsCommandService implements CommandService {
 
     /**
      * 添加草稿商品

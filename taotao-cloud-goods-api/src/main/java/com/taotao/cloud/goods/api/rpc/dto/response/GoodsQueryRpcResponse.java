@@ -16,34 +16,21 @@
 
 package com.taotao.cloud.goods.api.rpc.dto.response;
 
-import com.taotao.boot.common.model.response.ResponseBase;
+import com.taotao.boot.common.model.ddd.types.MarkerResponse;
+
 import java.io.Serial;
-import java.io.Serializable;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 
 /**
  * 菜单查询对象
  *
+ * @param id id
  * @author shuigedeng
  * @version 2021.10
  * @since 2021-10-09 15:27:42
  */
-@Setter
-@Getter
-@ToString
-@Accessors(fluent = true)
-@AllArgsConstructor
-@NoArgsConstructor
-public class GoodsQueryRpcResponse extends ResponseBase implements Serializable {
-    @Serial
-    private static final long serialVersionUID = 5126530068827085130L;
+public record GoodsQueryRpcResponse(Long id) implements MarkerResponse {
 
-    /** id */
-    private Long id;
+	@Serial
+	private static final long serialVersionUID = 5126530068827085130L;
 
 }

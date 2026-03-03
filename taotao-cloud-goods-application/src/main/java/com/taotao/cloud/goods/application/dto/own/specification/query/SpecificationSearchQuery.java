@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.goods.application.dto.own.specification.query;
 
-import com.taotao.boot.ddd.model.application.dto.Query;
+import com.taotao.boot.common.model.ddd.types.Query;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
 import lombok.*;
@@ -29,7 +29,7 @@ import lombok.experimental.Accessors;
 @AllArgsConstructor
 @NoArgsConstructor
 @Schema(description = "参数组关联的参数集合")
-public class SpecificationSearchQuery extends Query {
+public class SpecificationSearchQuery implements Query  {
 
     @Serial private static final long serialVersionUID = -4433579132929428572L;
 

@@ -26,7 +26,7 @@ import com.taotao.cloud.goods.application.dto.own.store.result.StudioCommodityRe
  * @version 2022.04
  * @since 2022-04-27 17:01:11
  */
-public interface StudioQueryService extends QueryService {
+public interface StudioQueryService implements Query Service {
 
     /**
      * 获取直播间信息

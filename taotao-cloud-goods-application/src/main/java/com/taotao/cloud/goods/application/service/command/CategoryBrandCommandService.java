@@ -26,7 +26,7 @@ import java.util.List;
  * @version 2022.04
  * @since 2022-04-27 16:59:19
  */
-public interface CategoryBrandCommandService extends CommandService {
+public interface CategoryBrandCommandService implements CommandService {
 
     /**
      * 通过分类ID删除关联品牌

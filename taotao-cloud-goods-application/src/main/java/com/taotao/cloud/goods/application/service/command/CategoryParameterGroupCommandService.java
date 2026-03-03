@@ -26,7 +26,7 @@ import com.taotao.cloud.goods.application.dto.own.category.command.CategoryParam
  * @version 2022.04
  * @since 2022-04-27 16:59:23
  */
-public interface CategoryParameterGroupCommandService extends CommandService {
+public interface CategoryParameterGroupCommandService implements CommandService {
 
     /**
      * 更新分类参数组绑定信息

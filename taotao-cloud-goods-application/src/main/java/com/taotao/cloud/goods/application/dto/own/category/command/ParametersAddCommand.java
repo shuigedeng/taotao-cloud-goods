@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.goods.application.dto.own.category.command;
 
-import com.taotao.boot.ddd.model.application.dto.Command;
+import com.taotao.boot.common.model.ddd.types.Command;;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
 import lombok.*;
@@ -29,7 +29,7 @@ import lombok.experimental.Accessors;
 @Accessors(fluent = true)
 @AllArgsConstructor
 @NoArgsConstructor
-public class ParametersAddCommand extends Command {
+public class ParametersAddCommand implements Command {
 
     @Serial private static final long serialVersionUID = 724427321881170297L;
 

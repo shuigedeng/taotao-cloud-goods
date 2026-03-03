@@ -26,7 +26,7 @@ import java.util.List;
  * @version 2022.04
  * @since 2022-04-27 17:01:01
  */
-public interface SpecificationCommandService extends CommandService {
+public interface SpecificationCommandService implements CommandService {
 
     /**
      * 删除规格

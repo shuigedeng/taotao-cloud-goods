@@ -19,7 +19,7 @@ package com.taotao.cloud.goods.api.inner.command;
 import com.taotao.boot.common.constant.ServiceNameConstants;
 import com.taotao.boot.common.model.request.Request;
 import com.taotao.boot.common.model.response.Response;
-import com.taotao.cloud.goods.api.inner.dto.request.GoodsCommandApiRequest;
+import com.taotao.cloud.goods.api.inner.dto.command.GoodsApiCommand;
 import com.taotao.cloud.goods.api.inner.dto.response.GoodsCommandApiResponse;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -42,7 +42,7 @@ public interface GoodsCommandApi {
 	 * @return Response<GoodsCommandApiResponse>
 	 */
 	@PostExchange(value = "/inner/goods/command/store/detail")
-	Response<GoodsCommandApiResponse> updateStoreDetail( @Validated @RequestBody Request<GoodsCommandApiRequest> id );
+	Response<GoodsCommandApiResponse> updateStoreDetail( @Validated @RequestBody Request<GoodsApiCommand> id );
 
 
 	/**
@@ -51,7 +51,7 @@ public interface GoodsCommandApi {
 	 * @return Response<GoodsCommandApiResponse>
 	 */
 	@PostExchange(value = "/inner/goods/command/strore/goods")
-	Response<GoodsCommandApiResponse> underStoreGoods( @Validated @RequestBody Request<GoodsCommandApiRequest> id );
+	Response<GoodsCommandApiResponse> underStoreGoods( @Validated @RequestBody Request<GoodsApiCommand> id );
 
 
 	/**
@@ -60,5 +60,5 @@ public interface GoodsCommandApi {
 	 * @return Response<GoodsCommandApiResponse>
 	 */
 	@PostExchange(value = "/inner/goods/command/strore/goods/num")
-	Response<GoodsCommandApiResponse> countStoreGoodsNum( @Validated @RequestBody Request<GoodsCommandApiRequest> storeId );
+	Response<GoodsCommandApiResponse> countStoreGoodsNum( @Validated @RequestBody Request<GoodsApiCommand> storeId );
 }

@@ -25,7 +25,7 @@ import com.taotao.boot.ddd.model.application.service.CommandService;
  * @version 2022.04
  * @since 2022-04-27 16:59:40
  */
-public interface CategorySpecificationCommandService extends CommandService {
+public interface CategorySpecificationCommandService implements CommandService {
 
     /**
      * 通过分类ID删除关联规格

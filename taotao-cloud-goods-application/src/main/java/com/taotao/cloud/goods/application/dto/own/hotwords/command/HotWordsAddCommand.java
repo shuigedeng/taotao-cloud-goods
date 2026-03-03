@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.goods.application.dto.own.hotwords.command;
 
-import com.taotao.boot.ddd.model.application.dto.Command;
+import com.taotao.boot.common.model.ddd.types.Command;;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
@@ -31,7 +31,7 @@ import lombok.experimental.Accessors;
 @Accessors(fluent = true)
 @AllArgsConstructor
 @NoArgsConstructor
-public class HotWordsAddCommand extends Command {
+public class HotWordsAddCommand implements Command {
 
     @NotBlank(message = "搜索热词不能为空")
     @Size(max = 20, min = 1, message = "搜索热词长度限制在1-20")

@@ -22,8 +22,8 @@ import com.taotao.boot.common.model.request.Request;
 import com.taotao.boot.common.model.response.BatchResponse;
 import com.taotao.boot.common.model.response.EmptyResponse;
 import com.taotao.boot.common.model.response.Response;
-import com.taotao.cloud.goods.api.inner.dto.request.GoodsCommandApiRequest;
-import com.taotao.cloud.goods.api.inner.dto.request.GoodsSkuSpecGalleryCommandApiRequest;
+import com.taotao.cloud.goods.api.inner.dto.command.GoodsApiCommand;
+import com.taotao.cloud.goods.api.inner.dto.command.GoodsSkuSpecGalleryApiCommand;
 import com.taotao.cloud.goods.api.inner.dto.response.CategoryCommandApiResponse;
 import com.taotao.cloud.goods.api.inner.dto.response.GoodsSkuSpecGalleryCommandApiResponse;
 import org.springframework.validation.annotation.Validated;
@@ -47,7 +47,7 @@ public interface GoodsSkuCommandApi {
 	 */
 	@PostExchange(value = "/product/updateGoodsStuck")
 	Response<EmptyResponse> updateGoodsStuck(
-		@Validated @RequestBody Request<BatchRequest<GoodsSkuSpecGalleryCommandApiRequest>> goodsSkus );
+		@Validated @RequestBody Request<BatchRequest<GoodsSkuSpecGalleryApiCommand>> goodsSkus );
 
 	/**
 	 * updateBatchById
@@ -56,7 +56,7 @@ public interface GoodsSkuCommandApi {
 	 */
 	@PostExchange(value = "/product/updateBatchById")
 	Response<EmptyResponse> updateBatchById(
-		@Validated @RequestBody Request<BatchRequest<GoodsSkuSpecGalleryCommandApiRequest>> goodsSkus );
+		@Validated @RequestBody Request<BatchRequest<GoodsSkuSpecGalleryApiCommand>> goodsSkus );
 
 	/**
 	 * getGoodsSkuByIdFromCache
@@ -65,7 +65,7 @@ public interface GoodsSkuCommandApi {
 	 */
 	@PostExchange(value = "/product/getGoodsSkuByIdFromCache/sku-ids")
 	Response<BatchResponse<GoodsSkuSpecGalleryCommandApiResponse>> getGoodsSkuByIdFromCache(
-		@Validated @RequestBody Request<GoodsCommandApiRequest> skuIds );
+		@Validated @RequestBody Request<GoodsApiCommand> skuIds );
 
 	/**
 	 * getStock
@@ -73,5 +73,5 @@ public interface GoodsSkuCommandApi {
 	 * @return Response<CategoryCommandApiResponse>
 	 */
 	@PostExchange(value = "/product/getStock")
-	Response<CategoryCommandApiResponse> getStock( @Validated @RequestBody Request<GoodsCommandApiRequest> skuId );
+	Response<CategoryCommandApiResponse> getStock( @Validated @RequestBody Request<GoodsApiCommand> skuId );
 }

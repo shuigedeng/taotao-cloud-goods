@@ -17,12 +17,11 @@
 package com.taotao.cloud.goods.api.inner.command;
 
 import com.taotao.boot.common.constant.ServiceNameConstants;
-import com.taotao.boot.common.model.request.BatchRequest;
 import com.taotao.boot.common.model.request.Request;
 import com.taotao.boot.common.model.response.BatchResponse;
 import com.taotao.boot.common.model.response.EmptyResponse;
 import com.taotao.boot.common.model.response.Response;
-import com.taotao.cloud.goods.api.inner.dto.request.GoodsCommandApiRequest;
+import com.taotao.cloud.goods.api.inner.dto.command.GoodsApiCommand;
 import com.taotao.cloud.goods.api.inner.dto.response.EsGoodsIndexCommandApiResponse;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -45,7 +44,7 @@ public interface GoodsEsIndexCommandApi {
 	 */
 	@PostExchange(value = "/es/goods/sku/ids")
 	Response<BatchResponse<EsGoodsIndexCommandApiResponse>> getEsGoodsBySkuIds(
-		@Validated @RequestBody Request<BatchRequest<GoodsCommandApiRequest>> skuIdList );
+		@Validated @RequestBody Request<BatchRequest<GoodsApiCommand>> skuIdList );
 
 	/**
 	 * cleanInvalidPromotion
@@ -53,5 +52,5 @@ public interface GoodsEsIndexCommandApi {
 	 * @return Response<EmptyResponse>
 	 */
 	@PostExchange(value = "/es/clean/invalid-promotion")
-	Response<EmptyResponse> cleanInvalidPromotion( @Validated @RequestBody Request<GoodsCommandApiRequest> Request );
+	Response<EmptyResponse> cleanInvalidPromotion( @Validated @RequestBody Request<GoodsApiCommand> Request );
 }

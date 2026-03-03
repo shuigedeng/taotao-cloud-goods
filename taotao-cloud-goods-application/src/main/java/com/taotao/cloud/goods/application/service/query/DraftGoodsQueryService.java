@@ -26,7 +26,7 @@ import com.taotao.cloud.goods.application.dto.own.draft.result.DraftGoodsSkuPara
  * @version 2022.04
  * @since 2022-04-27 16:59:56
  */
-public interface DraftGoodsQueryService extends QueryService {
+public interface DraftGoodsQueryService implements Query Service {
 
     /**
      * 获取草稿商品详情

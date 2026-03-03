@@ -14,9 +14,10 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.api.inner.dto.request;
+package com.taotao.cloud.goods.api.inner.dto.command;
 
-import com.taotao.boot.common.model.request.RequestBase;
+import com.taotao.boot.common.model.ddd.types.Command;
+import com.taotao.boot.common.model.ddd.types.MarkerRequest;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
 import lombok.experimental.Accessors;
@@ -34,7 +35,7 @@ import java.util.List;
 @Accessors(fluent = true)
 @AllArgsConstructor
 @NoArgsConstructor
-public class SpecValueCommandApiRequest extends RequestBase implements Serializable {
+public class SpecValueApiCommand implements Command {
 
     @Serial
     private static final long serialVersionUID = -4433579132929428572L;

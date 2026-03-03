@@ -28,7 +28,7 @@ import com.taotao.cloud.goods.application.dto.own.commodity.result.CommoditySkuR
  * @version 2022.04
  * @since 2022-04-27 16:59:47
  */
-public interface CommodityQueryService extends QueryService {
+public interface CommodityQueryService implements Query Service {
 
     /**
      * 查询微信小程序直播商品审核状态

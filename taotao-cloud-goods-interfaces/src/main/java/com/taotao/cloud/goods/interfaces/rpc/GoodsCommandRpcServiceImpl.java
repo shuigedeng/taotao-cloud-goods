@@ -19,7 +19,7 @@ package com.taotao.cloud.goods.interfaces.rpc;
 import com.taotao.boot.common.model.request.Request;
 import com.taotao.boot.common.model.response.Response;
 import com.taotao.cloud.goods.api.rpc.command.GoodsCommandRpcService;
-import com.taotao.cloud.goods.api.rpc.dto.request.GoodsQueryRpcRequest;
+import com.taotao.cloud.goods.api.rpc.dto.query.GoodsRpcQuery;
 import com.taotao.cloud.goods.api.rpc.dto.response.GoodsQueryRpcResponse;
 import lombok.RequiredArgsConstructor;
 //import org.apache.dubbo.config.annotation.DubboService;
@@ -39,7 +39,7 @@ public class GoodsCommandRpcServiceImpl implements GoodsCommandRpcService {
 
     @Override
     public Response<GoodsQueryRpcResponse> queryGoodsByParams(
-            Request<GoodsQueryRpcRequest> goodsQueryRpcRequest) {
+            Request<GoodsRpcQuery> goodsQueryRpcRequest) {
         return null;
     }
 }

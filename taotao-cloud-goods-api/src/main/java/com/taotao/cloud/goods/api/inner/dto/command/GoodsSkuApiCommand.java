@@ -14,9 +14,10 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.api.inner.dto.request;
+package com.taotao.cloud.goods.api.inner.dto.command;
 
-import com.taotao.boot.common.model.request.RequestBase;
+import com.taotao.boot.common.model.ddd.types.Command;
+import com.taotao.boot.common.model.ddd.types.MarkerRequest;
 import com.taotao.cloud.goods.api.enums.GoodsAuthEnum;
 import com.taotao.cloud.goods.api.enums.GoodsStatusEnum;
 import com.taotao.cloud.goods.api.enums.GoodsTypeEnum;
@@ -24,7 +25,6 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
 
 import java.io.Serial;
-import java.io.Serializable;
 import java.math.BigDecimal;
 
 /**
@@ -40,7 +40,7 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @NoArgsConstructor
 @Schema(description = "商品sku基础VO")
-public class GoodsSkuCommandApiRequest extends RequestBase implements Serializable {
+public class GoodsSkuApiCommand implements Command {
 
     @Serial
     private static final long serialVersionUID = 1450550797436233753L;

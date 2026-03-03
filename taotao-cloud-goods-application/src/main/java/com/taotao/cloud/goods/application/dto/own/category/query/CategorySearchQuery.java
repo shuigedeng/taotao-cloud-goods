@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.goods.application.dto.own.category.query;
 
-import com.taotao.boot.ddd.model.application.dto.Query;
+import com.taotao.boot.common.model.ddd.types.Query;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.DecimalMax;
 import jakarta.validation.constraints.DecimalMin;
@@ -39,7 +39,7 @@ import lombok.experimental.Accessors;
 @Accessors(fluent = true)
 @AllArgsConstructor
 @NoArgsConstructor
-public class CategorySearchQuery extends Query {
+public class CategorySearchQuery implements Query {
 
     @Serial private static final long serialVersionUID = -7605952923416404638L;
 

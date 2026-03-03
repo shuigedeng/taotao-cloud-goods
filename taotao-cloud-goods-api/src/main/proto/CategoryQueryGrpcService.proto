@@ -8,10 +8,10 @@ option java_outer_classname = "CategoryQueryGrpcServiceProto";
 //option objc_class_prefix = "HLW";
 
 service CategoryQueryGrpcService {
-  rpc firstCategory (FirstCategoryQueryGrpcRequest) returns (FirstCategoryQueryGrpcResponse){}
+  rpc firstCategory (FirstCategoryQueryGrpcQuery) returns (FirstCategoryQueryGrpcResponse){}
 }
 
-message FirstCategoryQueryGrpcRequest {
+message FirstCategoryQueryGrpcQuery {
   string id = 1;
 }
 

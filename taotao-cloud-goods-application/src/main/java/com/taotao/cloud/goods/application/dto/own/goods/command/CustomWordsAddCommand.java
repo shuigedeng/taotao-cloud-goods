@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.goods.application.dto.own.goods.command;
 
-import com.taotao.boot.ddd.model.application.dto.Command;
+import com.taotao.boot.common.model.ddd.types.Command;;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -35,7 +35,7 @@ import lombok.experimental.Accessors;
 @Accessors(fluent = true)
 @AllArgsConstructor
 @NoArgsConstructor
-public class CustomWordsAddCommand extends Command {
+public class CustomWordsAddCommand implements Command {
 
     private String id;
 }

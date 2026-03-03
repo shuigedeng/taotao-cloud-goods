@@ -25,7 +25,7 @@ import com.taotao.boot.ddd.model.application.service.QueryService;
  * @version 2022.04
  * @since 2022-04-27 16:59:50
  */
-public interface CustomWordsQueryService extends QueryService {
+public interface CustomWordsQueryService implements Query Service {
 
     /**
      * 是否存在分词

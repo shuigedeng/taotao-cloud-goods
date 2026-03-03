@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.goods.application.dto.own.commodity.command;
 
-import com.taotao.boot.ddd.model.application.dto.Command;
+import com.taotao.boot.common.model.ddd.types.Command;;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
 import lombok.experimental.Accessors;
@@ -28,7 +28,7 @@ import lombok.experimental.Accessors;
 @Accessors(fluent = true)
 @AllArgsConstructor
 @NoArgsConstructor
-public class CommodityAddCommand extends Command {
+public class CommodityAddCommand implements Command {
 
     @Schema(description = "商品ID")
     private Long goodsId;

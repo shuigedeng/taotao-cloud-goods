@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.goods.api.inner.dto.response;
 
-import com.taotao.boot.common.model.response.ResponseBase;
+import com.taotao.boot.common.model.ddd.types.MarkerResponse;
 import lombok.*;
 
 import java.io.Serial;
@@ -34,7 +34,7 @@ import java.io.Serializable;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
-public class EsGoodsAttributeCommandApiResponse  extends ResponseBase implements Serializable {
+public class EsGoodsAttributeCommandApiResponse  implements MarkerResponse  {
 
     @Serial
     private static final long serialVersionUID = 4018042777559970062L;

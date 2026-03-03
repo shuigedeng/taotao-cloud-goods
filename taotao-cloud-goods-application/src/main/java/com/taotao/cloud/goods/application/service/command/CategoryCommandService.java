@@ -27,7 +27,7 @@ import com.taotao.cloud.goods.application.dto.own.category.command.CategoryUpdat
  * @version 2022.04
  * @since 2022-04-27 16:59:28
  */
-public interface CategoryCommandService extends CommandService {
+public interface CategoryCommandService implements CommandService {
 
     /**
      * 添加商品分类

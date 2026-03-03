@@ -31,7 +31,7 @@ import java.util.List;
  * @version 2022.04
  * @since 2022-04-27 17:00:15
  */
-public interface GoodsCommandService extends CommandService {
+public interface GoodsCommandService implements CommandService {
 
     /**
      * 下架所有商家商品

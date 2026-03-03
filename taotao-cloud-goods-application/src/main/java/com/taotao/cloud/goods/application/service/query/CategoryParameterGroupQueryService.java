@@ -27,7 +27,7 @@ import java.util.List;
  * @version 2022.04
  * @since 2022-04-27 16:59:23
  */
-public interface CategoryParameterGroupQueryService extends QueryService {
+public interface CategoryParameterGroupQueryService implements Query Service {
 
     /**
      * 查询分类绑定参数集合

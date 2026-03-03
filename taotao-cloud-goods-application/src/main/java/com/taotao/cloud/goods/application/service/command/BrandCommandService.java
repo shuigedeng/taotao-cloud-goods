@@ -28,7 +28,7 @@ import java.util.List;
  * @version 2022.04
  * @since 2022-04-27 16:59:15
  */
-public interface BrandCommandService extends CommandService {
+public interface BrandCommandService implements CommandService {
 
     /**
      * 删除品牌

@@ -18,18 +18,15 @@ package com.taotao.cloud.goods.interfaces.controller.inner;
 
 import com.taotao.boot.common.model.request.Request;
 import com.taotao.boot.common.model.response.Response;
-import com.taotao.boot.security.spring.annotation.NotAuth;
-import com.taotao.boot.web.annotation.InnerApi;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.InnerController;
 import com.taotao.cloud.goods.api.inner.command.GoodsCommandApi;
-import com.taotao.cloud.goods.api.inner.dto.request.GoodsCommandApiRequest;
+import com.taotao.cloud.goods.api.inner.dto.command.GoodsApiCommand;
 import com.taotao.cloud.goods.api.inner.dto.response.GoodsCommandApiResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -48,14 +45,14 @@ public class GoodsCommandApiController extends InnerController implements GoodsC
     @Override
 	@RequestLogger
 	@Operation(summary = "根据父id获取商品分类列表", description = "根据父id获取商品分类列表111")
-    public Response<GoodsCommandApiResponse> updateStoreDetail(@Validated Request<GoodsCommandApiRequest> id) {
+    public Response<GoodsCommandApiResponse> updateStoreDetail(@Validated Request<GoodsApiCommand> id) {
         return null;
     }
 
     @Override
 	@RequestLogger
 	@Operation(summary = "根据父id获取商品分类列表", description = "根据父id获取商品分类列表222")
-    public Response<GoodsCommandApiResponse> underStoreGoods(@Validated Request<GoodsCommandApiRequest> id) {
+    public Response<GoodsCommandApiResponse> underStoreGoods(@Validated Request<GoodsApiCommand> id) {
         return null;
     }
 
@@ -63,7 +60,7 @@ public class GoodsCommandApiController extends InnerController implements GoodsC
 	@RequestLogger
 	@Operation(summary = "根据父id获取商品分类列表", description = "根据父id获取商品分类列表33")
     public Response<GoodsCommandApiResponse> countStoreGoodsNum(
-		@Validated Request<GoodsCommandApiRequest> storeId) {
+		@Validated Request<GoodsApiCommand> storeId) {
         return null;
     }
 }

@@ -14,30 +14,23 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.api.inner.dto.request;
+package com.taotao.cloud.goods.api.rpc.dto.command;
 
-import io.swagger.v3.oas.annotations.media.Schema;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.taotao.boot.common.model.ddd.types.Command;
 
 import java.io.Serial;
-import java.util.List;
 
-/** 商品规格VO */
-@Setter
-@Getter
-@AllArgsConstructor
-@NoArgsConstructor
-public class GoodsSkuSpecGalleryCommandApiRequest extends GoodsSkuCommandApiRequest {
+/**
+ * 菜单查询对象
+ *
+ * @param id id
+ * @author shuigedeng
+ * @version 2021.10
+ * @since 2021-10-09 15:27:42
+ */
+public record GoodsRpcCommand(Long id) implements Command {
 
-    @Serial
-    private static final long serialVersionUID = -7651149660489332344L;
+	@Serial
+	private static final long serialVersionUID = 5126530068827085130L;
 
-    @Schema(description = "规格列表")
-    private List<SpecValueCommandApiRequest> specList;
-
-    @Schema(description = "商品图片")
-    private List<String> goodsGalleryList;
 }

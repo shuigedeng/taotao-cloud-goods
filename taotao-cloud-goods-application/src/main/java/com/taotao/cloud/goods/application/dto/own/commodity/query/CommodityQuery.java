@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.goods.application.dto.own.commodity.query;
 
-import com.taotao.boot.ddd.model.application.dto.Query;
+import com.taotao.boot.common.model.ddd.types.Query;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
 import lombok.experimental.Accessors;
@@ -28,7 +28,7 @@ import lombok.experimental.Accessors;
 @Accessors(fluent = true)
 @AllArgsConstructor
 @NoArgsConstructor
-public class CommodityQuery extends Query {
+public class CommodityQuery implements Query  {
 
     @Schema(description = "商品ID")
     private Long goodsId;

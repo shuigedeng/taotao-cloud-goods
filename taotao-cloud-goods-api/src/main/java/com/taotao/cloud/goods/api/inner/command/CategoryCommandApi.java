@@ -20,7 +20,7 @@ import com.taotao.boot.common.constant.ServiceNameConstants;
 import com.taotao.boot.common.model.request.Request;
 import com.taotao.boot.common.model.response.BatchResponse;
 import com.taotao.boot.common.model.response.Response;
-import com.taotao.cloud.goods.api.inner.dto.request.CategoryCommandApiRequest;
+import com.taotao.cloud.goods.api.inner.dto.command.CategoryApiCommand;
 import com.taotao.cloud.goods.api.inner.dto.response.CategoryTreeCommandApiResponse;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -38,5 +38,5 @@ public interface CategoryCommandApi {
 
 	@PostExchange(value = "/category/first/id/{id:[0-9]*}")
 	Response<BatchResponse<CategoryTreeCommandApiResponse>> firstCategory(
-		@Validated @RequestBody Request<CategoryCommandApiRequest> id);
+		@Validated @RequestBody Request<CategoryApiCommand> id);
 }

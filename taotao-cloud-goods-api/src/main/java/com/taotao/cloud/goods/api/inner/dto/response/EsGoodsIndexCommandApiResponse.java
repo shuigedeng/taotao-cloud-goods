@@ -17,7 +17,7 @@
 package com.taotao.cloud.goods.api.inner.dto.response;
 
 import com.taotao.boot.common.enums.PromotionTypeEnum;
-import com.taotao.boot.common.model.response.ResponseBase;
+import com.taotao.boot.common.model.ddd.types.MarkerResponse;
 import com.taotao.cloud.goods.api.enums.GoodsTypeEnum;
 import lombok.*;
 import lombok.experimental.Accessors;
@@ -41,7 +41,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Accessors(fluent = true)
-public class EsGoodsIndexCommandApiResponse  extends ResponseBase implements Serializable {
+public class EsGoodsIndexCommandApiResponse  implements MarkerResponse  {
 
 	@Serial
 	private static final long serialVersionUID = -6856471777036048874L;

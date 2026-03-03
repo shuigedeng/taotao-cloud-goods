@@ -34,7 +34,7 @@ import java.util.Map;
  * @see BaseSuperService
  * @since 2023-08-18 16:00:58
  */
-public interface GoodsSkuQueryService extends QueryService {
+public interface GoodsSkuQueryService implements Query Service {
     /// **
     // * 获取商品SKU缓存ID
     // *

@@ -26,7 +26,7 @@ import com.taotao.cloud.goods.application.dto.own.goods.result.GoodsSkuParamsRes
  * @version 2022.04
  * @since 2022-04-27 17:00:15
  */
-public interface GoodsQueryService extends QueryService {
+public interface GoodsQueryService implements Query Service {
 
     /**
      * 根据品牌获取商品

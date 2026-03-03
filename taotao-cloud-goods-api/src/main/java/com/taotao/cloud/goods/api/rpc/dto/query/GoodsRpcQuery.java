@@ -14,33 +14,23 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.api.rpc.dto.request;
+package com.taotao.cloud.goods.api.rpc.dto.query;
 
-import com.taotao.boot.common.model.request.RequestBase;
-import lombok.*;
-import lombok.experimental.Accessors;
+import com.taotao.boot.common.model.ddd.types.Query;
 
 import java.io.Serial;
-import java.io.Serializable;
 
 /**
  * 菜单查询对象
  *
+ * @param id id
  * @author shuigedeng
  * @version 2021.10
  * @since 2021-10-09 15:27:42
  */
-@Setter
-@Getter
-@ToString
-@Accessors(fluent = true)
-@AllArgsConstructor
-@NoArgsConstructor
-public class GoodsCommandRpcRequest extends RequestBase implements Serializable {
-    @Serial
-    private static final long serialVersionUID = 5126530068827085130L;
+public record GoodsRpcQuery(Long id) implements Query {
 
-    /** id */
-    private Long id;
+	@Serial
+	private static final long serialVersionUID = 5126530068827085130L;
 
 }

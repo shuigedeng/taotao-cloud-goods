@@ -18,11 +18,9 @@ package com.taotao.cloud.goods.interfaces.controller.inner;
 
 import com.taotao.boot.common.model.request.Request;
 import com.taotao.boot.common.model.response.Response;
-import com.taotao.boot.web.annotation.InnerApi;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.InnerController;
-import com.taotao.cloud.goods.api.inner.command.GoodsCommandApi;
-import com.taotao.cloud.goods.api.inner.dto.request.GoodsCommandApiRequest;
+import com.taotao.cloud.goods.api.inner.dto.command.GoodsApiCommand;
 import com.taotao.cloud.goods.api.inner.dto.response.GoodsCommandApiResponse;
 import com.taotao.cloud.goods.api.inner.query.GoodsQueryApi;
 import io.swagger.v3.oas.annotations.Operation;
@@ -47,14 +45,14 @@ public class GoodsQueryApiController extends InnerController implements GoodsQue
     @Override
 	@RequestLogger
 	@Operation(summary = "根据父id获取商品分类列表", description = "根据父id获取商品分类列表4444")
-    public Response<GoodsCommandApiResponse> updateStoreDetail(@Validated Request<GoodsCommandApiRequest> id) {
+    public Response<GoodsCommandApiResponse> updateStoreDetail(@Validated Request<GoodsApiCommand> id) {
         return null;
     }
 
     @Override
 	@RequestLogger
 	@Operation(summary = "根据父id获取商品分类列表", description = "根据父id获取商品分类列表555")
-    public Response<GoodsCommandApiResponse> underStoreGoods(@Validated Request<GoodsCommandApiRequest> id) {
+    public Response<GoodsCommandApiResponse> underStoreGoods(@Validated Request<GoodsApiCommand> id) {
         return null;
     }
 
@@ -62,7 +60,7 @@ public class GoodsQueryApiController extends InnerController implements GoodsQue
 	@RequestLogger
 	@Operation(summary = "根据父id获取商品分类列表", description = "根据父id获取商品分类列表1666")
     public Response<GoodsCommandApiResponse> countStoreGoodsNum(
-		@Validated Request<GoodsCommandApiRequest> storeId) {
+		@Validated Request<GoodsApiCommand> storeId) {
         return null;
     }
 }

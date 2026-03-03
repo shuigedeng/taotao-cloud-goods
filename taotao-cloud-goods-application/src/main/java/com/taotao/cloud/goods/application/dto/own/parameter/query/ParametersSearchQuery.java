@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.goods.application.dto.own.parameter.query;
 
-import com.taotao.boot.ddd.model.application.dto.Query;
+import com.taotao.boot.common.model.ddd.types.Query;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
 import lombok.*;
@@ -28,7 +28,7 @@ import lombok.experimental.Accessors;
 @Accessors(fluent = true)
 @AllArgsConstructor
 @NoArgsConstructor
-public class ParametersSearchQuery extends Query {
+public class ParametersSearchQuery implements Query  {
 
     @Serial private static final long serialVersionUID = 724427321881170297L;
 

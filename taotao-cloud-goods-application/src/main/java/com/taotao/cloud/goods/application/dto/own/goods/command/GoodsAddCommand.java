@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.goods.application.dto.own.goods.command;
 
-import com.taotao.boot.ddd.model.application.dto.Command;
+import com.taotao.boot.common.model.ddd.types.Command;;
 import com.taotao.cloud.goods.api.enums.GoodsTypeEnum;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.Valid;
@@ -42,7 +42,7 @@ import org.hibernate.validator.constraints.Length;
 @Accessors(fluent = true)
 @AllArgsConstructor
 @NoArgsConstructor
-public class GoodsAddCommand extends Command {
+public class GoodsAddCommand implements Command {
 
     @Serial private static final long serialVersionUID = -509667581371776913L;
 

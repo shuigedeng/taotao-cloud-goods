@@ -28,7 +28,7 @@ import java.util.List;
  * @version 2022.04
  * @since 2022-04-27 16:59:50
  */
-public interface CustomWordsCommandService extends CommandService {
+public interface CustomWordsCommandService implements CommandService {
 
     /**
      * 自定义分词部署替换

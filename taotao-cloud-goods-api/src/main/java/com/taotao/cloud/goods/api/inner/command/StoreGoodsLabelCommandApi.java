@@ -20,7 +20,7 @@ import com.taotao.boot.common.constant.ServiceNameConstants;
 import com.taotao.boot.common.model.request.Request;
 import com.taotao.boot.common.model.response.BatchResponse;
 import com.taotao.boot.common.model.response.Response;
-import com.taotao.cloud.goods.api.inner.dto.request.GoodsCommandApiRequest;
+import com.taotao.cloud.goods.api.inner.dto.command.GoodsApiCommand;
 import com.taotao.cloud.goods.api.inner.dto.response.StoreGoodsLabelCommandApiResponse;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -37,5 +37,5 @@ public interface StoreGoodsLabelCommandApi {
 	 */
 	@PostExchange(value = "/store/{id}")
 	Response<BatchResponse<StoreGoodsLabelCommandApiResponse>> listByStoreId(
-		@Validated @RequestBody Request<GoodsCommandApiRequest> id );
+		@Validated @RequestBody Request<GoodsApiCommand> id );
 }

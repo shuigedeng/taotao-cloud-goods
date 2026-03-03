@@ -25,7 +25,7 @@ import com.taotao.boot.ddd.model.application.service.CommandService;
  * @version 2022.04
  * @since 2022-04-27 17:01:05
  */
-public interface StoreGoodsLabelCommandService extends CommandService {
+public interface StoreGoodsLabelCommandService implements CommandService {
 
     /**
      * 添加商品分类

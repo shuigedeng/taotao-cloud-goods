@@ -1,6 +1,6 @@
 package com.taotao.cloud.goods.api.inner.dto.response;
 
-import com.taotao.boot.common.model.response.ResponseBase;
+import com.taotao.boot.common.model.ddd.types.MarkerResponse;
 
 /**
  * GoodsSkuSpecGalleryCommandApiResponse
@@ -9,6 +9,6 @@ import com.taotao.boot.common.model.response.ResponseBase;
  * @version 2026.04
  * @since 2025-12-19 09:30:45
  */
-public class GoodsSkuSpecGalleryCommandApiResponse extends ResponseBase {
+public class GoodsSkuSpecGalleryCommandApiResponse implements MarkerResponse  {
 
 }

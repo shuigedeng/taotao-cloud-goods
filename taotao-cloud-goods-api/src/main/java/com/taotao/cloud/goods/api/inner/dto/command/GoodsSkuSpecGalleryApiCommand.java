@@ -14,34 +14,30 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.api.rpc.dto.request;
+package com.taotao.cloud.goods.api.inner.dto.command;
 
-import com.taotao.boot.common.model.request.RequestBase;
-import java.io.Serial;
-import java.io.Serializable;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
-import lombok.*;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.experimental.Accessors;
+import lombok.Setter;
 
-/**
- * 菜单查询对象
- *
- * @author shuigedeng
- * @version 2021.10
- * @since 2021-10-09 15:27:42
- */
+import java.io.Serial;
+import java.util.List;
+
+/** 商品规格VO */
 @Setter
 @Getter
-@ToString
-@Accessors(fluent = true)
 @AllArgsConstructor
 @NoArgsConstructor
-public class GoodsQueryRpcRequest extends RequestBase implements Serializable {
+public class GoodsSkuSpecGalleryApiCommand extends GoodsSkuApiCommand {
+
     @Serial
-    private static final long serialVersionUID = 5126530068827085130L;
+    private static final long serialVersionUID = -7651149660489332344L;
 
-    /** id */
-    private Long id;
+    @Schema(description = "规格列表")
+    private List<SpecValueApiCommand> specList;
 
+    @Schema(description = "商品图片")
+    private List<String> goodsGalleryList;
 }

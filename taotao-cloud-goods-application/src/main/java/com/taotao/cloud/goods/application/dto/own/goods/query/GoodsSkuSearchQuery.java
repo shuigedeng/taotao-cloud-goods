@@ -17,7 +17,7 @@
 package com.taotao.cloud.goods.application.dto.own.goods.query;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.taotao.boot.ddd.model.application.dto.Query;
+import com.taotao.boot.common.model.ddd.types.Query;
 import com.taotao.cloud.goods.api.enums.GoodsAuthEnum;
 import com.taotao.cloud.goods.api.enums.GoodsSalesModeEnum;
 import com.taotao.cloud.goods.api.enums.GoodsStatusEnum;
@@ -40,7 +40,7 @@ import org.hibernate.validator.constraints.Length;
 @EqualsAndHashCode(callSuper = false)
 @NoArgsConstructor
 @AllArgsConstructor
-public class GoodsSkuSearchQuery extends Query {
+public class GoodsSkuSearchQuery implements Query  {
 
     private String id;
     private String createBy;

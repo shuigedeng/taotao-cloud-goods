@@ -26,7 +26,7 @@ import java.util.List;
  * @version 2022.04
  * @since 2022-04-27 17:00:12
  */
-public interface GoodsGalleryCommandService extends CommandService {
+public interface GoodsGalleryCommandService implements CommandService {
 
     /**
      * 添加商品相册

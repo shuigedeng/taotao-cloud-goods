@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.goods.application.dto.own.brand.command;
 
-import com.taotao.boot.ddd.model.application.dto.Command;
+import com.taotao.boot.common.model.ddd.types.Command;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
@@ -30,7 +30,7 @@ import lombok.experimental.Accessors;
 @AllArgsConstructor
 @NoArgsConstructor
 @Schema(description = "品牌DTO")
-public class BrandUpdateCommand extends Command {
+public class BrandUpdateCommand implements Command {
 
     private static final long serialVersionUID = 3829199991161122317L;
 
