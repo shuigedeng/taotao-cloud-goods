@@ -1,5 +1,7 @@
 package com.taotao.cloud.goods.application.dto.own.category.command;
 
+import io.soabase.recordbuilder.core.RecordBuilder;
+
 /**
  * CategoryTreeCommand 类
  *
@@ -7,6 +9,7 @@ package com.taotao.cloud.goods.application.dto.own.category.command;
  * @version 2022.05
  * @since 2026/1/31
  */
-public class CategoryTreeCommand {
+@RecordBuilder
+public record CategoryTreeCommand() {
 
 }

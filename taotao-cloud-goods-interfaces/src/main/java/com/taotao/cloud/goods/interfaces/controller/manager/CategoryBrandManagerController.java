@@ -26,11 +26,8 @@ import com.taotao.cloud.goods.application.dto.own.goods.query.CategoryIdQuery;
 import com.taotao.cloud.goods.application.service.command.CategoryBrandCommandService;
 import com.taotao.cloud.goods.application.service.query.CategoryBrandQueryService;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.Parameter;
-import io.swagger.v3.oas.annotations.Parameters;
-import io.swagger.v3.oas.annotations.enums.ParameterIn;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import jakarta.validation.constraints.NotBlank;
+
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -61,7 +58,7 @@ public class CategoryBrandManagerController extends BusinessController {
     @PreAuthorize("hasAuthority('dept:tree:data')")
     @GetMapping(value = "/query/categoryId")
     public Result<List<CategoryBrandResult>> queryByCategoryId( CategoryIdQuery categoryIdQuery ) {
-        return Result.success(categoryBrandQueryService.getCategoryBrandList(categoryIdQuery.getCategoryId()));
+        return Result.success(categoryBrandQueryService.getCategoryBrandList(categoryIdQuery.categoryId()));
     }
 
     @Operation(summary = "保存某分类下绑定的品牌信息", description = "保存某分类下绑定的品牌信息")

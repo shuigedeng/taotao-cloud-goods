@@ -19,6 +19,7 @@ package com.taotao.cloud.goods.api.rpc.dto.response;
 import com.taotao.boot.common.model.ddd.types.MarkerResponse;
 import io.soabase.recordbuilder.core.RecordBuilder;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 /**
@@ -27,23 +28,19 @@ import java.io.Serializable;
  * @author shuigedeng
  * @version 2021.10
  * @since 2021-10-19 20:47:05
+ * @param tenantId 租户id
+ * @param tenantSecret 租户密钥
+ * @param name 公司名称
+ * @param type 公司类型
  */
 @RecordBuilder
 public record GoodsCommandRpcResponse(
-	/* 租户id */
 	String tenantId,
-
-	/*
-	  租户密钥
-	 */
 	String tenantSecret,
-
-	/** 公司名称 */
 	String name,
-
-	/** 公司类型 */
 	Integer type)
 	implements MarkerResponse {
 
-	static final long serialVersionUID = 5126530068827085130L;
+	@Serial
+	private static final long serialVersionUID = 5126530068827085130L;
 }

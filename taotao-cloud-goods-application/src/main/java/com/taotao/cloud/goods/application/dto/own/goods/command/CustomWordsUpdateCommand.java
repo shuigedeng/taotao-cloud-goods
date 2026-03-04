@@ -16,7 +16,8 @@
 
 package com.taotao.cloud.goods.application.dto.own.goods.command;
 
-import com.taotao.boot.common.model.ddd.types.Command;;
+import com.taotao.boot.common.model.ddd.types.Command;
+import io.soabase.recordbuilder.core.RecordBuilder;
 
 /**
  * CustomWordsUpdateCommand
@@ -25,6 +26,7 @@ import com.taotao.boot.common.model.ddd.types.Command;;
  * @version 2026.04
  * @since 2025-12-19 09:30:45
  */
-public class CustomWordsUpdateCommand implements Command {
+@RecordBuilder
+public record CustomWordsUpdateCommand() implements Command {
 
 }

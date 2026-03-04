@@ -1,7 +1,6 @@
 package com.taotao.cloud.goods.application.dto.own.category.command;
 
-import lombok.Data;
-import org.springframework.web.bind.annotation.RequestParam;
+import io.soabase.recordbuilder.core.RecordBuilder;
 
 /**
  * brandDisableCommand 类
@@ -10,9 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @version 2022.05
  * @since 2026/1/31
  */
+@RecordBuilder
+public record BrandDisableCommand(Long brandId, Boolean disable) {
 
-@Data
-public class BrandDisableCommand {
-	private Long brandId;
-	private Boolean disable;
 }

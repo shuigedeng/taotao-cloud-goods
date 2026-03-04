@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.goods.facade.order.acl;
 
-import com.taotao.boot.ddd.acl.BaseAclService;
+import com.taotao.boot.ddd.acl.AclBaseService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -29,6 +29,6 @@ import org.springframework.stereotype.Service;
  */
 @RequiredArgsConstructor
 @Service
-public class OrderAclServiceImpl extends BaseAclService {
+public class OrderAclServiceImpl extends AclBaseService {
 
 }

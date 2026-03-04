@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.goods.application.dto.own.category.result;
 
-import com.taotao.boot.ddd.model.application.dto.BaseResult;
+import com.taotao.boot.common.model.ddd.types.MarkerResult;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.math.BigDecimal;
 import lombok.*;
@@ -32,7 +32,7 @@ import lombok.experimental.Accessors;
 @AllArgsConstructor
 @NoArgsConstructor
 @Schema(description = "商品分类CO")
-public class CategoryResult extends BaseResult {
+public class CategoryResult implements MarkerResult {
 
     @Schema(description = "id")
     private Long id;

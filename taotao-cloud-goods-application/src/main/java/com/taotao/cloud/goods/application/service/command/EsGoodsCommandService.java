@@ -25,7 +25,7 @@ import com.taotao.boot.ddd.model.application.service.CommandService;
  * @version 2022.04
  * @since 2022-04-27 17:00:00
  */
-public interface EsGoodsCommandService implements CommandService {
+public interface EsGoodsCommandService extends CommandService {
 
     /// **
     // * 全局索引数据初始化

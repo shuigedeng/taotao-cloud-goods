@@ -1,8 +1,6 @@
 package com.taotao.cloud.goods.application.dto.own.category.command;
 
-import lombok.Data;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
+import io.soabase.recordbuilder.core.RecordBuilder;
 
 /**
  * CategorySpecCommand 类
@@ -11,8 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @version 2022.05
  * @since 2026/1/31
  */
-@Data
-public class CategorySpecCommand {
-	private Long categoryId;
-	private String[] categorySpecs;
+@RecordBuilder
+public record CategorySpecCommand(Long categoryId, String[] categorySpecs) {
+
 }

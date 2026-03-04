@@ -1,6 +1,6 @@
 package com.taotao.cloud.goods.application.dto.own.goods.command;
 
-import com.taotao.boot.ddd.model.application.dto.MarkerCommand;
+import com.taotao.boot.common.model.ddd.types.Command;
 import io.soabase.recordbuilder.core.RecordBuilder;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.ConstraintViolationException;
@@ -21,7 +21,7 @@ import java.io.Serial;
 @RecordBuilder
 public record UnderCommand(@Schema(description = "商品id") @NotNull(message = "商品id不能为空") Long goodsId,
 						   @Schema(description = "下架原因") @NotBlank(message = "下架原因不能为空") String reason)
-	implements MarkerCommand {
+	implements Command {
 
 	@Serial
 	private static final long serialVersionUID = 3829199991161122317L;

@@ -16,47 +16,29 @@
 
 package com.taotao.cloud.goods.application.dto.own.goods.command;
 
-import com.taotao.boot.common.model.ddd.types.Command;;
+import com.taotao.boot.common.model.ddd.types.Command;
+import io.soabase.recordbuilder.core.RecordBuilder;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.math.BigDecimal;
-import lombok.*;
-import lombok.experimental.Accessors;
 
-/** 微信小程序直播商品DTO */
-@Setter
-@Getter
-@ToString
-@Accessors(fluent = true)
-@AllArgsConstructor
-@NoArgsConstructor
-public class GoodsInfoAddCommand implements Command {
+/**
+ * 微信小程序直播商品DTO
+ *
+ * @param priceType 1：一口价（只需要传入price，price2不传）
+ *
+ * <p>2：价格区间（price字段为左边界，price2字段为右边界，price和price2必传）
+ *
+ * <p>3：显示折扣价（price字段为原价，price2字段为现价 price和price2必传
+ */
+@RecordBuilder
+public record GoodsInfoAddCommand(@Schema(description = "图片mediaID") String coverImgUrl,
+								  @Schema(description = "商品名称") String name,
+								  @Schema(description = "价格类型") Integer priceType,
+								  @Schema(description = "价格") BigDecimal price,
+								  @Schema(description = "价格2") BigDecimal price2,
+								  @Schema(description = "商品详情页的小程序路径") String url) implements Command {
 
-    @Schema(description = "图片mediaID")
-    private String coverImgUrl;
-
-    @Schema(description = "商品名称")
-    private String name;
-
-    /**
-     * 1：一口价（只需要传入price，price2不传）
-     *
-     * <p>2：价格区间（price字段为左边界，price2字段为右边界，price和price2必传）
-     *
-     * <p>3：显示折扣价（price字段为原价，price2字段为现价 price和price2必传
-     */
-    @Schema(description = "价格类型")
-    private Integer priceType;
-
-    @Schema(description = "价格")
-    private BigDecimal price;
-
-    @Schema(description = "价格2")
-    private BigDecimal price2;
-
-    @Schema(description = "商品详情页的小程序路径")
-    private String url;
-
-    // public GoodsInfo(Commodity commodity) {
-    //	BeanUtil.copyProperties(commodity, this);
-    // }
+	// public GoodsInfo(Commodity commodity) {
+	//	BeanUtil.copyProperties(commodity, this);
+	// }
 }

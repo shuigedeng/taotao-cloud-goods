@@ -16,57 +16,19 @@
 
 package com.taotao.cloud.goods.application.dto.own.goods.result;
 
-import com.taotao.boot.ddd.model.application.dto.BaseResult;
-import lombok.*;
-import lombok.experimental.Accessors;
+import com.taotao.boot.common.model.ddd.types.MarkerResult;
+import io.soabase.recordbuilder.core.RecordBuilder;
 
 /**
  * CustomWordsResult
  *
+ * @param name 分词名称
+ * @param disabled 是否禁用
  * @author shuigedeng
  * @version 2026.04
  * @since 2025-12-19 09:30:45
  */
-@Setter
-@Getter
-@Accessors(fluent = true)
-@AllArgsConstructor
-@NoArgsConstructor
-public class CustomWordsResult extends BaseResult {
+@RecordBuilder
+public record CustomWordsResult(Long id, String name, Integer disabled)implements MarkerResult {
 
-    private Long id;
-
-    /**
-     * 分词名称
-     */
-    private String name;
-
-    /**
-     * 是否禁用
-     */
-    private Integer disabled;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId( Long id ) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName( String name ) {
-		this.name = name;
-	}
-
-	public Integer getDisabled() {
-		return disabled;
-	}
-
-	public void setDisabled( Integer disabled ) {
-		this.disabled = disabled;
-	}
 }

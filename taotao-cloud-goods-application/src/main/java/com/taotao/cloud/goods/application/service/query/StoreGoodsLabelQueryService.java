@@ -28,7 +28,7 @@ import java.util.Map;
  * @version 2022.04
  * @since 2022-04-27 17:01:05
  */
-public interface StoreGoodsLabelQueryService implements Query Service {
+public interface StoreGoodsLabelQueryService extends QueryService {
 
     /**
      * 根据商家ID获取店铺分类列表

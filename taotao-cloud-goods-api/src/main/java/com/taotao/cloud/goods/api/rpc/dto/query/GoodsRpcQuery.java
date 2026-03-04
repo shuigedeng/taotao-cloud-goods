@@ -17,6 +17,7 @@
 package com.taotao.cloud.goods.api.rpc.dto.query;
 
 import com.taotao.boot.common.model.ddd.types.Query;
+import io.soabase.recordbuilder.core.RecordBuilder;
 
 import java.io.Serial;
 
@@ -28,6 +29,7 @@ import java.io.Serial;
  * @version 2021.10
  * @since 2021-10-09 15:27:42
  */
+@RecordBuilder
 public record GoodsRpcQuery(Long id) implements Query {
 
 	@Serial

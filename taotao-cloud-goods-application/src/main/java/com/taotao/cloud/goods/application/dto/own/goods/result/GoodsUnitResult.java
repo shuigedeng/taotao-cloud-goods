@@ -16,14 +16,10 @@
 
 package com.taotao.cloud.goods.application.dto.own.goods.result;
 
-import com.taotao.boot.ddd.model.application.dto.BaseResult;
+import com.taotao.boot.common.model.ddd.types.MarkerResult;
+import io.soabase.recordbuilder.core.RecordBuilder;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.experimental.Accessors;
 
 /**
  * 商品计量CO
@@ -32,34 +28,11 @@ import lombok.experimental.Accessors;
  * @version 2022.04
  * @since 2022-04-14 21:06:43
  */
-@Setter
-@Getter
-@Accessors(fluent = true)
-@AllArgsConstructor
-@NoArgsConstructor
+@RecordBuilder
 @Schema(description = "商品计量CO")
-public class GoodsUnitResult extends BaseResult {
+public record GoodsUnitResult(@Schema(description = "id") Long id, @Schema(description = "计量单位名称") String name)  implements
+	MarkerResult {
 
-    @Serial private static final long serialVersionUID = -4433579132929428572L;
-	@Schema(description = "id")
-    private Long id;
-
-    @Schema(description = "计量单位名称")
-    private String name;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId( Long id ) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName( String name ) {
-		this.name = name;
-	}
+	@Serial
+	private static final long serialVersionUID = -4433579132929428572L;
 }

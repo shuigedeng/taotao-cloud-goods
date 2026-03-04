@@ -54,6 +54,6 @@ public interface GoodsAppAssembler {
     }
 
     default String map(GoodsName value) {
-        return value != null ? value.getValue() : null;
+        return value != null ? value.value() : null;
     }
 }

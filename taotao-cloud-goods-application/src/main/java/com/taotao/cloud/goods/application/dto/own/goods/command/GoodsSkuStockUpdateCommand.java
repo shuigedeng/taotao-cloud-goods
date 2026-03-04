@@ -16,41 +16,15 @@
 
 package com.taotao.cloud.goods.application.dto.own.goods.command;
 
-import com.taotao.boot.common.model.ddd.types.Command;;
+import com.taotao.boot.common.model.ddd.types.Command;
+import io.soabase.recordbuilder.core.RecordBuilder;
 import io.swagger.v3.oas.annotations.media.Schema;
-import lombok.*;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-import lombok.experimental.Accessors;
 
-/** 商品库存DTO */
-@Setter
-@Getter
-@ToString
-@Accessors(fluent = true)
-@AllArgsConstructor
-@NoArgsConstructor
-public class GoodsSkuStockUpdateCommand implements Command {
+/**
+ * 商品库存DTO
+ */
+@RecordBuilder
+public record GoodsSkuStockUpdateCommand(@Schema(description = "商品skuId") Long skuId,
+										 @Schema(description = "库存") Integer quantity) implements Command {
 
-    @Schema(description = "商品skuId")
-    private Long skuId;
-
-    @Schema(description = "库存")
-    private Integer quantity;
-
-	public Long getSkuId() {
-		return skuId;
-	}
-
-	public void setSkuId( Long skuId ) {
-		this.skuId = skuId;
-	}
-
-	public Integer getQuantity() {
-		return quantity;
-	}
-
-	public void setQuantity( Integer quantity ) {
-		this.quantity = quantity;
-	}
 }

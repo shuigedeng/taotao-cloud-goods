@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.goods.facade.sys.acl;
 
-import com.taotao.boot.ddd.acl.BaseAclService;
+import com.taotao.boot.ddd.acl.AclBaseService;
 import com.taotao.boot.ddd.gateway.model.GatewayResponse;
 import com.taotao.cloud.goods.application.acl.SysAclService;
 import com.taotao.cloud.goods.application.dto.sys.req.DictReq;
@@ -36,7 +36,7 @@ import org.springframework.stereotype.Service;
  */
 @RequiredArgsConstructor
 @Service
-public class SysAclServiceImpl extends BaseAclService implements SysAclService {
+public class SysAclServiceImpl extends AclBaseService implements SysAclService {
 
     private final SysFacadeAssembler facadeAssembler;
     private final SysInvoker sysInvoker;

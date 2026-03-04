@@ -17,7 +17,7 @@
 package com.taotao.cloud.goods.application.service.query;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.taotao.boot.common.model.request.PageQuery;
+import com.taotao.boot.common.model.ddd.query.PageQuery;
 import com.taotao.boot.ddd.model.application.service.QueryService;
 import com.taotao.cloud.goods.application.dto.own.commodity.result.CommoditySkuResult;
 
@@ -28,7 +28,7 @@ import com.taotao.cloud.goods.application.dto.own.commodity.result.CommoditySkuR
  * @version 2022.04
  * @since 2022-04-27 16:59:47
  */
-public interface CommodityQueryService implements Query Service {
+public interface CommodityQueryService extends QueryService {
 
     /**
      * 查询微信小程序直播商品审核状态

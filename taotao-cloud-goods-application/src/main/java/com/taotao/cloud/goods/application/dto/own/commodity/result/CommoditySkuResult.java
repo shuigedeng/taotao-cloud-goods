@@ -16,22 +16,14 @@
 
 package com.taotao.cloud.goods.application.dto.own.commodity.result;
 
+import io.soabase.recordbuilder.core.RecordBuilder;
 import io.swagger.v3.oas.annotations.media.Schema;
-import lombok.*;
-import lombok.experimental.Accessors;
 
-/** 直播商品CO */
-@Setter
-@Getter
-@ToString
-@Accessors(fluent = true)
-@AllArgsConstructor
-@NoArgsConstructor
-public class CommoditySkuResult extends CommodityResult {
+/**
+ * 直播商品CO
+ */
+@RecordBuilder
+public record CommoditySkuResult(@Schema(description = "SKU库存") Integer quantity, CommodityResult commodityResult,
+								 @Schema(description = "店铺名称") String storeName) {
 
-    @Schema(description = "SKU库存")
-    private Integer quantity;
-
-    @Schema(description = "店铺名称")
-    private String storeName;
 }

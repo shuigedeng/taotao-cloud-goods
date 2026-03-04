@@ -16,32 +16,23 @@
 
 package com.taotao.cloud.goods.application.dto.own.specification.result;
 
-import com.taotao.boot.ddd.model.application.dto.BaseResult;
+import com.taotao.boot.common.model.ddd.types.MarkerResult;
+import io.soabase.recordbuilder.core.RecordBuilder;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
-import lombok.*;
-import lombok.experimental.Accessors;
 
-/** 规格项表规格项 */
-@Setter
-@Getter
-@Accessors(fluent = true)
-@AllArgsConstructor
-@NoArgsConstructor
+/**
+ * 规格项表规格项
+ */
+@RecordBuilder
 @Schema(description = "参数组关联的参数集合")
-public class SpecificationResult extends BaseResult {
+public record SpecificationResult(@Schema(description = "id") Long id,
+								  @Schema(description = "规格名称") String specName,
+								  @Schema(description = "所属卖家 0属于平台") Long storeId,
+								  @Schema(description = "规格值名字, 《,》分割") String specValue) implements
+	MarkerResult {
 
-    @Serial private static final long serialVersionUID = -4433579132929428572L;
+	@Serial
+	private static final long serialVersionUID = -4433579132929428572L;
 
-    @Schema(description = "id")
-    private Long id;
-
-    @Schema(description = "规格名称")
-    private String specName;
-
-    @Schema(description = "所属卖家 0属于平台")
-    private Long storeId;
-
-    @Schema(description = "规格值名字, 《,》分割")
-    private String specValue;
 }

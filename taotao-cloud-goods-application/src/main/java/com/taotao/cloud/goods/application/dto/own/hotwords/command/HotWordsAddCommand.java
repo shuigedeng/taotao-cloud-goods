@@ -16,29 +16,21 @@
 
 package com.taotao.cloud.goods.application.dto.own.hotwords.command;
 
-import com.taotao.boot.common.model.ddd.types.Command;;
+import com.taotao.boot.common.model.ddd.types.Command;
+import io.soabase.recordbuilder.core.RecordBuilder;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-import lombok.*;
-import lombok.experimental.Accessors;
 
-/** 搜索热词 */
-@Setter
-@Getter
-@Accessors(fluent = true)
-@AllArgsConstructor
-@NoArgsConstructor
-public class HotWordsAddCommand implements Command {
+/**
+ * 搜索热词
+ */
+@RecordBuilder
+public record HotWordsAddCommand(
+	@NotBlank(message = "搜索热词不能为空") @Size(max = 20, min = 1, message = "搜索热词长度限制在1-20") String keywords,
+	@NotNull(message = "分数不能为空") @Max(value = 9999999999L, message = "分数不能大于9999999999") @Min(value = -9999999999L, message = "分数不能小于9999999999") Integer point) implements
+	Command {
 
-    @NotBlank(message = "搜索热词不能为空")
-    @Size(max = 20, min = 1, message = "搜索热词长度限制在1-20")
-    private String keywords;
-
-    @NotNull(message = "分数不能为空")
-    @Max(value = 9999999999L, message = "分数不能大于9999999999")
-    @Min(value = -9999999999L, message = "分数不能小于9999999999")
-    private Integer point;
 }

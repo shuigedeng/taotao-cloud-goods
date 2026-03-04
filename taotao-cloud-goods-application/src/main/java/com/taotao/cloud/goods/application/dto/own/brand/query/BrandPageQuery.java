@@ -17,10 +17,9 @@
 package com.taotao.cloud.goods.application.dto.own.brand.query;
 
 import com.taotao.boot.common.model.ddd.query.PageQuery;
+import io.soabase.recordbuilder.core.RecordBuilder;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
-import lombok.*;
-import lombok.experimental.Accessors;
 
 /**
  * 商品品牌dto
@@ -29,33 +28,11 @@ import lombok.experimental.Accessors;
  * @version 2022.04
  * @since 2022-04-25 16:33:01
  */
-@Setter
-@Getter
-@ToString
-@Accessors(fluent = true)
-@AllArgsConstructor
-@NoArgsConstructor
+@RecordBuilder
 @Schema(description = "商品品牌dto")
-public class BrandPageQuery extends PageQuery {
+public record BrandPageQuery(@Schema(description = "品牌名称") String name, PageQuery page) {
 
-    @Serial private static final long serialVersionUID = 8906820486037326039L;
+	@Serial
+	private static final long serialVersionUID = 8906820486037326039L;
 
-    @Schema(description = "品牌名称")
-    private String name;
-
-    /**
-     * 获取
-     * @return name
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * 设置
-     * @param name
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
 }

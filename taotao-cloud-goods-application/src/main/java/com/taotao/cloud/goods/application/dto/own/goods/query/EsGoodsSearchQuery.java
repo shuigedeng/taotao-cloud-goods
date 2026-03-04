@@ -16,16 +16,12 @@
 
 package com.taotao.cloud.goods.application.dto.own.goods.query;
 
-import com.taotao.boot.common.model.request.PageQuery;
+import com.taotao.boot.common.model.ddd.query.PageQuery;
+import io.soabase.recordbuilder.core.RecordBuilder;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
 import java.util.List;
 import java.util.Map;
-import lombok.*;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
-import lombok.experimental.Accessors;
 
 /**
  * es商品搜索查询
@@ -34,124 +30,19 @@ import lombok.experimental.Accessors;
  * @version 2022.04
  * @since 2022-04-25 16:33:11
  */
-@Setter
-@Getter
-@ToString
-@EqualsAndHashCode(callSuper = true)
-@Accessors(fluent = true)
-@AllArgsConstructor
-@NoArgsConstructor
-public class EsGoodsSearchQuery extends PageQuery {
+@RecordBuilder
+public record EsGoodsSearchQuery(@Schema(description = "关键字") String keyword, PageQuery page,
+								 @Schema(description = "分类") String categoryId,
+								 @Schema(description = "品牌,可以多选 品牌Id@品牌Id@品牌Id") String brandId,
+								 @Schema(description = "是否为推荐商品") Boolean recommend,
+								 @Schema(description = "价格", example = "10_30") String price,
+								 @Schema(description = "属性:参数名_参数值@参数名_参数值", example = "屏幕类型_LED@屏幕尺寸_15英寸") String prop,
+								 @Schema(description = "规格项列表") List<String> nameIds,
+								 @Schema(description = "卖家id，搜索店铺商品的时候使用") String storeId,
+								 @Schema(description = "商家分组id，搜索店铺商品的时候使用") String storeCatId,
+								 @Schema(hidden = true) Map<String, List<String>> notShowCol) {
 
-    @Serial private static final long serialVersionUID = -7605952923416404638L;
+	@Serial
+	private static final long serialVersionUID = -7605952923416404638L;
 
-    @Schema(description = "关键字")
-    private String keyword;
-
-    @Schema(description = "分类")
-    private String categoryId;
-
-    @Schema(description = "品牌,可以多选 品牌Id@品牌Id@品牌Id")
-    private String brandId;
-
-    @Schema(description = "是否为推荐商品")
-    private Boolean recommend;
-
-    @Schema(description = "价格", example = "10_30")
-    private String price;
-
-    @Schema(description = "属性:参数名_参数值@参数名_参数值", example = "屏幕类型_LED@屏幕尺寸_15英寸")
-    private String prop;
-
-    @Schema(description = "规格项列表")
-    private List<String> nameIds;
-
-    @Schema(description = "卖家id，搜索店铺商品的时候使用")
-    private String storeId;
-
-    @Schema(description = "商家分组id，搜索店铺商品的时候使用")
-    private String storeCatId;
-
-    @Schema(hidden = true)
-    private Map<String, List<String>> notShowCol;
-
-	public String getKeyword() {
-		return keyword;
-	}
-
-	public void setKeyword( String keyword ) {
-		this.keyword = keyword;
-	}
-
-	public String getCategoryId() {
-		return categoryId;
-	}
-
-	public void setCategoryId( String categoryId ) {
-		this.categoryId = categoryId;
-	}
-
-	public String getBrandId() {
-		return brandId;
-	}
-
-	public void setBrandId( String brandId ) {
-		this.brandId = brandId;
-	}
-
-	public Boolean getRecommend() {
-		return recommend;
-	}
-
-	public void setRecommend( Boolean recommend ) {
-		this.recommend = recommend;
-	}
-
-	public String getPrice() {
-		return price;
-	}
-
-	public void setPrice( String price ) {
-		this.price = price;
-	}
-
-	public String getProp() {
-		return prop;
-	}
-
-	public void setProp( String prop ) {
-		this.prop = prop;
-	}
-
-	public List<String> getNameIds() {
-		return nameIds;
-	}
-
-	public void setNameIds( List<String> nameIds ) {
-		this.nameIds = nameIds;
-	}
-
-	public String getStoreId() {
-		return storeId;
-	}
-
-	public void setStoreId( String storeId ) {
-		this.storeId = storeId;
-	}
-
-	public String getStoreCatId() {
-		return storeCatId;
-	}
-
-	public void setStoreCatId( String storeCatId ) {
-		this.storeCatId = storeCatId;
-	}
-
-	public Map<String, List<String>> getNotShowCol() {
-		return notShowCol;
-	}
-
-	public void setNotShowCol( Map<String, List<String>> notShowCol ) {
-		this.notShowCol = notShowCol;
-	}
 }

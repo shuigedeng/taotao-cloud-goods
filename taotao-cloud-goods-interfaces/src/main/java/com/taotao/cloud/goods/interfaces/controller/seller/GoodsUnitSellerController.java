@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.goods.interfaces.controller.seller;
 
-import com.taotao.boot.common.model.request.PageQuery;
+import com.taotao.boot.common.model.ddd.query.PageQuery;
 import com.taotao.boot.common.model.result.PageResult;
 import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.web.request.annotation.RequestLogger;

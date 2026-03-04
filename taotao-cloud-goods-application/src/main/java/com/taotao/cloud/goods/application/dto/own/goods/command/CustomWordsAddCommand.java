@@ -16,12 +16,8 @@
 
 package com.taotao.cloud.goods.application.dto.own.goods.command;
 
-import com.taotao.boot.common.model.ddd.types.Command;;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.experimental.Accessors;
+import com.taotao.boot.common.model.ddd.types.Command;
+import io.soabase.recordbuilder.core.RecordBuilder;
 
 /**
  * CustomWordsAddCommand
@@ -30,12 +26,8 @@ import lombok.experimental.Accessors;
  * @version 2026.04
  * @since 2025-12-19 09:30:45
  */
-@Setter
-@Getter
-@Accessors(fluent = true)
-@AllArgsConstructor
-@NoArgsConstructor
-public class CustomWordsAddCommand implements Command {
+@RecordBuilder
+public record CustomWordsAddCommand(String id) implements Command {
 
-    private String id;
+
 }

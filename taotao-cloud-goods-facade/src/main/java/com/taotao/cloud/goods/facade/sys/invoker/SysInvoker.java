@@ -5,7 +5,7 @@ import com.taotao.boot.ddd.gateway.invoker.GatewayInvokeBuilder;
 import com.taotao.boot.ddd.gateway.model.GatewayRequest;
 import com.taotao.boot.ddd.gateway.model.GatewayResponse;
 import com.taotao.cloud.goods.facade.sys.interceptor.SysInterceptor;
-import com.taotao.cloud.sys.api.inner.dto.request.DictQueryApiRequest;
+import com.taotao.cloud.sys.api.inner.dto.query.DictApiQuery;
 import com.taotao.cloud.sys.api.inner.dto.response.DictQueryApiResponse;
 import com.taotao.cloud.sys.api.inner.query.DictQueryApi;
 import lombok.RequiredArgsConstructor;
@@ -27,8 +27,8 @@ public class SysInvoker {
 //    @DubboReference
 //    private final DictRpcService dictRpcService;
 
-    public GatewayResponse<DictQueryApiResponse> findByCode( GatewayRequest<DictQueryApiRequest> gatewayRequest ) {
-        return new GatewayInvokeBuilder<DictQueryApiRequest, DictQueryApiResponse>()
+    public GatewayResponse<DictQueryApiResponse> findByCode( GatewayRequest<DictApiQuery> gatewayRequest ) {
+        return new GatewayInvokeBuilder<DictApiQuery, DictQueryApiResponse>()
                 .description("sys系统-字典信息查询")
                 .gatewayRouter(request -> dictQueryApi.queryByCode(Request.from(request)))
                 .addFirst(new SysInterceptor<>())

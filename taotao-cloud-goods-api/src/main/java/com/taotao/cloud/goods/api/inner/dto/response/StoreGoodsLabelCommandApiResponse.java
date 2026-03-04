@@ -17,12 +17,10 @@
 package com.taotao.cloud.goods.api.inner.dto.response;
 
 import com.taotao.boot.common.model.ddd.types.MarkerResponse;
+import io.soabase.recordbuilder.core.RecordBuilder;
 import io.swagger.v3.oas.annotations.media.Schema;
-import lombok.*;
-import lombok.experimental.Accessors;
 
 import java.io.Serial;
-import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -32,36 +30,15 @@ import java.util.List;
  * @version 2022.04
  * @since 2022-04-14 21:52:23
  */
-@Setter
-@Getter
-@ToString
-@Accessors(fluent = true)
-@AllArgsConstructor
-@NoArgsConstructor
-public class StoreGoodsLabelCommandApiResponse  implements MarkerResponse  {
+@RecordBuilder
+public record StoreGoodsLabelCommandApiResponse(@Schema(description = "店铺商品分类ID") Long id,
+												@Schema(description = "店铺商品分类名称") String labelName,
+												@Schema(description = "层级, 从0开始") Integer level,
+												@Schema(description = "店铺商品分类排序") Integer sortOrder,
+												@Schema(description = "下级分类列表") List<StoreGoodsLabelCommandApiResponse> children)implements
+	MarkerResponse {
 
-    @Serial
-    private static final long serialVersionUID = -7605952923416404638L;
+	@Serial
+	private  static final long serialVersionUID = -7605952923416404638L;
 
-    @Schema(description = "店铺商品分类ID")
-    private Long id;
-
-    @Schema(description = "店铺商品分类名称")
-    private String labelName;
-
-    @Schema(description = "层级, 从0开始")
-    private Integer level;
-
-    @Schema(description = "店铺商品分类排序")
-    private Integer sortOrder;
-
-    @Schema(description = "下级分类列表")
-    private List<StoreGoodsLabelCommandApiResponse> children;
-
-    public StoreGoodsLabelCommandApiResponse(Long id, String labelName, Integer level, Integer sortOrder) {
-        this.id = id;
-        this.labelName = labelName;
-        this.level = level;
-        this.sortOrder = sortOrder;
-    }
 }

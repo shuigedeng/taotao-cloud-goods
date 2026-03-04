@@ -16,78 +16,58 @@
 
 package com.taotao.cloud.goods.application.dto.own.goods.result;
 
-import com.taotao.boot.ddd.model.application.dto.BaseResult;
-import com.taotao.cloud.goods.api.enums.GoodsStatusEnum;
-import java.util.Objects;
-import lombok.*;
-import lombok.experimental.Accessors;
+import com.taotao.boot.common.model.ddd.types.MarkerResult;
+import io.soabase.recordbuilder.core.RecordBuilder;
 
-/** 商品操作允许的范围 */
-@Setter
-@Getter
-@Accessors(fluent = true)
-@AllArgsConstructor
-@NoArgsConstructor
-public class GoodsOperateAllowableResult extends BaseResult {
+/**
+ * 商品操作允许的范围
+ *
+ * @param marketEnable 上下架状态
+ * @param deleteFlag 删除状态 true 已删除 false 未删除
+ * @param allowDown 是否允许下架
+ * @param allowDelete 是否允许放入回收站
+ * @param allowReduction 是否允许回收站的商品还原
+ * @param allowClear 是否允许回收站的商品彻底删除
+ * @param allowUpper 是否允许上架
+ */
+@RecordBuilder
+public record GoodsOperateAllowableResult(String marketEnable, Boolean deleteFlag, Boolean allowDown,
+										  Boolean allowDelete, Boolean allowReduction, Boolean allowClear,
+										  Boolean allowUpper) implements MarkerResult {
 
-    /**
-     * 上下架状态
-     *
-     * @see GoodsStatusEnum
-     */
-    private String marketEnable;
-
-    /** 删除状态 true 已删除 false 未删除 */
-    private Boolean deleteFlag;
-
-    /** 是否允许下架 */
-    private Boolean allowDown;
-
-    /** 是否允许放入回收站 */
-    private Boolean allowDelete;
-
-    /** 是否允许回收站的商品还原 */
-    private Boolean allowReduction;
-
-    /** 是否允许回收站的商品彻底删除 */
-    private Boolean allowClear;
-
-    /** 是否允许上架 */
-    private Boolean allowUpper;
-
-    /**
-     * 构造函数
-     *
-     * @param marketEnable
-     * @param deleteFlag
-     */
-    public GoodsOperateAllowableResult(String marketEnable, Boolean deleteFlag) {
-        this.marketEnable = marketEnable;
-        this.deleteFlag = deleteFlag;
-    }
-
-    public Boolean getAllowDown() {
-        // 上架状态 不在回收站的商品可以下架
-        return Objects.equals(marketEnable, GoodsStatusEnum.UPPER.name()) && !deleteFlag;
-    }
-
-    public Boolean getAllowReduction() {
-        // 下架状态 在回收站的商品可以还原
-        return Objects.equals(marketEnable, GoodsStatusEnum.DOWN.name()) && deleteFlag;
-    }
-
-    public Boolean getAllowClear() {
-        // 下架状态 在回收站的商品可以彻底删除
-        return Objects.equals(marketEnable, GoodsStatusEnum.DOWN.name()) && deleteFlag;
-    }
-
-    public Boolean getAllowUpper() {
-        // 下架状态 未删除的商品可以上架
-        return Objects.equals(marketEnable, GoodsStatusEnum.DOWN.name()) && !deleteFlag;
-    }
-
-    public Boolean getAllowDelete() {
-        // 下架状态 未删除的商品可以删除
-        return Objects.equals(marketEnable, GoodsStatusEnum.DOWN.name()) && !deleteFlag;
-    }
+	//    /**
+//     * 构造函数
+//     *
+//     * @param marketEnable
+//     * @param deleteFlag
+//     */
+//    public GoodsOperateAllowableResult(String marketEnable, Boolean deleteFlag) {
+//        this.marketEnable = marketEnable;
+//        this.deleteFlag = deleteFlag;
+//    }
+//
+//    public Boolean getAllowDown() {
+//        // 上架状态 不在回收站的商品可以下架
+//        return Objects.equals(marketEnable, GoodsStatusEnum.UPPER.name()) && !deleteFlag;
+//    }
+//
+//    public Boolean getAllowReduction() {
+//        // 下架状态 在回收站的商品可以还原
+//        return Objects.equals(marketEnable, GoodsStatusEnum.DOWN.name()) && deleteFlag;
+//    }
+//
+//    public Boolean getAllowClear() {
+//        // 下架状态 在回收站的商品可以彻底删除
+//        return Objects.equals(marketEnable, GoodsStatusEnum.DOWN.name()) && deleteFlag;
+//    }
+//
+//    public Boolean getAllowUpper() {
+//        // 下架状态 未删除的商品可以上架
+//        return Objects.equals(marketEnable, GoodsStatusEnum.DOWN.name()) && !deleteFlag;
+//    }
+//
+//    public Boolean getAllowDelete() {
+//        // 下架状态 未删除的商品可以删除
+//        return Objects.equals(marketEnable, GoodsStatusEnum.DOWN.name()) && !deleteFlag;
+//    }
 }

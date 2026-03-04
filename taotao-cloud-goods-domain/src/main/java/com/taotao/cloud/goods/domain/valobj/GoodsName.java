@@ -17,61 +17,33 @@
 package com.taotao.cloud.goods.domain.valobj;
 
 import com.taotao.boot.ddd.model.domain.ValueObject;
+import io.soabase.recordbuilder.core.RecordBuilder;
 import jakarta.validation.constraints.NotBlank;
-import java.util.Objects;
 import org.hibernate.validator.constraints.Length;
 
 /**
  * 商品名称
+ *
+ * @param value 商品名称
  */
-public class GoodsName implements ValueObject<GoodsName> {
+@RecordBuilder
+public record GoodsName(@NotBlank @Length(min = 1, max = 120) String value) implements ValueObject<GoodsName> {
 
-    /**
-     * 商品名称
-     */
-    @NotBlank
-    @Length(min = 1, max = 120)
-    private String value;
+	public GoodsName {
+		this.validateSelf();
+	}
 
-    GoodsName() {}
+	public static GoodsName of( String goodsName ) {
+		return new GoodsName(goodsName);
+	}
 
-    GoodsName(String value) {
-        this.value = value;
-        this.validateSelf();
-    }
+	@Override
+	public boolean sameValueAs( GoodsName other ) {
+		return false;
+	}
 
-    public static GoodsName of(String goodsName) {
-        return new GoodsName(goodsName);
-    }
-
-    public String getValue() {
-        return value;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        GoodsName goodsName = (GoodsName) o;
-        return Objects.equals(value, goodsName.value);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(value);
-    }
-
-    @Override
-    public String toString() {
-        return "GoodsName{" + "value='" + value + '\'' + '}';
-    }
-
-    @Override
-    public boolean sameValueAs(GoodsName other) {
-        return false;
-    }
+	@Override
+	public String value() {
+		return value;
+	}
 }

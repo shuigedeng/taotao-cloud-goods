@@ -16,11 +16,10 @@
 
 package com.taotao.cloud.goods.application.dto.own.specification.command;
 
-import com.taotao.boot.common.model.ddd.types.Command;;
+import com.taotao.boot.common.model.ddd.types.Command;
+import io.soabase.recordbuilder.core.RecordBuilder;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
-import lombok.*;
-import lombok.experimental.Accessors;
 
 /**
  * 规格查询参数
@@ -29,16 +28,11 @@ import lombok.experimental.Accessors;
  * @version 2022.04
  * @since 2022-04-25 16:33:26
  */
-@Setter
-@Getter
-@Accessors(fluent = true)
-@AllArgsConstructor
-@NoArgsConstructor
+@RecordBuilder
 @Schema(description = "规格查询参数")
-public class SpecificationAddCommand implements Command {
+public record SpecificationAddCommand(@Schema(description = "名称") String specName) implements Command {
 
-    @Serial private static final long serialVersionUID = 8906820486037326039L;
+	@Serial
+	private static final long serialVersionUID = 8906820486037326039L;
 
-    @Schema(description = "名称")
-    private String specName;
 }

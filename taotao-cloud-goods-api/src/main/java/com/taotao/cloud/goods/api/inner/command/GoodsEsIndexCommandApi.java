@@ -17,6 +17,7 @@
 package com.taotao.cloud.goods.api.inner.command;
 
 import com.taotao.boot.common.constant.ServiceNameConstants;
+import com.taotao.boot.common.model.request.BatchRequest;
 import com.taotao.boot.common.model.request.Request;
 import com.taotao.boot.common.model.response.BatchResponse;
 import com.taotao.boot.common.model.response.EmptyResponse;

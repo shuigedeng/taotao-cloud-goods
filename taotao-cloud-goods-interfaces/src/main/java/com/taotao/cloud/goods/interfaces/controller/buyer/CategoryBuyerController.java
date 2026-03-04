@@ -25,17 +25,13 @@ import com.taotao.cloud.goods.application.dto.own.category.result.CategoryTreeRe
 import com.taotao.cloud.goods.application.service.command.CategoryCommandService;
 import com.taotao.cloud.goods.application.service.query.CategoryQueryService;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.Parameter;
-import io.swagger.v3.oas.annotations.Parameters;
-import io.swagger.v3.oas.annotations.enums.ParameterIn;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import jakarta.validation.constraints.NotNull;
+
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -64,6 +60,6 @@ public class CategoryBuyerController extends BusinessController {
     @Operation(summary = "根据父id获取商品分类列表", description = "根据父id获取商品分类列表")
     @GetMapping(value = "/query/tree/parentId")
     public Result<List<CategoryTreeResult>> queryTreeByParentId( ParentIdQuery parentIdQuery) {
-        return Result.success(categoryQueryService.listAllChildren(parentIdQuery.getParentId()));
+        return Result.success(categoryQueryService.listAllChildren(parentIdQuery.parentId()));
     }
 }

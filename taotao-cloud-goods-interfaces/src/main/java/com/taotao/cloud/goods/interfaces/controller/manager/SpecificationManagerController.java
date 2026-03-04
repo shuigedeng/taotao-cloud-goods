@@ -17,7 +17,7 @@
 package com.taotao.cloud.goods.interfaces.controller.manager;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.taotao.boot.common.model.request.IdsCommand;
+import com.taotao.boot.common.model.ddd.command.IdsCommand;
 import com.taotao.boot.common.model.result.EmptyResult;
 import com.taotao.boot.common.model.result.PageResult;
 import com.taotao.boot.common.model.result.Result;

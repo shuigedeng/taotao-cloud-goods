@@ -28,7 +28,7 @@ import java.util.Map;
  * @version 2022.04
  * @since 2022-04-27 16:59:15
  */
-public interface BrandQueryService implements Query Service {
+public interface BrandQueryService extends QueryService {
 
     //	IPage<BrandPO> brandsQueryPage(BrandPageQry page);
     //

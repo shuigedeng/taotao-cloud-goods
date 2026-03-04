@@ -16,7 +16,8 @@
 
 package com.taotao.cloud.goods.application.dto.own.goods.command;
 
-import com.taotao.boot.ddd.model.application.dto.MarkerCommand;
+import com.taotao.boot.common.model.ddd.types.Command;
+import io.soabase.recordbuilder.core.RecordBuilder;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
@@ -32,11 +33,12 @@ import java.util.List;
  * @version 2022.04
  * @since 2022-04-14 21:36:45
  */
+@RecordBuilder
 @Schema(description = "商品参数分组")
 public record GoodsParamsAddCommand(@Schema(description = "分组id") @NotEmpty(message = "xxxx") Long groupId,
 									@Schema(description = "分组名称") @NotBlank(message = "xxxx") String groupName,
 									@Schema(description = "分组内的商品参数列表") @NotEmpty(message = "xxxx") @Valid List<GoodsParamsItemAddCommand> goodsParamsItemAddCmdList)
-	implements MarkerCommand {
+	implements Command {
 
 	@Serial
 	private static final long serialVersionUID = 4892783539320159200L;

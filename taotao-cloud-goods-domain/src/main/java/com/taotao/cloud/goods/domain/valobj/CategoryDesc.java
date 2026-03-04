@@ -17,62 +17,34 @@
 package com.taotao.cloud.goods.domain.valobj;
 
 import com.taotao.boot.ddd.model.domain.ValueObject;
-import java.util.Objects;
+import io.soabase.recordbuilder.core.RecordBuilder;
 import org.hibernate.validator.constraints.Length;
 
 /**
  * 分类描述
  *
+ * @param value 分类描述
  * @author shuigedeng
  * @date 2023-01-04 13:21
  */
-public class CategoryDesc implements ValueObject {
+@RecordBuilder
+public record CategoryDesc(@Length(min = 1, max = 512) String value) implements ValueObject<CategoryDesc> {
 
-    /**
-     * 分类描述
-     */
-    @Length(min = 1, max = 512)
-    private String value;
+	public CategoryDesc {
+		this.validateSelf();
+	}
 
-    CategoryDesc() {}
+	public static CategoryDesc of( String categoryDesc ) {
+		return new CategoryDesc(categoryDesc);
+	}
 
-    CategoryDesc(String value) {
-        this.value = value;
-        this.validateSelf();
-    }
+	@Override
+	public boolean sameValueAs( CategoryDesc other ) {
+		return false;
+	}
 
-    public static CategoryDesc of(String categoryDesc) {
-        return new CategoryDesc(categoryDesc);
-    }
-
-    public String getValue() {
-        return value;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        CategoryDesc that = (CategoryDesc) o;
-        return Objects.equals(value, that.value);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(value);
-    }
-
-    @Override
-    public String toString() {
-        return "CategoryDesc{" + "value='" + value + '\'' + '}';
-    }
-
-    @Override
-    public boolean sameValueAs(Object other) {
-        return false;
-    }
+	@Override
+	public String value() {
+		return value;
+	}
 }

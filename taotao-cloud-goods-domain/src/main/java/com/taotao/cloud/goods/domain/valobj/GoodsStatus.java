@@ -31,12 +31,12 @@ public enum GoodsStatus implements ValueObjectEnum<Integer> {
     /**
      * 状态编码
      */
-    private Integer value;
+    private final  Integer value;
 
     /**
      * 状态描述
      */
-    private String desc;
+    private final  String desc;
 
     GoodsStatus(Integer value, String desc) {
         this.value = value;

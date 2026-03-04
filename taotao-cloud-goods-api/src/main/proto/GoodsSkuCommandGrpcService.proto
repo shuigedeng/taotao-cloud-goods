@@ -10,17 +10,17 @@ option java_outer_classname = "GoodsSkuCommandGrpcServiceProto";
 // The device service definition.
 service GoodsSkuCommandGrpcService {
   // Sends a message
-  rpc updateGoodsStuck (GoodsSkuCommandGrpcCommand) returns (GoodsSkuCommandGrpcResponse){}
-  rpc updateBatchById (GoodsSkuCommandGrpcCommand) returns (GoodsSkuCommandGrpcResponse){}
-  rpc getGoodsSkuByIdFromCache (GoodsSkuCommandGrpcCommand) returns (GoodsSkuCommandGrpcResponse){}
+  rpc updateGoodsStuck (GoodsSkuGrpcCommand) returns (GoodsSkuGrpcCommandResponse){}
+  rpc updateBatchById (GoodsSkuGrpcCommand) returns (GoodsSkuGrpcCommandResponse){}
+  rpc getGoodsSkuByIdFromCache (GoodsSkuGrpcCommand) returns (GoodsSkuGrpcCommandResponse){}
 }
 
 // The request message .
-message GoodsSkuCommandGrpcCommand {
+message GoodsSkuGrpcCommand {
   string id = 1;
 }
 
-message GoodsSkuCommandGrpcResponse {
+message GoodsSkuGrpcCommandResponse {
   string id = 1;
   string serialNum = 2;
   string userNum = 3;

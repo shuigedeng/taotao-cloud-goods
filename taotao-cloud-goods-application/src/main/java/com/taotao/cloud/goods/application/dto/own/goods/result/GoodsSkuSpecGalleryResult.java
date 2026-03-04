@@ -16,46 +16,24 @@
 
 package com.taotao.cloud.goods.application.dto.own.goods.result;
 
+import com.taotao.boot.common.model.ddd.types.MarkerResult;
 import com.taotao.cloud.goods.application.dto.own.specification.result.SpecValueResult;
+import io.soabase.recordbuilder.core.RecordBuilder;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
 import java.util.List;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.experimental.Accessors;
 
-/** 商品规格CO */
-@Setter
-@Getter
-@Accessors(fluent = true)
-@AllArgsConstructor
-@NoArgsConstructor
-public class GoodsSkuSpecGalleryResult extends GoodsSkuResult {
+/**
+ * 商品规格CO
+ */
+@RecordBuilder
+public record GoodsSkuSpecGalleryResult(@Schema(description = "规格列表") List<SpecValueResult> specList,
+										@Schema(description = "商品图片") List<String> goodsGalleryList,
+										@Schema(description = "商品图片") GoodsSkuResult skuResult
+) implements
+	MarkerResult {
 
-    @Serial private static final long serialVersionUID = -7651149660489332344L;
+	@Serial
+	private static final long serialVersionUID = -7651149660489332344L;
 
-    @Schema(description = "规格列表")
-    private List<SpecValueResult> specList;
-
-    @Schema(description = "商品图片")
-    private List<String> goodsGalleryList;
-
-	public List<SpecValueResult> getSpecList() {
-		return specList;
-	}
-
-	public void setSpecList(
-		List<SpecValueResult> specList ) {
-		this.specList = specList;
-	}
-
-	public List<String> getGoodsGalleryList() {
-		return goodsGalleryList;
-	}
-
-	public void setGoodsGalleryList( List<String> goodsGalleryList ) {
-		this.goodsGalleryList = goodsGalleryList;
-	}
 }

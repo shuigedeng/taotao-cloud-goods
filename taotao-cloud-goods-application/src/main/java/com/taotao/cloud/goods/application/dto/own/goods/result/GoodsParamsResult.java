@@ -16,38 +16,27 @@
 
 package com.taotao.cloud.goods.application.dto.own.goods.result;
 
+import com.taotao.boot.common.model.ddd.types.MarkerResult;
+import io.soabase.recordbuilder.core.RecordBuilder;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
-import lombok.*;
-import lombok.experimental.Accessors;
 
-/** 商品关联参数的CO */
-@Setter
-@Getter
-@Accessors(fluent = true)
-@AllArgsConstructor
-@NoArgsConstructor
-public class GoodsParamsResult {
+/**
+ * 商品关联参数的CO
+ *
+ * @param isIndex @Schema(description = "参数组id") private String groupId;
+ */
+@RecordBuilder
+public record GoodsParamsResult(@Schema(description = "1 输入项   2 选择项") Integer paramType,
+								@Schema(description = " 选择项的内容获取值，使用optionList") String options,
+								@Schema(description = "是否必填是  1    否   0") Integer required,
+								@Schema(description = "是否可索引  1 可以   0不可以") Integer isIndex,
+								String[] optionList) implements MarkerResult {
 
-    @Serial private static final long serialVersionUID = -4904700751774005326L;
+	@Serial
+	private static final long serialVersionUID = -4904700751774005326L;
 
-    @Schema(description = "1 输入项   2 选择项")
-    private Integer paramType;
-
-    @Schema(description = " 选择项的内容获取值，使用optionList")
-    private String options;
-
-    @Schema(description = "是否必填是  1    否   0")
-    private Integer required;
-
-    // @Schema(description = "参数组id")
-    // private String groupId;
-    @Schema(description = "是否可索引  1 可以   0不可以")
-    private Integer isIndex;
-
-    private String[] optionList;
-
-//    public void setOptionList(String[] optionList) {
+	//    public void setOptionList(String[] optionList) {
 //        this.optionList = optionList;
 //    }
 //
@@ -57,36 +46,4 @@ public class GoodsParamsResult {
 //        }
 //        return optionList;
 //    }
-
-	public Integer getParamType() {
-		return paramType;
-	}
-
-	public void setParamType( Integer paramType ) {
-		this.paramType = paramType;
-	}
-
-	public String getOptions() {
-		return options;
-	}
-
-	public void setOptions( String options ) {
-		this.options = options;
-	}
-
-	public Integer getRequired() {
-		return required;
-	}
-
-	public void setRequired( Integer required ) {
-		this.required = required;
-	}
-
-	public Integer getIsIndex() {
-		return isIndex;
-	}
-
-	public void setIsIndex( Integer isIndex ) {
-		this.isIndex = isIndex;
-	}
 }

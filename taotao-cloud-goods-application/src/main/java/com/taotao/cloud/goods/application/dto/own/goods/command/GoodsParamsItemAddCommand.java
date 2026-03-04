@@ -16,7 +16,8 @@
 
 package com.taotao.cloud.goods.application.dto.own.goods.command;
 
-import com.taotao.boot.ddd.model.application.dto.MarkerCommand;
+import com.taotao.boot.common.model.ddd.types.Command;
+import io.soabase.recordbuilder.core.RecordBuilder;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
 
@@ -27,6 +28,7 @@ import java.io.Serial;
  * @version 2022.04
  * @since 2022-04-14 21:36:45
  */
+@RecordBuilder
 @Schema(description = "商品参数列表")
 public record GoodsParamsItemAddCommand(@Schema(description = "参数ID") Long paramId,
 										@Schema(description = "参数名字") String paramName,
@@ -34,7 +36,7 @@ public record GoodsParamsItemAddCommand(@Schema(description = "参数ID") Long p
 										@Schema(description = "是否可索引，0 不索引 1 索引") Integer isIndex,
 										@Schema(description = "是否必填，0 不显示 1 显示") Integer required,
 										@Schema(description = "排序") Integer sort)
-	implements MarkerCommand {
+	implements Command {
 
 	@Serial
 	private static final long serialVersionUID = 4892783539320159200L;

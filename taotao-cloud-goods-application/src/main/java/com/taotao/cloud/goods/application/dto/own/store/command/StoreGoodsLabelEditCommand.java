@@ -16,11 +16,10 @@
 
 package com.taotao.cloud.goods.application.dto.own.store.command;
 
-import com.taotao.boot.common.model.ddd.types.Command;;
+import com.taotao.boot.common.model.ddd.types.Command;
+import io.soabase.recordbuilder.core.RecordBuilder;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
-import lombok.*;
-import lombok.experimental.Accessors;
 
 /**
  * StoreGoodsLabelCO
@@ -29,27 +28,14 @@ import lombok.experimental.Accessors;
  * @version 2022.04
  * @since 2022-04-14 21:52:23
  */
-@Setter
-@Getter
-@Accessors(fluent = true)
-@AllArgsConstructor
-@NoArgsConstructor
-public class StoreGoodsLabelEditCommand implements Command {
+@RecordBuilder
+public record StoreGoodsLabelEditCommand(@Schema(description = "店铺商品分类名称") String labelName,
+										 @Schema(description = "层级, 从0开始") Integer level,
+										 @Schema(description = "店铺商品分类排序") Integer sortOrder,
+										 @Schema(description = "父id, 根节点为0") Long parentId,
+										 @Schema(description = "店铺ID") Long storeId)implements Command {
 
-    @Serial private static final long serialVersionUID = -7605952923416404638L;
+	@Serial
+	private static final long serialVersionUID = -7605952923416404638L;
 
-    @Schema(description = "店铺商品分类名称")
-    private String labelName;
-
-    @Schema(description = "层级, 从0开始")
-    private Integer level;
-
-    @Schema(description = "店铺商品分类排序")
-    private Integer sortOrder;
-
-    @Schema(description = "父id, 根节点为0")
-    private Long parentId;
-
-    @Schema(description = "店铺ID")
-    private Long storeId;
 }

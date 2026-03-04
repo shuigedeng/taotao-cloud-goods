@@ -16,61 +16,17 @@
 
 package com.taotao.cloud.goods.application.dto.own.goods.result;
 
-import com.taotao.boot.ddd.model.application.dto.BaseResult;
+import com.taotao.boot.common.model.ddd.types.MarkerResult;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.math.BigDecimal;
-import lombok.*;
-import lombok.experimental.Accessors;
 
-/** 兑换CO */
-@Setter
-@Getter
-@Accessors(fluent = true)
-@AllArgsConstructor
-@NoArgsConstructor
-public class ExchangeResult extends BaseResult {
+/**
+ * 兑换CO
+ */
+public record ExchangeResult(@Schema(description = "是否允许积分兑换") Integer enableExchange,
+							 @Schema(description = "兑换所需金额 ") BigDecimal exchangeMoney,
+							 @Schema(description = "积分兑换所属分类 ") Integer categoryId,
+							 @Schema(description = "积分兑换使用的积分 ") Integer exchangePoint) implements
+	MarkerResult {
 
-    @Schema(description = "是否允许积分兑换")
-    private Integer enableExchange;
-
-    @Schema(description = "兑换所需金额 ")
-    private BigDecimal exchangeMoney;
-
-    @Schema(description = "积分兑换所属分类 ")
-    private Integer categoryId;
-
-    @Schema(description = "积分兑换使用的积分 ")
-    private Integer exchangePoint;
-
-	public Integer getEnableExchange() {
-		return enableExchange;
-	}
-
-	public void setEnableExchange( Integer enableExchange ) {
-		this.enableExchange = enableExchange;
-	}
-
-	public BigDecimal getExchangeMoney() {
-		return exchangeMoney;
-	}
-
-	public void setExchangeMoney( BigDecimal exchangeMoney ) {
-		this.exchangeMoney = exchangeMoney;
-	}
-
-	public Integer getCategoryId() {
-		return categoryId;
-	}
-
-	public void setCategoryId( Integer categoryId ) {
-		this.categoryId = categoryId;
-	}
-
-	public Integer getExchangePoint() {
-		return exchangePoint;
-	}
-
-	public void setExchangePoint( Integer exchangePoint ) {
-		this.exchangePoint = exchangePoint;
-	}
 }

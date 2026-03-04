@@ -30,7 +30,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -58,6 +57,6 @@ public class CategoryParameterGroupSellerController extends BusinessController {
     @PreAuthorize("hasAuthority('dept:tree:data')")
     @GetMapping(value = "/query/categoryId")
     public Result<List<ParameterGroupResult>> queryByCategoryId( CategoryIdQuery categoryIdQuery) {
-        return Result.success(categoryParameterGroupQueryService.getCategoryParams(categoryIdQuery.getCategoryId()));
+        return Result.success(categoryParameterGroupQueryService.getCategoryParams(categoryIdQuery.categoryId()));
     }
 }

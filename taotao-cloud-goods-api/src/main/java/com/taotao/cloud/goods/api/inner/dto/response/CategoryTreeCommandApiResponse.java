@@ -19,21 +19,16 @@ package com.taotao.cloud.goods.api.inner.dto.response;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
 
+import java.io.Serial;
 import java.util.Comparator;
 import java.util.List;
 
 /**
  * 分类VO
  */
-@Setter
-@Getter
-@ToString
-@EqualsAndHashCode(callSuper = true)
-@AllArgsConstructor
-@NoArgsConstructor
-public class CategoryTreeCommandApiResponse extends
-        CategoryCommandApiResponse {
+public class CategoryTreeCommandApiResponse extends CategoryCommandApiResponse {
 
+	@Serial
 	private static final long serialVersionUID = 3775766246075838410L;
 
 	@Schema(description = "父节点名称")

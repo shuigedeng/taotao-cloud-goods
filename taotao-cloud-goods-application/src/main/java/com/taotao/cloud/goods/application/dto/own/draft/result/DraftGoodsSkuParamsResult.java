@@ -17,80 +17,24 @@
 package com.taotao.cloud.goods.application.dto.own.draft.result;
 
 import com.taotao.cloud.goods.application.dto.own.goods.result.GoodsSkuSpecGalleryResult;
+import io.soabase.recordbuilder.core.RecordBuilder;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
 import java.util.List;
-import lombok.*;
-import lombok.experimental.Accessors;
 
-/** 草稿商品CO */
-@Setter
-@Getter
-@ToString
-@Accessors(fluent = true)
-@AllArgsConstructor
-@NoArgsConstructor
-public class DraftGoodsSkuParamsResult extends DraftGoodsResult {
+/**
+ * 草稿商品CO
+ */
+@RecordBuilder
+public record DraftGoodsSkuParamsResult(@Schema(description = "分类名称") List<String> categoryName,
+										DraftGoodsResult draftGoodsResult,
+										@Schema(description = "商品图片") List<String> goodsGalleryList,
+										@Schema(description = "sku列表") List<GoodsSkuSpecGalleryResult> skuList) {
 
-    @Serial private static final long serialVersionUID = 6377623919990713567L;
+	@Serial
+	private static final long serialVersionUID = 6377623919990713567L;
 
-    @Schema(description = "分类名称")
-    private List<String> categoryName;
+	// @Schema(description = "商品参数")
+	// private List<GoodsParamsDTO> goodsParamsDTOList;
 
-    // @Schema(description = "商品参数")
-    // private List<GoodsParamsDTO> goodsParamsDTOList;
-
-    @Schema(description = "商品图片")
-    private List<String> goodsGalleryList;
-
-    @Schema(description = "sku列表")
-    private List<GoodsSkuSpecGalleryResult> skuList;
-
-    /**
-     * 获取
-     * @return categoryName
-     */
-    public List<String> getCategoryName() {
-        return categoryName;
-    }
-
-    /**
-     * 设置
-     * @param categoryName
-     */
-    public void setCategoryName(List<String> categoryName) {
-        this.categoryName = categoryName;
-    }
-
-    /**
-     * 获取
-     * @return goodsGalleryList
-     */
-    public List<String> getGoodsGalleryList() {
-        return goodsGalleryList;
-    }
-
-    /**
-     * 设置
-     * @param goodsGalleryList
-     */
-    public void setGoodsGalleryList(List<String> goodsGalleryList) {
-        this.goodsGalleryList = goodsGalleryList;
-    }
-
-    /**
-     * 获取
-     * @return skuList
-     */
-    public List<GoodsSkuSpecGalleryResult> getSkuList() {
-        return skuList;
-    }
-
-    /**
-     * 设置
-     * @param skuList
-     */
-    public void setSkuList(List<GoodsSkuSpecGalleryResult> skuList) {
-        this.skuList = skuList;
-    }
 }

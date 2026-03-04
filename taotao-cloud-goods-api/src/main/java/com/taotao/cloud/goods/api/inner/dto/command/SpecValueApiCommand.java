@@ -17,10 +17,8 @@
 package com.taotao.cloud.goods.api.inner.dto.command;
 
 import com.taotao.boot.common.model.ddd.types.Command;
-import com.taotao.boot.common.model.ddd.types.MarkerRequest;
+import io.soabase.recordbuilder.core.RecordBuilder;
 import io.swagger.v3.oas.annotations.media.Schema;
-import lombok.*;
-import lombok.experimental.Accessors;
 
 import java.io.Serial;
 import java.io.Serializable;
@@ -29,47 +27,27 @@ import java.util.List;
 /**
  * 规格值
  */
-@Setter
-@Getter
-@ToString
-@Accessors(fluent = true)
-@AllArgsConstructor
-@NoArgsConstructor
-public class SpecValueApiCommand implements Command {
+@RecordBuilder
+public record SpecValueApiCommand(@Schema(description = "规格项名字") String specName,
+								  @Schema(description = "规格值") String specValue,
+								  @Schema(description = "该规格是否有图片，1 有 0 没有") Integer specType,
+								  @Schema(description = "规格的图片") List<SpecImages> specImage) implements Command {
 
-    @Serial
-    private static final long serialVersionUID = -4433579132929428572L;
+	@Serial
+	private static final long serialVersionUID = -4433579132929428572L;
 
-    @Schema(description = "规格项名字")
-    private String specName;
+	/**
+	 * SpecImages
+	 *
+	 * @author shuigedeng
+	 * @version 2026.04
+	 * @since 2025-12-19 09:30:45
+	 */
+	@RecordBuilder
+	public record SpecImages(String url, String name, String status) implements Serializable {
 
-    @Schema(description = "规格值")
-    private String specValue;
+		@Serial
+		private static final long serialVersionUID = 1816357809660916086L;
 
-    @Schema(description = "该规格是否有图片，1 有 0 没有")
-    private Integer specType;
-
-    @Schema(description = "规格的图片")
-    private List<SpecImages> specImage;
-
-    /**
-     * SpecImages
-     *
-     * @author shuigedeng
-     * @version 2026.04
-     * @since 2025-12-19 09:30:45
-     */
-    @Setter
-    @Getter
-    @ToString
-    public static class SpecImages implements Serializable {
-
-        private static final long serialVersionUID = 1816357809660916086L;
-
-        private String url;
-
-        private String name;
-
-        private String status;
-    }
+	}
 }

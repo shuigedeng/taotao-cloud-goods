@@ -16,11 +16,11 @@
 
 package com.taotao.cloud.goods.application.dto.own.specification.query;
 
-import com.taotao.boot.common.model.request.PageQuery;
+import com.taotao.boot.common.model.ddd.query.PageQuery;
+import com.taotao.boot.common.model.ddd.types.Query;
+import io.soabase.recordbuilder.core.RecordBuilder;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
-import lombok.*;
-import lombok.experimental.Accessors;
 
 /**
  * 规格查询参数
@@ -29,16 +29,10 @@ import lombok.experimental.Accessors;
  * @version 2022.04
  * @since 2022-04-25 16:33:26
  */
-@Setter
-@Getter
-@Accessors(fluent = true)
-@AllArgsConstructor
-@NoArgsConstructor
+@RecordBuilder
 @Schema(description = "规格查询参数")
-public class SpecificationPageQuery extends PageQuery {
+public record SpecificationPageQuery(PageQuery page, @Schema(description = "名称") String specName)  implements Query {
 
-    @Serial private static final long serialVersionUID = 8906820486037326039L;
-
-    @Schema(description = "名称")
-    private String specName;
+	@Serial
+	private static final long serialVersionUID = 8906820486037326039L;
 }

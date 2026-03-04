@@ -16,77 +16,21 @@
 
 package com.taotao.cloud.goods.application.dto.own.parameter.result;
 
-import com.taotao.boot.ddd.model.application.dto.BaseResult;
+import com.taotao.boot.common.model.ddd.types.MarkerResult;
+import io.soabase.recordbuilder.core.RecordBuilder;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
 import java.util.List;
-import lombok.*;
-import lombok.experimental.Accessors;
 
-/** 参数组vo */
-@Setter
-@Getter
-@Accessors(fluent = true)
-@AllArgsConstructor
-@NoArgsConstructor
-public class ParameterGroupResult extends BaseResult {
+/**
+ * 参数组vo
+ */
+@RecordBuilder
+public record ParameterGroupResult(@Schema(description = "参数组关联的参数集合") List<ParametersResult> params,
+								   @Schema(description = "参数组名称") String groupName,
+								   @Schema(description = "参数组id") Long groupId) implements MarkerResult {
 
-    @Serial private static final long serialVersionUID = 724427321881170297L;
+	@Serial
+	private static final long serialVersionUID = 724427321881170297L;
 
-    @Schema(description = "参数组关联的参数集合")
-    private List<ParametersResult> params;
-
-    @Schema(description = "参数组名称")
-    private String groupName;
-
-    @Schema(description = "参数组id")
-    private Long groupId;
-
-    /**
-     * 获取
-     * @return params
-     */
-    public List<ParametersResult> getParams() {
-        return params;
-    }
-
-    /**
-     * 设置
-     * @param params
-     */
-    public void setParams(List<ParametersResult> params) {
-        this.params = params;
-    }
-
-    /**
-     * 获取
-     * @return groupName
-     */
-    public String getGroupName() {
-        return groupName;
-    }
-
-    /**
-     * 设置
-     * @param groupName
-     */
-    public void setGroupName(String groupName) {
-        this.groupName = groupName;
-    }
-
-    /**
-     * 获取
-     * @return groupId
-     */
-    public Long getGroupId() {
-        return groupId;
-    }
-
-    /**
-     * 设置
-     * @param groupId
-     */
-    public void setGroupId(Long groupId) {
-        this.groupId = groupId;
-    }
 }

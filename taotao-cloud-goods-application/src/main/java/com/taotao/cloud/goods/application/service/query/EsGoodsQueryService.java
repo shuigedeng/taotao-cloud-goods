@@ -25,7 +25,7 @@ import com.taotao.boot.ddd.model.application.service.QueryService;
  * @version 2022.04
  * @since 2022-04-27 17:00:07
  */
-public interface EsGoodsQueryService implements Query Service {
+public interface EsGoodsQueryService extends QueryService {
 
     /// **
     // * 商品搜索

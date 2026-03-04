@@ -25,7 +25,7 @@ import com.taotao.boot.ddd.model.application.service.CommandService;
  * @version 2022.04
  * @since 2022-04-27 17:01:11
  */
-public interface StudioCommandService implements CommandService {
+public interface StudioCommandService extends CommandService {
 
     /**
      * 创建直播间 直播间默认手机直播 默认开启：点赞、商品货架、评论、回放

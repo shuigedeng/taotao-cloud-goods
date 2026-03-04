@@ -16,13 +16,12 @@
 
 package com.taotao.cloud.goods.application.dto.own.specification.result;
 
+import com.taotao.boot.common.model.ddd.types.MarkerResult;
 import com.taotao.boot.common.model.result.PageResult;
-import com.taotao.boot.ddd.model.application.dto.BaseResult;
 import com.taotao.cloud.goods.application.dto.own.goods.result.GoodsSkuResult;
+import io.soabase.recordbuilder.core.RecordBuilder;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
-import lombok.*;
-import lombok.experimental.Accessors;
 
 /**
  * 库存警告封装类
@@ -31,18 +30,12 @@ import lombok.experimental.Accessors;
  * @version 2022.04
  * @since 2022-04-14 21:52:39
  */
-@Setter
-@Getter
-@Accessors(fluent = true)
-@AllArgsConstructor
-@NoArgsConstructor
-public class StockWarningResult extends BaseResult {
+@RecordBuilder
+public record StockWarningResult(@Schema(description = "库存警告数量") Integer stockWarningNum,
+								 @Schema(description = "商品SKU列表") PageResult<GoodsSkuResult> goodsSkuPage)  implements
+	MarkerResult {
 
-    @Serial private static final long serialVersionUID = -7605952923416404638L;
+	@Serial
+	private static final long serialVersionUID = -7605952923416404638L;
 
-    @Schema(description = "库存警告数量")
-    private Integer stockWarningNum;
-
-    @Schema(description = "商品SKU列表")
-    private PageResult<GoodsSkuResult> goodsSkuPage;
 }

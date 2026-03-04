@@ -16,10 +16,9 @@
 
 package com.taotao.cloud.goods.application.dto.own.category.command;
 
-import com.taotao.boot.common.model.ddd.types.Command;;
+import com.taotao.boot.common.model.ddd.types.Command;
+import io.soabase.recordbuilder.core.RecordBuilder;
 import io.swagger.v3.oas.annotations.media.Schema;
-import lombok.*;
-import lombok.experimental.Accessors;
 
 /**
  * CategoryParameterGroupAddCommand
@@ -28,14 +27,9 @@ import lombok.experimental.Accessors;
  * @version 2026.04
  * @since 2025-12-19 09:30:45
  */
-@Setter
-@Getter
-@ToString
-@Accessors(fluent = true)
-@AllArgsConstructor
-@NoArgsConstructor
+@RecordBuilder
 @Schema(description = "分类品牌CO")
-public class CategoryParameterGroupAddCommand implements Command {
+public record CategoryParameterGroupAddCommand(String id) implements Command {
 
-    private String id;
+
 }

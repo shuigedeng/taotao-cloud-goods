@@ -16,7 +16,8 @@
 
 package com.taotao.cloud.goods.infrastructure.factory;
 
-import com.taotao.boot.ddd.model.types.Factory;
+
+import com.taotao.boot.common.model.ddd.types.MarkerFactory;
 
 /**
  * GoodsFactory
@@ -25,6 +26,6 @@ import com.taotao.boot.ddd.model.types.Factory;
  * @version 2026.04
  * @since 2025-12-19 09:30:45
  */
-public class GoodsFactory implements Factory {
+public class GoodsFactory implements MarkerFactory {
 
 }

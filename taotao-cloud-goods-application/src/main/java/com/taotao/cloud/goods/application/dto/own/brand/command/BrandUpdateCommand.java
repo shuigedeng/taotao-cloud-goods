@@ -17,79 +17,20 @@
 package com.taotao.cloud.goods.application.dto.own.brand.command;
 
 import com.taotao.boot.common.model.ddd.types.Command;
+import io.soabase.recordbuilder.core.RecordBuilder;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotBlank;
-import lombok.*;
-import lombok.experimental.Accessors;
 
-/** 品牌DTO */
-@Setter
-@Getter
-@ToString
-@Accessors(fluent = true)
-@AllArgsConstructor
-@NoArgsConstructor
+/**
+ * 品牌DTO
+ */
+@RecordBuilder
 @Schema(description = "品牌DTO")
-public class BrandUpdateCommand implements Command {
+public record BrandUpdateCommand(@Schema(description = "id") Long id,
+								 @Schema(description = "名称") @NotBlank(message = "名称不能为空") String name,
+								 @Schema(description = "logo") @NotBlank(message = "logo不能为空") String logo) implements
+	Command {
 
-    private static final long serialVersionUID = 3829199991161122317L;
+	private  static final long serialVersionUID = 3829199991161122317L;
 
-    @Schema(description = "id")
-    private Long id;
-
-    @Schema(description = "名称")
-    @NotBlank(message = "名称不能为空")
-    private String name;
-
-    @Schema(description = "logo")
-    @NotBlank(message = "logo不能为空")
-    private String logo;
-
-    /**
-     * 获取
-     * @return id
-     */
-    public Long getId() {
-        return id;
-    }
-
-    /**
-     * 设置
-     * @param id
-     */
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    /**
-     * 获取
-     * @return name
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * 设置
-     * @param name
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    /**
-     * 获取
-     * @return logo
-     */
-    public String getLogo() {
-        return logo;
-    }
-
-    /**
-     * 设置
-     * @param logo
-     */
-    public void setLogo(String logo) {
-        this.logo = logo;
-    }
 }

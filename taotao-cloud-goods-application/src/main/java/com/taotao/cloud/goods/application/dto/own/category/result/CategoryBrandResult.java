@@ -16,56 +16,16 @@
 
 package com.taotao.cloud.goods.application.dto.own.category.result;
 
-import com.taotao.boot.ddd.model.application.dto.BaseResult;
+import com.taotao.boot.common.model.ddd.types.MarkerResult;
+import io.soabase.recordbuilder.core.RecordBuilder;
 import io.swagger.v3.oas.annotations.media.Schema;
-import lombok.*;
-import lombok.experimental.Accessors;
 
-/** 分类品牌CO */
-@Setter
-@Getter
-@ToString
-@Accessors(fluent = true)
-@AllArgsConstructor
-@NoArgsConstructor
+/**
+ * 分类品牌CO
+ */
+@RecordBuilder
 @Schema(description = "分类品牌CO")
-public class CategoryBrandResult extends BaseResult {
+public record CategoryBrandResult(@Schema(description = "品牌id") String id,
+								  @Schema(description = "品牌名称") String name) implements MarkerResult {
 
-    @Schema(description = "品牌id")
-    private String id;
-
-    @Schema(description = "品牌名称")
-    private String name;
-
-    /**
-     * 获取
-     * @return id
-     */
-    public String getId() {
-        return id;
-    }
-
-    /**
-     * 设置
-     * @param id
-     */
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    /**
-     * 获取
-     * @return name
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * 设置
-     * @param name
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
 }

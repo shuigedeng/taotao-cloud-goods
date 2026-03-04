@@ -8,7 +8,7 @@ option java_outer_classname = "CategoryCommandGrpcServiceProto";
 //option objc_class_prefix = "HLW";
 
 service CategoryCommandGrpcService {
-  rpc firstCategory (FirstCategoryGrpcCommand) returns (FirstCategoryGrpcCommandResponse){}
+  rpc Category (FirstCategoryGrpcCommand) returns (FirstCategoryGrpcCommandResponse){}
 }
 
 message FirstCategoryGrpcCommand {

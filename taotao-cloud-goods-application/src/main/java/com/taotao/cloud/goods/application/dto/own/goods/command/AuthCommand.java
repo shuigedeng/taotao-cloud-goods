@@ -1,8 +1,7 @@
 package com.taotao.cloud.goods.application.dto.own.goods.command;
 
-import lombok.Data;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
+import com.taotao.boot.common.model.ddd.types.Command;
+import io.soabase.recordbuilder.core.RecordBuilder;
 
 import java.util.List;
 
@@ -13,8 +12,8 @@ import java.util.List;
  * @version 2022.05
  * @since 2026/1/31
  */
-@Data
-public class AuthCommand {
-	private List<Long> goodsIds;
-	private String authFlag;
+@RecordBuilder
+public record AuthCommand(List<Long> goodsIds, String authFlag) implements Command {
+
+
 }

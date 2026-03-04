@@ -134,7 +134,7 @@ public class CategoryAgg extends AggregateRoot<BizId> {
         return categoryName;
     }
     public String categoryName() {
-        return categoryName.getValue();
+        return categoryName.value();
     }
 
     public CategoryDesc getCategoryDesc() {

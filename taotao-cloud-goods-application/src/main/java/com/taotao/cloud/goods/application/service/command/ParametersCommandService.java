@@ -25,7 +25,7 @@ import com.taotao.boot.ddd.model.application.service.CommandService;
  * @version 2022.04
  * @since 2022-04-27 17:00:58
  */
-public interface ParametersCommandService implements CommandService {
+public interface ParametersCommandService extends CommandService {
 
     /**
      * 更新参数组信息

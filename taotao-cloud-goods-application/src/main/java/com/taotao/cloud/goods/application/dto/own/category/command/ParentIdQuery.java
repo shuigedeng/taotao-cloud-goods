@@ -1,6 +1,6 @@
 package com.taotao.cloud.goods.application.dto.own.category.command;
 
-import lombok.Data;
+import io.soabase.recordbuilder.core.RecordBuilder;
 
 /**
  * ParentIdQuery 类
@@ -9,8 +9,7 @@ import lombok.Data;
  * @version 2022.05
  * @since 2026/1/31
  */
-@Data
-public class ParentIdQuery {
+@RecordBuilder
+public record ParentIdQuery(Long parentId) {
 
-	private Long parentId;
 }

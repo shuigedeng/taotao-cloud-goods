@@ -16,9 +16,10 @@
 
 package com.taotao.cloud.goods.interfaces.controller.seller;
 
-import com.taotao.boot.common.model.request.IdCommand;
-import com.taotao.boot.common.model.request.IdQuery;
-import com.taotao.boot.common.model.request.IdsCommand;
+
+import com.taotao.boot.common.model.ddd.command.IdCommand;
+import com.taotao.boot.common.model.ddd.query.IdQuery;
+import com.taotao.boot.common.model.ddd.command.IdsCommand;
 import com.taotao.boot.common.model.result.EmptyResult;
 import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.security.spring.support.utils.SecurityUtils;

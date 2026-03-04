@@ -25,7 +25,7 @@ import com.taotao.boot.ddd.model.application.service.QueryService;
  * @version 2022.04
  * @since 2022-04-27 17:00:12
  */
-public interface GoodsGalleryQueryService implements Query Service {
+public interface GoodsGalleryQueryService extends QueryService {
 
     /**
      * 根据原图获取缩略图

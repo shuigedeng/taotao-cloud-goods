@@ -29,7 +29,7 @@ import java.util.List;
  * @see BaseSuperService
  * @since 2023-08-18 16:00:58
  */
-public interface GoodsSkuCommandService implements CommandService {
+public interface GoodsSkuCommandService extends CommandService {
     /// **
     // * 获取商品SKU缓存ID
     // *

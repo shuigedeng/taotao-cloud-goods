@@ -25,7 +25,7 @@ import com.taotao.boot.ddd.model.application.service.QueryService;
  * @version 2022.04
  * @since 2022-04-27 17:01:01
  */
-public interface SpecificationQueryService implements Query Service {
+public interface SpecificationQueryService extends QueryService {
 
     /**
      * 分页查询

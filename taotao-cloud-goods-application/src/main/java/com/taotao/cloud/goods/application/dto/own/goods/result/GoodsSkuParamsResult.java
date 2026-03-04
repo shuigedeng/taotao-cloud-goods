@@ -16,11 +16,10 @@
 
 package com.taotao.cloud.goods.application.dto.own.goods.result;
 
+import io.soabase.recordbuilder.core.RecordBuilder;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
 import java.util.List;
-import lombok.*;
-import lombok.experimental.Accessors;
 
 /**
  * 商品CO
@@ -29,50 +28,18 @@ import lombok.experimental.Accessors;
  * @version 2022.04
  * @since 2022-04-14 21:32:40
  */
-@Setter
-@Getter
-@Accessors(fluent = true)
-@AllArgsConstructor
-@NoArgsConstructor
+@RecordBuilder
 @Schema(description = "商品CO")
-public class GoodsSkuParamsResult extends GoodsResult {
+public record GoodsSkuParamsResult(@Schema(description = "分类名称") List<String> categoryName,
+								   @Schema(description = "商品图片") List<String> goodsGalleryList,
+								   @Schema(description = "sku列表") List<GoodsSkuSpecGalleryResult> skuList,
+								   @Schema(description = "sku列表")   GoodsResult  goodsResult
+) {
 
-    @Serial private static final long serialVersionUID = 6377623919990713567L;
+	@Serial
+	private static final long serialVersionUID = 6377623919990713567L;
 
-    @Schema(description = "分类名称")
-    private List<String> categoryName;
+	// @Schema(description = "商品参数")
+	// private List<GoodsParamsDTO> goodsParamsDTOList;
 
-    // @Schema(description = "商品参数")
-    // private List<GoodsParamsDTO> goodsParamsDTOList;
-
-    @Schema(description = "商品图片")
-    private List<String> goodsGalleryList;
-
-    @Schema(description = "sku列表")
-    private List<GoodsSkuSpecGalleryResult> skuList;
-
-	public List<String> getCategoryName() {
-		return categoryName;
-	}
-
-	public void setCategoryName( List<String> categoryName ) {
-		this.categoryName = categoryName;
-	}
-
-	public List<String> getGoodsGalleryList() {
-		return goodsGalleryList;
-	}
-
-	public void setGoodsGalleryList( List<String> goodsGalleryList ) {
-		this.goodsGalleryList = goodsGalleryList;
-	}
-
-	public List<GoodsSkuSpecGalleryResult> getSkuList() {
-		return skuList;
-	}
-
-	public void setSkuList(
-		List<GoodsSkuSpecGalleryResult> skuList ) {
-		this.skuList = skuList;
-	}
 }

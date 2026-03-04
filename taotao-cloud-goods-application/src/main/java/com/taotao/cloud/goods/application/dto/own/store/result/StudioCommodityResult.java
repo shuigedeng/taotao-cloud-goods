@@ -16,21 +16,17 @@
 
 package com.taotao.cloud.goods.application.dto.own.store.result;
 
-import com.taotao.boot.ddd.model.application.dto.BaseResult;
+import com.taotao.boot.common.model.ddd.types.MarkerResult;
 import com.taotao.cloud.goods.application.dto.own.commodity.result.CommodityResult;
+import io.soabase.recordbuilder.core.RecordBuilder;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.List;
-import lombok.*;
-import lombok.experimental.Accessors;
 
-/** 直播间CO */
-@Setter
-@Getter
-@Accessors(fluent = true)
-@AllArgsConstructor
-@NoArgsConstructor
-public class StudioCommodityResult extends BaseResult {
+/**
+ * 直播间CO
+ */
+@RecordBuilder
+public record StudioCommodityResult(
+	@Schema(description = "直播间商品列表") List<CommodityResult> commodityList) implements MarkerResult {
 
-    @Schema(description = "直播间商品列表")
-    private List<CommodityResult> commodityList;
 }

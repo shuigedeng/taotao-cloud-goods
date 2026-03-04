@@ -16,8 +16,8 @@
 
 package com.taotao.cloud.goods.interfaces.controller.manager;
 
-import com.taotao.boot.common.model.request.IdCommand;
-import com.taotao.boot.common.model.request.IdsCommand;
+import com.taotao.boot.common.model.ddd.command.IdCommand;
+import com.taotao.boot.common.model.ddd.command.IdsCommand;
 import com.taotao.boot.common.model.result.EmptyResult;
 import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.web.request.annotation.RequestLogger;

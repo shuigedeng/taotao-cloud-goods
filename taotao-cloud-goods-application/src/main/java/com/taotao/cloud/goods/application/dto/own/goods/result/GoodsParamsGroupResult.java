@@ -16,53 +16,21 @@
 
 package com.taotao.cloud.goods.application.dto.own.goods.result;
 
-import com.taotao.boot.ddd.model.application.dto.BaseResult;
+import com.taotao.boot.common.model.ddd.types.MarkerResult;
+import io.soabase.recordbuilder.core.RecordBuilder;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
 import java.util.List;
-import lombok.*;
-import lombok.experimental.Accessors;
 
-/** 商品参数vo */
-@Setter
-@Getter
-@Accessors(fluent = true)
-@AllArgsConstructor
-@NoArgsConstructor
-public class GoodsParamsGroupResult extends BaseResult {
+/**
+ * 商品参数vo
+ */
+@RecordBuilder
+public record GoodsParamsGroupResult(@Schema(description = "参数组关联的参数集合") List<GoodsParamsResult> params,
+									 @Schema(description = "参数组名称") String groupName,
+									 @Schema(description = "参数组id") String groupId) implements MarkerResult {
 
-    @Serial private static final long serialVersionUID = 1450550797436233753L;
+	@Serial
+	private static final long serialVersionUID = 1450550797436233753L;
 
-    @Schema(description = "参数组关联的参数集合")
-    private List<GoodsParamsResult> params;
-
-    @Schema(description = "参数组名称")
-    private String groupName;
-
-    @Schema(description = "参数组id")
-    private String groupId;
-
-	public List<GoodsParamsResult> getParams() {
-		return params;
-	}
-
-	public void setParams( List<GoodsParamsResult> params ) {
-		this.params = params;
-	}
-
-	public String getGroupName() {
-		return groupName;
-	}
-
-	public void setGroupName( String groupName ) {
-		this.groupName = groupName;
-	}
-
-	public String getGroupId() {
-		return groupId;
-	}
-
-	public void setGroupId( String groupId ) {
-		this.groupId = groupId;
-	}
 }
