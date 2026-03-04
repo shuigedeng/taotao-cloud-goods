@@ -35,11 +35,7 @@ import com.taotao.cloud.goods.application.service.query.EsGoodsQueryService;
 import com.taotao.cloud.goods.application.service.query.GoodsQueryService;
 import com.taotao.cloud.goods.application.service.query.GoodsSkuQueryService;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.Parameter;
-import io.swagger.v3.oas.annotations.Parameters;
-import io.swagger.v3.oas.annotations.enums.ParameterIn;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import jakarta.validation.constraints.NotNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
@@ -87,7 +83,8 @@ public class GoodsBuyerController extends BusinessController {
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query")
 	public Result<GoodsSkuParamsResult> queryByGoodsId( IdCommand idCommand ) {
-		return Result.success(goodsQueryService.getGoodsVO(idCommand.getId()));
+		GoodsSkuParamsResult result = goodsQueryService.getGoodsResult(idCommand.getId());
+		return Result.success(result);
 	}
 
 	@Operation(summary = "通过skuId获取商品信息", description = "通过skuId获取商品信息")
@@ -95,7 +92,7 @@ public class GoodsBuyerController extends BusinessController {
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/goodsId/skuId")
 	//@PageViewPoint(type = PageViewEnum.SKU, id = "#id")
-	public Result<Map<String, Object>> querySkuById( GoodsSkuQuery goodsId) {
+	public Result<Map<String, Object>> querySkuById( GoodsSkuQuery goodsSkuQuery) {
 //		Map<String, Object> map = goodsSkuQueryService.getGoodsSkuDetail(goodsId, skuId);
 //		return Result.success(map);
 		return null;
@@ -114,7 +111,7 @@ public class GoodsBuyerController extends BusinessController {
 	@Operation(summary = "从ES中获取商品信息", description = "从ES中获取商品信息")
 	@RequestLogger
 	@GetMapping("/query/es")
-	public Result<PageResult<EsGoodsResult>> queryEs( EsGoodsSearchQuery goodsSearchParams ) {
+	public Result<PageResult<EsGoodsResult>> queryEs( EsGoodsSearchQuery esGoodsSearchQuery ) {
 //		SearchPage<EsGoodsIndex> esGoodsIndices = esGoodsQueryService.searchGoods(goodsSearchParams);
 //		return Result.success(esGoodsIndices);
 		return null;

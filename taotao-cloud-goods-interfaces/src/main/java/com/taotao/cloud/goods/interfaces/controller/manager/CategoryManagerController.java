@@ -16,7 +16,6 @@
 
 package com.taotao.cloud.goods.interfaces.controller.manager;
 
-import com.taotao.boot.common.enums.ResultEnum;
 import com.taotao.boot.common.model.ddd.command.IdCommand;
 import com.taotao.boot.common.model.result.EmptyResult;
 import com.taotao.boot.common.model.result.Result;
@@ -25,7 +24,7 @@ import com.taotao.boot.webagg.controller.BusinessController;
 import com.taotao.cloud.goods.application.dto.own.category.command.CategoryAddCommand;
 import com.taotao.cloud.goods.application.dto.own.category.command.CategoryTreeCommand;
 import com.taotao.cloud.goods.application.dto.own.category.command.DisableCommand;
-import com.taotao.cloud.goods.application.dto.own.category.command.ParentIdQuery;
+import com.taotao.cloud.goods.application.dto.own.category.query.ParentIdQuery;
 import com.taotao.cloud.goods.application.dto.own.category.result.CategoryResult;
 import com.taotao.cloud.goods.application.dto.own.category.result.CategoryTreeResult;
 import com.taotao.cloud.goods.application.service.command.CategoryCommandService;
@@ -34,10 +33,7 @@ import com.taotao.cloud.goods.application.service.query.CategoryQueryService;
 import com.taotao.cloud.goods.application.service.query.GoodsQueryService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotBlank;
 import lombok.RequiredArgsConstructor;
-import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;

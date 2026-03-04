@@ -30,9 +30,12 @@ import java.io.Serial;
  */
 @RecordBuilder
 @Schema(description = "商品品牌dto")
-public record BrandPageQuery(@Schema(description = "品牌名称") String name, PageQuery page) {
+public record BrandPageQuery(
+	@Schema(description = "品牌名称") String name,
+	PageQuery page) {
 
 	@Serial
 	private static final long serialVersionUID = 8906820486037326039L;
+
 
 }

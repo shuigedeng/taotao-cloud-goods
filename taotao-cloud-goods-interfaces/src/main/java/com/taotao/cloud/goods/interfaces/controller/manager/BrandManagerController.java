@@ -17,13 +17,11 @@
 package com.taotao.cloud.goods.interfaces.controller.manager;
 
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
-import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.taotao.boot.common.model.ddd.command.IdsCommand;
 import com.taotao.boot.common.model.ddd.query.IdQuery;
 import com.taotao.boot.common.model.result.EmptyResult;
 import com.taotao.boot.common.model.result.PageResult;
 import com.taotao.boot.common.model.result.Result;
-import com.taotao.boot.data.mybatis.mybatisplus.MpUtils;
 import com.taotao.boot.idempotent.annotation.Idempotent;
 import com.taotao.boot.ratelimit.ratelimitguava.GuavaLimit;
 import com.taotao.boot.ratelimit.ratelimitguava.Limit;
@@ -39,9 +37,7 @@ import com.taotao.cloud.goods.application.service.command.BrandCommandService;
 import com.taotao.cloud.goods.application.service.query.BrandQueryService;
 import com.yomahub.tlog.core.annotation.TLogAspect;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import jakarta.validation.constraints.NotNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
@@ -94,7 +90,7 @@ public class BrandManagerController extends BusinessController {
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/page")
-	public Result<PageResult<BrandResult>> queryPage(  BrandPageQuery page ) {
+	public Result<PageResult<BrandResult>> queryPage( BrandPageQuery page ) {
 //		IPage<BrandPO> brandPage = brandQueryService.brandsQueryPage(page);
 //		return Result.success(MpUtils.convertMybatisPage(brandPage, BrandCO.class));
 		return null;
@@ -128,7 +124,7 @@ public class BrandManagerController extends BusinessController {
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/disable")
-	public Result<EmptyResult> disableById(@RequestBody BrandDisableCommand brandDisableCommand) {
+	public Result<EmptyResult> disableById( @RequestBody BrandDisableCommand brandDisableCommand ) {
 //		return Result.success(brandCommandService.brandDisable(brandId, disable));
 		return Result.empty();
 	}

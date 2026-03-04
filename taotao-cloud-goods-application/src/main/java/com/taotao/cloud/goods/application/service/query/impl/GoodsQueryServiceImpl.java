@@ -52,7 +52,7 @@ public class GoodsQueryServiceImpl implements GoodsQueryService {
     //	}
 
     @Override
-    public GoodsSkuParamsResult getGoodsVO(Long goodsId) {
+    public GoodsSkuParamsResult getGoodsResult(Long goodsId) {
         return null;
     }
 
