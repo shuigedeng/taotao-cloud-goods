@@ -42,7 +42,8 @@ dependencies {
 }
 
 // 自定义 Gradle 任务
-task generateMybatis(type: JavaExec) {
+tasks.register('generateMybatis', JavaExec) {
+    group = "mybatis"
     classpath = configurations.mybatisGen
     mainClass = 'org.mybatis.generator.api.ShellRunner'
     args '-configfile', 'generatorConfiguration.xml'

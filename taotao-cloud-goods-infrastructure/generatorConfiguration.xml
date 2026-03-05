@@ -15,7 +15,7 @@
 		targetRuntime 这个配置会影响生成的 dao 和 mapper.xml的内容
 		目前有5种运行模式，分别为：MyBatis3DynamicSql、MyBatis3Kotlin、MyBatis3、MyBatis3Simple、MyBatis3DynamicSqlV1。
 		flat表示一张表对应一个po -->
-	<context id="TaotaoCloudSysMybatisContext" targetRuntime="MyBatis3" defaultModelType="flat">
+	<context id="TaotaoCloudGoodsMybatisContext" targetRuntime="MyBatis3" defaultModelType="flat">
 		<property name="autoDelimitKeywords" value="true"/>
 		<property name="beginningDelimiter" value="`"/>
 		<property name="endingDelimiter" value="`"/>
@@ -29,10 +29,10 @@
 		<plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin"/>
 		<!--生成mapper.xml时覆盖原文件-->
 		<plugin type="org.mybatis.generator.plugins.UnmergeableXmlMappersPlugin" />
+<!--		<plugin type="com.taotao.cloud.goods.infrastructure.TableNameRenamingPlugin" />-->
 
 		<!--可以自定义生成model的代码注释-->
-		<!--<commentGenerator type="org.mybatis.generator.internal.DefaultCommentGenerator">-->
-		<commentGenerator type="com.taotao.boot.data.mybatis.mbg.CommentGenerator">
+		<commentGenerator type="org.mybatis.generator.internal.DefaultCommentGenerator">
 			<!-- 是否去除自动生成的注释 true：是 ：false:否 -->
 			<property name="suppressAllComments" value="true"/>
 			<!--不希望生成的注释中包含时间戳-->
@@ -43,9 +43,9 @@
 
 		<!--配置数据库连接-->
 		<jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
-						connectionURL="jdbc:mysql://192.168.218.2:3306/taotao-cloud-sys?useUnicode=true&amp;characterEncoding=utf-8&amp;serverTimezone=Asia/Shanghai&amp;useSSL=false"
-						userId="root"
-						password="123456">
+			connectionURL="jdbc:mysql://127.0.0.1:3306/taotao-cloud-goods?useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=Asia/Shanghai&amp;useSSL=false&amp;rewriteBatchedStatements=true&amp;zeroDateTimeBehavior=convertToNull&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;allowMultiQueries=true&amp;autoReconnect=true&amp;useCursorFetch=true&amp;allowPublicKeyRetrieval=true"
+			userId="root"
+			password="123456">
 			<!--解决mysql驱动升级到8.0后不生成指定数据库代码的问题-->
 			<!--高版本的 mysql-connector-java 需要设置 nullCatalogMeansCurrent=true-->
 			<property name="nullCatalogMeansCurrent" value="true"/>
@@ -70,7 +70,7 @@
             也可以使用“MAVEN”来自动生成，这样生成的代码会在target/generated-source目录下 -->
 		<!--<javaModelGenerator targetPackage="com.joey.mybaties.test.pojo" targetProject="MAVEN"> -->
 		<javaModelGenerator
-			targetPackage="com.taotao.cloud.sys.infrastructure.persistent.mbg.entity"
+			targetPackage="com.taotao.cloud.goods.infrastructure.persistent.mbg.entity"
 			targetProject="src/main/java">
 			<!-- enableSubPackages:是否让schema作为包的后缀 -->
 			<property name="enableSubPackages" value="false"/>
@@ -88,9 +88,9 @@
 				 type="XMLMAPPER" 会将接口的实现放在 mapper.xml中，也推荐这样配置。
 				 type="ANNOTATEDMAPPER"，接口的实现通过注解写在接口上面
 				 -->
-		<javaClientGenerator targetPackage="com.taotao.cloud.sys.infrastructure.persistent.mbg.mapper"
-							 targetProject="src/main/java"
-							 type="XMLMAPPER">
+		<javaClientGenerator targetPackage="com.taotao.cloud.goods.infrastructure.persistent.mbg.mapper"
+			targetProject="src/main/java"
+			type="XMLMAPPER">
 			<property name="rootInterface" value="org.mybatis.dynamic.sql.util.mybatis3.CommonSelectMapper"/>
 			<!-- enableSubPackages:是否让schema作为包的后缀 -->
 			<property name="enableSubPackages" value="false" />
@@ -113,20 +113,20 @@
 
 		<!--生成全部表tableName设为%-->
 		<!-- 指定数据库表 -->
-		<!--<table tableName="tt_%" >-->
-		<!--	<generatedKey column="id" sqlStatement="MySql" identity="true" type="post"/>-->
-		<!--	<domainObjectRenamingRule searchString="^tt_" replaceString=""/>-->
-		<!--</table>-->
-
-		<table tableName="tt_app" domainObjectName="App">
+		<table tableName="ttc%" >
 			<generatedKey column="id" sqlStatement="JDBC" identity="true" type="post"/>
+			<domainObjectRenamingRule searchString="^Ttc" replaceString="" />
 		</table>
+
+<!--		<table tableName="ttc_app" domainObjectName="App">-->
+<!--			<generatedKey column="id" sqlStatement="JDBC" identity="true" type="post"/>-->
+<!--		</table>-->
 
 		<!--<table tableName="order" delimitIdentifiers="true" domainObjectName="OrderEntity">-->
 		<!--	<generatedKey column="id" sqlStatement="JDBC" identity="true" type="post"/>-->
 		<!--	<columnOverride column="status"-->
 		<!--					javaType="cc.cc1234.core.domain.enums.OrderStatus"-->
-		<!--					typeHandler="cc.cc1234.dao.EnumOrdinalTypeHandler"/>-->
+		<!--					typeHan`dler="cc.cc1234.dao.EnumOrdinalTypeHandler"/>-->
 		<!--</table>-->
 		<!--<table tableName="order_item" domainObjectName="OrderItemEntity">-->
 		<!--	<generatedKey column="id" sqlStatement="JDBC" identity="true" type="post"/>-->

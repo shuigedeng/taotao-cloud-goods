@@ -182,7 +182,7 @@ bootBuildImage {
 
     docker {
         //使用docker
-        //host = "tcp://192.168.218.2:2376"
+        //host = "tcp://127.0.0.1:2376"
         //tlsVerify = true
         //certPath = "/home/users/.minikube/certs"
 
