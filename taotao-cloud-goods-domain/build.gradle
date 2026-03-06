@@ -58,11 +58,10 @@ dependencies {
     api project(":taotao-cloud-goods-common")
 
     //cloud
-    //api "io.github.shuigedeng:taotao-cloud-starter-seata"
-    //api "io.github.shuigedeng:taotao-cloud-starter-sentinel"
+    api "io.github.shuigedeng:taotao-cloud-starter-alibaba"
+    api "io.github.shuigedeng:taotao-cloud-starter-sentinel"
     //api "io.github.shuigedeng:taotao-cloud-starter-stream"
-    //api "io.github.shuigedeng:taotao-cloud-starter-alibaba"
-    //
+    //api "io.github.shuigedeng:taotao-cloud-starter-seata"
 
     //boot
     api "io.github.shuigedeng:taotao-boot-starter-apollo"
