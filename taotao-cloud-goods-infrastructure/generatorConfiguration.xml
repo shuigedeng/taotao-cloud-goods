@@ -29,16 +29,22 @@
 		<plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin"/>
 		<!--生成mapper.xml时覆盖原文件-->
 		<plugin type="org.mybatis.generator.plugins.UnmergeableXmlMappersPlugin" />
-<!--		<plugin type="com.taotao.cloud.goods.infrastructure.TableNameRenamingPlugin" />-->
+		<plugin type="com.taotao.boot.data.mybatis.mbg.MpSuperMapperPlugin" />
 
 		<!--可以自定义生成model的代码注释-->
-		<commentGenerator type="org.mybatis.generator.internal.DefaultCommentGenerator">
+		<commentGenerator type="com.taotao.boot.data.mybatis.mbg.MySQLCommentGenerator">
 			<!-- 是否去除自动生成的注释 true：是 ：false:否 -->
 			<property name="suppressAllComments" value="true"/>
 			<!--不希望生成的注释中包含时间戳-->
 			<property name="suppressDate" value="true"/>
 			<!--添加 db 表中字段的注释-->
 			<property name="addRemarkComments" value="true"/>
+			<property name="dateFormat" value="yyyy-MM-dd HH:mm:ss"/>
+
+			<!-- 关键配置：禁用这些方法的生成 -->
+<!--			<property name="enableToString" value="false"/>-->
+<!--			<property name="enableEquals" value="false"/>-->
+<!--			<property name="enableHashCode" value="false"/>-->
 		</commentGenerator>
 
 		<!--配置数据库连接-->
@@ -76,6 +82,8 @@
 			<property name="enableSubPackages" value="false"/>
 			<!-- 从数据库返回的值被清理前后的空格是否针对string类型的字段在set方法中进行修剪，默认false    -->
 			<property name="trimStrings" value="true"/>
+			<!-- 关键配置：禁用 getter/setter 生成 -->
+			<property name="immutable" value="true"/>
 		</javaModelGenerator>
 
 		<!--对应的mapper.xml文件 -->
@@ -115,7 +123,15 @@
 		<!-- 指定数据库表 -->
 		<table tableName="ttc%" >
 			<generatedKey column="id" sqlStatement="JDBC" identity="true" type="post"/>
-			<domainObjectRenamingRule searchString="^Ttc" replaceString="" />
+<!--			<domainObjectRenamingRule searchString="^Ttc" replaceString="" />-->
+			<domainObjectRenamingRule searchString="^Ttc(.*)" replaceString="$1PO" />
+			<ignoreColumn column="create_date"/>
+			<ignoreColumn column="create_user"/>
+			<ignoreColumn column="modify_date"/>
+			<ignoreColumn column="modify_user"/>
+			<ignoreColumn column="del_flag"/>
+			<ignoreColumn column="remark"/>
+			<ignoreColumn column="extra"/>
 		</table>
 
 <!--		<table tableName="ttc_app" domainObjectName="App">-->
