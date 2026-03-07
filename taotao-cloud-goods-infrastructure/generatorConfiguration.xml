@@ -49,7 +49,7 @@
 
 		<!--配置数据库连接-->
 		<jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
-			connectionURL="jdbc:mysql://127.0.0.1:3306/taotao-cloud-goods?useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=Asia/Shanghai&amp;useSSL=false&amp;rewriteBatchedStatements=true&amp;zeroDateTimeBehavior=convertToNull&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;allowMultiQueries=true&amp;autoReconnect=true&amp;useCursorFetch=true&amp;allowPublicKeyRetrieval=true"
+			connectionURL="jdbc:mysql://192.168.218.2:3306/taotao-cloud-goods?useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=Asia/Shanghai&amp;useSSL=false&amp;rewriteBatchedStatements=true&amp;zeroDateTimeBehavior=convertToNull&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;allowMultiQueries=true&amp;autoReconnect=true&amp;useCursorFetch=true&amp;allowPublicKeyRetrieval=true"
 			userId="root"
 			password="123456">
 			<!--解决mysql驱动升级到8.0后不生成指定数据库代码的问题-->
