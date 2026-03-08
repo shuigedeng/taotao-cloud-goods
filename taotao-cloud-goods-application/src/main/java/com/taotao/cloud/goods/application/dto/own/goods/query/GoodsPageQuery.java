@@ -28,7 +28,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
  * 商品分页查询
  *
  * @author shuigedeng
- * @date 2022-11-27 19:07
+ * @since 2022-11-27 19:07
  */
 @RecordBuilder
 public record GoodsPageQuery(@Schema(description = "商品名称") String goodsName, PageQuery page,

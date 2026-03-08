@@ -28,7 +28,7 @@ import java.util.Objects;
  * 商品分类
  *
  * @author shuigedeng
- * @date 2023-01-04 13:20
+ * @since 2023-01-04 13:20
  */
 public class CategoryAgg extends AggregateRoot<BizId> {
 
