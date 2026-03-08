@@ -449,7 +449,7 @@ subprojects {
                     '--add-exports=java.base/sun.net.www.protocol.ftp=ALL-UNNAMED',
                     '--add-exports=java.desktop/sun.awt=ALL-UNNAMED',
                     '--add-exports=java.desktop/sun.font=ALL-UNNAMED',
-                    '--add-exports=java.base/sun.security.action=ALL-UNNAMED',
+                    
                     '--add-exports=java.base/java.lang=ALL-UNNAMED',
                     '--add-exports=java.base/java.lang.reflect=ALL-UNNAMED',
                     '--add-exports=java.base/java.lang.invoke=ALL-UNNAMED',
@@ -461,7 +461,7 @@ subprojects {
                     '--add-exports=java.desktop/sun.awt=ALL-UNNAMED',
                     '--add-exports=java.desktop/sun.font=ALL-UNNAMED',
                     '--add-exports=jdk.management/com.sun.management.internal=ALL-UNNAMED',
-                    '--add-exports=java.base/sun.security.action=ALL-UNNAMED',
+                    
                     '--add-exports=java.base/java.lang=ALL-UNNAMED',
                     '--add-exports=java.base/java.math=ALL-UNNAMED',
                     '--add-exports=java.base/java.util=ALL-UNNAMED',
@@ -476,7 +476,7 @@ subprojects {
                     '--add-exports=java.management/java.lang.management=ALL-UNNAMED',
                     '--add-exports=jdk.management/com.sun.management.internal=ALL-UNNAMED',
                     '--add-exports=java.management/sun.management=ALL-UNNAMED',
-                    '--add-exports=java.base/sun.security.action=ALL-UNNAMED',
+                    
                     '--add-exports=java.management/java.lang.management=ALL-UNNAMED',
                     '--add-exports=jdk.management/com.sun.management.internal=ALL-UNNAMED',
                     '--add-exports=java.management/sun.management=ALL-UNNAMED',
