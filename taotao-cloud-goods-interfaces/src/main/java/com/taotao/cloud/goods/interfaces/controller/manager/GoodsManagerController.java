@@ -58,16 +58,10 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/manager/goods")
 public class GoodsManagerController extends BusinessController {
 
-	/**
-	 * 商品服务
-	 */
 	private final GoodsQueryService goodsQueryService;
 
 	private final GoodsCommandService goodsCommandService;
 
-	/**
-	 * 规格商品服务
-	 */
 	private final GoodsSkuQueryService goodsSkuQueryService;
 
 	private final GoodsSkuCommandService goodsSkuCommandService;
