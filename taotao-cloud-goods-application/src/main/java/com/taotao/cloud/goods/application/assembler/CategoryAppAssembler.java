@@ -18,7 +18,7 @@ package com.taotao.cloud.goods.application.assembler;
 
 import com.taotao.boot.ddd.model.types.BizId;
 import com.taotao.cloud.goods.application.dto.own.category.result.CategoryTreeResult;
-import com.taotao.cloud.goods.domain.aggregate.CategoryAgg;
+import com.taotao.cloud.goods.domain.entity.Category;
 import com.taotao.cloud.goods.domain.valobj.GoodsName;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingConstants;
@@ -38,7 +38,7 @@ public interface CategoryAppAssembler {
     CategoryAppAssembler INSTANCE = Mappers.getMapper(CategoryAppAssembler.class);
 
 
-	CategoryTreeResult toResult(CategoryAgg categoryAgg);
+	CategoryTreeResult toResult( Category categoryAgg);
 
 
     default Long map(BizId value) {

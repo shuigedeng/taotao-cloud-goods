@@ -22,12 +22,10 @@ import com.taotao.cloud.goods.application.assembler.GoodsAppAssembler;
 import com.taotao.cloud.goods.application.dto.own.goods.result.GoodsResult;
 import com.taotao.cloud.goods.application.dto.own.goods.command.GoodsAddCommand;
 import com.taotao.cloud.goods.application.dto.own.goods.command.GoodsCreateCommand;
-import com.taotao.cloud.goods.application.support.factory.GoodsFactory;
+import com.taotao.cloud.goods.application.factory.GoodsFactory;
 import com.taotao.cloud.goods.application.service.command.GoodsCommandService;
 import com.taotao.cloud.goods.domain.aggregate.GoodsAgg;
-import com.taotao.cloud.goods.domain.repository.CategoryDomainRepository;
 import com.taotao.cloud.goods.domain.repository.GoodsDomainRepository;
-import com.taotao.cloud.goods.domain.repository.GoodsTagDomainRepository;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -42,8 +40,8 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor
 public class GoodsCommandServiceImpl implements GoodsCommandService {
-    private final CategoryDomainRepository categoryDomainRepository;
-    private final GoodsTagDomainRepository goodsTagDomainRepository;
+//    private final CategoryDomainRepository categoryDomainRepository;
+//    private final GoodsTagDomainRepository goodsTagDomainRepository;
     private final GoodsDomainRepository goodsDomainRepository;
     private final GoodsAppAssembler goodsAppAssembler;
 
@@ -114,9 +112,9 @@ public class GoodsCommandServiceImpl implements GoodsCommandService {
         // 创建商品实体
         GoodsAgg goods = GoodsFactory.createGoods(goodsCreateCommand);
         // 验证新增商品分类是否存在
-        this.categoryDomainRepository.isSatisfiedBy(goods.getCategoryId());
+//        this.categoryDomainRepository.isSatisfiedBy(goods.getCategory());
         // 验证商品标签是否存在
-        this.goodsTagDomainRepository.isSatisfiedBy(goods.getTagIds());
+//        this.goodsTagDomainRepository.isSatisfiedBy(goods.getTags());
         // 保存商品
         goodsDomainRepository.save(goods);
         // 转换GoodsDto

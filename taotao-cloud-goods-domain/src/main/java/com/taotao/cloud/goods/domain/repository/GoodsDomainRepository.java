@@ -27,13 +27,8 @@ import java.util.Collection;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-public interface GoodsDomainRepository extends DomainRepository {
+public interface GoodsDomainRepository extends DomainRepository<BizId,GoodsAgg> {
 
-	/**
-	 * 添加商品
-	 * @param goods 商品
-	 */
-    void save(GoodsAgg goods);
 
     /**
      * 查询指定商品ID集合对应的商品数量

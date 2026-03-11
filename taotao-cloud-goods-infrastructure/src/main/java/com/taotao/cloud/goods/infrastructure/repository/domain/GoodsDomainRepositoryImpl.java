@@ -19,6 +19,7 @@ package com.taotao.cloud.goods.infrastructure.repository.domain;
 import com.taotao.boot.data.datasource.tx.TransactionalUtils;
 import com.taotao.boot.data.datasource.tx.TxWrapper;
 import com.taotao.boot.data.mybatis.utils.MybatisUtil;
+import com.taotao.boot.ddd.model.domain.AggregateRoot;
 import com.taotao.boot.ddd.model.types.BizId;
 import com.taotao.cloud.goods.domain.aggregate.GoodsAgg;
 import com.taotao.cloud.goods.domain.repository.GoodsDomainRepository;
@@ -57,10 +58,12 @@ public class GoodsDomainRepositoryImpl implements GoodsDomainRepository {
     private final GoodsSkuMapper goodsSkuMapper;
     private final GoodsInfraAssembler goodsInfraAssembler;
 
-    @Override
-    public void save( GoodsAgg goods ) {
+
+	@Override
+    public Long save( GoodsAgg goods ) {
         GoodsPO goodsPo = goodsInfraAssembler.toPO(goods);
         goodsMapper.insert(goodsPo);
+		return 1L;
     }
 
     @Override

@@ -24,10 +24,8 @@ import com.taotao.cloud.goods.application.service.query.CategoryQueryService;
 
 import java.util.*;
 
-import com.taotao.cloud.goods.domain.aggregate.CategoryAgg;
-import com.taotao.cloud.goods.domain.repository.CategoryDomainRepository;
+import com.taotao.cloud.goods.domain.entity.Category;
 import lombok.RequiredArgsConstructor;
-import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.stereotype.Service;
 
 import static com.taotao.boot.common.enums.CachePrefixEnum.CATEGORY;
@@ -46,7 +44,7 @@ import static com.taotao.boot.common.enums.CachePrefixEnum.CATEGORY_ARRAY;
 public class CategoryQueryServiceImpl implements CategoryQueryService {
 
     private final RedisRepository redisRepository;
-	private final CategoryDomainRepository categoryDomainRepository;
+//	private final CategoryDomainRepository categoryDomainRepository;
 	private final CategoryAppAssembler categoryAssembler;
 
     @Override
@@ -63,11 +61,12 @@ public class CategoryQueryServiceImpl implements CategoryQueryService {
 			return categoryTreeResults;
 		}
 
-		List<CategoryAgg> categoryAggs = categoryDomainRepository.findCategory(DelFlagEnum.NORMAL);
+//		List<Category> categoryAggs = categoryDomainRepository.findCategory(DelFlagEnum.NORMAL);
+		List<Category> categoryAggs = new ArrayList<>();
 
 		// 构造分类树
 		categoryTreeResults = new ArrayList<>();
-		for (CategoryAgg category : categoryAggs) {
+		for (Category category : categoryAggs) {
 			if (Long.valueOf(0).equals(category.parentCategoryId())) {
 				CategoryTreeResult categoryTreeResult = categoryAssembler.toResult(category);
 				categoryTreeResult.setParentTitle(category.categoryName());
@@ -94,10 +93,10 @@ public class CategoryQueryServiceImpl implements CategoryQueryService {
 	 * @param categoryTreeVO 分类VO
 	 * @return 分类VO列表
 	 */
-	private List<CategoryTreeResult> findChildren(List<CategoryAgg> categoryAggs, CategoryTreeResult categoryTreeResult) {
+	private List<CategoryTreeResult> findChildren(List<Category> categoryAggs, CategoryTreeResult categoryTreeResult) {
 		List<CategoryTreeResult> children = new ArrayList<>();
 		categoryAggs.forEach(item -> {
-			if (item.getParentCategoryId().getId().equals(categoryTreeResult.getId())) {
+			if (item.getParentCategoryId().id().equals(categoryTreeResult.getId())) {
 				CategoryTreeResult temp = categoryAssembler.toResult(item);
 				temp.setParentTitle(item.categoryName());
 				temp.setChildren(findChildren(categoryAggs, temp));
@@ -149,11 +148,12 @@ public class CategoryQueryServiceImpl implements CategoryQueryService {
     @Override
     public List<CategoryTreeResult> listAllChildren() {
 		// 获取全部分类
-		List<CategoryAgg> categoryAggs = categoryDomainRepository.findCategory(DelFlagEnum.NORMAL);
+//		List<Category> categoryAggs = categoryDomainRepository.findCategory(DelFlagEnum.NORMAL);
+		List<Category> categoryAggs = new ArrayList<>();
 
 		// 构造分类树
 		List<CategoryTreeResult> categoryTreeResults = new ArrayList<>();
-		for (CategoryAgg categoryAgg : categoryAggs) {
+		for (Category categoryAgg : categoryAggs) {
 			if (Long.valueOf(0).equals(categoryAgg.parentCategoryId())) {
 				CategoryTreeResult categoryTreeResult = new CategoryTreeResult();
 				categoryTreeResult.setChildren(findChildren(categoryAggs, categoryTreeResult));
@@ -168,11 +168,11 @@ public class CategoryQueryServiceImpl implements CategoryQueryService {
     @Override
     public List<String> getCategoryNameByIds(List<Long> ids) {
 		List<String> categoryName = new ArrayList<>();
-		List<CategoryAgg> categoryAggs = (List<CategoryAgg>) redisRepository.get(CATEGORY_ARRAY.getPrefix());
+		List<Category> categoryAggs = (List<Category>) redisRepository.get(CATEGORY_ARRAY.getPrefix());
 		// 如果缓存中为空，则重新获取缓存
 		if (categoryAggs == null) {
 			categoryTree();
-			categoryAggs = (List<CategoryAgg>) redisRepository.get(CATEGORY_ARRAY.getPrefix());
+			categoryAggs = (List<Category>) redisRepository.get(CATEGORY_ARRAY.getPrefix());
 		}
 
 		// 还为空的话，直接返回
@@ -181,10 +181,10 @@ public class CategoryQueryServiceImpl implements CategoryQueryService {
 		}
 
 		// 循环顶级分类
-		for (CategoryAgg category : categoryAggs) {
+		for (Category category : categoryAggs) {
 			// 循环查询的id匹配
 			for (Long id : ids) {
-				if (category.getId().getId().equals(id)) {
+				if (category.getId().id().equals(id)) {
 					// 写入商品分类
 					categoryName.add(category.categoryName());
 				}

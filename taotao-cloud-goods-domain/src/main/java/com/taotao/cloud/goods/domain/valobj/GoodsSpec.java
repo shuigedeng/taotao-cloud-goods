@@ -36,7 +36,8 @@ import org.hibernate.validator.constraints.Length;
 @RecordBuilder
 public record GoodsSpec(@NotNull @PastOrPresent LocalDate manufactureDate, @NotNull LocalDate expirationDate,
 						@NotNull GoodsWeight goodsWeight,
-						@NotBlank @Length(min = 1, max = 1024) String goodsDesc) implements ValueObject<GoodsSpec> {
+						@NotBlank @Length(min = 1, max = 1024) String goodsDesc)
+	implements ValueObject<GoodsSpec> {
 
 	public GoodsSpec( LocalDate manufactureDate, LocalDate expirationDate, GoodsWeight goodsWeight, String goodsDesc ) {
 		this.manufactureDate = manufactureDate;

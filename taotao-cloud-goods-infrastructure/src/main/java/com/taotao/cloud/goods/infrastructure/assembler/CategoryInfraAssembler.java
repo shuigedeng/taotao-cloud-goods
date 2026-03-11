@@ -19,7 +19,7 @@ package com.taotao.cloud.goods.infrastructure.assembler;
 import com.taotao.boot.ddd.model.types.BizId;
 import com.taotao.cloud.goods.application.dto.own.category.result.CategoryResult;
 import com.taotao.cloud.goods.application.dto.own.category.result.CategoryTreeResult;
-import com.taotao.cloud.goods.domain.aggregate.CategoryAgg;
+import com.taotao.cloud.goods.domain.entity.Category;
 import com.taotao.cloud.goods.domain.valobj.CategoryDesc;
 import com.taotao.cloud.goods.domain.valobj.CategoryName;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.CategoryPO;
@@ -60,14 +60,14 @@ public interface CategoryInfraAssembler {
      */
     List<CategoryResult> toResult(List<CategoryPO> categoryPos);
 
-	List<CategoryAgg> toAggs(Iterable<CategoryPO> categoryPos);
+	List<Category> toAggs(Iterable<CategoryPO> categoryPos);
 
 	@Mapping(target = "id", source = "id")
 	@Mapping(target = "parentCategoryId", source = "parentId")
 	@Mapping(target = "categoryName", source = "name")
 	@Mapping(target = "categoryDesc", source = "name")
 	@Mapping(target = "createTime", source = "createDate")
-	CategoryAgg toAgg(CategoryPO po);
+	Category toEntity(CategoryPO po);
 
 	default BizId map(Long id) {
 		if (id == null) {

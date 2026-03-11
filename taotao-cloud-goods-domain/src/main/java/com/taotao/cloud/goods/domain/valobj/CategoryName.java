@@ -29,7 +29,8 @@ import org.hibernate.validator.constraints.Length;
  * @since 2023-01-04 13:21
  */
 @RecordBuilder
-public record CategoryName(@NotBlank @Length(min = 1, max = 64) String value) implements ValueObject<CategoryName> {
+public record CategoryName(@NotBlank @Length(min = 1, max = 64) String value)
+	implements ValueObject<CategoryName> {
 
 	public CategoryName {
 		this.validateSelf();

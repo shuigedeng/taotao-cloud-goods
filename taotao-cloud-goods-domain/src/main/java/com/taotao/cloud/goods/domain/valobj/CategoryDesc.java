@@ -28,7 +28,8 @@ import org.hibernate.validator.constraints.Length;
  * @since 2023-01-04 13:21
  */
 @RecordBuilder
-public record CategoryDesc(@Length(min = 1, max = 512) String value) implements ValueObject<CategoryDesc> {
+public record CategoryDesc(@Length(min = 1, max = 512) String value)
+	implements ValueObject<CategoryDesc> {
 
 	public CategoryDesc {
 		this.validateSelf();

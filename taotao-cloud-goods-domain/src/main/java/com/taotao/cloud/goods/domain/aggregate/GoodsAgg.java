@@ -19,14 +19,17 @@ package com.taotao.cloud.goods.domain.aggregate;
 import com.taotao.boot.ddd.model.domain.AggregateRoot;
 import com.taotao.boot.ddd.model.types.BizId;
 import com.taotao.boot.ddd.model.types.Price;
+import com.taotao.cloud.goods.domain.entity.Category;
+import com.taotao.cloud.goods.domain.entity.Tag;
+import com.taotao.cloud.goods.domain.event.GoodsCreateEvent;
 import com.taotao.cloud.goods.domain.valobj.GoodsName;
 import com.taotao.cloud.goods.domain.valobj.GoodsSpec;
 import com.taotao.cloud.goods.domain.valobj.GoodsStatus;
 import jakarta.validation.constraints.NotNull;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Objects;
-import java.util.Set;
 
 /**
  * GoodsAgg
@@ -46,13 +49,12 @@ public class GoodsAgg extends AggregateRoot<BizId> {
     /**
      * 商品标签集合
      */
-    private Set<BizId> tagIds;
+    private List<Tag> tags;
 
     /**
      * 商品所属分类
      */
-    @NotNull
-    private BizId categoryId;
+    private @NotNull Category category;
 
     /**
      * 商品名称
@@ -95,7 +97,7 @@ public class GoodsAgg extends AggregateRoot<BizId> {
      * 初始创建商品信息
      *
      * @param id 商品ID
-     * @param categoryId 商品所属分类ID
+     * @param category 商品所属分类ID
      * @param goodsName 商品名称
      * @param goodsSpec 商品描述
      * @param goodsPrice 商品价格
@@ -103,19 +105,19 @@ public class GoodsAgg extends AggregateRoot<BizId> {
      */
     public GoodsAgg(
             BizId id,
-            BizId categoryId,
+            @NotNull Category category,
             GoodsName goodsName,
             GoodsSpec goodsSpec,
             Price goodsPrice,
             GoodsStatus goodsStatus,
-            Set<BizId> tagIds ) {
+            List<Tag> tagIds ) {
         this.id = id;
-        this.categoryId = categoryId;
+        this.category = category;
         this.goodsName = goodsName;
         this.goodsSpec = goodsSpec;
         this.goodsPrice = goodsPrice;
         this.goodsStatus = goodsStatus;
-        this.tagIds = tagIds;
+        this.tags = tagIds;
         this.createTime = LocalDateTime.now();
         this.updateTime = this.createTime;
         this.validateSelf();
@@ -123,8 +125,8 @@ public class GoodsAgg extends AggregateRoot<BizId> {
 
     public GoodsAgg(
             BizId id,
-            Set<BizId> tagIds,
-            BizId categoryId,
+            List<Tag> tagIds,
+            @NotNull Category category,
             GoodsName goodsName,
             GoodsSpec goodsSpec,
             Price goodsPrice,
@@ -132,8 +134,8 @@ public class GoodsAgg extends AggregateRoot<BizId> {
             LocalDateTime createTime,
             LocalDateTime updateTime ) {
         this.id = id;
-        this.tagIds = tagIds;
-        this.categoryId = categoryId;
+        this.tags = tagIds;
+        this.category = category;
         this.goodsName = goodsName;
         this.goodsSpec = goodsSpec;
         this.goodsPrice = goodsPrice;
@@ -152,18 +154,24 @@ public class GoodsAgg extends AggregateRoot<BizId> {
      * @param goodsPrice 商品价格
      */
     public void modifyBasicInfo(
-            BizId categoryId,
+            @NotNull Category categoryId,
             GoodsName goodsName,
             GoodsSpec goodsSpec,
             Price goodsPrice,
-            Set<BizId> tagIds ) {
-        this.categoryId = categoryId;
+            List<Tag> tagIds ) {
+        this.category = categoryId;
         this.goodsName = goodsName;
         this.goodsSpec = goodsSpec;
         this.goodsPrice = goodsPrice;
-        this.tagIds = tagIds;
+        this.tags = tagIds;
         this.validateSelf();
     }
+
+	public void create(){
+		GoodsCreateEvent goodsCreateEvent = new GoodsCreateEvent();
+		goodsCreateEvent.setName("");
+		publishEvent(goodsCreateEvent);
+	}
 
     /**
      * 上架商品
@@ -183,12 +191,12 @@ public class GoodsAgg extends AggregateRoot<BizId> {
         return id;
     }
 
-    public Set<BizId> getTagIds() {
-        return tagIds;
+    public List<Tag> getTags() {
+        return tags;
     }
 
-    public BizId getCategoryId() {
-        return categoryId;
+    public @NotNull Category getCategory() {
+        return category;
     }
 
     public GoodsName getGoodsName() {
@@ -238,9 +246,9 @@ public class GoodsAgg extends AggregateRoot<BizId> {
                 + "id="
                 + id
                 + ", tags="
-                + tagIds
+                + tags
                 + ", categoryId="
-                + categoryId
+                + category
                 + ", goodsName="
                 + goodsName
                 + ", goodsSpec="
