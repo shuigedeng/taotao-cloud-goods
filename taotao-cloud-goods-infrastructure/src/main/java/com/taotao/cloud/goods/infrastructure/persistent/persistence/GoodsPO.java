@@ -22,9 +22,8 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.handlers.FastjsonTypeHandler;
 import com.taotao.boot.webagg.entity.BaseSuperEntity;
-import com.taotao.cloud.goods.api.enums.GoodsAuthEnum;
-import com.taotao.cloud.goods.api.enums.GoodsTypeEnum;
-import io.hypersistence.utils.hibernate.type.json.JsonType;
+import com.taotao.cloud.goods.common.enums.GoodsAuthEnum;
+import com.taotao.cloud.goods.common.enums.GoodsTypeEnum;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Index;
@@ -39,7 +38,6 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.Accessors;
 import org.hibernate.Hibernate;
-import org.hibernate.annotations.Type;
 
 /**
  * 商品表

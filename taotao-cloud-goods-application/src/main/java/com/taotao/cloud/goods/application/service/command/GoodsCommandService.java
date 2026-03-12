@@ -17,8 +17,8 @@
 package com.taotao.cloud.goods.application.service.command;
 
 import com.taotao.boot.ddd.model.application.service.CommandService;
-import com.taotao.cloud.goods.api.enums.GoodsAuthEnum;
-import com.taotao.cloud.goods.api.enums.GoodsStatusEnum;
+import com.taotao.cloud.goods.common.enums.GoodsAuthEnum;
+import com.taotao.cloud.goods.common.enums.GoodsStatusEnum;
 import com.taotao.cloud.goods.application.dto.own.goods.result.GoodsResult;
 import com.taotao.cloud.goods.application.dto.own.goods.command.GoodsAddCommand;
 import com.taotao.cloud.goods.application.dto.own.goods.command.GoodsCreateCommand;

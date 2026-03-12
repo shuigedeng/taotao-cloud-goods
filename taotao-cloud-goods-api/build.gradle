@@ -3,6 +3,14 @@ description = "商品中心api"
 apply plugin: "com.google.protobuf"
 
 dependencies {
+    api "jakarta.validation:jakarta.validation-api"
+    api "jakarta.annotation:jakarta.annotation-api"
+    api "com.fasterxml.jackson.core:jackson-annotations"
+    api "io.swagger.core.v3:swagger-annotations"
+    api "io.swagger.core.v3:swagger-models-jakarta"
+    api "io.swagger.core.v3:swagger-annotations-jakarta"
+    api "org.jspecify:jspecify"
+
     //https://search.maven.org/artifact/com.google.protobuf/protobuf-java
     api "com.google.protobuf:protobuf-java:4.34.0"
     //https://search.maven.org/artifact/com.google.protobuf/protobuf-java-util

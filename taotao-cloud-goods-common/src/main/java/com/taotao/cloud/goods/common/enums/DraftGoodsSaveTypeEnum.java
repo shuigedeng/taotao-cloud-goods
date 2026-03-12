@@ -14,31 +14,38 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.api.enums;
+package com.taotao.cloud.goods.common.enums;
 
 /**
- * 直播间状态
+ * 草稿商品保存类型
  *
  * @author shuigedeng
  * @version 2022.04
- * @since 2022-04-25 16:32:28
+ * @since 2022-04-25 16:32:07
  */
-public enum StudioStatusEnum {
+public enum DraftGoodsSaveTypeEnum {
 
-    /** 新建 */
-    NEW("新建"),
-    /** 开始 */
-    START("开始"),
-    /** 结束 */
-    END("结束");
+	/**
+	 * "草稿"
+	 */
+	DRAFT("草稿"),
+	/**
+	 * "模版"
+	 */
+	TEMPLATE("模版");
 
-    private final String clientName;
+	private final String description;
 
-    StudioStatusEnum(String des) {
-        this.clientName = des;
-    }
+	DraftGoodsSaveTypeEnum( String description ) {
+		this.description = description;
+	}
 
-    public String clientName() {
-        return this.clientName;
-    }
+	/**
+	 * description
+	 *
+	 * @return String
+	 */
+	public String description() {
+		return description;
+	}
 }

@@ -16,18 +16,12 @@
 
 package com.taotao.cloud.goods.interfaces.controller.seller;
 
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.taotao.boot.common.model.request.EmptyRequest;
 import com.taotao.boot.common.model.ddd.command.IdsCommand;
 import com.taotao.boot.common.model.result.EmptyResult;
 import com.taotao.boot.common.model.result.PageResult;
 import com.taotao.boot.common.model.result.Result;
-import com.taotao.boot.data.mybatis.mybatisplus.MpUtils;
-import com.taotao.boot.security.spring.support.utils.SecurityUtils;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
-import com.taotao.cloud.goods.api.enums.GoodsStatusEnum;
 import com.taotao.cloud.goods.application.dto.own.goods.command.FreightCommand;
 import com.taotao.cloud.goods.application.dto.own.goods.command.GoodsOperationCommand;
 import com.taotao.cloud.goods.application.dto.own.goods.command.GoodsSkuStockUpdateCommand;
@@ -43,9 +37,7 @@ import com.taotao.cloud.goods.application.service.command.GoodsSkuCommandService
 import com.taotao.cloud.goods.application.service.query.GoodsQueryService;
 import com.taotao.cloud.goods.application.service.query.GoodsSkuQueryService;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.enums.ParameterIn;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import jakarta.validation.constraints.NotEmpty;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;

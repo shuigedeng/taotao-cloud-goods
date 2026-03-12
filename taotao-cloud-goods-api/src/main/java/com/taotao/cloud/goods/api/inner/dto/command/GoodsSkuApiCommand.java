@@ -17,10 +17,6 @@
 package com.taotao.cloud.goods.api.inner.dto.command;
 
 import com.taotao.boot.common.model.ddd.types.Command;
-import com.taotao.boot.common.model.ddd.types.MarkerRequest;
-import com.taotao.cloud.goods.api.enums.GoodsAuthEnum;
-import com.taotao.cloud.goods.api.enums.GoodsStatusEnum;
-import com.taotao.cloud.goods.api.enums.GoodsTypeEnum;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
 
@@ -86,9 +82,6 @@ public class GoodsSkuApiCommand implements Command {
     @Schema(description = "重量")
     private BigDecimal weight;
 
-    /**
-     * @see GoodsStatusEnum
-     */
     @Schema(description = "上架状态")
     private String marketEnable;
 
@@ -140,9 +133,6 @@ public class GoodsSkuApiCommand implements Command {
     @Schema(description = "运费模板id")
     private String templateId;
 
-    /**
-     * @see GoodsAuthEnum
-     */
     @Schema(description = "审核状态")
     private String isAuth;
 
@@ -167,9 +157,6 @@ public class GoodsSkuApiCommand implements Command {
     @Schema(description = "销售模式")
     private String salesModel;
 
-    /**
-     * @see GoodsTypeEnum
-     */
     @Schema(description = "商品类型")
     private String goodsType;
 }

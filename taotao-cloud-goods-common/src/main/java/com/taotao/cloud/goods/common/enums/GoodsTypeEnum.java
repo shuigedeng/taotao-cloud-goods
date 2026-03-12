@@ -14,38 +14,31 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.api.enums;
+package com.taotao.cloud.goods.common.enums;
 
 /**
- * 草稿商品保存类型
+ * 商品类型
  *
  * @author shuigedeng
  * @version 2022.04
- * @since 2022-04-25 16:32:07
+ * @since 2022-04-25 16:32:22
  */
-public enum DraftGoodsSaveTypeEnum {
+public enum GoodsTypeEnum {
 
-	/**
-	 * "草稿"
-	 */
-	DRAFT("草稿"),
-	/**
-	 * "模版"
-	 */
-	TEMPLATE("模版");
+    /** "实物商品" */
+    PHYSICAL_GOODS("实物商品"),
+    /** "虚拟商品" */
+    VIRTUAL_GOODS("虚拟商品"),
+    /** "电子卡券" */
+    E_COUPON("电子卡券");
 
-	private final String description;
+    private final String description;
 
-	DraftGoodsSaveTypeEnum( String description ) {
-		this.description = description;
-	}
+    GoodsTypeEnum(String description) {
+        this.description = description;
+    }
 
-	/**
-	 * description
-	 *
-	 * @return String
-	 */
-	public String description() {
-		return description;
-	}
+    public String description() {
+        return description;
+    }
 }

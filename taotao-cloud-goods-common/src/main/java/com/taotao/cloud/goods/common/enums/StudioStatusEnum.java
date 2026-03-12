@@ -14,15 +14,31 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.api.constant;
+package com.taotao.cloud.goods.common.enums;
 
 /**
- * 拼音模块常量
+ * 直播间状态
  *
  * @author shuigedeng
- * @version 2022.03
- * @since 2022-03-25 14:22:32
+ * @version 2022.04
+ * @since 2022-04-25 16:32:28
  */
-public interface GoodsConstants {
+public enum StudioStatusEnum {
 
+    /** 新建 */
+    NEW("新建"),
+    /** 开始 */
+    START("开始"),
+    /** 结束 */
+    END("结束");
+
+    private final String clientName;
+
+    StudioStatusEnum(String des) {
+        this.clientName = des;
+    }
+
+    public String clientName() {
+        return this.clientName;
+    }
 }

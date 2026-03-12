@@ -18,14 +18,14 @@ package com.taotao.cloud.goods.infrastructure.persistent.persistence;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.taotao.boot.webagg.entity.BaseSuperEntity;
-import com.taotao.cloud.goods.api.enums.GoodsAuthEnum;
-import com.taotao.cloud.goods.api.enums.GoodsStatusEnum;
-import com.taotao.cloud.goods.api.enums.GoodsTypeEnum;
+import com.taotao.cloud.goods.common.enums.GoodsAuthEnum;
+import com.taotao.cloud.goods.common.enums.GoodsStatusEnum;
+import com.taotao.cloud.goods.common.enums.GoodsTypeEnum;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Index;
 import jakarta.persistence.Table;
-import jakarta.persistence.UniqueConstraint;
+
 import java.math.BigDecimal;
 import java.util.Objects;
 import lombok.AllArgsConstructor;

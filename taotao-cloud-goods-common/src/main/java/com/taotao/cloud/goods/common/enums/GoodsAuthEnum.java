@@ -14,28 +14,41 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.api.enums;
+package com.taotao.cloud.goods.common.enums;
 
 /**
  * 商品审核
  *
  * @author shuigedeng
  * @version 2022.04
- * @since 2022-04-25 16:32:17
+ * @since 2022-04-25 16:32:10
  */
-public enum GoodsSalesModeEnum {
-    /** 需要审核 并且待审核 */
-    RETAIL("零售"),
-    /** 审核通过 */
-    WHOLESALE("批发");
+public enum GoodsAuthEnum {
+	/**
+	 * 需要审核 并且待审核
+	 */
+	TOBEAUDITED("待审核"),
+	/**
+	 * 审核通过
+	 */
+	PASS("审核通过"),
+	/**
+	 * 审核通过
+	 */
+	REFUSE("审核拒绝");
 
-    private final String description;
+	private final String description;
 
-    GoodsSalesModeEnum(String description) {
-        this.description = description;
-    }
+	GoodsAuthEnum( String description ) {
+		this.description = description;
+	}
 
-    public String description() {
-        return description;
-    }
+	/**
+	 * description
+	 *
+	 * @return String
+	 */
+	public String description() {
+		return description;
+	}
 }

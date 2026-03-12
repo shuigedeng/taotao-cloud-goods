@@ -24,7 +24,7 @@ import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.security.spring.annotation.NotAuth;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
-import com.taotao.cloud.goods.api.enums.GoodsStatusEnum;
+import com.taotao.cloud.goods.common.enums.GoodsStatusEnum;
 import com.taotao.cloud.goods.application.dto.own.goods.command.AuthCommand;
 import com.taotao.cloud.goods.application.dto.own.goods.command.GoodsCreateCommand;
 import com.taotao.cloud.goods.application.dto.own.goods.command.GoodsParamsAddCommand;

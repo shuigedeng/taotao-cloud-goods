@@ -14,22 +14,28 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.api.enums;
+package com.taotao.cloud.goods.common.enums;
 
 /**
- * 商品操作枚举
+ * 商品类型枚举
  *
  * @author shuigedeng
  * @version 2022.04
- * @since 2022-04-25 16:32:13
+ * @since 2022-04-25 16:32:20
  */
-public enum GoodsOperateEnum {
+public enum GoodsStatusEnum {
+    /** 上架 */
+    UPPER("上架"),
     /** 下架 */
-    DOWN,
-    /** 逻辑删除 */
-    DELETE,
-    /** 删除 */
-    CLEAR,
-    /** 还原 */
-    REDUCTION
+    DOWN("下架");
+
+    private final String description;
+
+    GoodsStatusEnum(String description) {
+        this.description = description;
+    }
+
+    public String description() {
+        return description;
+    }
 }
