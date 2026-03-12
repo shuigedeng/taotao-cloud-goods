@@ -35,7 +35,6 @@ import com.taotao.cloud.goods.application.dto.own.brand.result.BrandResult;
 import com.taotao.cloud.goods.application.dto.own.category.command.BrandDisableCommand;
 import com.taotao.cloud.goods.application.service.command.BrandCommandService;
 import com.taotao.cloud.goods.application.service.query.BrandQueryService;
-import com.yomahub.tlog.core.annotation.TLogAspect;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
@@ -100,7 +99,6 @@ public class BrandManagerController extends BusinessController {
 	@RequestLogger
 	@NotAuth
 	@Idempotent(perFix = "test")
-	@TLogAspect(value = {"code"}, pattern = "{{}}", joint = ",", str = "nihao")
 	@Limit(key = "limitTest", period = 10, count = 3)
 	@GuavaLimit
 	@SentinelResource("test")

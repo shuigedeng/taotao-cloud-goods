@@ -16,7 +16,6 @@
 
 package com.taotao.cloud.goods.application.handler.pie.category;
 
-import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -29,7 +28,6 @@ public class ArticleModifyBootstrap {
 
     private static final Logger logger = LoggerFactory.getLogger(ArticleModifyBootstrap.class);
 
-    @Test
     public void test() {
         // 入参
         //        ArticleTitleModifyCmd dto = new ArticleTitleModifyCmd();

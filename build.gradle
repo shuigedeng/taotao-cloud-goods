@@ -357,7 +357,6 @@ subprojects {
                 cacheDynamicVersionsFor 0, "seconds"
             }
 
-            exclude group: 'com.vaadin.external.google', module: 'android-json'
 
             resolutionStrategy {
                 force 'net.minidev:json-smart:2.6.0'
