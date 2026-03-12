@@ -16,6 +16,7 @@
 
 package com.taotao.cloud.goods.infrastructure.assembler;
 
+import com.taotao.boot.common.model.ddd.types.MarkerAssembler;
 import com.taotao.cloud.goods.application.dto.own.store.command.StoreGoodsLabelAddCommand;
 import com.taotao.cloud.goods.application.dto.own.store.command.StoreGoodsLabelEditCommand;
 import com.taotao.cloud.goods.application.dto.own.store.result.StoreGoodsLabelInfoResult;
@@ -32,7 +33,7 @@ import org.mapstruct.factory.Mappers;
  * @since 2022-04-27 16:58:16
  */
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
-public interface GoodsLabelStoreInfraAssembler {
+public interface GoodsLabelStoreInfraAssembler extends MarkerAssembler {
 
     /** 实例 */
     GoodsLabelStoreInfraAssembler INSTANCE = Mappers.getMapper(GoodsLabelStoreInfraAssembler.class);

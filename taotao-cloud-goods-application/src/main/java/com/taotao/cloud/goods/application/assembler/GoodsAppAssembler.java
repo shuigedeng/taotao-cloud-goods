@@ -16,7 +16,8 @@
 
 package com.taotao.cloud.goods.application.assembler;
 
-import com.taotao.boot.ddd.model.types.BizId;
+import com.taotao.boot.common.model.ddd.types.MarkerAssembler;
+import com.taotao.boot.ddd.model.val.BizId;
 import com.taotao.cloud.goods.application.dto.own.goods.result.GoodsResult;
 import com.taotao.cloud.goods.domain.aggregate.GoodsAgg;
 import com.taotao.cloud.goods.domain.valobj.GoodsName;
@@ -32,7 +33,7 @@ import org.mapstruct.factory.Mappers;
  * @since 2022-04-27 16:58:27
  */
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
-public interface GoodsAppAssembler {
+public interface GoodsAppAssembler extends MarkerAssembler {
 
     /** 实例 */
     GoodsAppAssembler INSTANCE = Mappers.getMapper(GoodsAppAssembler.class);

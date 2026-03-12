@@ -16,6 +16,7 @@
 
 package com.taotao.cloud.goods.infrastructure.assembler;
 
+import com.taotao.boot.common.model.ddd.types.MarkerAssembler;
 import com.taotao.cloud.goods.application.dto.own.goods.result.GoodsUnitResult;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsUnitPO;
 import org.mapstruct.Mapper;
@@ -30,7 +31,7 @@ import org.mapstruct.factory.Mappers;
  * @since 2022-04-27 16:58:21
  */
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
-public interface GoodsUnitInfraAssembler {
+public interface GoodsUnitInfraAssembler extends MarkerAssembler {
 
     /** 实例 */
     GoodsUnitInfraAssembler INSTANCE = Mappers.getMapper(GoodsUnitInfraAssembler.class);

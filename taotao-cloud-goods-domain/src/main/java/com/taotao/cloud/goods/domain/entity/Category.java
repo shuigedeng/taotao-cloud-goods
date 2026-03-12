@@ -17,7 +17,7 @@
 package com.taotao.cloud.goods.domain.entity;
 
 import com.taotao.boot.ddd.model.domain.Entity;
-import com.taotao.boot.ddd.model.types.BizId;
+import com.taotao.boot.ddd.model.val.BizId;
 import com.taotao.cloud.goods.domain.valobj.CategoryDesc;
 import com.taotao.cloud.goods.domain.valobj.CategoryName;
 import jakarta.validation.constraints.NotNull;

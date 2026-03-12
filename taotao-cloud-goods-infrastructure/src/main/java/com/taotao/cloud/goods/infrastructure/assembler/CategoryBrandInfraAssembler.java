@@ -16,6 +16,7 @@
 
 package com.taotao.cloud.goods.infrastructure.assembler;
 
+import com.taotao.boot.common.model.ddd.types.MarkerAssembler;
 import com.taotao.cloud.goods.application.dto.own.category.result.CategoryBrandResult;
 import com.taotao.cloud.goods.common.data.dataobj.CategoryBrandDO;
 import java.util.List;
@@ -31,7 +32,7 @@ import org.mapstruct.factory.Mappers;
  * @since 2022-04-27 16:58:05
  */
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
-public interface CategoryBrandInfraAssembler {
+public interface CategoryBrandInfraAssembler extends MarkerAssembler {
 
     /** 实例 */
     CategoryBrandInfraAssembler INSTANCE = Mappers.getMapper(CategoryBrandInfraAssembler.class);

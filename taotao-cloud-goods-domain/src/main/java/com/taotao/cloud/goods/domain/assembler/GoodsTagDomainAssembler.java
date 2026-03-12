@@ -16,7 +16,11 @@
 
 package com.taotao.cloud.goods.domain.assembler;
 
+import com.taotao.boot.common.model.ddd.types.MarkerAssembler;
 import com.taotao.boot.ddd.model.domain.Adapter;
+import org.mapstruct.Mapper;
+import org.mapstruct.MappingConstants;
+import org.mapstruct.factory.Mappers;
 
 /**
  * GoodsTagDomainAssembler
@@ -25,6 +29,7 @@ import com.taotao.boot.ddd.model.domain.Adapter;
  * @version 2026.04
  * @since 2025-12-19 09:30:45
  */
-public class GoodsTagDomainAssembler implements Adapter {
-
+@Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
+public interface GoodsTagDomainAssembler extends MarkerAssembler {
+	GoodsTagDomainAssembler INSTANCE = Mappers.getMapper(GoodsTagDomainAssembler.class);
 }

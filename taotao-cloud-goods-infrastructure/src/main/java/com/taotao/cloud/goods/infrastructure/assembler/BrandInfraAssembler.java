@@ -16,6 +16,7 @@
 
 package com.taotao.cloud.goods.infrastructure.assembler;
 
+import com.taotao.boot.common.model.ddd.types.MarkerAssembler;
 import com.taotao.cloud.goods.application.dto.own.brand.command.BrandAddCommand;
 import com.taotao.cloud.goods.application.dto.own.brand.result.BrandResult;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.BrandPO;
@@ -33,7 +34,7 @@ import org.mapstruct.factory.Mappers;
  * @since 2022-04-27 16:57:55
  */
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
-public interface BrandInfraAssembler {
+public interface BrandInfraAssembler extends MarkerAssembler {
 
     /**
      * 实例

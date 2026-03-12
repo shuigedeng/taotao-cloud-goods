@@ -16,6 +16,7 @@
 
 package com.taotao.cloud.goods.infrastructure.assembler;
 
+import com.taotao.boot.common.model.ddd.types.MarkerAssembler;
 import org.mapstruct.Builder;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingConstants;
@@ -33,7 +34,7 @@ import org.mapstruct.factory.Mappers;
         builder = @Builder(disableBuilder = true),
         unmappedSourcePolicy = ReportingPolicy.IGNORE,
         unmappedTargetPolicy = ReportingPolicy.IGNORE)
-public interface CommodityInfraAssembler {
+public interface CommodityInfraAssembler extends MarkerAssembler {
 
     /** 实例 */
     CommodityInfraAssembler INSTANCE = Mappers.getMapper(CommodityInfraAssembler.class);

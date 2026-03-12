@@ -17,7 +17,7 @@
 package com.taotao.cloud.goods.domain.event;
 
 import com.taotao.boot.ddd.model.domain.event.DomainEvent;
-import com.taotao.boot.ddd.model.types.BizId;
+import com.taotao.boot.ddd.model.val.BizId;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
 import lombok.AllArgsConstructor;

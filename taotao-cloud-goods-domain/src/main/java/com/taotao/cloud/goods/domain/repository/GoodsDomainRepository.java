@@ -17,7 +17,7 @@
 package com.taotao.cloud.goods.domain.repository;
 
 import com.taotao.boot.ddd.model.domain.repository.DomainRepository;
-import com.taotao.boot.ddd.model.types.BizId;
+import com.taotao.boot.ddd.model.val.BizId;
 import com.taotao.cloud.goods.domain.aggregate.GoodsAgg;
 import com.taotao.cloud.goods.domain.valobj.GoodsStatus;
 import java.math.BigDecimal;

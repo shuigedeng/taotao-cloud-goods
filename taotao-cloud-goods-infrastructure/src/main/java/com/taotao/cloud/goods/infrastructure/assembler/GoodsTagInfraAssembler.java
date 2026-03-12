@@ -16,6 +16,7 @@
 
 package com.taotao.cloud.goods.infrastructure.assembler;
 
+import com.taotao.boot.common.model.ddd.types.MarkerAssembler;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingConstants;
 
@@ -26,7 +27,7 @@ import org.mapstruct.MappingConstants;
  * @since 2023-08-03
  */
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
-public interface GoodsTagInfraAssembler {
+public interface GoodsTagInfraAssembler extends MarkerAssembler {
 
     /**
      * 转换商品标签实体为VO

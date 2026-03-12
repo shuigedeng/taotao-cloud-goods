@@ -18,7 +18,7 @@ package com.taotao.cloud.goods.domain.entity;
 
 import com.taotao.boot.ddd.model.domain.AggregateRoot;
 import com.taotao.boot.ddd.model.domain.Entity;
-import com.taotao.boot.ddd.model.types.BizId;
+import com.taotao.boot.ddd.model.val.BizId;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;

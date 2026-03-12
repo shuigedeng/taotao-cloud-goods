@@ -17,8 +17,8 @@
 package com.taotao.cloud.goods.application.factory;
 
 import com.taotao.boot.common.model.ddd.types.MarkerFactory;
-import com.taotao.boot.ddd.model.types.BizId;
-import com.taotao.boot.ddd.model.types.Price;
+import com.taotao.boot.ddd.model.val.BizId;
+import com.taotao.boot.ddd.model.val.Price;
 import com.taotao.cloud.goods.application.dto.own.goods.command.GoodsCreateCommand;
 import com.taotao.cloud.goods.domain.aggregate.GoodsAgg;
 import com.taotao.cloud.goods.domain.entity.Category;
