@@ -1,9 +1,8 @@
-package com.taotao.cloud.goods.facade.sys;
+package com.taotao.cloud.goods.infrastructure.configuration.client;
 
-import com.github.lianjiatech.retrofit.spring.boot.log.LoggingInterceptor;
 import com.taotao.boot.web.httpexchange.LogClientHttpRequestInterceptor;
+import com.taotao.boot.web.httpexchange.ServiceCallException;
 import com.taotao.boot.web.httpexchange.TraceClientHttpRequestInterceptor;
-import groovy.lang.TracingInterceptor;
 import io.opentelemetry.api.OpenTelemetry;
 import org.springframework.boot.restclient.RestClientCustomizer;
 import org.springframework.context.annotation.Bean;

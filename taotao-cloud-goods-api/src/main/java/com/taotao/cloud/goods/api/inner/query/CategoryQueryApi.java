@@ -41,7 +41,7 @@ public interface CategoryQueryApi {
 	 *
 	 * @return Response<BatchResponse<CategoryTreeCommandApiResponse>>
 	 */
-	@PostExchange(value = "/category/first/id/{id:[0-9]*}")
+	@PostExchange(value = "/inner/goods/category/query/tree")
 	Response<BatchResponse<CategoryTreeCommandApiResponse>> firstCategory(
 		@Validated @RequestBody Request<CategoryApiCommand> id );
 }

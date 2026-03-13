@@ -6,14 +6,12 @@
 dependencies {
     api project(":taotao-cloud-goods-application")
 
-    api "io.github.shuigedeng:taotao-cloud-member-api:2026.04"
-    api "io.github.shuigedeng:taotao-cloud-order-api:2026.04"
     api "io.github.shuigedeng:taotao-cloud-sys-api:2026.04"
     api "io.github.shuigedeng:taotao-cloud-auth-api:2026.04"
+    api "io.github.shuigedeng:taotao-cloud-member-api:2026.04"
+    api "io.github.shuigedeng:taotao-cloud-order-api:2026.04"
+    api "io.github.shuigedeng:taotao-cloud-message-api:2026.04"
+    api "io.github.shuigedeng:taotao-cloud-payment-api:2026.04"
 
-    //api "io.github.shuigedeng:taotao-cloud-starter-alibaba"
-
-    api "io.github.shuigedeng:taotao-boot-starter-grpc"
-    //api "io.github.shuigedeng:taotao-boot-starter-dubbo"
     api "io.github.shuigedeng:taotao-boot-starter-client"
 }

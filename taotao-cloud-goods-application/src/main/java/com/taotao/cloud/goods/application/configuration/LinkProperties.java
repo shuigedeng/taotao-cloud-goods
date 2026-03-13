@@ -1,6 +1,8 @@
-package com.taotao.cloud.goods.common.properties;
+package com.taotao.cloud.goods.application.configuration;
 
+import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 
 /**
@@ -10,7 +12,8 @@ import org.springframework.stereotype.Component;
  * @version 2026.04
  * @since 2025-12-19 09:30:45
  */
-@Component
+@Data
+@Configuration
 @ConfigurationProperties(prefix = "taotao.cloud.goods.link")
 public class LinkProperties {
 
