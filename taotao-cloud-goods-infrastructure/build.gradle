@@ -34,7 +34,7 @@ configurations {
 
 dependencies {
     mybatisGen 'org.mybatis.generator:mybatis-generator-core:1.4.2'
-    mybatisGen 'org.mybatis.dynamic-sql:mybatis-dynamic-sql:1.5.2'
+    mybatisGen 'org.mybatis.dynamic-sql:mybatis-dynamic-sql:2.0.0'
     mybatisGen 'io.github.shuigedeng:taotao-boot-starter-data-mybatis:2026.04'
     mybatisGen 'com.mysql:mysql-connector-j:9.6.0'
     //mybatisGenerator 'org.postgresql:postgresql:42.7.8'
