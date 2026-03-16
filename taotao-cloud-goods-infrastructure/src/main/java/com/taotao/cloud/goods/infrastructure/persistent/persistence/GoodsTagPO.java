@@ -30,7 +30,7 @@ import org.hibernate.Hibernate;
 @ToString(callSuper = true)
 @AllArgsConstructor
 @NoArgsConstructor
-@Accessors(fluent = true)
+
 @Entity
 @Table(
         name = GoodsTagPO.TABLE_NAME,

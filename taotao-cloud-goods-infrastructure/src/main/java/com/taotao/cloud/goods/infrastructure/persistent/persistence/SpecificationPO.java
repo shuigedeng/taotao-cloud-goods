@@ -40,7 +40,7 @@ import org.hibernate.Hibernate;
 @ToString(callSuper = true)
 @AllArgsConstructor
 @NoArgsConstructor
-@Accessors(fluent = true)
+
 @Entity
 @Table(
         name = SpecificationPO.TABLE_NAME,

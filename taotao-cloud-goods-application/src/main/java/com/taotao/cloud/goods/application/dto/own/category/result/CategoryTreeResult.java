@@ -29,7 +29,7 @@ import lombok.experimental.Accessors;
 @Setter
 @Getter
 @ToString(callSuper = true)
-@Accessors(fluent = true)
+
 @AllArgsConstructor
 @NoArgsConstructor
 public class CategoryTreeResult extends CategoryResult {
