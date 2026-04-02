@@ -19,7 +19,7 @@ package com.taotao.cloud.goods.interfaces.controller.manager;
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.taotao.boot.common.model.ddd.command.IdsCommand;
 import com.taotao.boot.common.model.ddd.query.IdQuery;
-import com.taotao.boot.common.model.result.EmptyResult;
+
 import com.taotao.boot.common.model.result.PageResult;
 import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.idempotent.annotation.Idempotent;
@@ -104,7 +104,7 @@ public class BrandManagerController extends BusinessController {
 	@SentinelResource("test")
 	//@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/save")
-	public Result<EmptyResult> save( @RequestBody BrandAddCommand brand ) {
+	public Result<Void> save( @RequestBody BrandAddCommand brand ) {
 		boolean result = brandCommandService.addBrand(brand);
 		return Result.empty();
 	}
@@ -113,7 +113,7 @@ public class BrandManagerController extends BusinessController {
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/update")
-	public Result<EmptyResult> updateById( @RequestBody BrandUpdateCommand brand ) {
+	public Result<Void> updateById( @RequestBody BrandUpdateCommand brand ) {
 		boolean result = brandCommandService.updateBrand(brand);
 		return Result.empty();
 	}
@@ -122,7 +122,7 @@ public class BrandManagerController extends BusinessController {
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/disable")
-	public Result<EmptyResult> disableById( @RequestBody BrandDisableCommand brandDisableCommand ) {
+	public Result<Void> disableById( @RequestBody BrandDisableCommand brandDisableCommand ) {
 //		return Result.success(brandCommandService.brandDisable(brandId, disable));
 		return Result.empty();
 	}
@@ -131,7 +131,7 @@ public class BrandManagerController extends BusinessController {
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/dels")
-	public Result<EmptyResult> delByIds( @RequestBody IdsCommand idsCommand ) {
+	public Result<Void> delByIds( @RequestBody IdsCommand idsCommand ) {
 		brandCommandService.deleteBrands(idsCommand.getIds());
 		return Result.empty();
 	}

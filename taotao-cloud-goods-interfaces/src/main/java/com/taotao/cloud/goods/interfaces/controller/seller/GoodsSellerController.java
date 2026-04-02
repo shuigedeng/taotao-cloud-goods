@@ -17,7 +17,7 @@
 package com.taotao.cloud.goods.interfaces.controller.seller;
 
 import com.taotao.boot.common.model.ddd.command.IdsCommand;
-import com.taotao.boot.common.model.result.EmptyResult;
+
 import com.taotao.boot.common.model.result.PageResult;
 import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.web.request.annotation.RequestLogger;
@@ -136,7 +136,7 @@ public class GoodsSellerController extends BusinessController {
 	@RequestLogger("新增商品")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/save")
-	public Result<EmptyResult> save( @RequestBody GoodsOperationCommand goodsOperationDTO ) {
+	public Result<Void> save( @RequestBody GoodsOperationCommand goodsOperationDTO ) {
 //		return Result.success(goodsService.addGoods(goodsOperationDTO));
 		return Result.empty();
 	}
@@ -145,7 +145,7 @@ public class GoodsSellerController extends BusinessController {
 	@RequestLogger("修改商品")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/update")
-	public Result<EmptyResult> update( @RequestBody GoodsOperationCommand goodsOperationDTO ) {
+	public Result<Void> update( @RequestBody GoodsOperationCommand goodsOperationDTO ) {
 //		return Result.success(goodsService.editGoods(goodsOperationDTO, goodsId));
 		return Result.empty();
 	}
@@ -154,7 +154,7 @@ public class GoodsSellerController extends BusinessController {
 	@RequestLogger("下架商品")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/under")
-	public Result<EmptyResult> under( @RequestBody IdsCommand idsCommand ) {
+	public Result<Void> under( @RequestBody IdsCommand idsCommand ) {
 //		return Result.success(goodsService.updateGoodsMarketAble(goodsId, GoodsStatusEnum.DOWN,
 //			"商家下架"));
 		return Result.empty();
@@ -164,7 +164,7 @@ public class GoodsSellerController extends BusinessController {
 	@RequestLogger("上架商品")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/up")
-	public Result<EmptyResult> up( @RequestBody IdsCommand idsCommand ) {
+	public Result<Void> up( @RequestBody IdsCommand idsCommand ) {
 //		return Result.success(goodsService.updateGoodsMarketAble(goodsId, GoodsStatusEnum.UPPER,
 //			""));
 		return Result.empty();
@@ -174,7 +174,7 @@ public class GoodsSellerController extends BusinessController {
 	@RequestLogger("删除商品")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/dels")
-	public Result<EmptyResult> dels( @RequestBody IdsCommand idsCommand) {
+	public Result<Void> dels( @RequestBody IdsCommand idsCommand) {
 //		return Result.success(goodsService.deleteGoods(goodsIds));
 		return Result.empty();
 	}
@@ -183,7 +183,7 @@ public class GoodsSellerController extends BusinessController {
 	@RequestLogger("设置商品运费模板")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/freight")
-	public Result<EmptyResult> freight( @RequestBody FreightCommand freightCommand) {
+	public Result<Void> freight( @RequestBody FreightCommand freightCommand) {
 //		return Result.success(goodsService.freight(goodsId, templateId));
 		return Result.empty();
 	}
@@ -205,7 +205,7 @@ public class GoodsSellerController extends BusinessController {
 	@RequestLogger("修改商品库存")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/update/stocks")
-	public Result<EmptyResult> updateStocks( @RequestBody List<GoodsSkuStockUpdateCommand> updateStockList ) {
+	public Result<Void> updateStocks( @RequestBody List<GoodsSkuStockUpdateCommand> updateStockList ) {
 //		Long storeId = SecurityUtils.getCurrentUser().getStoreId();
 //		// 获取商品skuId集合
 //		List<Long> goodsSkuIds =

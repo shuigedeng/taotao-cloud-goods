@@ -18,7 +18,7 @@ package com.taotao.cloud.goods.interfaces.controller.manager;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.taotao.boot.common.model.ddd.command.IdsCommand;
-import com.taotao.boot.common.model.result.EmptyResult;
+
 import com.taotao.boot.common.model.result.PageResult;
 import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.data.mybatis.mybatisplus.MpUtils;
@@ -91,7 +91,7 @@ public class SpecificationManagerController extends BusinessController {
 	@RequestLogger("保存规格")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/save")
-	public Result<EmptyResult> save(  @RequestBody SpecificationAddCommand specificationDTO ) {
+	public Result<Void> save(  @RequestBody SpecificationAddCommand specificationDTO ) {
 //		SpecificationPO specification = SpecificationAssembler.INSTANCE.convert(specificationDTO);
 //		return Result.success(specificationCommandService.save(specification));
 		return Result.empty();
@@ -101,7 +101,7 @@ public class SpecificationManagerController extends BusinessController {
 	@RequestLogger("更改规格")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/update")
-	public Result<EmptyResult> update( @Valid @RequestBody SpecificationAddCommand specificationDTO ) {
+	public Result<Void> update( @Valid @RequestBody SpecificationAddCommand specificationDTO ) {
 //		SpecificationPO specification = SpecificationAssembler.INSTANCE.convert(specificationDTO);
 //		specification.setId(id);
 //
@@ -113,7 +113,7 @@ public class SpecificationManagerController extends BusinessController {
 	@RequestLogger("批量删除")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/dels")
-	public Result<EmptyResult> dels( IdsCommand ids ) {
+	public Result<Void> dels( IdsCommand ids ) {
 		specificationCommandService.deleteSpecification(ids.getIds());
 		return Result.empty();
 	}

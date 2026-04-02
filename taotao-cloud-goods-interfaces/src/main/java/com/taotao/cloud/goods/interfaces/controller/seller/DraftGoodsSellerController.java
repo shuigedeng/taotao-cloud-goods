@@ -18,7 +18,7 @@ package com.taotao.cloud.goods.interfaces.controller.seller;
 
 import com.taotao.boot.common.model.ddd.query.IdQuery;
 import com.taotao.boot.common.model.ddd.command.IdsCommand;
-import com.taotao.boot.common.model.result.EmptyResult;
+
 import com.taotao.boot.common.model.result.PageResult;
 import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.web.request.annotation.RequestLogger;
@@ -82,7 +82,7 @@ public class DraftGoodsSellerController extends BusinessController {
 	@RequestLogger("保存草稿商品")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/save")
-	public Result<EmptyResult> save( @RequestBody DraftGoodsSkuParamsSaveCommand draftGoodsSkuParamsDTO ) {
+	public Result<Void> save( @RequestBody DraftGoodsSkuParamsSaveCommand draftGoodsSkuParamsDTO ) {
 //        Long storeId = SecurityUtils.getCurrentUser().getStoreId();
 //        if (draftGoodsSkuParamsDTO.getStoreId() == null) {
 //            draftGoodsSkuParamsDTO.setStoreId(storeId);
@@ -98,7 +98,7 @@ public class DraftGoodsSellerController extends BusinessController {
 	@RequestLogger("删除草稿商品")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/dels")
-	public Result<EmptyResult> dels( @RequestBody IdsCommand id ) {
+	public Result<Void> dels( @RequestBody IdsCommand id ) {
 //        draftGoodsService.getDraftGoods(id);
 //        return Result.success(draftGoodsService.deleteGoodsDraft(id));
 		return Result.empty();

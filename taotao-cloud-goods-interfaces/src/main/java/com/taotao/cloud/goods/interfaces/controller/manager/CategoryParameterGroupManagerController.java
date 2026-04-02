@@ -18,7 +18,7 @@ package com.taotao.cloud.goods.interfaces.controller.manager;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.taotao.boot.common.model.ddd.command.IdCommand;
-import com.taotao.boot.common.model.result.EmptyResult;
+
 import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
@@ -79,7 +79,7 @@ public class CategoryParameterGroupManagerController extends BusinessController 
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/save")
-	public Result<EmptyResult> save( @RequestBody  CategoryParameterGroupCommand categoryParameterGroup ) {
+	public Result<Void> save( @RequestBody  CategoryParameterGroupCommand categoryParameterGroup ) {
 //		return Result.success(categoryParameterGroupCommandService.save(categoryParameterGroup));
 		return Result.empty();
 	}
@@ -88,7 +88,7 @@ public class CategoryParameterGroupManagerController extends BusinessController 
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/update")
-	public Result<EmptyResult> update( @RequestBody CategoryParameterGroupCommand categoryParameterGroup ) {
+	public Result<Void> update( @RequestBody CategoryParameterGroupCommand categoryParameterGroup ) {
 //		return
 //			Result.success(categoryParameterGroupCommandService.updateById(categoryParameterGroup));
 		return Result.empty();
@@ -98,7 +98,7 @@ public class CategoryParameterGroupManagerController extends BusinessController 
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/del")
-	public Result<EmptyResult> delAllByIds( @RequestBody IdCommand idCommand ) {
+	public Result<Void> delAllByIds( @RequestBody IdCommand idCommand ) {
 //		// 删除参数
 //		parametersCommandService.remove(new QueryWrapper<ParametersPO>().eq("group_id", id));
 //		// 删除参数组

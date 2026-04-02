@@ -18,7 +18,7 @@ package com.taotao.cloud.goods.interfaces.controller.manager;
 
 import com.taotao.boot.common.model.ddd.query.IdQuery;
 import com.taotao.boot.common.model.ddd.command.IdsCommand;
-import com.taotao.boot.common.model.result.EmptyResult;
+
 import com.taotao.boot.common.model.result.PageResult;
 import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.security.spring.annotation.NotAuth;
@@ -111,7 +111,7 @@ public class GoodsManagerController extends BusinessController {
 	@NotAuth
 	//@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/under")
-	public Result<EmptyResult> underGoods( @RequestBody UnderCommand underCommand){
+	public Result<Void> underGoods( @RequestBody UnderCommand underCommand){
 //		return Result.success(
 //			goodsCommandService.managerUpdateGoodsMarketAble(
 //				goodsIds, GoodsStatusEnum.DOWN, reason));
@@ -123,7 +123,7 @@ public class GoodsManagerController extends BusinessController {
 	@NotAuth
 	//@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/underxx")
-	public Result<EmptyResult> underGoodsxx( @RequestBody GoodsParamsAddCommand underCommand){
+	public Result<Void> underGoodsxx( @RequestBody GoodsParamsAddCommand underCommand){
 //		return Result.success(
 //			goodsCommandService.managerUpdateGoodsMarketAble(
 //				goodsIds, GoodsStatusEnum.DOWN, reason));
@@ -134,7 +134,7 @@ public class GoodsManagerController extends BusinessController {
 	@RequestLogger("管理员审核商品")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/auth")
-	public Result<EmptyResult> auth( @RequestBody AuthCommand authCommand) {
+	public Result<Void> auth( @RequestBody AuthCommand authCommand) {
 		// 校验商品是否存在
 //		return Result.success(
 //			goodsCommandService.auditGoods(goodsIds, GoodsAuthEnum.valueOf(authFlag)));
@@ -145,7 +145,7 @@ public class GoodsManagerController extends BusinessController {
 	@RequestLogger("管理员上架商品")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/up")
-	public Result<EmptyResult> unpGoods( @RequestBody IdsCommand idsCommand ) {
+	public Result<Void> unpGoods( @RequestBody IdsCommand idsCommand ) {
 		goodsCommandService.updateGoodsMarketAble(idsCommand.getIds(), GoodsStatusEnum.UPPER, "");
 		return Result.empty();
 	}

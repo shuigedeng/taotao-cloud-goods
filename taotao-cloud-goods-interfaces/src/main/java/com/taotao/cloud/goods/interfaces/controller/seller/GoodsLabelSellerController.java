@@ -20,7 +20,7 @@ package com.taotao.cloud.goods.interfaces.controller.seller;
 import com.taotao.boot.common.model.ddd.command.IdCommand;
 import com.taotao.boot.common.model.ddd.query.IdQuery;
 import com.taotao.boot.common.model.ddd.command.IdsCommand;
-import com.taotao.boot.common.model.result.EmptyResult;
+
 import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.security.spring.support.utils.SecurityUtils;
 import com.taotao.boot.web.request.annotation.RequestLogger;
@@ -84,7 +84,7 @@ public class GoodsLabelSellerController extends BusinessController {
 	@RequestLogger("添加店铺商品分类")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/add")
-	public Result<EmptyResult> add( @RequestBody StoreGoodsLabelAddCommand storeGoodsLabelDTO ) {
+	public Result<Void> add( @RequestBody StoreGoodsLabelAddCommand storeGoodsLabelDTO ) {
 //		StoreGoodsLabelPO storeGoodsLabel =
 //			GoodsLabelStoreAssembler.INSTANCE.convert(storeGoodsLabelDTO);
 //		return Result.success(storeGoodsLabelCommandService.addStoreGoodsLabel(storeGoodsLabel));
@@ -95,7 +95,7 @@ public class GoodsLabelSellerController extends BusinessController {
 	@RequestLogger("修改店铺商品分类")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/edit")
-	public Result<EmptyResult> edit( @RequestBody StoreGoodsLabelEditCommand storeGoodsLabelDTO ) {
+	public Result<Void> edit( @RequestBody StoreGoodsLabelEditCommand storeGoodsLabelDTO ) {
 //		StoreGoodsLabelPO storeGoodsLabel =
 //			GoodsLabelStoreAssembler.INSTANCE.convert(storeGoodsLabelDTO);
 //		storeGoodsLabel.setId(id);
@@ -107,7 +107,7 @@ public class GoodsLabelSellerController extends BusinessController {
 	@RequestLogger("删除店铺商品分类")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/del")
-	public Result<EmptyResult> del( @RequestBody IdCommand id ) {
+	public Result<Void> del( @RequestBody IdCommand id ) {
 //		return Result.success(storeGoodsLabelCommandService.removeStoreGoodsLabel(id));
 		return Result.empty();
 	}

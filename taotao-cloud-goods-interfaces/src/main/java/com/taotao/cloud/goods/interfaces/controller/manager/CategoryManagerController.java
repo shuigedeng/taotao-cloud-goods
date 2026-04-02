@@ -17,7 +17,7 @@
 package com.taotao.cloud.goods.interfaces.controller.manager;
 
 import com.taotao.boot.common.model.ddd.command.IdCommand;
-import com.taotao.boot.common.model.result.EmptyResult;
+
 import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
@@ -90,7 +90,7 @@ public class CategoryManagerController extends BusinessController {
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/save")
-	public Result<EmptyResult> save( @RequestBody CategoryAddCommand category ) {
+	public Result<Void> save( @RequestBody CategoryAddCommand category ) {
 		//// 非顶级分类
 		// if (category.getParentId() != null && !Long.valueOf(0).equals(category.getParentId())) {
 		//    Category parent = categoryQueryService.getById(category.getParentId());
@@ -109,7 +109,7 @@ public class CategoryManagerController extends BusinessController {
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/update")
-	public Result<EmptyResult> update( @RequestBody CategoryTreeCommand category ) {
+	public Result<Void> update( @RequestBody CategoryTreeCommand category ) {
 		// CategoryPO catTemp = categoryQueryService.getById(category.getId());
 		// if (catTemp == null) {
 		//    throw new BusinessException(ResultEnum.CATEGORY_NOT_EXIST);
@@ -122,7 +122,7 @@ public class CategoryManagerController extends BusinessController {
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/del")
-	public Result<EmptyResult> del( @RequestBody IdCommand idCommand ) {
+	public Result<Void> del( @RequestBody IdCommand idCommand ) {
 		// CategoryPO category = new CategoryPO();
 		// category.setParentId(id);
 		// List<CategoryPO> list = categoryQueryService.findByAllBySortOrder(category);
@@ -143,7 +143,7 @@ public class CategoryManagerController extends BusinessController {
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/disable")
-	public Result<EmptyResult> disable( @RequestBody DisableCommand disableCommand) {
+	public Result<Void> disable( @RequestBody DisableCommand disableCommand) {
 //		GoodsPO category = goodsQueryService.getById(id);
 //		if (category == null) {
 //			throw new BusinessException(ResultEnum.CATEGORY_NOT_EXIST);

@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.goods.interfaces.controller.manager;
 
-import com.taotao.boot.common.model.result.EmptyResult;
+
 import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
@@ -87,7 +87,7 @@ public class CategorySpecificationManagerController extends BusinessController {
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/save")
-	public Result<EmptyResult> save( @RequestBody CategorySpecCommand categorySpecs ) {
+	public Result<Void> save( @RequestBody CategorySpecCommand categorySpecs ) {
 //		return Result.success(
 //			specificationCommandService.saveCategoryBrand(categoryId, categorySpecs));
 		return Result.empty();

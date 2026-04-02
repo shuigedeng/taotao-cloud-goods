@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.goods.interfaces.controller.open;
 
-import com.taotao.boot.common.model.result.EmptyResult;
+
 import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
@@ -44,7 +44,7 @@ public class AlipayNotifyController extends BusinessController {
 	@Operation(summary = "阿里支付状态通知", description = "阿里支付状态通知")
 	@RequestLogger
 	@PostMapping("/notify")
-	public Result<EmptyResult> notify(@Validated @RequestBody BrandAddCommand brand) {
+	public Result<Void> notify(@Validated @RequestBody BrandAddCommand brand) {
 		return Result.empty();
 	}
 }

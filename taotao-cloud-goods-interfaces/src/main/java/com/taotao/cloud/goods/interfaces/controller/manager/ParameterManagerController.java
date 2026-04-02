@@ -18,7 +18,7 @@ package com.taotao.cloud.goods.interfaces.controller.manager;
 
 import com.taotao.boot.common.model.ddd.command.IdCommand;
 import com.taotao.boot.common.model.ddd.command.IdsCommand;
-import com.taotao.boot.common.model.result.EmptyResult;
+
 import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
@@ -57,7 +57,7 @@ public class ParameterManagerController extends BusinessController {
 	@RequestLogger("添加参数添加参数")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/save")
-	public Result<EmptyResult> save( @RequestBody ParametersAddCommand parametersDTO ) {
+	public Result<Void> save( @RequestBody ParametersAddCommand parametersDTO ) {
 //		Parameters parameters = ParametersConvert.INSTANCE.convert(parametersDTO);
 //		return Result.success(parametersService.save(parameters));
 		return Result.empty();
@@ -67,7 +67,7 @@ public class ParameterManagerController extends BusinessController {
 	@RequestLogger("编辑参数")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/update")
-	public Result<EmptyResult> update( @RequestBody ParametersAddCommand parametersDTO,
+	public Result<Void> update( @RequestBody ParametersAddCommand parametersDTO,
 		@PathVariable Long id ) {
 //		Parameters parameters = ParametersConvert.INSTANCE.convert(parametersDTO);
 //		parameters.setId(id);
@@ -79,7 +79,7 @@ public class ParameterManagerController extends BusinessController {
 	@RequestLogger("根据id删除参数")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/del")
-	public Result<EmptyResult> delById( @RequestBody IdCommand idCommand ) {
+	public Result<Void> delById( @RequestBody IdCommand idCommand ) {
 //		return Result.success(parametersService.removeById(id));
 		return Result.empty();
 	}

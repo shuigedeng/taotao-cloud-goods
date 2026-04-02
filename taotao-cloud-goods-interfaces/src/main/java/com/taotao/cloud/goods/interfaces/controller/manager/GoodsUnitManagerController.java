@@ -20,7 +20,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.taotao.boot.common.model.ddd.query.IdQuery;
 import com.taotao.boot.common.model.ddd.command.IdsCommand;
 import com.taotao.boot.common.model.ddd.query.PageQuery;
-import com.taotao.boot.common.model.result.EmptyResult;
+
 import com.taotao.boot.common.model.result.PageResult;
 import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.data.mybatis.mybatisplus.MpUtils;
@@ -82,7 +82,7 @@ public class GoodsUnitManagerController extends BusinessController {
 	@RequestLogger("添加商品计量单位")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/save")
-	public Result<EmptyResult> save( @RequestBody GoodsUnitCommand goodsUnit ) {
+	public Result<Void> save( @RequestBody GoodsUnitCommand goodsUnit ) {
 //		return Result.success(goodsUnitService.save(goodsUnit));
 		return Result.empty();
 	}
@@ -91,7 +91,7 @@ public class GoodsUnitManagerController extends BusinessController {
 	@RequestLogger("编辑商品计量单位")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/commmand/update")
-	public Result<EmptyResult> update( @RequestBody GoodsUnitCommand goodsUnit ) {
+	public Result<Void> update( @RequestBody GoodsUnitCommand goodsUnit ) {
 //		return Result.success(goodsUnitService.updateById(goodsUnit));
 		return Result.empty();
 	}
@@ -100,7 +100,7 @@ public class GoodsUnitManagerController extends BusinessController {
 	@RequestLogger("删除商品计量单位")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/commnad/dels")
-	public Result<EmptyResult> dels( @RequestBody IdsCommand idsCommand ) {
+	public Result<Void> dels( @RequestBody IdsCommand idsCommand ) {
 //		return Result.success(goodsUnitService.removeByIds(ids));
 		return Result.empty();
 	}
