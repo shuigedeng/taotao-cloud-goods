@@ -60,7 +60,7 @@ public class ParameterManagerController extends BusinessController {
 	public Result<Void> save( @RequestBody ParametersAddCommand parametersDTO ) {
 //		Parameters parameters = ParametersConvert.INSTANCE.convert(parametersDTO);
 //		return Result.success(parametersService.save(parameters));
-		return Result.empty();
+		return Result.success();
 	}
 
 	@Operation(summary = "编辑参数", description = "编辑参数")
@@ -72,7 +72,7 @@ public class ParameterManagerController extends BusinessController {
 //		Parameters parameters = ParametersConvert.INSTANCE.convert(parametersDTO);
 //		parameters.setId(id);
 //		return Result.success(parametersService.updateParameter(parameters));
-		return Result.empty();
+		return Result.success();
 	}
 
 	@Operation(summary = "根据id删除参数", description = "根据id删除参数")
@@ -81,6 +81,6 @@ public class ParameterManagerController extends BusinessController {
 	@PostMapping(value = "/command/del")
 	public Result<Void> delById( @RequestBody IdCommand idCommand ) {
 //		return Result.success(parametersService.removeById(id));
-		return Result.empty();
+		return Result.success();
 	}
 }

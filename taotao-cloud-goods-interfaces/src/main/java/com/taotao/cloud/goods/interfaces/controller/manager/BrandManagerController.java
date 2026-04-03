@@ -106,7 +106,7 @@ public class BrandManagerController extends BusinessController {
 	@PostMapping("/command/save")
 	public Result<Void> save( @RequestBody BrandAddCommand brand ) {
 		boolean result = brandCommandService.addBrand(brand);
-		return Result.empty();
+		return Result.success();
 	}
 
 	@Operation(summary = "更新品牌", description = "更新品牌")
@@ -115,7 +115,7 @@ public class BrandManagerController extends BusinessController {
 	@PostMapping("/command/update")
 	public Result<Void> updateById( @RequestBody BrandUpdateCommand brand ) {
 		boolean result = brandCommandService.updateBrand(brand);
-		return Result.empty();
+		return Result.success();
 	}
 
 	@Operation(summary = "后台禁用品牌", description = "后台禁用品牌")
@@ -124,7 +124,7 @@ public class BrandManagerController extends BusinessController {
 	@PostMapping(value = "/command/disable")
 	public Result<Void> disableById( @RequestBody BrandDisableCommand brandDisableCommand ) {
 //		return Result.success(brandCommandService.brandDisable(brandId, disable));
-		return Result.empty();
+		return Result.success();
 	}
 
 	@Operation(summary = "批量删除", description = "批量删除")
@@ -133,6 +133,6 @@ public class BrandManagerController extends BusinessController {
 	@PostMapping(value = "/command/dels")
 	public Result<Void> delByIds( @RequestBody IdsCommand idsCommand ) {
 		brandCommandService.deleteBrands(idsCommand.getIds());
-		return Result.empty();
+		return Result.success();
 	}
 }

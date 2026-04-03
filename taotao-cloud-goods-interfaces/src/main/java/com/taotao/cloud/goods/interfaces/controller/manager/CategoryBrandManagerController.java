@@ -68,6 +68,6 @@ public class CategoryBrandManagerController extends BusinessController {
     public Result<Void> saveCategoryBrand( @RequestBody CategoryBrandsCommand categoryBrands) {
 //        return Result.success(
 //                categoryBrandCommandService.saveCategoryBrandList(categoryId, categoryBrands));
-		return Result.empty();
+		return Result.success();
     }
 }

@@ -45,6 +45,6 @@ public class AlipayNotifyController extends BusinessController {
 	@RequestLogger
 	@PostMapping("/notify")
 	public Result<Void> notify(@Validated @RequestBody BrandAddCommand brand) {
-		return Result.empty();
+		return Result.success();
 	}
 }

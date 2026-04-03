@@ -81,7 +81,7 @@ public class CategoryParameterGroupManagerController extends BusinessController 
 	@PostMapping("/command/save")
 	public Result<Void> save( @RequestBody  CategoryParameterGroupCommand categoryParameterGroup ) {
 //		return Result.success(categoryParameterGroupCommandService.save(categoryParameterGroup));
-		return Result.empty();
+		return Result.success();
 	}
 
 	@Operation(summary = "更新数据", description = "更新数据")
@@ -91,7 +91,7 @@ public class CategoryParameterGroupManagerController extends BusinessController 
 	public Result<Void> update( @RequestBody CategoryParameterGroupCommand categoryParameterGroup ) {
 //		return
 //			Result.success(categoryParameterGroupCommandService.updateById(categoryParameterGroup));
-		return Result.empty();
+		return Result.success();
 	}
 
 	@Operation(summary = "通过id删除参数组", description = "通过id删除参数组")
@@ -103,6 +103,6 @@ public class CategoryParameterGroupManagerController extends BusinessController 
 //		parametersCommandService.remove(new QueryWrapper<ParametersPO>().eq("group_id", id));
 //		// 删除参数组
 //		return Result.success(categoryParameterGroupCommandService.removeById(id));
-		return Result.empty();
+		return Result.success();
 	}
 }

@@ -90,6 +90,6 @@ public class CategorySpecificationManagerController extends BusinessController {
 	public Result<Void> save( @RequestBody CategorySpecCommand categorySpecs ) {
 //		return Result.success(
 //			specificationCommandService.saveCategoryBrand(categoryId, categorySpecs));
-		return Result.empty();
+		return Result.success();
 	}
 }

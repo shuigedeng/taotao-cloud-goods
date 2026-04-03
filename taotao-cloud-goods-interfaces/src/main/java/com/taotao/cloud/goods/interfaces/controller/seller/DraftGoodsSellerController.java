@@ -91,7 +91,7 @@ public class DraftGoodsSellerController extends BusinessController {
 //            throw new BusinessException(ResultEnum.USER_AUTHORITY_ERROR);
 //        }
 //        return Result.success(draftGoodsService.saveGoodsDraft(draftGoodsSkuParamsDTO));
-		return Result.empty();
+		return Result.success();
 	}
 
 	@Operation(summary = "删除草稿商品", description = "删除草稿商品")
@@ -101,6 +101,6 @@ public class DraftGoodsSellerController extends BusinessController {
 	public Result<Void> dels( @RequestBody IdsCommand id ) {
 //        draftGoodsService.getDraftGoods(id);
 //        return Result.success(draftGoodsService.deleteGoodsDraft(id));
-		return Result.empty();
+		return Result.success();
 	}
 }

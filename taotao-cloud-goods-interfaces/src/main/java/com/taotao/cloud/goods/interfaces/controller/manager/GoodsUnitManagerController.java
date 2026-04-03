@@ -84,7 +84,7 @@ public class GoodsUnitManagerController extends BusinessController {
 	@PostMapping("/command/save")
 	public Result<Void> save( @RequestBody GoodsUnitCommand goodsUnit ) {
 //		return Result.success(goodsUnitService.save(goodsUnit));
-		return Result.empty();
+		return Result.success();
 	}
 
 	@Operation(summary = "编辑商品计量单位", description = "编辑商品计量单位")
@@ -93,7 +93,7 @@ public class GoodsUnitManagerController extends BusinessController {
 	@PostMapping("/commmand/update")
 	public Result<Void> update( @RequestBody GoodsUnitCommand goodsUnit ) {
 //		return Result.success(goodsUnitService.updateById(goodsUnit));
-		return Result.empty();
+		return Result.success();
 	}
 
 	@Operation(summary = "删除商品计量单位", description = "删除商品计量单位")
@@ -102,6 +102,6 @@ public class GoodsUnitManagerController extends BusinessController {
 	@PostMapping("/commnad/dels")
 	public Result<Void> dels( @RequestBody IdsCommand idsCommand ) {
 //		return Result.success(goodsUnitService.removeByIds(ids));
-		return Result.empty();
+		return Result.success();
 	}
 }

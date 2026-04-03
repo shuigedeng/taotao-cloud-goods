@@ -115,7 +115,7 @@ public class GoodsManagerController extends BusinessController {
 //		return Result.success(
 //			goodsCommandService.managerUpdateGoodsMarketAble(
 //				goodsIds, GoodsStatusEnum.DOWN, reason));
-		return Result.empty();
+		return Result.success();
 	}
 
 	@Operation(summary = "管理员下架商品xxx", description = "管理员下架商品")
@@ -127,7 +127,7 @@ public class GoodsManagerController extends BusinessController {
 //		return Result.success(
 //			goodsCommandService.managerUpdateGoodsMarketAble(
 //				goodsIds, GoodsStatusEnum.DOWN, reason));
-		return Result.empty();
+		return Result.success();
 	}
 
 	@Operation(summary = "管理员审核商品", description = "管理员审核商品")
@@ -138,7 +138,7 @@ public class GoodsManagerController extends BusinessController {
 		// 校验商品是否存在
 //		return Result.success(
 //			goodsCommandService.auditGoods(goodsIds, GoodsAuthEnum.valueOf(authFlag)));
-		return Result.empty();
+		return Result.success();
 	}
 
 	@Operation(summary = "管理员上架商品", description = "管理员上架商品")
@@ -147,7 +147,7 @@ public class GoodsManagerController extends BusinessController {
 	@PostMapping(value = "/command/up")
 	public Result<Void> unpGoods( @RequestBody IdsCommand idsCommand ) {
 		goodsCommandService.updateGoodsMarketAble(idsCommand.getIds(), GoodsStatusEnum.UPPER, "");
-		return Result.empty();
+		return Result.success();
 	}
 
 	@Operation(summary = "通过id获取商品详情", description = "通过id获取商品详情")

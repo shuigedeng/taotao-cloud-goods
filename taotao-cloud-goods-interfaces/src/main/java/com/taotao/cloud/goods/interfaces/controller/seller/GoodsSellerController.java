@@ -138,7 +138,7 @@ public class GoodsSellerController extends BusinessController {
 	@PostMapping("/command/save")
 	public Result<Void> save( @RequestBody GoodsOperationCommand goodsOperationDTO ) {
 //		return Result.success(goodsService.addGoods(goodsOperationDTO));
-		return Result.empty();
+		return Result.success();
 	}
 
 	@Operation(summary = "修改商品", description = "修改商品")
@@ -147,7 +147,7 @@ public class GoodsSellerController extends BusinessController {
 	@PostMapping(value = "/command/update")
 	public Result<Void> update( @RequestBody GoodsOperationCommand goodsOperationDTO ) {
 //		return Result.success(goodsService.editGoods(goodsOperationDTO, goodsId));
-		return Result.empty();
+		return Result.success();
 	}
 
 	@Operation(summary = "下架商品", description = "下架商品")
@@ -157,7 +157,7 @@ public class GoodsSellerController extends BusinessController {
 	public Result<Void> under( @RequestBody IdsCommand idsCommand ) {
 //		return Result.success(goodsService.updateGoodsMarketAble(goodsId, GoodsStatusEnum.DOWN,
 //			"商家下架"));
-		return Result.empty();
+		return Result.success();
 	}
 
 	@Operation(summary = "上架商品", description = "上架商品")
@@ -167,7 +167,7 @@ public class GoodsSellerController extends BusinessController {
 	public Result<Void> up( @RequestBody IdsCommand idsCommand ) {
 //		return Result.success(goodsService.updateGoodsMarketAble(goodsId, GoodsStatusEnum.UPPER,
 //			""));
-		return Result.empty();
+		return Result.success();
 	}
 
 	@Operation(summary = "删除商品", description = "删除商品")
@@ -176,7 +176,7 @@ public class GoodsSellerController extends BusinessController {
 	@PostMapping("/command/dels")
 	public Result<Void> dels( @RequestBody IdsCommand idsCommand) {
 //		return Result.success(goodsService.deleteGoods(goodsIds));
-		return Result.empty();
+		return Result.success();
 	}
 
 	@Operation(summary = "设置商品运费模板", description = "设置商品运费模板")
@@ -185,7 +185,7 @@ public class GoodsSellerController extends BusinessController {
 	@PostMapping(value = "/command/freight")
 	public Result<Void> freight( @RequestBody FreightCommand freightCommand) {
 //		return Result.success(goodsService.freight(goodsId, templateId));
-		return Result.empty();
+		return Result.success();
 	}
 
 	@Operation(summary = "根据goodsId分页获取商品规格列表", description = "根据goodsId分页获取商品规格列表")
@@ -221,6 +221,6 @@ public class GoodsSellerController extends BusinessController {
 //			.filter(i -> filterGoodsSkuIds.contains(i.getSkuId()))
 //			.toList();
 //		return Result.success(goodsSkuService.updateStocks(collect));
-		return Result.empty();
+		return Result.success();
 	}
 }

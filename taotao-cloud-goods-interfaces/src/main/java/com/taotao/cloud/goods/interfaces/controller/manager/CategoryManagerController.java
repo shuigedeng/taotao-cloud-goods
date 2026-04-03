@@ -102,7 +102,7 @@ public class CategoryManagerController extends BusinessController {
 		//    }
 		// }
 		// return Result.success(categoryCommandService.saveCategory(category));
-		return Result.empty();
+		return Result.success();
 	}
 
 	@Operation(summary = "修改商品分类", description = "修改商品分类")
@@ -115,7 +115,7 @@ public class CategoryManagerController extends BusinessController {
 		//    throw new BusinessException(ResultEnum.CATEGORY_NOT_EXIST);
 		// }
 		// return Result.success(categoryCommandService.updateCategory(catTemp));
-		return Result.empty();
+		return Result.success();
 	}
 
 	@Operation(summary = "通过id删除分类", description = "通过id删除分类")
@@ -136,7 +136,7 @@ public class CategoryManagerController extends BusinessController {
 		//    throw new BusinessException(ResultEnum.CATEGORY_HAS_GOODS);
 		// }
 		// return Result.success(categoryCommandService.delete(id));
-		return Result.empty();
+		return Result.success();
 	}
 
 	@Operation(summary = "后台 禁用/启用 分类", description = "后台 禁用/启用 分类")
@@ -150,6 +150,6 @@ public class CategoryManagerController extends BusinessController {
 //		}
 //		//return Result.success(categoryCommandService.updateCategoryStatus(id,
 //		enableOperations));
-		return Result.empty();
+		return Result.success();
 	}
 }

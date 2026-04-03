@@ -94,7 +94,7 @@ public class SpecificationManagerController extends BusinessController {
 	public Result<Void> save(  @RequestBody SpecificationAddCommand specificationDTO ) {
 //		SpecificationPO specification = SpecificationAssembler.INSTANCE.convert(specificationDTO);
 //		return Result.success(specificationCommandService.save(specification));
-		return Result.empty();
+		return Result.success();
 	}
 
 	@Operation(summary = "更改规格", description = "更改规格")
@@ -106,7 +106,7 @@ public class SpecificationManagerController extends BusinessController {
 //		specification.setId(id);
 //
 //		return Result.success(specificationCommandService.saveOrUpdate(specification));
-		return Result.empty();
+		return Result.success();
 	}
 
 	@Operation(summary = "批量删除", description = "批量删除")
@@ -115,6 +115,6 @@ public class SpecificationManagerController extends BusinessController {
 	@PostMapping("/command/dels")
 	public Result<Void> dels( IdsCommand ids ) {
 		specificationCommandService.deleteSpecification(ids.getIds());
-		return Result.empty();
+		return Result.success();
 	}
 }

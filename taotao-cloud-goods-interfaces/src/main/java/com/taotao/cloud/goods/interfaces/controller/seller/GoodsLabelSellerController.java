@@ -88,7 +88,7 @@ public class GoodsLabelSellerController extends BusinessController {
 //		StoreGoodsLabelPO storeGoodsLabel =
 //			GoodsLabelStoreAssembler.INSTANCE.convert(storeGoodsLabelDTO);
 //		return Result.success(storeGoodsLabelCommandService.addStoreGoodsLabel(storeGoodsLabel));
-		return Result.empty();
+		return Result.success();
 	}
 
 	@Operation(summary = "修改店铺商品分类", description = "修改店铺商品分类")
@@ -100,7 +100,7 @@ public class GoodsLabelSellerController extends BusinessController {
 //			GoodsLabelStoreAssembler.INSTANCE.convert(storeGoodsLabelDTO);
 //		storeGoodsLabel.setId(id);
 //		return Result.success(storeGoodsLabelCommandService.editStoreGoodsLabel(storeGoodsLabel));
-		return Result.empty();
+		return Result.success();
 	}
 
 	@Operation(summary = "删除店铺商品分类", description = "删除店铺商品分类")
@@ -109,6 +109,6 @@ public class GoodsLabelSellerController extends BusinessController {
 	@PostMapping("/command/del")
 	public Result<Void> del( @RequestBody IdCommand id ) {
 //		return Result.success(storeGoodsLabelCommandService.removeStoreGoodsLabel(id));
-		return Result.empty();
+		return Result.success();
 	}
 }
