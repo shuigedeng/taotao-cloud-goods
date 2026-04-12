@@ -20,17 +20,22 @@ import com.taotao.boot.common.model.ddd.types.Command;
 import io.soabase.recordbuilder.core.RecordBuilder;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+
+import java.io.Serial;
 
 /**
  * 品牌DTO
  */
 @RecordBuilder
 @Schema(description = "品牌DTO")
-public record BrandUpdateCommand(@Schema(description = "id") Long id,
-								 @Schema(description = "名称") @NotBlank(message = "名称不能为空") String name,
-								 @Schema(description = "logo") @NotBlank(message = "logo不能为空") String logo) implements
-	Command {
+public record BrandCreateCommand(
+	@Schema(description = "id") @NotNull(message = "id不能为空") Long id,
+	@Schema(description = "名称") @NotBlank(message = "名称不能为空") String name,
+	@Schema(description = "logo") @NotBlank(message = "logo不能为空") String logo)
+	implements Command {
 
-	private  static final long serialVersionUID = 3829199991161122317L;
+	@Serial
+	private static final long serialVersionUID = 3829199991161122317L;
 
 }

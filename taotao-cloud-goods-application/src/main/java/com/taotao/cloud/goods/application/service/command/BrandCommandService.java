@@ -17,8 +17,8 @@
 package com.taotao.cloud.goods.application.service.command;
 
 import com.taotao.boot.ddd.model.application.service.CommandService;
-import com.taotao.cloud.goods.application.dto.own.brand.command.BrandAddCommand;
-import com.taotao.cloud.goods.application.dto.own.brand.command.BrandUpdateCommand;
+import com.taotao.cloud.goods.application.dto.own.brand.command.BrandCreateCommand;
+import com.taotao.cloud.goods.application.dto.own.brand.command.BrandModifyCommand;
 import java.util.List;
 
 /**
@@ -42,14 +42,14 @@ public interface BrandCommandService extends CommandService {
      *
      * @param brandAddCmd 品牌信息
 	 */
-    void addBrand(BrandAddCommand brandAddCmd);
+    void addBrand( BrandCreateCommand brandAddCmd);
 
     /**
      * 更新品牌
      *
      * @param brandUpdateCmd 品牌信息
 	 */
-    void updateBrand(BrandUpdateCommand brandUpdateCmd);
+    void updateBrand( BrandModifyCommand brandUpdateCmd);
 
     /**
      * 更新品牌是否可用

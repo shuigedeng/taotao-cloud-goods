@@ -21,7 +21,7 @@ import com.taotao.boot.common.model.ddd.command.IdCommand;
 import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
-import com.taotao.cloud.goods.application.dto.own.category.command.CategoryAddCommand;
+import com.taotao.cloud.goods.application.dto.own.category.command.CategoryCreateCommand;
 import com.taotao.cloud.goods.application.dto.own.category.command.CategoryTreeCommand;
 import com.taotao.cloud.goods.application.dto.own.category.command.DisableCommand;
 import com.taotao.cloud.goods.application.dto.own.category.query.ParentIdQuery;
@@ -90,7 +90,7 @@ public class CategoryManagerController extends BusinessController {
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/save")
-	public Result<Void> save( @RequestBody CategoryAddCommand category ) {
+	public Result<Void> save( @RequestBody CategoryCreateCommand category ) {
 		//// 非顶级分类
 		// if (category.getParentId() != null && !Long.valueOf(0).equals(category.getParentId())) {
 		//    Category parent = categoryQueryService.getById(category.getParentId());

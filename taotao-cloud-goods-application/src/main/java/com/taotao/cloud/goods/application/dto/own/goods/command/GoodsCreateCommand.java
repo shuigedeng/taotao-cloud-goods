@@ -40,25 +40,4 @@ public record GoodsCreateCommand(Long categoryId, String goodsName, LocalDate ma
 								 BigDecimal goodsWeight, String goodsWeightUnit, String goodsDesc,
 								 BigDecimal goodsPrice, Set<Long> tagIds) {
 
-	/**
-	 * 创建商品
-	 *
-	 * @return 商品
-	 */
-	//    public GoodsAgg createGoods() {
-	//        return GoodsFactory.createGoods(
-	//                BizId.fromValue(this.getCategoryId()),
-	//                GoodsName.of(this.getGoodsName()),
-	//                GoodsSpec.builder()
-	//                        .manufactureDate(this.getManufactureDate())
-	//                        .expirationDate(this.getExpirationDate())
-	//                        .goodsWeight(GoodsWeight.of(this.getGoodsWeight(),
-	// WeightUnit.of(this.getGoodsWeightUnit())))
-	//                        .goodsDesc(this.getGoodsDesc())
-	//                        .build(),
-	//                Price.of(this.getGoodsPrice()),
-	//                BizId.fromNullableValues(tagIds)
-	//        );
-	//
-	//    }
 }

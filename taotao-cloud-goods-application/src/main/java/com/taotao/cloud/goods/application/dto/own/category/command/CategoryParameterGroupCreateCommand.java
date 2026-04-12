@@ -20,22 +20,16 @@ import com.taotao.boot.common.model.ddd.types.Command;
 import io.soabase.recordbuilder.core.RecordBuilder;
 import io.swagger.v3.oas.annotations.media.Schema;
 
-import java.io.Serial;
-
 /**
- * 商品参数
+ * CategoryParameterGroupAddCommand
+ *
+ * @author shuigedeng
+ * @version 2026.04
+ * @since 2025-12-19 09:30:45
  */
 @RecordBuilder
-public record ParametersAddCommand(
-	@Schema(description = "参数名称") String paramName,
-	@Schema(description = "选择值") String options,
-	@Schema(description = "是否可索引，0 不显示 1 显示") Integer isIndex,
-	@Schema(description = "是否必填 是1否0") Integer required,
-	@Schema(description = "参数分组id") Long groupId,
-	@Schema(description = "分类id") Long categoryId,
-	@Schema(description = "排序") Integer sort) implements Command {
+@Schema(description = "分类品牌CO")
+public record CategoryParameterGroupCreateCommand(String id) implements Command {
 
-	@Serial
-	private static final long serialVersionUID = 724427321881170297L;
 
 }

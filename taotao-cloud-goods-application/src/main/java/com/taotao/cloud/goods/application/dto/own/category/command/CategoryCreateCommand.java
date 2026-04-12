@@ -14,33 +14,22 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.application.dto.own.goods.command;
+package com.taotao.cloud.goods.application.dto.own.category.command;
 
 import com.taotao.boot.common.model.ddd.types.Command;
 import io.soabase.recordbuilder.core.RecordBuilder;
 import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotEmpty;
-
-import java.io.Serial;
-import java.util.List;
 
 /**
- * 商品关联参数
+ * CategoryAddCommand
  *
  * @author shuigedeng
- * @version 2022.04
- * @since 2022-04-14 21:36:45
+ * @version 2026.04
+ * @since 2025-12-19 09:30:45
  */
 @RecordBuilder
-@Schema(description = "商品参数分组")
-public record GoodsParamsAddCommand(@Schema(description = "分组id") @NotEmpty(message = "xxxx") Long groupId,
-									@Schema(description = "分组名称") @NotBlank(message = "xxxx") String groupName,
-									@Schema(description = "分组内的商品参数列表") @NotEmpty(message = "xxxx") @Valid List<GoodsParamsItemAddCommand> goodsParamsItemAddCmdList)
-	implements Command {
+@Schema(description = "分类品牌CO")
+public record CategoryCreateCommand(String id) implements Command {
 
-	@Serial
-	private static final long serialVersionUID = 4892783539320159200L;
 
 }

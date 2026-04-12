@@ -14,28 +14,33 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.application.dto.own.brand.command;
+package com.taotao.cloud.goods.application.dto.own.goods.command;
 
 import com.taotao.boot.common.model.ddd.types.Command;
 import io.soabase.recordbuilder.core.RecordBuilder;
 import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotEmpty;
 
 import java.io.Serial;
+import java.util.List;
 
 /**
- * 品牌DTO
+ * 商品关联参数
+ *
+ * @author shuigedeng
+ * @version 2022.04
+ * @since 2022-04-14 21:36:45
  */
 @RecordBuilder
-@Schema(description = "品牌DTO")
-public record BrandAddCommand(
-	@Schema(description = "id") @NotNull(message = "id不能为空") Long id,
-	@Schema(description = "名称") @NotBlank(message = "名称不能为空") String name,
-	@Schema(description = "logo") @NotBlank(message = "logo不能为空") String logo)
+@Schema(description = "商品参数分组")
+public record GoodsParamsCreateCommand(@Schema(description = "分组id") @NotEmpty(message = "xxxx") Long groupId,
+                                       @Schema(description = "分组名称") @NotBlank(message = "xxxx") String groupName,
+                                       @Schema(description = "分组内的商品参数列表") @NotEmpty(message = "xxxx") @Valid List<GoodsParamsItemCreateCommand> goodsParamsItemAddCmdList)
 	implements Command {
 
 	@Serial
-	private static final long serialVersionUID = 3829199991161122317L;
+	private static final long serialVersionUID = 4892783539320159200L;
 
 }

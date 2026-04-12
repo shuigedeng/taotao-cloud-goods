@@ -14,31 +14,31 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.application.dto.own.goods.command;
+package com.taotao.cloud.goods.application.dto.own.draft.command;
 
 import com.taotao.boot.common.model.ddd.types.Command;
 import io.soabase.recordbuilder.core.RecordBuilder;
 import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.validation.Valid;
+
 import java.io.Serial;
+import java.util.List;
+import java.util.Map;
 
 /**
- * 商品参数项
- *
- * @author shuigedeng
- * @version 2022.04
- * @since 2022-04-14 21:36:45
+ * 草稿商品DTO
  */
 @RecordBuilder
-@Schema(description = "商品参数列表")
-public record GoodsParamsItemAddCommand(@Schema(description = "参数ID") Long paramId,
-										@Schema(description = "参数名字") String paramName,
-										@Schema(description = "参数值") String paramValue,
-										@Schema(description = "是否可索引，0 不索引 1 索引") Integer isIndex,
-										@Schema(description = "是否必填，0 不显示 1 显示") Integer required,
-										@Schema(description = "排序") Integer sort)
-	implements Command {
+public record DraftGoodsSkuParamsCreateCommand(
+	@Schema(description = "商品图片") List<String> goodsGalleryList,
+	DraftGoodsBaseCommand goodsBaseCommand,
+	@Schema(description = "sku列表") @Valid List<Map<String, Object>> skuList) implements Command {
 
 	@Serial
-	private static final long serialVersionUID = 4892783539320159200L;
+	private static final long serialVersionUID = 5255666163196674178L;
+
+	// @Valid
+	// @Schema(description = "商品参数")
+	// private List<GoodsParamsDTO> goodsParamsDTOList;
 
 }

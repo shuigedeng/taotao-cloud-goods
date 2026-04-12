@@ -24,11 +24,8 @@ import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.security.spring.annotation.NotAuth;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
+import com.taotao.cloud.goods.application.dto.own.goods.command.*;
 import com.taotao.cloud.goods.common.enums.GoodsStatusEnum;
-import com.taotao.cloud.goods.application.dto.own.goods.command.AuthCommand;
-import com.taotao.cloud.goods.application.dto.own.goods.command.GoodsCreateCommand;
-import com.taotao.cloud.goods.application.dto.own.goods.command.GoodsParamsAddCommand;
-import com.taotao.cloud.goods.application.dto.own.goods.command.UnderCommand;
 import com.taotao.cloud.goods.application.dto.own.goods.query.GoodsPageQuery;
 import com.taotao.cloud.goods.application.dto.own.goods.result.GoodsResult;
 import com.taotao.cloud.goods.application.dto.own.goods.result.GoodsSkuParamsResult;
@@ -123,7 +120,7 @@ public class GoodsManagerController extends BusinessController {
 	@NotAuth
 	//@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/underxx")
-	public Result<Void> underGoodsxx( @RequestBody GoodsParamsAddCommand underCommand){
+	public Result<Void> underGoodsxx( @RequestBody GoodsParamsCreateCommand underCommand){
 //		return Result.success(
 //			goodsCommandService.managerUpdateGoodsMarketAble(
 //				goodsIds, GoodsStatusEnum.DOWN, reason));

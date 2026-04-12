@@ -16,9 +16,12 @@
 
 package com.taotao.cloud.goods.application.dto.own.draft.command;
 
+import com.taotao.boot.common.model.ddd.types.Command;
 import io.soabase.recordbuilder.core.RecordBuilder;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.Valid;
+
+import java.io.Serial;
 import java.util.List;
 import java.util.Map;
 
@@ -26,10 +29,13 @@ import java.util.Map;
  * 草稿商品DTO
  */
 @RecordBuilder
-public record DraftGoodsSkuParamsSaveCommand(@Schema(description = "商品图片") List<String> goodsGalleryList,
+public record DraftGoodsSkuParamsSaveCommand(
+	@Schema(description = "商品图片") List<String> goodsGalleryList,
 											 DraftGoodsBaseCommand goodsBaseCommand,
-											 @Schema(description = "sku列表") @Valid List<Map<String, Object>> skuList) {
+											 @Schema(description = "sku列表") @Valid List<Map<String, Object>> skuList) implements
+	Command {
 
+	@Serial
 	private static final long serialVersionUID = 5255666163196674178L;
 
 	// @Valid

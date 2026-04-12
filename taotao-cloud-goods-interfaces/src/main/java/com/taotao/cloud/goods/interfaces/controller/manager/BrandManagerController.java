@@ -28,8 +28,8 @@ import com.taotao.boot.ratelimit.ratelimitguava.Limit;
 import com.taotao.boot.security.spring.annotation.NotAuth;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
-import com.taotao.cloud.goods.application.dto.own.brand.command.BrandAddCommand;
-import com.taotao.cloud.goods.application.dto.own.brand.command.BrandUpdateCommand;
+import com.taotao.cloud.goods.application.dto.own.brand.command.BrandCreateCommand;
+import com.taotao.cloud.goods.application.dto.own.brand.command.BrandModifyCommand;
 import com.taotao.cloud.goods.application.dto.own.brand.query.BrandPageQuery;
 import com.taotao.cloud.goods.application.dto.own.brand.result.BrandResult;
 import com.taotao.cloud.goods.application.dto.own.category.command.BrandDisableCommand;
@@ -103,7 +103,7 @@ public class BrandManagerController extends BusinessController {
 	@SentinelResource("test")
 	//@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/save")
-	public Result<Void> save( @RequestBody BrandAddCommand brand ) {
+	public Result<Void> save( @RequestBody BrandCreateCommand brand ) {
 		brandCommandService.addBrand(brand);
 		return Result.success();
 	}
@@ -112,7 +112,7 @@ public class BrandManagerController extends BusinessController {
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/update")
-	public Result<Void> updateById( @RequestBody BrandUpdateCommand brand ) {
+	public Result<Void> updateById( @RequestBody BrandModifyCommand brand ) {
 		brandCommandService.updateBrand(brand);
 		return Result.success();
 	}

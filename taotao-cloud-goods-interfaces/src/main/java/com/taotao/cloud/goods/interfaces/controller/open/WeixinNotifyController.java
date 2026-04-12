@@ -20,7 +20,7 @@ package com.taotao.cloud.goods.interfaces.controller.open;
 import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
-import com.taotao.cloud.goods.application.dto.own.brand.command.BrandAddCommand;
+import com.taotao.cloud.goods.application.dto.own.brand.command.BrandCreateCommand;
 import com.taotao.cloud.goods.application.service.command.BrandCommandService;
 import com.taotao.cloud.goods.application.service.query.BrandQueryService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -53,7 +53,7 @@ public class WeixinNotifyController extends BusinessController {
 	@Operation(summary = "阿里支付状态通知", description = "阿里支付状态通知")
 	@RequestLogger
 	@PostMapping("/notify")
-	public Result<Void> notify(@Validated @RequestBody BrandAddCommand brand) {
+	public Result<Void> notify(@Validated @RequestBody BrandCreateCommand brand) {
 		return Result.success();
 	}
 }

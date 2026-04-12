@@ -21,7 +21,7 @@ import io.soabase.recordbuilder.core.RecordBuilder;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 /**
- * CategoryAddCommand
+ * CategoryUpdateCommand
  *
  * @author shuigedeng
  * @version 2026.04
@@ -29,7 +29,8 @@ import io.swagger.v3.oas.annotations.media.Schema;
  */
 @RecordBuilder
 @Schema(description = "分类品牌CO")
-public record CategoryAddCommand(String id) implements Command {
+public record CategoryModifyCommand(
+	String id) implements Command {
 
 
 }
