@@ -17,6 +17,9 @@
 package com.taotao.cloud.goods.application.service.query;
 
 import com.taotao.boot.ddd.model.application.service.QueryService;
+import com.taotao.cloud.goods.application.dto.own.specification.result.SpecificationResult;
+
+import java.util.List;
 
 /**
  * 商品分类规格业务层
@@ -27,12 +30,12 @@ import com.taotao.boot.ddd.model.application.service.QueryService;
  */
 public interface CategorySpecificationQueryService extends QueryService {
 
-    /**
-     * 根据分类id查询规格信息
-     *
-     * @param categoryId 分类id
-     * @return {@link List }<{@link SpecificationPO }>
-     * @since 2022-04-27 16:59:40
-     */
-    //	List<SpecificationPO> getCategorySpecList(Long categoryId);
+	/**
+	 * 根据分类id查询规格信息
+	 *
+	 * @param categoryId 分类id
+	 * @return {@link List }<{@link SpecificationResult }>
+	 * @since 2022-04-27 16:59:40
+	 */
+	List<SpecificationResult> getCategorySpecList( Long categoryId );
 }

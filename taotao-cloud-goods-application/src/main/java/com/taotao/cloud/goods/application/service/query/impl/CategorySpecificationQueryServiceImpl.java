@@ -16,9 +16,14 @@
 
 package com.taotao.cloud.goods.application.service.query.impl;
 
+import com.taotao.cloud.goods.application.dto.own.specification.result.SpecificationResult;
+import com.taotao.cloud.goods.application.repository.CategorySpecificationQueryRepository;
 import com.taotao.cloud.goods.application.service.query.CategorySpecificationQueryService;
+import jakarta.annotation.Resource;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * 商品分类规格业务层实现
@@ -31,7 +36,15 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class CategorySpecificationQueryServiceImpl implements CategorySpecificationQueryService {
 
-    //	@Override
+	@Resource
+	private CategorySpecificationQueryRepository categorySpecificationQueryRepository;
+
+	@Override
+	public List<SpecificationResult> getCategorySpecList( Long categoryId ) {
+		return categorySpecificationQueryRepository.getCategorySpecList(categoryId);
+	}
+
+	//	@Override
     //	public List<SpecificationPO> getCategorySpecList(Long categoryId) {
     //		return im().getCategorySpecList(categoryId);
     //	}

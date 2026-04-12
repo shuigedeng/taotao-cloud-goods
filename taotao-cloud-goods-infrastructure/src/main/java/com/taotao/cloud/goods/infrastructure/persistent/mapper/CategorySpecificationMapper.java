@@ -19,9 +19,10 @@ package com.taotao.cloud.goods.infrastructure.persistent.mapper;
 import com.taotao.boot.data.mybatis.mybatisplus.base.mapper.BaseMapper;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.CategorySpecificationPO;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.SpecificationPO;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+
+import java.util.List;
 
 /**
  * 商品分类规格数据处理层
@@ -32,17 +33,18 @@ import org.apache.ibatis.annotations.Select;
  */
 public interface CategorySpecificationMapper extends BaseMapper<CategorySpecificationPO> {
 
-    /**
-     * 根据分类id查分类绑定规格
-     *
-     * @param categoryId 分类id
-     * @return {@link List }<{@link SpecificationPO }>
-     * @since 2022-04-27 16:55:35
-     */
-    @Select("""
-        select s.*
-        from  tt_specification s
-        INNER join tt_category_specification cs on s.id = cs.specification_id and cs.category_id = #{categoryId}
-        """)
-    List<SpecificationPO> getCategorySpecList(@Param("categoryId") Long categoryId);
+	/**
+	 * 根据分类id查分类绑定规格
+	 *
+	 * @param categoryId 分类id
+	 * @return {@link List }<{@link SpecificationPO }>
+	 * @since 2022-04-27 16:55:35
+	 */
+	@Select("""
+		select s.*
+		from  tt_specification s
+		INNER join tt_category_specification cs on s.id = cs.specification_id and cs.category_id = #{categoryId}
+		""")
+	List<SpecificationPO> getCategorySpecList( @Param("categoryId") Long categoryId );
+
 }
