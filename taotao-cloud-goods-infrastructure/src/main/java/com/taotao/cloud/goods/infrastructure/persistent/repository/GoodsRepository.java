@@ -16,8 +16,8 @@
 
 package com.taotao.cloud.goods.infrastructure.persistent.repository;
 
-import com.taotao.boot.data.jpa.base.repository.JpaExtendRepository;
-import com.taotao.boot.data.jpa.base.repository.JpaSuperRepository;
+import com.taotao.boot.data.jpa.base.repository.ExtendRepository;
+import com.taotao.boot.data.jpa.base.repository.BaseRepository;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsPO;
 
 /**
@@ -28,5 +28,5 @@ import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsPO;
  * @since 2021/10/13 22:50
  */
 public interface GoodsRepository
-        extends JpaSuperRepository<GoodsPO, Long>,
-				JpaExtendRepository<GoodsPO, Long> {}
+        extends BaseRepository<GoodsPO>,
+				ExtendRepository<GoodsPO, Long> {}

@@ -16,10 +16,10 @@
 
 package com.taotao.cloud.goods.infrastructure.persistent.repository;
 
-import com.taotao.boot.data.jpa.base.repository.JpaExtendRepository;
-import com.taotao.boot.data.jpa.base.repository.JpaSuperRepository;
+import com.taotao.boot.data.jpa.base.repository.ExtendRepository;
+import com.taotao.boot.data.jpa.base.repository.BaseRepository;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsGalleryPO;
 
 public interface GoodsGalleryRepository
-        extends JpaSuperRepository<GoodsGalleryPO, Long>,
-                JpaExtendRepository<GoodsGalleryPO, Long> {}
+        extends BaseRepository<GoodsGalleryPO>,
+                ExtendRepository<GoodsGalleryPO, Long> {}

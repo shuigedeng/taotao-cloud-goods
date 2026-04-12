@@ -21,7 +21,7 @@ import cn.hutool.http.HtmlUtil;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.handlers.FastjsonTypeHandler;
-import com.taotao.boot.webagg.entity.BaseSuperEntity;
+import com.taotao.boot.webagg.entity.BasePO;
 import com.taotao.cloud.goods.common.enums.GoodsAuthEnum;
 import com.taotao.cloud.goods.common.enums.GoodsTypeEnum;
 import jakarta.persistence.Column;
@@ -65,7 +65,7 @@ import org.hibernate.Hibernate;
 	})
 @TableName(GoodsPO.TABLE_NAME)
 @org.springframework.data.relational.core.mapping.Table(name = GoodsPO.TABLE_NAME)
-public class GoodsPO extends BaseSuperEntity<GoodsPO, Long> {
+public class GoodsPO extends BasePO<GoodsPO> {
 
 	public static final String TABLE_NAME = "ttc_goods";
 

@@ -17,7 +17,7 @@
 package com.taotao.cloud.goods.infrastructure.persistent.persistence;
 
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.taotao.boot.webagg.entity.BaseSuperEntity;
+import com.taotao.boot.webagg.entity.BasePO;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Index;
@@ -53,7 +53,7 @@ import org.hibernate.Hibernate;
         })
 @TableName(ParametersPO.TABLE_NAME)
 @org.springframework.data.relational.core.mapping.Table(name = ParametersPO.TABLE_NAME)
-public class ParametersPO extends BaseSuperEntity<ParametersPO, Long> {
+public class ParametersPO extends BasePO<ParametersPO> {
 
     public static final String TABLE_NAME = "ttc_parameters";
 

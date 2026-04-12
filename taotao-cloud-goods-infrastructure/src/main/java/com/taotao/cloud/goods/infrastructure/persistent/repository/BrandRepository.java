@@ -16,8 +16,8 @@
 
 package com.taotao.cloud.goods.infrastructure.persistent.repository;
 
-import com.taotao.boot.data.jpa.base.repository.JpaExtendRepository;
-import com.taotao.boot.data.jpa.base.repository.JpaSuperRepository;
+import com.taotao.boot.data.jpa.base.repository.ExtendRepository;
+import com.taotao.boot.data.jpa.base.repository.BaseRepository;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.BrandPO;
 import java.util.List;
 import java.util.Map;
@@ -28,7 +28,7 @@ import org.springframework.jdbc.core.simple.JdbcClient;
  * @author 1
  */
 public interface BrandRepository
-        extends JpaSuperRepository<BrandPO, Long>, JpaExtendRepository<BrandPO, Long> {
+        extends BaseRepository<BrandPO>, ExtendRepository<BrandPO, Long> {
 
     default void test() {
         JdbcClient jdbcClient = jdbcClient();

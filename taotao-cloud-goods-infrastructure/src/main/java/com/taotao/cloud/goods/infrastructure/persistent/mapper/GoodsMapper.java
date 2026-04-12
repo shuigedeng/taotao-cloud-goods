@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.goods.infrastructure.persistent.mapper;
 
-import com.taotao.boot.data.mybatis.mybatisplus.base.mapper.MpSuperMapper;
+import com.taotao.boot.data.mybatis.mybatisplus.base.mapper.BaseMapper;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsPO;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -34,7 +34,7 @@ import java.util.List;
  */
 // 添加@Repository注解是为了引导IntelliJ IDEA作出正确的判断.
 @Repository
-public interface GoodsMapper extends MpSuperMapper<GoodsPO, Long> {
+public interface GoodsMapper extends BaseMapper<GoodsPO> {
 
 	/**
 	 * 根据店铺ID获取商品ID列表

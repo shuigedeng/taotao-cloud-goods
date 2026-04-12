@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.goods.infrastructure.persistent.mapper;
 
-import com.taotao.boot.data.mybatis.mybatisplus.base.mapper.MpSuperMapper;
+import com.taotao.boot.data.mybatis.mybatisplus.base.mapper.BaseMapper;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.SpecificationPO;
 
 /**
@@ -26,4 +26,4 @@ import com.taotao.cloud.goods.infrastructure.persistent.persistence.Specificatio
  * @version 2022.04
  * @since 2022-04-27 16:57:39
  */
-public interface SpecificationMapper extends MpSuperMapper<SpecificationPO, Long> {}
+public interface SpecificationMapper extends BaseMapper<SpecificationPO> {}

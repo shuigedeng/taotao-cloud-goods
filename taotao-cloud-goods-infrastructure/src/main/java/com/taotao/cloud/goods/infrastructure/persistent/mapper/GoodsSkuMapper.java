@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.goods.infrastructure.persistent.mapper;
 
-import com.taotao.boot.data.mybatis.mybatisplus.base.mapper.MpSuperMapper;
+import com.taotao.boot.data.mybatis.mybatisplus.base.mapper.BaseMapper;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsSkuPO;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -32,7 +32,7 @@ import java.util.List;
  * @since 2022-04-27 16:57:22
  */
 @Repository
-public interface GoodsSkuMapper extends MpSuperMapper<GoodsSkuPO, Long> {
+public interface GoodsSkuMapper extends BaseMapper<GoodsSkuPO> {
 
 	/**
 	 * 根据商品id获取全部skuId的集合

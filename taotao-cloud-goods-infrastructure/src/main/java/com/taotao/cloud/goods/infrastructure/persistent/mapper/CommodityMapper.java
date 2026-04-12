@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.goods.infrastructure.persistent.mapper;
 
-import com.taotao.boot.data.mybatis.mybatisplus.base.mapper.MpSuperMapper;
+import com.taotao.boot.data.mybatis.mybatisplus.base.mapper.BaseMapper;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.CommodityPO;
 import org.apache.ibatis.annotations.Select;
 
@@ -29,7 +29,7 @@ import java.util.List;
  * @version 2022.04
  * @since 2022-04-27 16:55:41
  */
-public interface CommodityMapper extends MpSuperMapper<CommodityPO, Long> {
+public interface CommodityMapper extends BaseMapper<CommodityPO> {
 
 	/**
 	 * 获取直播商品ID列表

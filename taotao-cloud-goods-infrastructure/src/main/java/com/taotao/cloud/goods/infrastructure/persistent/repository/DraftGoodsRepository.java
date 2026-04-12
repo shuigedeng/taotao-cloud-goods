@@ -16,10 +16,10 @@
 
 package com.taotao.cloud.goods.infrastructure.persistent.repository;
 
-import com.taotao.boot.data.jpa.base.repository.JpaExtendRepository;
-import com.taotao.boot.data.jpa.base.repository.JpaSuperRepository;
+import com.taotao.boot.data.jpa.base.repository.ExtendRepository;
+import com.taotao.boot.data.jpa.base.repository.BaseRepository;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.DraftGoodsPO;
 
 public interface DraftGoodsRepository
-        extends JpaSuperRepository<DraftGoodsPO, Long>,
-				JpaExtendRepository<DraftGoodsPO, Long> {}
+        extends BaseRepository<DraftGoodsPO>,
+				ExtendRepository<DraftGoodsPO, Long> {}

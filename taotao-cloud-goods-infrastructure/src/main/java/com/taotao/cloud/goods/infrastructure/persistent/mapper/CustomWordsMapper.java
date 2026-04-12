@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.goods.infrastructure.persistent.mapper;
 
-import com.taotao.boot.data.mybatis.mybatisplus.base.mapper.MpSuperMapper;
+import com.taotao.boot.data.mybatis.mybatisplus.base.mapper.BaseMapper;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.CustomWordsPO;
 
 /**
@@ -26,4 +26,4 @@ import com.taotao.cloud.goods.infrastructure.persistent.persistence.CustomWordsP
  * @version 2022.04
  * @since 2022-04-27 16:55:50
  */
-public interface CustomWordsMapper extends MpSuperMapper<CustomWordsPO, Long> {}
+public interface CustomWordsMapper extends BaseMapper<CustomWordsPO> {}

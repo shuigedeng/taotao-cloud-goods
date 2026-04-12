@@ -17,7 +17,7 @@
 package com.taotao.cloud.goods.infrastructure.persistent.persistence;
 
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.taotao.boot.webagg.entity.BaseSuperEntity;
+import com.taotao.boot.webagg.entity.BasePO;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Index;
@@ -53,7 +53,7 @@ import org.hibernate.Hibernate;
         })
 @TableName(GoodsGalleryPO.TABLE_NAME)
 @org.springframework.data.relational.core.mapping.Table(name = GoodsGalleryPO.TABLE_NAME)
-public class GoodsGalleryPO extends BaseSuperEntity<GoodsGalleryPO, Long> {
+public class GoodsGalleryPO extends BasePO<GoodsGalleryPO> {
 
     public static final String TABLE_NAME = "ttc_goods_gallery";
 
