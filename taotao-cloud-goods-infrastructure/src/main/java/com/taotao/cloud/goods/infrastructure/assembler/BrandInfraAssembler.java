@@ -44,28 +44,28 @@ public interface BrandInfraAssembler extends MarkerAssembler {
     /**
      * 品牌,品牌签证官
      *
-     * @param brand 品牌
-     * @return {@link BrandVO }
+     * @param brandPo 品牌
+     * @return {@link BrandResult }
      * @since 2022-04-27 16:57:56
      */
-    BrandResult toResult(BrandPO brand);
+    BrandResult toResult(BrandPO brandPo);
 
     /**
      * 品牌品牌vos
      *
-     * @param brands 品牌
-     * @return {@link List }<{@link BrandVO }>
+     * @param brandPos 品牌
+     * @return {@link List }<{@link BrandResult }>
      * @since 2022-04-27 16:57:56
      */
-    List<BrandResult> toResult(List<BrandPO> brands);
+    List<BrandResult> toResult(List<BrandPO> brandPos);
 
     /**
      * 品牌dtoto品牌
      *
-     * @param brandDTO 品牌dto
+     * @param brandAddCommand 品牌dto
      * @return {@link Brand }
      * @since 2022-04-27 16:57:56
      */
-    BrandPO toPo(BrandAddCommand brandDTO);
-	BrandAddCommand toCommand(BrandPO brandPO);
+    BrandPO toPo(BrandAddCommand brandAddCommand);
+	BrandAddCommand toCommand(BrandPO brandPo);
 }

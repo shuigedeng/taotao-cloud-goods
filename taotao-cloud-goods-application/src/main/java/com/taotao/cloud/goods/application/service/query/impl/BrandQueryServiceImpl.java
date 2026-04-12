@@ -16,6 +16,7 @@
 
 package com.taotao.cloud.goods.application.service.query.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.taotao.cloud.goods.application.dto.own.brand.result.BrandResult;
 import com.taotao.cloud.goods.application.repository.BrandQueryRepository;
 import com.taotao.cloud.goods.application.service.command.CategoryBrandCommandService;
@@ -110,12 +111,11 @@ public class BrandQueryServiceImpl implements BrandQueryService {
     //
     //
     //
-    //	@Override
-    //	public List<BrandPO> getAllAvailable() {
-    //		LambdaQueryWrapper<BrandPO> lambdaQueryWrapper = new LambdaQueryWrapper<>();
-    //		lambdaQueryWrapper.eq(BrandPO::getDelFlag, 0);
-    //		return this.list(lambdaQueryWrapper);
-    //	}
+    	@Override
+    	public List<BrandResult> getAllAvailable() {
+			return brandQueryRepository.getAllAvailable();
+
+    	}
     //
     //	@Override
     //	public IPage<BrandPO> getBrandsByPage(BrandPageQry page) {

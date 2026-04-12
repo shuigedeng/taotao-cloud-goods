@@ -18,7 +18,12 @@ package com.taotao.cloud.goods.application.repository;
 
 import com.taotao.cloud.goods.application.dto.own.brand.result.BrandResult;
 
+import java.util.List;
+
 public interface BrandQueryRepository {
 
     BrandResult getById(Long id);
+
+	List<BrandResult> getAllAvailable();
+
 }

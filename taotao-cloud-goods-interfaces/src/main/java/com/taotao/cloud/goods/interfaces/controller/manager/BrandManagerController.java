@@ -80,9 +80,8 @@ public class BrandManagerController extends BusinessController {
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/available")
 	public Result<List<BrandResult>> queryAvailable() {
-//		List<BrandPO> list = brandQueryService.getAllAvailable();
-//		return Result.success(BrandAssembler.INSTANCE.convert(list));
-		return null;
+		List<BrandResult> list = brandQueryService.getAllAvailable();
+		return Result.success(list);
 	}
 
 	@Operation(summary = "分页获取", description = "分页获取")
@@ -105,7 +104,7 @@ public class BrandManagerController extends BusinessController {
 	//@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/save")
 	public Result<Void> save( @RequestBody BrandAddCommand brand ) {
-		boolean result = brandCommandService.addBrand(brand);
+		brandCommandService.addBrand(brand);
 		return Result.success();
 	}
 
@@ -114,7 +113,7 @@ public class BrandManagerController extends BusinessController {
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/update")
 	public Result<Void> updateById( @RequestBody BrandUpdateCommand brand ) {
-		boolean result = brandCommandService.updateBrand(brand);
+		brandCommandService.updateBrand(brand);
 		return Result.success();
 	}
 

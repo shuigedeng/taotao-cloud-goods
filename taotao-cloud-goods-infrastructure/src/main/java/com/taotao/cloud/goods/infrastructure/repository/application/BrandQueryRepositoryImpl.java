@@ -16,6 +16,7 @@
 
 package com.taotao.cloud.goods.infrastructure.repository.application;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.taotao.cloud.goods.application.acl.SysAclService;
 import com.taotao.cloud.goods.application.dto.own.brand.result.BrandResult;
 import com.taotao.cloud.goods.application.dto.sys.req.DictReq;
@@ -26,6 +27,7 @@ import com.taotao.cloud.goods.infrastructure.persistent.mapper.BrandMapper;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.BrandPO;
 import com.taotao.cloud.goods.infrastructure.persistent.repository.BrandRepository;
 
+import java.util.List;
 import java.util.Optional;
 
 import lombok.RequiredArgsConstructor;
@@ -59,4 +61,12 @@ public class BrandQueryRepositoryImpl implements BrandQueryRepository {
 
         return brandInfraAssembler.toResult(brandMapper.selectById(id));
     }
+
+	@Override
+	public List<BrandResult> getAllAvailable() {
+		LambdaQueryWrapper<BrandPO> lambdaQueryWrapper = new LambdaQueryWrapper<>();
+		lambdaQueryWrapper.eq(BrandPO::getDelFlag, 0);
+		List<BrandPO> brandPos = brandMapper.selectList(lambdaQueryWrapper);
+		return brandInfraAssembler.toResult(brandPos);
+	}
 }

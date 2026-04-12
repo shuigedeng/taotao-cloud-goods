@@ -17,6 +17,7 @@
 package com.taotao.cloud.goods.infrastructure.persistent.persistence;
 
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.taotao.boot.webagg.entity.BaseLogicPO;
 import com.taotao.boot.webagg.entity.BasePO;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -51,7 +52,7 @@ import org.hibernate.Hibernate;
         })
 @TableName(BrandPO.TABLE_NAME)
 @org.springframework.data.relational.core.mapping.Table(name = BrandPO.TABLE_NAME)
-public class BrandPO extends BasePO<BrandPO> {
+public class BrandPO extends BaseLogicPO<BrandPO> {
 
     public static final String TABLE_NAME = "ttc_brand";
 

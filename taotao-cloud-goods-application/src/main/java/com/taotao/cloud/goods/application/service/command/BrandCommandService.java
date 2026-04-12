@@ -35,30 +35,27 @@ public interface BrandCommandService extends CommandService {
      *
      * @param ids 品牌id
      */
-    boolean deleteBrands(List<Long> ids);
+    void deleteBrands(List<Long> ids);
 
     /**
      * 添加品牌
      *
      * @param brandAddCmd 品牌信息
-     * @return 添加结果
-     */
-    boolean addBrand(BrandAddCommand brandAddCmd);
+	 */
+    void addBrand(BrandAddCommand brandAddCmd);
 
     /**
      * 更新品牌
      *
      * @param brandUpdateCmd 品牌信息
-     * @return 更新结果
-     */
-    boolean updateBrand(BrandUpdateCommand brandUpdateCmd);
+	 */
+    void updateBrand(BrandUpdateCommand brandUpdateCmd);
 
     /**
      * 更新品牌是否可用
      *
      * @param brandId 品牌ID
      * @param disable 是否不可用
-     * @return 更新结果
-     */
-    boolean brandDisable(Long brandId, boolean disable);
+	 */
+    void brandDisable(Long brandId, boolean disable);
 }

@@ -62,23 +62,19 @@ public class BrandCommandServiceImpl implements BrandCommandService {
     private final GoodsQueryService goodsQueryService;
 
     @Override
-    public boolean deleteBrands(List<Long> ids) {
-        return false;
+    public void deleteBrands(List<Long> ids) {
     }
 
     @Override
-    public boolean addBrand(BrandAddCommand brandAddCmd) {
-        return false;
+    public void addBrand(BrandAddCommand brandAddCmd) {
     }
 
     @Override
-    public boolean updateBrand(BrandUpdateCommand brandUpdateCmd) {
-        return false;
+    public void updateBrand(BrandUpdateCommand brandUpdateCmd) {
     }
 
     @Override
-    public boolean brandDisable(Long brandId, boolean disable) {
-        return false;
+    public void brandDisable(Long brandId, boolean disable) {
     }
 
     //	@Override

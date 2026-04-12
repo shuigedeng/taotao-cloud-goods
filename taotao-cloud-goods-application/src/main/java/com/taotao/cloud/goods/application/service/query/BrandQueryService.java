@@ -42,7 +42,7 @@ public interface BrandQueryService extends QueryService {
     //
     //	List<BrandPO> getBrandsByCategorys(Long categoryIds);
     //
-    //	List<BrandPO> getAllAvailable();
+    	List<BrandResult> getAllAvailable();
     //
     //
     //	/**
