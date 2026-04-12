@@ -17,7 +17,6 @@
 package com.taotao.cloud.goods.application.service.command;
 
 import com.taotao.boot.ddd.model.application.service.CommandService;
-import com.taotao.boot.webagg.service.BaseSuperService;
 import com.taotao.cloud.goods.application.dto.own.goods.command.GoodsSkuStockUpdateCommand;
 import java.util.List;
 
@@ -26,7 +25,7 @@ import java.util.List;
  *
  * @author shuigedeng
  * @version 2023.07
- * @see BaseSuperService
+ * @see CommandService
  * @since 2023-08-18 16:00:58
  */
 public interface GoodsSkuCommandService extends CommandService {
