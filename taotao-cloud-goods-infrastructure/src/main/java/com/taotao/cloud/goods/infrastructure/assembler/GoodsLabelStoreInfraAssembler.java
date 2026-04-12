@@ -54,7 +54,7 @@ public interface GoodsLabelStoreInfraAssembler extends MarkerAssembler {
      * @return {@link StoreGoodsLabel }
      * @since 2022-04-27 16:58:17
      */
-    StoreGoodsLabelPO toPO(StoreGoodsLabelAddCommand storeGoodsLabelDTO);
+    StoreGoodsLabelPO toPo(StoreGoodsLabelAddCommand storeGoodsLabelDTO);
 
-    StoreGoodsLabelPO toPO(StoreGoodsLabelEditCommand storeGoodsLabelDTO);
+    StoreGoodsLabelPO toPo(StoreGoodsLabelEditCommand storeGoodsLabelDTO);
 }

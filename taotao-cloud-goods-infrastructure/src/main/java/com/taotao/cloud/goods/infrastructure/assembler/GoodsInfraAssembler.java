@@ -38,7 +38,7 @@ public interface GoodsInfraAssembler extends MarkerAssembler {
     /** 实例 */
     GoodsInfraAssembler INSTANCE = Mappers.getMapper(GoodsInfraAssembler.class);
 
-    GoodsPO toPO(GoodsAgg goods);
+    GoodsPO toPo(GoodsAgg goods);
 
     default Long map(BizId value) {
         return value != null ? value.id() : null;
