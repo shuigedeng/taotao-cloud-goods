@@ -43,7 +43,7 @@ public interface GoodsSkuMapper extends BaseMapper<GoodsSkuPO> {
 	 */
 	@Select("""
 		SELECT id
-		FROM tt_goods_sku
+		FROM ttc_goods_sku
 		WHERE goods_id = #{goodsId}
 		""")
 	List<String> getGoodsSkuIdByGoodsId( @Param(value = "goodsId") Long goodsId );

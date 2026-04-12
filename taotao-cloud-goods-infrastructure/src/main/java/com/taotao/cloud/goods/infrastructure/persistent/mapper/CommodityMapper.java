@@ -39,7 +39,7 @@ public interface CommodityMapper extends BaseMapper<CommodityPO> {
 	 */
 	@Select("""
 		SELECT live_goods_id
-		FROM tt_commodity
+		FROM ttc_commodity
 		WHERE audit_status='0' or audit_status='1'
 		""")
 	List<String> getAuditCommodity();
@@ -53,7 +53,7 @@ public interface CommodityMapper extends BaseMapper<CommodityPO> {
 	 */
 	@Select("""
 		SELECT *
-		FROM tt_commodity c INNER JOIN tt_studio_commodity sc ON sc.goods_id = c.live_goods_id
+		FROM ttc_commodity c INNER JOIN ttc_studio_commodity sc ON sc.goods_id = c.live_goods_id
 		WHERE sc.room_id =#{roomId}
 		""")
 	List<CommodityPO> getCommodityByRoomId( Integer roomId );
@@ -67,7 +67,7 @@ public interface CommodityMapper extends BaseMapper<CommodityPO> {
 	 */
 	@Select("""
 		SELECT goods_image
-		FROM tt_commodity c INNER JOIN tt_studio_commodity sc ON sc.goods_id = c.live_goods_id
+		FROM ttc_commodity c INNER JOIN ttc_studio_commodity sc ON sc.goods_id = c.live_goods_id
 		WHERE sc.room_id =#{roomId}
 		""")
 	List<String> getSimpleCommodityByRoomId( Integer roomId );
@@ -83,7 +83,7 @@ public interface CommodityMapper extends BaseMapper<CommodityPO> {
 	// @Select(
 	//        """
 	//	SELECT c.*,gs.quantity,s.store_name
-	//	FROM tt_commodity c INNER JOIN tt_goods_sku gs ON c.sku_id = gs.id INNER JOIN tt_store s ON
+	//	FROM ttc_commodity c INNER JOIN ttc_goods_sku gs ON c.sku_id = gs.id INNER JOIN ttc_store s ON
 	// s.id=c.store_id
 	//	${ew.customSqlSegment}
 	//	""")

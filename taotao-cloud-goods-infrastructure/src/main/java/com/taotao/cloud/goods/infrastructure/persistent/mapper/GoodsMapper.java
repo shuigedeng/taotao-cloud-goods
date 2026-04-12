@@ -46,7 +46,7 @@ public interface GoodsMapper extends BaseMapper<GoodsPO> {
 	@Select(
 		"""
 			SELECT id
-			FROM tt_goods
+			FROM ttc_goods
 			WHERE store_id = #{storeId}
 			""")
 	List<Long> getGoodsIdByStoreId( @Param("storeId") Long storeId );
@@ -59,7 +59,7 @@ public interface GoodsMapper extends BaseMapper<GoodsPO> {
 	 * @since 2022-04-27 16:56:00
 	 */
 	@Update("""
-		UPDATE tt_goods
+		UPDATE ttc_goods
 		SET comment_num = comment_num + #{commentNum}
 		WHERE id = #{goodsId}
 		""")
@@ -75,7 +75,7 @@ public interface GoodsMapper extends BaseMapper<GoodsPO> {
 	// */
 	// @Select("""
 	//	select g.*
-	//	from tt_goods as g
+	//	from ttc_goods as g
 	//	""")
 	// IPage<GoodsSkuParamsVO> queryByParams(
 	//	IPage<GoodsSkuParamsVO> page,
