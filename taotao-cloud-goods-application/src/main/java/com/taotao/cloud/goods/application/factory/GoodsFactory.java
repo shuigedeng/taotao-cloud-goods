@@ -19,7 +19,7 @@ package com.taotao.cloud.goods.application.factory;
 import com.taotao.boot.common.model.ddd.types.MarkerFactory;
 import com.taotao.boot.ddd.model.val.BizId;
 import com.taotao.boot.ddd.model.val.Price;
-import com.taotao.cloud.goods.application.dto.own.goods.command.GoodsCreateCommand;
+import com.taotao.cloud.goods.application.dto.own.goods.command.CreateGoodsCommand;
 import com.taotao.cloud.goods.domain.aggregate.GoodsAgg;
 import com.taotao.cloud.goods.domain.entity.Category;
 import com.taotao.cloud.goods.domain.entity.Tag;
@@ -65,7 +65,7 @@ public class GoodsFactory implements MarkerFactory {
 	 * @param goodsCreateCommand 商品创建命令
 	 * @return 初始商品
 	 */
-	public static GoodsAgg createGoods( GoodsCreateCommand goodsCreateCommand ) {
+	public static GoodsAgg createGoods( CreateGoodsCommand goodsCreateCommand ) {
 		return new GoodsAgg(
 			BizId.newBizId(),
 			Category.bizId(BizId.fromValue(goodsCreateCommand.categoryId())),

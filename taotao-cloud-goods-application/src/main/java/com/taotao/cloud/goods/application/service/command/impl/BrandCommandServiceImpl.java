@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.goods.application.service.command.impl;
 
-import com.taotao.cloud.goods.application.dto.own.brand.command.BrandCreateCommand;
+import com.taotao.cloud.goods.application.dto.own.brand.command.CreateBrandCommand;
 import com.taotao.cloud.goods.application.dto.own.brand.command.BrandModifyCommand;
 import com.taotao.cloud.goods.application.service.command.BrandCommandService;
 import com.taotao.cloud.goods.application.service.command.CategoryBrandCommandService;
@@ -66,7 +66,7 @@ public class BrandCommandServiceImpl implements BrandCommandService {
     }
 
     @Override
-    public void addBrand( BrandCreateCommand brandAddCmd) {
+    public void addBrand( CreateBrandCommand brandAddCmd) {
     }
 
     @Override

@@ -16,27 +16,20 @@
 
 package com.taotao.cloud.goods.interfaces.controller.manager;
 
-import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.taotao.boot.common.model.ddd.command.IdsCommand;
 
 import com.taotao.boot.common.model.result.PageResult;
 import com.taotao.boot.common.model.result.Result;
-import com.taotao.boot.data.mybatis.mybatisplus.MpUtils;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
-import com.taotao.cloud.goods.application.dto.own.specification.command.SpecificationAddCommand;
+import com.taotao.cloud.goods.application.dto.own.specification.command.CreateSpecificationCommand;
 import com.taotao.cloud.goods.application.dto.own.specification.query.SpecificationPageQuery;
 import com.taotao.cloud.goods.application.dto.own.specification.result.SpecificationResult;
 import com.taotao.cloud.goods.application.service.command.SpecificationCommandService;
 import com.taotao.cloud.goods.application.service.query.SpecificationQueryService;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.Parameter;
-import io.swagger.v3.oas.annotations.Parameters;
-import io.swagger.v3.oas.annotations.enums.ParameterIn;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
@@ -91,7 +84,7 @@ public class SpecificationManagerController extends BusinessController {
 	@RequestLogger("保存规格")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/save")
-	public Result<Void> save(  @RequestBody SpecificationAddCommand specificationDTO ) {
+	public Result<Void> save(  @RequestBody CreateSpecificationCommand specificationDTO ) {
 //		SpecificationPO specification = SpecificationAssembler.INSTANCE.convert(specificationDTO);
 //		return Result.success(specificationCommandService.save(specification));
 		return Result.success();
@@ -101,7 +94,7 @@ public class SpecificationManagerController extends BusinessController {
 	@RequestLogger("更改规格")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/update")
-	public Result<Void> update( @Valid @RequestBody SpecificationAddCommand specificationDTO ) {
+	public Result<Void> update( @Valid @RequestBody CreateSpecificationCommand specificationDTO ) {
 //		SpecificationPO specification = SpecificationAssembler.INSTANCE.convert(specificationDTO);
 //		specification.setId(id);
 //

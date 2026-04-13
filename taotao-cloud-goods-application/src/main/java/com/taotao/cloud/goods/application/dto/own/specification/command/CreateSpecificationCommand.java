@@ -14,23 +14,25 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.application.dto.own.hotwords.command;
+package com.taotao.cloud.goods.application.dto.own.specification.command;
 
 import com.taotao.boot.common.model.ddd.types.Command;
 import io.soabase.recordbuilder.core.RecordBuilder;
-import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.io.Serial;
 
 /**
- * 搜索热词
+ * 规格查询参数
+ *
+ * @author shuigedeng
+ * @version 2022.04
+ * @since 2022-04-25 16:33:26
  */
 @RecordBuilder
-public record HotWordsAddCommand(
-	@NotBlank(message = "搜索热词不能为空") @Size(max = 20, min = 1, message = "搜索热词长度限制在1-20") String keywords,
-	@NotNull(message = "分数不能为空") @Max(value = 9999999999L, message = "分数不能大于9999999999") @Min(value = -9999999999L, message = "分数不能小于9999999999") Integer point) implements
-	Command {
+@Schema(description = "规格查询参数")
+public record CreateSpecificationCommand(@Schema(description = "名称") String specName) implements Command {
+
+	@Serial
+	private static final long serialVersionUID = 8906820486037326039L;
 
 }

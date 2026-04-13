@@ -17,12 +17,11 @@
 package com.taotao.cloud.goods.interfaces.controller.manager;
 
 import com.taotao.boot.common.model.ddd.command.IdCommand;
-import com.taotao.boot.common.model.ddd.command.IdsCommand;
 
 import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
-import com.taotao.cloud.goods.application.dto.own.store.command.ParametersAddCommand;
+import com.taotao.cloud.goods.application.dto.own.store.command.CreateParametersCommand;
 import com.taotao.cloud.goods.application.service.command.ParametersCommandService;
 import com.taotao.cloud.goods.application.service.query.ParametersQueryService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -57,7 +56,7 @@ public class ParameterManagerController extends BusinessController {
 	@RequestLogger("添加参数添加参数")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/save")
-	public Result<Void> save( @RequestBody ParametersAddCommand parametersDTO ) {
+	public Result<Void> save( @RequestBody CreateParametersCommand parametersDTO ) {
 //		Parameters parameters = ParametersConvert.INSTANCE.convert(parametersDTO);
 //		return Result.success(parametersService.save(parameters));
 		return Result.success();
@@ -67,7 +66,7 @@ public class ParameterManagerController extends BusinessController {
 	@RequestLogger("编辑参数")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/update")
-	public Result<Void> update( @RequestBody ParametersAddCommand parametersDTO,
+	public Result<Void> update( @RequestBody CreateParametersCommand parametersDTO,
 		@PathVariable Long id ) {
 //		Parameters parameters = ParametersConvert.INSTANCE.convert(parametersDTO);
 //		parameters.setId(id);

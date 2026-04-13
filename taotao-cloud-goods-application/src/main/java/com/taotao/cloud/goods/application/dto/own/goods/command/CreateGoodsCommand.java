@@ -36,8 +36,8 @@ import java.util.Set;
  * @param tagIds 商品标签ID集合
  */
 @RecordBuilder
-public record GoodsCreateCommand(Long categoryId, String goodsName, LocalDate manufactureDate, LocalDate expirationDate,
-								 BigDecimal goodsWeight, String goodsWeightUnit, String goodsDesc,
-								 BigDecimal goodsPrice, Set<Long> tagIds) {
+public record CreateGoodsCommand(Long categoryId, String goodsName, LocalDate manufactureDate, LocalDate expirationDate,
+                                 BigDecimal goodsWeight, String goodsWeightUnit, String goodsDesc,
+                                 BigDecimal goodsPrice, Set<Long> tagIds) {
 
 }

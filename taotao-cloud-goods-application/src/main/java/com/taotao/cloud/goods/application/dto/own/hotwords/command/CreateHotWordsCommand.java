@@ -14,26 +14,23 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.application.dto.own.parameter.command;
+package com.taotao.cloud.goods.application.dto.own.hotwords.command;
 
 import com.taotao.boot.common.model.ddd.types.Command;
 import io.soabase.recordbuilder.core.RecordBuilder;
-import io.swagger.v3.oas.annotations.media.Schema;
-import java.io.Serial;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 /**
- * 商品参数
+ * 搜索热词
  */
 @RecordBuilder
-public record ParametersAddCommand(@Schema(description = "参数名称") String paramName,
-								   @Schema(description = "选择值") String options,
-								   @Schema(description = "是否可索引，0 不显示 1 显示") Integer isIndex,
-								   @Schema(description = "是否必填 是1否0") Integer required,
-								   @Schema(description = "参数分组id") Long groupId,
-								   @Schema(description = "分类id") Long categoryId,
-								   @Schema(description = "排序") Integer sort) implements Command {
-
-	@Serial
-	private static final long serialVersionUID = 724427321881170297L;
+public record CreateHotWordsCommand(
+	@NotBlank(message = "搜索热词不能为空") @Size(max = 20, min = 1, message = "搜索热词长度限制在1-20") String keywords,
+	@NotNull(message = "分数不能为空") @Max(value = 9999999999L, message = "分数不能大于9999999999") @Min(value = -9999999999L, message = "分数不能小于9999999999") Integer point) implements
+	Command {
 
 }

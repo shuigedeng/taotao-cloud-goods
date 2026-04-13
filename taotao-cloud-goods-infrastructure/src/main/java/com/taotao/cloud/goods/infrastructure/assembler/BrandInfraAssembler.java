@@ -17,7 +17,7 @@
 package com.taotao.cloud.goods.infrastructure.assembler;
 
 import com.taotao.boot.common.model.ddd.types.MarkerAssembler;
-import com.taotao.cloud.goods.application.dto.own.brand.command.BrandCreateCommand;
+import com.taotao.cloud.goods.application.dto.own.brand.command.CreateBrandCommand;
 import com.taotao.cloud.goods.application.dto.own.brand.result.BrandResult;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.BrandPO;
 import java.util.List;
@@ -66,6 +66,6 @@ public interface BrandInfraAssembler extends MarkerAssembler {
      * @return {@link Brand }
      * @since 2022-04-27 16:57:56
      */
-    BrandPO toPo( BrandCreateCommand brandAddCommand);
-	BrandCreateCommand toCommand(BrandPO brandPo);
+    BrandPO toPo( CreateBrandCommand brandAddCommand);
+	CreateBrandCommand toCommand(BrandPO brandPo);
 }

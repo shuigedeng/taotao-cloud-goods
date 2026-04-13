@@ -19,13 +19,12 @@ package com.taotao.cloud.goods.interfaces.controller.seller;
 
 import com.taotao.boot.common.model.ddd.command.IdCommand;
 import com.taotao.boot.common.model.ddd.query.IdQuery;
-import com.taotao.boot.common.model.ddd.command.IdsCommand;
 
 import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.security.spring.support.utils.SecurityUtils;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
-import com.taotao.cloud.goods.application.dto.own.store.command.StoreGoodsLabelAddCommand;
+import com.taotao.cloud.goods.application.dto.own.store.command.CreateStoreGoodsLabelCommand;
 import com.taotao.cloud.goods.application.dto.own.store.command.StoreGoodsLabelEditCommand;
 import com.taotao.cloud.goods.application.dto.own.store.result.StoreGoodsLabelInfoResult;
 import com.taotao.cloud.goods.application.dto.own.store.result.StoreGoodsLabelResult;
@@ -84,7 +83,7 @@ public class GoodsLabelSellerController extends BusinessController {
 	@RequestLogger("添加店铺商品分类")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/add")
-	public Result<Void> add( @RequestBody StoreGoodsLabelAddCommand storeGoodsLabelDTO ) {
+	public Result<Void> add( @RequestBody CreateStoreGoodsLabelCommand storeGoodsLabelDTO ) {
 //		StoreGoodsLabelPO storeGoodsLabel =
 //			GoodsLabelStoreAssembler.INSTANCE.convert(storeGoodsLabelDTO);
 //		return Result.success(storeGoodsLabelCommandService.addStoreGoodsLabel(storeGoodsLabel));

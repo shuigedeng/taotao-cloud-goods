@@ -29,7 +29,7 @@ import java.io.Serial;
  */
 @RecordBuilder
 @Schema(description = "品牌DTO")
-public record BrandCreateCommand(
+public record CreateBrandCommand(
 	@Schema(description = "id") @NotNull(message = "id不能为空") Long id,
 	@Schema(description = "名称") @NotBlank(message = "名称不能为空") String name,
 	@Schema(description = "logo") @NotBlank(message = "logo不能为空") String logo)

@@ -28,7 +28,7 @@ import com.taotao.boot.ratelimit.ratelimitguava.Limit;
 import com.taotao.boot.security.spring.annotation.NotAuth;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
-import com.taotao.cloud.goods.application.dto.own.brand.command.BrandCreateCommand;
+import com.taotao.cloud.goods.application.dto.own.brand.command.CreateBrandCommand;
 import com.taotao.cloud.goods.application.dto.own.brand.command.BrandModifyCommand;
 import com.taotao.cloud.goods.application.dto.own.brand.query.BrandPageQuery;
 import com.taotao.cloud.goods.application.dto.own.brand.result.BrandResult;
@@ -103,7 +103,7 @@ public class BrandManagerController extends BusinessController {
 	@SentinelResource("test")
 	//@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/save")
-	public Result<Void> save( @RequestBody BrandCreateCommand brand ) {
+	public Result<Void> save( @RequestBody CreateBrandCommand brand ) {
 		brandCommandService.addBrand(brand);
 		return Result.success();
 	}

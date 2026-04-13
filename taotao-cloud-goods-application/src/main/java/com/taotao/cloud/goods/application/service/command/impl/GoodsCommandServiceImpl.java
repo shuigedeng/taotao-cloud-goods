@@ -21,7 +21,7 @@ import com.taotao.cloud.goods.common.enums.GoodsAuthEnum;
 import com.taotao.cloud.goods.common.enums.GoodsStatusEnum;
 import com.taotao.cloud.goods.application.assembler.GoodsAppAssembler;
 import com.taotao.cloud.goods.application.dto.own.goods.result.GoodsResult;
-import com.taotao.cloud.goods.application.dto.own.goods.command.GoodsCreateCommand;
+import com.taotao.cloud.goods.application.dto.own.goods.command.CreateGoodsCommand;
 import com.taotao.cloud.goods.application.factory.GoodsFactory;
 import com.taotao.cloud.goods.application.service.command.GoodsCommandService;
 import com.taotao.cloud.goods.domain.aggregate.GoodsAgg;
@@ -108,7 +108,7 @@ public class GoodsCommandServiceImpl implements GoodsCommandService {
     }
 
     @Override
-    public GoodsResult createGoods(GoodsCreateCommand goodsCreateCommand) {
+    public GoodsResult createGoods( CreateGoodsCommand goodsCreateCommand) {
         // 创建商品实体
         GoodsAgg goods = GoodsFactory.createGoods(goodsCreateCommand);
         // 验证新增商品分类是否存在

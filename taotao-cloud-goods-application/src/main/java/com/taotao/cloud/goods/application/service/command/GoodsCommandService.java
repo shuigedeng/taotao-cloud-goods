@@ -21,7 +21,7 @@ import com.taotao.cloud.goods.common.enums.GoodsAuthEnum;
 import com.taotao.cloud.goods.common.enums.GoodsStatusEnum;
 import com.taotao.cloud.goods.application.dto.own.goods.result.GoodsResult;
 import com.taotao.cloud.goods.application.dto.own.goods.command.GoodsSaveCommand;
-import com.taotao.cloud.goods.application.dto.own.goods.command.GoodsCreateCommand;
+import com.taotao.cloud.goods.application.dto.own.goods.command.CreateGoodsCommand;
 import java.util.List;
 
 /**
@@ -153,7 +153,7 @@ public interface GoodsCommandService extends CommandService {
      */
     boolean updateGoodsBuyCount(Long goodsId, int buyCount);
 
-    GoodsResult createGoods(GoodsCreateCommand goodsCreateCommand);
+    GoodsResult createGoods( CreateGoodsCommand goodsCreateCommand);
 
     /**
      * 批量更新商品的店铺信息

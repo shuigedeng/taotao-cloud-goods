@@ -98,7 +98,7 @@ public class GoodsManagerController extends BusinessController {
 	@RequestLogger("管理员上架商品")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/create")
-	public Result<GoodsResult> create( @RequestBody GoodsCreateCommand goodsCreateCommand ) {
+	public Result<GoodsResult> create( @RequestBody CreateGoodsCommand goodsCreateCommand ) {
 		return Result.success(this.goodsCommandService.createGoods(goodsCreateCommand));
 	}
 
