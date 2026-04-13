@@ -10,7 +10,7 @@ import io.soabase.recordbuilder.core.RecordBuilder;
  * @since 2026/1/31
  */
 @RecordBuilder
-public record CategorySpecCommand(
+public record AssignCategorySpecCommand(
 	Long categoryId, String[] categorySpecs) {
 
 }

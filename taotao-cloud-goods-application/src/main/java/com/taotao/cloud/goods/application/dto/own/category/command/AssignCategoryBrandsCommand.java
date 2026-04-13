@@ -12,6 +12,6 @@ import java.util.List;
  * @since 2026/1/31
  */
 @RecordBuilder
-public record CategoryBrandsCommand(Long categoryId, List<Long> categoryBrands) {
+public record AssignCategoryBrandsCommand(Long categoryId, List<Long> categoryBrands) {
 
 }

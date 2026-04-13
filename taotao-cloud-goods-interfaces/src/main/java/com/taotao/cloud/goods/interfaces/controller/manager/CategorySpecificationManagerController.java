@@ -20,7 +20,7 @@ package com.taotao.cloud.goods.interfaces.controller.manager;
 import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
-import com.taotao.cloud.goods.application.dto.own.category.command.CategorySpecCommand;
+import com.taotao.cloud.goods.application.dto.own.category.command.AssignCategorySpecCommand;
 import com.taotao.cloud.goods.application.dto.own.goods.query.CategoryIdQuery;
 import com.taotao.cloud.goods.application.dto.own.specification.result.SpecificationResult;
 import com.taotao.cloud.goods.application.service.command.CategorySpecificationCommandService;
@@ -87,7 +87,7 @@ public class CategorySpecificationManagerController extends BusinessController {
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/save")
-	public Result<Void> save( @RequestBody CategorySpecCommand categorySpecs ) {
+	public Result<Void> save( @RequestBody AssignCategorySpecCommand categorySpecs ) {
 //		return Result.success(
 //			specificationCommandService.saveCategoryBrand(categoryId, categorySpecs));
 		return Result.success();

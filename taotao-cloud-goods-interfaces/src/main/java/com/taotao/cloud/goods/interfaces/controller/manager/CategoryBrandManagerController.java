@@ -20,7 +20,7 @@ package com.taotao.cloud.goods.interfaces.controller.manager;
 import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
-import com.taotao.cloud.goods.application.dto.own.category.command.CategoryBrandsCommand;
+import com.taotao.cloud.goods.application.dto.own.category.command.AssignCategoryBrandsCommand;
 import com.taotao.cloud.goods.application.dto.own.category.result.CategoryBrandResult;
 import com.taotao.cloud.goods.application.dto.own.goods.query.CategoryIdQuery;
 import com.taotao.cloud.goods.application.service.command.CategoryBrandCommandService;
@@ -65,7 +65,7 @@ public class CategoryBrandManagerController extends BusinessController {
     @RequestLogger
     @PreAuthorize("hasAuthority('dept:tree:data')")
     @PostMapping(value = "/command/category/brands")
-    public Result<Void> saveCategoryBrand( @RequestBody CategoryBrandsCommand categoryBrands) {
+    public Result<Void> saveCategoryBrand( @RequestBody AssignCategoryBrandsCommand categoryBrands) {
 //        return Result.success(
 //                categoryBrandCommandService.saveCategoryBrandList(categoryId, categoryBrands));
 		return Result.success();

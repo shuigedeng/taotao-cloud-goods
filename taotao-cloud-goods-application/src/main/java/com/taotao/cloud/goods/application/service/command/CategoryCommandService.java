@@ -17,7 +17,7 @@
 package com.taotao.cloud.goods.application.service.command;
 
 import com.taotao.boot.ddd.model.application.service.CommandService;
-import com.taotao.cloud.goods.application.dto.own.category.command.CategoryCreateCommand;
+import com.taotao.cloud.goods.application.dto.own.category.command.CreateCategoryCommand;
 import com.taotao.cloud.goods.application.dto.own.category.command.CategoryModifyCommand;
 
 /**
@@ -35,7 +35,7 @@ public interface CategoryCommandService extends CommandService {
      * @param category 商品分类信息
      * @return 添加结果
      */
-    boolean saveCategory( CategoryCreateCommand category);
+    boolean saveCategory( CreateCategoryCommand category);
 
     /**
      * 修改商品分类

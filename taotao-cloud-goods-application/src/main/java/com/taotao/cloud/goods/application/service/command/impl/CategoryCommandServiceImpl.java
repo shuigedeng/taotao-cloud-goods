@@ -17,7 +17,7 @@
 package com.taotao.cloud.goods.application.service.command.impl;
 
 import com.taotao.boot.cache.redis.repository.RedisRepository;
-import com.taotao.cloud.goods.application.dto.own.category.command.CategoryCreateCommand;
+import com.taotao.cloud.goods.application.dto.own.category.command.CreateCategoryCommand;
 import com.taotao.cloud.goods.application.dto.own.category.command.CategoryModifyCommand;
 import com.taotao.cloud.goods.application.service.command.CategoryCommandService;
 import lombok.RequiredArgsConstructor;
@@ -39,7 +39,7 @@ public class CategoryCommandServiceImpl implements CategoryCommandService {
     private final RedisRepository redisRepository;
 
     @Override
-    public boolean saveCategory( CategoryCreateCommand category) {
+    public boolean saveCategory( CreateCategoryCommand category) {
         // return categorySaveCmdExe.saveCategory(categoryPO);
         return true;
     }
