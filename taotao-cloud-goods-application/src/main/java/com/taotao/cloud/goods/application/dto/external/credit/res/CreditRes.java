@@ -1,4 +1,4 @@
-package com.taotao.cloud.goods.application.dto.credit.res;
+package com.taotao.cloud.goods.application.dto.external.credit.res;
 
 /**
  * CreditRes

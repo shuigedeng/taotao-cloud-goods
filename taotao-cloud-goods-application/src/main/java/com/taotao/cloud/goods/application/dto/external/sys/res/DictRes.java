@@ -1,4 +1,4 @@
-package com.taotao.cloud.goods.application.dto.sys.res;
+package com.taotao.cloud.goods.application.dto.external.sys.res;
 
 import lombok.Getter;
 import lombok.Setter;

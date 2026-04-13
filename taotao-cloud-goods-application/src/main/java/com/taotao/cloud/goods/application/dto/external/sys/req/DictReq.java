@@ -1,4 +1,4 @@
-package com.taotao.cloud.goods.application.dto.sys.req;
+package com.taotao.cloud.goods.application.dto.external.sys.req;
 
 import lombok.Builder;
 import lombok.Getter;

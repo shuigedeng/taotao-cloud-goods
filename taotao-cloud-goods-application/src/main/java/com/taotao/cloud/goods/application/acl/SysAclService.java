@@ -16,8 +16,8 @@
 
 package com.taotao.cloud.goods.application.acl;
 
-import com.taotao.cloud.goods.application.dto.sys.req.DictReq;
-import com.taotao.cloud.goods.application.dto.sys.res.DictRes;
+import com.taotao.cloud.goods.application.dto.external.sys.req.DictReq;
+import com.taotao.cloud.goods.application.dto.external.sys.res.DictRes;
 
 public interface SysAclService {
 
