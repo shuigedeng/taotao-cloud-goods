@@ -170,7 +170,7 @@ public class GoodsAgg extends AggregateRoot<BizId> {
 	public void create(){
 		GoodsCreateEvent goodsCreateEvent = new GoodsCreateEvent();
 		goodsCreateEvent.setName("");
-		publishEvent(goodsCreateEvent);
+		registerEvent(goodsCreateEvent);
 	}
 
     /**
