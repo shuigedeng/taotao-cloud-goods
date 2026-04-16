@@ -14,23 +14,13 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.infrastructure.event.listener;
-
-import com.taotao.cloud.goods.domain.event.GoodsCreateEvent;
-import org.springframework.stereotype.Component;
+package com.taotao.cloud.goods.infrastructure.event.subscribe.redis;
 
 /**
- * DictCreateListener
+ * RedisEventSubscriber
  *
  * @author shuigedeng
  * @version 2026.04
  * @since 2025-12-19 09:30:45
  */
-@Component
-public class DictCreateListener {
-
-	@org.springframework.context.event.EventListener
-	public void handleGoodsCreateEvent( GoodsCreateEvent goodsCreateEvent ) {
-
-	}
-}
+public class RedisEventSubscriber {}
