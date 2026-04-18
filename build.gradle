@@ -242,14 +242,14 @@ allprojects {
         }
     }
 
-    tasks.withType(JavaCompile).configureEach {
-        options.compilerArgs += [
-                '--enable-preview',
-                '-Amapstruct.defaultComponentModel=spring',
-                '-Amapstruct.verbose=true',
-                '-Amapstruct.nullValueIterableMappingStrategy=RETURN_DEFAULT',
-        ]
-    }
+//    tasks.withType(JavaCompile).configureEach {
+//        options.compilerArgs += [
+//                '--enable-preview',
+//                '-Amapstruct.defaultComponentModel=spring',
+//                '-Amapstruct.verbose=true',
+//                '-Amapstruct.nullValueIterableMappingStrategy=RETURN_DEFAULT',
+//        ]
+//    }
     tasks.withType(Test).configureEach {
         jvmArgs += "--enable-preview"
     }
@@ -389,16 +389,66 @@ subprojects {
     // 编译
     compileJava {
         options.compilerArgs += ['-Xlint:unchecked',
-                                '-Xlint:deprecation',
-                                '--enable-preview',
-                                '-Amapstruct.defaultComponentModel=spring',
-                                '-Amapstruct.verbose=true',
-                                '-Amapstruct.nullValueIterableMappingStrategy=RETURN_DEFAULT',
-                                '--add-exports=java.desktop/sun.font=ALL-UNNAMED',
-                                '--add-exports=java.base/sun.reflect.generics.tree=ALL-UNNAMED',
-                                '--add-exports=java.base/sun.net.www.protocol.ftp=ALL-UNNAMED',
-                                '--add-exports=java.desktop/sun.awt=ALL-UNNAMED',
-                                '--add-exports=java.desktop/sun.font=ALL-UNNAMED']
+                                 '-Xlint:deprecation',
+                                 '--enable-preview',
+                                 //如果设置为 true ，则在生成的映射器类中的 @Generated 注解中会抑制时间戳的创建。
+                                 '-Amapstruct.suppressGeneratorTimestamp=true',
+                                 //如果设置为 true ，则在生成的映射器类中的 @Generated 注解中会抑制 comment 属性的创建。注释包含有关 MapStruct 版本和用于注解处理的编译器信息。
+                                 '-Amapstruct.suppressGeneratorVersionInfoComment=true',
+                                 //生成的映射器是一个单例作用域的 Spring Bean，可以通过 @Autowired 获取
+                                 '-Amapstruct.defaultComponentModel=spring',
+                                 //如果设置为 true ，MapStruct 会记录其重大决策
+                                 '-Amapstruct.verbose=true',
+                                 //当 null 作为源值传递给可迭代映射时应用的策略。 RETURN_DEFAULT : 如果传递 null ，则返回默认值（空集合）
+                                 '-Amapstruct.nullValueIterableMappingStrategy=RETURN_DEFAULT',
+                                 '-Amapstruct.nullValueMapMappingStrategy=RETURN_DEFAULT',
+                                 '--add-exports=java.desktop/sun.font=ALL-UNNAMED',
+                                 '--add-exports=java.base/sun.reflect.generics.tree=ALL-UNNAMED',
+                                 '--add-exports=java.base/sun.net.www.protocol.ftp=ALL-UNNAMED',
+                                 '--add-exports=java.desktop/sun.awt=ALL-UNNAMED',
+                                 '--add-exports=java.desktop/sun.font=ALL-UNNAMED',
+                                 '--add-exports=java.base/java.lang=ALL-UNNAMED',
+                                 '--add-exports=java.base/java.lang.reflect=ALL-UNNAMED',
+                                 '--add-exports=java.base/java.lang.invoke=ALL-UNNAMED',
+                                 '--add-exports=java.base/java.util=ALL-UNNAMED',
+                                 '--add-exports=java.base/sun.net=ALL-UNNAMED',
+                                 '--add-exports=java.base/java.math=ALL-UNNAMED',
+                                 '--add-exports=java.base/sun.reflect.annotation=ALL-UNNAMED',
+                                 '--add-exports=java.base/sun.net=ALL-UNNAMED',
+                                 '--add-exports=java.desktop/sun.awt=ALL-UNNAMED',
+                                 '--add-exports=java.desktop/sun.font=ALL-UNNAMED',
+                                 '--add-exports=jdk.management/com.sun.management.internal=ALL-UNNAMED',
+                                 '--add-exports=java.base/java.lang=ALL-UNNAMED',
+                                 '--add-exports=java.base/java.math=ALL-UNNAMED',
+                                 '--add-exports=java.base/java.util=ALL-UNNAMED',
+                                 '--add-exports=java.base/sun.util.calendar=ALL-UNNAMED',
+                                 '--add-exports=java.base/java.util.concurrent=ALL-UNNAMED',
+                                 '--add-exports=java.base/java.util.concurrent.locks=ALL-UNNAMED',
+                                 '--add-exports=java.base/java.security=ALL-UNNAMED',
+                                 '--add-exports=java.base/jdk.internal.loader=ALL-UNNAMED',
+                                 '--add-exports=java.management/com.sun.jmx.mbeanserver=ALL-UNNAMED',
+                                 '--add-exports=java.base/java.net=ALL-UNNAMED',
+                                 '--add-exports=java.base/sun.nio.ch=ALL-UNNAMED',
+                                 '--add-exports=java.management/java.lang.management=ALL-UNNAMED',
+                                 '--add-exports=jdk.management/com.sun.management.internal=ALL-UNNAMED',
+                                 '--add-exports=java.management/sun.management=ALL-UNNAMED',
+                                 '--add-exports=java.management/java.lang.management=ALL-UNNAMED',
+                                 '--add-exports=jdk.management/com.sun.management.internal=ALL-UNNAMED',
+                                 '--add-exports=java.management/sun.management=ALL-UNNAMED',
+                                 '--add-exports=java.base/java.time=ALL-UNNAMED',
+                                 '--add-exports=java.base/java.util.concurrent=ALL-UNNAMED',
+                                 '--add-exports=java.base/java.util.concurrent.locks=ALL-UNNAMED',
+                                 '--add-exports=java.base/java.security=ALL-UNNAMED',
+                                 '--add-exports=java.base/jdk.internal.loader=ALL-UNNAMED',
+                                 '--add-exports=java.management/com.sun.jmx.mbeanserver=ALL-UNNAMED',
+                                 '--add-exports=java.base/java.net=ALL-UNNAMED',
+                                 '--add-exports=java.base/sun.nio.ch=ALL-UNNAMED',
+                                 '--add-exports=java.base/java.lang=ALL-UNNAMED',
+                                 '--add-exports=java.base/java.math=ALL-UNNAMED',
+                                 '--add-exports=java.base/java.util=ALL-UNNAMED',
+                                 '--add-exports=java.base/sun.util.calendar=ALL-UNNAMED',
+                                 '--add-exports=java.base/sun.net.util=ALL-UNNAMED',
+                                 '--add-exports=java.base/sun.net.util=ALL-UNNAMED']
     }
 
     // 执行
