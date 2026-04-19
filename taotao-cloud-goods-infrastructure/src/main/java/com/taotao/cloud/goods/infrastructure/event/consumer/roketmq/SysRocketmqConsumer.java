@@ -9,14 +9,14 @@ import org.springframework.stereotype.Component;
 
 import java.nio.charset.StandardCharsets;
 
-@Component
-@RocketMQMessageListener(
-	topic = "${taotao.data.rocketmq.member-topic}",
-	selectorExpression = " res || xx",
-	consumerGroup = "${taotao.data.rocketmq.member-group}",
-	consumeMode = ConsumeMode.ORDERLY,
-	messageModel = MessageModel.BROADCASTING
-)
+//@Component
+//@RocketMQMessageListener(
+//	topic = "${taotao.data.rocketmq.member-topic}",
+//	selectorExpression = " res || xx",
+//	consumerGroup = "${taotao.data.rocketmq.member-group}",
+//	consumeMode = ConsumeMode.ORDERLY,
+//	messageModel = MessageModel.BROADCASTING
+//)
 public class SysRocketmqConsumer implements RocketMQListener<MessageExt> {
 
 	//没有抛异常 自动确认
