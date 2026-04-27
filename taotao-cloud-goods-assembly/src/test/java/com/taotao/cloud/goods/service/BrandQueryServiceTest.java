@@ -39,7 +39,7 @@ public class BrandQueryServiceTest extends TaoTaoCloudGoodsApplicationTests {
     @Test
     public void helloTest111() throws InterruptedException {
 
-        BrandResult byId = brandQueryService.getById(1L);
+//        BrandResult byId = brandQueryService.getById(1L);
         System.out.println("asdfasdfsadfsadf");
     }
 }

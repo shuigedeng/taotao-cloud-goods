@@ -23,6 +23,7 @@ import com.taotao.boot.common.model.ddd.query.IdQuery;
 import com.taotao.boot.common.model.result.PageResult;
 import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.idempotent.annotation.Idempotent;
+import com.taotao.boot.idempotent.idempotetduplicate.PreventDuplicateSubmit;
 import com.taotao.boot.ratelimit.ratelimitguava.GuavaLimit;
 import com.taotao.boot.ratelimit.ratelimitguava.Limit;
 import com.taotao.boot.security.spring.annotation.NotAuth;
@@ -119,6 +120,7 @@ public class BrandManagerController extends BusinessController {
 
 	@Operation(summary = "后台禁用品牌", description = "后台禁用品牌")
 	@RequestLogger
+	@PreventDuplicateSubmit
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/disable")
 	public Result<Void> disableById( @RequestBody BrandDisableCommand brandDisableCommand ) {
@@ -128,6 +130,7 @@ public class BrandManagerController extends BusinessController {
 
 	@Operation(summary = "批量删除", description = "批量删除")
 	@RequestLogger
+	@PreventDuplicateSubmit
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/dels")
 	public Result<Void> delByIds( @RequestBody IdsCommand idsCommand ) {
