@@ -18,9 +18,9 @@ package com.taotao.cloud.goods.facade.sys.acl;
 
 import com.taotao.boot.ddd.acl.AclBaseService;
 import com.taotao.boot.ddd.gateway.model.GatewayResponse;
-import com.taotao.cloud.goods.application.acl.SysAclService;
-import com.taotao.cloud.goods.application.dto.external.sys.req.DictReq;
-import com.taotao.cloud.goods.application.dto.external.sys.res.DictRes;
+import com.taotao.cloud.goods.application.acl.service.SysAclService;
+import com.taotao.cloud.goods.application.acl.dto.sys.req.DictReq;
+import com.taotao.cloud.goods.application.acl.dto.sys.res.DictRes;
 import com.taotao.cloud.goods.facade.assembler.SysFacadeAssembler;
 import com.taotao.cloud.goods.facade.sys.invoker.SysInvoker;
 import com.taotao.cloud.sys.api.inner.dto.response.DictQueryApiResponse;

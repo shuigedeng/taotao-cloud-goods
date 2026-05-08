@@ -17,10 +17,10 @@
 package com.taotao.cloud.goods.infrastructure.repository.application;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.taotao.cloud.goods.application.acl.SysAclService;
-import com.taotao.cloud.goods.application.dto.own.brand.result.BrandResult;
-import com.taotao.cloud.goods.application.dto.external.sys.req.DictReq;
-import com.taotao.cloud.goods.application.dto.external.sys.res.DictRes;
+import com.taotao.cloud.goods.application.acl.service.SysAclService;
+import com.taotao.cloud.goods.application.dto.brand.result.BrandResult;
+import com.taotao.cloud.goods.application.acl.dto.sys.req.DictReq;
+import com.taotao.cloud.goods.application.acl.dto.sys.res.DictRes;
 import com.taotao.cloud.goods.application.repository.BrandQueryRepository;
 import com.taotao.cloud.goods.infrastructure.assembler.BrandInfraAssembler;
 import com.taotao.cloud.goods.infrastructure.persistent.mapper.BrandMapper;

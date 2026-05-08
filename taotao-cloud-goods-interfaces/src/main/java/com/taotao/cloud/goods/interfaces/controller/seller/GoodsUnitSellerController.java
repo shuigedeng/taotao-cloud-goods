@@ -21,7 +21,7 @@ import com.taotao.boot.common.model.result.PageResult;
 import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
-import com.taotao.cloud.goods.application.dto.own.goods.result.GoodsUnitResult;
+import com.taotao.cloud.goods.application.dto.goods.result.GoodsUnitResult;
 import com.taotao.cloud.goods.application.service.command.GoodsUnitCommandService;
 import com.taotao.cloud.goods.application.service.query.GoodsUnitQueryService;
 import io.swagger.v3.oas.annotations.Operation;

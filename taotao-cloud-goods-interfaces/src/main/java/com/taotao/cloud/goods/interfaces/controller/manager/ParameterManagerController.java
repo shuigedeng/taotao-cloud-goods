@@ -21,7 +21,7 @@ import com.taotao.boot.common.model.ddd.command.IdCommand;
 import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
-import com.taotao.cloud.goods.application.dto.own.store.command.CreateParametersCommand;
+import com.taotao.cloud.goods.application.dto.store.command.CreateParametersCommand;
 import com.taotao.cloud.goods.application.service.command.ParametersCommandService;
 import com.taotao.cloud.goods.application.service.query.ParametersQueryService;
 import io.swagger.v3.oas.annotations.Operation;

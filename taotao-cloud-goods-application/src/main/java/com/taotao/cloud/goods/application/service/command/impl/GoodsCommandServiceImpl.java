@@ -16,12 +16,12 @@
 
 package com.taotao.cloud.goods.application.service.command.impl;
 
-import com.taotao.cloud.goods.application.dto.own.goods.command.GoodsSaveCommand;
+import com.taotao.cloud.goods.application.dto.goods.command.GoodsSaveCommand;
 import com.taotao.cloud.goods.common.enums.GoodsAuthEnum;
 import com.taotao.cloud.goods.common.enums.GoodsStatusEnum;
 import com.taotao.cloud.goods.application.assembler.GoodsAppAssembler;
-import com.taotao.cloud.goods.application.dto.own.goods.result.GoodsResult;
-import com.taotao.cloud.goods.application.dto.own.goods.command.CreateGoodsCommand;
+import com.taotao.cloud.goods.application.dto.goods.result.GoodsResult;
+import com.taotao.cloud.goods.application.dto.goods.command.CreateGoodsCommand;
 import com.taotao.cloud.goods.application.factory.GoodsFactory;
 import com.taotao.cloud.goods.application.service.command.GoodsCommandService;
 import com.taotao.cloud.goods.domain.aggregate.GoodsAgg;

@@ -16,15 +16,14 @@
 
 package com.taotao.cloud.goods.interfaces.controller.manager;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.taotao.boot.common.model.ddd.command.IdCommand;
 
 import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
-import com.taotao.cloud.goods.application.dto.own.category.command.CategoryParameterGroupCommand;
-import com.taotao.cloud.goods.application.dto.own.goods.query.CategoryIdQuery;
-import com.taotao.cloud.goods.application.dto.own.parameter.result.ParameterGroupResult;
+import com.taotao.cloud.goods.application.dto.category.command.CategoryParameterGroupCommand;
+import com.taotao.cloud.goods.application.dto.goods.query.CategoryIdQuery;
+import com.taotao.cloud.goods.application.dto.parameter.result.ParameterGroupResult;
 import com.taotao.cloud.goods.application.service.command.CategoryParameterGroupCommandService;
 import com.taotao.cloud.goods.application.service.command.ParametersCommandService;
 import com.taotao.cloud.goods.application.service.query.CategoryParameterGroupQueryService;

@@ -17,12 +17,11 @@
 package com.taotao.cloud.goods.application.service.query.impl;
 
 import com.taotao.boot.cache.redis.repository.RedisRepository;
-import com.taotao.cloud.goods.application.dto.own.store.result.StoreGoodsLabelResult;
+import com.taotao.cloud.goods.application.dto.store.result.StoreGoodsLabelResult;
 import com.taotao.cloud.goods.application.service.query.StoreGoodsLabelQueryService;
 import java.util.List;
 import java.util.Map;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**

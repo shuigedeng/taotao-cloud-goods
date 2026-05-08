@@ -20,8 +20,8 @@ import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.taotao.boot.ddd.model.application.service.QueryService;
-import com.taotao.cloud.goods.application.dto.own.goods.result.GoodsSkuResult;
-import com.taotao.cloud.goods.application.dto.own.goods.query.GoodsSkuSearchQuery;
+import com.taotao.cloud.goods.application.dto.goods.result.GoodsSkuResult;
+import com.taotao.cloud.goods.application.dto.goods.query.GoodsSkuSearchQuery;
 import java.util.List;
 import java.util.Map;
 

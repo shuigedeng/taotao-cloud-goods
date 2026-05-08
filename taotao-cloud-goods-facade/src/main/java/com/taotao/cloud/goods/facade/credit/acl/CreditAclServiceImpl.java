@@ -1,8 +1,8 @@
 package com.taotao.cloud.goods.facade.credit.acl;
 
-import com.taotao.cloud.goods.application.acl.CreditAclService;
-import com.taotao.cloud.goods.application.dto.external.credit.req.CreditReq;
-import com.taotao.cloud.goods.application.dto.external.credit.res.CreditRes;
+import com.taotao.cloud.goods.application.acl.service.CreditAclService;
+import com.taotao.cloud.goods.application.acl.dto.credit.req.CreditReq;
+import com.taotao.cloud.goods.application.acl.dto.credit.res.CreditRes;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

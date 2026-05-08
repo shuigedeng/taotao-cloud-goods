@@ -19,9 +19,9 @@ package com.taotao.cloud.goods.application.service.command;
 import com.taotao.boot.ddd.model.application.service.CommandService;
 import com.taotao.cloud.goods.common.enums.GoodsAuthEnum;
 import com.taotao.cloud.goods.common.enums.GoodsStatusEnum;
-import com.taotao.cloud.goods.application.dto.own.goods.result.GoodsResult;
-import com.taotao.cloud.goods.application.dto.own.goods.command.GoodsSaveCommand;
-import com.taotao.cloud.goods.application.dto.own.goods.command.CreateGoodsCommand;
+import com.taotao.cloud.goods.application.dto.goods.result.GoodsResult;
+import com.taotao.cloud.goods.application.dto.goods.command.GoodsSaveCommand;
+import com.taotao.cloud.goods.application.dto.goods.command.CreateGoodsCommand;
 import java.util.List;
 
 /**

@@ -16,23 +16,20 @@
 
 package com.taotao.cloud.goods.interfaces.controller.manager;
 
-import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.taotao.boot.common.model.ddd.query.IdQuery;
 import com.taotao.boot.common.model.ddd.command.IdsCommand;
 import com.taotao.boot.common.model.ddd.query.PageQuery;
 
 import com.taotao.boot.common.model.result.PageResult;
 import com.taotao.boot.common.model.result.Result;
-import com.taotao.boot.data.mybatis.mybatisplus.MpUtils;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
-import com.taotao.cloud.goods.application.dto.own.goods.command.GoodsUnitCommand;
-import com.taotao.cloud.goods.application.dto.own.goods.result.GoodsUnitResult;
+import com.taotao.cloud.goods.application.dto.goods.command.GoodsUnitCommand;
+import com.taotao.cloud.goods.application.dto.goods.result.GoodsUnitResult;
 import com.taotao.cloud.goods.application.service.command.GoodsUnitCommandService;
 import com.taotao.cloud.goods.application.service.query.GoodsUnitQueryService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import jakarta.validation.constraints.NotEmpty;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;

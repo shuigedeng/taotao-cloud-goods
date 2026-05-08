@@ -1,9 +1,9 @@
 package com.taotao.cloud.goods.facade.connect.acl;
 
 import com.taotao.boot.ddd.acl.AclBaseService;
-import com.taotao.cloud.goods.application.acl.ConnectAclService;
-import com.taotao.cloud.goods.application.dto.external.connect.req.ConnectReq;
-import com.taotao.cloud.goods.application.dto.external.connect.res.ConnectRes;
+import com.taotao.cloud.goods.application.acl.service.ConnectAclService;
+import com.taotao.cloud.goods.application.acl.dto.connect.req.ConnectReq;
+import com.taotao.cloud.goods.application.acl.dto.connect.res.ConnectRes;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

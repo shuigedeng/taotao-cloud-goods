@@ -17,8 +17,8 @@
 package com.taotao.cloud.goods.infrastructure.assembler;
 
 import com.taotao.boot.common.model.ddd.types.MarkerAssembler;
-import com.taotao.cloud.goods.application.dto.own.brand.command.CreateBrandCommand;
-import com.taotao.cloud.goods.application.dto.own.brand.result.BrandResult;
+import com.taotao.cloud.goods.application.dto.brand.command.CreateBrandCommand;
+import com.taotao.cloud.goods.application.dto.brand.result.BrandResult;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.BrandPO;
 import java.util.List;
 import nl.basjes.parse.useragent.clienthints.ClientHints.Brand;

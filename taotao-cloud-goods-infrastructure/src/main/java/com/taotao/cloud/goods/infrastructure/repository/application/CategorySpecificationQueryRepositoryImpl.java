@@ -1,11 +1,9 @@
 package com.taotao.cloud.goods.infrastructure.repository.application;
 
-import com.taotao.cloud.goods.application.dto.own.specification.result.SpecificationResult;
+import com.taotao.cloud.goods.application.dto.specification.result.SpecificationResult;
 import com.taotao.cloud.goods.application.repository.CategorySpecificationQueryRepository;
 import com.taotao.cloud.goods.infrastructure.assembler.SpecificationInfraAssembler;
-import com.taotao.cloud.goods.infrastructure.persistent.mapper.BrandMapper;
 import com.taotao.cloud.goods.infrastructure.persistent.mapper.CategorySpecificationMapper;
-import com.taotao.cloud.goods.infrastructure.persistent.persistence.CategorySpecificationPO;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.SpecificationPO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

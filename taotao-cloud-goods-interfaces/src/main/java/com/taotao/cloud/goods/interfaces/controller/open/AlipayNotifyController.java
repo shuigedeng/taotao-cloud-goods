@@ -20,7 +20,7 @@ package com.taotao.cloud.goods.interfaces.controller.open;
 import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
-import com.taotao.cloud.goods.application.dto.own.brand.command.CreateBrandCommand;
+import com.taotao.cloud.goods.application.dto.brand.command.CreateBrandCommand;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;

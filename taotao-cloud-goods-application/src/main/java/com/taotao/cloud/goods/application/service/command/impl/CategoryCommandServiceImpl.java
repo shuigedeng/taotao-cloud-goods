@@ -17,8 +17,8 @@
 package com.taotao.cloud.goods.application.service.command.impl;
 
 import com.taotao.boot.cache.redis.repository.RedisRepository;
-import com.taotao.cloud.goods.application.dto.own.category.command.CreateCategoryCommand;
-import com.taotao.cloud.goods.application.dto.own.category.command.CategoryModifyCommand;
+import com.taotao.cloud.goods.application.dto.category.command.CreateCategoryCommand;
+import com.taotao.cloud.goods.application.dto.category.command.CategoryModifyCommand;
 import com.taotao.cloud.goods.application.service.command.CategoryCommandService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.cache.annotation.CacheConfig;

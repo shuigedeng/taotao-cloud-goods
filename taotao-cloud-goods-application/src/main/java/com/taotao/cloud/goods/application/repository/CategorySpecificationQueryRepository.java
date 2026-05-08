@@ -1,6 +1,6 @@
 package com.taotao.cloud.goods.application.repository;
 
-import com.taotao.cloud.goods.application.dto.own.specification.result.SpecificationResult;
+import com.taotao.cloud.goods.application.dto.specification.result.SpecificationResult;
 
 import java.util.List;
 

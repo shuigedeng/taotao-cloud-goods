@@ -18,7 +18,7 @@ package com.taotao.cloud.goods.application.service.query.impl;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.taotao.boot.common.model.ddd.query.PageQuery;
-import com.taotao.cloud.goods.application.dto.own.commodity.result.CommoditySkuResult;
+import com.taotao.cloud.goods.application.dto.commodity.result.CommoditySkuResult;
 import com.taotao.cloud.goods.application.service.query.CommodityQueryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
