@@ -55,10 +55,10 @@ public class ParameterManagerController extends BusinessController {
 	@Operation(summary = "添加参数", description = "添加参数")
 	@RequestLogger("添加参数添加参数")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@PostMapping("/command/save")
-	public Result<Void> save( @RequestBody CreateParametersCommand parametersDTO ) {
+	@PostMapping("/command/create")
+	public Result<Void> create( @RequestBody CreateParametersCommand parametersDTO ) {
 //		Parameters parameters = ParametersConvert.INSTANCE.convert(parametersDTO);
-//		return Result.success(parametersService.save(parameters));
+//		return Result.success(parametersService.create(parameters));
 		return Result.success();
 	}
 

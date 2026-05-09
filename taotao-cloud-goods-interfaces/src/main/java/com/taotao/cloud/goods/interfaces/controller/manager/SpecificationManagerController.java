@@ -83,10 +83,10 @@ public class SpecificationManagerController extends BusinessController {
 	@Operation(summary = "保存规格", description = "保存规格")
 	@RequestLogger("保存规格")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@PostMapping("/command/save")
-	public Result<Void> save(  @RequestBody CreateSpecificationCommand specificationDTO ) {
+	@PostMapping("/command/create")
+	public Result<Void> create(  @RequestBody CreateSpecificationCommand specificationDTO ) {
 //		SpecificationPO specification = SpecificationAssembler.INSTANCE.convert(specificationDTO);
-//		return Result.success(specificationCommandService.save(specification));
+//		return Result.success(specificationCommandService.create(specification));
 		return Result.success();
 	}
 
@@ -106,7 +106,7 @@ public class SpecificationManagerController extends BusinessController {
 	@RequestLogger("批量删除")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/dels")
-	public Result<Void> dels( IdsCommand ids ) {
+	public Result<Void> deleteBatch( IdsCommand ids ) {
 		specificationCommandService.deleteSpecification(ids.getIds());
 		return Result.success();
 	}

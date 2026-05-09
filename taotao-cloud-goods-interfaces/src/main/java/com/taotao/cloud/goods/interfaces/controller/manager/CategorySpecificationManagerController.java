@@ -87,7 +87,7 @@ public class CategorySpecificationManagerController extends BusinessController {
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/save")
-	public Result<Void> save( @RequestBody AssignCategorySpecCommand categorySpecs ) {
+	public Result<Void> create( @RequestBody AssignCategorySpecCommand categorySpecs ) {
 //		return Result.success(
 //			specificationCommandService.saveCategoryBrand(categoryId, categorySpecs));
 		return Result.success();

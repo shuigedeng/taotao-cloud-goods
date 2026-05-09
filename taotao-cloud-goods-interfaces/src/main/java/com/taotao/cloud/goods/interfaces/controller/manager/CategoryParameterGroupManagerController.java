@@ -77,9 +77,9 @@ public class CategoryParameterGroupManagerController extends BusinessController 
 	@Operation(summary = "保存数据", description = "保存数据")
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@PostMapping("/command/save")
-	public Result<Void> save( @RequestBody  CategoryParameterGroupCommand categoryParameterGroup ) {
-//		return Result.success(categoryParameterGroupCommandService.save(categoryParameterGroup));
+	@PostMapping("/command/create")
+	public Result<Void> create( @RequestBody  CategoryParameterGroupCommand categoryParameterGroup ) {
+//		return Result.success(categoryParameterGroupCommandService.create(categoryParameterGroup));
 		return Result.success();
 	}
 

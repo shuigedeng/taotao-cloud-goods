@@ -81,8 +81,8 @@ public class DraftGoodsSellerController extends BusinessController {
 	@Operation(summary = "保存草稿商品", description = "保存草稿商品")
 	@RequestLogger("保存草稿商品")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@PostMapping("/command/save")
-	public Result<Void> save( @RequestBody DraftGoodsSkuParamsSaveCommand draftGoodsSkuParamsDTO ) {
+	@PostMapping("/command/create")
+	public Result<Void> create( @RequestBody DraftGoodsSkuParamsSaveCommand draftGoodsSkuParamsDTO ) {
 //        Long storeId = SecurityUtils.getCurrentUser().getStoreId();
 //        if (draftGoodsSkuParamsDTO.getStoreId() == null) {
 //            draftGoodsSkuParamsDTO.setStoreId(storeId);
@@ -98,7 +98,7 @@ public class DraftGoodsSellerController extends BusinessController {
 	@RequestLogger("删除草稿商品")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/dels")
-	public Result<Void> dels( @RequestBody IdsCommand id ) {
+	public Result<Void> deleteBatch( @RequestBody IdsCommand id ) {
 //        draftGoodsService.getDraftGoods(id);
 //        return Result.success(draftGoodsService.deleteGoodsDraft(id));
 		return Result.success();

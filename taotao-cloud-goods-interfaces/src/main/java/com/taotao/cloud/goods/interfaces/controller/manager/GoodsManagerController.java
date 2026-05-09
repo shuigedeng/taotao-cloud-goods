@@ -71,7 +71,7 @@ public class GoodsManagerController extends BusinessController {
 	@NotAuth
 	//@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/page")
-	public Result<PageResult<GoodsResult>> getByPage( @Validated GoodsPageQuery goodsPageQuery ) {
+	public Result<PageResult<GoodsResult>> queryPage( @Validated GoodsPageQuery goodsPageQuery ) {
 //		IPage<GoodsPO> goodsPage = goodsQueryService.goodsQueryPage(goodsPageQuery);
 //		return Result.success(MpUtils.convertMybatisPage(goodsPage, GoodsCO.class));
 		return null;
@@ -81,7 +81,7 @@ public class GoodsManagerController extends BusinessController {
 	@RequestLogger("分页获取商品SKU列表")
 	//@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/sku/page")
-	public Result<PageResult<GoodsSkuResult>> getSkuByPage( GoodsPageQuery goodsPageQuery ) {
+	public Result<PageResult<GoodsSkuResult>> querySkuPage( GoodsPageQuery goodsPageQuery ) {
 //		IPage<GoodsSkuPO> goodsSkuPage = goodsSkuQueryService.goodsSkuQueryPage(goodsPageQuery);
 //		return Result.success(MpUtils.convertMybatisPage(goodsSkuPage,
 //			GoodsSkuConvert.INSTANCE::convert));
@@ -91,7 +91,7 @@ public class GoodsManagerController extends BusinessController {
 	@RequestLogger("分页获取待审核商品")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/auth/page")
-	public Result<PageResult<GoodsResult>> getAuthPage(  GoodsPageQuery goodsPageQuery ) {
+	public Result<PageResult<GoodsResult>> queryAuthPage(  GoodsPageQuery goodsPageQuery ) {
 //		goodsPageQuery.setAuthFlag(GoodsAuthEnum.TOBEAUDITED.name());
 //		IPage<GoodsPO> goodsPage = goodsQueryService.goodsQueryPage(goodsPageQuery);
 //		return Result.success(MpUtils.convertMybatisPage(goodsPage, GoodsCO.class));
@@ -154,7 +154,7 @@ public class GoodsManagerController extends BusinessController {
 	@RequestLogger("通过id获取商品详情")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query")
-	public Result<GoodsSkuParamsResult> get( IdQuery idQuery ) {
-		return Result.success(goodsQueryService.getGoodsResult(idQuery.getId()));
+	public Result<GoodsSkuParamsResult> queryByGoodsId( IdQuery idQuery ) {
+		return Result.success(goodsQueryService.queryByGoodsId(idQuery.getId()));
 	}
 }

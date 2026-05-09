@@ -82,15 +82,15 @@ public class CategoryManagerController extends BusinessController {
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/children/all")
-	public Result<List<CategoryTreeResult>> list() {
-		return Result.success(this.categoryQueryService.listAllChildren());
+	public Result<List<CategoryTreeResult>> queryCategoryTreeResult() {
+		return Result.success(this.categoryQueryService.queryCategoryTreeResult());
 	}
 
 	@Operation(summary = "添加商品分类", description = "添加商品分类")
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@PostMapping("/command/save")
-	public Result<Void> save( @RequestBody CreateCategoryCommand category ) {
+	@PostMapping("/command/create")
+	public Result<Void> create( @RequestBody CreateCategoryCommand category ) {
 		//// 非顶级分类
 		// if (category.getParentId() != null && !Long.valueOf(0).equals(category.getParentId())) {
 		//    Category parent = categoryQueryService.getById(category.getParentId());

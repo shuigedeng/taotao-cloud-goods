@@ -31,7 +31,6 @@ import java.util.List;
  * @version 2022.04
  * @since 2022-04-27 16:57:22
  */
-@Repository
 public interface GoodsSkuMapper extends BaseMapper<GoodsSkuPO> {
 
 	/**
@@ -46,5 +45,5 @@ public interface GoodsSkuMapper extends BaseMapper<GoodsSkuPO> {
 		FROM ttc_goods_sku
 		WHERE goods_id = #{goodsId}
 		""")
-	List<String> getGoodsSkuIdByGoodsId( @Param(value = "goodsId") Long goodsId );
+	List<String> selectGoodsSkuIdByGoodsId( @Param(value = "goodsId") Long goodsId );
 }

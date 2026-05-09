@@ -60,7 +60,7 @@ public class GoodsUnitManagerController extends BusinessController {
 	@RequestLogger("分页获取商品计量单位")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/page")
-	public Result<PageResult<GoodsUnitResult>> getByPage( PageQuery pageQuery ) {
+	public Result<PageResult<GoodsUnitResult>> queryByPage( PageQuery pageQuery ) {
 //		IPage<GoodsUnit> page = goodsUnitService.page(pageQuery.buildMpPage());
 //		return Result.success(MpUtils.convertMybatisPage(page, GoodsUnit.class));
 		return null;
@@ -78,9 +78,9 @@ public class GoodsUnitManagerController extends BusinessController {
 	@Operation(summary = "添加商品计量单位", description = "添加商品计量单位")
 	@RequestLogger("添加商品计量单位")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@PostMapping("/command/save")
-	public Result<Void> save( @RequestBody GoodsUnitCommand goodsUnit ) {
-//		return Result.success(goodsUnitService.save(goodsUnit));
+	@PostMapping("/command/create")
+	public Result<Void> create( @RequestBody GoodsUnitCommand goodsUnit ) {
+//		return Result.success(goodsUnitService.create(goodsUnit));
 		return Result.success();
 	}
 
@@ -97,7 +97,7 @@ public class GoodsUnitManagerController extends BusinessController {
 	@RequestLogger("删除商品计量单位")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/commnad/dels")
-	public Result<Void> dels( @RequestBody IdsCommand idsCommand ) {
+	public Result<Void> deleteBatch( @RequestBody IdsCommand idsCommand ) {
 //		return Result.success(goodsUnitService.removeByIds(ids));
 		return Result.success();
 	}

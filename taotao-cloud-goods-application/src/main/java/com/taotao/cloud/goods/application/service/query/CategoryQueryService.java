@@ -66,14 +66,14 @@ public interface CategoryQueryService extends QueryService {
      * @param ids 分类ID集合
      * @return 商品分类列表
      */
-    List<Map<String, Object>> listMapsByIdsOrderByLevel(List<String> ids, String columns);
+    List<Map<String, Object>> queryMapsByIdsOrderByLevel(List<String> ids, String columns);
 
     /**
      * 获取分类树
      *
      * @return 分类树
      */
-    List<CategoryTreeResult> categoryTree();
+    List<CategoryTreeResult> queryCategoryTree();
 
     /**
      * 查询所有的分类，父子关系
@@ -81,14 +81,14 @@ public interface CategoryQueryService extends QueryService {
      * @param parentId 分类父ID
      * @return 所有的分类，父子关系
      */
-    List<CategoryTreeResult> listAllChildren(Long parentId);
+    List<CategoryTreeResult> queryCategoryTreeByParentId(Long parentId);
 
     /**
      * 查询所有的分类，父子关系 数据库获取
      *
      * @return 所有的分类，父子关系
      */
-    List<CategoryTreeResult> listAllChildren();
+    List<CategoryTreeResult> queryCategoryTreeResult();
 
     /**
      * 获取指定分类的分类名称
@@ -96,7 +96,7 @@ public interface CategoryQueryService extends QueryService {
      * @param ids 指定分类id集合
      * @return 分类名称集合
      */
-    List<String> getCategoryNameByIds(List<Long> ids);
+    List<String> queryCategoryNameByIds(List<Long> ids);
 
     /**
      * 获取商品分类list
@@ -112,7 +112,7 @@ public interface CategoryQueryService extends QueryService {
      * @param categories 经营范围
      * @return 分类VO列表
      */
-    List<CategoryTreeResult> getStoreCategory(String[] categories);
+    List<CategoryTreeResult> queryStoreCategory(String[] categories);
 
     /**
      * 获取一级分类列表 用于商家入驻选择

@@ -33,7 +33,6 @@ import java.util.List;
  * @since 2022-04-27 16:56:00
  */
 // 添加@Repository注解是为了引导IntelliJ IDEA作出正确的判断.
-@Repository
 public interface GoodsMapper extends BaseMapper<GoodsPO> {
 
 	/**
@@ -49,7 +48,7 @@ public interface GoodsMapper extends BaseMapper<GoodsPO> {
 			FROM ttc_goods
 			WHERE store_id = #{storeId}
 			""")
-	List<Long> getGoodsIdByStoreId( @Param("storeId") Long storeId );
+	List<Long> selectGoodsIdByStoreId( @Param("storeId") Long storeId );
 
 	/**
 	 * 添加商品评价数量
@@ -63,7 +62,7 @@ public interface GoodsMapper extends BaseMapper<GoodsPO> {
 		SET comment_num = comment_num + #{commentNum}
 		WHERE id = #{goodsId}
 		""")
-	void addGoodsCommentNum( @Param("commentNum") Integer commentNum, @Param("goodsId") Long goodsId );
+	int updateGoodsCommentNum( @Param("commentNum") Integer commentNum, @Param("goodsId") Long goodsId );
 
 	/// **
 	// * 查询商品VO分页

@@ -31,7 +31,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class CategoryBrandQueryServiceImpl implements CategoryBrandQueryService {
     @Override
-    public List<CategoryBrandResult> getCategoryBrandList(Long categoryId) {
+    public List<CategoryBrandResult> queryByCategoryId(Long categoryId) {
         return List.of();
     }
 

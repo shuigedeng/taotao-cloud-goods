@@ -32,7 +32,7 @@ import com.taotao.cloud.goods.infrastructure.persistent.persistence.BrandPO;
  */
 public interface BrandMapper extends BaseMapper<BrandPO> {
 
-    default IPage<BrandPO> findBrandPage(BrandPageParam brandPageParam) {
+    default IPage<BrandPO> selectBrandPage(BrandPageParam brandPageParam) {
         LambdaQueryWrapper<BrandPO> queryWrapper = new LambdaQueryWrapper<>();
 
         queryWrapper.like(

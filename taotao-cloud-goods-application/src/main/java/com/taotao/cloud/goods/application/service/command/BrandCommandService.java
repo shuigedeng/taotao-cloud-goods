@@ -42,7 +42,7 @@ public interface BrandCommandService extends CommandService {
      *
      * @param brandAddCmd 品牌信息
 	 */
-    void addBrand( CreateBrandCommand brandAddCmd);
+    void createBrand( CreateBrandCommand brandAddCmd);
 
     /**
      * 更新品牌
@@ -57,5 +57,5 @@ public interface BrandCommandService extends CommandService {
      * @param brandId 品牌ID
      * @param disable 是否不可用
 	 */
-    void brandDisable(Long brandId, boolean disable);
+    void disableBrand(Long brandId, boolean disable);
 }

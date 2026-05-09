@@ -37,7 +37,7 @@ public interface CategoryBrandQueryService extends QueryService {
      * @return {@link List }<{@link CategoryBrandResult }>
      * @since 2022-04-27 16:59:19
      */
-    List<CategoryBrandResult> getCategoryBrandList(Long categoryId);
+    List<CategoryBrandResult> queryByCategoryId(Long categoryId);
 
     /**
      * 根据品牌ID获取分类品牌关联信息

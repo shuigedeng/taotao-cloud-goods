@@ -42,7 +42,7 @@ public interface BrandQueryService extends QueryService {
     //
     //	List<BrandPO> getBrandsByCategorys(Long categoryIds);
     //
-    	List<BrandResult> getAllAvailable();
+    	List<BrandResult> queryAllAvailable();
     //
     //
     //	/**
@@ -59,7 +59,7 @@ public interface BrandQueryService extends QueryService {
      * @param categoryIds 分类ID
      * @return 品牌列表
      */
-    List<Map<String, Object>> getBrandsMapsByCategory(List<Long> categoryIds, String columns);
+    List<Map<String, Object>> queryBrandsMapsByCategory(List<Long> categoryIds, String columns);
 
-    BrandResult getById(Long id);
+    BrandResult queryById(Long id);
 }

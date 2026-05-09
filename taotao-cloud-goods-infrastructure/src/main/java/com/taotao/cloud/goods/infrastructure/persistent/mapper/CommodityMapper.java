@@ -42,7 +42,7 @@ public interface CommodityMapper extends BaseMapper<CommodityPO> {
 		FROM ttc_commodity
 		WHERE audit_status='0' or audit_status='1'
 		""")
-	List<String> getAuditCommodity();
+	List<String> selectAuditCommodity();
 
 	/**
 	 * 获取直播间关联直播商品列表
@@ -56,7 +56,7 @@ public interface CommodityMapper extends BaseMapper<CommodityPO> {
 		FROM ttc_commodity c INNER JOIN ttc_studio_commodity sc ON sc.goods_id = c.live_goods_id
 		WHERE sc.room_id =#{roomId}
 		""")
-	List<CommodityPO> getCommodityByRoomId( Integer roomId );
+	List<CommodityPO> selectCommodityByRoomId( Integer roomId );
 
 	/**
 	 * 获取直播商品图片列表
@@ -70,7 +70,7 @@ public interface CommodityMapper extends BaseMapper<CommodityPO> {
 		FROM ttc_commodity c INNER JOIN ttc_studio_commodity sc ON sc.goods_id = c.live_goods_id
 		WHERE sc.room_id =#{roomId}
 		""")
-	List<String> getSimpleCommodityByRoomId( Integer roomId );
+	List<String> selectSimpleCommodityByRoomId( Integer roomId );
 
 	/// **
 	// * 获取直播商品VO分页

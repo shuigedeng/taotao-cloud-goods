@@ -135,8 +135,8 @@ public class GoodsSellerController extends BusinessController {
 	@Operation(summary = "新增商品", description = "新增商品")
 	@RequestLogger("新增商品")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@PostMapping("/command/save")
-	public Result<Void> save( @RequestBody GoodsOperationCommand goodsOperationDTO ) {
+	@PostMapping("/command/create")
+	public Result<Void> create( @RequestBody GoodsOperationCommand goodsOperationDTO ) {
 //		return Result.success(goodsService.addGoods(goodsOperationDTO));
 		return Result.success();
 	}
@@ -174,7 +174,7 @@ public class GoodsSellerController extends BusinessController {
 	@RequestLogger("删除商品")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/dels")
-	public Result<Void> dels( @RequestBody IdsCommand idsCommand) {
+	public Result<Void> deleteBatch( @RequestBody IdsCommand idsCommand) {
 //		return Result.success(goodsService.deleteGoods(goodsIds));
 		return Result.success();
 	}

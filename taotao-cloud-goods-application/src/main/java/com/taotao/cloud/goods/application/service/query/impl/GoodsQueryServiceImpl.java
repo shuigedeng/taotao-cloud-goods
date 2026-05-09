@@ -52,12 +52,12 @@ public class GoodsQueryServiceImpl implements GoodsQueryService {
     //	}
 
     @Override
-    public GoodsSkuParamsResult getGoodsResult(Long goodsId) {
+    public GoodsSkuParamsResult queryByGoodsId(Long goodsId) {
         return null;
     }
 
     @Override
-    public Long countStoreGoodsNum(Long storeId) {
+    public Long queryCountStoreGoodsNum(Long storeId) {
         return 0L;
     }
     // private final GoodsManager goodsManager;

@@ -59,8 +59,8 @@ public class CategoryBuyerController extends BusinessController {
     @RequestLogger
     @Operation(summary = "根据父id获取商品分类列表", description = "根据父id获取商品分类列表")
     @GetMapping(value = "/query/tree/parentId")
-    public Result<List<CategoryTreeResult>> queryTreeByParentId( ParentIdQuery parentIdQuery) {
-		List<CategoryTreeResult> result = categoryQueryService.listAllChildren(parentIdQuery.parentId());
+    public Result<List<CategoryTreeResult>> queryCategoryTreeByParentId( ParentIdQuery parentIdQuery) {
+		List<CategoryTreeResult> result = categoryQueryService.queryCategoryTreeByParentId(parentIdQuery.parentId());
 		return Result.success(result);
     }
 }

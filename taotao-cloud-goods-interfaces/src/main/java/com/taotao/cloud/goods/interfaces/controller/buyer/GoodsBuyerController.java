@@ -83,7 +83,7 @@ public class GoodsBuyerController extends BusinessController {
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query")
 	public Result<GoodsSkuParamsResult> queryByGoodsId( IdCommand idCommand ) {
-		GoodsSkuParamsResult result = goodsQueryService.getGoodsResult(idCommand.getId());
+		GoodsSkuParamsResult result = goodsQueryService.queryByGoodsId(idCommand.getId());
 		return Result.success(result);
 	}
 

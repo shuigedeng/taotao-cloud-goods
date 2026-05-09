@@ -44,7 +44,7 @@ public interface GoodsQueryService extends QueryService {
      * @return {@link GoodsSkuParamsResult }
      * @since 2022-04-27 17:00:16
      */
-    GoodsSkuParamsResult getGoodsResult(Long goodsId);
+    GoodsSkuParamsResult queryByGoodsId(Long goodsId);
 
     //    /**
     //     * 商品查询
@@ -78,5 +78,5 @@ public interface GoodsQueryService extends QueryService {
      * @return {@link Long }
      * @since 2022-04-27 17:00:16
      */
-    Long countStoreGoodsNum(Long storeId);
+    Long queryCountStoreGoodsNum(Long storeId);
 }

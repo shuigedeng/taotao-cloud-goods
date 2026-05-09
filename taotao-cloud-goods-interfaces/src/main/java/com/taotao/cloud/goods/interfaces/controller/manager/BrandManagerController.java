@@ -72,7 +72,7 @@ public class BrandManagerController extends BusinessController {
 	//@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query")
 	public Result<BrandResult> queryById( IdQuery idQuery ) {
-		BrandResult brandCo = brandQueryService.getById(idQuery.getId());
+		BrandResult brandCo = brandQueryService.queryById(idQuery.getId());
 		return Result.success(brandCo);
 	}
 
@@ -80,8 +80,8 @@ public class BrandManagerController extends BusinessController {
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/available")
-	public Result<List<BrandResult>> queryAvailable() {
-		List<BrandResult> list = brandQueryService.getAllAvailable();
+	public Result<List<BrandResult>> queryAllAvailable() {
+		List<BrandResult> list = brandQueryService.queryAllAvailable();
 		return Result.success(list);
 	}
 
@@ -103,9 +103,9 @@ public class BrandManagerController extends BusinessController {
 	@GuavaLimit
 	@SentinelResource("test")
 	//@PreAuthorize("hasAuthority('dept:tree:data')")
-	@PostMapping("/command/save")
-	public Result<Void> save( @RequestBody CreateBrandCommand brand ) {
-		brandCommandService.addBrand(brand);
+	@PostMapping("/command/create")
+	public Result<Void> createBrand( @RequestBody CreateBrandCommand brand ) {
+		brandCommandService.createBrand(brand);
 		return Result.success();
 	}
 
@@ -113,7 +113,7 @@ public class BrandManagerController extends BusinessController {
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/update")
-	public Result<Void> updateById( @RequestBody BrandModifyCommand brand ) {
+	public Result<Void> updateBrand( @RequestBody BrandModifyCommand brand ) {
 		brandCommandService.updateBrand(brand);
 		return Result.success();
 	}

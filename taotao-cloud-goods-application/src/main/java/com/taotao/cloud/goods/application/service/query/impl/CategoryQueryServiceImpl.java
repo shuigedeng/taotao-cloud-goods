@@ -47,12 +47,12 @@ public class CategoryQueryServiceImpl implements CategoryQueryService {
 	private final CategoryAppAssembler categoryAssembler;
 
     @Override
-    public List<Map<String, Object>> listMapsByIdsOrderByLevel(List<String> ids, String columns) {
+    public List<Map<String, Object>> queryMapsByIdsOrderByLevel(List<String> ids, String columns) {
         return List.of();
     }
 
     @Override
-    public List<CategoryTreeResult> categoryTree() {
+    public List<CategoryTreeResult> queryCategoryTree() {
 		// 获取缓存数据
 		List<CategoryTreeResult> categoryTreeResults = redisRepository.lGet(
 			CATEGORY.getPrefix(), 0L, redisRepository.lGetListSize(CATEGORY.getPrefix()));
@@ -107,13 +107,13 @@ public class CategoryQueryServiceImpl implements CategoryQueryService {
 	}
 
     @Override
-    public List<CategoryTreeResult> listAllChildren(Long parentId) {
+    public List<CategoryTreeResult> queryCategoryTreeByParentId(Long parentId) {
 		if (Long.valueOf(0).equals(parentId)) {
-			return categoryTree();
+			return queryCategoryTree();
 		}
 
 		// 循环代码，找到对象，把他的子分类返回
-		List<CategoryTreeResult> categoryTreeResults = categoryTree();
+		List<CategoryTreeResult> categoryTreeResults = queryCategoryTree();
 		for (CategoryTreeResult categoryTreeResult : categoryTreeResults) {
 			if (categoryTreeResult.getId().equals(parentId)) {
 				return categoryTreeResult.getChildren();
@@ -145,7 +145,7 @@ public class CategoryQueryServiceImpl implements CategoryQueryService {
 	}
 
     @Override
-    public List<CategoryTreeResult> listAllChildren() {
+    public List<CategoryTreeResult> queryCategoryTreeResult() {
 		// 获取全部分类
 //		List<Category> categoryAggs = categoryDomainRepository.findCategory(DelFlagEnum.NORMAL);
 		List<Category> categoryAggs = new ArrayList<>();
@@ -165,12 +165,12 @@ public class CategoryQueryServiceImpl implements CategoryQueryService {
     }
 
     @Override
-    public List<String> getCategoryNameByIds(List<Long> ids) {
+    public List<String> queryCategoryNameByIds(List<Long> ids) {
 		List<String> categoryName = new ArrayList<>();
 		List<Category> categoryAggs = (List<Category>) redisRepository.get(CATEGORY_ARRAY.getPrefix());
 		// 如果缓存中为空，则重新获取缓存
 		if (categoryAggs == null) {
-			categoryTree();
+			queryCategoryTree();
 			categoryAggs = (List<Category>) redisRepository.get(CATEGORY_ARRAY.getPrefix());
 		}
 
@@ -200,9 +200,9 @@ public class CategoryQueryServiceImpl implements CategoryQueryService {
     //	}
 
     @Override
-    public List<CategoryTreeResult> getStoreCategory(String[] categories) {
+    public List<CategoryTreeResult> queryStoreCategory(String[] categories) {
         List<String> arr = Arrays.asList(categories.clone());
-        return categoryTree().stream().filter(item -> arr.contains(item.getId())).toList();
+        return queryCategoryTree().stream().filter(item -> arr.contains(item.getId())).toList();
     }
 
     //	@Override

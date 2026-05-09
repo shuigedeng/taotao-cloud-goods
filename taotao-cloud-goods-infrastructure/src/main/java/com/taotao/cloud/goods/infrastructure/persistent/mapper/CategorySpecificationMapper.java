@@ -45,6 +45,6 @@ public interface CategorySpecificationMapper extends BaseMapper<CategorySpecific
 		from  ttc_specification s
 		INNER join ttc_category_specification cs on s.id = cs.specification_id and cs.category_id = #{categoryId}
 		""")
-	List<SpecificationPO> getCategorySpecList( @Param("categoryId") Long categoryId );
+	List<SpecificationPO> selectCategorySpec( @Param("categoryId") Long categoryId );
 
 }

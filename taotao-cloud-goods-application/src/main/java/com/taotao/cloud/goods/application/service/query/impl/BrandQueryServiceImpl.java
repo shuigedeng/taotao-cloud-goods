@@ -56,13 +56,13 @@ public class BrandQueryServiceImpl implements BrandQueryService {
     private final BrandQueryRepository brandQueryRepository;
 
     @Override
-    public List<Map<String, Object>> getBrandsMapsByCategory(
+    public List<Map<String, Object>> queryBrandsMapsByCategory(
             List<Long> categoryIds, String columns) {
         return List.of();
     }
 
     @Override
-    public BrandResult getById(Long id) {
+    public BrandResult queryById(Long id) {
         return brandQueryRepository.getById(id);
     }
 
@@ -111,7 +111,7 @@ public class BrandQueryServiceImpl implements BrandQueryService {
     //
     //
     	@Override
-    	public List<BrandResult> getAllAvailable() {
+    	public List<BrandResult> queryAllAvailable() {
 			return brandQueryRepository.getAllAvailable();
 
     	}

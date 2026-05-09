@@ -66,7 +66,7 @@ public class BrandCommandServiceImpl implements BrandCommandService {
     }
 
     @Override
-    public void addBrand( CreateBrandCommand brandAddCmd) {
+    public void createBrand( CreateBrandCommand brandAddCmd) {
     }
 
     @Override
@@ -74,7 +74,7 @@ public class BrandCommandServiceImpl implements BrandCommandService {
     }
 
     @Override
-    public void brandDisable(Long brandId, boolean disable) {
+    public void disableBrand(Long brandId, boolean disable) {
     }
 
     //	@Override

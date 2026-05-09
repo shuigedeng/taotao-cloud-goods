@@ -44,5 +44,5 @@ public interface CategoryBrandMapper extends BaseMapper<CategoryBrandPO> {
         FROM ttc_brand b INNER join ttc_category_brand cb on b.id = cb.brand_id and cb.category_id = #{categoryId}
         where b.delete_flag = 0
         """)
-    List<CategoryBrandDO> getCategoryBrandList(@Param(value = "categoryId") Long categoryId);
+    List<CategoryBrandDO> selectCategoryBrand(@Param(value = "categoryId") Long categoryId);
 }

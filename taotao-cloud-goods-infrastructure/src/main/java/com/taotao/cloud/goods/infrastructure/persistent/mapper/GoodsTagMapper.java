@@ -27,5 +27,4 @@ import org.springframework.stereotype.Repository;
  * @version 2022.04
  * @since 2022-04-27 16:57:22
  */
-@Repository
 public interface GoodsTagMapper extends BaseMapper<GoodsTagPO> {}
