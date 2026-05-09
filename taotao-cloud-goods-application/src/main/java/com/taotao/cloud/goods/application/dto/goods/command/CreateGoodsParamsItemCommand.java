@@ -30,7 +30,7 @@ import java.io.Serial;
  */
 @RecordBuilder
 @Schema(description = "商品参数列表")
-public record GoodsParamsItemCreateCommand(@Schema(description = "参数ID") Long paramId,
+public record CreateGoodsParamsItemCommand(@Schema(description = "参数ID") Long paramId,
                                            @Schema(description = "参数名字") String paramName,
                                            @Schema(description = "参数值") String paramValue,
                                            @Schema(description = "是否可索引，0 不索引 1 索引") Integer isIndex,

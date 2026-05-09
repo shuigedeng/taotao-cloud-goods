@@ -30,10 +30,10 @@ import com.taotao.boot.security.spring.annotation.NotAuth;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
 import com.taotao.cloud.goods.application.dto.brand.command.CreateBrandCommand;
-import com.taotao.cloud.goods.application.dto.brand.command.BrandModifyCommand;
+import com.taotao.cloud.goods.application.dto.brand.command.UpdateBrandCommand;
 import com.taotao.cloud.goods.application.dto.brand.query.BrandPageQuery;
 import com.taotao.cloud.goods.application.dto.brand.result.BrandResult;
-import com.taotao.cloud.goods.application.dto.category.command.BrandDisableCommand;
+import com.taotao.cloud.goods.application.dto.category.command.DisableBrandCommand;
 import com.taotao.cloud.goods.application.service.command.BrandCommandService;
 import com.taotao.cloud.goods.application.service.query.BrandQueryService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -70,16 +70,16 @@ public class BrandManagerController extends BusinessController {
 	@RequestLogger
 	@NotAuth
 	//@PreAuthorize("hasAuthority('dept:tree:data')")
-	@GetMapping(value = "/query")
-	public Result<BrandResult> queryById( IdQuery idQuery ) {
-		BrandResult brandCo = brandQueryService.queryById(idQuery.getId());
+	@GetMapping(value = "/query/detail")
+	public Result<BrandResult> queryDetail( IdQuery idQuery ) {
+		BrandResult brandCo = brandQueryService.queryDetail(idQuery.getId());
 		return Result.success(brandCo);
 	}
 
 	@Operation(summary = "获取所有可用品牌", description = "获取所有可用品牌")
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@GetMapping(value = "/query/available")
+	@GetMapping(value = "/query/all-available")
 	public Result<List<BrandResult>> queryAllAvailable() {
 		List<BrandResult> list = brandQueryService.queryAllAvailable();
 		return Result.success(list);
@@ -113,7 +113,7 @@ public class BrandManagerController extends BusinessController {
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/update")
-	public Result<Void> updateBrand( @RequestBody BrandModifyCommand brand ) {
+	public Result<Void> updateBrand( @RequestBody UpdateBrandCommand brand ) {
 		brandCommandService.updateBrand(brand);
 		return Result.success();
 	}
@@ -123,7 +123,7 @@ public class BrandManagerController extends BusinessController {
 	@PreventDuplicateSubmit
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/disable")
-	public Result<Void> disableById( @RequestBody BrandDisableCommand brandDisableCommand ) {
+	public Result<Void> disableById( @RequestBody DisableBrandCommand brandDisableCommand ) {
 //		return Result.success(brandCommandService.brandDisable(brandId, disable));
 		return Result.success();
 	}
@@ -132,8 +132,8 @@ public class BrandManagerController extends BusinessController {
 	@RequestLogger
 	@PreventDuplicateSubmit
 	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@PostMapping(value = "/command/dels")
-	public Result<Void> delByIds( @RequestBody IdsCommand idsCommand ) {
+	@PostMapping(value = "/command/delete-batch")
+	public Result<Void> deleteBatch( @RequestBody IdsCommand idsCommand ) {
 		brandCommandService.deleteBrands(idsCommand.getIds());
 		return Result.success();
 	}

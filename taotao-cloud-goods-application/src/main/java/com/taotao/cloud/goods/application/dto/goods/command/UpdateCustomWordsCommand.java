@@ -18,29 +18,15 @@ package com.taotao.cloud.goods.application.dto.goods.command;
 
 import com.taotao.boot.common.model.ddd.types.Command;
 import io.soabase.recordbuilder.core.RecordBuilder;
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotEmpty;
-
-import java.io.Serial;
-import java.util.List;
 
 /**
- * 商品关联参数
+ * CustomWordsUpdateCommand
  *
  * @author shuigedeng
- * @version 2022.04
- * @since 2022-04-14 21:36:45
+ * @version 2026.04
+ * @since 2025-12-19 09:30:45
  */
 @RecordBuilder
-@Schema(description = "商品参数分组")
-public record GoodsParamsCreateCommand(@Schema(description = "分组id") @NotEmpty(message = "xxxx") Long groupId,
-                                       @Schema(description = "分组名称") @NotBlank(message = "xxxx") String groupName,
-                                       @Schema(description = "分组内的商品参数列表") @NotEmpty(message = "xxxx") @Valid List<GoodsParamsItemCreateCommand> goodsParamsItemAddCmdList)
-	implements Command {
-
-	@Serial
-	private static final long serialVersionUID = 4892783539320159200L;
+public record UpdateCustomWordsCommand() implements Command {
 
 }

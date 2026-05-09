@@ -67,7 +67,7 @@ public class CategorySpecificationManagerController extends BusinessController {
 	@Operation(summary = "查询某分类下绑定的规格信息", description = "查询某分类下绑定的规格信息")
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@GetMapping(value = "/query/categoryId")
+	@GetMapping(value = "/query/category-id")
 	public Result<List<SpecificationResult>> getCategorySpec( CategoryIdQuery categoryIdQuery ) {
 //		return
 //			Result.success(categorySpecificationQueryService.getCategorySpecList(categoryId));
@@ -77,7 +77,7 @@ public class CategorySpecificationManagerController extends BusinessController {
 	@Operation(summary = "查询某分类下绑定的规格信息,商品操作使用", description = "查询某分类下绑定的规格信息,商品操作使用")
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@GetMapping(value = "/query/goods/categoryId")
+	@GetMapping(value = "/query/goods/category-id")
 	public Result<List<SpecificationResult>> getSpec( CategoryIdQuery categoryIdQuery) {
 //		return Result.success(specificationQueryService.list());
 		return null;
@@ -86,7 +86,7 @@ public class CategorySpecificationManagerController extends BusinessController {
 	@Operation(summary = "保存某分类下绑定的规格信息", description = "保存某分类下绑定的规格信息")
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@PostMapping(value = "/command/save")
+	@PostMapping(value = "/command/create")
 	public Result<Void> create( @RequestBody AssignCategorySpecCommand categorySpecs ) {
 //		return Result.success(
 //			specificationCommandService.saveCategoryBrand(categoryId, categorySpecs));

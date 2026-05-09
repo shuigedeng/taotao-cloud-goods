@@ -14,32 +14,28 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.application.dto.draft.command;
+package com.taotao.cloud.goods.application.dto.store.command;
 
 import com.taotao.boot.common.model.ddd.types.Command;
 import io.soabase.recordbuilder.core.RecordBuilder;
 import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.validation.Valid;
-
 import java.io.Serial;
-import java.util.List;
-import java.util.Map;
 
 /**
- * 草稿商品DTO
+ * StoreGoodsLabelCO
+ *
+ * @author shuigedeng
+ * @version 2022.04
+ * @since 2022-04-14 21:52:23
  */
 @RecordBuilder
-public record DraftGoodsSkuParamsSaveCommand(
-	@Schema(description = "商品图片") List<String> goodsGalleryList,
-											 DraftGoodsBaseCommand goodsBaseCommand,
-											 @Schema(description = "sku列表") @Valid List<Map<String, Object>> skuList) implements
-	Command {
+public record UpdateStoreGoodsLabelCommand(@Schema(description = "店铺商品分类名称") String labelName,
+                                           @Schema(description = "层级, 从0开始") Integer level,
+                                           @Schema(description = "店铺商品分类排序") Integer sortOrder,
+                                           @Schema(description = "父id, 根节点为0") Long parentId,
+                                           @Schema(description = "店铺ID") Long storeId)implements Command {
 
 	@Serial
-	private static final long serialVersionUID = 5255666163196674178L;
-
-	// @Valid
-	// @Schema(description = "商品参数")
-	// private List<GoodsParamsDTO> goodsParamsDTOList;
+	private static final long serialVersionUID = -7605952923416404638L;
 
 }

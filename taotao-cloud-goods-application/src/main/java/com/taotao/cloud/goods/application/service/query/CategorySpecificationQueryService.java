@@ -37,5 +37,5 @@ public interface CategorySpecificationQueryService extends QueryService {
 	 * @return {@link List }<{@link SpecificationResult }>
 	 * @since 2022-04-27 16:59:40
 	 */
-	List<SpecificationResult> getCategorySpecList( Long categoryId );
+	List<SpecificationResult> queryByCategoryId( Long categoryId );
 }

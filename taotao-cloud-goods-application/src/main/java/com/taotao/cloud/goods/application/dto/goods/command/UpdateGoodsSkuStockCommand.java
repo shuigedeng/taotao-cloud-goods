@@ -14,31 +14,17 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.application.dto.draft.command;
+package com.taotao.cloud.goods.application.dto.goods.command;
 
 import com.taotao.boot.common.model.ddd.types.Command;
 import io.soabase.recordbuilder.core.RecordBuilder;
 import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.validation.Valid;
-
-import java.io.Serial;
-import java.util.List;
-import java.util.Map;
 
 /**
- * 草稿商品DTO
+ * 商品库存DTO
  */
 @RecordBuilder
-public record DraftGoodsSkuParamsCreateCommand(
-	@Schema(description = "商品图片") List<String> goodsGalleryList,
-	DraftGoodsBaseCommand goodsBaseCommand,
-	@Schema(description = "sku列表") @Valid List<Map<String, Object>> skuList) implements Command {
-
-	@Serial
-	private static final long serialVersionUID = 5255666163196674178L;
-
-	// @Valid
-	// @Schema(description = "商品参数")
-	// private List<GoodsParamsDTO> goodsParamsDTOList;
+public record UpdateGoodsSkuStockCommand(@Schema(description = "商品skuId") Long skuId,
+                                         @Schema(description = "库存") Integer quantity) implements Command {
 
 }

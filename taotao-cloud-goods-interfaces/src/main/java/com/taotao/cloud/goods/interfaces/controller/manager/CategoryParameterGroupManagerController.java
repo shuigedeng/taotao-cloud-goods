@@ -68,8 +68,8 @@ public class CategoryParameterGroupManagerController extends BusinessController 
 	@Operation(summary = "查询某分类下绑定的参数信息", description = "查询某分类下绑定的参数信息")
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@GetMapping(value = "/query/categoryId")
-	public Result<List<ParameterGroupResult>> getCategoryParam( CategoryIdQuery categoryIdQuery ) {
+	@GetMapping(value = "/query/category-id")
+	public Result<List<ParameterGroupResult>> queryByCategoryId( CategoryIdQuery categoryIdQuery ) {
 //		return Result.success(categoryParameterGroupQueryService.getCategoryParams(categoryId));
 		return null;
 	}
@@ -96,8 +96,8 @@ public class CategoryParameterGroupManagerController extends BusinessController 
 	@Operation(summary = "通过id删除参数组", description = "通过id删除参数组")
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@PostMapping(value = "/command/del")
-	public Result<Void> delAllByIds( @RequestBody IdCommand idCommand ) {
+	@PostMapping(value = "/command/delete")
+	public Result<Void> delete( @RequestBody IdCommand idCommand ) {
 //		// 删除参数
 //		parametersCommandService.remove(new QueryWrapper<ParametersPO>().eq("group_id", id));
 //		// 删除参数组

@@ -62,7 +62,7 @@ public class SpecificationManagerController extends BusinessController {
 	@RequestLogger("获取所有可用规格")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping("/query/all")
-	public Result<List<SpecificationResult>> getAll() {
+	public Result<List<SpecificationResult>> queryAll() {
 //		List<SpecificationPO> specifications = specificationQueryService.list();
 //		return Result.success(SpecificationAssembler.INSTANCE.convert(specifications));
 		return null;
@@ -72,7 +72,7 @@ public class SpecificationManagerController extends BusinessController {
 	@RequestLogger("搜索规格")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping("/query/page")
-	public Result<PageResult<SpecificationResult>> page( SpecificationPageQuery specificationPageQuery ) {
+	public Result<PageResult<SpecificationResult>> queryPage( SpecificationPageQuery specificationPageQuery ) {
 //		IPage<SpecificationPO> specificationPage =
 //			specificationQueryService.getPage(specificationPageQuery);
 //		return Result.success(MpUtils.convertMybatisPage(specificationPage,
@@ -105,7 +105,7 @@ public class SpecificationManagerController extends BusinessController {
 	@Operation(summary = "批量删除", description = "批量删除")
 	@RequestLogger("批量删除")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@PostMapping("/command/dels")
+	@PostMapping("/command/delete-batch")
 	public Result<Void> deleteBatch( IdsCommand ids ) {
 		specificationCommandService.deleteSpecification(ids.getIds());
 		return Result.success();

@@ -36,7 +36,7 @@ import org.hibernate.validator.constraints.Length;
  * 商品编辑DTO
  */
 @RecordBuilder
-public record GoodsSaveCommand(@Schema(description = "商品id") Long goodsId,
+public record SaveGoodsCommand(@Schema(description = "商品id") Long goodsId,
                                @Schema(description = "商品价格") @NotNull(message = "商品价格不能为空") @Min(value = 0, message = "商品价格不能为负数") @Max(value = 99999999, message = "商品价格不能超过99999999") BigDecimal price,
                                @Schema(description = "分类path") String categoryPath,
                                @Schema(description = "店铺分类id") @Size(max = 200, message = "选择了太多店铺分类") String storeCategoryPath,
@@ -47,7 +47,7 @@ public record GoodsSaveCommand(@Schema(description = "商品id") Long goodsId,
                                @Schema(description = "库存") @Min(value = 0, message = "库存不能为负数") @Max(value = 99999999, message = "库存不能超过99999999") Integer quantity,
                                @Schema(description = "是否立即发布") Boolean release,
                                @Schema(description = "是否是推荐商品") Boolean recommend,
-                               @Schema(description = "商品参数") List<GoodsParamsCreateCommand> goodsParamsAddCmdList,
+                               @Schema(description = "商品参数") List<CreateGoodsParamsCommand> goodsParamsAddCmdList,
                                @Schema(description = "商品图片") List<String> goodsGalleryList,
                                @Schema(description = "运费模板id,不需要运费模板时值是0") @NotNull(message = "运费模板不能为空，没有运费模板时，传值0") @Min(value = 0, message = "运费模板值不正确") Long templateId,
                                @Schema(description = "sku列表") @Valid List<Map<String, Object>> skuList,

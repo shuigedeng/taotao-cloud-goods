@@ -121,8 +121,8 @@ public class CategoryManagerController extends BusinessController {
 	@Operation(summary = "通过id删除分类", description = "通过id删除分类")
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@PostMapping(value = "/command/del")
-	public Result<Void> del( @RequestBody IdCommand idCommand ) {
+	@PostMapping(value = "/command/delete")
+	public Result<Void> delete( @RequestBody IdCommand idCommand ) {
 		// CategoryPO category = new CategoryPO();
 		// category.setParentId(id);
 		// List<CategoryPO> list = categoryQueryService.findByAllBySortOrder(category);

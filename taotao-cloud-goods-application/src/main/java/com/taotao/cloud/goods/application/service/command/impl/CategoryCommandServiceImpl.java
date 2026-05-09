@@ -18,7 +18,7 @@ package com.taotao.cloud.goods.application.service.command.impl;
 
 import com.taotao.boot.cache.redis.repository.RedisRepository;
 import com.taotao.cloud.goods.application.dto.category.command.CreateCategoryCommand;
-import com.taotao.cloud.goods.application.dto.category.command.CategoryModifyCommand;
+import com.taotao.cloud.goods.application.dto.category.command.UpdateCategoryCommand;
 import com.taotao.cloud.goods.application.service.command.CategoryCommandService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.cache.annotation.CacheConfig;
@@ -45,7 +45,7 @@ public class CategoryCommandServiceImpl implements CategoryCommandService {
     }
 
     @Override
-    public boolean updateCategory( CategoryModifyCommand category) {
+    public boolean updateCategory( UpdateCategoryCommand category) {
         // return categoryUpdateCmdExe.updateCategory(categoryPO);
         return true;
     }

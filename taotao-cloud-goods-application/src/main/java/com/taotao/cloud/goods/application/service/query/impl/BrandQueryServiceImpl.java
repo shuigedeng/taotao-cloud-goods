@@ -62,7 +62,7 @@ public class BrandQueryServiceImpl implements BrandQueryService {
     }
 
     @Override
-    public BrandResult queryById(Long id) {
+    public BrandResult queryDetail(Long id) {
         return brandQueryRepository.getById(id);
     }
 

@@ -17,10 +17,10 @@
 package com.taotao.cloud.goods.application.service.command;
 
 import com.taotao.boot.ddd.model.application.service.CommandService;
+import com.taotao.cloud.goods.application.dto.goods.command.SaveGoodsCommand;
 import com.taotao.cloud.goods.common.enums.GoodsAuthEnum;
 import com.taotao.cloud.goods.common.enums.GoodsStatusEnum;
 import com.taotao.cloud.goods.application.dto.goods.result.GoodsResult;
-import com.taotao.cloud.goods.application.dto.goods.command.GoodsSaveCommand;
 import com.taotao.cloud.goods.application.dto.goods.command.CreateGoodsCommand;
 import java.util.List;
 
@@ -59,7 +59,7 @@ public interface GoodsCommandService extends CommandService {
      * @return {@link boolean }
      * @since 2022-04-27 17:00:15
      */
-    boolean addGoods( GoodsSaveCommand goodsAddCmd);
+    boolean addGoods( SaveGoodsCommand goodsAddCmd);
 
     /**
      * 修改商品
@@ -69,7 +69,7 @@ public interface GoodsCommandService extends CommandService {
      * @return {@link boolean }
      * @since 2022-04-27 17:00:15
      */
-    boolean editGoods( GoodsSaveCommand goodsAddCmd, Long goodsId);
+    boolean editGoods( SaveGoodsCommand goodsAddCmd, Long goodsId);
 
     /**
      * 批量审核商品

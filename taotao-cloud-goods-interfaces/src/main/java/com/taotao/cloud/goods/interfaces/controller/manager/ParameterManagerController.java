@@ -77,8 +77,8 @@ public class ParameterManagerController extends BusinessController {
 	@Operation(summary = "根据id删除参数", description = "根据id删除参数")
 	@RequestLogger("根据id删除参数")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@PostMapping(value = "/command/del")
-	public Result<Void> delById( @RequestBody IdCommand idCommand ) {
+	@PostMapping(value = "/command/delete")
+	public Result<Void> deleteById( @RequestBody IdCommand idCommand ) {
 //		return Result.success(parametersService.removeById(id));
 		return Result.success();
 	}

@@ -17,7 +17,7 @@
 package com.taotao.cloud.goods.application.service.command;
 
 import com.taotao.boot.ddd.model.application.service.CommandService;
-import com.taotao.cloud.goods.application.dto.commodity.command.CommodityCreateCommand;
+import com.taotao.cloud.goods.application.dto.commodity.command.CreateCommodityCommand;
 
 import java.util.List;
 
@@ -37,7 +37,7 @@ public interface CommodityCommandService extends CommandService {
      * @return {@link boolean }
      * @since 2022-04-27 16:59:47
      */
-    boolean addCommodity(List<CommodityCreateCommand> commodityAddCmdList);
+    boolean addCommodity(List<CreateCommodityCommand> commodityAddCmdList);
 
     /**
      * 删除直播商品

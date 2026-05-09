@@ -24,10 +24,7 @@ import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.security.spring.annotation.NotAuth;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
-import com.taotao.cloud.goods.application.dto.goods.command.AuthCommand;
-import com.taotao.cloud.goods.application.dto.goods.command.CreateGoodsCommand;
-import com.taotao.cloud.goods.application.dto.goods.command.GoodsParamsCreateCommand;
-import com.taotao.cloud.goods.application.dto.goods.command.UnderCommand;
+import com.taotao.cloud.goods.application.dto.goods.command.*;
 import com.taotao.cloud.goods.common.enums.GoodsStatusEnum;
 import com.taotao.cloud.goods.application.dto.goods.query.GoodsPageQuery;
 import com.taotao.cloud.goods.application.dto.goods.result.GoodsResult;
@@ -111,7 +108,7 @@ public class GoodsManagerController extends BusinessController {
 	@NotAuth
 	//@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/under")
-	public Result<Void> underGoods( @RequestBody UnderCommand underCommand){
+	public Result<Void> underGoods( @RequestBody UnderGoodsCommand underCommand){
 //		return Result.success(
 //			goodsCommandService.managerUpdateGoodsMarketAble(
 //				goodsIds, GoodsStatusEnum.DOWN, reason));
@@ -123,7 +120,7 @@ public class GoodsManagerController extends BusinessController {
 	@NotAuth
 	//@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/underxx")
-	public Result<Void> underGoodsxx( @RequestBody GoodsParamsCreateCommand underCommand){
+	public Result<Void> underGoodsxx( @RequestBody CreateGoodsParamsCommand underCommand){
 //		return Result.success(
 //			goodsCommandService.managerUpdateGoodsMarketAble(
 //				goodsIds, GoodsStatusEnum.DOWN, reason));
@@ -134,7 +131,7 @@ public class GoodsManagerController extends BusinessController {
 	@RequestLogger("管理员审核商品")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/auth")
-	public Result<Void> auth( @RequestBody AuthCommand authCommand) {
+	public Result<Void> authGoods( @RequestBody AuthCommand authCommand) {
 		// 校验商品是否存在
 //		return Result.success(
 //			goodsCommandService.auditGoods(goodsIds, GoodsAuthEnum.valueOf(authFlag)));
@@ -153,8 +150,8 @@ public class GoodsManagerController extends BusinessController {
 	@Operation(summary = "通过id获取商品详情", description = "通过id获取商品详情")
 	@RequestLogger("通过id获取商品详情")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@GetMapping(value = "/query")
-	public Result<GoodsSkuParamsResult> queryByGoodsId( IdQuery idQuery ) {
-		return Result.success(goodsQueryService.queryByGoodsId(idQuery.getId()));
+	@GetMapping(value = "/query/detail")
+	public Result<GoodsSkuParamsResult> queryDetail( IdQuery idQuery ) {
+		return Result.success(goodsQueryService.queryDetail(idQuery.getId()));
 	}
 }

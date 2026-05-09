@@ -14,28 +14,33 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.application.dto.category.command;
+package com.taotao.cloud.goods.application.dto.goods.command;
 
 import com.taotao.boot.common.model.ddd.types.Command;
 import io.soabase.recordbuilder.core.RecordBuilder;
 import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
 
 import java.io.Serial;
+import java.util.List;
 
 /**
- * 商品参数
+ * 商品关联参数
+ *
+ * @author shuigedeng
+ * @version 2022.04
+ * @since 2022-04-14 21:36:45
  */
 @RecordBuilder
-public record ParametersCreateCommand(
-	@Schema(description = "参数名称") String paramName,
-	@Schema(description = "选择值") String options,
-	@Schema(description = "是否可索引，0 不显示 1 显示") Integer isIndex,
-	@Schema(description = "是否必填 是1否0") Integer required,
-	@Schema(description = "参数分组id") Long groupId,
-	@Schema(description = "分类id") Long categoryId,
-	@Schema(description = "排序") Integer sort) implements Command {
+@Schema(description = "商品参数分组")
+public record CreateGoodsParamsCommand(@Schema(description = "分组id") @NotEmpty(message = "xxxx") Long groupId,
+                                       @Schema(description = "分组名称") @NotBlank(message = "xxxx") String groupName,
+                                       @Schema(description = "分组内的商品参数列表") @NotEmpty(message = "xxxx") @Valid List<CreateGoodsParamsItemCommand> goodsParamsItemAddCmdList)
+	implements Command {
 
 	@Serial
-	private static final long serialVersionUID = 724427321881170297L;
+	private static final long serialVersionUID = 4892783539320159200L;
 
 }

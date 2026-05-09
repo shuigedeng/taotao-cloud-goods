@@ -10,6 +10,6 @@ import io.soabase.recordbuilder.core.RecordBuilder;
  * @since 2026/1/31
  */
 @RecordBuilder
-public record BrandDisableCommand(Long brandId, Boolean disable) {
+public record DisableBrandCommand(Long brandId, Boolean disable) {
 
 }

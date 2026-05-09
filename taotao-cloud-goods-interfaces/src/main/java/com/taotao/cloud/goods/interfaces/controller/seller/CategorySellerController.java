@@ -84,7 +84,7 @@ public class CategorySellerController extends BusinessController {
 	@Operation(summary = "获取所选分类关联的品牌信息", description = "获取所选分类关联的品牌信息")
 	@RequestLogger("获取所选分类关联的品牌信息")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@GetMapping(value = "/query/categoryId/brands")
+	@GetMapping(value = "/query/category-id/brands")
 	public Result<List<CategoryBrandResult>> queryBrandsByCategoryId( CategoryIdQuery categoryIdQuery ) {
 		return Result.success(this.categoryBrandQueryService.queryByCategoryId(categoryIdQuery.categoryId()));
 	}

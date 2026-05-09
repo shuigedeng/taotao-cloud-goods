@@ -16,8 +16,8 @@
 
 package com.taotao.cloud.goods.application.service.command.impl;
 
-import com.taotao.cloud.goods.application.dto.goods.command.CustomWordsAddCommand;
-import com.taotao.cloud.goods.application.dto.goods.command.CustomWordsUpdateCommand;
+import com.taotao.cloud.goods.application.dto.goods.command.CreateCustomWordsCommand;
+import com.taotao.cloud.goods.application.dto.goods.command.UpdateCustomWordsCommand;
 import com.taotao.cloud.goods.application.service.command.CustomWordsCommandService;
 import java.util.List;
 
@@ -40,12 +40,12 @@ public class CustomWordsCommandServiceImpl implements CustomWordsCommandService 
     }
 
     @Override
-    public boolean addCustomWords(CustomWordsAddCommand customWordsAddCmd) {
+    public boolean addCustomWords( CreateCustomWordsCommand customWordsAddCmd) {
         return false;
     }
 
     @Override
-    public boolean updateCustomWords(CustomWordsUpdateCommand customWordsUpdateCmd) {
+    public boolean updateCustomWords( UpdateCustomWordsCommand customWordsUpdateCmd) {
         return false;
     }
 

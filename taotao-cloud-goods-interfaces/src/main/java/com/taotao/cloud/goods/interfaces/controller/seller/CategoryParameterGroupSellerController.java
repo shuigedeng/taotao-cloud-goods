@@ -55,7 +55,7 @@ public class CategoryParameterGroupSellerController extends BusinessController {
     @Operation(summary = "查询某分类下绑定的参数信息", description = "查询某分类下绑定的参数信息")
     @RequestLogger("查询某分类下绑定的参数信息")
     @PreAuthorize("hasAuthority('dept:tree:data')")
-    @GetMapping(value = "/query/categoryId")
+    @GetMapping(value = "/query/category-id")
     public Result<List<ParameterGroupResult>> queryByCategoryId( CategoryIdQuery categoryIdQuery) {
         return Result.success(categoryParameterGroupQueryService.getCategoryParams(categoryIdQuery.categoryId()));
     }

@@ -58,15 +58,15 @@ import java.math.BigDecimal;
  * @param goodsType 商品类型
  */
 @RecordBuilder
-public record DraftGoodsBaseCommand(String goodsName, BigDecimal price, Long brandId, String categoryPath,
-									String goodsUnit, String sellingPoint, String marketEnable, String intro,
-									String mobileIntro, Integer buyCount, Integer quantity, Integer enableQuantity,
-									BigDecimal grade, String thumbnail, String big, String small, String original,
-									String storeCategoryPath, Integer commentNum, Long storeId, String storeName,
-									Long templateId, Boolean selfOperated, String goodsVideo, Boolean recommend,
-									String salesModel, String saveType, String categoryNameJson,
-									String goodsParamsListJson, String goodsGalleryListJson, String skuListJson,
-									String goodsType) implements Command {
+public record BaseDraftGoodsCommand(String goodsName, BigDecimal price, Long brandId, String categoryPath,
+                                    String goodsUnit, String sellingPoint, String marketEnable, String intro,
+                                    String mobileIntro, Integer buyCount, Integer quantity, Integer enableQuantity,
+                                    BigDecimal grade, String thumbnail, String big, String small, String original,
+                                    String storeCategoryPath, Integer commentNum, Long storeId, String storeName,
+                                    Long templateId, Boolean selfOperated, String goodsVideo, Boolean recommend,
+                                    String salesModel, String saveType, String categoryNameJson,
+                                    String goodsParamsListJson, String goodsGalleryListJson, String skuListJson,
+                                    String goodsType) implements Command {
 
 
 

@@ -24,7 +24,7 @@ import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
 import com.taotao.cloud.goods.application.dto.goods.command.FreightCommand;
 import com.taotao.cloud.goods.application.dto.goods.command.GoodsOperationCommand;
-import com.taotao.cloud.goods.application.dto.goods.command.GoodsSkuStockUpdateCommand;
+import com.taotao.cloud.goods.application.dto.goods.command.UpdateGoodsSkuStockCommand;
 import com.taotao.cloud.goods.application.dto.goods.query.GoodsIdQuery;
 import com.taotao.cloud.goods.application.dto.goods.query.GoodsPageQuery;
 import com.taotao.cloud.goods.application.dto.goods.result.GoodsResult;
@@ -92,7 +92,7 @@ public class GoodsSellerController extends BusinessController {
 	@RequestLogger("分页获取商品Sku列表")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/sku/page")
-	public Result<PageResult<GoodsSkuResult>> getSkuPage( GoodsPageQuery goodsPageQuery ) {
+	public Result<PageResult<GoodsSkuResult>> querySkuPage( GoodsPageQuery goodsPageQuery ) {
 		// 当前登录商家账号
 //		Long storeId = SecurityUtils.getCurrentUser().getStoreId();
 //		goodsPageQuery.setStoreId(storeId);
@@ -104,8 +104,8 @@ public class GoodsSellerController extends BusinessController {
 	@Operation(summary = "分页获取库存告警商品列表", description = "分页获取库存告警商品列表")
 	@RequestLogger("分页获取库存告警商品列表")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@GetMapping(value = "/query/stock/warning")
-	public Result<StockWarningResult> getWarningStock( GoodsPageQuery goodsPageQuery ) {
+	@GetMapping(value = "/query/stock-warning/page")
+	public Result<PageResult<StockWarningResult>> queryWarningStockPage( GoodsPageQuery goodsPageQuery ) {
 		// 当前登录商家账号
 //		Long storeId = SecurityUtils.getCurrentUser().getStoreId();
 //		StoreDetailCO storeDetail = storeDetailApi.getStoreDetailVO(storeId);
@@ -126,7 +126,7 @@ public class GoodsSellerController extends BusinessController {
 	@Operation(summary = "通过id获取", description = "通过id获取")
 	@RequestLogger("通过id获取")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@GetMapping(value = "/query/goodsId")
+	@GetMapping(value = "/query/goods-id")
 	public Result<GoodsSkuParamsResult> queryByGoodsId( GoodsIdQuery goodsIdQuery ) {
 //		return Result.success(goodsService.getGoodsVO(goodsId));
 		return null;
@@ -173,7 +173,7 @@ public class GoodsSellerController extends BusinessController {
 	@Operation(summary = "删除商品", description = "删除商品")
 	@RequestLogger("删除商品")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@PostMapping("/command/dels")
+	@PostMapping("/command/del-batch")
 	public Result<Void> deleteBatch( @RequestBody IdsCommand idsCommand) {
 //		return Result.success(goodsService.deleteGoods(goodsIds));
 		return Result.success();
@@ -205,7 +205,7 @@ public class GoodsSellerController extends BusinessController {
 	@RequestLogger("修改商品库存")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/update/stocks")
-	public Result<Void> updateStocks( @RequestBody List<GoodsSkuStockUpdateCommand> updateStockList ) {
+	public Result<Void> updateStocks( @RequestBody List<UpdateGoodsSkuStockCommand> updateStockList ) {
 //		Long storeId = SecurityUtils.getCurrentUser().getStoreId();
 //		// 获取商品skuId集合
 //		List<Long> goodsSkuIds =

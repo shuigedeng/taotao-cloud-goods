@@ -23,7 +23,7 @@ import com.taotao.boot.common.model.result.PageResult;
 import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
-import com.taotao.cloud.goods.application.dto.draft.command.DraftGoodsSkuParamsSaveCommand;
+import com.taotao.cloud.goods.application.dto.draft.command.SaveDraftGoodsSkuParamsCommand;
 import com.taotao.cloud.goods.application.dto.draft.query.DraftGoodsPageQuery;
 import com.taotao.cloud.goods.application.dto.draft.result.DraftGoodsResult;
 import com.taotao.cloud.goods.application.dto.draft.result.DraftGoodsSkuParamsResult;
@@ -72,8 +72,8 @@ public class DraftGoodsSellerController extends BusinessController {
 	@Operation(summary = "获取草稿商品", description = "获取草稿商品")
 	@RequestLogger("获取草稿商品")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@GetMapping(value = "/query")
-	public Result<DraftGoodsSkuParamsResult> query( IdQuery idQuery ) {
+	@GetMapping(value = "/query/detail")
+	public Result<DraftGoodsSkuParamsResult> queryDetail( IdQuery idQuery ) {
 //        return Result.success(draftGoodsService.getDraftGoods(id));
 		return null;
 	}
@@ -82,7 +82,7 @@ public class DraftGoodsSellerController extends BusinessController {
 	@RequestLogger("保存草稿商品")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/create")
-	public Result<Void> create( @RequestBody DraftGoodsSkuParamsSaveCommand draftGoodsSkuParamsDTO ) {
+	public Result<Void> create( @RequestBody SaveDraftGoodsSkuParamsCommand draftGoodsSkuParamsDTO ) {
 //        Long storeId = SecurityUtils.getCurrentUser().getStoreId();
 //        if (draftGoodsSkuParamsDTO.getStoreId() == null) {
 //            draftGoodsSkuParamsDTO.setStoreId(storeId);
@@ -97,7 +97,7 @@ public class DraftGoodsSellerController extends BusinessController {
 	@Operation(summary = "删除草稿商品", description = "删除草稿商品")
 	@RequestLogger("删除草稿商品")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@PostMapping(value = "/command/dels")
+	@PostMapping(value = "/command/delete-batch")
 	public Result<Void> deleteBatch( @RequestBody IdsCommand id ) {
 //        draftGoodsService.getDraftGoods(id);
 //        return Result.success(draftGoodsService.deleteGoodsDraft(id));

@@ -29,9 +29,9 @@ import java.util.Map;
  * 草稿商品DTO
  */
 @RecordBuilder
-public record DraftGoodsSkuParamsModifyCommand(
+public record UpdateDraftGoodsSkuParamsCommand(
 	@Schema(description = "商品图片") List<String> goodsGalleryList,
-	DraftGoodsBaseCommand goodsBaseCommand,
+	BaseDraftGoodsCommand goodsBaseCommand,
 	@Schema(description = "sku列表") @Valid List<Map<String, Object>> skuList) implements Command {
 
 	@Serial

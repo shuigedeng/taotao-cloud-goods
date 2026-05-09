@@ -14,20 +14,20 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.application.dto.goods.command;
+package com.taotao.cloud.goods.application.dto.commodity.command;
 
 import com.taotao.boot.common.model.ddd.types.Command;
 import io.soabase.recordbuilder.core.RecordBuilder;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 /**
- * CustomWordsAddCommand
- *
- * @author shuigedeng
- * @version 2026.04
- * @since 2025-12-19 09:30:45
+ * 直播商品DTO 用于获取直播商品状态时使用
  */
 @RecordBuilder
-public record CustomWordsAddCommand(String id) implements Command {
+public record CreateCommodityCommand(@Schema(description = "商品ID") Long goodsId,
+                                     @Schema(description = "商品名称") String name,
+                                     @Schema(description = "url") String url,
+                                     @Schema(description = "审核状态") Integer auditStatus) implements Command {
 
 
 }

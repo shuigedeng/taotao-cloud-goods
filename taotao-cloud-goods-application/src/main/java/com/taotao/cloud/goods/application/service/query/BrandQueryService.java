@@ -61,5 +61,5 @@ public interface BrandQueryService extends QueryService {
      */
     List<Map<String, Object>> queryBrandsMapsByCategory(List<Long> categoryIds, String columns);
 
-    BrandResult queryById(Long id);
+    BrandResult queryDetail(Long id);
 }

@@ -18,7 +18,7 @@ package com.taotao.cloud.goods.infrastructure.assembler;
 
 import com.taotao.boot.common.model.ddd.types.MarkerAssembler;
 import com.taotao.cloud.goods.application.dto.store.command.CreateStoreGoodsLabelCommand;
-import com.taotao.cloud.goods.application.dto.store.command.StoreGoodsLabelEditCommand;
+import com.taotao.cloud.goods.application.dto.store.command.UpdateStoreGoodsLabelCommand;
 import com.taotao.cloud.goods.application.dto.store.result.StoreGoodsLabelInfoResult;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.StoreGoodsLabelPO;
 import org.mapstruct.Mapper;
@@ -56,5 +56,5 @@ public interface GoodsLabelStoreInfraAssembler extends MarkerAssembler {
      */
     StoreGoodsLabelPO toPo( CreateStoreGoodsLabelCommand storeGoodsLabelDTO);
 
-    StoreGoodsLabelPO toPo(StoreGoodsLabelEditCommand storeGoodsLabelDTO);
+    StoreGoodsLabelPO toPo( UpdateStoreGoodsLabelCommand storeGoodsLabelDTO);
 }

@@ -17,7 +17,8 @@
 package com.taotao.cloud.goods.application.service.command;
 
 import com.taotao.boot.ddd.model.application.service.CommandService;
-import com.taotao.cloud.goods.application.dto.goods.command.GoodsSkuStockUpdateCommand;
+import com.taotao.cloud.goods.application.dto.goods.command.UpdateGoodsSkuStockCommand;
+
 import java.util.List;
 
 /**
@@ -109,7 +110,7 @@ public interface GoodsSkuCommandService extends CommandService {
      * @param goodsSkuStockUpdateCmds sku库存修改实体
      * @since 2023-08-18 16:00:59
      */
-    boolean updateStocks(List<GoodsSkuStockUpdateCommand> goodsSkuStockUpdateCmds);
+    boolean updateStocks(List<UpdateGoodsSkuStockCommand> goodsSkuStockUpdateCmds);
 
     /**
      * 更新SKU库存

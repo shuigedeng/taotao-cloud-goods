@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.goods.application.service.command.impl;
 
-import com.taotao.cloud.goods.application.dto.goods.command.GoodsSaveCommand;
+import com.taotao.cloud.goods.application.dto.goods.command.SaveGoodsCommand;
 import com.taotao.cloud.goods.common.enums.GoodsAuthEnum;
 import com.taotao.cloud.goods.common.enums.GoodsStatusEnum;
 import com.taotao.cloud.goods.application.assembler.GoodsAppAssembler;
@@ -56,12 +56,12 @@ public class GoodsCommandServiceImpl implements GoodsCommandService {
     }
 
     @Override
-    public boolean addGoods( GoodsSaveCommand goodsAddCmd) {
+    public boolean addGoods( SaveGoodsCommand goodsAddCmd) {
         return false;
     }
 
     @Override
-    public boolean editGoods( GoodsSaveCommand goodsAddCmd, Long goodsId) {
+    public boolean editGoods( SaveGoodsCommand goodsAddCmd, Long goodsId) {
         return false;
     }
 

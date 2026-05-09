@@ -14,19 +14,23 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.application.dto.goods.command;
+package com.taotao.cloud.goods.application.dto.category.command;
 
 import com.taotao.boot.common.model.ddd.types.Command;
 import io.soabase.recordbuilder.core.RecordBuilder;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 /**
- * CustomWordsUpdateCommand
+ * CategoryUpdateCommand
  *
  * @author shuigedeng
  * @version 2026.04
  * @since 2025-12-19 09:30:45
  */
 @RecordBuilder
-public record CustomWordsUpdateCommand() implements Command {
+@Schema(description = "分类品牌CO")
+public record UpdateCategoryCommand(
+	String id) implements Command {
+
 
 }

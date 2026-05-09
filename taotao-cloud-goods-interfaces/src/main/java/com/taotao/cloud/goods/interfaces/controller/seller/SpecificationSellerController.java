@@ -58,9 +58,9 @@ public class SpecificationSellerController extends BusinessController {
 
 	@Operation(summary = "获取分类规格", description = "获取分类规格")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@GetMapping(value = "/query/categoryId")
+	@GetMapping(value = "/query/category-id")
 	public Result<List<SpecificationResult>> queryByCategoryId( CategoryIdQuery categoryIdQuery ) {
-		List<SpecificationResult> categorySpecList = categorySpecificationQueryService.getCategorySpecList(
+		List<SpecificationResult> categorySpecList = categorySpecificationQueryService.queryByCategoryId(
 				categoryIdQuery.categoryId());
 		return Result.success(categorySpecList);
 	}

@@ -14,23 +14,31 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.application.dto.category.command;
+package com.taotao.cloud.goods.application.dto.draft.command;
 
 import com.taotao.boot.common.model.ddd.types.Command;
 import io.soabase.recordbuilder.core.RecordBuilder;
 import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.validation.Valid;
+
+import java.io.Serial;
+import java.util.List;
+import java.util.Map;
 
 /**
- * CategoryUpdateCommand
- *
- * @author shuigedeng
- * @version 2026.04
- * @since 2025-12-19 09:30:45
+ * 草稿商品DTO
  */
 @RecordBuilder
-@Schema(description = "分类品牌CO")
-public record CategoryModifyCommand(
-	String id) implements Command {
+public record CreateDraftGoodsSkuParamsCommand(
+	@Schema(description = "商品图片") List<String> goodsGalleryList,
+	BaseDraftGoodsCommand goodsBaseCommand,
+	@Schema(description = "sku列表") @Valid List<Map<String, Object>> skuList) implements Command {
 
+	@Serial
+	private static final long serialVersionUID = 5255666163196674178L;
+
+	// @Valid
+	// @Schema(description = "商品参数")
+	// private List<GoodsParamsDTO> goodsParamsDTOList;
 
 }
