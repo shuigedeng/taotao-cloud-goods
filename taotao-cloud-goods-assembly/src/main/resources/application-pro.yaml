@@ -3,21 +3,22 @@ server:
   shutdown: graceful
   http2:
     enabled: true
-  undertow:
-    buffer-size: 2048 #每块buffer的空间大小,越小的空间被利用越充分，buffer会用于服务器连接的IO操作,类似netty的池化内存管理
-    direct-buffers: true # 是否分配的直接内存
-    #max-http-post-size: -1B # HTTP POST请求最大的大小
-    max-cookies: 200 # 允许的最大 cookie 数量
-    max-headers: 100 # 允许的最大请求头数量
+  tomcat:
+    # 当所有可能的请求处理线程都在使用中时，传入连接请求的最大队列长度
+    accept-count: 200
+    # 服务器在任何给定时间接受和处理的最大连接数。一旦达到限制，操作系统仍然可以接受基于“acceptCount”属性的连接。
+    max-connections: 8192
     threads:
-      io: 16 # 设置IO线程数, 它主要执行非阻塞的任务,它们会负责多个连接, 默认设置每个CPU核心一个线程
-      worker: 256 # 阻塞任务线程池, 当执行类似servlet请求阻塞操作, undertow会从这个线程池中取得线程,它的值设置取决于系统的负载
-    accesslog:
-      dir: ${user.home}/logs/${spring.application.name}/undertow # 日志存放目录
-      enabled: true # 是否启动日志
-      pattern: common # 日志格式
-      prefix: "access_log." # 日志文件名前缀
-      suffix: log # 日志文件名后缀
+      # 工作线程的最小数量，初始化时创建的线程数
+      min-spare: 50
+      # 工作线程的最大数量 io密集型建议10倍的cpu数，cpu密集型建议cpu数+1，绝大部分应用都是io密集型
+      max: 800
+    # 连接器在接受连接后等待显示请求 URI 行的时间。
+    connection-timeout: 20000
+    # 在关闭连接之前等待另一个 HTTP 请求的时间。如果未设置，则使用 connectionTimeout。设置为 -1 时不会超时。
+    keep-alive-timeout: 20000
+    # 在连接关闭之前可以进行流水线处理的最大HTTP请求数量。当设置为0或1时，禁用keep-alive和流水线处理。当设置为-1时，允许无限数量的流水线处理或keep-alive请求。 
+    max-keep-alive-requests: 100
   servlet:
     application-display-name: ${spring.application.name}
     #context-path: sys
@@ -474,18 +475,7 @@ spring:
         corePoolSize: 100
         maximumPoolSize: 200
         keepAliveTime: 60
-      undertowTp: # undertow webserver线程池配置
-        threadPoolName: taotao-cloud-goods-undertow-executor
-        threadPoolAliasName: undertow线程池
-        corePoolSize: 100
-        maximumPoolSize: 200
-        keepAliveTime: 60
-        notifyItems: # 报警项，不配置自动会按默认值配置（变更通知、容量报警、活性报警）
-          - type: capacity                       # 报警项类型，查看源码 NotifyTypeEnum枚举类
-            enabled: true
-            threshold: 80                        # 报警阈值
-            platform-ids: [ ding,wechat,email ]             # 可选配置，不配置默认拿上层platforms配置的所以平台
-            interval: 120                        # 报警间隔（单位：s）
+
       dubboTp: # dubbo 线程池配置
         - threadPoolName: dubboTp#20883            # 名称规则：dubboTp + "#" + 协议端口
           threadPoolAliasName: 测试线程池             # dubbo线程池
@@ -1139,8 +1129,7 @@ taotao:
         enabled: false
       sentinel:
         enabled: true
-      undertow:
-        enabled: true
+
     logger:
       enabled: true
       logging:
