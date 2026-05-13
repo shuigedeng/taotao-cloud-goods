@@ -17,6 +17,7 @@
 package com.taotao.cloud.goods.domain.aggregate;
 
 import com.taotao.boot.ddd.model.domain.AggregateRoot;
+import com.taotao.boot.ddd.model.domain.event.DomainEvent;
 import com.taotao.boot.ddd.model.val.BizId;
 import com.taotao.boot.ddd.model.val.Price;
 import com.taotao.cloud.goods.domain.entity.Category;
@@ -26,8 +27,11 @@ import com.taotao.cloud.goods.domain.valobj.GoodsName;
 import com.taotao.cloud.goods.domain.valobj.GoodsSpec;
 import com.taotao.cloud.goods.domain.valobj.GoodsStatus;
 import jakarta.validation.constraints.NotNull;
+import lombok.AccessLevel;
+import lombok.Builder;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -40,227 +44,468 @@ import java.util.Objects;
  */
 public class GoodsAgg extends AggregateRoot<BizId> {
 
-    /**
-     * 商品ID
-     */
-    @NotNull
-    private BizId id;
+	/**
+	 * 商品ID
+	 */
+	@NotNull
+	private BizId id;
 
-    /**
-     * 商品标签集合
-     */
-    private List<Tag> tags;
+	/**
+	 * 商品标签集合
+	 */
+	private List<Tag> tags;
 
-    /**
-     * 商品所属分类
-     */
-    private @NotNull Category category;
+	/**
+	 * 商品所属分类
+	 */
+	private @NotNull Category category;
 
-    /**
-     * 商品名称
-     */
-    @NotNull
-    private GoodsName goodsName;
+	/**
+	 * 商品名称
+	 */
+	@NotNull
+	private GoodsName goodsName;
 
-    /**
-     * 商品描述
-     */
-    @NotNull
-    private GoodsSpec goodsSpec;
+	/**
+	 * 商品描述
+	 */
+	@NotNull
+	private GoodsSpec goodsSpec;
 
-    /**
-     * 商品价格
-     */
-    @NotNull
-    private Price goodsPrice;
+	/**
+	 * 商品价格
+	 */
+	@NotNull
+	private Price goodsPrice;
 
-    /**
-     * 商品状态
-     */
-    @NotNull
-    private GoodsStatus goodsStatus;
+	/**
+	 * 商品状态
+	 */
+	@NotNull
+	private GoodsStatus goodsStatus;
 
-    /**
-     * 创建时间
-     */
-    private LocalDateTime createTime;
+	/**
+	 * 创建时间
+	 */
+	private LocalDateTime createTime;
 
-    /**
-     * 修改时间
-     */
-    private LocalDateTime updateTime;
+	/**
+	 * 修改时间
+	 */
+	private LocalDateTime updateTime;
+	private String goodsNo;
+	private Boolean recommend;
 
-    private GoodsAgg() {
-    }
+	private GoodsAgg() {
+	}
 
-    /**
-     * 初始创建商品信息
-     *
-     * @param id 商品ID
-     * @param category 商品所属分类ID
-     * @param goodsName 商品名称
-     * @param goodsSpec 商品描述
-     * @param goodsPrice 商品价格
-     * @param goodsStatus 商品状态
-     */
-    public GoodsAgg(
-            BizId id,
-            @NotNull Category category,
-            GoodsName goodsName,
-            GoodsSpec goodsSpec,
-            Price goodsPrice,
-            GoodsStatus goodsStatus,
-            List<Tag> tagIds ) {
-        this.id = id;
-        this.category = category;
-        this.goodsName = goodsName;
-        this.goodsSpec = goodsSpec;
-        this.goodsPrice = goodsPrice;
-        this.goodsStatus = goodsStatus;
-        this.tags = tagIds;
-        this.createTime = LocalDateTime.now();
-        this.updateTime = this.createTime;
-        this.validateSelf();
-    }
+	private static GoodsAggBuilder initBuilder() {
+		return new GoodsAggBuilder()
+			.id(BizId.newBizId())
+			.tags(new ArrayList<>())
+			.createTime(LocalDateTime.now())
+			.updateTime(LocalDateTime.now());
+	}
 
-    public GoodsAgg(
-            BizId id,
-            List<Tag> tagIds,
-            @NotNull Category category,
-            GoodsName goodsName,
-            GoodsSpec goodsSpec,
-            Price goodsPrice,
-            GoodsStatus goodsStatus,
-            LocalDateTime createTime,
-            LocalDateTime updateTime ) {
-        this.id = id;
-        this.tags = tagIds;
-        this.category = category;
-        this.goodsName = goodsName;
-        this.goodsSpec = goodsSpec;
-        this.goodsPrice = goodsPrice;
-        this.goodsStatus = goodsStatus;
-        this.createTime = createTime;
-        this.updateTime = updateTime;
-        this.validateSelf();
-    }
+	public static GoodsAgg init() {
+		return initBuilder().build();
+	}
 
-    /**
-     * 修改基础信息
-     *
-     * @param categoryId 分类ID
-     * @param goodsName 商品名称
-     * @param goodsSpec 商品规格
-     * @param goodsPrice 商品价格
-     */
-    public void modifyBasicInfo(
-            @NotNull Category categoryId,
-            GoodsName goodsName,
-            GoodsSpec goodsSpec,
-            Price goodsPrice,
-            List<Tag> tagIds ) {
-        this.category = categoryId;
-        this.goodsName = goodsName;
-        this.goodsSpec = goodsSpec;
-        this.goodsPrice = goodsPrice;
-        this.tags = tagIds;
-        this.validateSelf();
-    }
+	/**
+	 * 初始创建商品信息
+	 *
+	 * @param id 商品ID
+	 * @param category 商品所属分类ID
+	 * @param goodsName 商品名称
+	 * @param goodsSpec 商品描述
+	 * @param goodsPrice 商品价格
+	 * @param goodsStatus 商品状态
+	 */
+	public static GoodsAgg create(
+		BizId id,
+		@NotNull Category category,
+		GoodsName goodsName,
+		GoodsSpec goodsSpec,
+		Price goodsPrice,
+		GoodsStatus goodsStatus,
+		List<Tag> tagIds ) {
+		GoodsAgg goodsAgg = initBuilder()
+			.id(id)
+			.category(category)
+			.goodsName(goodsName)
+			.goodsSpec(goodsSpec)
+			.goodsPrice(goodsPrice)
+			.goodsStatus(goodsStatus)
+			.tags(tagIds)
+			.build();
+		goodsAgg.validateSelf();
+		return goodsAgg;
+	}
 
-	public void create(){
+	public static GoodsAgg create(
+		BizId id,
+		List<Tag> tagIds,
+		@NotNull Category category,
+		GoodsName goodsName,
+		GoodsSpec goodsSpec,
+		Price goodsPrice,
+		GoodsStatus goodsStatus,
+		LocalDateTime createTime,
+		LocalDateTime updateTime,
+		String goodsNo,
+		Boolean recommend ) {
+		GoodsAgg goodsAgg = initBuilder()
+			.id(id)
+			.tags(tagIds)
+			.category(category)
+			.goodsName(goodsName)
+			.goodsSpec(goodsSpec)
+			.goodsPrice(goodsPrice)
+			.goodsStatus(goodsStatus)
+			.createTime(createTime)
+			.updateTime(updateTime)
+			.goodsNo(goodsNo)
+			.recommend(recommend)
+			.build();
+		goodsAgg.validateSelf();
+		return goodsAgg;
+	}
+
+	/**
+	 * 创建初始商品
+	 *
+	 * @param category 商品分类ID
+	 * @param goodsName 商品名称
+	 * @param goodsSpec 商品规格
+	 * @param goodsPrice 商品价格
+	 * @param tagIds 商品标签ID集合
+	 * @return 初始商品
+	 */
+	public static GoodsAgg createGoods(
+		@NotNull Category category,
+		GoodsName goodsName,
+		GoodsSpec goodsSpec,
+		Price goodsPrice,
+		List<Tag> tagIds ) {
+		GoodsAgg goodsAgg = initBuilder()
+			.tags(tagIds)
+			.category(category)
+			.goodsName(goodsName)
+			.goodsSpec(goodsSpec)
+			.goodsPrice(goodsPrice)
+			.goodsStatus(GoodsStatus.UNSHELVED)
+			.build();
+		goodsAgg.validateSelf();
+		return goodsAgg;
+	}
+
+	/**
+	 * 修改基础信息
+	 *
+	 * @param categoryId 分类ID
+	 * @param goodsName 商品名称
+	 * @param goodsSpec 商品规格
+	 * @param goodsPrice 商品价格
+	 */
+	public void modifyBasicInfo(
+		@NotNull Category categoryId,
+		GoodsName goodsName,
+		GoodsSpec goodsSpec,
+		Price goodsPrice,
+		List<Tag> tagIds ) {
+		this.category = categoryId;
+		this.goodsName = goodsName;
+		this.goodsSpec = goodsSpec;
+		this.goodsPrice = goodsPrice;
+		this.tags = tagIds;
+		this.validateSelf();
+	}
+
+	public void create() {
+		GoodsAgg agg = new GoodsAgg();
+		agg.id = this.id;
 		GoodsCreateEvent goodsCreateEvent = new GoodsCreateEvent();
 		goodsCreateEvent.setName("");
 		registerEvent(goodsCreateEvent);
 	}
 
-    /**
-     * 上架商品
-     */
-    public void shelve() {
-        this.goodsStatus = GoodsStatus.SHELVED;
-    }
+	/**
+	 * 上架商品
+	 */
+	public void shelve() {
+		this.goodsStatus = GoodsStatus.SHELVED;
+	}
 
-    /**
-     * 下架商品
-     */
-    public void unshelve() {
-        this.goodsStatus = GoodsStatus.UNSHELVED;
-    }
+	/**
+	 * 下架商品
+	 */
+	public void unshelve() {
+		this.goodsStatus = GoodsStatus.UNSHELVED;
+	}
 
-    public BizId getId() {
-        return id;
-    }
+	public BizId getId() {
+		return id;
+	}
 
-    public List<Tag> getTags() {
-        return tags;
-    }
+	public List<Tag> getTags() {
+		return tags;
+	}
 
-    public @NotNull Category getCategory() {
-        return category;
-    }
+	public @NotNull Category getCategory() {
+		return category;
+	}
 
-    public GoodsName getGoodsName() {
-        return goodsName;
-    }
+	public GoodsName getGoodsName() {
+		return goodsName;
+	}
 
-    public GoodsSpec getGoodsSpec() {
-        return goodsSpec;
-    }
+	public GoodsSpec getGoodsSpec() {
+		return goodsSpec;
+	}
 
-    public Price getGoodsPrice() {
-        return goodsPrice;
-    }
+	public Price getGoodsPrice() {
+		return goodsPrice;
+	}
 
-    public GoodsStatus getGoodsStatus() {
-        return goodsStatus;
-    }
+	public GoodsStatus getGoodsStatus() {
+		return goodsStatus;
+	}
 
-    public LocalDateTime getCreateTime() {
-        return createTime;
-    }
+	public LocalDateTime getCreateTime() {
+		return createTime;
+	}
 
-    public LocalDateTime getUpdateTime() {
-        return updateTime;
-    }
+	public LocalDateTime getUpdateTime() {
+		return updateTime;
+	}
 
-    @Override
-    public boolean equals( Object o ) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        GoodsAgg goods = (GoodsAgg) o;
-        return Objects.equals(id, goods.id);
-    }
+	@Override
+	public boolean equals( Object o ) {
+		if (this == o) {
+			return true;
+		}
+		if (o == null || getClass() != o.getClass()) {
+			return false;
+		}
+		GoodsAgg goods = (GoodsAgg) o;
+		return Objects.equals(id, goods.id);
+	}
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
-    }
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
 
-    @Override
-    public String toString() {
-        return "Goods{"
-                + "id="
-                + id
-                + ", tags="
-                + tags
-                + ", categoryId="
-                + category
-                + ", goodsName="
-                + goodsName
-                + ", goodsSpec="
-                + goodsSpec
-                + ", goodsPrice="
-                + goodsPrice
-                + ", goodsStatus="
-                + goodsStatus
-                + ", createTime="
-                + createTime
-                + ", updateTime="
-                + updateTime
-                + '}';
-    }
+	@Override
+	public String toString() {
+		return "Goods{"
+			+ "id="
+			+ id
+			+ ", tags="
+			+ tags
+			+ ", categoryId="
+			+ category
+			+ ", goodsName="
+			+ goodsName
+			+ ", goodsSpec="
+			+ goodsSpec
+			+ ", goodsPrice="
+			+ goodsPrice
+			+ ", goodsStatus="
+			+ goodsStatus
+			+ ", createTime="
+			+ createTime
+			+ ", updateTime="
+			+ updateTime
+			+ '}';
+	}
+
+	public String getGoodsNo() {
+		return goodsNo;
+	}
+
+	public void setGoodsNo( String goodsNo ) {
+		this.goodsNo = goodsNo;
+	}
+
+	public Boolean getRecommend() {
+		return recommend;
+	}
+
+	public void setRecommend( Boolean recommend ) {
+		this.recommend = recommend;
+	}
+
+
+	private static final class GoodsAggBuilder {
+
+		private @NotNull BizId id;
+		private List<Tag> tags;
+		private @NotNull Category category;
+		private @NotNull GoodsName goodsName;
+		private @NotNull GoodsSpec goodsSpec;
+		private @NotNull Price goodsPrice;
+		private @NotNull GoodsStatus goodsStatus;
+		private LocalDateTime createTime;
+		private LocalDateTime updateTime;
+		private String goodsNo;
+		private Boolean recommend;
+		private String createUser;
+		private String modifyUser;
+		private String tenantId;
+		private LocalDateTime createDate;
+		private LocalDateTime modifyDate;
+		private String sourceName;
+		private String serviceId;
+
+		public GoodsAggBuilder() {
+		}
+
+		public GoodsAggBuilder( GoodsAgg other ) {
+			this.id = other.id;
+			this.tags = other.tags;
+			this.category = other.category;
+			this.goodsName = other.goodsName;
+			this.goodsSpec = other.goodsSpec;
+			this.goodsPrice = other.goodsPrice;
+			this.goodsStatus = other.goodsStatus;
+			this.createTime = other.createTime;
+			this.updateTime = other.updateTime;
+			this.goodsNo = other.goodsNo;
+			this.recommend = other.recommend;
+			this.createUser = other.createUser;
+			this.modifyUser = other.modifyUser;
+			this.tenantId = other.tenantId;
+			this.createDate = other.createDate;
+			this.modifyDate = other.modifyDate;
+			this.sourceName = other.sourceName;
+			this.serviceId = other.serviceId;
+		}
+
+		public static GoodsAggBuilder aGoodsAgg() {
+			return new GoodsAggBuilder();
+		}
+
+		public GoodsAggBuilder id( BizId id ) {
+			this.id = id;
+			return this;
+		}
+
+		public GoodsAggBuilder tags( List<Tag> tags ) {
+			this.tags = tags;
+			return this;
+		}
+
+		public GoodsAggBuilder category( Category category ) {
+			this.category = category;
+			return this;
+		}
+
+		public GoodsAggBuilder goodsName( GoodsName goodsName ) {
+			this.goodsName = goodsName;
+			return this;
+		}
+
+		public GoodsAggBuilder goodsSpec( GoodsSpec goodsSpec ) {
+			this.goodsSpec = goodsSpec;
+			return this;
+		}
+
+		public GoodsAggBuilder goodsPrice( Price goodsPrice ) {
+			this.goodsPrice = goodsPrice;
+			return this;
+		}
+
+		public GoodsAggBuilder goodsStatus( GoodsStatus goodsStatus ) {
+			this.goodsStatus = goodsStatus;
+			return this;
+		}
+
+		public GoodsAggBuilder createTime( LocalDateTime createTime ) {
+			this.createTime = createTime;
+			return this;
+		}
+
+		public GoodsAggBuilder updateTime( LocalDateTime updateTime ) {
+			this.updateTime = updateTime;
+			return this;
+		}
+
+		public GoodsAggBuilder goodsNo( String goodsNo ) {
+			this.goodsNo = goodsNo;
+			return this;
+		}
+
+		public GoodsAggBuilder recommend( Boolean recommend ) {
+			this.recommend = recommend;
+			return this;
+		}
+
+		public GoodsAggBuilder createUser( String createUser ) {
+			this.createUser = createUser;
+			return this;
+		}
+
+		public GoodsAggBuilder modifyUser( String modifyUser ) {
+			this.modifyUser = modifyUser;
+			return this;
+		}
+
+		public GoodsAggBuilder tenantId( String tenantId ) {
+			this.tenantId = tenantId;
+			return this;
+		}
+
+		public GoodsAggBuilder createDate( LocalDateTime createDate ) {
+			this.createDate = createDate;
+			return this;
+		}
+
+		public GoodsAggBuilder modifyDate( LocalDateTime modifyDate ) {
+			this.modifyDate = modifyDate;
+			return this;
+		}
+
+		public GoodsAggBuilder sourceName( String sourceName ) {
+			this.sourceName = sourceName;
+			return this;
+		}
+
+		public GoodsAggBuilder serviceId( String serviceId ) {
+			this.serviceId = serviceId;
+			return this;
+		}
+
+		public GoodsAggBuilder but() {
+			return aGoodsAgg().id(id).tags(tags).category(category).goodsName(goodsName).goodsSpec(goodsSpec)
+				.goodsPrice(goodsPrice).goodsStatus(goodsStatus).createTime(createTime).updateTime(updateTime)
+				.goodsNo(goodsNo).recommend(recommend).createUser(createUser).modifyUser(modifyUser).tenantId(tenantId)
+				.createDate(createDate).modifyDate(modifyDate).sourceName(sourceName).serviceId(serviceId)
+				;
+		}
+
+		public GoodsAgg build() {
+			GoodsAgg goodsAgg = new GoodsAgg();
+			goodsAgg.setId(id);
+			goodsAgg.setGoodsNo(goodsNo);
+			goodsAgg.setRecommend(recommend);
+			goodsAgg.setCreateUser(createUser);
+			goodsAgg.setModifyUser(modifyUser);
+			goodsAgg.setTenantId(tenantId);
+			goodsAgg.setCreateDate(createDate);
+			goodsAgg.setModifyDate(modifyDate);
+			goodsAgg.setSourceName(sourceName);
+			goodsAgg.setServiceId(serviceId);
+			goodsAgg.setId(id);
+			goodsAgg.goodsStatus = this.goodsStatus;
+			goodsAgg.goodsPrice = this.goodsPrice;
+			goodsAgg.goodsSpec = this.goodsSpec;
+			goodsAgg.createTime = this.createTime;
+			goodsAgg.updateTime = this.updateTime;
+			goodsAgg.tags = this.tags;
+			goodsAgg.goodsName = this.goodsName;
+			goodsAgg.category = this.category;
+			return goodsAgg;
+		}
+	}
 }

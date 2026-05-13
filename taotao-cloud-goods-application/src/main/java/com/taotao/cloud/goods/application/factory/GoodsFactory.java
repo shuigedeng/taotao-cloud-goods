@@ -33,31 +33,7 @@ import java.util.List;
  */
 public class GoodsFactory implements MarkerFactory {
 
-	/**
-	 * 创建初始商品
-	 *
-	 * @param categoryId 商品分类ID
-	 * @param goodsName 商品名称
-	 * @param goodsSpec 商品规格
-	 * @param goodsPrice 商品价格
-	 * @param tagIds 商品标签ID集合
-	 * @return 初始商品
-	 */
-	public static GoodsAgg createGoods(
-		@NotNull Category categoryId,
-		GoodsName goodsName,
-		GoodsSpec goodsSpec,
-		Price goodsPrice,
-		List<Tag> tagIds ) {
-		return new GoodsAgg(
-			BizId.newBizId(),
-			categoryId,
-			goodsName,
-			goodsSpec,
-			goodsPrice,
-			GoodsStatus.UNSHELVED,
-			tagIds);
-	}
+
 
 	/**
 	 * 根据创建命令创建初始商品
@@ -66,7 +42,7 @@ public class GoodsFactory implements MarkerFactory {
 	 * @return 初始商品
 	 */
 	public static GoodsAgg createGoods( CreateGoodsCommand goodsCreateCommand ) {
-		return new GoodsAgg(
+		return GoodsAgg.create(
 			BizId.newBizId(),
 			Category.bizId(BizId.fromValue(goodsCreateCommand.categoryId())),
 			GoodsName.of(goodsCreateCommand.goodsName()),

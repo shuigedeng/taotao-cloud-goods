@@ -23,6 +23,7 @@ import com.taotao.cloud.goods.domain.valobj.GoodsName;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsPO;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingConstants;
+import org.mapstruct.ObjectFactory;
 import org.mapstruct.factory.Mappers;
 
 /**
@@ -39,8 +40,19 @@ public interface GoodsInfraAssembler extends MarkerAssembler {
     GoodsInfraAssembler INSTANCE = Mappers.getMapper(GoodsInfraAssembler.class);
 
     GoodsPO toPo(GoodsAgg goods);
+     GoodsAgg toAgg(GoodsPO goods);
 
-    default Long map(BizId value) {
+	@ObjectFactory
+	default GoodsAgg createGoodsAgg() {
+		// 调用静态init方法创建对象
+		return GoodsAgg.init();
+	}
+
+	default BizId toBizId(Long id) {
+		return id != null ? BizId.fromNullableValue(id) : null;
+	}
+
+	default Long map(BizId value) {
         return value != null ? value.id() : null;
     }
 
