@@ -116,7 +116,7 @@ public class GoodsCommandServiceImpl implements GoodsCommandService {
         // 验证商品标签是否存在
 //        this.goodsTagDomainRepository.isSatisfiedBy(goods.getTags());
         // 保存商品
-        goodsDomainRepository.save(goods);
+        goodsDomainRepository.save(goods, Boolean.TRUE);
         // 转换GoodsDto
         return goodsAppAssembler.toResult(goods);
     }
