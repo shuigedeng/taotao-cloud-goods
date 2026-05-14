@@ -19,6 +19,7 @@ package com.taotao.cloud.goods.application.dto.draft.result;
 import com.taotao.boot.common.model.ddd.types.MarkerResult;
 import io.soabase.recordbuilder.core.RecordBuilder;
 import io.swagger.v3.oas.annotations.media.Schema;
+
 import java.io.Serial;
 import java.math.BigDecimal;
 
@@ -63,14 +64,15 @@ import java.math.BigDecimal;
  */
 @RecordBuilder
 @Schema(description = "分类品牌CO")
-public record DraftGoodsResult(Long id, String goodsName, BigDecimal price, Long brandId, String categoryPath,
-							   String goodsUnit, String sellingPoint, String marketEnable, String intro,
-							   String mobileIntro, Integer buyCount, Integer quantity, Integer enableQuantity,
-							   BigDecimal grade, String thumbnail, String big, String small, String original,
-							   String storeCategoryPath, Integer commentNum, Long storeId, String storeName,
-							   Long templateId, Boolean selfOperated, String goodsVideo, Boolean recommend,
-							   String salesModel, String saveType, String categoryNameJson, String goodsParamsListJson,
-							   String goodsGalleryListJson, String skuListJson, String goodsType) implements
+public record DraftGoodsResult(
+	Long id, String goodsName, BigDecimal price, Long brandId, String categoryPath,
+	String goodsUnit, String sellingPoint, String marketEnable, String intro,
+	String mobileIntro, Integer buyCount, Integer quantity, Integer enableQuantity,
+	BigDecimal grade, String thumbnail, String big, String small, String original,
+	String storeCategoryPath, Integer commentNum, Long storeId, String storeName,
+	Long templateId, Boolean selfOperated, String goodsVideo, Boolean recommend,
+	String salesModel, String saveType, String categoryNameJson, String goodsParamsListJson,
+	String goodsGalleryListJson, String skuListJson, String goodsType) implements
 	MarkerResult {
 
 	@Serial

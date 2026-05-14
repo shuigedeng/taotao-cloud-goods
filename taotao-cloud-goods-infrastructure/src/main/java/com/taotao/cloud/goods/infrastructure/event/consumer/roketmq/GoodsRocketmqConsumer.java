@@ -1,11 +1,9 @@
 package com.taotao.cloud.goods.infrastructure.event.consumer.roketmq;
 
+import com.taotao.cloud.goods.application.service.command.GoodsCommandService;
+import lombok.AllArgsConstructor;
 import org.apache.rocketmq.common.message.MessageExt;
-import org.apache.rocketmq.spring.annotation.ConsumeMode;
-import org.apache.rocketmq.spring.annotation.MessageModel;
-import org.apache.rocketmq.spring.annotation.RocketMQMessageListener;
 import org.apache.rocketmq.spring.core.RocketMQListener;
-import org.springframework.stereotype.Component;
 
 import java.nio.charset.StandardCharsets;
 
@@ -17,8 +15,9 @@ import java.nio.charset.StandardCharsets;
 //	consumeMode = ConsumeMode.ORDERLY,
 //	messageModel = MessageModel.BROADCASTING
 //)
-public class SysRocketmqConsumer implements RocketMQListener<MessageExt> {
-
+@AllArgsConstructor
+public class GoodsRocketmqConsumer implements RocketMQListener<MessageExt> {
+	private final GoodsCommandService goodsCommandService;
 	//没有抛异常 自动确认
 	//抛异常
 	@Override

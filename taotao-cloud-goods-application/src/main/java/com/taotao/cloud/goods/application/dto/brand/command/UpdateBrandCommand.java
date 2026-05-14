@@ -28,12 +28,13 @@ import java.io.Serial;
  */
 @RecordBuilder
 @Schema(description = "品牌DTO")
-public record UpdateBrandCommand(@Schema(description = "id") Long id,
-                                 @Schema(description = "名称") @NotBlank(message = "名称不能为空") String name,
-                                 @Schema(description = "logo") @NotBlank(message = "logo不能为空") String logo) implements
+public record UpdateBrandCommand(
+	@Schema(description = "id") Long id,
+	@Schema(description = "名称") @NotBlank(message = "名称不能为空") String name,
+	@Schema(description = "logo") @NotBlank(message = "logo不能为空") String logo) implements
 	Command {
 
 	@Serial
-	private  static final long serialVersionUID = 3829199991161122317L;
+	private static final long serialVersionUID = 3829199991161122317L;
 
 }

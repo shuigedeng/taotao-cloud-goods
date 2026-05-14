@@ -23,22 +23,4 @@ import com.taotao.boot.common.model.ddd.types.MarkerFactory;
  */
 public class CategoryFactory implements MarkerFactory {
 
-    /**
-     * 创建分类
-     *
-     * @param parentCategoryId 上级分类ID
-     * @param categoryName     分类名称
-     * @param categoryDesc     分类描述
-     * @return 初始分类
-     */
-    // public static CategoryAgg createCategory(BizId parentCategoryId, CategoryName categoryName,
-    //	CategoryDesc categoryDesc) {
-    //	LocalDateTime now = LocalDateTime.now();
-    //	return new CategoryAgg(
-    //		BizId.of(IdGenUtils.nextDigitalId()),
-    //		parentCategoryId,
-    //		categoryName,
-    //		categoryDesc
-    //	);
-    // }
 }

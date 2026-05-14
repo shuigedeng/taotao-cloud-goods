@@ -18,11 +18,9 @@ public class SysInterceptor<T> implements GatewayPostInterceptor<T> {
 
     @Override
     public void intercept( GatewayResponse<T> response, GatewayContext context ) {
-		System.out.println("sadfasdf");
 		response.setGatewayRecord(context.getGatewayRecord());
 		Object rawResponse = context.getRawResponse();
-		if(rawResponse instanceof Response<?>){
-			Response<?>  response1 = (Response<?>) rawResponse;
+		if(rawResponse instanceof Response<?> response1){
 			response.setStatus(GatewayResponseStatus.S);
 			response.setResult((T) response1.getResult());
 		}else {

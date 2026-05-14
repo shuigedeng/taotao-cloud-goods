@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.infrastructure.task;
+package com.taotao.cloud.goods.infrastructure.job;
 
 import com.taotao.boot.common.utils.log.LogUtils;
 import com.taotao.boot.job.xxl.executor.annotation.XxlRegister;
@@ -42,7 +42,7 @@ import java.util.concurrent.TimeUnit;
  */
 @Component
 @RequiredArgsConstructor
-public class GoodsJobHandler {
+public class GoodsJob {
 
     @XxlJob("ThrowJobHandler")
     public Response<String> throwJobHandler() throws Exception {

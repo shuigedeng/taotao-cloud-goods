@@ -29,7 +29,8 @@ import io.swagger.v3.oas.annotations.media.Schema;
  */
 @RecordBuilder
 @Schema(description = "分类品牌CO")
-public record CreateCategoryCommand(String id) implements Command {
+public record CreateCategoryCommand(
+	String id) implements Command {
 
 
 }

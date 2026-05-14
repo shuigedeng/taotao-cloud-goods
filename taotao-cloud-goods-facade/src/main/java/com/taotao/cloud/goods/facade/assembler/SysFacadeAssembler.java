@@ -39,5 +39,5 @@ public interface SysFacadeAssembler {
 
 	DictRes toRes( DictQueryApiResponse dictApiResponse);
 
-	DictApiQuery toReq(DictReq dictReq);
+	DictApiQuery toQuery(DictReq dictReq);
 }

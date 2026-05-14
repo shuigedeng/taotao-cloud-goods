@@ -23,7 +23,9 @@ import io.swagger.v3.oas.annotations.media.Schema;
  * 直播商品CO
  */
 @RecordBuilder
-public record CommoditySkuResult(@Schema(description = "SKU库存") Integer quantity, CommodityResult commodityResult,
-								 @Schema(description = "店铺名称") String storeName) {
+public record CommoditySkuResult(
+	@Schema(description = "SKU库存") Integer quantity,
+	CommodityResult commodityResult,
+	@Schema(description = "店铺名称") String storeName) {
 
 }

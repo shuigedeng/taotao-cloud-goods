@@ -11,6 +11,7 @@ import io.soabase.recordbuilder.core.RecordBuilder;
  */
 @RecordBuilder
 public record AssignCategorySpecCommand(
-	Long categoryId, String[] categorySpecs) {
+	Long categoryId,
+	String[] categorySpecs) {
 
 }

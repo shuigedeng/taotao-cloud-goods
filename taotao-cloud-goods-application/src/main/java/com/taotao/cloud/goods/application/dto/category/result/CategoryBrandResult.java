@@ -25,7 +25,8 @@ import io.swagger.v3.oas.annotations.media.Schema;
  */
 @RecordBuilder
 @Schema(description = "分类品牌CO")
-public record CategoryBrandResult(@Schema(description = "品牌id") String id,
-								  @Schema(description = "品牌名称") String name) implements MarkerResult {
+public record CategoryBrandResult(
+	@Schema(description = "品牌id") String id,
+	@Schema(description = "品牌名称") String name) implements MarkerResult {
 
 }

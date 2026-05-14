@@ -31,7 +31,8 @@ import java.util.Map;
  * @since 2022-04-25 16:33:11
  */
 @RecordBuilder
-public record EsGoodsSearchQuery(@Schema(description = "关键字") String keyword, PageQuery page,
+public record EsGoodsSearchQuery(
+	@Schema(description = "关键字") String keyword, PageQuery page,
 								 @Schema(description = "分类") String categoryId,
 								 @Schema(description = "品牌,可以多选 品牌Id@品牌Id@品牌Id") String brandId,
 								 @Schema(description = "是否为推荐商品") Boolean recommend,

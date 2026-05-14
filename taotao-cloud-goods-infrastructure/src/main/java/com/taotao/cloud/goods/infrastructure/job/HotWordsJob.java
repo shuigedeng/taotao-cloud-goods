@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.infrastructure.task;
+package com.taotao.cloud.goods.infrastructure.job;
 
 import com.taotao.boot.cache.redis.repository.RedisRepository;
 import com.taotao.boot.job.xxl.timetask.EveryDayExecute;
@@ -30,7 +30,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @RequiredArgsConstructor
-public class HotWordsEveryDayTaskExecute implements EveryDayExecute {
+public class HotWordsJob implements EveryDayExecute {
 
     /**
      * 复述,库

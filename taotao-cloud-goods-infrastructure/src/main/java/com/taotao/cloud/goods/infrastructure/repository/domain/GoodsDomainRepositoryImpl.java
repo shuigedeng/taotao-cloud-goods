@@ -49,9 +49,6 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor
 public class GoodsDomainRepositoryImpl implements GoodsDomainRepository {
-
-    private final TransactionalWrapper txWrapper;
-    private final MybatisUtil mybatisUtil;
     private final GoodsMapper goodsMapper;
     private final GoodsSkuMapper goodsSkuMapper;
     private final GoodsInfraAssembler goodsInfraAssembler;

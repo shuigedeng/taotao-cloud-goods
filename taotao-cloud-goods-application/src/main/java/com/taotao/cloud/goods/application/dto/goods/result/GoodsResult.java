@@ -31,7 +31,8 @@ import java.math.BigDecimal;
  */
 @RecordBuilder
 @Schema(description = "商品基础CO")
-public record GoodsResult(Long id, @Schema(description = "商品名称") String goodsName,
+public record GoodsResult(
+	Long id, @Schema(description = "商品名称") String goodsName,
 						  @Schema(description = "商品价格") BigDecimal price,
 						  @Schema(description = "品牌id") String brandId,
 						  @Schema(description = "分类path") String categoryPath,

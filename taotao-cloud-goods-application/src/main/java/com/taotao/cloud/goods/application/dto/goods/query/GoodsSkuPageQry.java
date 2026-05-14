@@ -29,7 +29,8 @@ import io.swagger.v3.oas.annotations.media.Schema;
  * @since 2022-04-25 16:33:23
  */
 @RecordBuilder
-public record GoodsSkuPageQry(@Schema(description = "商品id") GoodsOtherPageQuery pageQuery) {
+public record GoodsSkuPageQry(
+	@Schema(description = "商品id") GoodsOtherPageQuery pageQuery) {
 
 	@Serial
 	private static final long serialVersionUID = -6235885068610635045L;

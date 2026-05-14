@@ -28,7 +28,8 @@ import java.io.Serial;
  * @since 2022-04-14 22:07:42
  */
 @RecordBuilder
-public record DraftGoodsPageQuery(@Schema(description = "草稿商品保存类型") String saveType) {
+public record DraftGoodsPageQuery(
+	@Schema(description = "草稿商品保存类型") String saveType) {
 
 	@Serial
 	private static final long serialVersionUID = -1057830772267228050L;

@@ -24,7 +24,8 @@ import io.swagger.v3.oas.annotations.media.Schema;
  * 直播商品DTO 用于获取直播商品状态时使用
  */
 @RecordBuilder
-public record CreateCommodityCommand(@Schema(description = "商品ID") Long goodsId,
+public record CreateCommodityCommand(
+	@Schema(description = "商品ID") Long goodsId,
                                      @Schema(description = "商品名称") String name,
                                      @Schema(description = "url") String url,
                                      @Schema(description = "审核状态") Integer auditStatus) implements Command {

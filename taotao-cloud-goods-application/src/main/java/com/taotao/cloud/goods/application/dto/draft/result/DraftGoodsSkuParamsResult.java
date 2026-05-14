@@ -19,6 +19,7 @@ package com.taotao.cloud.goods.application.dto.draft.result;
 import com.taotao.cloud.goods.application.dto.goods.result.GoodsSkuSpecGalleryResult;
 import io.soabase.recordbuilder.core.RecordBuilder;
 import io.swagger.v3.oas.annotations.media.Schema;
+
 import java.io.Serial;
 import java.util.List;
 
@@ -26,10 +27,11 @@ import java.util.List;
  * 草稿商品CO
  */
 @RecordBuilder
-public record DraftGoodsSkuParamsResult(@Schema(description = "分类名称") List<String> categoryName,
-										DraftGoodsResult draftGoodsResult,
-										@Schema(description = "商品图片") List<String> goodsGalleryList,
-										@Schema(description = "sku列表") List<GoodsSkuSpecGalleryResult> skuList) {
+public record DraftGoodsSkuParamsResult(
+	@Schema(description = "分类名称") List<String> categoryName,
+	DraftGoodsResult draftGoodsResult,
+	@Schema(description = "商品图片") List<String> goodsGalleryList,
+	@Schema(description = "sku列表") List<GoodsSkuSpecGalleryResult> skuList) {
 
 	@Serial
 	private static final long serialVersionUID = 6377623919990713567L;

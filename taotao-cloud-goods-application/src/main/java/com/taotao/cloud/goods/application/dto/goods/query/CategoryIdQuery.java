@@ -4,6 +4,7 @@ import io.soabase.recordbuilder.core.RecordBuilder;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotNull;
 @RecordBuilder
-public record CategoryIdQuery(@Schema(description = "分类id") @NotNull(message = "分类id不能为空") Long categoryId) {
+public record CategoryIdQuery(
+	@Schema(description = "分类id") @NotNull(message = "分类id不能为空") Long categoryId) {
 
 }

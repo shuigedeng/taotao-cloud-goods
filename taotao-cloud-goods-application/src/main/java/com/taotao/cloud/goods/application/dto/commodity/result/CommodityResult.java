@@ -19,6 +19,7 @@ package com.taotao.cloud.goods.application.dto.commodity.result;
 import com.taotao.boot.common.model.ddd.types.MarkerResult;
 import io.soabase.recordbuilder.core.RecordBuilder;
 import io.swagger.v3.oas.annotations.media.Schema;
+
 import java.math.BigDecimal;
 
 /**
@@ -43,8 +44,18 @@ import java.math.BigDecimal;
  */
 @RecordBuilder
 @Schema(description = "小程序直播商品CO")
-public record CommodityResult(String goodsImage, String name, Integer priceType, BigDecimal price, BigDecimal price2,
-							  String url, Long liveGoodsId, Long auditId, String auditStatus, Long storeId,
-							  Long goodsId, Long skuId) implements MarkerResult {
+public record CommodityResult(
+	String goodsImage,
+	String name,
+	Integer priceType,
+	BigDecimal price,
+	BigDecimal price2,
+	String url,
+	Long liveGoodsId,
+	Long auditId,
+	String auditStatus,
+	Long storeId,
+	Long goodsId,
+	Long skuId) implements MarkerResult {
 
 }

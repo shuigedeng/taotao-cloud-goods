@@ -30,7 +30,8 @@ import java.util.List;
  */
 @RecordBuilder
 @Schema(description = "商品CO")
-public record GoodsSkuParamsResult(@Schema(description = "分类名称") List<String> categoryName,
+public record GoodsSkuParamsResult(
+	@Schema(description = "分类名称") List<String> categoryName,
 								   @Schema(description = "商品图片") List<String> goodsGalleryList,
 								   @Schema(description = "sku列表") List<GoodsSkuSpecGalleryResult> skuList,
 								   @Schema(description = "sku列表")   GoodsResult  goodsResult

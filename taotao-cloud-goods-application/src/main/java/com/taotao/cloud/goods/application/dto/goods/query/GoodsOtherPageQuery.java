@@ -29,7 +29,8 @@ import java.io.Serial;
  * @since 2022-04-25 16:33:15
  */
 @RecordBuilder
-public record GoodsOtherPageQuery(@Schema(description = "商品编号") Long goodsId, PageQuery page,
+public record GoodsOtherPageQuery(
+	@Schema(description = "商品编号") Long goodsId, PageQuery page,
 								  @Schema(description = "商品名称") String goodsName,
 								  @Schema(description = "商品编号") String id,
 								  @Schema(description = "商家ID") Long storeId,

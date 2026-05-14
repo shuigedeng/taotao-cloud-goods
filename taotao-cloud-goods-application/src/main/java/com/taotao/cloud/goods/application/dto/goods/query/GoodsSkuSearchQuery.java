@@ -31,7 +31,8 @@ import org.hibernate.validator.constraints.Length;
  * @since 2022/6/13
  */
 @RecordBuilder
-public record GoodsSkuSearchQuery(String id, String createBy, Date createTime, String updateBy, Date updateTime,
+public record GoodsSkuSearchQuery(
+	String id, String createBy, Date createTime, String updateBy, Date updateTime,
 								  Boolean deleteFlag, @Schema(description = "商品id") String goodsId,
 								  @Schema(description = "规格信息json", hidden = true) @JsonIgnore String specs,
 								  @Schema(description = "规格信息") String simpleSpecs,

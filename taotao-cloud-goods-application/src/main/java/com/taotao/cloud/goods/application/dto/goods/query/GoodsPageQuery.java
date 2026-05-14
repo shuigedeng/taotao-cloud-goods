@@ -31,7 +31,8 @@ import io.swagger.v3.oas.annotations.media.Schema;
  * @since 2022-11-27 19:07
  */
 @RecordBuilder
-public record GoodsPageQuery(@Schema(description = "商品名称") String goodsName, PageQuery page,
+public record GoodsPageQuery(
+	@Schema(description = "商品名称") String goodsName, PageQuery page,
 							 @Schema(description = "商品分类ID") Long categoryId,
 							 @Schema(description = "起始商品价格") BigDecimal startGoodsPrice,
 							 @Schema(description = "终止商品价格") BigDecimal endGoodsPrice,

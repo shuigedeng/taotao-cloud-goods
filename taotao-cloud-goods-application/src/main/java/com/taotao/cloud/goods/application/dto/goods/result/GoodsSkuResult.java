@@ -31,7 +31,8 @@ import java.math.BigDecimal;
  */
 @RecordBuilder
 @Schema(description = "商品sku基础CO")
-public record GoodsSkuResult(Long id, @Schema(description = "商品id") Long goodsId,
+public record GoodsSkuResult(
+	Long id, @Schema(description = "商品id") Long goodsId,
 							 @Schema(description = "规格信息json") String specs,
 							 @Schema(description = "规格信息") String simpleSpecs,
 							 @Schema(description = "配送模版id") Long freightTemplateId,

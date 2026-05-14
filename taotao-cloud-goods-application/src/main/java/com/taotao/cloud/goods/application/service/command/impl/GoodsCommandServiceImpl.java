@@ -16,6 +16,8 @@
 
 package com.taotao.cloud.goods.application.service.command.impl;
 
+import com.taotao.boot.data.datasource.wrapper.TransactionalWrapper;
+import com.taotao.boot.data.mybatis.utils.MybatisUtil;
 import com.taotao.cloud.goods.application.dto.goods.command.SaveGoodsCommand;
 import com.taotao.cloud.goods.common.enums.GoodsAuthEnum;
 import com.taotao.cloud.goods.common.enums.GoodsStatusEnum;
@@ -44,6 +46,8 @@ public class GoodsCommandServiceImpl implements GoodsCommandService {
 //    private final GoodsTagDomainRepository goodsTagDomainRepository;
     private final GoodsDomainRepository goodsDomainRepository;
     private final GoodsAppAssembler goodsAppAssembler;
+	private final TransactionalWrapper txWrapper;
+	private final MybatisUtil mybatisUtil;
 
     @Override
     public boolean underStoreGoods(Long storeId) {

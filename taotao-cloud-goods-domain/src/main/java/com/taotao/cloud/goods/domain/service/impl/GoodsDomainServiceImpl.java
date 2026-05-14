@@ -34,13 +34,5 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class GoodsDomainServiceImpl implements GoodsDomainService {
 
-    private final GoodsDomainRepository deptDomainRepository;
 
-    @Override
-    public void create( GoodsAgg goodsAgg ) {
-    }
-
-    @Override
-    public void remove( Long[] ids ) {
-    }
 }

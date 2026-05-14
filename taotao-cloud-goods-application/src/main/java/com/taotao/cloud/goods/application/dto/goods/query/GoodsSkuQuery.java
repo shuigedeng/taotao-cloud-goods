@@ -10,7 +10,8 @@ import io.soabase.recordbuilder.core.RecordBuilder;
  * @since 2026/1/31
  */
 @RecordBuilder
-public record GoodsSkuQuery(Long goodsId, Long skuId) {
+public record GoodsSkuQuery(
+	Long goodsId, Long skuId) {
 
 
 }

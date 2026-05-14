@@ -11,6 +11,7 @@ import io.soabase.recordbuilder.core.RecordBuilder;
  */
 @RecordBuilder
 public record DisableCommand(
-	Long id, Boolean enableOperations) {
+	Long id,
+	Boolean enableOperations) {
 
 }

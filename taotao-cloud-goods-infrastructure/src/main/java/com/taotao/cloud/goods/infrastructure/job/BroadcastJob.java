@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.infrastructure.task;
+package com.taotao.cloud.goods.infrastructure.job;
 
 import com.taotao.boot.common.utils.log.LogUtils;
 import com.taotao.boot.job.xxl.timetask.EveryHourExecute;
@@ -32,7 +32,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @RequiredArgsConstructor
-public class BroadcastExecute implements EveryHourExecute {
+public class BroadcastJob implements EveryHourExecute {
 
     /**
      * 商品服务

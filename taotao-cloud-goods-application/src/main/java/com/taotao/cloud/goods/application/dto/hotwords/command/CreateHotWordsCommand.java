@@ -18,19 +18,18 @@ package com.taotao.cloud.goods.application.dto.hotwords.command;
 
 import com.taotao.boot.common.model.ddd.types.Command;
 import io.soabase.recordbuilder.core.RecordBuilder;
-import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 
 /**
  * 搜索热词
  */
 @RecordBuilder
 public record CreateHotWordsCommand(
-	@NotBlank(message = "搜索热词不能为空") @Size(max = 20, min = 1, message = "搜索热词长度限制在1-20") String keywords,
-	@NotNull(message = "分数不能为空") @Max(value = 9999999999L, message = "分数不能大于9999999999") @Min(value = -9999999999L, message = "分数不能小于9999999999") Integer point) implements
+	@NotBlank(message = "搜索热词不能为空")
+	@Size(max = 20, min = 1, message = "搜索热词长度限制在1-20") String keywords,
+	@NotNull(message = "分数不能为空")
+	@Max(value = 9999999999L, message = "分数不能大于9999999999")
+	@Min(value = -9999999999L, message = "分数不能小于9999999999") Integer point) implements
 	Command {
 
 }

@@ -24,7 +24,8 @@ import io.swagger.v3.oas.annotations.media.Schema;
  * 商品库存DTO
  */
 @RecordBuilder
-public record UpdateGoodsSkuStockCommand(@Schema(description = "商品skuId") Long skuId,
+public record UpdateGoodsSkuStockCommand(
+	@Schema(description = "商品skuId") Long skuId,
                                          @Schema(description = "库存") Integer quantity) implements Command {
 
 }

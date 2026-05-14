@@ -17,8 +17,10 @@
 package com.taotao.cloud.goods.application.dto.brand.query;
 
 import com.taotao.boot.common.model.ddd.query.PageQuery;
+import com.taotao.boot.common.model.ddd.types.Query;
 import io.soabase.recordbuilder.core.RecordBuilder;
 import io.swagger.v3.oas.annotations.media.Schema;
+
 import java.io.Serial;
 
 /**
@@ -32,7 +34,7 @@ import java.io.Serial;
 @Schema(description = "商品品牌dto")
 public record BrandPageQuery(
 	@Schema(description = "品牌名称") String name,
-	PageQuery page) {
+	@Schema(description = "分页参数") PageQuery page) implements Query {
 
 	@Serial
 	private static final long serialVersionUID = 8906820486037326039L;

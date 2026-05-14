@@ -2,6 +2,8 @@ package com.taotao.cloud.goods.infrastructure.event.consumer.kafka;
 
 import com.taotao.boot.common.utils.log.LogUtils;
 import com.taotao.boot.mq.common.consumer.Acknowledgement;
+import com.taotao.cloud.goods.application.service.command.GoodsCommandService;
+import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory;
@@ -10,10 +12,12 @@ import org.springframework.kafka.listener.ConsumerAwareListenerErrorHandler;
 import org.springframework.kafka.listener.ContainerProperties;
 import org.springframework.kafka.support.KafkaHeaders;
 import org.springframework.messaging.handler.annotation.Header;
-import org.springframework.stereotype.Component;
 
 //@Component
-public class SysKafkaConsumer {
+@AllArgsConstructor
+public class GoodsKafkaConsumer {
+
+	private final GoodsCommandService goodsCommandService;
 
 	@KafkaListener(
 		topics = "xxx",

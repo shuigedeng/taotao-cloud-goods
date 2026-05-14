@@ -13,7 +13,8 @@ import java.util.List;
  * @since 2026/1/31
  */
 @RecordBuilder
-public record FreightCommand(@Schema(description = "商品id") List<Long> goodsId, Long templateId) {
+public record FreightCommand(
+	@Schema(description = "商品id") List<Long> goodsId, Long templateId) {
 
 
 

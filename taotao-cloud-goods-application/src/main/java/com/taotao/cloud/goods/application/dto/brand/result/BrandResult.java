@@ -19,6 +19,7 @@ package com.taotao.cloud.goods.application.dto.brand.result;
 import com.taotao.boot.common.model.ddd.types.MarkerResult;
 import io.soabase.recordbuilder.core.RecordBuilder;
 import io.swagger.v3.oas.annotations.media.Schema;
+
 import java.io.Serial;
 
 /**
@@ -26,8 +27,10 @@ import java.io.Serial;
  */
 @RecordBuilder
 @Schema(description = "品牌CO")
-public record BrandResult(@Schema(description = "id") String id, @Schema(description = "名称") String name,
-						  @Schema(description = "logo") String logo) implements MarkerResult {
+public record BrandResult(
+	@Schema(description = "id") String id,
+	@Schema(description = "名称") String name,
+	@Schema(description = "logo") String logo) implements MarkerResult {
 
 	@Serial
 	private static final long serialVersionUID = 3829199991161122317L;
