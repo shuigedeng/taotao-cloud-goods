@@ -17,12 +17,11 @@
 package com.taotao.cloud.goods.infrastructure.assembler;
 
 import com.taotao.boot.common.model.ddd.types.MarkerAssembler;
-import com.taotao.boot.ddd.model.val.BizId;
 import com.taotao.cloud.goods.domain.aggregate.GoodsAgg;
-import com.taotao.cloud.goods.domain.valobj.GoodsName;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsPO;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingConstants;
+import org.mapstruct.MappingTarget;
 import org.mapstruct.ObjectFactory;
 import org.mapstruct.factory.Mappers;
 
@@ -34,29 +33,22 @@ import org.mapstruct.factory.Mappers;
  * @since 2022-04-27 16:58:21
  */
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
-public interface GoodsInfraAssembler extends MarkerAssembler {
+public interface GoodsInfraAssembler extends BaseInfraAssembler, MarkerAssembler {
 
-    /** 实例 */
-    GoodsInfraAssembler INSTANCE = Mappers.getMapper(GoodsInfraAssembler.class);
-
-    GoodsPO toPo(GoodsAgg goods);
-     GoodsAgg toAgg(GoodsPO goods);
+	GoodsInfraAssembler INSTANCE = Mappers.getMapper(GoodsInfraAssembler.class);
 
 	@ObjectFactory
 	default GoodsAgg createGoodsAgg() {
-		// 调用静态init方法创建对象
 		return GoodsAgg.init();
 	}
 
-	default BizId toBizId(Long id) {
-		return id != null ? BizId.fromNullableValue(id) : null;
-	}
+	GoodsPO toPo( GoodsAgg source );
 
-	default Long map(BizId value) {
-        return value != null ? value.id() : null;
-    }
+	GoodsAgg toAgg( GoodsPO source );
 
-    default String map(GoodsName value) {
-        return value != null ? value.value() : null;
-    }
+	GoodsAgg copyFrom( GoodsAgg source );
+
+	void mergeFromAgg( GoodsAgg source, @MappingTarget GoodsAgg target );
+
+	void mergeFromPo( GoodsPO source, @MappingTarget GoodsAgg target );
 }

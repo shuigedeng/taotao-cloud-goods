@@ -38,23 +38,9 @@ public interface GoodsLabelStoreInfraAssembler extends MarkerAssembler {
     /** 实例 */
     GoodsLabelStoreInfraAssembler INSTANCE = Mappers.getMapper(GoodsLabelStoreInfraAssembler.class);
 
-    /**
-     * 商店商品标签存储货物标签信息签证官
-     *
-     * @param storeGoodsLabel 商店商品标签
-     * @return {@link StoreGoodsLabelInfoVO }
-     * @since 2022-04-27 16:58:17
-     */
     StoreGoodsLabelInfoResult toResult(StoreGoodsLabelPO storeGoodsLabel);
 
-    /**
-     * 商店商品标签dtoto商店商品标签
-     *
-     * @param storeGoodsLabelDTO 商店商品标签dto
-     * @return {@link StoreGoodsLabel }
-     * @since 2022-04-27 16:58:17
-     */
-    StoreGoodsLabelPO toPo( CreateStoreGoodsLabelCommand storeGoodsLabelDTO);
+    StoreGoodsLabelPO toPo( CreateStoreGoodsLabelCommand createStoreGoodsLabelCommand);
 
-    StoreGoodsLabelPO toPo( UpdateStoreGoodsLabelCommand storeGoodsLabelDTO);
+    StoreGoodsLabelPO toPo( UpdateStoreGoodsLabelCommand updateStoreGoodsLabelCommand);
 }

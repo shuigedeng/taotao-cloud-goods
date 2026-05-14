@@ -34,12 +34,5 @@ public interface CustomWordsInfraAssembler extends MarkerAssembler {
     /** 实例 */
     CustomWordsInfraAssembler INSTANCE = Mappers.getMapper(CustomWordsInfraAssembler.class);
 
-    /**
-     * 自定义单词voto自定义单词
-     *
-     * @param customWordsVO 自定义单词签证官
-     * @return {@link CustomWords }
-     * @since 2022-04-27 16:58:09
-     */
     // CustomWords convert(CustomWordsVO customWordsVO);
 }

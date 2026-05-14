@@ -37,12 +37,5 @@ public interface CategoryBrandInfraAssembler extends MarkerAssembler {
     /** 实例 */
     CategoryBrandInfraAssembler INSTANCE = Mappers.getMapper(CategoryBrandInfraAssembler.class);
 
-    /**
-     * 类别基础vos思想史范畴
-     *
-     * @param categorys 思想史范畴
-     * @return {@link List }<{@link CategoryVO }>
-     * @since 2022-04-27 16:58:05
-     */
     List<CategoryBrandResult> toResult(List<CategoryBrandDO> categoryBrandList);
 }

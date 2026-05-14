@@ -17,11 +17,10 @@
 package com.taotao.cloud.goods.infrastructure.assembler;
 
 import com.taotao.boot.common.model.ddd.types.MarkerAssembler;
-import com.taotao.cloud.goods.application.dto.goods.result.GoodsUnitResult;
-import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsUnitPO;
-import org.mapstruct.Mapper;
-import org.mapstruct.MappingConstants;
-import org.mapstruct.factory.Mappers;
+import com.taotao.boot.ddd.model.val.BizId;
+import com.taotao.cloud.goods.domain.valobj.CategoryDesc;
+import com.taotao.cloud.goods.domain.valobj.CategoryName;
+import com.taotao.cloud.goods.domain.valobj.GoodsName;
 
 /**
  * IGoodsSkuMapStruct
@@ -30,11 +29,25 @@ import org.mapstruct.factory.Mappers;
  * @version 2022.04
  * @since 2022-04-27 16:58:21
  */
-@Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
-public interface GoodsUnitInfraAssembler extends MarkerAssembler {
+public interface BaseInfraAssembler extends MarkerAssembler {
 
-    /** 实例 */
-    GoodsUnitInfraAssembler INSTANCE = Mappers.getMapper(GoodsUnitInfraAssembler.class);
+	default BizId toBizId( Long id ) {
+		return id != null ? BizId.fromNullableValue(id) : null;
+	}
 
-    GoodsUnitResult toResult(GoodsUnitPO goodsUnit);
+	default Long toLong( BizId value ) {
+		return value != null ? value.id() : null;
+	}
+
+	default String toString( GoodsName value ) {
+		return value != null ? value.value() : null;
+	}
+
+	default CategoryName toCategoryName( String name ) {
+		return name != null ? CategoryName.of(name) : null;
+	}
+
+	default CategoryDesc toCategoryDesc( String desc ) {
+		return desc != null ? CategoryDesc.of(desc) : null;
+	}
 }

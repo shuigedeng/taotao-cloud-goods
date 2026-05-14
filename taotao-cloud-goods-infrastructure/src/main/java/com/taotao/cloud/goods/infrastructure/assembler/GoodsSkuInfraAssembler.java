@@ -34,13 +34,6 @@ public interface GoodsSkuInfraAssembler extends MarkerAssembler {
     /** 实例 */
     GoodsSkuInfraAssembler INSTANCE = Mappers.getMapper(GoodsSkuInfraAssembler.class);
 
-    /// **
-    // * 产品sku产品sku签证官
-    // *
-    // * @param goodsSku 产品sku
-    // * @return {@link GoodsSkuSpecGalleryVO }
-    // * @since 2022-04-27 16:58:24
-    // */
     // GoodsSkuSpecGalleryVO convertGallery(GoodsSku goodsSku);
     //
     // GoodsSkuVO convert(GoodsSku goodsSku);

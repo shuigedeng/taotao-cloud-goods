@@ -34,26 +34,11 @@ import org.mapstruct.factory.Mappers;
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
 public interface SpecificationInfraAssembler extends MarkerAssembler {
 
-    /** 实例 */
     SpecificationInfraAssembler INSTANCE = Mappers.getMapper(SpecificationInfraAssembler.class);
 
-    /**
-     * 规范来规范vos
-     *
-     * @param specifications 规范
-     * @return {@link List }<{@link SpecificationVO }>
-     * @since 2022-04-27 16:58:30
-     */
     List<SpecificationResult> toResult(List<SpecificationPO> specifications);
 
     SpecificationResult toResult(SpecificationPO specification);
 
-    /**
-     * 规范dtoto规范
-     *
-     * @param specificationDTO 规范dto
-     * @return {@link Specification }
-     * @since 2022-04-27 16:58:30
-     */
     // SpecificationPO convert(SpecificationDTO specificationDTO);
 }

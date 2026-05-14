@@ -38,30 +38,13 @@ import org.mapstruct.factory.Mappers;
  * @since 2022-04-27 16:58:05
  */
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
-public interface CategoryInfraAssembler extends MarkerAssembler {
+public interface CategoryInfraAssembler extends BaseInfraAssembler,MarkerAssembler {
 
-    /** 实例 */
     CategoryInfraAssembler INSTANCE = Mappers.getMapper(CategoryInfraAssembler.class);
 
-    /**
-     * 类别,类别签证官
-     *
-     * @param category 类别
-     * @return {@link CategoryTreeVO }
-     * @since 2022-04-27 16:58:05
-     */
     CategoryTreeResult toResult(CategoryPO category);
 
-    /**
-     * 类别基础vos思想史范畴
-     *
-     * @param categorys 思想史范畴
-     * @return {@link List }<{@link CategoryVO }>
-     * @since 2022-04-27 16:58:05
-     */
     List<CategoryResult> toResult(List<CategoryPO> categoryPos);
-
-	List<Category> toAggs(Iterable<CategoryPO> categoryPos);
 
 	@Mapping(target = "id", source = "id")
 	@Mapping(target = "parentCategoryId", source = "parentId")
@@ -70,18 +53,6 @@ public interface CategoryInfraAssembler extends MarkerAssembler {
 	@Mapping(target = "createTime", source = "createDate")
 	Category toEntity(CategoryPO po);
 
-	default BizId map(Long id) {
-		if (id == null) {
-			return null;
-		}
-		return BizId.fromValue(id);
-	}
+	List<Category> toEntity(List<CategoryPO> categoryPos);
 
-	default CategoryName mapName(String name) {
-		return name != null ? CategoryName.of(name) : null;
-	}
-
-	default CategoryDesc mapDesc(String desc) {
-		return desc != null ? CategoryDesc.of(desc) : null;
-	}
 }

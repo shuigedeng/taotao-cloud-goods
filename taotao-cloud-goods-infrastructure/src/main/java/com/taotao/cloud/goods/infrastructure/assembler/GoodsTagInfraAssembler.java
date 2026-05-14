@@ -29,12 +29,6 @@ import org.mapstruct.MappingConstants;
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
 public interface GoodsTagInfraAssembler extends MarkerAssembler {
 
-    /**
-     * 转换商品标签实体为VO
-     *
-     * @param goodsTag 商品标签实体
-     * @return 商品标签VO
-     */
     // public static GoodsTagVo toGoodsTagVo(GoodsTagAgg goodsTag) {
     //    if (null == goodsTag) {
     //        return null;

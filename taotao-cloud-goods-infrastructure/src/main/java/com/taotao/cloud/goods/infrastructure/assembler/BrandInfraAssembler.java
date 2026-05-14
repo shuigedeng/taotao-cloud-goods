@@ -36,36 +36,13 @@ import org.mapstruct.factory.Mappers;
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
 public interface BrandInfraAssembler extends MarkerAssembler {
 
-    /**
-     * 实例
-     */
     BrandInfraAssembler INSTANCE = Mappers.getMapper(BrandInfraAssembler.class);
 
-    /**
-     * 品牌,品牌签证官
-     *
-     * @param brandPo 品牌
-     * @return {@link BrandResult }
-     * @since 2022-04-27 16:57:56
-     */
     BrandResult toResult(BrandPO brandPo);
 
-    /**
-     * 品牌品牌vos
-     *
-     * @param brandPos 品牌
-     * @return {@link List }<{@link BrandResult }>
-     * @since 2022-04-27 16:57:56
-     */
     List<BrandResult> toResult(List<BrandPO> brandPos);
 
-    /**
-     * 品牌dtoto品牌
-     *
-     * @param brandAddCommand 品牌dto
-     * @return {@link Brand }
-     * @since 2022-04-27 16:57:56
-     */
-    BrandPO toPo( CreateBrandCommand brandAddCommand);
+    BrandPO toPo( CreateBrandCommand createBrandCommand);
+
 	CreateBrandCommand toCommand(BrandPO brandPo);
 }
