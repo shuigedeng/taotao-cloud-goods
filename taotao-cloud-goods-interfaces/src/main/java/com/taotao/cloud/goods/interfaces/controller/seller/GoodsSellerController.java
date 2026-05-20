@@ -22,7 +22,7 @@ import com.taotao.boot.common.model.result.PageResult;
 import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
-import com.taotao.cloud.goods.application.dto.goods.command.FreightCommand;
+import com.taotao.cloud.goods.application.dto.goods.command.FreightGoodsCommand;
 import com.taotao.cloud.goods.application.dto.goods.command.GoodsOperationCommand;
 import com.taotao.cloud.goods.application.dto.goods.command.UpdateGoodsSkuStockCommand;
 import com.taotao.cloud.goods.application.dto.goods.query.GoodsIdQuery;
@@ -183,7 +183,7 @@ public class GoodsSellerController extends BusinessController {
 	@RequestLogger("设置商品运费模板")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/freight")
-	public Result<Void> freight( @RequestBody FreightCommand freightCommand) {
+	public Result<Void> freight( @RequestBody FreightGoodsCommand freightCommand) {
 //		return Result.success(goodsService.freight(goodsId, templateId));
 		return Result.success();
 	}

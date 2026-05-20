@@ -16,6 +16,8 @@
 
 package com.taotao.cloud.goods.application.service.command.impl;
 
+import com.taotao.cloud.goods.application.dto.category.command.CategoryIdBrandCommand;
+import com.taotao.cloud.goods.application.dto.category.command.CategoryIdCommand;
 import com.taotao.cloud.goods.application.service.command.CategoryBrandCommandService;
 import java.util.List;
 
@@ -33,12 +35,12 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class CategoryBrandCommandServiceImpl implements CategoryBrandCommandService {
     @Override
-    public boolean deleteByCategoryId(Long categoryId) {
+    public boolean deleteByCategoryId( CategoryIdCommand categoryIdCommand) {
         return false;
     }
 
     @Override
-    public boolean saveCategoryBrandList(Long categoryId, List<Long> brandIds) {
+    public boolean saveCategoryBrandList( CategoryIdBrandCommand categoryIdBrandCommand) {
         return false;
     }
 

@@ -134,7 +134,7 @@ public class BrandManagerController extends BusinessController {
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/delete-batch")
 	public Result<Void> deleteBatch( @RequestBody IdsCommand idsCommand ) {
-		brandCommandService.deleteBrands(idsCommand.getIds());
+		brandCommandService.deleteBrands(idsCommand);
 		return Result.success();
 	}
 }

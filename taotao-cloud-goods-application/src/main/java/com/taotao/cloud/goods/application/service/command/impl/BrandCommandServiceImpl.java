@@ -16,7 +16,9 @@
 
 package com.taotao.cloud.goods.application.service.command.impl;
 
+import com.taotao.boot.common.model.ddd.command.IdsCommand;
 import com.taotao.cloud.goods.application.dto.brand.command.CreateBrandCommand;
+import com.taotao.cloud.goods.application.dto.brand.command.DisableBrandCommand;
 import com.taotao.cloud.goods.application.dto.brand.command.UpdateBrandCommand;
 import com.taotao.cloud.goods.application.service.command.BrandCommandService;
 import com.taotao.cloud.goods.application.service.command.CategoryBrandCommandService;
@@ -62,7 +64,7 @@ public class BrandCommandServiceImpl implements BrandCommandService {
     private final GoodsQueryService goodsQueryService;
 
     @Override
-    public void deleteBrands(List<Long> ids) {
+    public void deleteBrands( IdsCommand idsCommand) {
     }
 
     @Override
@@ -74,7 +76,7 @@ public class BrandCommandServiceImpl implements BrandCommandService {
     }
 
     @Override
-    public void disableBrand(Long brandId, boolean disable) {
+    public void disableBrand( DisableBrandCommand disableBrandCommand) {
     }
 
     //	@Override

@@ -18,12 +18,13 @@ package com.taotao.cloud.goods.application.service.command.impl;
 
 import com.taotao.boot.data.datasource.wrapper.TransactionalWrapper;
 import com.taotao.boot.data.mybatis.utils.MybatisUtil;
-import com.taotao.cloud.goods.application.dto.goods.command.SaveGoodsCommand;
+import com.taotao.cloud.goods.application.dto.goods.command.*;
+import com.taotao.cloud.goods.application.dto.store.command.StoreIdCommand;
+import com.taotao.cloud.goods.application.dto.store.command.UpdateStoreParamsCommand;
 import com.taotao.cloud.goods.common.enums.GoodsAuthEnum;
 import com.taotao.cloud.goods.common.enums.GoodsStatusEnum;
 import com.taotao.cloud.goods.application.assembler.GoodsAppAssembler;
 import com.taotao.cloud.goods.application.dto.goods.result.GoodsResult;
-import com.taotao.cloud.goods.application.dto.goods.command.CreateGoodsCommand;
 import com.taotao.cloud.goods.application.factory.GoodsFactory;
 import com.taotao.cloud.goods.application.service.command.GoodsCommandService;
 import com.taotao.cloud.goods.domain.aggregate.GoodsAgg;
@@ -50,68 +51,68 @@ public class GoodsCommandServiceImpl implements GoodsCommandService {
 	private final MybatisUtil mybatisUtil;
 
     @Override
-    public boolean underStoreGoods(Long storeId) {
+    public boolean underStoreGoods( StoreIdCommand storeIdCommand) {
         return false;
     }
 
-    @Override
-    public boolean updateGoodsParams(Long goodsId, String params) {
-        return false;
-    }
+	@Override
+	public boolean updateGoodsParams( UpdateStoreParamsCommand updateStoreParamsCommand ) {
+		return false;
+	}
 
-    @Override
+
+	@Override
     public boolean addGoods( SaveGoodsCommand goodsAddCmd) {
         return false;
     }
 
-    @Override
-    public boolean editGoods( SaveGoodsCommand goodsAddCmd, Long goodsId) {
-        return false;
-    }
+	@Override
+	public boolean editGoods( SaveGoodsCommand goodsAddCmd ) {
+		return false;
+	}
 
-    @Override
-    public boolean auditGoods(List<Long> goodsIds, GoodsAuthEnum goodsAuthEnum) {
-        return false;
-    }
+	@Override
+	public boolean auditGoods( AuditGoodsCommand auditGoodsCommand ) {
+		return false;
+	}
 
-    @Override
-    public boolean updateGoodsMarketAble(
-            List<Long> goodsIds, GoodsStatusEnum goodsStatusEnum, String underReason) {
-        return false;
-    }
+	@Override
+	public boolean updateGoodsMarketAble( MarketAbleGoodsCommand marketAbleGoodsCommand ) {
+		return false;
+	}
 
-    @Override
-    public boolean managerUpdateGoodsMarketAble(
-            List<Long> goodsIds, GoodsStatusEnum goodsStatusEnum, String underReason) {
-        return false;
-    }
+	@Override
+	public boolean managerUpdateGoodsMarketAble( MarketAbleGoodsCommand marketAbleGoodsCommand ) {
+		return false;
+	}
 
-    @Override
-    public boolean deleteGoods(List<Long> goodsIds) {
-        return false;
-    }
+	@Override
+	public boolean deleteGoods( GoodsIdsCommand goodsIdsCommand ) {
+		return false;
+	}
 
-    @Override
-    public boolean freight(List<Long> goodsIds, Long templateId) {
-        return false;
-    }
+	@Override
+	public boolean freight( FreightGoodsCommand freightGoodsCommand ) {
+		return false;
+	}
 
-    @Override
-    public boolean updateStock(Long goodsId, Integer quantity) {
-        return false;
-    }
+	@Override
+	public boolean updateStock( UpdateStockGoodsCommand updateStockGoodsCommand ) {
+		return false;
+	}
 
-    @Override
-    public boolean updateGoodsCommentNum(Long goodsId) {
-        return false;
-    }
+	@Override
+	public boolean updateGoodsCommentNum( GoodsIdCommand goodsIdCommand ) {
+		return false;
+	}
 
-    @Override
-    public boolean updateGoodsBuyCount(Long goodsId, int buyCount) {
-        return false;
-    }
+	@Override
+	public boolean UpdateGoodsBuyCountCommand( UpdateGoodsBuyCountCommand updateGoodsBuyCountCommand ) {
+		return false;
+	}
 
-    @Override
+
+	@Override
     public GoodsResult createGoods( CreateGoodsCommand goodsCreateCommand) {
         // 创建商品实体
         GoodsAgg goods = GoodsFactory.createGoods(goodsCreateCommand);
@@ -125,7 +126,17 @@ public class GoodsCommandServiceImpl implements GoodsCommandService {
         return goodsAppAssembler.toResult(goods);
     }
 
-    // private final GoodsManager goodsManager;
+	@Override
+	public void handleKafkaNotify( NotifyGoodsCommand notifyGoodsCommand ) {
+
+	}
+
+	@Override
+	public void scheduleAutoCreateGoods( ScheduleAutoCreateGoodsCommand scheduleAutoCreateGoodsCommand ) {
+
+	}
+
+	// private final GoodsManager goodsManager;
     //
     /// **
     // * 分类

@@ -65,13 +65,6 @@ public interface GoodsQueryService extends QueryService {
     //    List<GoodsPO> queryListByParams(GoodsPageQry goodsPageQry);
 
     /**
-     * 批量更新商品的店铺信息
-     *
-     * @param store
-     */
-    // boolean updateStoreDetail(Store store);
-
-    /**
      * 统计店铺的商品数量
      *
      * @param storeId 店铺id

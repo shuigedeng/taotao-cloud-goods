@@ -17,11 +17,13 @@
 package com.taotao.cloud.goods.application.service.command;
 
 import com.taotao.boot.ddd.model.application.service.CommandService;
-import com.taotao.cloud.goods.application.dto.goods.command.SaveGoodsCommand;
+import com.taotao.cloud.goods.application.dto.goods.command.*;
+import com.taotao.cloud.goods.application.dto.store.command.StoreIdCommand;
+import com.taotao.cloud.goods.application.dto.store.command.UpdateStoreParamsCommand;
 import com.taotao.cloud.goods.common.enums.GoodsAuthEnum;
 import com.taotao.cloud.goods.common.enums.GoodsStatusEnum;
 import com.taotao.cloud.goods.application.dto.goods.result.GoodsResult;
-import com.taotao.cloud.goods.application.dto.goods.command.CreateGoodsCommand;
+
 import java.util.List;
 
 /**
@@ -36,21 +38,20 @@ public interface GoodsCommandService extends CommandService {
     /**
      * 下架所有商家商品
      *
-     * @param storeId 店铺ID
+     * @param storeIdCommand 店铺ID
      * @return {@link boolean }
      * @since 2022-04-27 17:00:15
      */
-    boolean underStoreGoods(Long storeId);
+    boolean underStoreGoods( StoreIdCommand storeIdCommand);
 
     /**
      * 更新商品参数
      *
-     * @param goodsId 商品id
-     * @param params  商品参数
+     * @param updateStoreParamsCommand 商品id
      * @return {@link boolean }
      * @since 2022-04-27 17:00:15
      */
-    boolean updateGoodsParams(Long goodsId, String params);
+    boolean updateGoodsParams( UpdateStoreParamsCommand updateStoreParamsCommand);
 
     /**
      * 添加商品
@@ -65,97 +66,91 @@ public interface GoodsCommandService extends CommandService {
      * 修改商品
      *
      * @param goodsAddCmd 商品查询条件
-     * @param goodsId     商品ID
      * @return {@link boolean }
      * @since 2022-04-27 17:00:15
      */
-    boolean editGoods( SaveGoodsCommand goodsAddCmd, Long goodsId);
+    boolean editGoods( SaveGoodsCommand goodsAddCmd);
 
     /**
      * 批量审核商品
      *
-     * @param goodsIds      商品id列表
-     * @param goodsAuthEnum 审核操作
+     * @param auditGoodsCommand      商品id列表
      * @return {@link boolean }
      * @since 2022-04-27 17:00:16
      */
-    boolean auditGoods(List<Long> goodsIds, GoodsAuthEnum goodsAuthEnum);
+    boolean auditGoods( AuditGoodsCommand auditGoodsCommand );
 
     /**
      * 更新商品上架状态状态
      *
-     * @param goodsIds        商品ID集合
-     * @param goodsStatusEnum 更新的商品状态
-     * @param underReason     下架原因
+     * @param marketAbleGoodsCommand 更新的商品状态
      * @return {@link boolean }
      * @since 2022-04-27 17:00:16
      */
-    boolean updateGoodsMarketAble(
-            List<Long> goodsIds, GoodsStatusEnum goodsStatusEnum, String underReason);
+    boolean updateGoodsMarketAble( MarketAbleGoodsCommand marketAbleGoodsCommand );
 
     /**
      * 更新商品上架状态状态
      *
-     * @param goodsIds        商品ID集合
-     * @param goodsStatusEnum 更新的商品状态
-     * @param underReason     下架原因
+     * @param marketAbleGoodsCommand        商品ID集合
      * @return {@link boolean }
      * @since 2022-04-27 17:00:16
      */
-    boolean managerUpdateGoodsMarketAble(
-            List<Long> goodsIds, GoodsStatusEnum goodsStatusEnum, String underReason);
+    boolean managerUpdateGoodsMarketAble(MarketAbleGoodsCommand marketAbleGoodsCommand );
 
     /**
      * 删除商品
      *
-     * @param goodsIds 商品ID
+     * @param goodsIdsCommand 商品ID
      * @return {@link boolean }
      * @since 2022-04-27 17:00:16
      */
-    boolean deleteGoods(List<Long> goodsIds);
+    boolean deleteGoods(GoodsIdsCommand goodsIdsCommand);
 
     /**
      * 设置商品运费模板
      *
-     * @param goodsIds   商品列表
-     * @param templateId 运费模板ID
+     * @param freightGoodsCommand   商品列表
      * @return {@link boolean }
      * @since 2022-04-27 17:00:16
      */
-    boolean freight(List<Long> goodsIds, Long templateId);
+    boolean freight(FreightGoodsCommand freightGoodsCommand);
 
     /**
      * 修改商品库存数量
      *
-     * @param goodsId  商品ID
-     * @param quantity 库存数量
+     * @param updateStockGoodsCommand  商品ID
      * @return {@link boolean }
      * @since 2022-04-27 17:00:16
      */
-    boolean updateStock(Long goodsId, Integer quantity);
+    boolean updateStock(UpdateStockGoodsCommand updateStockGoodsCommand);
 
     /**
      * 更新商品评价数量
      *
-     * @param goodsId 商品ID
+     * @param goodsIdCommand 商品ID
      * @return {@link boolean }
      * @since 2022-04-27 17:00:16
      */
-    boolean updateGoodsCommentNum(Long goodsId);
+    boolean updateGoodsCommentNum(GoodsIdCommand goodsIdCommand);
 
     /**
      * 更新商品的购买数量
      *
-     * @param goodsId  商品ID
-     * @param buyCount 购买数量
+     * @param updateGoodsBuyCountCommand  商品ID
      * @return {@link boolean }
      * @since 2022-04-27 17:00:16
      */
-    boolean updateGoodsBuyCount(Long goodsId, int buyCount);
+    boolean UpdateGoodsBuyCountCommand(UpdateGoodsBuyCountCommand updateGoodsBuyCountCommand);
 
     GoodsResult createGoods( CreateGoodsCommand goodsCreateCommand);
 
-    /**
+    void handleKafkaNotify( NotifyGoodsCommand notifyGoodsCommand );
+
+	void scheduleAutoCreateGoods( ScheduleAutoCreateGoodsCommand scheduleAutoCreateGoodsCommand );
+
+
+	/**
      * 批量更新商品的店铺信息
      *
      * @param store

@@ -1,8 +1,14 @@
 package com.taotao.cloud.goods.infrastructure.event.consumer.kafka;
 
+import cn.hutool.core.util.StrUtil;
+import com.alibaba.fastjson2.JSON;
 import com.taotao.boot.common.utils.log.LogUtils;
+import com.taotao.boot.mq.common.base.MqConsumerBase;
 import com.taotao.boot.mq.common.consumer.Acknowledgement;
+import com.taotao.cloud.goods.application.dto.goods.command.NotifyGoodsCommand;
 import com.taotao.cloud.goods.application.service.command.GoodsCommandService;
+import com.xxl.job.core.context.XxlJobContext;
+import com.xxl.job.core.context.XxlJobHelper;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.kafka.annotation.KafkaListener;
@@ -15,7 +21,7 @@ import org.springframework.messaging.handler.annotation.Header;
 
 //@Component
 @AllArgsConstructor
-public class GoodsKafkaConsumer {
+public class GoodsKafkaConsumer extends MqConsumerBase {
 
 	private final GoodsCommandService goodsCommandService;
 
@@ -31,6 +37,10 @@ public class GoodsKafkaConsumer {
 		Acknowledgement ack ) {
 
 		try {
+			NotifyGoodsCommand notifyGoodsCommand = from(msg, NotifyGoodsCommand.class);
+
+			goodsCommandService.handleKafkaNotify(notifyGoodsCommand);
+
 			//手动确认
 			ack.acknowledge();
 		} catch (Exception e) {
@@ -55,4 +65,5 @@ public class GoodsKafkaConsumer {
 			return null;
 		};
 	}
+
 }

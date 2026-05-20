@@ -32,10 +32,10 @@ public interface CategoryCommandService extends CommandService {
     /**
      * 添加商品分类
      *
-     * @param category 商品分类信息
+     * @param createCategoryCommand 商品分类信息
      * @return 添加结果
      */
-    boolean saveCategory( CreateCategoryCommand category);
+    boolean saveCategory( CreateCategoryCommand createCategoryCommand);
 
     /**
      * 修改商品分类

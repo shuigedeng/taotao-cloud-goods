@@ -14,29 +14,25 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.infrastructure.event.listener;
+package com.taotao.cloud.goods.application.dto.store.command;
 
-import com.taotao.cloud.goods.application.service.command.GoodsCommandService;
-import lombok.AllArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Component;
+import com.taotao.boot.common.model.ddd.types.Command;
+import io.soabase.recordbuilder.core.RecordBuilder;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.io.Serial;
 
 /**
- * AuthChangeEventListener
+ * StoreGoodsLabelCO
  *
  * @author shuigedeng
- * @version 2026.04
- * @since 2025-12-19 09:30:45
+ * @version 2022.04
+ * @since 2022-04-14 21:52:23
  */
-@AllArgsConstructor
-@Slf4j
-@Component
-public class AuthChangeSpringEventListener {
+@RecordBuilder
+public record UpdateStoreParamsCommand(@Schema(description = "店铺商品分类名称") Long goodsId,
+                                       @Schema(description = "层级, 从0开始") String params)implements Command {
 
-	private final GoodsCommandService goodsCommandService;
+	@Serial
+	private static final long serialVersionUID = -7605952923416404638L;
 
-//	@EventListener(AuthChangeEvent.class)
-//	public void handleAuthChangeEvent( AuthChangeEvent authChangeEvent ){
-//		log.info("接受到AuthChangeEvent:{}", authChangeEvent);
-//	}
 }

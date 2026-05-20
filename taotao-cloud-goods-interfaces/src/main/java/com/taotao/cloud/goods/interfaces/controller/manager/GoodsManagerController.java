@@ -142,8 +142,8 @@ public class GoodsManagerController extends BusinessController {
 	@RequestLogger("管理员上架商品")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/up")
-	public Result<Void> unpGoods( @RequestBody IdsCommand idsCommand ) {
-		goodsCommandService.updateGoodsMarketAble(idsCommand.getIds(), GoodsStatusEnum.UPPER, "");
+	public Result<Void> unpGoods( @RequestBody MarketAbleGoodsCommand marketAbleGoodsCommand ) {
+		goodsCommandService.updateGoodsMarketAble(marketAbleGoodsCommand);
 		return Result.success();
 	}
 

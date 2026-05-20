@@ -17,6 +17,9 @@
 package com.taotao.cloud.goods.application.service.command;
 
 import com.taotao.boot.ddd.model.application.service.CommandService;
+import com.taotao.cloud.goods.application.dto.category.command.CategoryIdBrandCommand;
+import com.taotao.cloud.goods.application.dto.category.command.CategoryIdCommand;
+
 import java.util.List;
 
 /**
@@ -31,19 +34,18 @@ public interface CategoryBrandCommandService extends CommandService {
     /**
      * 通过分类ID删除关联品牌
      *
-     * @param categoryId 品牌ID
+     * @param categoryIdCommand 品牌ID
      * @return {@link boolean }
      * @since 2022-04-27 16:59:19
      */
-    boolean deleteByCategoryId(Long categoryId);
+    boolean deleteByCategoryId( CategoryIdCommand categoryIdCommand);
 
     /**
      * 保存分类品牌关系
      *
-     * @param categoryId 分类id
-     * @param brandIds   品牌ids
+     * @param categoryIdBrandCommand 分类id
      * @return {@link boolean }
      * @since 2022-04-27 16:59:19
      */
-    boolean saveCategoryBrandList(Long categoryId, List<Long> brandIds);
+    boolean saveCategoryBrandList( CategoryIdBrandCommand categoryIdBrandCommand );
 }

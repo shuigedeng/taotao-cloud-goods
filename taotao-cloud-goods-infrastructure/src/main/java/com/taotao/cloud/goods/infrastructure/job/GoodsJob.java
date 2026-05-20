@@ -17,7 +17,10 @@
 package com.taotao.cloud.goods.infrastructure.job;
 
 import com.taotao.boot.common.utils.log.LogUtils;
+import com.taotao.boot.job.xxl.base.XxlJobBase;
 import com.taotao.boot.job.xxl.executor.annotation.XxlRegister;
+import com.taotao.cloud.goods.application.dto.goods.command.ScheduleAutoCreateGoodsCommand;
+import com.taotao.cloud.goods.application.service.command.GoodsCommandService;
 import com.xxl.job.core.context.XxlJobHelper;
 import com.xxl.job.core.handler.annotation.XxlJob;
 import com.xxl.tool.response.Response;
@@ -42,13 +45,17 @@ import java.util.concurrent.TimeUnit;
  */
 @Component
 @RequiredArgsConstructor
-public class GoodsJob {
+public class GoodsJob    extends XxlJobBase {
+
+	private final GoodsCommandService goodsCommandService;
 
     @XxlJob("ThrowJobHandler")
-    public Response<String> throwJobHandler() throws Exception {
+    public Response<String> throwJobHandler(String params) throws Exception {
         XxlJobHelper.log("XXL-JOB, throwwwwwwwwwwwwww");
 
-        LogUtils.info("=============xxljob throwwwwwwwwwwwwwwwwwwwwwwwwww");
+		ScheduleAutoCreateGoodsCommand scheduleAutoCreateGoodsCommand = from(params, ScheduleAutoCreateGoodsCommand.class);
+
+		goodsCommandService.scheduleAutoCreateGoods(scheduleAutoCreateGoodsCommand);
 
         throw new Exception("XXL-JOB, throwwwwwwwwwwwwww");
     }

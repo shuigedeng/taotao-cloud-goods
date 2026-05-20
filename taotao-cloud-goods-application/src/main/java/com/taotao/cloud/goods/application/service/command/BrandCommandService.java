@@ -16,8 +16,10 @@
 
 package com.taotao.cloud.goods.application.service.command;
 
+import com.taotao.boot.common.model.ddd.command.IdsCommand;
 import com.taotao.boot.ddd.model.application.service.CommandService;
 import com.taotao.cloud.goods.application.dto.brand.command.CreateBrandCommand;
+import com.taotao.cloud.goods.application.dto.brand.command.DisableBrandCommand;
 import com.taotao.cloud.goods.application.dto.brand.command.UpdateBrandCommand;
 import java.util.List;
 
@@ -33,29 +35,28 @@ public interface BrandCommandService extends CommandService {
     /**
      * 删除品牌
      *
-     * @param ids 品牌id
+     * @param idsCommand 品牌id
      */
-    void deleteBrands(List<Long> ids);
+    void deleteBrands( IdsCommand idsCommand);
 
     /**
      * 添加品牌
      *
-     * @param brandAddCmd 品牌信息
+     * @param createBrandCommand 品牌信息
 	 */
-    void createBrand( CreateBrandCommand brandAddCmd);
+    void createBrand( CreateBrandCommand createBrandCommand);
 
     /**
      * 更新品牌
      *
-     * @param brandUpdateCmd 品牌信息
+     * @param updateBrandCommand 品牌信息
 	 */
-    void updateBrand( UpdateBrandCommand brandUpdateCmd);
+    void updateBrand( UpdateBrandCommand updateBrandCommand);
 
     /**
      * 更新品牌是否可用
      *
-     * @param brandId 品牌ID
-     * @param disable 是否不可用
+     * @param disableBrandCommand 品牌ID
 	 */
-    void disableBrand(Long brandId, boolean disable);
+    void disableBrand( DisableBrandCommand disableBrandCommand);
 }
