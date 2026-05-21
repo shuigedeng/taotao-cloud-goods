@@ -17,6 +17,7 @@
 package com.taotao.cloud.goods.infrastructure.assembler;
 
 import com.taotao.boot.common.model.ddd.types.MarkerAssembler;
+import com.taotao.cloud.goods.application.dto.goods.result.GoodsResult;
 import com.taotao.cloud.goods.domain.aggregate.GoodsAgg;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsPO;
 import org.mapstruct.Mapper;
@@ -45,6 +46,7 @@ public interface GoodsInfraAssembler extends BaseInfraAssembler, MarkerAssembler
 	GoodsPO toPo( GoodsAgg source );
 
 	GoodsAgg toAgg( GoodsPO source );
+	GoodsResult toResult( GoodsPO source );
 
 	GoodsAgg copyFrom( GoodsAgg source );
 

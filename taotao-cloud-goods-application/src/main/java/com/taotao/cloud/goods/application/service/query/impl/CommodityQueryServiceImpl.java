@@ -34,7 +34,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class CommodityQueryServiceImpl implements CommodityQueryService {
     @Override
-    public boolean getGoodsWareHouse() {
+    public boolean queryGoodsWareHouse() {
         return false;
     }
 

@@ -32,7 +32,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class DraftGoodsQueryServiceImpl implements DraftGoodsQueryService {
     @Override
-    public DraftGoodsSkuParamsResult getDraftGoods(Long id) {
+    public DraftGoodsSkuParamsResult queryDraftGoods(Long id) {
         return null;
     }
 

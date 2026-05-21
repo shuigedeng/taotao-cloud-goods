@@ -35,7 +35,7 @@ public interface StudioQueryService extends QueryService {
      * @return {@link StudioCommodityResult }
      * @since 2022-04-27 17:01:11
      */
-    StudioCommodityResult getStudioVO(Long id);
+    StudioCommodityResult queryStudio(Long id);
 
     /**
      * 获取直播间回放
@@ -44,7 +44,7 @@ public interface StudioQueryService extends QueryService {
      * @return {@link String }
      * @since 2022-04-27 17:01:11
      */
-    String getLiveInfo(Integer roomId);
+    String queryLiveInfo(Integer roomId);
 
     /**
      * 获取直播间列表
@@ -55,6 +55,6 @@ public interface StudioQueryService extends QueryService {
      * @return {@link IPage }<{@link StudioPO }>
      * @since 2022-04-27 17:01:12
      */
-    //    IPage<StudioPO> studioList(PageQuery PageQuery, Integer recommend, String status);
+    //    IPage<StudioPO> queryStudioList(PageQuery PageQuery, Integer recommend, String status);
 
 }

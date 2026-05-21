@@ -30,7 +30,8 @@ import java.io.Serial;
  */
 @RecordBuilder
 @Schema(description = "规格查询参数")
-public record CreateSpecificationCommand(@Schema(description = "名称") String specName) implements Command {
+public record CreateSpecificationCommand(
+	@Schema(description = "名称") String specName) implements Command {
 
 	@Serial
 	private static final long serialVersionUID = 8906820486037326039L;

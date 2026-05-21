@@ -41,7 +41,7 @@ public class CategorySpecificationQueryServiceImpl implements CategorySpecificat
 
 	@Override
 	public List<SpecificationResult> queryByCategoryId( Long categoryId ) {
-		return categorySpecificationQueryRepository.getCategorySpecList(categoryId);
+		return categorySpecificationQueryRepository.queryCategorySpecList(categoryId);
 	}
 
 	//	@Override

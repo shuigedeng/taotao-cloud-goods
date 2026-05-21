@@ -43,7 +43,7 @@ public interface EsGoodsQueryService extends QueryService {
     // * @return {@link List }<{@link String }>
     // * @since 2022-04-27 17:00:07
     // */
-    // List<String> getHotWords(Integer count);
+    // List<String> queryHotWords(Integer count);
     //
     /// **
     // * 设置热门关键词
@@ -70,7 +70,7 @@ public interface EsGoodsQueryService extends QueryService {
     // * @return {@link EsGoodsRelatedInfo }
     // * @since 2022-04-27 17:00:07
     // */
-    // EsGoodsRelatedInfo getSelector(EsGoodsSearchQry esGoodsSearchQry);
+    // EsGoodsRelatedInfo querySelector(EsGoodsSearchQry esGoodsSearchQry);
     //
     /// **
     // * 根据SkuID列表获取ES商品
@@ -79,7 +79,7 @@ public interface EsGoodsQueryService extends QueryService {
     // * @return {@link List }<{@link EsGoodsIndex }>
     // * @since 2022-04-27 17:00:07
     // */
-    // List<EsGoodsIndex> getEsGoodsBySkuIds(List<Long> skuIds);
+    // List<EsGoodsIndex> queryEsGoodsBySkuIds(List<Long> skuIds);
     //
     /// **
     // * 根据id获取商品索引
@@ -88,5 +88,5 @@ public interface EsGoodsQueryService extends QueryService {
     // * @return {@link EsGoodsIndex }
     // * @since 2022-04-27 17:00:07
     // */
-    // EsGoodsIndex getEsGoodsById(Long id);
+    // EsGoodsIndex queryEsGoodsById(Long id);
 }

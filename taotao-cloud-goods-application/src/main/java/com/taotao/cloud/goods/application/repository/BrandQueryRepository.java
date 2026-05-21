@@ -22,8 +22,8 @@ import java.util.List;
 
 public interface BrandQueryRepository {
 
-    BrandResult getById(Long id);
+    BrandResult queryById(Long id);
 
-	List<BrandResult> getAllAvailable();
+	List<BrandResult> queryAllAvailable();
 
 }

@@ -14,22 +14,16 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.common.data.dataparam;
+package com.taotao.cloud.goods.application.repository;
 
-import lombok.*;
+import com.taotao.boot.common.model.result.PageResult;
+import com.taotao.cloud.goods.application.dto.brand.result.BrandResult;
+import com.taotao.cloud.goods.application.dto.goods.query.GoodsPageQuery;
+import com.taotao.cloud.goods.application.dto.goods.result.GoodsResult;
 
-/**
- * GoodsParam
- *
- * @author shuigedeng
- * @version 2026.04
- * @since 2025-12-19 09:30:45
- */
-@Setter
-@Getter
-@ToString
-public class GoodsParam {
+import java.util.List;
 
-    private String name;
-    private String id;
+public interface GoodsQueryRepository {
+
+	PageResult<GoodsResult> queryGoodsPage( GoodsPageQuery goodsPageQuery );
 }

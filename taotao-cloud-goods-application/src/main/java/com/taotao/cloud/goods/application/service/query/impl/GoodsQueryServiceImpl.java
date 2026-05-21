@@ -16,10 +16,16 @@
 
 package com.taotao.cloud.goods.application.service.query.impl;
 
+import com.taotao.boot.common.model.result.PageResult;
+import com.taotao.cloud.goods.application.dto.goods.query.GoodsPageQuery;
+import com.taotao.cloud.goods.application.dto.goods.result.GoodsResult;
 import com.taotao.cloud.goods.application.dto.goods.result.GoodsSkuParamsResult;
+import com.taotao.cloud.goods.application.repository.GoodsQueryRepository;
 import com.taotao.cloud.goods.application.service.query.GoodsQueryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * 商品业务层实现
@@ -31,7 +37,34 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor
 public class GoodsQueryServiceImpl implements GoodsQueryService {
-    //	@Override
+
+	private final GoodsQueryRepository goodsQueryRepository;
+
+	@Override
+	public List<GoodsResult> queryByBrandIds( List<Long> brandIds ) {
+		return List.of();
+	}
+
+	@Override
+	public GoodsSkuParamsResult queryDetail( Long goodsId ) {
+		return null;
+	}
+
+	@Override
+	public PageResult<GoodsResult> queryGoodsPage( GoodsPageQuery goodsPageQuery ) {
+		return goodsQueryRepository.queryGoodsPage(goodsPageQuery);
+	}
+
+	@Override
+	public List<GoodsResult> queryListByParams( GoodsPageQuery goodsPageQuery ) {
+		return List.of();
+	}
+
+	@Override
+	public Long queryCountStoreGoodsNum( Long storeId ) {
+		return 0L;
+	}
+	//	@Override
     //	public List<GoodsPO> getByBrandIds(List<Long> brandIds) {
     //		return List.of();
     //	}
@@ -51,15 +84,6 @@ public class GoodsQueryServiceImpl implements GoodsQueryService {
     //		return List.of();
     //	}
 
-    @Override
-    public GoodsSkuParamsResult queryDetail(Long goodsId) {
-        return null;
-    }
-
-    @Override
-    public Long queryCountStoreGoodsNum(Long storeId) {
-        return 0L;
-    }
     // private final GoodsManager goodsManager;
     //
     /// **

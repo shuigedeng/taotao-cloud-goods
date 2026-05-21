@@ -36,7 +36,7 @@ public interface StoreGoodsLabelQueryService extends QueryService {
      * @param storeId 商家ID
      * @return 店铺分类列表
      */
-    List<StoreGoodsLabelResult> listByStoreId(Long storeId);
+    List<StoreGoodsLabelResult> queryByStoreId(Long storeId);
 
     /**
      * 根据分类id集合获取所有店铺分类根据层级排序
@@ -44,7 +44,7 @@ public interface StoreGoodsLabelQueryService extends QueryService {
      * @param ids 商家ID
      * @return 店铺分类列表
      */
-    //	List<StoreGoodsLabelPO> listByStoreIds(List<Long> ids);
+    //	List<StoreGoodsLabelPO> queryByStoreIds(List<Long> ids);
 
     /**
      * 根据分类id集合获取所有店铺分类根据层级排序
@@ -52,5 +52,5 @@ public interface StoreGoodsLabelQueryService extends QueryService {
      * @param ids 商家ID
      * @return 店铺分类列表
      */
-    List<Map<String, Object>> listMapsByStoreIds(List<Long> ids, String columns);
+    List<Map<String, Object>> queryMapsByStoreIds(List<Long> ids, String columns);
 }

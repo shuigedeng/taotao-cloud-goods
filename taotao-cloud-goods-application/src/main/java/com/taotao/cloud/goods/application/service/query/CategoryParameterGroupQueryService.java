@@ -36,7 +36,7 @@ public interface CategoryParameterGroupQueryService extends QueryService {
      * @return {@link List }<{@link ParameterGroupResult }>
      * @since 2022-04-27 16:59:23
      */
-    List<ParameterGroupResult> getCategoryParams(Long categoryId);
+    List<ParameterGroupResult> queryCategoryParams(Long categoryId);
 
     /**
      * 查询分类绑定参数组信息

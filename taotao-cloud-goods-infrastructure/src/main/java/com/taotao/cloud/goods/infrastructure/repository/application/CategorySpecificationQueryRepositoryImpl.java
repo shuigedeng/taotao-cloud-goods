@@ -25,7 +25,7 @@ public class CategorySpecificationQueryRepositoryImpl implements CategorySpecifi
 	private final SpecificationInfraAssembler specificationInfraAssembler;
 
 	@Override
-	public List<SpecificationResult> getCategorySpecList( Long categoryId ) {
+	public List<SpecificationResult> queryCategorySpecList( Long categoryId ) {
 
 		List<SpecificationPO> categorySpecificationPO = categorySpecificationMapper.selectCategorySpec(categoryId);
 

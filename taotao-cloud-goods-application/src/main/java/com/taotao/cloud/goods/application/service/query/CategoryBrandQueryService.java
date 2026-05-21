@@ -46,5 +46,5 @@ public interface CategoryBrandQueryService extends QueryService {
      * @return {@link List }<{@link CategoryBrandPO }>
      * @since 2022-04-27 16:59:19
      */
-    //	List<CategoryBrandPO> getCategoryBrandListByBrandId(List<Long> brandId);
+    //	List<CategoryBrandPO> queryCategoryBrandListByBrandId(List<Long> brandId);
 }

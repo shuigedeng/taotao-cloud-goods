@@ -48,9 +48,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/buyer/goods/category")
 public class CategoryBuyerController extends BusinessController {
 
-    /**
-     * 商品分类
-     */
     private final CategoryCommandService categoryCommandService;
 
     private final CategoryQueryService categoryQueryService;

@@ -25,7 +25,8 @@ import java.io.Serial;
  * 商品参数
  */
 @RecordBuilder
-public record StoreIdCommand(@Schema(description = "参数名称") Long storeId) implements Command {
+public record StoreIdCommand(
+	@Schema(description = "参数名称") Long storeId) implements Command {
 
 	@Serial
 	private static final long serialVersionUID = 724427321881170297L;

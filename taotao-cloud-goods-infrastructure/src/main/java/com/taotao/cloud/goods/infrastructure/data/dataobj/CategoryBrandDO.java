@@ -14,15 +14,23 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.common.data.dataobj;
+package com.taotao.cloud.goods.infrastructure.data.dataobj;
+
+import lombok.*;
 
 /**
- * GoodsDO
+ * CategoryBrandDO
  *
  * @author shuigedeng
  * @version 2026.04
  * @since 2025-12-19 09:30:45
  */
-public class GoodsDO {
+@Setter
+@Getter
+@ToString
+public class CategoryBrandDO {
 
+    private Long id;
+    private String name;
+    private String logo;
 }

@@ -45,9 +45,22 @@ import io.soabase.recordbuilder.core.RecordBuilder;
  * @param status 直播间状态
  */
 @RecordBuilder
-public record StudioResult(String name, String coverImg, String startTime, String endTime, String anchorName,
-						   String anchorWechat, String shareImg, String feedsImg, String mediaUrl, Integer roomId,
-						   String qrCodeUrl, Long storeId, Integer roomGoodsNum, String roomGoodsList,
-						   Boolean recommend, String status) implements MarkerResult {
+public record StudioResult(
+	String name,
+	String coverImg,
+	String startTime,
+	String endTime,
+	String anchorName,
+	String anchorWechat,
+	String shareImg,
+	String feedsImg,
+	String mediaUrl,
+	Integer roomId,
+	String qrCodeUrl,
+	Long storeId,
+	Integer roomGoodsNum,
+	String roomGoodsList,
+	Boolean recommend,
+	String status) implements MarkerResult {
 
 }

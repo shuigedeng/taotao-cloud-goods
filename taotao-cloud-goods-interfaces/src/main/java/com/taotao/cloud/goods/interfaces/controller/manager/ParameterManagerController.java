@@ -45,9 +45,6 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/manager/goods/parameters")
 public class ParameterManagerController extends BusinessController {
 
-	/**
-	 * 参数服务
-	 */
 	private final ParametersQueryService parametersQueryService;
 
 	private final ParametersCommandService parametersCommandService;

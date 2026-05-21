@@ -63,7 +63,7 @@ public class BrandQueryServiceImpl implements BrandQueryService {
 
     @Override
     public BrandResult queryDetail(Long id) {
-        return brandQueryRepository.getById(id);
+        return brandQueryRepository.queryById(id);
     }
 
     //	private final BrandMapper brandMapper;
@@ -112,7 +112,7 @@ public class BrandQueryServiceImpl implements BrandQueryService {
     //
     	@Override
     	public List<BrandResult> queryAllAvailable() {
-			return brandQueryRepository.getAllAvailable();
+			return brandQueryRepository.queryAllAvailable();
 
     	}
     //

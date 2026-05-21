@@ -21,6 +21,7 @@ import com.taotao.boot.common.model.result.PageResult;
 import com.taotao.cloud.goods.application.dto.goods.result.GoodsSkuResult;
 import io.soabase.recordbuilder.core.RecordBuilder;
 import io.swagger.v3.oas.annotations.media.Schema;
+
 import java.io.Serial;
 
 /**
@@ -31,8 +32,9 @@ import java.io.Serial;
  * @since 2022-04-14 21:52:39
  */
 @RecordBuilder
-public record StockWarningResult(@Schema(description = "库存警告数量") Integer stockWarningNum,
-								 @Schema(description = "商品SKU列表") PageResult<GoodsSkuResult> goodsSkuPage)  implements
+public record StockWarningResult(
+	@Schema(description = "库存警告数量") Integer stockWarningNum,
+	@Schema(description = "商品SKU列表") PageResult<GoodsSkuResult> goodsSkuPage) implements
 	MarkerResult {
 
 	@Serial

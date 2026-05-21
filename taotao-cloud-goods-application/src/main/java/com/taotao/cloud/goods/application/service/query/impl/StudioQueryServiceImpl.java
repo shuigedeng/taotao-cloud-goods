@@ -29,17 +29,18 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class StudioQueryServiceImpl implements StudioQueryService {
-    @Override
-    public StudioCommodityResult getStudioVO(Long id) {
-        return null;
-    }
 
-    @Override
-    public String getLiveInfo(Integer roomId) {
-        return "";
-    }
+	@Override
+	public StudioCommodityResult queryStudio( Long id ) {
+		return null;
+	}
 
-    //	@Override
+	@Override
+	public String queryLiveInfo( Integer roomId ) {
+		return "";
+	}
+
+	//	@Override
     //	public IPage<StudioPO> studioList(PageQuery PageQuery, Integer recommend, String status) {
     //		return null;
     //	}

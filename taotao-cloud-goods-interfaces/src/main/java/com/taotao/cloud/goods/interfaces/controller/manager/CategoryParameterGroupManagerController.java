@@ -22,7 +22,7 @@ import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
 import com.taotao.cloud.goods.application.dto.category.command.CategoryParameterGroupCommand;
-import com.taotao.cloud.goods.application.dto.goods.query.CategoryIdQuery;
+import com.taotao.cloud.goods.application.dto.category.query.CategoryIdQuery;
 import com.taotao.cloud.goods.application.dto.parameter.result.ParameterGroupResult;
 import com.taotao.cloud.goods.application.service.command.CategoryParameterGroupCommandService;
 import com.taotao.cloud.goods.application.service.command.ParametersCommandService;
@@ -51,16 +51,10 @@ import java.util.List;
 @RequestMapping("/manager/goods/category/parameters")
 public class CategoryParameterGroupManagerController extends BusinessController {
 
-	/**
-	 * 商品参数组服务
-	 */
 	private final ParametersQueryService parametersQueryService;
 
 	private final ParametersCommandService parametersCommandService;
 
-	/**
-	 * 分类绑定参数组服务
-	 */
 	private final CategoryParameterGroupQueryService categoryParameterGroupQueryService;
 
 	private final CategoryParameterGroupCommandService categoryParameterGroupCommandService;

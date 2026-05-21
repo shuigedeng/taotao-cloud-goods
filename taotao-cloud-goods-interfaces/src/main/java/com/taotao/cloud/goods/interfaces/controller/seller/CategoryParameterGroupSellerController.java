@@ -19,7 +19,7 @@ package com.taotao.cloud.goods.interfaces.controller.seller;
 import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
-import com.taotao.cloud.goods.application.dto.goods.query.CategoryIdQuery;
+import com.taotao.cloud.goods.application.dto.category.query.CategoryIdQuery;
 import com.taotao.cloud.goods.application.dto.parameter.result.ParameterGroupResult;
 import com.taotao.cloud.goods.application.service.command.CategoryParameterGroupCommandService;
 import com.taotao.cloud.goods.application.service.query.CategoryParameterGroupQueryService;
@@ -47,7 +47,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/seller/goods/category/parameters")
 public class CategoryParameterGroupSellerController extends BusinessController {
 
-    /** 分类参数组服务 */
     private final CategoryParameterGroupQueryService categoryParameterGroupQueryService;
 
     private final CategoryParameterGroupCommandService categoryParameterGroupCommandService;
@@ -57,6 +56,6 @@ public class CategoryParameterGroupSellerController extends BusinessController {
     @PreAuthorize("hasAuthority('dept:tree:data')")
     @GetMapping(value = "/query/category-id")
     public Result<List<ParameterGroupResult>> queryByCategoryId( CategoryIdQuery categoryIdQuery) {
-        return Result.success(categoryParameterGroupQueryService.getCategoryParams(categoryIdQuery.categoryId()));
+        return Result.success(categoryParameterGroupQueryService.queryCategoryParams(categoryIdQuery.categoryId()));
     }
 }

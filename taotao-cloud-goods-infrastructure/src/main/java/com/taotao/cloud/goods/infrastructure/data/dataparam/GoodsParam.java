@@ -14,25 +14,22 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.application.dto.parameter.result;
+package com.taotao.cloud.goods.infrastructure.data.dataparam;
 
-import com.taotao.boot.common.model.ddd.types.MarkerResult;
-import io.soabase.recordbuilder.core.RecordBuilder;
-import io.swagger.v3.oas.annotations.media.Schema;
-
-import java.io.Serial;
-import java.util.List;
+import lombok.*;
 
 /**
- * 参数组vo
+ * GoodsParam
+ *
+ * @author shuigedeng
+ * @version 2026.04
+ * @since 2025-12-19 09:30:45
  */
-@RecordBuilder
-public record ParameterGroupResult(
-	@Schema(description = "参数组关联的参数集合") List<ParametersResult> params,
-	@Schema(description = "参数组名称") String groupName,
-	@Schema(description = "参数组id") Long groupId) implements MarkerResult {
+@Setter
+@Getter
+@ToString
+public class GoodsParam {
 
-	@Serial
-	private static final long serialVersionUID = 724427321881170297L;
-
+    private String name;
+    private String id;
 }

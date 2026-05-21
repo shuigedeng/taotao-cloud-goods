@@ -50,9 +50,6 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/seller/goods/draft/goods")
 public class DraftGoodsSellerController extends BusinessController {
 
-	/**
-	 * 草稿商品服务
-	 */
 	private final DraftGoodsQueryService draftGoodsQueryService;
 
 	private final DraftGoodsCommandService draftGoodsCommandService;

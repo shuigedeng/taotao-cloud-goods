@@ -59,16 +59,10 @@ import java.util.List;
 @RequestMapping("/seller/goods")
 public class GoodsSellerController extends BusinessController {
 
-	/**
-	 * 商品
-	 */
 	private final GoodsQueryService goodsQueryService;
 
 	private final GoodsCommandService goodsCommandService;
 
-	/**
-	 * 商品sku
-	 */
 	private final GoodsSkuQueryService goodsSkuQueryService;
 
 	private final GoodsSkuCommandService goodsSkuCommandService;

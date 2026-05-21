@@ -19,6 +19,7 @@ package com.taotao.cloud.goods.application.dto.specification.query;
 import com.taotao.boot.common.model.ddd.types.Query;
 import io.soabase.recordbuilder.core.RecordBuilder;
 import io.swagger.v3.oas.annotations.media.Schema;
+
 import java.io.Serial;
 
 /**
@@ -26,9 +27,10 @@ import java.io.Serial;
  */
 @RecordBuilder
 @Schema(description = "参数组关联的参数集合")
-public record SpecificationSearchQuery(@Schema(description = "规格名称") String specName,
-									   @Schema(description = "所属卖家 0属于平台") Long storeId,
-									   @Schema(description = "规格值名字, 《,》分割") String specValue) implements Query {
+public record SpecificationSearchQuery(
+	@Schema(description = "规格名称") String specName,
+	@Schema(description = "所属卖家 0属于平台") Long storeId,
+	@Schema(description = "规格值名字, 《,》分割") String specValue) implements Query {
 
 	@Serial
 	private static final long serialVersionUID = -4433579132929428572L;

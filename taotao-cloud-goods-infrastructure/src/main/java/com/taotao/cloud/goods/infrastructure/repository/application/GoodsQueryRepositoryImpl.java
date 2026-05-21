@@ -17,21 +17,29 @@
 package com.taotao.cloud.goods.infrastructure.repository.application;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.taotao.cloud.goods.application.acl.service.SysAclService;
-import com.taotao.cloud.goods.application.dto.brand.result.BrandResult;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.taotao.boot.common.model.result.PageResult;
+import com.taotao.boot.data.mybatis.mybatisplus.MpUtils;
 import com.taotao.cloud.goods.application.acl.dto.sys.req.DictReq;
 import com.taotao.cloud.goods.application.acl.dto.sys.res.DictRes;
+import com.taotao.cloud.goods.application.acl.service.SysAclService;
+import com.taotao.cloud.goods.application.dto.brand.result.BrandResult;
+import com.taotao.cloud.goods.application.dto.goods.query.GoodsPageQuery;
+import com.taotao.cloud.goods.application.dto.goods.result.GoodsResult;
 import com.taotao.cloud.goods.application.repository.BrandQueryRepository;
+import com.taotao.cloud.goods.application.repository.GoodsQueryRepository;
 import com.taotao.cloud.goods.infrastructure.assembler.BrandInfraAssembler;
+import com.taotao.cloud.goods.infrastructure.assembler.GoodsInfraAssembler;
 import com.taotao.cloud.goods.infrastructure.persistent.mapper.BrandMapper;
+import com.taotao.cloud.goods.infrastructure.persistent.mapper.GoodsMapper;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.BrandPO;
+import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsPO;
 import com.taotao.cloud.goods.infrastructure.persistent.repository.BrandRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
 
 /**
  * BrandQueryRepositoryImpl
@@ -42,31 +50,14 @@ import org.springframework.stereotype.Service;
  */
 @Service
 @RequiredArgsConstructor
-public class BrandQueryRepositoryImpl implements BrandQueryRepository {
+public class GoodsQueryRepositoryImpl implements GoodsQueryRepository {
 
-    private final BrandMapper brandMapper;
-    private final SysAclService sysAclService;
-    private final BrandRepository brandRepository;
-    private final BrandInfraAssembler brandInfraAssembler;
-
-    @Override
-    public BrandResult queryById( Long id ) {
-//        BrandPO brandPO = brandMapper.selectById(id);
-
-        DictRes dictRes = sysAclService.findByCode(DictReq.builder().code("123").build());
-
-        Optional<BrandPO> brandPOOptional = brandRepository.findById(id);
-
-        brandRepository.test();
-
-        return brandInfraAssembler.toResult(brandMapper.selectById(id));
-    }
+    private final GoodsMapper goodsMapper;
+    private final GoodsInfraAssembler goodsInfraAssembler;
 
 	@Override
-	public List<BrandResult> queryAllAvailable() {
-		LambdaQueryWrapper<BrandPO> lambdaQueryWrapper = new LambdaQueryWrapper<>();
-		lambdaQueryWrapper.eq(BrandPO::getDelFlag, 0);
-		List<BrandPO> brandPos = brandMapper.selectList(lambdaQueryWrapper);
-		return brandInfraAssembler.toResult(brandPos);
+	public PageResult<GoodsResult> queryGoodsPage( GoodsPageQuery goodsPageQuery ) {
+		IPage<GoodsPO> goodsPoPage = goodsMapper.selectPage(MpUtils.buildMpPage(goodsPageQuery.page()), null);
+		return MpUtils.convertMybatisPage(goodsPoPage, goodsInfraAssembler::toResult);
 	}
 }

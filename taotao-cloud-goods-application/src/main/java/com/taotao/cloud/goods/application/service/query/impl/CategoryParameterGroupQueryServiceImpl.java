@@ -46,7 +46,7 @@ public class CategoryParameterGroupQueryServiceImpl implements CategoryParameter
     private final GoodsCommandService goodsService;
 
     @Override
-    public List<ParameterGroupResult> getCategoryParams(Long categoryId) {
+    public List<ParameterGroupResult> queryCategoryParams(Long categoryId) {
         //// 根据id查询参数组
         // List<CategoryParameterGroupPO> groups = this.getCategoryGroup(categoryId);
         //// 查询参数

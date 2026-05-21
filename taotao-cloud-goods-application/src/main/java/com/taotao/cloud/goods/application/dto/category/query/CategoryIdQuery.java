@@ -1,4 +1,4 @@
-package com.taotao.cloud.goods.application.dto.goods.query;
+package com.taotao.cloud.goods.application.dto.category.query;
 
 import io.soabase.recordbuilder.core.RecordBuilder;
 import io.swagger.v3.oas.annotations.media.Schema;

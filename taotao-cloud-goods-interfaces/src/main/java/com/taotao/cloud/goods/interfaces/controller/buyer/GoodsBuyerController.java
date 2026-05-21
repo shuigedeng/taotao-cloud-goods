@@ -16,15 +16,11 @@
 
 package com.taotao.cloud.goods.interfaces.controller.buyer;
 
-import com.taotao.boot.common.model.ddd.command.IdCommand;
 import com.taotao.boot.common.model.result.PageResult;
 import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
-import com.taotao.cloud.goods.application.dto.goods.query.EsGoodsSearchQuery;
-import com.taotao.cloud.goods.application.dto.goods.query.GoodsOtherPageQuery;
-import com.taotao.cloud.goods.application.dto.goods.query.GoodsSkuQuery;
-import com.taotao.cloud.goods.application.dto.goods.query.HotwordsQuery;
+import com.taotao.cloud.goods.application.dto.goods.query.*;
 import com.taotao.cloud.goods.application.dto.goods.result.EsGoodsRelatedResult;
 import com.taotao.cloud.goods.application.dto.goods.result.EsGoodsResult;
 import com.taotao.cloud.goods.application.dto.goods.result.GoodsResult;
@@ -82,8 +78,8 @@ public class GoodsBuyerController extends BusinessController {
 	@Operation(summary = "通过id获取商品信息", description = "通过id获取商品信息")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query")
-	public Result<GoodsSkuParamsResult> queryByGoodsId( IdCommand idCommand ) {
-		GoodsSkuParamsResult result = goodsQueryService.queryDetail(idCommand.getId());
+	public Result<GoodsSkuParamsResult> queryByGoodsId( Long goodsId) {
+		GoodsSkuParamsResult result = goodsQueryService.queryDetail(goodsId);
 		return Result.success(result);
 	}
 
@@ -132,7 +128,7 @@ public class GoodsBuyerController extends BusinessController {
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping("/query/hotwords")
-	public Result<List<String>> queryHotwords( HotwordsQuery hotwordsQuery ) {
+	public Result<List<String>> queryHotWords( HotWordsQuery hotwordsQuery ) {
 		// List<String> hotWords = esGoodsQueryService.getHotWords(count);
 		return Result.success(new ArrayList<>());
 	}

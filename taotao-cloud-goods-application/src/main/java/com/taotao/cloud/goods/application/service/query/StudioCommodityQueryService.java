@@ -25,4 +25,6 @@ import com.taotao.boot.ddd.model.application.service.QueryService;
  * @version 2022.04
  * @since 2022-04-27 17:01:08
  */
-public interface StudioCommodityQueryService extends QueryService {}
+public interface StudioCommodityQueryService extends QueryService {
+
+}

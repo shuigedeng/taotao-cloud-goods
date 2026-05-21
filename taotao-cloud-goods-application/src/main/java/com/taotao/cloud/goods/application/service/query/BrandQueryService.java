@@ -38,9 +38,9 @@ public interface BrandQueryService extends QueryService {
     //	 * @param page 条件参数
     //	 * @return 品牌列表
     //	 */
-    //	IPage<BrandPO> getBrandsByPage(BrandPageQry page);
+    //	IPage<BrandPO> queryBrandsByPage(BrandPageQry page);
     //
-    //	List<BrandPO> getBrandsByCategorys(Long categoryIds);
+    //	List<BrandPO> queryBrandsByCategorys(Long categoryIds);
     //
     	List<BrandResult> queryAllAvailable();
     //
@@ -51,7 +51,7 @@ public interface BrandQueryService extends QueryService {
     //	 * @param categoryId 分类ID
     //	 * @return 品牌列表
     //	 */
-    //	List<BrandPO> getBrandsByCategory(Long categoryId);
+    //	List<BrandPO> queryBrandsByCategory(Long categoryId);
 
     /**
      * 根据分类ID获取品牌列表

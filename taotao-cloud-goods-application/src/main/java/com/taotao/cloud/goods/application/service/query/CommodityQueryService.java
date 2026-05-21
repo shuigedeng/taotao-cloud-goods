@@ -36,7 +36,7 @@ public interface CommodityQueryService extends QueryService {
      * @return {@link boolean }
      * @since 2022-04-27 16:59:47
      */
-    boolean getGoodsWareHouse();
+    boolean queryGoodsWareHouse();
 
     /**
      * 查看直播商品分页

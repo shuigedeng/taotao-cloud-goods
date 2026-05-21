@@ -53,9 +53,6 @@ import java.util.List;
 @RequestMapping("/seller/goods/label")
 public class GoodsLabelSellerController extends BusinessController {
 
-	/**
-	 * 店铺分类服务
-	 */
 	private final StoreGoodsLabelQueryService storeGoodsLabelQueryService;
 
 	private final StoreGoodsLabelCommandService storeGoodsLabelCommandService;
@@ -66,7 +63,7 @@ public class GoodsLabelSellerController extends BusinessController {
 	@GetMapping("/query/list")
 	public Result<List<StoreGoodsLabelResult>> queryList() {
 		Long storeId = SecurityUtils.getCurrentUser().getStoreId();
-		return Result.success(storeGoodsLabelQueryService.listByStoreId(storeId));
+		return Result.success(storeGoodsLabelQueryService.queryByStoreId(storeId));
 	}
 
 	@Operation(summary = "获取店铺商品分类详情", description = "获取店铺商品分类详情")

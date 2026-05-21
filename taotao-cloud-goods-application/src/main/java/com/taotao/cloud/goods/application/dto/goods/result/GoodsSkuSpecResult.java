@@ -20,6 +20,7 @@ import com.taotao.boot.common.model.ddd.types.MarkerResult;
 import com.taotao.cloud.goods.application.dto.specification.result.SpecValueResult;
 import io.soabase.recordbuilder.core.RecordBuilder;
 import io.swagger.v3.oas.annotations.media.Schema;
+
 import java.util.List;
 
 /**
@@ -28,7 +29,7 @@ import java.util.List;
 @RecordBuilder
 public record GoodsSkuSpecResult(
 	@Schema(description = "商品skuId") Long skuId,
-								 @Schema(description = "商品sku所包含规格") List<SpecValueResult> specValues,
-								 @Schema(description = "库存") Integer quantity) implements MarkerResult {
+	@Schema(description = "商品sku所包含规格") List<SpecValueResult> specValues,
+	@Schema(description = "库存") Integer quantity) implements MarkerResult {
 
 }

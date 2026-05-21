@@ -16,8 +16,13 @@
 
 package com.taotao.cloud.goods.application.service.query;
 
+import com.taotao.boot.common.model.result.PageResult;
 import com.taotao.boot.ddd.model.application.service.QueryService;
+import com.taotao.cloud.goods.application.dto.goods.query.GoodsPageQuery;
+import com.taotao.cloud.goods.application.dto.goods.result.GoodsResult;
 import com.taotao.cloud.goods.application.dto.goods.result.GoodsSkuParamsResult;
+
+import java.util.List;
 
 /**
  * 商品业务层
@@ -28,48 +33,48 @@ import com.taotao.cloud.goods.application.dto.goods.result.GoodsSkuParamsResult;
  */
 public interface GoodsQueryService extends QueryService {
 
-    /**
-     * 根据品牌获取商品
-     *
-     * @param brandIds 品牌ids
-     * @return {@link List }<{@link GoodsPO }>
-     * @since 2022-04-27 17:00:15
-     */
-    //	List<GoodsPO> getByBrandIds(List<Long> brandIds);
+	/**
+	 * 根据品牌获取商品
+	 *
+	 * @param brandIds 品牌ids
+	 * @return {@link List }<{@link GoodsResult }>
+	 * @since 2022-04-27 17:00:15
+	 */
+	List<GoodsResult> queryByBrandIds( List<Long> brandIds );
 
-    /**
-     * 查询商品CO
-     *
-     * @param goodsId 商品id
-     * @return {@link GoodsSkuParamsResult }
-     * @since 2022-04-27 17:00:16
-     */
-    GoodsSkuParamsResult queryDetail(Long goodsId);
+	/**
+	 * 查询商品CO
+	 *
+	 * @param goodsId 商品id
+	 * @return {@link GoodsSkuParamsResult }
+	 * @since 2022-04-27 17:00:16
+	 */
+	GoodsSkuParamsResult queryDetail( Long goodsId );
 
-    //    /**
-    //     * 商品查询
-    //     *
-    //     * @param goodsPageQry 查询参数
-    //     * @return {@link IPage }<{@link GoodsPO }>
-    //     * @since 2022-04-27 17:00:16
-    //     */
-    //    IPage<GoodsPO> goodsQueryPage(GoodsPageQry goodsPageQry);
-    //
-    //    /**
-    //     * 商品查询
-    //     *
-    //     * @param goodsPageQry 查询参数
-    //     * @return {@link List }<{@link GoodsPO }>
-    //     * @since 2022-04-27 17:00:16
-    //     */
-    //    List<GoodsPO> queryListByParams(GoodsPageQry goodsPageQry);
+	/**
+	 * 商品查询
+	 *
+	 * @param goodsPageQuery 查询参数
+	 * @return {@link PageResult }<{@link GoodsResult }>
+	 * @since 2022-04-27 17:00:16
+	 */
+	PageResult<GoodsResult> queryGoodsPage( GoodsPageQuery goodsPageQuery );
 
-    /**
-     * 统计店铺的商品数量
-     *
-     * @param storeId 店铺id
-     * @return {@link Long }
-     * @since 2022-04-27 17:00:16
-     */
-    Long queryCountStoreGoodsNum(Long storeId);
+	/**
+	 * 商品查询
+	 *
+	 * @param goodsPageQuery 查询参数
+	 * @return {@link List }<{@link GoodsResult }>
+	 * @since 2022-04-27 17:00:16
+	 */
+	List<GoodsResult> queryListByParams( GoodsPageQuery goodsPageQuery );
+
+	/**
+	 * 统计店铺的商品数量
+	 *
+	 * @param storeId 店铺id
+	 * @return {@link Long }
+	 * @since 2022-04-27 17:00:16
+	 */
+	Long queryCountStoreGoodsNum( Long storeId );
 }

@@ -38,7 +38,7 @@ import org.springframework.web.bind.annotation.*;
 @Validated
 @RestController
 @Tag(name = "开放平台-阿里回调通知API", description = "开放平台-阿里回调通知API")
-@RequestMapping("/goods/open/alipay")
+@RequestMapping("/open/goods/open/alipay")
 public class AlipayNotifyController extends BusinessController {
 
 	@Operation(summary = "阿里支付状态通知", description = "阿里支付状态通知")

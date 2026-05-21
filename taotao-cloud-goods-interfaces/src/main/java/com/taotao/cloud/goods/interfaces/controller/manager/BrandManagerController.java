@@ -59,9 +59,6 @@ import java.util.List;
 @RequestMapping("/manager/goods/brand")
 public class BrandManagerController extends BusinessController {
 
-	/**
-	 * 品牌
-	 */
 	private final BrandCommandService brandCommandService;
 
 	private final BrandQueryService brandQueryService;

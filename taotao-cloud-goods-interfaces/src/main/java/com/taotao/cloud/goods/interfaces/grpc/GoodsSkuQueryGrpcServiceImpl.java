@@ -16,7 +16,10 @@
 
 package com.taotao.cloud.goods.interfaces.grpc;
 
+import com.taotao.cloud.goods.api.grpc.GoodsSkuGrpcQuery;
+import com.taotao.cloud.goods.api.grpc.GoodsSkuGrpcQueryResponse;
 import com.taotao.cloud.goods.api.grpc.GoodsSkuQueryGrpcServiceGrpc;
+import io.grpc.stub.StreamObserver;
 import lombok.RequiredArgsConstructor;
 import org.springframework.grpc.server.service.GrpcService;
 
@@ -24,5 +27,18 @@ import org.springframework.grpc.server.service.GrpcService;
 @RequiredArgsConstructor
 public class GoodsSkuQueryGrpcServiceImpl extends GoodsSkuQueryGrpcServiceGrpc.GoodsSkuQueryGrpcServiceImplBase {
 
+	@Override
+	public void updateGoodsStuck( GoodsSkuGrpcQuery request,
+		StreamObserver<GoodsSkuGrpcQueryResponse> responseObserver ) {
+	}
 
+	@Override
+	public void updateBatchById( GoodsSkuGrpcQuery request,
+		StreamObserver<GoodsSkuGrpcQueryResponse> responseObserver ) {
+	}
+
+	@Override
+	public void getGoodsSkuByIdFromCache( GoodsSkuGrpcQuery request,
+		StreamObserver<GoodsSkuGrpcQueryResponse> responseObserver ) {
+	}
 }

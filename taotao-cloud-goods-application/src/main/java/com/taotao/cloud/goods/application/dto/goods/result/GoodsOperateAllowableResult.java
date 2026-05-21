@@ -31,8 +31,12 @@ import io.soabase.recordbuilder.core.RecordBuilder;
  * @param allowUpper 是否允许上架
  */
 @RecordBuilder
-public record GoodsOperateAllowableResult(String marketEnable, Boolean deleteFlag, Boolean allowDown,
-										  Boolean allowDelete, Boolean allowReduction, Boolean allowClear,
+public record GoodsOperateAllowableResult(String marketEnable,
+										  Boolean deleteFlag,
+										  Boolean allowDown,
+										  Boolean allowDelete,
+										  Boolean allowReduction,
+										  Boolean allowClear,
 										  Boolean allowUpper) implements MarkerResult {
 
 	//    /**

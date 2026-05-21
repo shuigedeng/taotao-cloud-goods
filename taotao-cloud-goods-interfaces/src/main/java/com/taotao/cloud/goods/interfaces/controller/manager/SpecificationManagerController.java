@@ -51,9 +51,6 @@ import java.util.List;
 @RequestMapping("/manager/goods/spec")
 public class SpecificationManagerController extends BusinessController {
 
-	/**
-	 * 商品规格服务
-	 */
 	private final SpecificationQueryService specificationQueryService;
 
 	private final SpecificationCommandService specificationCommandService;

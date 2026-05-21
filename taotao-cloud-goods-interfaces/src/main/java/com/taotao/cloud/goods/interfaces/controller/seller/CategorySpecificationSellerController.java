@@ -19,7 +19,7 @@ package com.taotao.cloud.goods.interfaces.controller.seller;
 import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
-import com.taotao.cloud.goods.application.dto.goods.query.CategoryIdQuery;
+import com.taotao.cloud.goods.application.dto.category.query.CategoryIdQuery;
 import com.taotao.cloud.goods.application.dto.specification.result.SpecificationResult;
 import com.taotao.cloud.goods.application.service.command.CategorySpecificationCommandService;
 import com.taotao.cloud.goods.application.service.query.CategorySpecificationQueryService;
@@ -48,9 +48,6 @@ import java.util.List;
 @RequestMapping("/seller/goods/category/spec")
 public class CategorySpecificationSellerController extends BusinessController {
 
-	/**
-	 * 商品规格服务
-	 */
 	private final CategorySpecificationQueryService categorySpecificationQueryService;
 
 	private final CategorySpecificationCommandService categorySpecificationCommandService;

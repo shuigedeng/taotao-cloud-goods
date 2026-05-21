@@ -32,7 +32,7 @@ public interface CategoryQueryService extends QueryService {
 
     //	List<CategoryPO> childrenList(Long parentId);
     //
-    //	CategoryPO getCategoryById(Long id);
+    //	CategoryPO queryCategoryById(Long id);
     //
     //	/**
     //	 * 管理端获取所有分类 即获取的对象不管是否删除，都要展示，而且不从缓存获取，保证内容是最新的
@@ -50,7 +50,7 @@ public interface CategoryQueryService extends QueryService {
      * @author shuigedeng
      * @since 2023-12-05 15:19
      */
-    //	CategoryPO getCategoryById(String id);
+    //	CategoryPO queryCategoryById(String id);
     //
     //	/**
     //	 * 根据分类id集合获取所有分类根据层级排序

@@ -54,16 +54,10 @@ import java.util.List;
 @RequestMapping("/manager/goods/category")
 public class CategoryManagerController extends BusinessController {
 
-	/**
-	 * 分类服务
-	 */
 	private final CategoryQueryService categoryQueryService;
 
 	private final CategoryCommandService categoryCommandService;
 
-	/**
-	 * 商品服务
-	 */
 	private final GoodsQueryService goodsQueryService;
 
 	private final GoodsCommandService goodsCommandService;

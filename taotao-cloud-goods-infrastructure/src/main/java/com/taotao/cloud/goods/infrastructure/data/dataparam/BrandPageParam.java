@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.common.data.dataparam;
+package com.taotao.cloud.goods.infrastructure.data.dataparam;
 
 import com.taotao.boot.common.model.ddd.query.PageQuery;
 import lombok.*;

@@ -21,7 +21,7 @@ import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
 import com.taotao.cloud.goods.application.dto.category.command.AssignCategorySpecCommand;
-import com.taotao.cloud.goods.application.dto.goods.query.CategoryIdQuery;
+import com.taotao.cloud.goods.application.dto.category.query.CategoryIdQuery;
 import com.taotao.cloud.goods.application.dto.specification.result.SpecificationResult;
 import com.taotao.cloud.goods.application.service.command.CategorySpecificationCommandService;
 import com.taotao.cloud.goods.application.service.command.SpecificationCommandService;
@@ -50,16 +50,10 @@ import java.util.List;
 @RequestMapping("/manager/goods/category/spec")
 public class CategorySpecificationManagerController extends BusinessController {
 
-	/**
-	 * 分类规格服务
-	 */
 	private final CategorySpecificationQueryService categorySpecificationQueryService;
 
 	private final CategorySpecificationCommandService categorySpecificationCommandService;
 
-	/**
-	 * 规格服务
-	 */
 	private final SpecificationQueryService specificationQueryService;
 
 	private final SpecificationCommandService specificationCommandService;

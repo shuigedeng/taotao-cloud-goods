@@ -19,6 +19,7 @@ package com.taotao.cloud.goods.application.service.query.impl;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.taotao.boot.common.model.result.PageResult;
 import com.taotao.cloud.goods.application.dto.goods.result.GoodsSkuResult;
 import com.taotao.cloud.goods.application.dto.goods.query.GoodsSkuSearchQuery;
 import com.taotao.cloud.goods.application.service.query.GoodsSkuQueryService;
@@ -37,37 +38,38 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 @Service
 public class GoodsSkuQueryServiceImpl implements GoodsSkuQueryService {
-    @Override
-    public Map<String, Object> getGoodsSkuDetail(Long goodsId, Long skuId) {
-        return Map.of();
-    }
 
-    @Override
-    public List<GoodsSkuResult> getGoodsListByGoodsId(Long goodsId) {
-        return List.of();
-    }
+	@Override
+	public Map<String, Object> queryGoodsSkuDetail( Long goodsId, Long skuId ) {
+		return Map.of();
+	}
 
-    @Override
-    public IPage<GoodsSkuSearchQuery> getGoodsSkuDTOByPage(
-		Page<GoodsSkuSearchQuery> page, Wrapper<GoodsSkuSearchQuery> queryWrapper) {
-        return null;
-    }
+	@Override
+	public List<GoodsSkuResult> queryGoodsListByGoodsId( Long goodsId ) {
+		return List.of();
+	}
 
-    @Override
-    public Integer getStock(Long skuId) {
-        return 0;
-    }
+	@Override
+	public PageResult<GoodsSkuSearchQuery> queryGoodsSkuDTOByPage( Page<GoodsSkuSearchQuery> page,
+		Wrapper<GoodsSkuSearchQuery> queryWrapper ) {
+		return null;
+	}
 
-    @Override
-    public List<String> getSkuIdsByGoodsId(Long goodsId) {
-        return List.of();
-    }
+	@Override
+	public Integer queryStock( Long skuId ) {
+		return 0;
+	}
 
-    @Override
-    public Long countSkuNum(Long storeId) {
-        return 0L;
-    }
-    //	@Override
+	@Override
+	public List<String> querySkuIdsByGoodsId( Long goodsId ) {
+		return List.of();
+	}
+
+	@Override
+	public Long queryCountSkuNum( Long storeId ) {
+		return 0L;
+	}
+	//	@Override
     //	public GoodsSkuPO getGoodsSkuByIdFromCache(Long skuId) {
     //		return null;
     //	}

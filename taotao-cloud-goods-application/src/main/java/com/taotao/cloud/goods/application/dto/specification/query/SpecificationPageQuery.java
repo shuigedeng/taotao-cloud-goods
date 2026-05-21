@@ -31,7 +31,9 @@ import java.io.Serial;
  */
 @RecordBuilder
 @Schema(description = "规格查询参数")
-public record SpecificationPageQuery(PageQuery page, @Schema(description = "名称") String specName)  implements Query {
+public record SpecificationPageQuery(
+	PageQuery page,
+	@Schema(description = "名称") String specName)  implements Query {
 
 	@Serial
 	private static final long serialVersionUID = 8906820486037326039L;

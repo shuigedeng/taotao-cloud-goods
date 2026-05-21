@@ -17,12 +17,12 @@
 package com.taotao.cloud.goods.application.dto.goods.query;
 
 import com.taotao.boot.common.model.ddd.query.PageQuery;
+import io.soabase.recordbuilder.core.RecordBuilder;
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-
-import io.soabase.recordbuilder.core.RecordBuilder;
-import io.swagger.v3.oas.annotations.media.Schema;
 
 /**
  * 商品分页查询
@@ -32,13 +32,14 @@ import io.swagger.v3.oas.annotations.media.Schema;
  */
 @RecordBuilder
 public record GoodsPageQuery(
-	@Schema(description = "商品名称") String goodsName, PageQuery page,
-							 @Schema(description = "商品分类ID") Long categoryId,
-							 @Schema(description = "起始商品价格") BigDecimal startGoodsPrice,
-							 @Schema(description = "终止商品价格") BigDecimal endGoodsPrice,
-							 @Schema(description = "商品状态(10已上架, 20已下架)") Integer goodsStatus,
-							 @Schema(description = "过期时间（在此之前过期）") LocalDate beforeExpirationDate,
-							 @Schema(description = "起始创建时间") LocalDateTime createTimeStart,
-							 @Schema(description = "结束创建时间") LocalDateTime createTimeEnd) {
+	PageQuery page,
+	@Schema(description = "商品名称") String goodsName,
+	@Schema(description = "商品分类ID") Long categoryId,
+	@Schema(description = "起始商品价格") BigDecimal startGoodsPrice,
+	@Schema(description = "终止商品价格") BigDecimal endGoodsPrice,
+	@Schema(description = "商品状态(10已上架, 20已下架)") Integer goodsStatus,
+	@Schema(description = "过期时间（在此之前过期）") LocalDate beforeExpirationDate,
+	@Schema(description = "起始创建时间") LocalDateTime createTimeStart,
+	@Schema(description = "结束创建时间") LocalDateTime createTimeEnd) {
 
 }

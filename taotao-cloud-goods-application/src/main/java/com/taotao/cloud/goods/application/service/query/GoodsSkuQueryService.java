@@ -19,6 +19,7 @@ package com.taotao.cloud.goods.application.service.query;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.taotao.boot.common.model.result.PageResult;
 import com.taotao.boot.ddd.model.application.service.QueryService;
 import com.taotao.cloud.goods.application.dto.goods.result.GoodsSkuResult;
 import com.taotao.cloud.goods.application.dto.goods.query.GoodsSkuSearchQuery;
@@ -41,8 +42,8 @@ public interface GoodsSkuQueryService extends QueryService {
     // * @return {@link String }
     // * @since 2023-08-18 16:00:58
     // */
-    // default String getCacheKeys(Long id) {
-    //	return CachePrefix.GOODS_SKU.getPrefix() + id;
+    // default String queryCacheKeys(Long id) {
+    //	return CachePrefix.GOODS_SKU.queryPrefix() + id;
     // }
     //
     /// **
@@ -52,8 +53,8 @@ public interface GoodsSkuQueryService extends QueryService {
     // * @return {@link String }
     // * @since 2023-08-18 16:00:58
     // */
-    // default String getStockCacheKey(Long id) {
-    //	return CachePrefix.SKU_STOCK.getPrefix() + id;
+    // default String queryStockCacheKey(Long id) {
+    //	return CachePrefix.SKU_STOCK.queryPrefix() + id;
     // }
     //
 
@@ -61,19 +62,19 @@ public interface GoodsSkuQueryService extends QueryService {
      * 从redis缓存中获取商品SKU信息
      *
      * @param skuId SkuId
-     * @return {@link GoodsSkuPO }
+     * @return {@link GoodsSkuResult }
      * @since 2023-08-18 16:00:59
      */
-    //	GoodsSkuPO getGoodsSkuByIdFromCache(Long skuId);
+    //	GoodsSkuResult queryGoodsSkuByIdFromCache(Long skuId);
 
     /**
      * 从缓存中获取可参与促销商品
      *
      * @param skuId skuid
-     * @return {@link GoodsSkuPO }
+     * @return {@link GoodsSkuResult }
      * @since 2023-08-18 16:00:59
      */
-    //	GoodsSkuPO getCanPromotionGoodsSkuByIdFromCache(Long skuId);
+    //	GoodsSkuResult queryCanPromotionGoodsSkuByIdFromCache(Long skuId);
 
     /**
      * 获取商品sku详情
@@ -83,16 +84,16 @@ public interface GoodsSkuQueryService extends QueryService {
      * @return {@link Map }<{@link String }, {@link Object }>
      * @since 2023-08-18 16:00:59
      */
-    Map<String, Object> getGoodsSkuDetail(Long goodsId, Long skuId);
+    Map<String, Object> queryGoodsSkuDetail(Long goodsId, Long skuId);
 
     /**
      * 批量从redis中获取商品SKU信息
      *
      * @param ids SkuId集合
-     * @return {@link List }<{@link GoodsSkuPO }>
+     * @return {@link List }<{@link GoodsSkuResult }>
      * @since 2023-08-18 16:00:59
      */
-    //	List<GoodsSkuPO> getGoodsSkuByIdFromCache(List<Long> ids);
+    //	List<GoodsSkuResult> queryGoodsSkuByIdFromCache(List<Long> ids);
 
     /**
      * 获取goodsId下所有的goodsSku
@@ -101,16 +102,16 @@ public interface GoodsSkuQueryService extends QueryService {
      * @return {@link List }<{@link GoodsSkuResult }>
      * @since 2023-08-18 16:00:59
      */
-    List<GoodsSkuResult> getGoodsListByGoodsId(Long goodsId);
+    List<GoodsSkuResult> queryGoodsListByGoodsId(Long goodsId);
 
     /**
      * 获取goodsId下所有的goodsSku
      *
      * @param goodsId 商品id
-     * @return {@link List }<{@link GoodsSkuPO }>
+     * @return {@link List }<{@link GoodsSkuResult }>
      * @since 2023-08-18 16:00:59
      */
-    //	List<GoodsSkuPO> getGoodsSkuListByGoodsId(Long goodsId);
+    //	List<GoodsSkuResult> queryGoodsSkuListByGoodsId(Long goodsId);
 
     /**
      * 根据goodsSku组装goodsSkuCO
@@ -119,25 +120,25 @@ public interface GoodsSkuQueryService extends QueryService {
      * @return {@link List }<{@link GoodsSkuResult }>
      * @since 2023-08-18 16:00:59
      */
-    //	List<GoodsSkuCO> getGoodsSkuVOList(List<GoodsSkuPO> list);
+    //	List<GoodsSkuCO> queryGoodsSkuVOList(List<GoodsSkuResult> list);
 
     /**
      * 根据goodsSku组装goodsSkuCO
      *
-     * @param goodsSkuPO 商品规格
+     * @param GoodsSkuResult 商品规格
      * @return {@link GoodsSkuResult }
      * @since 2023-08-18 16:00:59
      */
-    //	GoodsSkuCO getGoodsSkuVO(GoodsSkuPO goodsSkuPO);
+    //	GoodsSkuCO queryGoodsSkuVO(GoodsSkuResult GoodsSkuResult);
 
     /**
      * 分页查询商品sku信息
      *
      * @param searchParams 查询参数
-     * @return {@link IPage }<{@link GoodsSkuPO }>
+     * @return {@link IPage }<{@link GoodsSkuResult }>
      * @since 2023-08-18 16:00:59
      */
-    //	IPage<GoodsSkuPO> getGoodsSkuByPage(GoodsPageQry searchParams);
+    //	IPage<GoodsSkuResult> queryGoodsSkuByPage(GoodsPageQry searchParams);
 
     /**
      * 分页查询商品sku信息
@@ -147,17 +148,17 @@ public interface GoodsSkuQueryService extends QueryService {
      * @return {@link IPage }<{@link GoodsSkuSearchQuery }>
      * @since 2023-08-18 16:00:59
      */
-    IPage<GoodsSkuSearchQuery> getGoodsSkuDTOByPage(
+    PageResult<GoodsSkuSearchQuery> queryGoodsSkuDTOByPage(
 		Page<GoodsSkuSearchQuery> page, Wrapper<GoodsSkuSearchQuery> queryWrapper);
 
     /**
      * 列表查询商品sku信息
      *
      * @param searchParams 查询参数
-     * @return {@link List }<{@link GoodsSkuPO }>
+     * @return {@link List }<{@link GoodsSkuResult }>
      * @since 2023-08-18 16:00:59
      */
-    //	List<GoodsSkuPO> getGoodsSkuByList(GoodsPageQry searchParams);
+    //	List<GoodsSkuResult> queryGoodsSkuByList(GoodsPageQry searchParams);
 
     /**
      * 获取商品sku库存
@@ -166,7 +167,7 @@ public interface GoodsSkuQueryService extends QueryService {
      * @return {@link Integer }
      * @since 2023-08-18 16:00:59
      */
-    Integer getStock(Long skuId);
+    Integer queryStock(Long skuId);
 
     /**
      * 根据商品id获取全部skuId的集合
@@ -174,7 +175,7 @@ public interface GoodsSkuQueryService extends QueryService {
      * @param goodsId goodsId
      * @return 全部skuId的集合
      */
-    List<String> getSkuIdsByGoodsId(Long goodsId);
+    List<String> querySkuIdsByGoodsId(Long goodsId);
 
     /**
      * 统计sku总数
@@ -182,13 +183,6 @@ public interface GoodsSkuQueryService extends QueryService {
      * @param storeId 店铺id
      * @return sku总数
      */
-    Long countSkuNum(Long storeId);
+    Long queryCountSkuNum(Long storeId);
 
-    /**
-     * 批量渲染商品sku
-     *
-     * @param goodsSkuPOList SKU基础数据列表
-     * @param goodsAddCmd    商品操作信息
-     */
-    //	void renderGoodsSkuList(List<GoodsSkuPO> goodsSkuPOList, GoodsAddCmd goodsAddCmd);
 }

@@ -30,7 +30,8 @@ import java.util.List;
  * @since 2022-04-14 21:52:23
  */
 @RecordBuilder
-public record StoreGoodsLabelResult(@Schema(description = "店铺商品分类ID") Long id,
+public record StoreGoodsLabelResult(
+	@Schema(description = "店铺商品分类ID") Long id,
 									@Schema(description = "店铺商品分类名称") String labelName,
 									@Schema(description = "层级, 从0开始") Integer level,
 									@Schema(description = "店铺商品分类排序") Integer sortOrder,

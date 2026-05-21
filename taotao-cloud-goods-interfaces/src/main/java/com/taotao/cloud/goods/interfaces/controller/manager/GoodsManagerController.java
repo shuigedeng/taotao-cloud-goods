@@ -21,6 +21,7 @@ import com.taotao.boot.common.model.ddd.command.IdsCommand;
 
 import com.taotao.boot.common.model.result.PageResult;
 import com.taotao.boot.common.model.result.Result;
+import com.taotao.boot.data.mybatis.mybatisplus.MpUtils;
 import com.taotao.boot.security.spring.annotation.NotAuth;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
@@ -69,9 +70,8 @@ public class GoodsManagerController extends BusinessController {
 	//@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/page")
 	public Result<PageResult<GoodsResult>> queryPage( @Validated GoodsPageQuery goodsPageQuery ) {
-//		IPage<GoodsPO> goodsPage = goodsQueryService.goodsQueryPage(goodsPageQuery);
-//		return Result.success(MpUtils.convertMybatisPage(goodsPage, GoodsCO.class));
-		return null;
+		PageResult<GoodsResult> goodsPage = goodsQueryService.queryGoodsPage(goodsPageQuery);
+		return Result.success(goodsPage);
 	}
 
 	@Operation(summary = "分页获取商品SKU列表", description = "分页获取商品SKU列表")

@@ -22,7 +22,7 @@ import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
 import com.taotao.cloud.goods.application.dto.category.command.AssignCategoryBrandsCommand;
 import com.taotao.cloud.goods.application.dto.category.result.CategoryBrandResult;
-import com.taotao.cloud.goods.application.dto.goods.query.CategoryIdQuery;
+import com.taotao.cloud.goods.application.dto.category.query.CategoryIdQuery;
 import com.taotao.cloud.goods.application.service.command.CategoryBrandCommandService;
 import com.taotao.cloud.goods.application.service.query.CategoryBrandQueryService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -48,7 +48,6 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/manager/goods/category/brand")
 public class CategoryBrandManagerController extends BusinessController {
 
-    /** 规格品牌管理服务 */
     private final CategoryBrandCommandService categoryBrandCommandService;
 
     private final CategoryBrandQueryService categoryBrandQueryService;

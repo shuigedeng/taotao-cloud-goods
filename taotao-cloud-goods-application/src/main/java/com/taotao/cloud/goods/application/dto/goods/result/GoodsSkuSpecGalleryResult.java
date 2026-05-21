@@ -20,6 +20,7 @@ import com.taotao.boot.common.model.ddd.types.MarkerResult;
 import com.taotao.cloud.goods.application.dto.specification.result.SpecValueResult;
 import io.soabase.recordbuilder.core.RecordBuilder;
 import io.swagger.v3.oas.annotations.media.Schema;
+
 import java.io.Serial;
 import java.util.List;
 
@@ -29,8 +30,8 @@ import java.util.List;
 @RecordBuilder
 public record GoodsSkuSpecGalleryResult(
 	@Schema(description = "规格列表") List<SpecValueResult> specList,
-										@Schema(description = "商品图片") List<String> goodsGalleryList,
-										@Schema(description = "商品图片") GoodsSkuResult skuResult
+	@Schema(description = "商品图片") List<String> goodsGalleryList,
+	@Schema(description = "商品图片") GoodsSkuResult skuResult
 ) implements
 	MarkerResult {
 

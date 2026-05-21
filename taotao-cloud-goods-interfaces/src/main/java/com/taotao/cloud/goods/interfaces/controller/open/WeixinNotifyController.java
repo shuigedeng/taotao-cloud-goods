@@ -40,7 +40,7 @@ import org.springframework.web.bind.annotation.*;
 @Validated
 @RestController
 @Tag(name = "开放平台-微信回调通知API", description = "开放平台-微信回调通知API")
-@RequestMapping("/goods/open/weixin")
+@RequestMapping("/open/goods/open/weixin")
 public class WeixinNotifyController extends BusinessController {
 
     /**

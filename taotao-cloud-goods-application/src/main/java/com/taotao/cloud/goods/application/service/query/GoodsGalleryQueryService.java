@@ -34,7 +34,7 @@ public interface GoodsGalleryQueryService extends QueryService {
      * @return {@link GoodsGalleryPO }
      * @since 2022-04-27 17:00:12
      */
-    //	GoodsGalleryPO getGoodsGallery(String origin);
+    //	GoodsGalleryPO queryGoodsGallery(String origin);
     //
     //	/**
     //	 * 根据商品id查询商品相册原图

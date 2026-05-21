@@ -34,6 +34,6 @@ public interface SpecificationQueryService extends QueryService {
      * @return {@link IPage }<{@link SpecificationPO }>
      * @since 2022-04-27 17:01:01
      */
-    //	IPage<SpecificationPO> getPage(SpecificationPageQry specificationPageQry);
+    //	IPage<SpecificationPO> queryPage(SpecificationPageQry specificationPageQry);
 
 }

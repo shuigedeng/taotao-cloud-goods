@@ -21,7 +21,7 @@ import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
 import com.taotao.cloud.goods.application.dto.category.result.CategoryBrandResult;
 import com.taotao.cloud.goods.application.dto.category.result.CategoryTreeResult;
-import com.taotao.cloud.goods.application.dto.goods.query.CategoryIdQuery;
+import com.taotao.cloud.goods.application.dto.category.query.CategoryIdQuery;
 import com.taotao.cloud.goods.application.service.command.CategoryBrandCommandService;
 import com.taotao.cloud.goods.application.service.command.CategoryCommandService;
 import com.taotao.cloud.goods.application.service.query.CategoryBrandQueryService;
@@ -51,16 +51,10 @@ import java.util.List;
 @RequestMapping("/seller/goods/category/store")
 public class CategorySellerController extends BusinessController {
 
-	/**
-	 * 分类服务
-	 */
 	private final CategoryQueryService categoryQueryService;
 
 	private final CategoryCommandService categoryCommandService;
 
-	/**
-	 * 分类品牌服务
-	 */
 	private final CategoryBrandQueryService categoryBrandQueryService;
 
 	private final CategoryBrandCommandService categoryBrandCommandService;

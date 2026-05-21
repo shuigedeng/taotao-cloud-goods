@@ -13,5 +13,5 @@ import java.util.List;
  */
 public interface CategorySpecificationQueryRepository {
 
-	List<SpecificationResult> getCategorySpecList( Long categoryId );
+	List<SpecificationResult> queryCategorySpecList( Long categoryId );
 }

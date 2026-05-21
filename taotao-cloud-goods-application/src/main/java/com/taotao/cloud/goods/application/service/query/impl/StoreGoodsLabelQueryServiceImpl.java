@@ -40,16 +40,16 @@ public class StoreGoodsLabelQueryServiceImpl implements StoreGoodsLabelQueryServ
      */
     private final RedisRepository redisRepository;
 
-    @Override
-    public List<StoreGoodsLabelResult> listByStoreId(Long storeId) {
-        return List.of();
-    }
+	@Override
+	public List<StoreGoodsLabelResult> queryByStoreId( Long storeId ) {
+		return List.of();
+	}
 
-    @Override
-    public List<Map<String, Object>> listMapsByStoreIds(List<Long> ids, String columns) {
-        return List.of();
-    }
-    //
+	@Override
+	public List<Map<String, Object>> queryMapsByStoreIds( List<Long> ids, String columns ) {
+		return List.of();
+	}
+	//
     //	@Override
     //	public List<StoreGoodsLabelCO> listByStoreId(Long storeId) {
     //		return List.of();

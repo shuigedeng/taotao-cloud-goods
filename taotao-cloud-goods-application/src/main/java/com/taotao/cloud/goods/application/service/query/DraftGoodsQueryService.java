@@ -35,7 +35,7 @@ public interface DraftGoodsQueryService extends QueryService {
      * @return {@link DraftGoodsSkuParamsResult }
      * @since 2022-04-27 16:59:57
      */
-    DraftGoodsSkuParamsResult getDraftGoods(Long id);
+    DraftGoodsSkuParamsResult queryDraftGoods(Long id);
 
     /**
      * 分页获取草稿商品
