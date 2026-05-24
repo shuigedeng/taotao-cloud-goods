@@ -78,7 +78,7 @@ public class GoodsSellerController extends BusinessController {
 //		Long storeId = SecurityUtils.getCurrentUser().getStoreId();
 //		goodsPageQuery.setStoreId(storeId);
 //		IPage<Goods> goodsPage = goodsService.goodsQueryPage(goodsPageQuery);
-//		return Result.success(MpUtils.convertMybatisPage(goodsPage, GoodsCO.class));
+//		return Result.success(MpUtils.convertMpPage(goodsPage, GoodsCO.class));
 		return null;
 	}
 
@@ -91,7 +91,7 @@ public class GoodsSellerController extends BusinessController {
 //		Long storeId = SecurityUtils.getCurrentUser().getStoreId();
 //		goodsPageQuery.setStoreId(storeId);
 //		IPage<GoodsSku> goodsSkuPage = goodsSkuService.goodsSkuQueryPage(goodsPageQuery);
-//		return Result.success(MpUtils.convertMybatisPage(goodsSkuPage, GoodsSkuCO.class));
+//		return Result.success(MpUtils.convertMpPage(goodsSkuPage, GoodsSkuCO.class));
 		return null;
 	}
 
@@ -111,7 +111,7 @@ public class GoodsSellerController extends BusinessController {
 //		// 商品SKU列表
 //		IPage<GoodsSku> goodsSkuPage = goodsSkuService.goodsSkuQueryPage(goodsPageQuery);
 //		StockWarningCO stockWarning =
-//			new StockWarningCO(stockWarnNum, MpUtils.convertMybatisPage(goodsSkuPage,
+//			new StockWarningCO(stockWarnNum, MpUtils.convertMpPage(goodsSkuPage,
 //				GoodsSkuCO.class));
 //		return Result.success(stockWarning);
 		return null;

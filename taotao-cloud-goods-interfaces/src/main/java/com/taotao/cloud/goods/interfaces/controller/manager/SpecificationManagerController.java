@@ -72,7 +72,7 @@ public class SpecificationManagerController extends BusinessController {
 	public Result<PageResult<SpecificationResult>> queryPage( SpecificationPageQuery specificationPageQuery ) {
 //		IPage<SpecificationPO> specificationPage =
 //			specificationQueryService.getPage(specificationPageQuery);
-//		return Result.success(MpUtils.convertMybatisPage(specificationPage,
+//		return Result.success(MpUtils.convertMpPage(specificationPage,
 //			SpecificationAssembler.INSTANCE::convert));
 		return null;
 	}

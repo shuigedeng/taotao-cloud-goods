@@ -100,7 +100,7 @@ public class GoodsBuyerController extends BusinessController {
 	@GetMapping("/query/page")
 	public Result<PageResult<GoodsResult>> queryPage( GoodsOtherPageQuery goodsPageQuery ) {
 		//IPage<GoodsPO> goodsPage = goodsQueryService.goodsQueryPage(goodsPageQuery);
-		//return Result.success(MpUtils.convertMybatisPage(goodsPage, GoodsCO.class));
+		//return Result.success(MpUtils.convertMpPage(goodsPage, GoodsCO.class));
 		return null;
 	}
 

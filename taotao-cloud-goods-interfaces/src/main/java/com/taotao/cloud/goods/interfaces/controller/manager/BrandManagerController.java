@@ -88,7 +88,7 @@ public class BrandManagerController extends BusinessController {
 	@GetMapping(value = "/query/page")
 	public Result<PageResult<BrandResult>> queryPage( BrandPageQuery page ) {
 //		IPage<BrandPO> brandPage = brandQueryService.brandsQueryPage(page);
-//		return Result.success(MpUtils.convertMybatisPage(brandPage, BrandCO.class));
+//		return Result.success(MpUtils.convertMpPage(brandPage, BrandCO.class));
 		return null;
 	}
 

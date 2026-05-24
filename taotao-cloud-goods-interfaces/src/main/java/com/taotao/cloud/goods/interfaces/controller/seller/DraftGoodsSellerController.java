@@ -62,7 +62,7 @@ public class DraftGoodsSellerController extends BusinessController {
 //        Long storeId = SecurityUtils.getCurrentUser().getStoreId();
 //        draftGoodsPageQuery.setStoreId(storeId);
 //        IPage<DraftGoods> draftGoods = draftGoodsService.draftGoodsQueryPage(draftGoodsPageQuery);
-//        return Result.success(MpUtils.convertMybatisPage(draftGoods, DraftGoodsCO.class));
+//        return Result.success(MpUtils.convertMpPage(draftGoods, DraftGoodsCO.class));
 		return null;
 	}
 

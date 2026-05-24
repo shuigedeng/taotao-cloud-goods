@@ -80,7 +80,7 @@ public class GoodsManagerController extends BusinessController {
 	@GetMapping(value = "/query/sku/page")
 	public Result<PageResult<GoodsSkuResult>> querySkuPage( GoodsPageQuery goodsPageQuery ) {
 //		IPage<GoodsSkuPO> goodsSkuPage = goodsSkuQueryService.goodsSkuQueryPage(goodsPageQuery);
-//		return Result.success(MpUtils.convertMybatisPage(goodsSkuPage,
+//		return Result.success(MpUtils.convertMpPage(goodsSkuPage,
 //			GoodsSkuConvert.INSTANCE::convert));
 		return null;
 	}
@@ -91,7 +91,7 @@ public class GoodsManagerController extends BusinessController {
 	public Result<PageResult<GoodsResult>> queryAuthPage(  GoodsPageQuery goodsPageQuery ) {
 //		goodsPageQuery.setAuthFlag(GoodsAuthEnum.TOBEAUDITED.name());
 //		IPage<GoodsPO> goodsPage = goodsQueryService.goodsQueryPage(goodsPageQuery);
-//		return Result.success(MpUtils.convertMybatisPage(goodsPage, GoodsCO.class));
+//		return Result.success(MpUtils.convertMpPage(goodsPage, GoodsCO.class));
 		return null;
 	}
 	@Operation(summary = "管理员上架商品", description = "管理员上架商品")

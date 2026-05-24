@@ -59,7 +59,7 @@ public class GoodsUnitManagerController extends BusinessController {
 	@GetMapping(value = "/query/page")
 	public Result<PageResult<GoodsUnitResult>> queryByPage( PageQuery pageQuery ) {
 //		IPage<GoodsUnit> page = goodsUnitService.page(pageQuery.buildMpPage());
-//		return Result.success(MpUtils.convertMybatisPage(page, GoodsUnit.class));
+//		return Result.success(MpUtils.convertMpPage(page, GoodsUnit.class));
 		return null;
 	}
 

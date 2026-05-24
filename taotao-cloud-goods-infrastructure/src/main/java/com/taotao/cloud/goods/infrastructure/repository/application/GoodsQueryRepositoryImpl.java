@@ -58,6 +58,6 @@ public class GoodsQueryRepositoryImpl implements GoodsQueryRepository {
 	@Override
 	public PageResult<GoodsResult> queryGoodsPage( GoodsPageQuery goodsPageQuery ) {
 		IPage<GoodsPO> goodsPoPage = goodsMapper.selectPage(MpUtils.buildMpPage(goodsPageQuery.page()), null);
-		return MpUtils.convertMybatisPage(goodsPoPage, goodsInfraAssembler::toResult);
+		return MpUtils.convertMpPage(goodsPoPage, goodsInfraAssembler::toResult);
 	}
 }
