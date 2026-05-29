@@ -12,10 +12,10 @@ dependencies {
     api "org.jspecify:jspecify"
 
     //https://search.maven.org/artifact/com.google.protobuf/protobuf-java
-    api "com.google.protobuf:protobuf-java:4.34.0"
+    api "com.google.protobuf:protobuf-java:4.35.0"
     //https://search.maven.org/artifact/com.google.protobuf/protobuf-java-util
-    api "com.google.protobuf:protobuf-java-util:4.34.0"
-    api "com.google.protobuf:protobuf-javalite:4.34.0"
+    api "com.google.protobuf:protobuf-java-util:4.35.0"
+    api "com.google.protobuf:protobuf-javalite:4.35.0"
 
     compileOnly "io.github.shuigedeng:taotao-boot-starter-grpc"
 }
@@ -25,7 +25,7 @@ protobuf {
     protoc {
         //https://repo1.maven.org/maven2/com/google/protobuf/protoc/
         //直接使用Maven Central上已经编译好的protoc编译器，
-        artifact = "com.google.protobuf:protoc:4.34.0"
+        artifact = "com.google.protobuf:protoc:4.35.0"
         //指定本地已经安装的protoc编译器
         //path = '/usr/local/bin/protoc'
     }
@@ -58,10 +58,10 @@ configurations {
         resolutionStrategy {
             force 'net.minidev:json-smart:2.6.0'
             //https://search.maven.org/artifact/com.google.protobuf/protobuf-java
-            force "com.google.protobuf:protobuf-java:4.34.0"
+            force "com.google.protobuf:protobuf-java:4.35.0"
             //https://search.maven.org/artifact/com.google.protobuf/protobuf-java-util
-            force "com.google.protobuf:protobuf-java-util:4.34.0"
-            force "com.google.protobuf:protobuf-javalite:4.34.0"
+            force "com.google.protobuf:protobuf-java-util:4.35.0"
+            force "com.google.protobuf:protobuf-javalite:4.35.0"
         }
         //resolutionStrategy {
         //    //force "org.codehaus.groovy:groovy:3.0.25"
