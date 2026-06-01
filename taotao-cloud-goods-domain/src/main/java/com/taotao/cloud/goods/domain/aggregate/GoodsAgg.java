@@ -346,15 +346,13 @@ public class GoodsAgg extends AggregateRoot<BizId> {
 		private @NotNull GoodsSpec goodsSpec;
 		private @NotNull Price goodsPrice;
 		private @NotNull GoodsStatus goodsStatus;
-		private LocalDateTime createTime;
-		private LocalDateTime updateTime;
 		private String goodsNo;
 		private Boolean recommend;
 		private String createUser;
-		private String modifyUser;
+		private String updateUser;
 		private String tenantId;
-		private LocalDateTime createDate;
-		private LocalDateTime modifyDate;
+		private LocalDateTime createTime;
+		private LocalDateTime updateTime;
 		private String sourceName;
 		private String serviceId;
 
@@ -374,10 +372,10 @@ public class GoodsAgg extends AggregateRoot<BizId> {
 			this.goodsNo = other.goodsNo;
 			this.recommend = other.recommend;
 			this.createUser = other.createUser;
-			this.modifyUser = other.modifyUser;
+			this.updateUser = other.updateUser;
 			this.tenantId = other.tenantId;
-			this.createDate = other.createDate;
-			this.modifyDate = other.modifyDate;
+			this.createTime = other.createTime;
+			this.updateTime = other.updateTime;
 			this.sourceName = other.sourceName;
 			this.serviceId = other.serviceId;
 		}
@@ -446,8 +444,8 @@ public class GoodsAgg extends AggregateRoot<BizId> {
 			return this;
 		}
 
-		public GoodsAggBuilder modifyUser( String modifyUser ) {
-			this.modifyUser = modifyUser;
+		public GoodsAggBuilder updateUser( String updateUser ) {
+			this.updateUser = updateUser;
 			return this;
 		}
 
@@ -456,15 +454,6 @@ public class GoodsAgg extends AggregateRoot<BizId> {
 			return this;
 		}
 
-		public GoodsAggBuilder createDate( LocalDateTime createDate ) {
-			this.createDate = createDate;
-			return this;
-		}
-
-		public GoodsAggBuilder modifyDate( LocalDateTime modifyDate ) {
-			this.modifyDate = modifyDate;
-			return this;
-		}
 
 		public GoodsAggBuilder sourceName( String sourceName ) {
 			this.sourceName = sourceName;
@@ -479,8 +468,8 @@ public class GoodsAgg extends AggregateRoot<BizId> {
 		public GoodsAggBuilder but() {
 			return aGoodsAgg().id(id).tags(tags).category(category).goodsName(goodsName).goodsSpec(goodsSpec)
 				.goodsPrice(goodsPrice).goodsStatus(goodsStatus).createTime(createTime).updateTime(updateTime)
-				.goodsNo(goodsNo).recommend(recommend).createUser(createUser).modifyUser(modifyUser).tenantId(tenantId)
-				.createDate(createDate).modifyDate(modifyDate).sourceName(sourceName).serviceId(serviceId)
+				.goodsNo(goodsNo).recommend(recommend).createUser(createUser).updateUser(updateUser).tenantId(tenantId)
+				.createTime(createTime).updateTime(updateTime).sourceName(sourceName).serviceId(serviceId)
 				;
 		}
 
@@ -490,10 +479,10 @@ public class GoodsAgg extends AggregateRoot<BizId> {
 			goodsAgg.setGoodsNo(goodsNo);
 			goodsAgg.setRecommend(recommend);
 			goodsAgg.setCreateUser(createUser);
-			goodsAgg.setModifyUser(modifyUser);
+			goodsAgg.setUpdateUser(updateUser);
 			goodsAgg.setTenantId(tenantId);
-			goodsAgg.setCreateDate(createDate);
-			goodsAgg.setModifyDate(modifyDate);
+			goodsAgg.setCreateTime(createTime);
+			goodsAgg.setUpdateTime(updateTime);
 			goodsAgg.setSourceName(sourceName);
 			goodsAgg.setServiceId(serviceId);
 			goodsAgg.setId(id);

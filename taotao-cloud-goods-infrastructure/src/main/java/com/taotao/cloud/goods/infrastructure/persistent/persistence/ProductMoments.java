@@ -53,7 +53,7 @@ package com.taotao.cloud.goods.infrastructure.persistent.persistence; // package
 //	@Column(name = "member_id`", columnDefinition = "varchar(255) not null comment '会员ID'")
 //    private Integer sort = 0;
 //	@Column(name = "member_id`", columnDefinition = "varchar(255) not null comment '会员ID'")
-//    private LocalDateTime createDate;
+//    private LocalDateTime createTime;
 //	@Column(name = "member_id`", columnDefinition = "varchar(255) not null comment '会员ID'")
 //    private LocalDateTime publishTime;
 //

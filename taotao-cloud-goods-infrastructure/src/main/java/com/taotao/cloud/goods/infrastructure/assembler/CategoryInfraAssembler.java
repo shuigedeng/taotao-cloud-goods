@@ -50,7 +50,7 @@ public interface CategoryInfraAssembler extends BaseInfraAssembler,MarkerAssembl
 	@Mapping(target = "parentCategoryId", source = "parentId")
 	@Mapping(target = "categoryName", source = "name")
 	@Mapping(target = "categoryDesc", source = "name")
-	@Mapping(target = "createTime", source = "createDate")
+	@Mapping(target = "createTime", source = "createTime")
 	Category toEntity(CategoryPO po);
 
 	List<Category> toEntity(List<CategoryPO> categoryPos);
