@@ -50,6 +50,7 @@ public interface GoodsAppAssembler extends MarkerAssembler {
     // List<ParametersVO> convert(List<Parameters> parameters);
 
     GoodsResult toResult(GoodsAgg goodsAgg);
+
 	GoodsSkuParamsResult toResult(GoodsResult goodsAgg);
 
     default Long map(BizId value) {

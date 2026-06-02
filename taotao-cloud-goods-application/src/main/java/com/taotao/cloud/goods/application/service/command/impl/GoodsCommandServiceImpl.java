@@ -16,8 +16,12 @@
 
 package com.taotao.cloud.goods.application.service.command.impl;
 
+import com.taotao.boot.data.datasource.wrapper.TransactionSynchronizationWrapper;
 import com.taotao.boot.data.datasource.wrapper.TransactionalWrapper;
 import com.taotao.boot.data.mybatis.utils.MybatisUtil;
+import com.taotao.boot.ddd.model.event.EventDispatcher;
+import com.taotao.boot.security.spring.support.core.details.TtcUser;
+import com.taotao.boot.security.spring.support.utils.SecurityUtils;
 import com.taotao.cloud.goods.application.dto.goods.command.*;
 import com.taotao.cloud.goods.application.dto.store.command.StoreIdCommand;
 import com.taotao.cloud.goods.application.dto.store.command.UpdateStoreParamsCommand;
@@ -29,9 +33,12 @@ import com.taotao.cloud.goods.application.factory.GoodsFactory;
 import com.taotao.cloud.goods.application.service.command.GoodsCommandService;
 import com.taotao.cloud.goods.domain.aggregate.GoodsAgg;
 import com.taotao.cloud.goods.domain.repository.GoodsDomainRepository;
+
+import java.util.ArrayList;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * 商品业务层实现
@@ -47,9 +54,10 @@ public class GoodsCommandServiceImpl implements GoodsCommandService {
 //    private final GoodsTagDomainRepository goodsTagDomainRepository;
     private final GoodsDomainRepository goodsDomainRepository;
     private final GoodsAppAssembler goodsAppAssembler;
-	private final TransactionalWrapper txWrapper;
+	private final TransactionalWrapper transactionalWrapper;
 	private final MybatisUtil mybatisUtil;
-
+	private final TransactionSynchronizationWrapper txSynchronizationWrapper;
+	private final EventDispatcher eventDispatcher;
     @Override
     public boolean underStoreGoods( StoreIdCommand storeIdCommand) {
         return false;
@@ -92,8 +100,31 @@ public class GoodsCommandServiceImpl implements GoodsCommandService {
 	}
 
 	@Override
+	@Transactional
 	public boolean freight( FreightGoodsCommand freightGoodsCommand ) {
-		return false;
+
+		//TtcUser authUser = SecurityUtils.getCurrentUser();
+		//
+		//	FreightTemplateCO freightTemplate = freightTemplateApi.getById(templateId);
+		//	if (freightTemplate == null) {
+		//		throw new BusinessException(ResultEnum.FREIGHT_TEMPLATE_NOT_EXIST);
+		//	}
+		//	if (authUser != null && !freightTemplate.getStoreId().equals(authUser.getStoreId())) {
+		//		throw new BusinessException(ResultEnum.USER_AUTHORITY_ERROR);
+		//	}
+		List<Long> goodsIds = freightGoodsCommand.goodsId();
+		transactionalWrapper.doInTransaction(()->{
+			List<GoodsAgg> goodsAggs = goodsDomainRepository.findUsingIdCols(goodsIds, true);
+			goodsAggs.forEach(goodsAgg ->
+				goodsAgg.changeFreightTemplate(String.valueOf(freightGoodsCommand.templateId()), "")
+			);
+			txSynchronizationWrapper.afterCommit(()->{
+				goodsAggs.forEach(eventDispatcher::dispatchEvents);
+			});
+			goodsDomainRepository.saves(goodsAggs, true);
+		});
+
+		return true;
 	}
 
 	@Override

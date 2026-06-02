@@ -16,12 +16,17 @@
 
 package com.taotao.cloud.goods.domain.aggregate;
 
+import com.taotao.boot.common.exception.BusinessException;
+import com.taotao.boot.common.utils.lang.StringUtils;
 import com.taotao.boot.ddd.model.domain.AggregateRoot;
 import com.taotao.boot.ddd.model.domain.event.DomainEvent;
 import com.taotao.boot.ddd.model.val.BizId;
 import com.taotao.boot.ddd.model.val.Price;
+import com.taotao.cloud.goods.domain.assembler.GoodsDomainAssembler;
 import com.taotao.cloud.goods.domain.entity.Category;
 import com.taotao.cloud.goods.domain.entity.Tag;
+import com.taotao.cloud.goods.domain.event.FreightTemplateChangedEvent;
+import com.taotao.cloud.goods.domain.event.GoodsAggSnapshot;
 import com.taotao.cloud.goods.domain.event.GoodsCreateEvent;
 import com.taotao.cloud.goods.domain.valobj.GoodsName;
 import com.taotao.cloud.goods.domain.valobj.GoodsSpec;
@@ -83,6 +88,8 @@ public class GoodsAgg extends AggregateRoot<BizId> {
 	 */
 	@NotNull
 	private GoodsStatus goodsStatus;
+
+	private String templateId;
 
 	/**
 	 * 创建时间
@@ -279,6 +286,28 @@ public class GoodsAgg extends AggregateRoot<BizId> {
 		return updateTime;
 	}
 
+	public String getTemplateId() {
+		return templateId;
+	}
+
+	public void setTemplateId( String templateId ) {
+		this.templateId = templateId;
+	}
+	// 领域行为：修改运费模板
+	public void changeFreightTemplate(String newTemplateId, String operatorId) {
+		// 领域规则校验
+		if (StringUtils.isEmpty(newTemplateId)) {
+			throw new BusinessException("运费模板ID不能为空");
+		}
+
+		FreightTemplateChangedEvent freightTemplateChangedEvent = new FreightTemplateChangedEvent(
+			this.id, this.templateId, newTemplateId, operatorId,
+			GoodsDomainAssembler.INSTANCE.toAggSnapshot(this));
+		registerEvent(freightTemplateChangedEvent);
+
+		// 修改状态
+		this.templateId = newTemplateId;
+	}
 	@Override
 	public boolean equals( Object o ) {
 		if (this == o) {

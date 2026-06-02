@@ -18,6 +18,8 @@ package com.taotao.cloud.goods.domain.assembler;
 
 import com.taotao.boot.common.model.ddd.types.MarkerAssembler;
 import com.taotao.boot.ddd.model.domain.Adapter;
+import com.taotao.cloud.goods.domain.aggregate.GoodsAgg;
+import com.taotao.cloud.goods.domain.event.GoodsAggSnapshot;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingConstants;
 import org.mapstruct.factory.Mappers;
@@ -32,4 +34,5 @@ import org.mapstruct.factory.Mappers;
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
 public interface GoodsDomainAssembler extends MarkerAssembler {
 	GoodsDomainAssembler INSTANCE = Mappers.getMapper(GoodsDomainAssembler.class);
+	GoodsAggSnapshot toAggSnapshot( GoodsAgg goodsAgg);
 }
