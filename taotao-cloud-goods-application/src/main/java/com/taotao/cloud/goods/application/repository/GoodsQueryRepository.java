@@ -26,4 +26,11 @@ import java.util.List;
 public interface GoodsQueryRepository {
 
 	PageResult<GoodsResult> queryGoodsPage( GoodsPageQuery goodsPageQuery );
+	PageResult<GoodsResult> queryMutilTalbePage( GoodsPageQuery goodsPageQuery );
+
+	List<GoodsResult> queryByBrandIds( List<Long> brandIds );
+
+	GoodsResult queryById( Long goodsId );
+
+	Long queryCountStoreGoodsNum( Long storeId );
 }

@@ -17,14 +17,19 @@
 package com.taotao.cloud.goods.infrastructure.assembler;
 
 import com.taotao.boot.common.model.ddd.types.MarkerAssembler;
+import com.taotao.cloud.goods.application.dto.goods.query.GoodsPageQuery;
 import com.taotao.cloud.goods.application.dto.goods.result.GoodsResult;
 import com.taotao.cloud.goods.domain.aggregate.GoodsAgg;
+import com.taotao.cloud.goods.infrastructure.data.dataobj.GoodsDO;
+import com.taotao.cloud.goods.infrastructure.data.dataparam.GoodsParam;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsPO;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingConstants;
 import org.mapstruct.MappingTarget;
 import org.mapstruct.ObjectFactory;
 import org.mapstruct.factory.Mappers;
+
+import java.util.List;
 
 /**
  * IGoodsSkuMapStruct
@@ -47,6 +52,9 @@ public interface GoodsInfraAssembler extends BaseInfraAssembler, MarkerAssembler
 
 	GoodsAgg toAgg( GoodsPO source );
 	GoodsResult toResult( GoodsPO source );
+	List<GoodsResult> toResult( List<GoodsPO> source );
+	GoodsResult toResult( GoodsDO source );
+	GoodsParam toParam( GoodsPageQuery goodsPageQuery );
 
 	GoodsAgg copyFrom( GoodsAgg source );
 

@@ -19,6 +19,7 @@ package com.taotao.cloud.goods.application.assembler;
 import com.taotao.boot.common.model.ddd.types.MarkerAssembler;
 import com.taotao.boot.ddd.model.val.BizId;
 import com.taotao.cloud.goods.application.dto.goods.result.GoodsResult;
+import com.taotao.cloud.goods.application.dto.goods.result.GoodsSkuParamsResult;
 import com.taotao.cloud.goods.domain.aggregate.GoodsAgg;
 import com.taotao.cloud.goods.domain.valobj.GoodsName;
 import org.mapstruct.Mapper;
@@ -49,6 +50,7 @@ public interface GoodsAppAssembler extends MarkerAssembler {
     // List<ParametersVO> convert(List<Parameters> parameters);
 
     GoodsResult toResult(GoodsAgg goodsAgg);
+	GoodsSkuParamsResult toResult(GoodsResult goodsAgg);
 
     default Long map(BizId value) {
         return value != null ? value.id() : null;

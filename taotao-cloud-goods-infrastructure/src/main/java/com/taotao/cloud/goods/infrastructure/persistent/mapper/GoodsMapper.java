@@ -16,12 +16,16 @@
 
 package com.taotao.cloud.goods.infrastructure.persistent.mapper;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.taotao.boot.data.mybatis.mybatisplus.base.mapper.BaseMapper;
+import com.taotao.cloud.goods.infrastructure.data.dataobj.GoodsDO;
+import com.taotao.cloud.goods.infrastructure.data.dataparam.GoodsParam;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsPO;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
+import org.xbill.DNS.dnssec.R;
 
 import java.util.List;
 
@@ -34,6 +38,24 @@ import java.util.List;
  */
 // 添加@Repository注解是为了引导IntelliJ IDEA作出正确的判断.
 public interface GoodsMapper extends BaseMapper<GoodsPO> {
+
+	@Select(
+		"""
+			<script>
+			SELECT tg.id,
+			       tgs.brandId,
+			       tgs.weight,
+			FROM ttc_goods tg
+			left join ttc_goods_sku tgs on tg.id = tgs.goods_id
+			<where>
+			   <if test="goodsParam != null and goodsParam.name != null">
+				   AND tgs.goodsName = #{goodsParam.name}
+			   </if>
+			   </where>
+			</script>
+			"""
+	)
+	IPage<GoodsDO> selectGoodsByGoodsParam( IPage<GoodsDO> page, @Param("goodsParam") GoodsParam goodsParam );
 
 	/**
 	 * 根据店铺ID获取商品ID列表
