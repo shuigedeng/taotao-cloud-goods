@@ -100,10 +100,9 @@ public class GoodsCommandServiceImpl implements GoodsCommandService {
 	}
 
 	@Override
-	@Transactional
 	public boolean freight( FreightGoodsCommand freightGoodsCommand ) {
 
-		//TtcUser authUser = SecurityUtils.getCurrentUser();
+		TtcUser authUser = SecurityUtils.getCurrentUser();
 		//
 		//	FreightTemplateCO freightTemplate = freightTemplateApi.getById(templateId);
 		//	if (freightTemplate == null) {
@@ -115,12 +114,13 @@ public class GoodsCommandServiceImpl implements GoodsCommandService {
 		List<Long> goodsIds = freightGoodsCommand.goodsId();
 		transactionalWrapper.doInTransaction(()->{
 			List<GoodsAgg> goodsAggs = goodsDomainRepository.findUsingIdCols(goodsIds, true);
+
 			goodsAggs.forEach(goodsAgg ->
 				goodsAgg.changeFreightTemplate(String.valueOf(freightGoodsCommand.templateId()), "")
 			);
-			txSynchronizationWrapper.afterCommit(()->{
-				goodsAggs.forEach(eventDispatcher::dispatchEvents);
-			});
+
+			txSynchronizationWrapper.afterCommit(() -> eventDispatcher.dispatchEvents(goodsAggs));
+
 			goodsDomainRepository.saves(goodsAggs, true);
 		});
 
