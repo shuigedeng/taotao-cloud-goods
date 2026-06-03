@@ -55,9 +55,9 @@ public class GoodsDomainRepositoryImpl implements GoodsDomainRepository {
 
 
 	@Override
-    public void save( GoodsAgg goods, boolean skipNull ) {
+    public int save( GoodsAgg goods, boolean skipNull ) {
         GoodsPO goodsPo = goodsInfraAssembler.toPo(goods);
-        goodsMapper.insert(goodsPo);
+        return goodsMapper.insert(goodsPo);
     }
 
     @Override
