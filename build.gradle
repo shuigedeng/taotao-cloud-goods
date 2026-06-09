@@ -370,9 +370,9 @@ subprojects {
                 //https://search.maven.org/artifact/com.google.protobuf/protobuf-java-util
                 force "com.google.protobuf:protobuf-java-util:4.35.0"
                 force "com.google.protobuf:protobuf-javalite:4.35.0"
-                force "org.glassfish.jaxb:jaxb-runtime:4.0.8"
-                force "org.glassfish.jaxb:jaxb-core:4.0.8"
-                force "org.glassfish.jaxb:jaxb-xjc:4.0.8"
+                force "org.glassfish.jaxb:jaxb-runtime:4.0.9"
+                force "org.glassfish.jaxb:jaxb-core:4.0.9"
+                force "org.glassfish.jaxb:jaxb-xjc:4.0.9"
             }
         }
 
