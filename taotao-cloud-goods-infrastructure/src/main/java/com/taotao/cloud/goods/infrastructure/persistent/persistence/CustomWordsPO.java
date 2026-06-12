@@ -43,7 +43,7 @@ import org.hibernate.Hibernate;
 @Table(
         name = CustomWordsPO.TABLE_NAME,
         indexes = {
-            @Index(name = "idx_create_date", columnList = "`create_date`"),
+            @Index(name = "idx_create_time", columnList = "`create_time`"),
         })
 @TableName(CustomWordsPO.TABLE_NAME)
 @org.springframework.data.relational.core.mapping.Table(name = CustomWordsPO.TABLE_NAME)

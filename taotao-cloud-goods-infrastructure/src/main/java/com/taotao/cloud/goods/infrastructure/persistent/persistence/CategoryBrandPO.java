@@ -48,7 +48,7 @@ import org.hibernate.Hibernate;
 @Table(
         name = CategoryBrandPO.TABLE_NAME,
         indexes = {
-            @Index(name = "idx_create_date", columnList = "`create_date`"),
+            @Index(name = "idx_create_time", columnList = "`create_time`"),
             @Index(name = "idx_category_id", columnList = "`category_id`"),
             @Index(name = "idx_brand_id", columnList = "`brand_id`"),
         })

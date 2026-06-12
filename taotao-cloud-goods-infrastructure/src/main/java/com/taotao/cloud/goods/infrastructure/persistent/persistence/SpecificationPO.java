@@ -45,7 +45,7 @@ import org.hibernate.Hibernate;
 @Table(
         name = SpecificationPO.TABLE_NAME,
         indexes = {
-            @Index(name = "idx_create_date", columnList = "`create_date`"),
+            @Index(name = "idx_create_time", columnList = "`create_time`"),
         })
 @TableName(SpecificationPO.TABLE_NAME)
 @org.springframework.data.relational.core.mapping.Table(name = SpecificationPO.TABLE_NAME)
