@@ -83,7 +83,7 @@ redisson:
   attemptTimeout: 10000   #等待获取锁超时时间,-1则是一直等待
   dataValidTime: 1800000
   single_server_config:
-    address: "127.0.0.1:6379"     #服务器地址,必填ip:port
+    address: "${remote-ip}:6379"     #服务器地址,必填ip:port
     subscription_connection_minimum_idle_size: 1     #用于发布和订阅连接的最小保持连接数（长连接）。Redisson内部经常通过发布和订阅来实现许多功能。长期保持一定数量的发布订阅连接是必须的。
     subscription_connection_pool_size: 50     #用于发布和订阅连接的连接池最大容量。连接池的连接数量自动弹性伸缩。
     connection_minimum_idle_size: 24     #最小保持连接数（长连接）。长期保持一定数量的连接有利于提高瞬时写入反应速度。
@@ -97,10 +97,10 @@ arthas:
   # ~/logs/arthas/arthas.log (用户目录下面)里可以找到具体端口日志
   telnetPort: -1
   httpPort: -1
-  ip: 0.0.0.0   # 127.0.0.1只能本地访问，0.0.0.0则可网络访问，但是存在安全问题
+  ip: 0.0.0.0   # ${remote-ip}只能本地访问，0.0.0.0则可网络访问，但是存在安全问题
   agent-id: ${spring.application.name}
   app-name: ${spring.application.name}
-  tunnel-server: ws://127.0.0.1:7777/ws
+  tunnel-server: ws://${remote-ip}:7777/ws
 
 dubbo:
   scan:
@@ -126,7 +126,7 @@ dubbo:
     serialize-check-status: DISABLE
     protocol: tri
   registry:
-    address: nacos://127.0.0.1:8848
+    address: nacos://${remote-ip}:8848
     group: DUBBO_REGISTRY_GROUP
     cluster: CQ
     parameters:
@@ -136,7 +136,7 @@ dubbo:
       nacos.retry: 1
       nacos.retry-wait: 1000
       nacos.check: false
-      register-ip: 127.0.0.1
+      register-ip: ${remote-ip}
     timeout: 15000
     username: nacos
     password: nacos
@@ -148,7 +148,7 @@ dubbo:
     use-as-config-center: false
     use-as-metadata-center: false
   protocol:
-    host: 127.0.0.1
+    host: ${remote-ip}
     name: tri
     port: 50053
     ssl-enabled: false
@@ -162,7 +162,7 @@ dubbo:
     threads: 20
     queues: 200
   provider:
-    host: 127.0.0.1
+    host: ${remote-ip}
     timeout: 3000
     version: ${ttcVersion}
     threads: 500
@@ -200,14 +200,14 @@ dubbo:
     export-async: true
   #monitor:
   #  id: ${spring.application.name}
-  #  address: 127.0.0.1:38080
+  #  address: ${remote-ip}:38080
   #  username: admin
   #  password: 123456
   #  group: DUBBO_REGISTRY_GROUP
   #  version: ${ttcVersion}
   metadata-report:
     id: ${spring.application.name}
-    address: nacos://127.0.0.1:8848
+    address: nacos://${remote-ip}:8848
     username: nacos
     password: nacos
     group: DUBBO_REGISTRY_GROUP
@@ -223,7 +223,7 @@ dubbo:
   config-center:
     check: false
     id: ${spring.application.name}
-    address: nacos://127.0.0.1:8848
+    address: nacos://${remote-ip}:8848
     username: nacos
     password: nacos
     group: DUBBO_REGISTRY_GROUP
@@ -241,7 +241,7 @@ dubbo:
   #    type: W3C # 传播器类型：W3C/B3 默认是W3C
   #  tracing-exporter:
   #    zipkin-config:
-  #      endpoint: http://127.0.0.1:9411/api/v2/spans
+  #      endpoint: http://${remote-ip}:9411/api/v2/spans
   #      connect-timeout: 1s # 建立连接超时时间, 默认为1s
   #      read-timeout: 10s # 传递数据超时时间, 默认为10s
   metrics:
@@ -269,7 +269,7 @@ dubbo:
       exporter:
         enabled: true
         enableHttpServiceDiscovery: true
-        httpServiceDiscoveryUrl: http://127.0.0.1:18081/prometheus/metrics
+        httpServiceDiscoveryUrl: http://${remote-ip}:18081/prometheus/metrics
       pushgateway:
         enabled: false
     histogram:
@@ -284,7 +284,7 @@ seata:
   data-source-proxy-mode: AT
   service:
     grouplist:
-      SC: 127.0.0.1:8091
+      SC: ${remote-ip}:8091
     vgroupMapping:
       taotao_cloud_tx_group: SC   # TC 集群（必须与seata-server保持一致）
     disable-global-transaction: false     # 禁用全局事务（默认false）
@@ -292,7 +292,7 @@ seata:
     type: nacos
     nacos:
       namespace: taotao-cloud-seata
-      server-addr: 127.0.0.1:8848
+      server-addr: ${remote-ip}:8848
       group: SEATA_GROUP
       username: nacos
       password: nacos
@@ -302,7 +302,7 @@ seata:
     nacos:
       namespace: taotao-cloud-seata
       application: seata-server
-      server-addr: 127.0.0.1:8848
+      server-addr: ${remote-ip}:8848
       group: SEATA_GROUP
       username: nacos
       password: nacos
@@ -350,7 +350,7 @@ seata:
     enable-client-batch-send-request: true     # 客户端事务消息请求是否批量合并发送（默认true）
 
 rocketmq:
-  name-server: http://127.0.0.1:9876
+  name-server: http://${remote-ip}:9876
   producer:
     # 发送同一类消息的设置为同一个group，保证唯一
     group: ${spring.application.name}     # 组名称
@@ -490,11 +490,11 @@ spring:
       max-request-size: 200MB
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    #url: jdbc:mysql://127.0.0.1:13306/${spring.application.name}?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&useSSL=false&rewriteBatchedStatements=true&zeroDateTimeBehavior=convertToNull&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&allowMultiQueries=true&autoReconnect=true&queryInterceptors=brave.mysql8.TracingQueryInterceptor&exceptionInterceptors=brave.mysql8.TracingExceptionInterceptor
+    #url: jdbc:mysql://${remote-ip}:13306/${spring.application.name}?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&useSSL=false&rewriteBatchedStatements=true&zeroDateTimeBehavior=convertToNull&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&allowMultiQueries=true&autoReconnect=true&queryInterceptors=brave.mysql8.TracingQueryInterceptor&exceptionInterceptors=brave.mysql8.TracingExceptionInterceptor
     #driver-class-name: com.mysql.cj.jdbc.Driver
-    #url: jdbc:p6spy:mysql://127.0.0.1:13306/${spring.application.name}?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&useSSL=false&rewriteBatchedStatements=true&zeroDateTimeBehavior=convertToNull&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&allowMultiQueries=true&autoReconnect=true&rewriteBatchedStatements=true
+    #url: jdbc:p6spy:mysql://${remote-ip}:13306/${spring.application.name}?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&useSSL=false&rewriteBatchedStatements=true&zeroDateTimeBehavior=convertToNull&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&allowMultiQueries=true&autoReconnect=true&rewriteBatchedStatements=true
     #driver-class-name: com.p6spy.engine.spy.P6SpyDriver
-    url: jdbc:mysql://127.0.0.1:3306/${spring.application.name}?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&useSSL=false&rewriteBatchedStatements=true&zeroDateTimeBehavior=convertToNull&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&allowMultiQueries=true&autoReconnect=true&useCursorFetch=true&allowPublicKeyRetrieval=true
+    url: jdbc:mysql://${remote-ip}:3306/${spring.application.name}?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&useSSL=false&rewriteBatchedStatements=true&zeroDateTimeBehavior=convertToNull&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&allowMultiQueries=true&autoReconnect=true&useCursorFetch=true&allowPublicKeyRetrieval=true
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: 123456
@@ -519,7 +519,7 @@ spring:
       datasource:
         master:
           type: com.zaxxer.hikari.HikariDataSource
-          url: jdbc:p6spy:mysql://${TAOTAO_CLOUD_MYSQL_HOST:127.0.0.1}:${TAOTAO_CLOUD_MYSQL_PORT:3306}/${spring.application.name}?useUnicode=true&rewriteBatchedStatements=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+          url: jdbc:p6spy:mysql://${TAOTAO_CLOUD_MYSQL_HOST:${remote-ip}}:${TAOTAO_CLOUD_MYSQL_PORT:3306}/${spring.application.name}?useUnicode=true&rewriteBatchedStatements=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
           username: ${TAOTAO_CLOUD_MYSQL_USERNAME:root}
           password: ${TAOTAO_CLOUD_MYSQL_PASSWORD:123456}
           driver-class-name: com.p6spy.engine.spy.P6SpyDriver
@@ -578,7 +578,7 @@ spring:
           use_jdbc_metadata_defaults: false
   data:
     redis:
-      host: 127.0.0.1
+      host: ${remote-ip}
       port: 6379
       database: 1
       #password: ${TAOTAO_CLOUD_REDIS_PASSWORD:taotao-cloud}
@@ -587,7 +587,7 @@ spring:
       #  master:
       #  nodes:
       #cluster:
-      #  nodes: 127.0.0.1:6381,127.0.0.1:6382,127.0.0.1:6383,127.0.0.1:6384,127.0.0.1:6385,127.0.0.1:6386
+      #  nodes: ${remote-ip}:6381,${remote-ip}:6382,${remote-ip}:6383,${remote-ip}:6384,${remote-ip}:6385,${remote-ip}:6386
       #  max-redirects: 3
       client-type: lettuce
       lettuce:
@@ -617,7 +617,7 @@ spring:
             # 客户端名称
             clientName: "taotao-cloud-redis-client"
             # 节点地址
-            address: "redis://127.0.0.1:6379"
+            address: "redis://${remote-ip}:6379"
             # 发布和订阅连接的最小空闲连接数
             subscriptionConnectionMinimumIdleSize: 1
             # 发布和订阅连接池大小
@@ -642,7 +642,7 @@ spring:
           lockWatchdogTimeout: 10000
   kafka:
     enabled: true
-    bootstrap-servers: 127.0.0.1:9092
+    bootstrap-servers: ${remote-ip}:9092
     producer:
       # 消息发送重试次数
       retries: 1
@@ -726,11 +726,11 @@ spring:
         jwt:
           issuer-uri: ${herodotus.endpoint.issuer-uri}
           #jwk-set-uri: ${herodotus.endpoint.jwk-set-uri}
-          jwk-set-uri: http://127.0.0.1:33334/oauth2/jwks
+          jwk-set-uri: http://${remote-ip}:33334/oauth2/jwks
         opaquetoken:
           client-id: 25953fda237841689743a94871915661
           client-secret: a667ed5606f44e159db062239ed5a838
-          introspection-uri: http://127.0.0.1
+          introspection-uri: http://${remote-ip}
   cloud:
     function:
       web:
@@ -747,7 +747,7 @@ spring:
       enabled: true
     nacos:
       discovery:
-        server-addr: 127.0.0.1:8848
+        server-addr: ${remote-ip}:8848
         metadata:
           version: ${ttcVersion}
           user.name: "admin"
@@ -760,7 +760,7 @@ spring:
         naming-load-cache-at-start: false
       config:
         enabled: true
-        server-addr: 127.0.0.1:8848
+        server-addr: ${remote-ip}:8848
         namespace: 82f5c2ff-c0d5-478d-9987-7f082d1a55d7
         username: nacos
         password: nacos
@@ -780,7 +780,7 @@ spring:
       #        #流控 名称随意
       #        flow:
       #          nacos:
-      #            server-addr: 127.0.0.1:8848
+      #            server-addr: ${remote-ip}:8848
       #            dataId: ${spring.application.name}-flow-rules.json
       #            namespace: 4c21599b-c836-4f1a-a72f-1260d5474f0f
       #            username: nacos
@@ -792,7 +792,7 @@ spring:
       #        #熔断降级 名称随意
       #        degrade:
       #          nacos:
-      #            server-addr: 127.0.0.1:8848
+      #            server-addr: ${remote-ip}:8848
       #            dataId: ${spring.application.name}-degrade-rules.json
       #            namespace: 4c21599b-c836-4f1a-a72f-1260d5474f0f
       #            username: nacos
@@ -803,7 +803,7 @@ spring:
       #        #系统规则 名称随意
       #        system:
       #          nacos:
-      #            server-addr: 127.0.0.1:8848
+      #            server-addr: ${remote-ip}:8848
       #            dataId: ${spring.application.name}-goodstem-rules.json
       #            namespace: 4c21599b-c836-4f1a-a72f-1260d5474f0f
       #            username: nacos
@@ -814,7 +814,7 @@ spring:
       #        #授权规则 名称随意
       #        authority:
       #          nacos:
-      #            server-addr: 127.0.0.1:8848
+      #            server-addr: ${remote-ip}:8848
       #            dataId: ${spring.application.name}-authority-rules.json
       #            namespace: 4c21599b-c836-4f1a-a72f-1260d5474f0f
       #            username: nacos
@@ -825,7 +825,7 @@ spring:
       #        #参数规则 名称随意
       #        param-flow:
       #          nacos:
-      #            server-addr: 127.0.0.1:8848
+      #            server-addr: ${remote-ip}:8848
       #            dataId: ${spring.application.name}-param-flow-rules.json
       #            namespace: 4c21599b-c836-4f1a-a72f-1260d5474f0f
       #            username: nacos
@@ -834,7 +834,7 @@ spring:
       #            data-type: json
       #            rule-type: param-flow
       transport:
-        dashboard: 127.0.0.1:8858
+        dashboard: ${remote-ip}:8858
         port: 8712
       metric:
         file-single-size: 1024 * 1024 * 50
@@ -889,7 +889,7 @@ spring:
 #          binder: kafka
 #      rocketmq:
 #        binder:
-#          name-server: 127.0.0.1:9876
+#          name-server: ${remote-ip}:9876
 #          vip-channel-enabled: false
 #          group: demo
 #        #RocketMQSpecificPropertiesProvider
@@ -918,7 +918,7 @@ spring:
 #              sync: true
 #      kafka:
 #        binder:
-#          brokers: 127.0.0.1:9092
+#          brokers: ${remote-ip}:9092
 #          auto-create-topics: true
 #        bindings:
 #          order-output:
@@ -955,7 +955,7 @@ taotao:
         enabled: true
         autoRegister: false
         admin:
-          addresses: http://127.0.0.1:48080/xxl-job-admin
+          addresses: http://${remote-ip}:48080/xxl-job-admin
           username: admin
           password: 123456
         executor:
@@ -964,7 +964,7 @@ taotao:
           title: ttc-goods
     zookeeper:
       enabled: false
-      connectString: 127.0.0.1:2181
+      connectString: ${remote-ip}:2181
     sensitive:
       enabled: true
     lock:
@@ -1152,21 +1152,21 @@ taotao:
         endpoint:
           uaa-service-name: dante-cloud-uaa
           upms-service-name: dante-cloud-upms
-          gateway-service-uri: http://127.0.0.1:33336
-          uaa-service-uri: http://127.0.0.1:33336/
-          upms-service-uri: http://127.0.0.1:33336/${herodotus.endpoint.upms-service-name}
-          access-token-uri: http://127.0.0.1:33336/oauth2/token
-          authorization-uri: http://127.0.0.1:33336/oauth2/authorize
-          token-revocation-uri: http://127.0.0.1:33336/oauth2/revoke
-          token-introspection-uri: http://127.0.0.1:33336/oauth2/introspect
-          jwk-set-uri: http://127.0.0.1:33334/oauth2/jwks
+          gateway-service-uri: http://${remote-ip}:33336
+          uaa-service-uri: http://${remote-ip}:33336/
+          upms-service-uri: http://${remote-ip}:33336/${herodotus.endpoint.upms-service-name}
+          access-token-uri: http://${remote-ip}:33336/oauth2/token
+          authorization-uri: http://${remote-ip}:33336/oauth2/authorize
+          token-revocation-uri: http://${remote-ip}:33336/oauth2/revoke
+          token-introspection-uri: http://${remote-ip}:33336/oauth2/introspect
+          jwk-set-uri: http://${remote-ip}:33334/oauth2/jwks
           issuer-uri: ${herodotus.endpoint.uaa-service-uri}
-          oidc-client-registration-uri: http://127.0.0.1:33336/connect/register
-          oidc-user-info-uri: http://127.0.0.1:33336/userinfo
-          #device-authorization-uri: http://127.0.0.1:33336/oauth2/device_authorization
-          #device-authorization-endpoint: http://127.0.0.1:33336/oauth2/device_authorization
-          #device-verification-uri: http://127.0.0.1:33336/oauth2/device_verification
-          #device-verification-endpoint: http://127.0.0.1:33336/oauth2/device_verification
+          oidc-client-registration-uri: http://${remote-ip}:33336/connect/register
+          oidc-user-info-uri: http://${remote-ip}:33336/userinfo
+          #device-authorization-uri: http://${remote-ip}:33336/oauth2/device_authorization
+          #device-authorization-endpoint: http://${remote-ip}:33336/oauth2/device_authorization
+          #device-verification-uri: http://${remote-ip}:33336/oauth2/device_verification
+          #device-verification-endpoint: http://${remote-ip}:33336/oauth2/device_verification
         authentication:
           form-login:
             category: HUTOOL_GIF
@@ -1248,7 +1248,7 @@ management:
       export:
         otlp:
           compression: none
-          endpoint: http://127.0.0.1:4318/v1/logs
+          endpoint: http://${remote-ip}:4318/v1/logs
           timeout: 10s
           headers:
             version: ${ttcVersion}
@@ -1256,14 +1256,14 @@ management:
       export:
         otlp:
           compression: none
-          endpoint: http://127.0.0.1:4318/v1/traces
+          endpoint: http://${remote-ip}:4318/v1/traces
           timeout: 10s
           headers:
             version: ${ttcVersion}
   otlp:
     metrics:
       export:
-        url: http://127.0.0.1:4318/v1/metrics
+        url: http://${remote-ip}:4318/v1/metrics
         enabled: true
         batch-size: 10000
         connect-timeout: 10s
@@ -1454,7 +1454,7 @@ knife4j:
 #    enableSwaggerModels: true
 #    enableDocumentManage: true
 #    enableHost: false
-#    enableHostText: http://127.0.0.1:18568
+#    enableHostText: http://${remote-ip}:18568
 #    enableRequestCache: true
 #    enableFilterMultipartApis: false
 #    enableFilterMultipartApiMethodType: POST
@@ -1474,17 +1474,17 @@ herodotus:
   endpoint:
     uaa-service-name: dante-cloud-uaa
     upms-service-name: dante-cloud-upms
-    gateway-service-uri: http://127.0.0.1:33336
-    uaa-service-uri: http://127.0.0.1:33336/
-    upms-service-uri: http://127.0.0.1:33336/${herodotus.endpoint.upms-service-name}
-    access-token-uri: http://127.0.0.1:33336/oauth2/token
-    authorization-uri: http://127.0.0.1:33336/oauth2/authorize
-    token-revocation-uri: http://127.0.0.1:33336/oauth2/revoke
-    token-introspection-uri: http://127.0.0.1:33336/oauth2/introspect
-    jwk-set-uri: http://127.0.0.1:33334/oauth2/jwks
+    gateway-service-uri: http://${remote-ip}:33336
+    uaa-service-uri: http://${remote-ip}:33336/
+    upms-service-uri: http://${remote-ip}:33336/${herodotus.endpoint.upms-service-name}
+    access-token-uri: http://${remote-ip}:33336/oauth2/token
+    authorization-uri: http://${remote-ip}:33336/oauth2/authorize
+    token-revocation-uri: http://${remote-ip}:33336/oauth2/revoke
+    token-introspection-uri: http://${remote-ip}:33336/oauth2/introspect
+    jwk-set-uri: http://${remote-ip}:33334/oauth2/jwks
     issuer-uri: ${herodotus.endpoint.uaa-service-uri}
-    oidc-client-registration-uri: http://127.0.0.1:33336/connect/register
-    oidc-user-info-uri: http://127.0.0.1:33336/userinfo
+    oidc-client-registration-uri: http://${remote-ip}:33336/connect/register
+    oidc-user-info-uri: http://${remote-ip}:33336/userinfo
   oauth2:
     authentication:
       form-login:
@@ -1497,7 +1497,7 @@ herodotus:
 scalar:
   enabled: true
   actuatorEnabled: true
-  url: http://127.0.0.1:33332/v3/api-docs/taotao-cloud-goods
+  url: http://${remote-ip}:33332/v3/api-docs/taotao-cloud-goods
   path: /docs
   pageTitle: My API Documentation
   tagSorter: ALPHA
