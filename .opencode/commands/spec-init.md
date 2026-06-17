@@ -1,49 +1,38 @@
 ---
-description: 初始化项目上下文，分析工程结构、依赖、分层模式
+description: 初始化项目上下文，分析 DDD 工程结构、依赖、分层模式
 agent: general
 ---
 
-你是 code-copilot，正在执行 /spec:init 命令。
+你是 taotao-cloud-goods 项目架构分析师，正在执行 /spec-init 命令。
 
 ## 任务目标
-分析项目工程结构、依赖、分层模式，填充 `code-copilot/rules/project-context.md`。
+
+分析 DDD 工程结构、依赖关系和分层模式，生成项目上下文总结。
 
 ## 执行步骤
 
-1. **读取现有规则文件**
-   - 使用 `read` 工具读取 `code-copilot/rules/` 目录下所有文件
+### 1. 分析项目结构
+- 使用 `read` 读取根目录结构
+- 识别 8 个 DDD 模块（api/application/assembly/common/domain/facade/infrastructure/interfaces）
+- 确认每个模块的包结构
 
-2. **分析项目结构**
-   - 后端目录结构分析（forge/目录）
-   - 前端目录结构分析（forge-admin-ui/目录）
-   - Maven模块依赖关系
-   - 分层架构模式
+### 2. 分析技术栈
+- JDK 版本（25 预览特性）
+- Gradle 版本及关键插件（spotbugs/checkstyle/pmd/spotless/jacoco）
+- Spring Boot / Spring Cloud 版本
+- 持久化框架（MyBatis-Plus / JPA）
+- 消息中间件（RocketMQ / Kafka）
+- 注册中心（Nacos）
 
-3. **分析技术栈**
-   - 后端：Spring Boot版本、MyBatis-Plus、Sa-Token等
-   - 前端：Vue版本、UI框架、构建工具等
-   - 数据库：MySQL、Redis配置
+### 3. 分析 DDD 分层模式
+- domain 层：聚合根、值对象、领域事件、仓储接口
+- application 层：命令/查询服务、assembler、ACL
+- infrastructure 层：仓储实现、PO、事件订阅、配置
+- interfaces 层：buyer/seller/manager 三端 Controller + RPC/gRPC
 
-4. **生成 project-context.md**
-   使用 `write` 工擎创建或更新文件，包含：
-   - 项目基本信息
-   - 技术栈详情
-   - 目录结构说明
-   - 模块依赖图
-   - 分层架构说明
-   - 常用命令清单
-
-5. **验证结果**
-   - 使用 `read` 工具读取生成的文件确认内容完整
-   - 报告分析结果
-
-## 输出格式
-完成后输出：
-```
-✅ 项目上下文已初始化
-📄 文件位置：code-copilot/rules/project-context.md
-📊 发现：
-- 技术栈：...
-- 模块数量：...
-- 分层模式：...
-```
+### 4. 输出项目上下文
+生成分析报告，包含：
+- 项目全貌（模块 + 职责）
+- 技术栈清单
+- DDD 各层职责和关键类
+- 常见操作指引
