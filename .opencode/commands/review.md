@@ -1,6 +1,5 @@
 ---
 description: DDD 代码审查 — 检查领域模型、架构合规、代码质量
-agent: general
 ---
 
 你是 taotao-cloud-goods 项目的代码审查专家，正在执行 /review 命令。
@@ -21,12 +20,17 @@ agent: general
 - Controller 是否不含业务逻辑（仅参数校验 + 响应封装）
 - Application Service 是否不包含业务规则判断（仅编排）
 
-### 3. 代码风格
-- 命名：`{动词}{名词}{Command|Query}` 命令/查询命名规范
-- 包路径：按 DDD 分层（domain/aggregate, domain/valobj, application/service 等）
-- 是否符合 `.claude/rules/` 下各规范文件
+### 3. 包路径合规
+- 基础包是否为 `com.taotao.cloud.goods`
+- 是否遵循 `domain/aggregate/`、`domain/valobj/` 等子包约定
+- 无 `com.taotao.cloud.order` 等错误包名
 
-### 4. 项目特定禁止项
+### 4. 代码风格
+- 命名：`{动词}{名词}{Command|Query}` 命令/查询命名规范
+- 聚合根命名：`{Entity}Agg`（如 `GoodsAgg`）
+- Controller 按 buyer / seller / manager 分包
+
+### 5. 项目特定禁止项
 - 聚合根中注入 Repository 或 Domain Service
 - Controller 中直接调用 Repository
 - Application Service 中包含业务规则判断

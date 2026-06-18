@@ -74,7 +74,7 @@ echo "[4/4] 检查跨聚合数据访问..."
 for module in "${MODULES[@]}"; do
     if [ -d "$BASE_DIR/$module/src/main/java" ]; then
         found=$(grep -rn "\.save\|\.update\|\.delete\|\.findById\|@Table\|@Entity" \
-            "$BASE_DIR/$module/src/main/java/com/taotao/cloud/order/domain" \
+            "$BASE_DIR/$module/src/main/java/com/taotao/cloud/goods/domain" \
             --include="*.java" 2>/dev/null || true)
         if [ -n "$found" ]; then
             echo "  ⚠️  domain 层发现持久化操作（违反 DDD 规范）"

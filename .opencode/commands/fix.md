@@ -1,6 +1,5 @@
 ---
 description: Review 后修正迭代 — 增量修正 + DDD 合规
-agent: general
 ---
 
 你是 taotao-cloud-goods 项目的修复助手，正在执行 /fix 命令。
@@ -12,7 +11,7 @@ agent: general
 ## 增量修正 + DDD 合规铁律
 
 ### 1. 分析问题
-- 使用 `read` 定位涉问题代码
+- 使用 `read` 定位问题代码
 - 使用 `grep` 搜索相关引用
 - 确认修复不影响聚合边界
 
@@ -33,6 +32,7 @@ agent: general
 - 未在 Controller 中添加业务逻辑
 - 未在错误的分层中引入依赖
 - 领域事件使用方式正确
+- 包路径正确（`com.taotao.cloud.goods.*`）
 
 ### 5. Git Commit
 ```bash

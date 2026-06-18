@@ -1,137 +1,64 @@
-
-**`.claude/rules/domain-service.md`**
-```markdown
-# 领域服务设计规范
+# 领域服务设计规范 — taotao-cloud-goods
 
 ## 何时使用领域服务
 
 ### 适用场景
-1. **跨聚合的业务逻辑**
-2. **无状态的计算服务**
-3. **外部领域概念**
+1. **跨聚合的业务逻辑** — 涉及多个聚合根的协调操作
+2. **无状态的计算服务** — 不持有状态，只提供计算行为
+3. **不属于任何单一聚合的外部概念**
 
 ### 不适用场景
-1. **应该属于聚合根的行为**
-2. **纯粹的技术性操作**
-3. **应用层的用例编排**
+1. **应该属于聚合根的行为**（如 `order.addItem()` 不应提取到 Service）
+2. **纯粹的技术性操作**（属于 infrastructure 层）
+3. **应用层的用例编排**（属于 application 层）
+
+## 代码规范
 
 ```java
-// ✅ 正确：跨聚合的业务逻辑
 @DomainService
-public class TransferService {
-    public void transfer(Account from, Account to, Money amount) {
-        if (!from.canWithdraw(amount)) {
-            throw new DomainException("余额不足");
-        }
-        
-        from.withdraw(amount);
-        to.deposit(amount);
-        
-        // 注册领域事件
-        DomainEventPublisher.publish(new MoneyTransferredEvent(from.getId(), to.getId(), amount));
-    }
-}
-
-// ❌ 错误：应该属于聚合根
-@DomainService
-public class OrderAmountCalculator {
-    public Money calculate(Order order) {
-        // 这个逻辑应该放在Order聚合内
-        return order.getItems().stream()
-            .map(OrderItem::getSubtotal)
-            .reduce(Money.ZERO, Money::add);
-    }
-}
-领域服务实现规范
-1. 无状态设计
-java
 @Service
-@DomainService
-public class DiscountCalculator {
-    // 只依赖其他无状态服务
-    private final UserLevelService userLevelService;
-    private final CouponValidator couponValidator;
-    
-    public DiscountCalculator(UserLevelService userLevelService, 
-                              CouponValidator couponValidator) {
-        this.userLevelService = userLevelService;
-        this.couponValidator = couponValidator;
-    }
-    
-    // 方法不修改自身状态
-    public Money calculateDiscount(Order order, User user, Coupon coupon) {
-        Money baseDiscount = calculateBaseDiscount(user);
-        Money couponDiscount = calculateCouponDiscount(coupon, order);
-        return baseDiscount.add(couponDiscount);
-    }
-}
-2. 业务语义明确
-java
-@DomainService
-public class InventoryService {
+public class GoodsDomainService {
+
     // 方法名表达业务意图
-    public boolean isAvailable(ProductId productId, int quantity) {
-        return checkInventory(productId, quantity);
-    }
-    
-    public void reserveStock(OrderId orderId, List<OrderItem> items) {
-        // 明确的业务操作
-        for (OrderItem item : items) {
-            reserveProduct(item.getProductId(), item.getQuantity());
+    public void transferCategory(GoodsAgg goods, Category oldCategory, Category newCategory) {
+        // 跨聚合的业务逻辑
+        if (newCategory.isDisabled()) {
+            throw new DomainException("目标分类已禁用");
         }
+
+        goods.changeCategory(newCategory.getId());
+        oldCategory.removeGoods(goods.getId());
+
+        // 注册领域事件
+        DomainEventPublisher.publish(new CategoryChangedEvent(goods.getId(),
+            oldCategory.getId(), newCategory.getId()));
     }
-    
-    public void releaseReservedStock(OrderId orderId) {
-        // 对应的逆操作
-        releaseReservation(orderId);
-    }
-}
-3. 异常处理
-java
-@DomainService
-@Slf4j
-public class PaymentService {
-    private final PaymentGateway paymentGateway;
-    
-    public PaymentResult pay(Order order, PaymentMethod paymentMethod) {
-        try {
-            Money amount = order.getTotalAmount();
-            PaymentResponse response = paymentGateway.charge(
-                paymentMethod, amount
-            );
-            
-            return PaymentResult.success(response.getTransactionId());
-        } catch (PaymentException e) {
-            log.error("Payment failed for order: {}", order.getId(), e);
-            return PaymentResult.failure(e.getMessage());
-        }
+
+    // 无状态查询
+    public boolean isGoodsValidForSale(GoodsAgg goods) {
+        return goods.isPublished()
+            && !goods.isExpired()
+            && goods.getStock() > 0;
     }
 }
-领域服务测试
-java
-@ExtendWith(MockitoExtension.class)
-class PricingServiceTest {
-    @Mock
-    private ProductRepository productRepository;
-    
-    @Mock
-    private DiscountPolicy discountPolicy;
-    
-    @InjectMocks
-    private PricingService pricingService;
-    
-    @Test
-    void shouldCalculateOrderPriceWithDiscount() {
-        // Given
-        Order order = mock(Order.class);
-        when(order.getItems()).thenReturn(createOrderItems());
-        when(discountPolicy.calculateDiscount(any(), any()))
-            .thenReturn(new Money(10));
-        
-        // When
-        Money total = pricingService.calculateOrderPrice(order, CustomerType.VIP);
-        
-        // Then
-        assertThat(total.getAmount()).isEqualTo(190);
-    }
-}
+```
+
+## 命名规范
+
+```
+{Entity}DomainService
+```
+
+示例：`GoodsDomainService`, `CategoryDomainService`
+
+## 禁止做法
+```java
+// ❌ 有状态的领域服务
+private Map<Long, GoodsAgg> cache;
+
+// ❌ 技术性操作
+public void saveToElasticsearch(GoodsAgg goods) { ... }
+
+// ❌ 应用层编排逻辑（属于 Application Service）
+public CreateGoodsResponse createGoods(CreateGoodsCommand command) { ... }
+```

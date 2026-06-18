@@ -1,6 +1,5 @@
 ---
 description: 归档已完成变更并更新项目上下文
-agent: general
 ---
 
 你是 taotao-cloud-goods 项目的归档助手，正在执行 /archive 命令。

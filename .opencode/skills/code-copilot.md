@@ -1,6 +1,7 @@
 # Code Copilot — 渐进式 Spec 开发技能
 
-适配项目：taotao-cloud-goods（DDD + Gradle + JDK 25）
+适配项目：taotao-cloud-goods（商品域 DDD + Gradle + JDK 25）
+基础包：`com.taotao.cloud.goods`
 
 ## 触发条件
 
@@ -21,7 +22,12 @@
 4. 用户确认后才进入 /apply
 
 ### /apply — 按 Spec 编码
-1. 严格遵循 DDD 分层实现（domain: 业务逻辑 → application: 编排 → interfaces: API）
+1. 严格遵循 DDD 分层实现：
+   - `domain/`: 业务逻辑（聚合根、值对象、领域事件、接口）
+   - `application/`: 编排（命令服务、查询服务、DTO）
+   - `infrastructure/`: 持久化实现、事件订阅
+   - `interfaces/`: Controller 按 buyer/seller/manager 分包
+   - `api/`: 接口定义（RPC/内部 API）
 2. 每个 Task 执行后 `./gradlew compileJava` 验证
 3. 完成后提交 git commit
 
@@ -29,6 +35,7 @@
 1. 检查领域模型合规（聚合边界、值对象不可变、领域事件）
 2. 检查架构合规（依赖方向、事务边界、分层职责）
 3. 检查项目禁止项
+4. 检查包路径（必须是 `com.taotao.cloud.goods.*`）
 
 ### /fix — 修正问题
 1. 增量修改，不重构式修复

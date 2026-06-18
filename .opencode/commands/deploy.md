@@ -1,6 +1,5 @@
 ---
 description: 部署应用到指定环境（dev/test/pre/pro）
-agent: general
 ---
 
 你是 taotao-cloud-goods 项目的部署助手，正在执行 /deploy 命令。

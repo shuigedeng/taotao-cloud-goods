@@ -1,198 +1,82 @@
-**`.claude/rules/value-object.md`**
-```markdown
-# 值对象设计规范
+# 值对象设计规范 — taotao-cloud-goods
 
 ## 核心特性
 
 ### 1. 不可变性
+- 所有字段声明为 `final`
+- 无 setter 方法
+- 构造时自验证
+
+### 2. 无标识
+- 通过属性值判断相等性
+- 覆写 `equals()` / `hashCode()`（基于所有属性）
+
+### 3. 行为内聚
+- 包含与自身相关的业务方法
+- 不包含持久化逻辑
+
+## 代码规范
+
 ```java
-@ValueObject
-public final class Email {
-    private final String value;
-    
-    public Email(String value) {
-        if (!isValid(value)) {
-            throw new DomainException("Invalid email: " + value);
-        }
-        this.value = value;
-    }
-    
-    private boolean isValid(String email) {
-        return email != null && email.matches("^[A-Za-z0-9+_.-]+@(.+)$");
-    }
-    
-    public String getValue() { return value; }
-    
-    // 操作返回新对象
-    public Email normalize() {
-        return new Email(value.toLowerCase().trim());
-    }
-    
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Email)) return false;
-        Email email = (Email) o;
-        return Objects.equals(value, email.value);
-    }
-    
-    @Override
-    public int hashCode() {
-        return Objects.hash(value);
-    }
-}
-2. 自验证
-值对象在构造时必须验证自身有效性：
-
-java
-public class Money {
-    public Money(BigDecimal amount, Currency currency) {
-        // 验证1: 金额不能为null
-        if (amount == null) {
-            throw new DomainException("Amount cannot be null");
-        }
-        
-        // 验证2: 金额不能为负数
-        if (amount.compareTo(BigDecimal.ZERO) < 0) {
-            throw new DomainException("Amount cannot be negative");
-        }
-        
-        // 验证3: 货币不能为null
-        if (currency == null) {
-            throw new DomainException("Currency cannot be null");
-        }
-        
-        this.amount = amount;
-        this.currency = currency;
-    }
-}
-3. 行为内聚
-值对象应该包含业务行为：
-
-java
-public class Address {
-    private final String province;
-    private final String city;
-    private final String street;
-    private final String zipCode;
-    
-    // 业务行为
-    public boolean isInSameCity(Address other) {
-        return this.province.equals(other.province) 
-            && this.city.equals(other.city);
-    }
-    
-    public String format() {
-        return String.format("%s %s %s", province, city, street);
-    }
-    
-    public String toGeoCode() {
-        // 生成地理编码
-        return GeoEncoder.encode(format());
-    }
-}
-常见值对象模式
-1. 范围值对象
-java
-public class PriceRange {
-    private final Money min;
-    private final Money max;
-    
-    public PriceRange(Money min, Money max) {
-        if (min.compareTo(max) > 0) {
-            throw new DomainException("Min price cannot be greater than max");
-        }
-        this.min = min;
-        this.max = max;
-    }
-    
-    public boolean contains(Money price) {
-        return price.compareTo(min) >= 0 && price.compareTo(max) <= 0;
-    }
-}
-2. 枚举值对象
-java
-public class OrderStatus {
-    public static final OrderStatus PENDING = new OrderStatus("PENDING");
-    public static final OrderStatus PAID = new OrderStatus("PAID");
-    public static final OrderStatus SHIPPED = new OrderStatus("SHIPPED");
-    public static final OrderStatus DELIVERED = new OrderStatus("DELIVERED");
-    public static final OrderStatus CANCELLED = new OrderStatus("CANCELLED");
-    
-    private final String value;
-    
-    private OrderStatus(String value) {
-        this.value = value;
-    }
-    
-    public boolean canTransitionTo(OrderStatus target) {
-        // 状态转换规则
-        if (this == PENDING && target == PAID) return true;
-        if (this == PAID && target == SHIPPED) return true;
-        if (this == SHIPPED && target == DELIVERED) return true;
-        return false;
-    }
-    
-    public String getValue() { return value; }
-}
-3. 复合值对象
-java
-public class FullName {
-    private final String firstName;
-    private final String lastName;
-    
-    public FullName(String firstName, String lastName) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-    }
-    
-    public String getDisplayName() {
-        return lastName + " " + firstName;
-    }
-    
-    public String getInitials() {
-        return String.valueOf(firstName.charAt(0)) + lastName.charAt(0);
-    }
-}
-JPA映射值对象
-嵌入式值对象
-java
 @Embeddable
-public class Address {
-    private String province;
-    private String city;
-    private String street;
-    
-    // 无参构造器（JPA要求）
-    protected Address() {}
-    
-    // 业务构造器
-    public Address(String province, String city, String street) {
-        this.province = province;
-        this.city = city;
-        this.street = street;
-    }
-}
+public class GoodsWeight {
+    private final BigDecimal value;
+    private final WeightUnit unit;
 
-// 使用
-@Entity
-public class Order {
-    @Embedded
-    private Address shippingAddress;
-}
-集合值对象
-java
-// 使用AttributeConverter转换复杂值对象
-@Converter
-public class MoneyConverter implements AttributeConverter<Money, String> {
-    @Override
-    public String convertToDatabaseColumn(Money money) {
-        return money.getAmount() + "|" + money.getCurrency();
+    public GoodsWeight(BigDecimal value, WeightUnit unit) {
+        if (value == null || value.compareTo(BigDecimal.ZERO) <= 0) {
+            throw new DomainException("商品重量必须为正数");
+        }
+        if (unit == null) {
+            throw new DomainException("重量单位不能为空");
+        }
+        this.value = value;
+        this.unit = unit;
     }
-    
-    @Override
-    public Money convertToEntityAttribute(String dbData) {
-        String[] parts = dbData.split("\\|");
-        return new Money(new BigDecimal(parts[0]), Currency.getInstance(parts[1]));
+
+    // 业务行为
+    public GoodsWeight convertTo(WeightUnit targetUnit) {
+        if (this.unit == targetUnit) return this;
+        // 单位转换逻辑
+        BigDecimal converted = convert(this.value, this.unit, targetUnit);
+        return new GoodsWeight(converted, targetUnit);
     }
+
+    // 只有 getter，无 setter
+    public BigDecimal getValue() { return value; }
+    public WeightUnit getUnit() { return unit; }
+
+    // JPA 要求
+    protected GoodsWeight() {}
+
+    @Override
+    public boolean equals(Object o) { ... }
+    @Override
+    public int hashCode() { ... }
 }
+```
+
+## 项目中的值对象
+
+| 值对象 | 字段 | 包路径 |
+|--------|------|--------|
+| `GoodsWeight` | value, unit | `domain/valobj/` |
+| `GoodsStatus` | 枚举 | `domain/valobj/` |
+| `GoodsSpec` | specJson | `domain/valobj/` |
+| `GoodsName` | value | `domain/valobj/` |
+| `CategoryName` | value | `domain/valobj/` |
+| `CategoryDesc` | value | `domain/valobj/` |
+| `WeightUnit` | 枚举 | `domain/valobj/` |
+
+## 禁止做法
+```java
+// ❌ 非 final 字段 + setter
+private BigDecimal value;
+public void setValue(BigDecimal value) { this.value = value; }
+
+// ❌ 值对象中注入其他 bean
+@Autowired private SomeService service;
+
+// ❌ 构造时不验证
+public GoodsWeight() {}
+```

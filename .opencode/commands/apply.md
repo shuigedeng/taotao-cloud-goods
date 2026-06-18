@@ -1,6 +1,5 @@
 ---
 description: 按确认后的 Spec 执行 DDD 编码
-agent: general
 ---
 
 你是 taotao-cloud-goods 项目的实现助手，正在执行 /apply 命令。
@@ -21,11 +20,12 @@ agent: general
 |----------|-----------|----------|
 | 领域模型（聚合根/实体/值对象/领域事件） | `domain` 层 | 零技术依赖，纯业务 |
 | 仓储接口 | `domain/repository/` | 接口在 domain |
+| 领域服务 | `domain/service/` | 无状态，跨聚合逻辑 |
 | 应用服务（编排） | `application/service/` | 事务边界，不含业务规则 |
 | 仓储实现 | `infrastructure/persistent/repository/` | PO 映射 |
-| 数据传输 | `application/dto/` + `application/assembler/` | 数据转换 |
-| REST API | `interfaces/controller/` | 按端 buyer/seller/manager |
-| RPC/gRPC 接口定义 | `api/` | 接口 + DTO |
+| DTO / Assembler | `application/dto/` + `application/assembler/` | 数据转换 |
+| REST API | `interfaces/controller/{buyer|seller|manager}/` | 按端分包 |
+| RPC 接口定义 | `api/rpc/` 或 `api/inner/` | 纯接口 + DTO |
 | RPC/gRPC 实现 | `interfaces/rpc/` 或 `interfaces/grpc/` | 实现类 |
 
 ## 执行流程

@@ -1,73 +1,39 @@
-**`.claude/commands/test.md`**
-```markdown
 ---
-description: 运行测试并生成报告
-parameters:
-  - name: module
-    type: string
-    description: 测试模块（controller/service/repository）
-    required: false
-  - name: coverage
-    type: boolean
-    default: true
-  - name: parallel
-    type: boolean
-    default: true
+description: 运行测试并生成 JaCoCo 覆盖率报告
 ---
 
 # 测试执行
 
 ## 执行步骤
 
-### 1. 清理并编译
+### 1. 运行测试
 ```bash
-./mvnw clean compile
-2. 运行测试
-{% if module %}
+./gradlew test
+```
 
-bash
-./mvnw test -Dtest=*{{module}}*Test
-{% else %}
+如果指定模块：
+```bash
+./gradlew :taotao-cloud-goods-{module}:test
+```
 
-bash
-./mvnw test -DforkCount={{ parallel ? '1C' : '1' }}
-{% endif %}
+### 2. 生成覆盖率报告
+```bash
+./gradlew jacocoTestReport
+```
 
-3. 生成覆盖率报告（如果需要）
-{% if coverage %}
+### 3. 输出测试结果
+- 测试总数：{total}
+- 通过：{passed}
+- 失败：{failed}
+- 跳过：{skipped}
 
-bash
-./mvnw jacoco:report
-# 报告位置: target/site/jacoco/index.html
-{% endif %}
+### 4. 如果测试失败
+- 读取失败测试的源码
+- 分析失败原因
+- 报告修复建议
 
-4. 输出测试结果
-测试统计
-总测试数: {{total}}
+## 测试规范
 
-通过: {{passed}}
-
-失败: {{failed}}
-
-跳过: {{skipped}}
-
-耗时: {{duration}}ms
-
-覆盖率报告
-指令覆盖率: {{instructionCoverage}}%
-
-分支覆盖率: {{branchCoverage}}%
-
-行覆盖率: {{lineCoverage}}%
-
-方法覆盖率: {{methodCoverage}}%
-
-失败测试详情
-{% for failure in failures %}
-
-{{failure.className}}.{{failure.methodName}}
-
-错误: {{failure.message}}
-
-堆栈: {{failure.stackTrace | truncate(200)}}
-{% endfor %}
+- 领域层测试：纯 POJO，无 Spring 上下文
+- 应用层测试：@SpringBootTest
+- 单元测试覆盖率 >= 80%（JaCoCo）

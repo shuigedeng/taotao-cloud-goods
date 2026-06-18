@@ -1,6 +1,7 @@
 # 项目编码规范 — taotao-cloud-goods
 
-> 补充 DDD 架构规范（详见 `.claude/CLAUDE.md` 和 `.claude/rules/`）中未覆盖的实现细节
+> 商品域 DDD 单体服务编码规范。
+> 基础包：`com.taotao.cloud.goods`
 
 ---
 
@@ -17,166 +18,234 @@ api  ←  interfaces  ←  application  →  facade
 - `infrastructure`：依赖 `domain` 实现仓储，依赖 `application` 实现事件订阅
 - `interfaces`：依赖 `application`，不直接依赖 `infrastructure`
 - `api`：纯 DTO + 接口定义，不依赖任何业务模块
+- `facade`：防腐层，适配外部系统
 
 ### 禁止违反的依赖
 ```java
 // ❌ 禁止：Controller 直接调用 Repository
-@Autowired private OrderRepository orderRepository;
+@Autowired private GoodsDomainRepository goodsRepository;
 
 // ❌ 禁止：Application Service 直接调用 Mapper
-@Autowired private OrderMapper orderMapper;
+@Autowired private GoodsMapper goodsMapper;
 
 // ❌ 禁止：Domain Service 注入 Repository
-@Autowired private OrderRepository orderRepository;
+@Autowired private GoodsDomainRepository goodsRepository;
 
 // ✅ 正确：Application Service 通过仓储接口操作持久化
-private final OrderDomainRepository orderRepository;
+private final GoodsDomainRepository goodsRepository;
 ```
 
 ## 2. 包结构规范
 
+### Domain 层
 ```
-com.taotao.cloud.order.{module}/
-├── aggregate/     # 聚合根（@AggregateRoot）
-├── entity/        # 实体（@Entity）
-├── valobj/        # 值对象（@ValueObject | @Embeddable）
-├── event/         # 领域事件（extends DomainEvent）
-├── repository/    # 仓储接口
-└── service/       # 领域服务（@DomainService）
+com.taotao.cloud.goods.domain/
+├── aggregate/         # 聚合根
+│   └── GoodsAgg.java
+├── entity/            # 实体
+│   ├── Category.java
+│   └── Tag.java
+├── valobj/            # 值对象（final 字段 + 构造验证 + 无 setter）
+│   ├── GoodsWeight.java
+│   ├── GoodsStatus.java
+│   ├── GoodsSpec.java
+│   ├── GoodsName.java
+│   ├── CategoryName.java
+│   ├── CategoryDesc.java
+│   └── WeightUnit.java
+├── event/             # 领域事件
+│   ├── GoodsCreateEvent.java
+│   ├── CategoryCreateEvent.java
+│   ├── FreightTemplateChangedEvent.java
+│   └── GoodsAggSnapshot.java
+├── repository/        # 仓储接口
+│   └── GoodsDomainRepository.java
+├── service/           # 领域服务
+│   └── GoodsDomainService.java
+├── factory/           # 工厂
+│   ├── GoodsFactory.java
+│   ├── CategoryFactory.java
+│   ├── DraftGoodsFactory.java
+│   └── GoodsTagFactory.java
+└── assembler/         # 领域 Assembler
+    ├── GoodsDomainAssembler.java
+    ├── CategoryDomainAssembler.java
+    └── GoodsTagDomainAssembler.java
 ```
 
-### 聚合根的写法
+### Application 层
+```
+com.taotao.cloud.goods.application/
+├── service/
+│   ├── command/       # 命令服务（写操作，@Transactional）
+│   └── query/         # 查询服务（读操作，@Transactional(readOnly=true))
+├── dto/
+│   ├── command/       # 命令 DTO
+│   ├── query/         # 查询 DTO
+│   └── result/        # 结果 DTO
+└── assembler/         # DTO ↔ 领域对象转换
+```
+
+### Interfaces 层
+```
+com.taotao.cloud.goods.interfaces/
+├── controller/
+│   ├── buyer/         # 买家端 API
+│   ├── seller/        # 卖家端 API
+│   ├── manager/       # 管理端 API
+│   ├── inner/         # 内部 API
+│   └── open/          # 开放平台（微信/支付宝通知等）
+├── rpc/               # Dubbo RPC 实现
+└── grpc/              # gRPC 实现
+```
+
+### API 层
+```
+com.taotao.cloud.goods.api/
+├── rpc/
+│   ├── query/         # RPC 查询接口
+│   └── command/       # RPC 命令接口
+├── inner/
+│   ├── query/         # 内部查询接口
+│   └── command/       # 内部命令接口
+├── dto/               # 基础 DTO（BaseResponse, BaseQuery, BaseCommand）
+└── rpc/dto/           # RPC 专用的 DTO
+```
+
+## 3. 聚合根的写法
+
 ```java
+package com.taotao.cloud.goods.domain.aggregate;
+
 @AggregateRoot
-public class OrderAgg {
+public class GoodsAgg {
     // 聚合内实体用对象引用（非 ID）
-    private List<OrderItem> items;
+    private List<Tag> tags;
+    private Category category;
 
     // 跨聚合用 ID 引用
-    private Long customerId;
+    private Long storeId;
+
+    // 值对象
+    private GoodsName name;
+    private GoodsStatus status;
+    private GoodsWeight weight;
+    private GoodsSpec spec;
 
     // 业务行为方法（不是 setter）
-    public void addItem(ProductId productId, Money price, int quantity) {
-        // 校验业务规则
-        // 修改内部状态
-        // 注册领域事件
-        registerEvent(new OrderItemAddedEvent(this.id, productId));
+    public void publish() {
+        if (status != GoodsStatus.DRAFT) {
+            throw new DomainException("只有草稿状态的商品才能发布");
+        }
+        this.status = GoodsStatus.PUBLISHED;
+        registerEvent(new GoodsCreateEvent(this.id));
     }
 
     // 无参构造（JPA 要求），protected
-    protected OrderAgg() {}
+    protected GoodsAgg() {}
 
     // 静态工厂方法
-    public static OrderAgg create(...) { ... }
+    public static GoodsAgg create(GoodsFactory factory, ...) { ... }
 }
 ```
 
-### 值对象的写法
-```java
-@Embeddable
-public class Money {
-    private final BigDecimal amount;
-    private final Currency currency;
+## 4. 值对象的写法
 
-    // 构造时自验证
-    public Money(BigDecimal amount, Currency currency) {
-        if (amount == null || amount.compareTo(BigDecimal.ZERO) < 0) {
-            throw new DomainException("金额不能为负数");
+```java
+package com.taotao.cloud.goods.domain.valobj;
+
+@Embeddable
+public class GoodsWeight {
+    private final BigDecimal value;
+    private final WeightUnit unit;
+
+    public GoodsWeight(BigDecimal value, WeightUnit unit) {
+        if (value == null || value.compareTo(BigDecimal.ZERO) <= 0) {
+            throw new DomainException("商品重量必须为正数");
         }
-        this.amount = amount;
-        this.currency = currency;
+        this.value = value;
+        this.unit = unit;
     }
 
     // 只有 getter，无 setter
     // 覆写 equals/hashCode（基于所有属性）
+    protected GoodsWeight() {} // JPA
 }
 ```
 
-## 3. Application Service 规范
+## 5. Application Service 规范
 
 ### 命令服务（写操作）
 ```java
+package com.taotao.cloud.goods.application.service.command;
+
 @ApplicationService
 @Service
 @Transactional
-public class OrderCommandServiceImpl implements OrderCommandService {
-    private final OrderDomainRepository orderRepository;
-    private final OrderDomainService orderDomainService;
+public class GoodsCommandServiceImpl implements GoodsCommandService {
+    private final GoodsDomainRepository goodsRepository;
+    private final GoodsDomainService goodsDomainService;
 
     @Override
-    public CreateOrderResponse createOrder(CreateOrderCommand command) {
-        // 1. 构建领域对象
+    public CreateGoodsResponse createGoods(CreateGoodsCommand command) {
+        // 1. 构建领域对象（通过工厂）
         // 2. 调用领域服务（如果需要跨聚合逻辑）
         // 3. 保存聚合
         // 4. 发布领域事件
         // 5. 返回 DTO
-        return CreateOrderResponse.fromDomain(order);
+        return CreateGoodsResponse.fromDomain(goods);
     }
 }
 ```
 
 ### 查询服务（读操作）
 ```java
+package com.taotao.cloud.goods.application.service.query;
+
 @ApplicationService
 @Service
 @Transactional(readOnly = true)
-public class OrderQueryServiceImpl implements OrderQueryService {
-    private final OrderQueryRepository orderQueryRepository;
+public class GoodsQueryServiceImpl implements GoodsQueryService {
+    private final GoodsQueryRepository goodsQueryRepository;
 
     @Override
-    public OrderDetailResult queryDetail(String orderSn) {
+    public GoodsDetailResult queryDetail(Long goodsId) {
         // 直接返回 DTO/Result，不经过领域模型
-        return orderQueryRepository.getDetailBySn(orderSn);
+        return goodsQueryRepository.getDetailById(goodsId);
     }
 }
 ```
 
-## 4. Controller 规范
+## 6. Controller 规范
 
 ```java
+package com.taotao.cloud.goods.interfaces.controller.seller;
+
 @RestController
-@RequestMapping("/{role}/order/order")
-// role = buyer | seller | manager
-public class OrderBuyerController extends BusinessController {
+@RequestMapping("/seller/goods")
+public class GoodsSellerController extends BusinessController {
     // HTTP 解析 + 参数校验 + Result 封装
-    // 禁止业务逻辑
+    // 严禁业务逻辑
 
     @GetMapping("/page")
-    public Result<PageResult<OrderSimpleResult>> page(OrderPageQuery query) {
-        return Result.success(orderQueryService.pageQuery(query));
+    public Result<PageResult<GoodsSimpleResult>> page(GoodsPageQuery query) {
+        return Result.success(goodsQueryService.pageQuery(query));
     }
 
-    @PostMapping("/{orderSn}/cancel")
-    public Result<Void> cancel(@PathVariable String orderSn, @RequestParam String reason) {
-        orderCommandService.cancel(orderSn, reason);
+    @PostMapping("/{id}/publish")
+    public Result<Void> publish(@PathVariable Long id) {
+        goodsCommandService.publish(id);
         return Result.success();
     }
 }
 ```
 
-## 5. 枚举规范
-
-```java
-// 订单状态枚举，在 common 模块定义
-public enum OrderStatusEnum {
-    PENDING("待付款"),
-    PAID("已付款"),
-    DELIVERED("已发货"),
-    RECEIVED("已收货"),
-    COMPLETED("已完成"),
-    CANCELLED("已取消");
-
-    private final String description;
-    // ...
-}
-```
-
-## 6. 领域事件规范
+## 7. 领域事件规范
 
 ```java
 // 事件定义在 domain/event/
-public class OrderCreatedEvent extends DomainEvent {
-    private final Long orderId;
+public class GoodsCreateEvent extends DomainEvent {
+    private final Long goodsId;
     // 不可变，构造时赋值
 }
 
@@ -185,20 +254,51 @@ public class OrderCreatedEvent extends DomainEvent {
 // 订阅在 infrastructure/event/
 ```
 
-## 7. MapStruct + Assembler 规范
+## 8. MapStruct + Assembler 规范
 
 ```java
-// Assembler 在 infrastructure/assembler/
+// Assembler 在 infrastructure/persistent/assembler/
 // 职责：Domain Entity ←→ Persistence PO 双向映射
 
 @Mapper(componentModel = "spring")
-public interface OrderAssembler {
-    OrderPo toPo(Order order);
-    Order toDomain(OrderPo po);
+public interface GoodsAssembler {
+    GoodsPo toPo(GoodsAgg goods);
+    GoodsAgg toDomain(GoodsPo po);
 }
 ```
 
-## 8. 构建与测试
+## 9. API 返回规范
+
+```java
+// 统一使用 taotao-boot-starter-web 的 Result
+import com.taotao.boot.common.model.result.Result;
+
+// 成功返回
+return Result.success(data);
+return Result.success();
+
+// 失败返回
+return Result.fail("商品不存在");
+return Result.fail(ErrorCode.GOODS_NOT_FOUND);
+```
+
+## 10. 命名规范
+
+| 元素 | 命名规则 | 示例 |
+|------|---------|------|
+| 聚合根 | `{Entity}Agg` | `GoodsAgg` |
+| 实体 | 业务名词 | `Category`, `Tag` |
+| 值对象 | 描述性名词 | `GoodsWeight`, `GoodsStatus` |
+| 领域事件 | `{名词}{过去式动词}Event` | `GoodsCreateEvent` |
+| 仓储接口 | `{Entity}DomainRepository` | `GoodsDomainRepository` |
+| 领域服务 | `{Entity}DomainService` | `GoodsDomainService` |
+| 命令 DTO | `{动词}{名词}Command` | `CreateGoodsCommand` |
+| 查询 DTO | `{名词}PageQuery` | `GoodsPageQuery` |
+| 结果 DTO | `{名词}Result` | `GoodsDetailResult` |
+| 命令服务 | `{Entity}CommandService` | `GoodsCommandService` |
+| 查询服务 | `{Entity}QueryService` | `GoodsQueryService` |
+
+## 11. 构建与测试
 
 ```bash
 # 全量构建
@@ -215,9 +315,12 @@ public interface OrderAssembler {
 
 # 本地启动
 ./gradlew :taotao-cloud-goods-assembly:bootRun --args='--spring.profiles.active=dev'
+
+# 覆盖率报告
+./gradlew jacocoTestReport
 ```
 
-## 9. 数据库规范
+## 12. 数据库规范
 
 ### 表必备字段
 ```sql
@@ -236,5 +339,3 @@ public interface OrderAssembler {
 - `SELECT *`
 - 在 Java 代码中拼接 SQL
 - 跨聚合直接操作其他聚合的数据表
-
-

@@ -1,102 +1,58 @@
-```markdown
 ---
 name: aggregate-designer
-description: 聚合设计专家，负责设计DDD聚合根
-tools:
-  - write_file
-  - edit_file
-  - read_file
+description: 聚合设计专家 — 聚合根、实体、值对象建模
 ---
 
-# 聚合设计代理
+# 聚合设计代理 — taotao-cloud-goods
 
 ## 设计流程
 
 ### 1. 识别聚合边界
 根据业务一致性要求划分聚合：
 
-```markdown
-## 聚合边界分析
-
-### Order聚合
+#### Goods 聚合
 **事务一致性要求**:
-- 订单创建时必须校验库存
-- 订单支付时必须验证金额
-- 订单取消时必须释放库存
+- 商品创建时必须设置名称、价格、分类
+- 商品发布时必须验证所有必填字段
+- 商品下架后不可再被购买
 
 **聚合边界**:
-- Order（聚合根）
-- OrderItem（实体）
-- OrderStatus（值对象）
-2. 设计聚合根
-生成完整的聚合根代码：
+- `GoodsAgg`（聚合根）
+- `Category`（实体 — 同一聚合内）
+- `Tag`（实体 — 同一聚合内）
+- `GoodsWeight`, `GoodsStatus`, `GoodsSpec`, `GoodsName`（值对象）
 
-java
-@Aggregate
-@Entity
-@Table(name = "orders")
-public class Order {
-    private OrderId id;
-    private CustomerId customerId;
-    private List<OrderItem> items;
-    private OrderStatus status;
-    private Money totalAmount;
-    
+### 2. 聚合根代码规范
+
+```java
+@AggregateRoot
+public class GoodsAgg {
+
+    private Long id;
+    private Long storeId;          // 跨聚合 ID 引用
+    private Long brandId;          // 跨聚合 ID 引用
+
+    private GoodsName name;        // 值对象
+    private GoodsStatus status;    // 值对象
+    private GoodsWeight weight;    // 值对象
+    private GoodsSpec spec;        // 值对象
+
+    private Category category;     // 聚合内实体引用
+    private List<Tag> tags;        // 聚合内实体集合
+
+    protected GoodsAgg() {}
+
     // 工厂方法
-    public static Order create(CustomerId customerId) {
-        Order order = new Order();
-        order.id = OrderId.generate();
-        order.customerId = customerId;
-        order.status = OrderStatus.PENDING;
-        order.items = new ArrayList<>();
-        order.totalAmount = Money.ZERO;
-        order.registerEvent(new OrderCreatedEvent(order.id));
-        return order;
-    }
-    
-    // 行为方法
-    public void addItem(ProductId productId, Money price, int quantity) {
-        validatePending();
-        validateQuantity(quantity);
-        
-        OrderItem item = new OrderItem(productId, price, quantity);
-        this.items.add(item);
-        recalculateTotal();
-        
-        registerEvent(new OrderItemAddedEvent(id, productId, quantity));
-    }
-    
-    private void validatePending() {
-        if (status != OrderStatus.PENDING) {
-            throw new DomainException("只有待支付订单可以修改");
-        }
-    }
-    
-    private void recalculateTotal() {
-        this.totalAmount = items.stream()
-            .map(OrderItem::getSubtotal)
-            .reduce(Money.ZERO, Money::add);
-    }
+    public static GoodsAgg create(...) { ... }
+
+    // 业务方法
+    public void publish() { ... }
+    public void offline(String reason) { ... }
 }
-3. 设计仓储接口
-java
-public interface OrderRepository {
-    Order findById(OrderId id);
-    void save(Order order);
-    Page<Order> findByCustomerId(CustomerId customerId, Pageable pageable);
-    boolean existsById(OrderId id);
-}
-4. 编写单元测试
-java
-@Test
-void shouldAddItemToOrder() {
-    // Given
-    Order order = Order.create(customerId);
-    
-    // When
-    order.addItem(productId, new Money(100), 2);
-    
-    // Then
-    assertThat(order.getTotalAmount()).isEqualTo(new Money(200));
-    assertThat(order.getDomainEvents()).hasSize(2);
-}
+```
+
+### 3. 命名规范
+- 聚合根：`{Entity}Agg`（如 `GoodsAgg`）
+- 实体：业务名词（如 `Category`, `Tag`）
+- 值对象：描述性名词（如 `GoodsWeight`, `GoodsStatus`）
+- 仓储接口：`{Entity}DomainRepository`（如 `GoodsDomainRepository`）

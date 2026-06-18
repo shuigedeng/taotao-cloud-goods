@@ -1,57 +1,47 @@
 ---
-description: 代码审查 - 检查 SpringBoot 代码质量
-parameters:
-  - name: scope
-    type: string
-    enum: [controller, service, repository, all]
-    default: all
-  - name: strict
-    type: boolean
-    default: true
+description: DDD 代码审查 — 检查领域模型、架构合规、代码质量
 ---
 
-# 代码审查命令
+# DDD 代码审查
 
-执行代码审查，检查范围：`{{scope}}`
+## 审查维度
 
-## 检查清单
+### 1. 领域模型合规
+- 聚合根是否维护了内部不变量（业务规则在聚合内，不在 Service 中）
+- 值对象是否不可变（final 字段、无 setter、构造时自验证）
+- 跨聚合是否通过 ID 引用而非对象引用
+- 领域事件是否在聚合内 registerEvent()，仓储 save() 时发布
 
-### 架构规范
-- [ ] Controller 层是否只处理 HTTP 转换
-- [ ] Service 层是否有事务注解
-- [ ] Repository 是否使用了正确的查询方法
-- [ ] Entity 和 DTO 是否分离
+### 2. 架构合规
+- 依赖方向：interfaces → application → domain ← infrastructure
+- 事务边界是否仅开在 application/service/ 层
+- Controller 是否不含业务逻辑
+- Application Service 是否不包含业务规则判断
 
-### 代码质量
-- [ ] 是否有重复代码
-- [ ] 方法长度是否超过 50 行
-- [ ] 循环复杂度是否过高（>10）
-- [ ] 是否正确处理了空值
+### 3. 包路径合规
+- 基础包是否为 `com.taotao.cloud.goods`
+- 是否遵循 goods/domain/aggregate/、goods/domain/valobj/ 等子包约定
 
-### 性能问题
-- [ ] 是否存在 N+1 查询
-- [ ] 批量操作是否使用了批处理方法
-- [ ] 是否避免了 SELECT *
-- [ ] 缓存策略是否合理
-
-### 安全问题
-- [ ] 输入参数是否校验
-- [ ] SQL 注入防护
-- [ ] 权限控制是否完整
-- [ ] 敏感数据是否脱敏
+### 4. 项目禁止项
+- 聚合根中注入 Repository 或 Domain Service
+- Controller 中直接调用 Repository
+- Application Service 中包含业务规则判断
+- 值对象中包含业务行为以外的逻辑
 
 ## 输出格式
-```markdown
-## 代码审查报告
 
-### 🔴 严重问题（必须修复）
-- [文件:行号] 问题描述 + 修复建议
+```
+📊 DDD Code Review Report
 
-### 🟡 警告（建议修复）
-- [文件:行号] 问题描述 + 优化方案
+✅ 通过：
+- [内容]
 
-### 🟢 优化建议
-- 建议内容
+⚠️ 警告：
+- [内容]
 
-### ✅ 通过项
-- 列举做得好的地方
+❌ 违规：
+- [严重度] [位置] [问题描述]
+
+💡 改进建议：
+- [建议]
+```
