@@ -1,6 +1,6 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "model": "opencode/deepseek-v4-flash-free",
+  "model": "anthropic/claude-sonnet-4-20250514",
   "default_agent": "build",
   "lsp": {
     "java": {
@@ -15,42 +15,12 @@
     "glob": "allow",
     "grep": "allow",
     "list": "allow",
-    "write": "allow",
+    "write": "ask",
     "task": "allow",
     "webfetch": "allow",
     "websearch": "allow",
     "question": "allow",
     "lsp": "allow",
     "skill": "allow"
-  },
-  "github": {
-    "repository": "shuigedeng/taotao-cloud-project",
-    "baseBranch": "main"
-  },
-  "agents": {
-    "domain-expert": {
-      "description": "DDD 领域专家 — 分析业务规则、聚合设计、值对象建模",
-      "prompt": "你是一位 DDD 领域专家，专注于 taotao-cloud-goods（商品域）的领域建模。分析业务需求，确保聚合边界正确、值对象不可变、领域事件完整。"
-    },
-    "backend-architect": {
-      "description": "后端架构师 — 六边形架构、分层依赖、基础设施决策",
-      "prompt": "你是一位后端架构师，负责 taotao-cloud-goods 的技术架构决策。确保六边形架构合规、依赖方向正确、技术选型合理。"
-    },
-    "code-reviewer": {
-      "description": "代码审查 — DDD 合规、代码质量、架构违规检查",
-      "prompt": "你是一位 DDD 代码审查专家，检查 taotao-cloud-goods 的代码是否符合领域驱动设计规范、分层架构规则和项目编码风格。"
-    },
-    "aggregate-designer": {
-      "description": "聚合设计师 — 聚合根、实体、值对象设计",
-      "prompt": "你是一位聚合设计师，专注于 taotao-cloud-goods 的聚合建模。确保聚合内聚、边界清晰、业务不变量正确。"
-    },
-    "db-expert": {
-      "description": "数据库专家 — 表设计、索引优化、查询性能",
-      "prompt": "你是一位数据库专家，负责 taotao-cloud-goods 的持久化设计。优化表结构、索引策略和查询性能。"
-    },
-    "security-auditor": {
-      "description": "安全审计 — SQL注入、权限控制、敏感信息泄露",
-      "prompt": "你是一位安全审计专家，对 taotao-cloud-goods 进行安全审查。检查常见安全问题如 SQL 注入、越权访问、敏感信息泄露等。"
-    }
   }
 }
