@@ -17,6 +17,7 @@
 package com.taotao.cloud.goods.application.service.query;
 
 import com.taotao.boot.ddd.model.application.service.QueryService;
+import com.taotao.cloud.goods.application.dto.category.result.CategoryResult;
 import com.taotao.cloud.goods.application.dto.category.result.CategoryTreeResult;
 import java.util.List;
 import java.util.Map;
@@ -30,17 +31,13 @@ import java.util.Map;
  */
 public interface CategoryQueryService extends QueryService {
 
-    //	List<CategoryPO> childrenList(Long parentId);
-    //
-    //	CategoryPO queryCategoryById(Long id);
-    //
-    //	/**
-    //	 * 管理端获取所有分类 即获取的对象不管是否删除，都要展示，而且不从缓存获取，保证内容是最新的
-    //	 *
-    //	 * @param parentId 分类父ID
-    //	 * @return 商品分类列表
-    //	 */
-    //	List<CategoryPO> dbList(String parentId);
+    /**
+     * 根据父id获取子分类列表
+     *
+     * @param parentId 分类父ID
+     * @return 商品分类列表
+     */
+    List<CategoryResult> childrenList(Long parentId);
 
     /**
      * 获取分类

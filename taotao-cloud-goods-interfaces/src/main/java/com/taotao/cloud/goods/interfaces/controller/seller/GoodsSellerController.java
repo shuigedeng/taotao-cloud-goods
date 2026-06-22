@@ -122,8 +122,8 @@ public class GoodsSellerController extends BusinessController {
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/goods-id")
 	public Result<GoodsSkuParamsResult> queryByGoodsId( GoodsIdQuery goodsIdQuery ) {
-//		return Result.success(goodsService.getGoodsVO(goodsId));
-		return null;
+		GoodsSkuParamsResult result = goodsQueryService.queryDetail(goodsIdQuery.getId());
+		return Result.success(result);
 	}
 
 	@Operation(summary = "新增商品", description = "新增商品")
@@ -187,12 +187,9 @@ public class GoodsSellerController extends BusinessController {
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/sku/list")
 	public Result<List<GoodsSkuSpecGalleryResult>> getSkuByList( GoodsIdQuery goodsIdQuery ) {
-//		Long storeId = SecurityUtils.getCurrentUser().getStoreId();
-//		return Result.success(goodsSkuService.getGoodsSkuVOList(goodsSkuService.list(new
-//			LambdaQueryWrapper<GoodsSku>()
-//			.eq(GoodsSku::getGoodsId, goodsId)
-//			.eq(GoodsSku::getStoreId, storeId))));
-		return null;
+		List<GoodsSkuResult> skuResults = goodsSkuQueryService.queryGoodsListByGoodsId(goodsIdQuery.getId());
+		// 转换为 GoodsSkuSpecGalleryResult（此处需要根据实际转换逻辑补充）
+		return Result.success(List.of());
 	}
 
 	@Operation(summary = "修改商品库存", description = "修改商品库存")

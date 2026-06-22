@@ -16,7 +16,10 @@
 
 package com.taotao.cloud.goods.application.service.query;
 
+import com.taotao.boot.common.model.result.PageResult;
 import com.taotao.boot.ddd.model.application.service.QueryService;
+import com.taotao.cloud.goods.application.dto.draft.query.DraftGoodsPageQuery;
+import com.taotao.cloud.goods.application.dto.draft.result.DraftGoodsResult;
 import com.taotao.cloud.goods.application.dto.draft.result.DraftGoodsSkuParamsResult;
 
 /**
@@ -41,8 +44,7 @@ public interface DraftGoodsQueryService extends QueryService {
      * 分页获取草稿商品
      *
      * @param searchParams 查询参数
-     * @return {@link IPage }<{@link DraftGoodsPO }>
-     * @since 2022-04-27 16:59:57
+     * @return 草稿商品分页结果
      */
-    //	IPage<DraftGoodsPO> draftGoodsQueryPage(DraftGoodsPageQry searchParams);
+    PageResult<DraftGoodsResult> queryPage(DraftGoodsPageQuery searchParams);
 }

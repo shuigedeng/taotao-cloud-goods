@@ -89,9 +89,8 @@ public class GoodsBuyerController extends BusinessController {
 	@GetMapping(value = "/query/goodsId/skuId")
 	//@PageViewPoint(type = PageViewEnum.SKU, id = "#id")
 	public Result<Map<String, Object>> querySkuById( GoodsSkuQuery goodsSkuQuery) {
-//		Map<String, Object> map = goodsSkuQueryService.getGoodsSkuDetail(goodsId, skuId);
-//		return Result.success(map);
-		return null;
+		Map<String, Object> map = goodsSkuQueryService.queryGoodsSkuDetail(goodsSkuQuery.goodsId(), goodsSkuQuery.skuId());
+		return Result.success(map);
 	}
 
 	@Operation(summary = "获取商品分页列表", description = "获取商品分页列表")

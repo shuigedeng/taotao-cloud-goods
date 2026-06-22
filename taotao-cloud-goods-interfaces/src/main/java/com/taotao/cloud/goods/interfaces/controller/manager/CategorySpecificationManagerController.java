@@ -63,9 +63,8 @@ public class CategorySpecificationManagerController extends BusinessController {
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/category-id")
 	public Result<List<SpecificationResult>> getCategorySpec( CategoryIdQuery categoryIdQuery ) {
-//		return
-//			Result.success(categorySpecificationQueryService.getCategorySpecList(categoryId));
-		return null;
+		List<SpecificationResult> result = categorySpecificationQueryService.queryByCategoryId(categoryIdQuery.categoryId());
+		return Result.success(result);
 	}
 
 	@Operation(summary = "查询某分类下绑定的规格信息,商品操作使用", description = "查询某分类下绑定的规格信息,商品操作使用")

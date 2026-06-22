@@ -16,6 +16,8 @@
 
 package com.taotao.cloud.goods.application.service.query.impl;
 
+import com.taotao.boot.common.model.result.PageResult;
+import com.taotao.cloud.goods.application.dto.brand.query.BrandPageQuery;
 import com.taotao.cloud.goods.application.dto.brand.result.BrandResult;
 import com.taotao.cloud.goods.application.repository.BrandQueryRepository;
 import com.taotao.cloud.goods.application.service.command.CategoryBrandCommandService;
@@ -115,6 +117,11 @@ public class BrandQueryServiceImpl implements BrandQueryService {
 			return brandQueryRepository.queryAllAvailable();
 
     	}
+
+    @Override
+    public PageResult<BrandResult> queryPage(BrandPageQuery page) {
+        return PageResult.empty();
+    }
     //
     //	@Override
     //	public IPage<BrandPO> getBrandsByPage(BrandPageQry page) {

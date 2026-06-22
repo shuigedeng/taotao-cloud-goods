@@ -16,7 +16,11 @@
 
 package com.taotao.cloud.goods.application.service.query;
 
+import com.taotao.boot.common.model.result.PageResult;
 import com.taotao.boot.ddd.model.application.service.QueryService;
+import com.taotao.cloud.goods.application.dto.specification.query.SpecificationPageQuery;
+import com.taotao.cloud.goods.application.dto.specification.result.SpecificationResult;
+import java.util.List;
 
 /**
  * 规格业务层
@@ -28,12 +32,17 @@ import com.taotao.boot.ddd.model.application.service.QueryService;
 public interface SpecificationQueryService extends QueryService {
 
     /**
-     * 分页查询
+     * 获取所有可用规格
      *
-     * @param specificationPageQry 查询条件
-     * @return {@link IPage }<{@link SpecificationPO }>
-     * @since 2022-04-27 17:01:01
+     * @return 规格列表
      */
-    //	IPage<SpecificationPO> queryPage(SpecificationPageQry specificationPageQry);
+    List<SpecificationResult> listAll();
 
+    /**
+     * 分页查询规格
+     *
+     * @param query 查询条件
+     * @return 规格分页结果
+     */
+    PageResult<SpecificationResult> queryPage(SpecificationPageQuery query);
 }

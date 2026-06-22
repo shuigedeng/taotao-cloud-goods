@@ -16,6 +16,9 @@
 
 package com.taotao.cloud.goods.application.service.query.impl;
 
+import com.taotao.boot.common.model.ddd.query.PageQuery;
+import com.taotao.boot.common.model.result.PageResult;
+import com.taotao.cloud.goods.application.dto.goods.result.GoodsUnitResult;
 import com.taotao.cloud.goods.application.service.query.GoodsUnitQueryService;
 import org.springframework.stereotype.Service;
 
@@ -27,4 +30,15 @@ import org.springframework.stereotype.Service;
  * @since 2022-04-27 17:02:47
  */
 @Service
-public class GoodsUnitQueryServiceImpl implements GoodsUnitQueryService {}
+public class GoodsUnitQueryServiceImpl implements GoodsUnitQueryService {
+
+    @Override
+    public PageResult<GoodsUnitResult> queryByPage(PageQuery pageQuery) {
+        return PageResult.empty();
+    }
+
+    @Override
+    public GoodsUnitResult getById(Long id) {
+        return null;
+    }
+}

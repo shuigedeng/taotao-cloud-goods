@@ -40,7 +40,7 @@ public record GoodsName(@NotBlank @Length(min = 1, max = 120) String value)
 
 	@Override
 	public boolean sameValueAs( GoodsName other ) {
-		return false;
+		return this.equals(other);
 	}
 
 	@Override

@@ -71,8 +71,8 @@ public class DraftGoodsSellerController extends BusinessController {
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/detail")
 	public Result<DraftGoodsSkuParamsResult> queryDetail( IdQuery idQuery ) {
-//        return Result.success(draftGoodsService.getDraftGoods(id));
-		return null;
+		DraftGoodsSkuParamsResult result = draftGoodsQueryService.queryDraftGoods(idQuery.getId());
+		return Result.success(result);
 	}
 
 	@Operation(summary = "保存草稿商品", description = "保存草稿商品")

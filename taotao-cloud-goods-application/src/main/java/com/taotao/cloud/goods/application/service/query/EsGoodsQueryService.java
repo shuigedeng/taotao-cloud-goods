@@ -16,7 +16,12 @@
 
 package com.taotao.cloud.goods.application.service.query;
 
+import com.taotao.boot.common.model.result.PageResult;
 import com.taotao.boot.ddd.model.application.service.QueryService;
+import com.taotao.cloud.goods.application.dto.goods.query.EsGoodsSearchQuery;
+import com.taotao.cloud.goods.application.dto.goods.result.EsGoodsRelatedResult;
+import com.taotao.cloud.goods.application.dto.goods.result.EsGoodsResult;
+import java.util.List;
 
 /**
  * ES商品搜索业务层
@@ -27,66 +32,27 @@ import com.taotao.boot.ddd.model.application.service.QueryService;
  */
 public interface EsGoodsQueryService extends QueryService {
 
-    /// **
-    // * 商品搜索
-    // *
-    // * @param esGoodsSearchQry 搜索参数
-    // * @return {@link SearchPage }<{@link EsGoodsIndex }>
-    // * @since 2022-04-27 17:00:07
-    // */
-    // SearchPage<EsGoodsIndex> searchGoods(EsGoodsSearchQry esGoodsSearchQry);
-    //
-    /// **
-    // * 获取热门关键词
-    // *
-    // * @param count 热词数量
-    // * @return {@link List }<{@link String }>
-    // * @since 2022-04-27 17:00:07
-    // */
-    // List<String> queryHotWords(Integer count);
-    //
-    /// **
-    // * 设置热门关键词
-    // *
-    // * @param hotWords 热词分数
-    // * @return {@link boolean }
-    // * @since 2022-04-27 17:00:07
-    // */
-    // boolean setHotWords(HotWordsPageQry hotWords);
-    //
-    /// **
-    // * 删除热门关键词
-    // *
-    // * @param keywords 热词
-    // * @return {@link boolean }
-    // * @since 2022-04-27 17:00:07
-    // */
-    // boolean deleteHotWords(String keywords);
-    //
-    /// **
-    // * 获取筛选器
-    // *
-    // * @param esGoodsSearchQry 搜索条件
-    // * @return {@link EsGoodsRelatedInfo }
-    // * @since 2022-04-27 17:00:07
-    // */
-    // EsGoodsRelatedInfo querySelector(EsGoodsSearchQry esGoodsSearchQry);
-    //
-    /// **
-    // * 根据SkuID列表获取ES商品
-    // *
-    // * @param skuIds SkuId列表
-    // * @return {@link List }<{@link EsGoodsIndex }>
-    // * @since 2022-04-27 17:00:07
-    // */
-    // List<EsGoodsIndex> queryEsGoodsBySkuIds(List<Long> skuIds);
-    //
-    /// **
-    // * 根据id获取商品索引
-    // *
-    // * @param id 商品skuId
-    // * @return {@link EsGoodsIndex }
-    // * @since 2022-04-27 17:00:07
-    // */
-    // EsGoodsIndex queryEsGoodsById(Long id);
+    /**
+     * 商品搜索
+     *
+     * @param query 搜索参数
+     * @return ES商品分页结果
+     */
+    PageResult<EsGoodsResult> searchGoods(EsGoodsSearchQuery query);
+
+    /**
+     * 获取热门关键词
+     *
+     * @param count 热词数量
+     * @return 热门关键词列表
+     */
+    List<String> queryHotWords(Integer count);
+
+    /**
+     * 获取筛选器
+     *
+     * @param query 搜索条件
+     * @return 筛选器结果
+     */
+    EsGoodsRelatedResult querySelector(EsGoodsSearchQuery query);
 }

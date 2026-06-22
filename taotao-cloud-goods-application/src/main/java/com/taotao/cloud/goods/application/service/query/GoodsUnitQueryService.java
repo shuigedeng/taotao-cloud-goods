@@ -16,7 +16,10 @@
 
 package com.taotao.cloud.goods.application.service.query;
 
+import com.taotao.boot.common.model.ddd.query.PageQuery;
+import com.taotao.boot.common.model.result.PageResult;
 import com.taotao.boot.ddd.model.application.service.QueryService;
+import com.taotao.cloud.goods.application.dto.goods.result.GoodsUnitResult;
 
 /**
  * 商品计量单位业务层
@@ -25,4 +28,21 @@ import com.taotao.boot.ddd.model.application.service.QueryService;
  * @version 2022.04
  * @since 2022-04-27 17:00:52
  */
-public interface GoodsUnitQueryService extends QueryService {}
+public interface GoodsUnitQueryService extends QueryService {
+
+    /**
+     * 分页获取商品计量单位
+     *
+     * @param pageQuery 分页参数
+     * @return 计量单位分页结果
+     */
+    PageResult<GoodsUnitResult> queryByPage(PageQuery pageQuery);
+
+    /**
+     * 根据id获取商品计量单位
+     *
+     * @param id 计量单位id
+     * @return 计量单位
+     */
+    GoodsUnitResult getById(Long id);
+}

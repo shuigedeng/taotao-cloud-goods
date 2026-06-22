@@ -41,7 +41,7 @@ public record CategoryDesc(@Length(min = 1, max = 512) String value)
 
 	@Override
 	public boolean sameValueAs( CategoryDesc other ) {
-		return false;
+		return this.equals(other);
 	}
 
 	@Override

@@ -43,7 +43,7 @@ public record GoodsWeight(@NotNull @PositiveOrZero BigDecimal weight, @NotNull W
 
 	@Override
 	public boolean sameValueAs( GoodsWeight other ) {
-		return false;
+		return this.equals(other);
 	}
 
 }

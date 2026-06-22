@@ -57,8 +57,8 @@ public enum GoodsStatus implements ValueObjectEnum<Integer> {
         return ValueObjectEnum.of(value, GoodsStatus.class);
     }
 
-    @Override
-    public boolean sameValueAs(Integer other) {
-        return false;
-    }
+	@Override
+	public boolean sameValueAs(Integer other) {
+		return this.value.equals(other);
+	}
 }

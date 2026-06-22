@@ -64,8 +64,8 @@ public class CategoryParameterGroupManagerController extends BusinessController 
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/category-id")
 	public Result<List<ParameterGroupResult>> queryByCategoryId( CategoryIdQuery categoryIdQuery ) {
-//		return Result.success(categoryParameterGroupQueryService.getCategoryParams(categoryId));
-		return null;
+		List<ParameterGroupResult> result = categoryParameterGroupQueryService.queryCategoryParams(categoryIdQuery.categoryId());
+		return Result.success(result);
 	}
 
 	@Operation(summary = "保存数据", description = "保存数据")

@@ -16,7 +16,9 @@
 
 package com.taotao.cloud.goods.application.service.query;
 
+import com.taotao.boot.common.model.result.PageResult;
 import com.taotao.boot.ddd.model.application.service.QueryService;
+import com.taotao.cloud.goods.application.dto.brand.query.BrandPageQuery;
 import com.taotao.cloud.goods.application.dto.brand.result.BrandResult;
 import java.util.List;
 import java.util.Map;
@@ -62,4 +64,12 @@ public interface BrandQueryService extends QueryService {
     List<Map<String, Object>> queryBrandsMapsByCategory(List<Long> categoryIds, String columns);
 
     BrandResult queryDetail(Long id);
+
+    /**
+     * 分页获取品牌列表
+     *
+     * @param page 分页查询参数
+     * @return 品牌分页结果
+     */
+    PageResult<BrandResult> queryPage(BrandPageQuery page);
 }

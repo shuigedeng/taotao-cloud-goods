@@ -43,7 +43,7 @@ public record CategoryName(@NotBlank @Length(min = 1, max = 64) String value)
 
 	@Override
 	public boolean sameValueAs( CategoryName other ) {
-		return false;
+		return this.equals(other);
 	}
 
 	@Override

@@ -18,6 +18,7 @@ package com.taotao.cloud.goods.application.service.query.impl;
 
 import com.taotao.boot.cache.redis.repository.RedisRepository;
 import com.taotao.cloud.goods.application.assembler.CategoryAppAssembler;
+import com.taotao.cloud.goods.application.dto.category.result.CategoryResult;
 import com.taotao.cloud.goods.application.dto.category.result.CategoryTreeResult;
 import com.taotao.cloud.goods.application.service.query.CategoryQueryService;
 
@@ -45,6 +46,11 @@ public class CategoryQueryServiceImpl implements CategoryQueryService {
     private final RedisRepository redisRepository;
 //	private final CategoryDomainRepository categoryDomainRepository;
 	private final CategoryAppAssembler categoryAssembler;
+
+    @Override
+    public List<CategoryResult> childrenList(Long parentId) {
+        return List.of();
+    }
 
     @Override
     public List<Map<String, Object>> queryMapsByIdsOrderByLevel(List<String> ids, String columns) {

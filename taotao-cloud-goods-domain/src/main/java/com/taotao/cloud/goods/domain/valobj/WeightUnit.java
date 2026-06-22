@@ -58,8 +58,8 @@ public enum WeightUnit implements ValueObjectEnum<String> {
         return ValueObjectEnum.of(value, WeightUnit.class);
     }
 
-    @Override
-    public boolean sameValueAs(String other) {
-        return false;
-    }
+	@Override
+	public boolean sameValueAs(String other) {
+		return this.value.equals(other);
+	}
 }

@@ -16,7 +16,12 @@
 
 package com.taotao.cloud.goods.application.service.query.impl;
 
+import com.taotao.boot.common.model.result.PageResult;
+import com.taotao.cloud.goods.application.dto.goods.query.EsGoodsSearchQuery;
+import com.taotao.cloud.goods.application.dto.goods.result.EsGoodsRelatedResult;
+import com.taotao.cloud.goods.application.dto.goods.result.EsGoodsResult;
 import com.taotao.cloud.goods.application.service.query.EsGoodsQueryService;
+import java.util.List;
 import org.springframework.stereotype.Service;
 
 /**
@@ -38,6 +43,21 @@ public class EsGoodsQueryServiceImpl implements EsGoodsQueryService {
     private static final String ATTR_BRAND_URL = "brandUrlAgg";
     private static final String ATTR_NAME_KEY = "nameList";
     private static final String ATTR_VALUE_KEY = "valueList";
+
+    @Override
+    public PageResult<EsGoodsResult> searchGoods(EsGoodsSearchQuery query) {
+        return PageResult.empty();
+    }
+
+    @Override
+    public List<String> queryHotWords(Integer count) {
+        return List.of();
+    }
+
+    @Override
+    public EsGoodsRelatedResult querySelector(EsGoodsSearchQuery query) {
+        return null;
+    }
 
     /// ** ES */
     // @Autowired

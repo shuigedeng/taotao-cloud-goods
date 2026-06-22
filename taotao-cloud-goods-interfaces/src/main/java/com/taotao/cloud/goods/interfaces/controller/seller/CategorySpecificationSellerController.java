@@ -57,10 +57,7 @@ public class CategorySpecificationSellerController extends BusinessController {
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/category-id")
 	public Result<List<SpecificationResult>> queryByCategoryId( CategoryIdQuery categoryIdQuery) {
-//		List<SpecificationPO> categorySpecList =
-//			categorySpecificationQueryService.getCategorySpecList(categoryId);
-//
-//		return Result.success(SpecificationAssembler.INSTANCE.convert(categorySpecList));
-		return null;
+		List<SpecificationResult> result = categorySpecificationQueryService.queryByCategoryId(categoryIdQuery.categoryId());
+		return Result.success(result);
 	}
 }

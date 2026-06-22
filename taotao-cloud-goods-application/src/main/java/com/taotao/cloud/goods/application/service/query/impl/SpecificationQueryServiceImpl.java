@@ -16,9 +16,13 @@
 
 package com.taotao.cloud.goods.application.service.query.impl;
 
+import com.taotao.boot.common.model.result.PageResult;
+import com.taotao.cloud.goods.application.dto.specification.query.SpecificationPageQuery;
+import com.taotao.cloud.goods.application.dto.specification.result.SpecificationResult;
 import com.taotao.cloud.goods.application.service.command.CategoryCommandService;
 import com.taotao.cloud.goods.application.service.command.CategorySpecificationCommandService;
 import com.taotao.cloud.goods.application.service.query.SpecificationQueryService;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -54,4 +58,13 @@ public class SpecificationQueryServiceImpl implements SpecificationQueryService 
     //		return null;
     //	}
 
+    @Override
+    public List<SpecificationResult> listAll() {
+        return List.of();
+    }
+
+    @Override
+    public PageResult<SpecificationResult> queryPage(SpecificationPageQuery query) {
+        return PageResult.empty();
+    }
 }

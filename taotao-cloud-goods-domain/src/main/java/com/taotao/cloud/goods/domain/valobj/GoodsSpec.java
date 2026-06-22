@@ -48,7 +48,7 @@ public record GoodsSpec(@NotNull @PastOrPresent LocalDate manufactureDate, @NotN
 
 	@Override
 	public boolean sameValueAs( GoodsSpec other ) {
-		return false;
+		return this.equals(other);
 	}
 
 }

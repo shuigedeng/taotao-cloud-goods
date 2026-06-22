@@ -16,6 +16,9 @@
 
 package com.taotao.cloud.goods.application.service.query.impl;
 
+import com.taotao.boot.common.model.result.PageResult;
+import com.taotao.cloud.goods.application.dto.draft.query.DraftGoodsPageQuery;
+import com.taotao.cloud.goods.application.dto.draft.result.DraftGoodsResult;
 import com.taotao.cloud.goods.application.dto.draft.result.DraftGoodsSkuParamsResult;
 import com.taotao.cloud.goods.application.service.query.DraftGoodsQueryService;
 import lombok.RequiredArgsConstructor;
@@ -34,6 +37,11 @@ public class DraftGoodsQueryServiceImpl implements DraftGoodsQueryService {
     @Override
     public DraftGoodsSkuParamsResult queryDraftGoods(Long id) {
         return null;
+    }
+
+    @Override
+    public PageResult<DraftGoodsResult> queryPage(DraftGoodsPageQuery searchParams) {
+        return PageResult.empty();
     }
 
     //	@Override
