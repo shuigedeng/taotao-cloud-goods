@@ -23,12 +23,14 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import com.taotao.cloud.goods.application.dto.goods.result.GoodsSkuParamsResult;
+import com.taotao.cloud.goods.application.dto.goods.result.GoodsSkuParamsResultBuilder;
 import com.taotao.cloud.goods.application.service.query.GoodsQueryService;
+import java.util.List;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.mock.bean.MockBean;
+import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest;
+import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 
 /**
@@ -44,7 +46,7 @@ public class GoodsSellerControllerTest {
     @Autowired
     private MockMvc mockMvc;
 
-    @MockBean
+    @MockitoBean
     private GoodsQueryService goodsQueryService;
 
     @Nested
@@ -52,21 +54,24 @@ public class GoodsSellerControllerTest {
 
         @Test
         void shouldReturnDetailWhenGoodsExists() throws Exception {
-            GoodsSkuParamsResult detail = GoodsSkuParamsResult.builder().id(1L).build();
+            GoodsSkuParamsResult detail = GoodsSkuParamsResultBuilder.builder()
+                .categoryName(List.of("电子产品"))
+                .build();
             when(goodsQueryService.queryDetail(anyLong())).thenReturn(detail);
 
-            mockMvc.perform(get("/seller/goods/detail/1"))
+            mockMvc.perform(get("/seller/goods/query/goods-id")
+                    .param("goodsId", "1"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.data.id").value(1L));
+                .andExpect(jsonPath("$.data.categoryName[0]").value("电子产品"));
         }
 
         @Test
         void shouldReturnNullWhenGoodsNotExists() throws Exception {
             when(goodsQueryService.queryDetail(99999L)).thenReturn(null);
 
-            mockMvc.perform(get("/seller/goods/detail/99999"))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.data").doesNotExist());
+            mockMvc.perform(get("/seller/goods/query/goods-id")
+                    .param("goodsId", "99999"))
+                .andExpect(status().isOk());
         }
     }
 }

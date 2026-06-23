@@ -19,7 +19,6 @@ package com.taotao.cloud.goods.interfaces.controller.manager;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import com.taotao.boot.common.model.result.PageResult;
@@ -29,8 +28,8 @@ import com.taotao.cloud.goods.application.service.query.BrandQueryService;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.mock.bean.MockBean;
+import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest;
+import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 
 /**
@@ -46,7 +45,7 @@ public class BrandManagerControllerTest {
     @Autowired
     private MockMvc mockMvc;
 
-    @MockBean
+    @MockitoBean
     private BrandQueryService brandQueryService;
 
     @Nested
@@ -55,11 +54,10 @@ public class BrandManagerControllerTest {
         @Test
         void shouldReturnPagedBrands() throws Exception {
             when(brandQueryService.queryPage(any(BrandPageQuery.class)))
-                .thenReturn(PageResult.empty());
+                .thenReturn(PageResult.<BrandResult>builder().build());
 
-            mockMvc.perform(get("/manager/brand/page")
-                    .param("page", "1")
-                    .param("size", "10"))
+            mockMvc.perform(get("/manager/goods/brand/query/page")
+                    .param("name", "test"))
                 .andExpect(status().isOk());
         }
     }

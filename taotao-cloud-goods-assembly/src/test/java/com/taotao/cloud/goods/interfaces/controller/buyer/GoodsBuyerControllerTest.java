@@ -17,23 +17,25 @@
 package com.taotao.cloud.goods.interfaces.controller.buyer;
 
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import com.taotao.boot.common.model.Result;
+import com.taotao.boot.common.model.result.PageResult;
 import com.taotao.cloud.goods.application.dto.goods.query.GoodsOtherPageQuery;
-import com.taotao.cloud.goods.application.dto.goods.result.GoodsSkuResult;
+import com.taotao.cloud.goods.application.dto.goods.query.GoodsPageQuery;
+import com.taotao.cloud.goods.application.dto.goods.result.GoodsResult;
+import com.taotao.cloud.goods.application.dto.goods.result.GoodsSkuParamsResult;
+import com.taotao.cloud.goods.application.dto.goods.result.GoodsSkuParamsResultBuilder;
 import com.taotao.cloud.goods.application.service.query.GoodsQueryService;
-import com.taotao.cloud.goods.application.service.query.GoodsSkuQueryService;
+import java.util.List;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.mock.bean.MockBean;
-import org.springframework.data.domain.PageImpl;
-import org.springframework.data.domain.Pageable;
+import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest;
+import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 
 /**
@@ -49,32 +51,32 @@ public class GoodsBuyerControllerTest {
     @Autowired
     private MockMvc mockMvc;
 
-    @MockBean
+    @MockitoBean
     private GoodsQueryService goodsQueryService;
 
-    @MockBean
-    private GoodsSkuQueryService goodsSkuQueryService;
-
     @Nested
-    class GetSkuByGoodsId {
+    class QueryByGoodsId {
 
         @Test
-        void shouldReturnSkuWhenGoodsExists() throws Exception {
-            when(goodsSkuQueryService.queryGoodsSkuDetail(1L))
-                .thenReturn(GoodsSkuResult.builder().id(1L).build());
+        void shouldReturnGoodsWhenExists() throws Exception {
+            GoodsSkuParamsResult detail = GoodsSkuParamsResultBuilder.builder()
+                .categoryName(List.of("电子产品"))
+                .build();
+            when(goodsQueryService.queryDetail(anyLong())).thenReturn(detail);
 
-            mockMvc.perform(get("/buyer/goods/sku/1"))
+            mockMvc.perform(get("/buyer/goods/query")
+                    .param("goodsId", "1"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.data.id").value(1L));
+                .andExpect(jsonPath("$.data.categoryName[0]").value("电子产品"));
         }
 
         @Test
-        void shouldReturnNotFoundWhenGoodsNotExists() throws Exception {
-            when(goodsSkuQueryService.queryGoodsSkuDetail(99999L)).thenReturn(null);
+        void shouldHandleNotFoundGracefully() throws Exception {
+            when(goodsQueryService.queryDetail(99999L)).thenReturn(null);
 
-            mockMvc.perform(get("/buyer/goods/sku/99999"))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.data").isEmpty());
+            mockMvc.perform(get("/buyer/goods/query")
+                    .param("goodsId", "99999"))
+                .andExpect(status().isOk());
         }
     }
 
@@ -83,10 +85,10 @@ public class GoodsBuyerControllerTest {
 
         @Test
         void shouldReturnPagedGoods() throws Exception {
-            when(goodsQueryService.queryGoodsPage(any(GoodsOtherPageQuery.class)))
-                .thenReturn(Result.success(new PageImpl<>(java.util.List.of())));
+            when(goodsQueryService.queryGoodsPage(any(GoodsPageQuery.class)))
+                .thenReturn(PageResult.<GoodsResult>builder().build());
 
-            mockMvc.perform(get("/buyer/goods/page")
+            mockMvc.perform(get("/buyer/goods/query/page")
                     .param("page", "1")
                     .param("size", "10"))
                 .andExpect(status().isOk());

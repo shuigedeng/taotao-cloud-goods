@@ -65,6 +65,6 @@ public class SpecificationQueryServiceImpl implements SpecificationQueryService 
 
     @Override
     public PageResult<SpecificationResult> queryPage(SpecificationPageQuery query) {
-        return PageResult.empty();
+        return null;
     }
 }

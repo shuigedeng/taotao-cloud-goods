@@ -21,6 +21,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 import com.taotao.cloud.goods.TaoTaoCloudGoodsApplicationTests;
 import com.taotao.cloud.goods.application.dto.goods.result.GoodsSkuResult;
 import com.taotao.cloud.goods.application.service.query.GoodsSkuQueryService;
+import java.util.List;
+import java.util.Map;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,23 +44,23 @@ class GoodsSkuQueryServiceTest extends TaoTaoCloudGoodsApplicationTests {
 
         @Test
         void shouldReturnDetailWhenSkuExists() {
-            GoodsSkuResult result = goodsSkuQueryService.queryGoodsSkuDetail(1L);
+            Map<String, Object> result = goodsSkuQueryService.queryGoodsSkuDetail(1L, 100L);
             // May return null if no data preloaded — verify service contract behavior
         }
 
         @Test
         void shouldHandleNonExistentSku() {
-            GoodsSkuResult result = goodsSkuQueryService.queryGoodsSkuDetail(99999L);
+            Map<String, Object> result = goodsSkuQueryService.queryGoodsSkuDetail(99999L, 0L);
             // Expect null or graceful empty response for non-existent SKU
         }
     }
 
     @Nested
-    class QueryGoodsSkuInfo {
+    class QueryGoodsListByGoodsId {
 
         @Test
-        void shouldReturnSkuInfoByGoodsId() {
-            GoodsSkuResult result = goodsSkuQueryService.queryGoodsSkuInfo(1L);
+        void shouldReturnSkuListByGoodsId() {
+            List<GoodsSkuResult> results = goodsSkuQueryService.queryGoodsListByGoodsId(1L);
             // May return null if no data preloaded
         }
     }

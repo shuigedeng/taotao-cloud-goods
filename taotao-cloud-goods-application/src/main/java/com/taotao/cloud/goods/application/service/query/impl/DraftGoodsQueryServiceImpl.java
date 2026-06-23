@@ -41,7 +41,7 @@ public class DraftGoodsQueryServiceImpl implements DraftGoodsQueryService {
 
     @Override
     public PageResult<DraftGoodsResult> queryPage(DraftGoodsPageQuery searchParams) {
-        return PageResult.empty();
+        return null;
     }
 
     //	@Override

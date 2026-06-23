@@ -46,7 +46,7 @@ public class EsGoodsQueryServiceImpl implements EsGoodsQueryService {
 
     @Override
     public PageResult<EsGoodsResult> searchGoods(EsGoodsSearchQuery query) {
-        return PageResult.empty();
+        return null;
     }
 
     @Override

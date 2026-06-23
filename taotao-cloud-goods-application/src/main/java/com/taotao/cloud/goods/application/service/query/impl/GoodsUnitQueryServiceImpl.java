@@ -34,7 +34,7 @@ public class GoodsUnitQueryServiceImpl implements GoodsUnitQueryService {
 
     @Override
     public PageResult<GoodsUnitResult> queryByPage(PageQuery pageQuery) {
-        return PageResult.empty();
+        return null;
     }
 
     @Override

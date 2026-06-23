@@ -28,8 +28,9 @@ import java.util.List;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.mock.bean.MockBean;
+import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest;
+import org.springframework.test.context.bean.override.mockito.MockitoBean;
+import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 
 /**
@@ -45,45 +46,34 @@ public class CategoryBuyerControllerTest {
     @Autowired
     private MockMvc mockMvc;
 
-    @MockBean
+    @MockitoBean
     private CategoryQueryService categoryQueryService;
 
     @Nested
-    class GetCategoryTree {
+    class QueryCategoryTreeByParentId {
 
         @Test
-        void shouldReturnCategoryTree() throws Exception {
-            when(categoryQueryService.queryCategoryTree())
-                .thenReturn(List.of(
-                    CategoryTreeResult.builder().id(1L).name("电子产品").build()
-                ));
+        void shouldReturnCategoryTreeByParentId() throws Exception {
+            CategoryTreeResult treeNode = new CategoryTreeResult();
+            treeNode.setId(1L);
+            when(categoryQueryService.queryCategoryTreeByParentId(anyLong()))
+                .thenReturn(List.of(treeNode));
 
-            mockMvc.perform(get("/buyer/category/tree"))
+            mockMvc.perform(get("/buyer/goods/category/query/tree/parent-id")
+                    .param("parentId", "0"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.data[0].name").value("电子产品"));
+                .andExpect(jsonPath("$.data[0].id").value(1L));
         }
 
         @Test
-        void shouldReturnEmptyListWhenNoCategories() throws Exception {
-            when(categoryQueryService.queryCategoryTree())
+        void shouldReturnEmptyListWhenParentIdNotExists() throws Exception {
+            when(categoryQueryService.queryCategoryTreeByParentId(99999L))
                 .thenReturn(List.of());
 
-            mockMvc.perform(get("/buyer/category/tree"))
+            mockMvc.perform(get("/buyer/goods/category/query/tree/parent-id")
+                    .param("parentId", "99999"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.data").isEmpty());
-        }
-    }
-
-    @Nested
-    class GetCategoryTreeByParentId {
-
-        @Test
-        void shouldReturnChildrenByParentId() throws Exception {
-            when(categoryQueryService.queryCategoryTreeByParentId(anyLong()))
-                .thenReturn(List.of());
-
-            mockMvc.perform(get("/buyer/category/tree/children/0"))
-                .andExpect(status().isOk());
         }
     }
 }

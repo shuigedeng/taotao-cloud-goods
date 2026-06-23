@@ -36,9 +36,6 @@ public class BrandPageParam extends PageQuery {
     // 品牌名称
     private String name;
 
-    public static BrandPageParamBuilder builder() {
-        return new BrandPageParamBuilder();
-    }
 
     public static final class BrandPageParamBuilder {
 

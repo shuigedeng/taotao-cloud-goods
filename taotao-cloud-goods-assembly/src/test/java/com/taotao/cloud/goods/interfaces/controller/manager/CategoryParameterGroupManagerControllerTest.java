@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.interfaces.controller.seller;
+package com.taotao.cloud.goods.interfaces.controller.manager;
 
 import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.when;
@@ -22,53 +22,56 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import com.taotao.cloud.goods.application.dto.specification.result.SpecificationResult;
-import com.taotao.cloud.goods.application.service.query.CategorySpecificationQueryService;
+import com.taotao.cloud.goods.application.dto.parameter.result.ParameterGroupResult;
+import com.taotao.cloud.goods.application.dto.parameter.result.ParameterGroupResultBuilder;
+import com.taotao.cloud.goods.application.service.query.CategoryParameterGroupQueryService;
 import java.util.List;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.mock.bean.MockBean;
+import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest;
+import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 
 /**
- * CategorySpecificationSellerController WebMvc 测试
+ * CategoryParameterGroupManagerController WebMvc 测试
  *
  * @author shuigedeng
  * @version 2026.04
  * @since 2026-06-22
  */
-@WebMvcTest(CategorySpecificationSellerController.class)
-public class CategorySpecificationSellerControllerTest {
+@WebMvcTest(CategoryParameterGroupManagerController.class)
+public class CategoryParameterGroupManagerControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
 
-    @MockBean
-    private CategorySpecificationQueryService categorySpecificationQueryService;
+    @MockitoBean
+    private CategoryParameterGroupQueryService categoryParameterGroupQueryService;
 
     @Nested
     class QueryByCategoryId {
 
         @Test
-        void shouldReturnSpecificationsWhenCategoryExists() throws Exception {
-            when(categorySpecificationQueryService.queryByCategoryId(anyLong()))
+        void shouldReturnGroupsWhenCategoryExists() throws Exception {
+            when(categoryParameterGroupQueryService.queryCategoryParams(anyLong()))
                 .thenReturn(List.of(
-                    SpecificationResult.builder().id(1L).name("颜色").build()
+                    ParameterGroupResultBuilder.builder().groupId(1L).groupName("基本参数").build()
                 ));
 
-            mockMvc.perform(get("/seller/category/specification/1"))
+            mockMvc.perform(get("/manager/goods/category/parameters/query/category-id")
+                    .param("categoryId", "1"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.data[0].name").value("颜色"));
+                .andExpect(jsonPath("$.data[0].groupName").value("基本参数"));
         }
 
         @Test
         void shouldReturnEmptyListWhenCategoryNotExists() throws Exception {
-            when(categorySpecificationQueryService.queryByCategoryId(99999L))
+            when(categoryParameterGroupQueryService.queryCategoryParams(99999L))
                 .thenReturn(List.of());
 
-            mockMvc.perform(get("/seller/category/specification/99999"))
+            mockMvc.perform(get("/manager/goods/category/parameters/query/category-id")
+                    .param("categoryId", "99999"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.data").isEmpty());
         }

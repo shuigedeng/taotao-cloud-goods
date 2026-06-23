@@ -120,7 +120,7 @@ public class BrandQueryServiceImpl implements BrandQueryService {
 
     @Override
     public PageResult<BrandResult> queryPage(BrandPageQuery page) {
-        return PageResult.empty();
+        return null;
     }
     //
     //	@Override

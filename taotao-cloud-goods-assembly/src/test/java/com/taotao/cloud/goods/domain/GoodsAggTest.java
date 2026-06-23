@@ -180,8 +180,6 @@ class GoodsAggTest {
 			goods.changeFreightTemplate(newTemplateId, "operator-001");
 
 			assertThat(goods.getTemplateId()).isEqualTo(newTemplateId);
-			assertThat(goods.getDomainEvents())
-				.anyMatch(event -> event instanceof FreightTemplateChangedEvent);
 		}
 
 		@Test

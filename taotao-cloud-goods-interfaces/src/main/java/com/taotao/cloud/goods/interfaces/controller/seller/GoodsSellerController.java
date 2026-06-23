@@ -122,7 +122,7 @@ public class GoodsSellerController extends BusinessController {
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/goods-id")
 	public Result<GoodsSkuParamsResult> queryByGoodsId( GoodsIdQuery goodsIdQuery ) {
-		GoodsSkuParamsResult result = goodsQueryService.queryDetail(goodsIdQuery.getId());
+		GoodsSkuParamsResult result = goodsQueryService.queryDetail(goodsIdQuery.goodsId());
 		return Result.success(result);
 	}
 
@@ -187,7 +187,7 @@ public class GoodsSellerController extends BusinessController {
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/sku/list")
 	public Result<List<GoodsSkuSpecGalleryResult>> getSkuByList( GoodsIdQuery goodsIdQuery ) {
-		List<GoodsSkuResult> skuResults = goodsSkuQueryService.queryGoodsListByGoodsId(goodsIdQuery.getId());
+		List<GoodsSkuResult> skuResults = goodsSkuQueryService.queryGoodsListByGoodsId(goodsIdQuery.goodsId());
 		// 转换为 GoodsSkuSpecGalleryResult（此处需要根据实际转换逻辑补充）
 		return Result.success(List.of());
 	}
