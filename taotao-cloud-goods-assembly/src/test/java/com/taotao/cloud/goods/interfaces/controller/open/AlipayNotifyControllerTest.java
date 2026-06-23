@@ -19,6 +19,7 @@ package com.taotao.cloud.goods.interfaces.controller.open;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import com.taotao.cloud.goods.interfaces.controller.notify.AlipayNotifyController;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

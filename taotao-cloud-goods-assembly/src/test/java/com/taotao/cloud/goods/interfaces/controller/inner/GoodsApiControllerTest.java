@@ -26,8 +26,8 @@ import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
-@WebMvcTest(GoodsQueryApiController.class)
-public class GoodsQueryApiControllerTest {
+@WebMvcTest(GoodsApiController.class)
+public class GoodsApiControllerTest {
 
 	@Autowired
 	private MockMvc mockMvc;
@@ -37,7 +37,7 @@ public class GoodsQueryApiControllerTest {
 
 		@Test
 		void shouldCallUpdateStoreDetail() throws Exception {
-			mockMvc.perform(post("/inner/goods/query/strore/detail")
+			mockMvc.perform(post("/inner/goods/command/store/detail")
 					.contentType(MediaType.APPLICATION_JSON)
 					.content("{\"id\":1}"))
 				.andExpect(status().isOk());
@@ -49,7 +49,7 @@ public class GoodsQueryApiControllerTest {
 
 		@Test
 		void shouldCallUnderStoreGoods() throws Exception {
-			mockMvc.perform(post("/inner/goods/query/strore/goods")
+			mockMvc.perform(post("/inner/goods/command/strore/goods")
 					.contentType(MediaType.APPLICATION_JSON)
 					.content("{\"id\":1}"))
 				.andExpect(status().isOk());
@@ -61,7 +61,7 @@ public class GoodsQueryApiControllerTest {
 
 		@Test
 		void shouldCallCountStoreGoodsNum() throws Exception {
-			mockMvc.perform(post("/inner/goods/query/strore/goods/num")
+			mockMvc.perform(post("/inner/goods/command/strore/goods/num")
 					.contentType(MediaType.APPLICATION_JSON)
 					.content("{\"storeId\":1}"))
 				.andExpect(status().isOk());
