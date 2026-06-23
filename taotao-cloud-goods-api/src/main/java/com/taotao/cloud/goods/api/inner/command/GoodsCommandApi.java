@@ -50,7 +50,7 @@ public interface GoodsCommandApi {
 	 *
 	 * @return Response<GoodsCommandApiResponse>
 	 */
-	@PostExchange(value = "/inner/goods/command/strore/goods")
+	@PostExchange(value = "/inner/goods/command/under-strore")
 	Response<GoodsCommandApiResponse> underStoreGoods( @Validated @RequestBody Request<GoodsApiCommand> id );
 
 

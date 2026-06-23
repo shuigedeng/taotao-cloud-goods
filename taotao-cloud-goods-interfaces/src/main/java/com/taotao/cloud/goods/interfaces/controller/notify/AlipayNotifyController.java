@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.interfaces.controller.open;
+package com.taotao.cloud.goods.interfaces.controller.notify;
 
 
 import com.taotao.boot.common.model.result.Result;

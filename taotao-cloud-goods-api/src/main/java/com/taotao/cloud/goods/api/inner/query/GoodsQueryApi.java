@@ -41,7 +41,7 @@ public interface GoodsQueryApi {
 	 * @return Response<GoodsCommandApiResponse>
 	 */
 	@PostExchange(value = "/inner/goods/query/strore/detail")
-	Response<GoodsCommandApiResponse> updateStoreDetail( @Validated @RequestBody Request<GoodsApiCommand> id );
+	Response<GoodsCommandApiResponse> queryStoreDetail( @Validated @RequestBody Request<GoodsApiCommand> id );
 
 
 	/**
@@ -50,7 +50,7 @@ public interface GoodsQueryApi {
 	 * @return Response<GoodsCommandApiResponse>
 	 */
 	@PostExchange(value = "/inner/goods/query/strore/goods")
-	Response<GoodsCommandApiResponse> underStoreGoods( @Validated @RequestBody Request<GoodsApiCommand> id );
+	Response<GoodsCommandApiResponse> queryUnderStoreGoods( @Validated @RequestBody Request<GoodsApiCommand> id );
 
 
 	/**
@@ -59,6 +59,6 @@ public interface GoodsQueryApi {
 	 * @return Response<GoodsCommandApiResponse>
 	 */
 	@PostExchange(value = "/inner/goods/query/strore/goods/num")
-	Response<GoodsCommandApiResponse> countStoreGoodsNum(
+	Response<GoodsCommandApiResponse> queryCountStoreGoodsNum(
 		@Validated @RequestBody Request<GoodsApiCommand> storeId );
 }

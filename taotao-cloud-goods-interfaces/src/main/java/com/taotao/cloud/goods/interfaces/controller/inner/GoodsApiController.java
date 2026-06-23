@@ -23,6 +23,7 @@ import com.taotao.boot.webagg.controller.InnerController;
 import com.taotao.cloud.goods.api.inner.command.GoodsCommandApi;
 import com.taotao.cloud.goods.api.inner.dto.command.GoodsApiCommand;
 import com.taotao.cloud.goods.api.inner.dto.response.GoodsCommandApiResponse;
+import com.taotao.cloud.goods.api.inner.query.GoodsQueryApi;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
@@ -40,7 +41,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 @RestController
 @Tag(name = "内部服务-商品CommandAPI", description = "内部服务-商品CommandAPI")
-public class GoodsCommandApiController extends InnerController implements GoodsCommandApi {
+public class GoodsApiController extends InnerController implements GoodsCommandApi , GoodsQueryApi {
 
     @Override
 	@RequestLogger
@@ -63,4 +64,21 @@ public class GoodsCommandApiController extends InnerController implements GoodsC
 		@Validated Request<GoodsApiCommand> storeId) {
         return null;
     }
+
+
+
+	@Override
+	public Response<GoodsCommandApiResponse> queryStoreDetail( Request<GoodsApiCommand> id ) {
+		return null;
+	}
+
+	@Override
+	public Response<GoodsCommandApiResponse> queryUnderStoreGoods( Request<GoodsApiCommand> id ) {
+		return null;
+	}
+
+	@Override
+	public Response<GoodsCommandApiResponse> queryCountStoreGoodsNum( Request<GoodsApiCommand> storeId ) {
+		return null;
+	}
 }
