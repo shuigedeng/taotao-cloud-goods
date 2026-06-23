@@ -31,12 +31,10 @@ import org.hibernate.validator.constraints.Length;
 public record CategoryDesc(@Length(min = 1, max = 512) String value)
 	implements ValueObject<CategoryDesc> {
 
-	public CategoryDesc {
-		this.validateSelf();
-	}
-
-	public static CategoryDesc of( String categoryDesc ) {
-		return new CategoryDesc(categoryDesc);
+	public static CategoryDesc of( String value ) {
+		CategoryDesc categoryDesc =  new CategoryDesc(value);
+		categoryDesc.validateSelf();
+		return categoryDesc;
 	}
 
 	@Override

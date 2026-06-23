@@ -19,6 +19,7 @@ package com.taotao.cloud.goods.domain.valobj;
 import com.taotao.boot.ddd.model.domain.ValueObject;
 import io.soabase.recordbuilder.core.RecordBuilder;
 import jakarta.validation.constraints.NotBlank;
+import lombok.val;
 import org.hibernate.validator.constraints.Length;
 
 /**
@@ -32,12 +33,10 @@ import org.hibernate.validator.constraints.Length;
 public record CategoryName(@NotBlank @Length(min = 1, max = 64) String value)
 	implements ValueObject<CategoryName> {
 
-	public CategoryName {
-		this.validateSelf();
-	}
-
-	public static CategoryName of( String categoryName ) {
-		return new CategoryName(categoryName);
+	public static CategoryName of( String value ) {
+		CategoryName categoryName =  new CategoryName(value);
+		categoryName.validateSelf();
+		return categoryName;
 	}
 
 

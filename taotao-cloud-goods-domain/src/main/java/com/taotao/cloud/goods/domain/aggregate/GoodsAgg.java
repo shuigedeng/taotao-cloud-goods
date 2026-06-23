@@ -19,21 +19,17 @@ package com.taotao.cloud.goods.domain.aggregate;
 import com.taotao.boot.common.exception.BusinessException;
 import com.taotao.boot.common.utils.lang.StringUtils;
 import com.taotao.boot.ddd.model.domain.AggregateRoot;
-import com.taotao.boot.ddd.model.domain.event.DomainEvent;
 import com.taotao.boot.ddd.model.val.BizId;
 import com.taotao.boot.ddd.model.val.Price;
 import com.taotao.cloud.goods.domain.assembler.GoodsDomainAssembler;
 import com.taotao.cloud.goods.domain.entity.Category;
 import com.taotao.cloud.goods.domain.entity.Tag;
 import com.taotao.cloud.goods.domain.event.FreightTemplateChangedEvent;
-import com.taotao.cloud.goods.domain.event.GoodsAggSnapshot;
 import com.taotao.cloud.goods.domain.event.GoodsCreateEvent;
 import com.taotao.cloud.goods.domain.valobj.GoodsName;
 import com.taotao.cloud.goods.domain.valobj.GoodsSpec;
 import com.taotao.cloud.goods.domain.valobj.GoodsStatus;
 import jakarta.validation.constraints.NotNull;
-import lombok.AccessLevel;
-import lombok.Builder;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -49,11 +45,6 @@ import java.util.Objects;
  */
 public class GoodsAgg extends AggregateRoot<BizId> {
 
-	/**
-	 * 商品ID
-	 */
-	@NotNull
-	private BizId id;
 
 	/**
 	 * 商品标签集合
@@ -91,15 +82,6 @@ public class GoodsAgg extends AggregateRoot<BizId> {
 
 	private String templateId;
 
-	/**
-	 * 创建时间
-	 */
-	private LocalDateTime createTime;
-
-	/**
-	 * 修改时间
-	 */
-	private LocalDateTime updateTime;
 	private String goodsNo;
 	private Boolean recommend;
 
@@ -293,8 +275,9 @@ public class GoodsAgg extends AggregateRoot<BizId> {
 	public void setTemplateId( String templateId ) {
 		this.templateId = templateId;
 	}
+
 	// 领域行为：修改运费模板
-	public void changeFreightTemplate(String newTemplateId, String operatorId) {
+	public void changeFreightTemplate( String newTemplateId, String operatorId ) {
 		// 领域规则校验
 		if (StringUtils.isEmpty(newTemplateId)) {
 			throw new BusinessException("运费模板ID不能为空");
@@ -308,6 +291,7 @@ public class GoodsAgg extends AggregateRoot<BizId> {
 		// 修改状态
 		this.templateId = newTemplateId;
 	}
+
 	@Override
 	public boolean equals( Object o ) {
 		if (this == o) {
@@ -366,15 +350,15 @@ public class GoodsAgg extends AggregateRoot<BizId> {
 	}
 
 
-	private static final class GoodsAggBuilder {
+	public static final class GoodsAggBuilder {
 
-		private @NotNull BizId id;
 		private List<Tag> tags;
 		private @NotNull Category category;
 		private @NotNull GoodsName goodsName;
 		private @NotNull GoodsSpec goodsSpec;
 		private @NotNull Price goodsPrice;
 		private @NotNull GoodsStatus goodsStatus;
+		private String templateId;
 		private String goodsNo;
 		private Boolean recommend;
 		private String createUser;
@@ -384,20 +368,19 @@ public class GoodsAgg extends AggregateRoot<BizId> {
 		private LocalDateTime updateTime;
 		private String sourceName;
 		private String serviceId;
+		private BizId id;
 
 		public GoodsAggBuilder() {
 		}
 
 		public GoodsAggBuilder( GoodsAgg other ) {
-			this.id = other.id;
 			this.tags = other.tags;
 			this.category = other.category;
 			this.goodsName = other.goodsName;
 			this.goodsSpec = other.goodsSpec;
 			this.goodsPrice = other.goodsPrice;
 			this.goodsStatus = other.goodsStatus;
-			this.createTime = other.createTime;
-			this.updateTime = other.updateTime;
+			this.templateId = other.templateId;
 			this.goodsNo = other.goodsNo;
 			this.recommend = other.recommend;
 			this.createUser = other.createUser;
@@ -407,15 +390,11 @@ public class GoodsAgg extends AggregateRoot<BizId> {
 			this.updateTime = other.updateTime;
 			this.sourceName = other.sourceName;
 			this.serviceId = other.serviceId;
+			this.id = other.id;
 		}
 
 		public static GoodsAggBuilder aGoodsAgg() {
 			return new GoodsAggBuilder();
-		}
-
-		public GoodsAggBuilder id( BizId id ) {
-			this.id = id;
-			return this;
 		}
 
 		public GoodsAggBuilder tags( List<Tag> tags ) {
@@ -448,13 +427,8 @@ public class GoodsAgg extends AggregateRoot<BizId> {
 			return this;
 		}
 
-		public GoodsAggBuilder createTime( LocalDateTime createTime ) {
-			this.createTime = createTime;
-			return this;
-		}
-
-		public GoodsAggBuilder updateTime( LocalDateTime updateTime ) {
-			this.updateTime = updateTime;
+		public GoodsAggBuilder templateId( String templateId ) {
+			this.templateId = templateId;
 			return this;
 		}
 
@@ -483,6 +457,15 @@ public class GoodsAgg extends AggregateRoot<BizId> {
 			return this;
 		}
 
+		public GoodsAggBuilder createTime( LocalDateTime createTime ) {
+			this.createTime = createTime;
+			return this;
+		}
+
+		public GoodsAggBuilder updateTime( LocalDateTime updateTime ) {
+			this.updateTime = updateTime;
+			return this;
+		}
 
 		public GoodsAggBuilder sourceName( String sourceName ) {
 			this.sourceName = sourceName;
@@ -494,17 +477,15 @@ public class GoodsAgg extends AggregateRoot<BizId> {
 			return this;
 		}
 
-		public GoodsAggBuilder but() {
-			return aGoodsAgg().id(id).tags(tags).category(category).goodsName(goodsName).goodsSpec(goodsSpec)
-				.goodsPrice(goodsPrice).goodsStatus(goodsStatus).createTime(createTime).updateTime(updateTime)
-				.goodsNo(goodsNo).recommend(recommend).createUser(createUser).updateUser(updateUser).tenantId(tenantId)
-				.createTime(createTime).updateTime(updateTime).sourceName(sourceName).serviceId(serviceId)
-				;
+
+		public GoodsAggBuilder id( BizId id ) {
+			this.id = id;
+			return this;
 		}
 
 		public GoodsAgg build() {
 			GoodsAgg goodsAgg = new GoodsAgg();
-			goodsAgg.setId(id);
+			goodsAgg.setTemplateId(templateId);
 			goodsAgg.setGoodsNo(goodsNo);
 			goodsAgg.setRecommend(recommend);
 			goodsAgg.setCreateUser(createUser);
@@ -515,14 +496,12 @@ public class GoodsAgg extends AggregateRoot<BizId> {
 			goodsAgg.setSourceName(sourceName);
 			goodsAgg.setServiceId(serviceId);
 			goodsAgg.setId(id);
-			goodsAgg.goodsStatus = this.goodsStatus;
-			goodsAgg.goodsPrice = this.goodsPrice;
-			goodsAgg.goodsSpec = this.goodsSpec;
-			goodsAgg.createTime = this.createTime;
-			goodsAgg.updateTime = this.updateTime;
-			goodsAgg.tags = this.tags;
-			goodsAgg.goodsName = this.goodsName;
 			goodsAgg.category = this.category;
+			goodsAgg.goodsName = this.goodsName;
+			goodsAgg.goodsPrice = this.goodsPrice;
+			goodsAgg.tags = this.tags;
+			goodsAgg.goodsStatus = this.goodsStatus;
+			goodsAgg.goodsSpec = this.goodsSpec;
 			return goodsAgg;
 		}
 	}

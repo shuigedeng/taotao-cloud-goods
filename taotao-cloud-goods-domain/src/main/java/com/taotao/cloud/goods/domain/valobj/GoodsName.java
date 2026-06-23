@@ -30,12 +30,10 @@ import org.hibernate.validator.constraints.Length;
 public record GoodsName(@NotBlank @Length(min = 1, max = 120) String value)
 	implements ValueObject<GoodsName> {
 
-	public GoodsName {
-		this.validateSelf();
-	}
-
-	public static GoodsName of( String goodsName ) {
-		return new GoodsName(goodsName);
+	public static GoodsName of( String value ) {
+		GoodsName goodsName= new GoodsName(value);
+		goodsName.validateSelf();
+		return goodsName;
 	}
 
 	@Override
