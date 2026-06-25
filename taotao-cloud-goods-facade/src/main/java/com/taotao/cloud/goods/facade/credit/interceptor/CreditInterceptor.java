@@ -1,8 +1,8 @@
 package com.taotao.cloud.goods.facade.credit.interceptor;
 
-import com.taotao.boot.ddd.gateway.interceptor.GatewayPostInterceptor;
-import com.taotao.boot.ddd.gateway.model.GatewayContext;
-import com.taotao.boot.ddd.gateway.model.GatewayResponse;
+import com.taotao.boot.client.gateway.interceptor.GatewayPostInterceptor;
+import com.taotao.boot.client.gateway.model.GatewayContext;
+import com.taotao.boot.client.gateway.model.GatewayResponse;
 
 /**
  * CreditInterceptor
@@ -14,12 +14,12 @@ import com.taotao.boot.ddd.gateway.model.GatewayResponse;
 public class CreditInterceptor<T> implements GatewayPostInterceptor<T> {
 
     @Override
-    public void intercept( GatewayResponse<T> response, GatewayContext context ) {
+    public void postIntercept( GatewayResponse<T> response, GatewayContext context ) {
 
     }
 
     @Override
-    public boolean shouldFilter( GatewayContext context ) {
+    public boolean postShouldFilter( GatewayContext context ) {
         return context.getCatchedException() != null;
     }
 }
