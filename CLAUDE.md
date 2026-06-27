@@ -121,5 +121,5 @@ api → interfaces → application → facade
 ## 注意
 
 - JDK 25 预览特性，大量 `--add-exports`
-- `taotao-cloud-dependencies:2026.07` BOM 需私有仓库凭据
+- `taotao-cloud-dependencies:2026.08` BOM 需私有仓库凭据
 - 阿里云私有仓库发布需配置 `mavenUsernameNew` / `mavenPasswordNew`
