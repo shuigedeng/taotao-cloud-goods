@@ -39,13 +39,10 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 @Validated
 @RestController
-@Tag(name = "开放平台-微信回调通知API", description = "开放平台-微信回调通知API")
-@RequestMapping("/open/goods/open/weixin")
+@Tag(name = "回调通知端-微信回调API", description = "回调通知端-微信回调API")
+@RequestMapping("/callback/goods/weixin")
 public class WeixinNotifyController extends BusinessController {
 
-    /**
-     * 品牌
-     */
     private final BrandCommandService brandCommandService;
 
     private final BrandQueryService brandQueryService;

@@ -94,7 +94,7 @@ public class DraftGoodsSellerController extends BusinessController {
 	@Operation(summary = "删除草稿商品", description = "删除草稿商品")
 	@RequestLogger("删除草稿商品")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@PostMapping(value = "/command/delete-batch")
+	@PostMapping(value = "/command/del-batch")
 	public Result<Void> deleteBatch( @RequestBody IdsCommand id ) {
 //        draftGoodsService.getDraftGoods(id);
 //        return Result.success(draftGoodsService.deleteGoodsDraft(id));

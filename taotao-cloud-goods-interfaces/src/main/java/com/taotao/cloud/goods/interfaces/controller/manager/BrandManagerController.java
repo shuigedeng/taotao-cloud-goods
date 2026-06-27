@@ -129,7 +129,7 @@ public class BrandManagerController extends BusinessController {
 	@RequestLogger
 	@PreventDuplicateSubmit
 	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@PostMapping(value = "/command/delete-batch")
+	@PostMapping(value = "/command/del-batch")
 	public Result<Void> deleteBatch( @RequestBody IdsCommand idsCommand ) {
 		brandCommandService.deleteBrands(idsCommand);
 		return Result.success();

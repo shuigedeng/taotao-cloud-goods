@@ -37,14 +37,14 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 @Validated
 @RestController
-@Tag(name = "开放平台-阿里回调通知API", description = "开放平台-阿里回调通知API")
-@RequestMapping("/open/goods/open/alipay")
+@Tag(name = "回调通知端-阿里回调API", description = "回调通知端-阿里回调API")
+@RequestMapping("/callback/goods/alipay")
 public class AlipayNotifyController extends BusinessController {
 
 	@Operation(summary = "阿里支付状态通知", description = "阿里支付状态通知")
 	@RequestLogger
-	@PostMapping("/notify")
-	public Result<Void> notify(@Validated @RequestBody CreateBrandCommand brand) {
+	@PostMapping("/pay")
+	public Result<Void> payNotify(@Validated @RequestBody CreateBrandCommand brand) {
 		return Result.success();
 	}
 }

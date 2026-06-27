@@ -79,7 +79,7 @@ public class GoodsLabelSellerController extends BusinessController {
 	@Operation(summary = "添加店铺商品分类", description = "添加店铺商品分类")
 	@RequestLogger("添加店铺商品分类")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@PostMapping("/command/add")
+	@PostMapping("/command/create")
 	public Result<Void> create( @RequestBody CreateStoreGoodsLabelCommand storeGoodsLabelDTO ) {
 //		StoreGoodsLabelPO storeGoodsLabel =
 //			GoodsLabelStoreAssembler.INSTANCE.convert(storeGoodsLabelDTO);

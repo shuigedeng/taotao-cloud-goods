@@ -55,29 +55,20 @@ import java.util.Map;
 @RequestMapping("/buyer/goods")
 public class GoodsBuyerController extends BusinessController {
 
-	/**
-	 * 商品
-	 */
 	private final GoodsCommandService goodsCommandService;
 
 	private final GoodsQueryService goodsQueryService;
 
-	/**
-	 * 商品SKU
-	 */
 	private final GoodsSkuCommandService goodsSkuCommandService;
 
 	private final GoodsSkuQueryService goodsSkuQueryService;
 
-	/**
-	 * ES商品搜索
-	 */
 	private final EsGoodsQueryService esGoodsQueryService;
 
 	@RequestLogger
 	@Operation(summary = "通过id获取商品信息", description = "通过id获取商品信息")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@GetMapping(value = "/query")
+	@GetMapping(value = "/query/detail")
 	public Result<GoodsSkuParamsResult> queryByGoodsId( Long goodsId) {
 		GoodsSkuParamsResult result = goodsQueryService.queryDetail(goodsId);
 		return Result.success(result);
@@ -86,7 +77,7 @@ public class GoodsBuyerController extends BusinessController {
 	@Operation(summary = "通过skuId获取商品信息", description = "通过skuId获取商品信息")
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@GetMapping(value = "/query/goodsId/skuId")
+	@GetMapping(value = "/query/goods-sku-detail")
 	//@PageViewPoint(type = PageViewEnum.SKU, id = "#id")
 	public Result<Map<String, Object>> querySkuById( GoodsSkuQuery goodsSkuQuery) {
 		Map<String, Object> map = goodsSkuQueryService.queryGoodsSkuDetail(goodsSkuQuery.goodsId(), goodsSkuQuery.skuId());

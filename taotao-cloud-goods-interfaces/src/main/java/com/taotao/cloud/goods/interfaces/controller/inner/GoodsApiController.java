@@ -40,7 +40,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Validated
 @RequiredArgsConstructor
 @RestController
-@Tag(name = "内部服务-商品CommandAPI", description = "内部服务-商品CommandAPI")
+@Tag(name = "内部服务端-商品API", description = "内部服务端-商品API")
 public class GoodsApiController extends InnerController implements GoodsCommandApi , GoodsQueryApi {
 
     @Override
@@ -64,8 +64,6 @@ public class GoodsApiController extends InnerController implements GoodsCommandA
 		@Validated Request<GoodsApiCommand> storeId) {
         return null;
     }
-
-
 
 	@Override
 	public Response<GoodsCommandApiResponse> queryStoreDetail( Request<GoodsApiCommand> id ) {

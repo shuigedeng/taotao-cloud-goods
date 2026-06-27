@@ -535,8 +535,7 @@ spring:
             min-idle: 10
   jpa:
     database: mysql
-    database-platform: mysql
-    show-sql: false # 生产环境不显示SQL
+    show-sql: true # 生产环境不显示SQL 等价于 hibernate.show_sql
     open-in-view: false
     generate-ddl: true # 关闭DDL生成
     hibernate:
@@ -545,37 +544,28 @@ spring:
       #update：每次运行程序，没有表时会创建表，如果对象发生改变会更新表结构，原有数据不会清空，只会更新（推荐使用）
       #validate：运行程序会校验数据于数据库的字段类型是否相同，字段不同会报错
       #none：禁用DDL处理
-      ddl-auto: create # 不执行DDL
+      ddl-auto: create # 不执行DDL 等价于 hibernate.hbm2ddl.auto
       naming:
         implicit-strategy: org.springframework.boot.hibernate.SpringImplicitNamingStrategy
-        physical-strategy: org.hibernate.boot.model.naming.CamelCaseToUnderscoresNamingStrategy
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategySnakeCaseImpl
     properties:
-      eclipselink:
-        logging:
-          level:
-            sql: FINE
-      javax:
-        persistence:
-          sharedCache:
-            mode: ENABLE_SELECTIVE
       hibernate:
-        eclipselink.logging.level.sql: FINE
-        hbm2ddl.auto: create
-        use_sql_comments: true
-        dialect: org.hibernate.dialect.MySQLDialect
-        format_sql: true #输出sql语句 此种方式是直接通过System.out方式进行输出，并且还不会记录预处理语句的参数；不推荐此做法。
-        show_sql: false
-        generate_statistics: false
+        hbm2ddl.auto: create # DDL 自动建表策略（开发用 create，每次启动删表重建；生产用 none 或 validate）
+        show_sql: true # 不打印 SQL
+        format_sql: true # 输出格式化sql语句 此种方式是直接通过System.out方式进行输出，并且还不会记录预处理语句的参数；不推荐此做法。
+        use_sql_comments: true #输出注释，说明这段 SQL 由哪个实体类生成
+        generate_statistics: false # 统计信息（一般不开，只有性能分析时才开）
+        default_batch_fetch_size: 16 #为解决经典的 N+1 查询问题而设。它会为所有懒加载的关联关系设置默认的批量抓取大小，有效减少查询数据库的次数。 建议设置为 4、8 或 16 不是越大越好。
+        max_fetch_depth: 3 #限制外连接抓取（join fetch）的最大深度。可以防止因对象关联关系太复杂，导致一次查询关联出过多的表，引发性能问题甚至数据库崩溃 建议设置为 0 到 3 之间的值
+        order_updates: true #强制 Hibernate 按照被更新数据的主键顺序来生成 SQL 更新语句。在高并发场景下，这有助于减少数据库死锁的可能性 推荐设置为 true，特别是在有大量并发更新的业务中
+        jdbc.batch_size: 50 #设置了 JDBC 批处理的大小。在进行大量的插入、更新操作时，合理的批处理可以大幅减少与数据库的网络交互次数，对性能提升非常显著 通常可以设置为 20 或 50。
         #cache:
-        #  use_query_cache: true
-        #  use_second_level_cache: true
+        #  use_second_level_cache: false # 二级缓存总开关（false = 彻底关闭）
+        #  use_query_cache: true # 查询缓存（依赖二级缓存，需先开启二级缓存才生效）
         #  region:
         #    factory_class: 二级缓存class
-        javax:
-          cache:
-            missing_cache_strategy: create
-        temp:
-          use_jdbc_metadata_defaults: false
+        boot:
+          allow_jdbc_metadata_access: true
   data:
     redis:
       host: ${remote-ip}

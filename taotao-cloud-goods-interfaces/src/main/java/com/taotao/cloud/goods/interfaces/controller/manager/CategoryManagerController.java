@@ -75,7 +75,7 @@ public class CategoryManagerController extends BusinessController {
 	@Operation(summary = "查询全部分类列表", description = "查询全部分类列表")
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@GetMapping(value = "/query/children/all")
+	@GetMapping(value = "/query/tree/all")
 	public Result<List<CategoryTreeResult>> queryCategoryTreeResult() {
 		return Result.success(this.categoryQueryService.queryCategoryTreeResult());
 	}

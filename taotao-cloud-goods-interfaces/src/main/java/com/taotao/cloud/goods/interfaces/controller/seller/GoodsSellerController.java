@@ -185,7 +185,7 @@ public class GoodsSellerController extends BusinessController {
 	@Operation(summary = "根据goodsId分页获取商品规格列表", description = "根据goodsId分页获取商品规格列表")
 	@RequestLogger("根据goodsId分页获取商品规格列表")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@GetMapping(value = "/query/sku/list")
+	@GetMapping(value = "/query/sku-list")
 	public Result<List<GoodsSkuSpecGalleryResult>> getSkuByList( GoodsIdQuery goodsIdQuery ) {
 		List<GoodsSkuResult> skuResults = goodsSkuQueryService.queryGoodsListByGoodsId(goodsIdQuery.goodsId());
 		// 转换为 GoodsSkuSpecGalleryResult（此处需要根据实际转换逻辑补充）
@@ -195,7 +195,7 @@ public class GoodsSellerController extends BusinessController {
 	@Operation(summary = "修改商品库存", description = "修改商品库存")
 	@RequestLogger("修改商品库存")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@PostMapping(value = "/command/update/stocks")
+	@PostMapping(value = "/command/update-stocks")
 	public Result<Void> updateStocks( @RequestBody List<UpdateGoodsSkuStockCommand> updateStockList ) {
 //		Long storeId = SecurityUtils.getCurrentUser().getStoreId();
 //		// 获取商品skuId集合
@@ -212,6 +212,40 @@ public class GoodsSellerController extends BusinessController {
 //			.filter(i -> filterGoodsSkuIds.contains(i.getSkuId()))
 //			.toList();
 //		return Result.success(goodsSkuService.updateStocks(collect));
+		return Result.success();
+	}
+
+	@Operation(summary = "冻结商品库存", description = "冻结商品库存")
+	@RequestLogger("冻结商品库存")
+	@PreAuthorize("hasAuthority('dept:tree:data')")
+	@PostMapping(value = "/command/freeze-stocks")
+	public Result<Void> freezeStocks( @RequestBody List<UpdateGoodsSkuStockCommand> updateStockList ) {
+		return Result.success();
+	}
+
+	@Operation(summary = "解冻商品库存", description = "解冻商品库存")
+	@RequestLogger("解冻商品库存")
+	@PreAuthorize("hasAuthority('dept:tree:data')")
+	@PostMapping(value = "/command/unfreeze-stocks")
+	public Result<Void> unfreezeStocks( @RequestBody List<UpdateGoodsSkuStockCommand> updateStockList ) {
+		return Result.success();
+	}
+
+
+	@Operation(summary = "扣减商品库存", description = "扣减商品库存")
+	@RequestLogger("扣减商品库存")
+	@PreAuthorize("hasAuthority('dept:tree:data')")
+	@PostMapping(value = "/command/deduct-stocks")
+	public Result<Void> deductStocks( @RequestBody List<UpdateGoodsSkuStockCommand> updateStockList ) {
+		return Result.success();
+	}
+
+
+	@Operation(summary = "恢复商品库存", description = "恢复商品库存")
+	@RequestLogger("恢复商品库存")
+	@PreAuthorize("hasAuthority('dept:tree:data')")
+	@PostMapping(value = "/command/restore-stocks")
+	public Result<Void> restoreStocks( @RequestBody List<UpdateGoodsSkuStockCommand> updateStockList ) {
 		return Result.success();
 	}
 }

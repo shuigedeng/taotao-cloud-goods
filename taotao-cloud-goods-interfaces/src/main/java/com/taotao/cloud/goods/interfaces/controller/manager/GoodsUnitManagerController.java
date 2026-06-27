@@ -93,7 +93,7 @@ public class GoodsUnitManagerController extends BusinessController {
 	@Operation(summary = "删除商品计量单位", description = "删除商品计量单位")
 	@RequestLogger("删除商品计量单位")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@PostMapping("/commnad/delete-batch")
+	@PostMapping("/commnad/del-batch")
 	public Result<Void> deleteBatch( @RequestBody IdsCommand idsCommand ) {
 //		return Result.success(goodsUnitService.removeByIds(ids));
 		return Result.success();
