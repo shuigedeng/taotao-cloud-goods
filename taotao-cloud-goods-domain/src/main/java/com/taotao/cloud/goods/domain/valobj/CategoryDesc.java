@@ -32,9 +32,7 @@ public record CategoryDesc(@Length(min = 1, max = 512) String value)
 	implements ValueObject<CategoryDesc> {
 
 	public static CategoryDesc of( String value ) {
-		CategoryDesc categoryDesc =  new CategoryDesc(value);
-		categoryDesc.validateSelf();
-		return categoryDesc;
+		return new CategoryDesc(value).validateThis();
 	}
 
 	@Override

@@ -126,8 +126,8 @@ public class GoodsAgg extends AggregateRoot<BizId> {
 			.goodsPrice(goodsPrice)
 			.goodsStatus(goodsStatus)
 			.tags(tagIds)
-			.build();
-		goodsAgg.validateSelf();
+			.build()
+			.validateThis();
 		return goodsAgg;
 	}
 
@@ -155,8 +155,8 @@ public class GoodsAgg extends AggregateRoot<BizId> {
 			.updateTime(updateTime)
 			.goodsNo(goodsNo)
 			.recommend(recommend)
-			.build();
-		goodsAgg.validateSelf();
+			.build()
+			.validateThis();
 		return goodsAgg;
 	}
 
@@ -183,8 +183,8 @@ public class GoodsAgg extends AggregateRoot<BizId> {
 			.goodsSpec(goodsSpec)
 			.goodsPrice(goodsPrice)
 			.goodsStatus(GoodsStatus.UNSHELVED)
-			.build();
-		goodsAgg.validateSelf();
+			.build()
+			.validateThis();
 		return goodsAgg;
 	}
 

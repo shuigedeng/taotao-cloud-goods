@@ -34,9 +34,7 @@ public record CategoryName(@NotBlank @Length(min = 1, max = 64) String value)
 	implements ValueObject<CategoryName> {
 
 	public static CategoryName of( String value ) {
-		CategoryName categoryName =  new CategoryName(value);
-		categoryName.validateSelf();
-		return categoryName;
+		return new CategoryName(value).validateThis();
 	}
 
 

@@ -31,9 +31,7 @@ public record GoodsName(@NotBlank @Length(min = 1, max = 120) String value)
 	implements ValueObject<GoodsName> {
 
 	public static GoodsName of( String value ) {
-		GoodsName goodsName= new GoodsName(value);
-		goodsName.validateSelf();
-		return goodsName;
+		return new GoodsName(value).validateThis();
 	}
 
 	@Override
