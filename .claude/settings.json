@@ -1,27 +1,57 @@
 {
-  "version": "1.0",
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
   "permissions": {
-    "read": ["src/**/*.java", "src/**/*.yml", "src/**/*.yaml", "src/**/*.properties", "build.gradle*", "settings.gradle", "gradle/**"],
-    "write": ["src/**/*.java", "src/**/*.xml", "*.md"],
-    "execute": ["./gradlew", "git", "docker", "java"],
-    "network": ["localhost:8080", "localhost:3306", "localhost:8848", "api.github.com"]
+    "allow": [
+      "Read(**/*.java)",
+      "Read(**/*.xml)",
+      "Read(**/*.yml)",
+      "Read(**/*.yaml)",
+      "Read(**/*.properties)",
+      "Read(**/*.json)",
+      "Read(**/*.md)",
+      "Read(**/*.sql)",
+      "Read(build.gradle*)",
+      "Read(settings.gradle*)",
+      "Read(gradle/**)",
+      "Read(gradlew)",
+      "Read(gradlew.bat)",
+      "Read(.claude/**)",
+      "Write(**/*.java)",
+      "Write(**/*.xml)",
+      "Write(**/*.yml)",
+      "Write(**/*.yaml)",
+      "Write(**/*.properties)",
+      "Write(**/*.json)",
+      "Write(**/*.md)",
+      "Write(build.gradle*)",
+      "Bash(./gradlew *)",
+      "Bash(git *)",
+      "Bash(java *)",
+      "Bash(docker *)",
+      "Bash(curl *)"
+    ],
+    "ask": [
+      "Bash(./gradlew bootRun *)",
+      "Bash(./gradlew publish*)",
+      "Bash(git push *)",
+      "Bash(docker push *)"
+    ],
+    "deny": [
+      "Read(.env*)",
+      "Read(**/secrets/**)",
+      "Read(**/*.pem)",
+      "Read(**/id_rsa*)",
+      "Bash(rm -rf /)",
+      "Bash(rm -rf ~)",
+      "Bash(> /dev/sda)"
+    ]
   },
-  "model": {
-    "default": "opencode/deepseek-v4-flash-free",
-    "temperature": 0.3,
-    "maxTokens": 4096
+  "env": {
+    "GRADLE_OPTS": "-Dorg.gradle.daemon=true -Dorg.gradle.parallel=true",
+    "SPRING_PROFILES_ACTIVE": "dev"
   },
   "git": {
     "autoCommit": false,
-    "requireTests": true,
-    "commitMessageTemplate": "type(scope): description"
-  },
-  "java": {
-    "buildTool": "gradle",
-    "testCommand": "./gradlew test",
-    "compileCommand": "./gradlew compileJava",
-    "packageCommand": "./gradlew :taotao-cloud-goods-assembly:bootJar",
-    "version": 25,
-    "previewFeatures": true
+    "commitMessageTemplate": "{{branch}} type(scope): description"
   }
 }
