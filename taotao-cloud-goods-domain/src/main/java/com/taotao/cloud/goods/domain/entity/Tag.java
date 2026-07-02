@@ -76,7 +76,6 @@ public class Tag implements Entity{
 
 	public Tag(BizId id) {
 		this.id = id;
-		this.validateSelf();
 	}
 
 	public static List<Tag> bizIds( Set<BizId> bizIds ){
