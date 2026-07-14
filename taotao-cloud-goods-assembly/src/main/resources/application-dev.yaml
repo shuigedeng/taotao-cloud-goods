@@ -1305,14 +1305,14 @@ logging:
     web: INFO
     root: INFO
     #JdbcTemplate 输出任何SQL语句
-    '[org.springframework.jdbc.core.JdbcTemplate]': INFO
+    org.springframework.jdbc.core.JdbcTemplate: INFO
     #JdbcTemplate 输出任何SQL语句 动态参数
-    '[org.springframework.jdbc.core.StatementCreatorUtils]': trace
+    org.springframework.jdbc.core.StatementCreatorUtils: trace
     #org.hibernate.SQL：记录执行的SQL。
     #org.hibernate.orm.jdbc.bind：记录预处理语句的参数。
-    '[org.hibernate.SQL]': INFO
-    '[org.hibernate.orm.jdbc.bind]': trace
-    '[com.pack.mapper]': INFO
+    org.hibernate.SQL: INFO
+    org.hibernate.orm.jdbc.bind: trace
+    com.pack.mapper: INFO
     org.apache.zookeeper.ZooKeeper: INFO
     com.taotao.cloud.goods.api.inner: INFO
     #第三方开源库datasource-proxy，该组件用于拦截SQL查询并记录。

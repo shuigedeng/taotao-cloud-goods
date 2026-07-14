@@ -1,0 +1,19 @@
+# OpenCode local overrides
+opencode.local.json
+settings.local.json
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.log
+*.tmp
+
+# Plans (track .gitkeep only)
+plans/*
+!plans/.gitkeep
+
+# Python cache
+__pycache__/
+*.pyc
