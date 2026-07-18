@@ -16,9 +16,17 @@
 
 package com.taotao.cloud.goods.infrastructure.configuration.init;
 
+import lombok.AllArgsConstructor;
+import org.apache.rocketmq.client.core.RocketMQClientTemplate;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.stereotype.Component;
+import tools.jackson.databind.json.JsonMapper;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
 
 /**
  * 敏感词汇init
@@ -28,14 +36,24 @@ import org.springframework.stereotype.Component;
  * @since 2022-04-28 11:54:02
  */
 @Component
+@AllArgsConstructor
 public class SensitiveWordsInit implements ApplicationRunner {
-
+private final RocketMQClientTemplate rocketMQClientTemplate;
+private final JsonMapper jsonMapper ;
     // @Autowired
     // private ISensitiveWordService sensitiveWordsService;
-
+	private final String topic = "OrderTopic";
     /** consumer 启动时，实时更新一下过滤词 */
     @Override
     public void run(ApplicationArguments args) {
         // sensitiveWordsService.resetCache();
+		Map<String, String> data = new HashMap<>();
+		data.put("test", "1");
+		String eventJson = jsonMapper.writeValueAsString(data);
+		rocketMQClientTemplate.send(topic,
+				MessageBuilder.withPayload(eventJson)
+					.setHeader("eventType", "tst")
+					.setHeader("eventId", UUID.randomUUID().toString())
+					.build());
     }
 }

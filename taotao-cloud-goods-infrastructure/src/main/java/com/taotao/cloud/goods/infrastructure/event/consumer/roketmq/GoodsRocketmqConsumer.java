@@ -7,28 +7,26 @@ import com.taotao.boot.mq.common.base.MqConsumerBase;
 import com.taotao.cloud.goods.application.dto.goods.command.NotifyGoodsCommand;
 import com.taotao.cloud.goods.application.service.command.GoodsCommandService;
 import lombok.AllArgsConstructor;
-import org.apache.rocketmq.common.message.MessageExt;
-import org.apache.rocketmq.spring.core.RocketMQListener;
+import org.apache.rocketmq.client.annotation.RocketMQMessageListener;
+import org.apache.rocketmq.client.apis.consumer.ConsumeResult;
+import org.apache.rocketmq.client.apis.message.MessageView;
+import org.apache.rocketmq.client.core.RocketMQListener;
+import org.springframework.stereotype.Component;
 
 import java.nio.charset.StandardCharsets;
 
-//@Component
-//@RocketMQMessageListener(
-//	topic = "${taotao.data.rocketmq.member-topic}",
-//	selectorExpression = " res || xx",
-//	consumerGroup = "${taotao.data.rocketmq.member-group}",
-//	consumeMode = ConsumeMode.ORDERLY,
-//	messageModel = MessageModel.BROADCASTING
-//)
+@Component
+@RocketMQMessageListener(
+	consumerGroup = "springboot_consumer_group"
+)
 @AllArgsConstructor
-public class GoodsRocketmqConsumer extends MqConsumerBase implements RocketMQListener<MessageExt> {
+public class GoodsRocketmqConsumer extends MqConsumerBase implements RocketMQListener {
 	private final GoodsCommandService goodsCommandService;
-	//没有抛异常 自动确认
-	//抛异常
+
 	@Override
-	public void onMessage( MessageExt message ) {
+	public ConsumeResult consume( MessageView messageView ) {
 		try {
-			String msg = new String(message.getBody(), StandardCharsets.UTF_8);
+			String msg = StandardCharsets.UTF_8.decode(messageView.getBody()).toString();
 
 			NotifyGoodsCommand notifyGoodsCommand = from(msg, NotifyGoodsCommand.class);
 
@@ -37,6 +35,6 @@ public class GoodsRocketmqConsumer extends MqConsumerBase implements RocketMQLis
 		} catch (Exception e) {
 
 		}
+		return ConsumeResult.SUCCESS;
 	}
-
 }

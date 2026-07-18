@@ -19,7 +19,6 @@ package com.taotao.cloud.goods.application.service.command.impl;
 import com.taotao.cloud.goods.application.service.command.GoodsCommandService;
 import com.taotao.cloud.goods.application.service.command.ParametersCommandService;
 import lombok.RequiredArgsConstructor;
-import org.apache.rocketmq.spring.core.RocketMQTemplate;
 import org.springframework.stereotype.Service;
 
 /**
@@ -38,7 +37,6 @@ public class ParametersCommandServiceImpl implements ParametersCommandService {
      */
     private final GoodsCommandService goodsService;
 
-    private final RocketMQTemplate rocketMQTemplate;
 
     //	@Override
     //	@Transactional(rollbackFor = Exception.class)

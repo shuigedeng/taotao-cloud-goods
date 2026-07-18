@@ -7,7 +7,6 @@ import com.taotao.boot.client.gateway.interceptor.GatewayPostInterceptor;
 import com.taotao.boot.client.gateway.model.GatewayContext;
 import com.taotao.boot.client.gateway.model.GatewayRequest;
 import com.taotao.boot.client.gateway.model.GatewayResponse;
-import org.apache.rocketmq.remoting.rpc.RpcException;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.HttpServerErrorException;
 import org.springframework.web.client.ResourceAccessException;

@@ -5,21 +5,23 @@ import com.taotao.boot.ddd.model.event.BaseEvent;
 import com.taotao.boot.ddd.model.event.EventPublisher;
 import com.taotao.boot.ddd.model.event.EventPublisherType;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.rocketmq.spring.core.RocketMQTemplate;
+import org.apache.rocketmq.client.core.RocketMQClientTemplate;
 import org.springframework.messaging.support.MessageBuilder;
+import org.springframework.stereotype.Component;
+import tools.jackson.databind.json.JsonMapper;
 
 @Slf4j
-//@Component
+@Component
 public class RocketMqEventPublisher implements EventPublisher {
 
-	private final RocketMQTemplate rocketMQTemplate;
-	private final ObjectMapper objectMapper;
-	private final String topic = "domain-events-topic";
+	private final RocketMQClientTemplate rocketMQClientTemplate;
+	private final JsonMapper jsonMapper;
+	private final String topic = "OrderTopic";
 
-	public RocketMqEventPublisher( RocketMQTemplate rocketMQTemplate,
-		ObjectMapper objectMapper ) {
-		this.rocketMQTemplate = rocketMQTemplate;
-		this.objectMapper = objectMapper;
+	public RocketMqEventPublisher( RocketMQClientTemplate rocketMQClientTemplate,
+		JsonMapper jsonMapper ) {
+		this.rocketMQClientTemplate = rocketMQClientTemplate;
+		this.jsonMapper = jsonMapper;
 	}
 
 
@@ -32,12 +34,12 @@ public class RocketMqEventPublisher implements EventPublisher {
 	public <ID, EVENT extends BaseEvent<ID>> void publish( EVENT event,
 		EventPublisherType type ) {
 		try {
-			String eventJson = objectMapper.writeValueAsString(event);
+			String eventJson = jsonMapper.writeValueAsString(event);
 
 			log.debug("Publishing event {} to RocketMQ topic: {}",
 				event.getClass().getSimpleName(), topic);
 
-			rocketMQTemplate.send(topic,
+			rocketMQClientTemplate.send(topic,
 				MessageBuilder.withPayload(eventJson)
 					.setHeader("eventType", event.getClass().getName())
 					.setHeader("eventId", event.getEventId())

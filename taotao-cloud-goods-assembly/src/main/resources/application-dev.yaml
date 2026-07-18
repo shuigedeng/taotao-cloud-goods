@@ -349,29 +349,58 @@ seata:
     compressor: none
     enable-client-batch-send-request: true     # 客户端事务消息请求是否批量合并发送（默认true）
 
+#rocketmq:
+#  name-server: http://${remote-ip}:9876
+#  producer:
+#    # 发送同一类消息的设置为同一个group，保证唯一
+#    group: ${spring.application.name}     # 组名称
+#    #access-key:     # 阿里云购买的rocketmq
+#    #secret-key:    # 阿里云购买的rocketmq
+#    # 发送消息超时时间，默认3000
+#    sendMessageTimeout: 10000
+#    # 发送消息失败重试次数，默认2
+#    retryTimesWhenSendFailed: 2
+#    # 异步消息重试此处，默认2
+#    retryTimesWhenSendAsyncFailed: 2
+#    # 消息最大长度，默认1024 * 1024 * 4(默认4M)
+#    maxMessageSize: 4096
+#    # 压缩消息阈值，默认4k(1024 * 4)
+#    compressMessageBodyThreshold: 4096
+#    # 是否在内部发送失败时重试另一个broker，默认false
+#    retryNextServer: false
+#  consumer:
+#    group: springboot_consumer_group
+#    # 一次拉取消息最大值，注意是拉取消息的最大值而非消费最大值
+#    pull-batch-size: 10
 rocketmq:
-  name-server: http://${remote-ip}:9876
   producer:
-    # 发送同一类消息的设置为同一个group，保证唯一
-    group: ${spring.application.name}     # 组名称
-    #access-key:     # 阿里云购买的rocketmq
-    #secret-key:    # 阿里云购买的rocketmq
-    # 发送消息超时时间，默认3000
-    sendMessageTimeout: 10000
-    # 发送消息失败重试次数，默认2
-    retryTimesWhenSendFailed: 2
-    # 异步消息重试此处，默认2
-    retryTimesWhenSendAsyncFailed: 2
-    # 消息最大长度，默认1024 * 1024 * 4(默认4M)
-    maxMessageSize: 4096
-    # 压缩消息阈值，默认4k(1024 * 4)
-    compressMessageBodyThreshold: 4096
-    # 是否在内部发送失败时重试另一个broker，默认false
-    retryNextServer: false
-  consumer:
-    group: springboot_consumer_group
-    # 一次拉取消息最大值，注意是拉取消息的最大值而非消费最大值
-    pull-batch-size: 10
+    endpoints: 127.0.0.1:18681
+    group: ${spring.application.name}
+    access-key: taotaocloud
+    secret-key: taotaocloud
+    topic: OrderTopic # 建议配置默认Topic
+    request-timeout: 3 # 超时时间(秒)
+    ssl-enabled: false # WSL2本地开发建议关闭SSL
+  simple-consumer:
+    endpoints: 127.0.0.1:18681
+    consumer-group: springboot_consumer_group
+    access-key: taotaocloud
+    secret-key: taotaocloud
+    topic: OrderTopic
+    tag: "*" # 订阅所有Tag
+    await-duration: 5 # 长轮询等待时间(秒)
+    request-timeout: 3
+    ssl-enabled: false # WSL2本地开发建议关闭SSL
+  push-consumer:
+    endpoints: 127.0.0.1:18681
+    consumer-group: springboot_consumer_group
+    access-key: taotaocloud
+    secret-key: taotaocloud
+    topic: OrderTopic
+    tag: "*" # 订阅所有Tag
+    await-duration: 5 # 长轮询等待时间(秒)
+    request-timeout: 3
+    ssl-enabled: false # WSL2本地开发建议关闭SSL
 
 spring:
   grpc:
@@ -1442,7 +1471,7 @@ herodotus:
 scalar:
   enabled: true
   actuatorEnabled: true
-  url: http://${remote-ip}:33332/v3/api-docs/taotao-cloud-goods
+  url: http://127.0.0.1:33332/v3/api-docs/taotao-cloud-goods
   path: /docs
   pageTitle: My API Documentation
   tagSorter: ALPHA
