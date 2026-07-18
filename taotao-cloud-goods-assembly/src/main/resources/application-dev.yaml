@@ -945,7 +945,7 @@ taotao:
         enabled: true
         autoRegister: false
         admin:
-          addresses: http://${remote-ip}:48080/xxl-job-admin
+          addresses: http://${remote-ip}:48080
           username: admin
           password: 123456
         executor:
@@ -1267,7 +1267,7 @@ management:
           version: ${ttcVersion}
   tracing:
     sampling:
-      probability: 1.0
+      probability: 1.0f
     export:
       enabled: true
   observations:
