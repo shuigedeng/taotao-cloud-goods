@@ -33,10 +33,10 @@ dependencies {
 
     testImplementation "io.github.shuigedeng:taotao-boot-starter-test"
 
-    testImplementation 'org.junit.jupiter:junit-jupiter:6.1.0'
-    testImplementation 'org.junit.jupiter:junit-jupiter-engine:6.1.0'
-    testImplementation 'org.junit.jupiter:junit-jupiter-params:6.1.0'
-    testRuntimeOnly 'org.junit.platform:junit-platform-launcher:6.1.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter:6.1.2'
+    testImplementation 'org.junit.jupiter:junit-jupiter-engine:6.1.2'
+    testImplementation 'org.junit.jupiter:junit-jupiter-params:6.1.2'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher:6.1.2'
     testImplementation "org.assertj:assertj-core:3.27.7"
 
     testImplementation "org.projectlombok:lombok"
@@ -49,7 +49,7 @@ dependencies {
     testAnnotationProcessor "org.mapstruct:mapstruct-processor:${mapstructProcessorVersion}"
     //https://github.com/entur/mapstruct-spi-protobuf
     //https://search.maven.org/artifact/no.entur.mapstruct.spi/protobuf-spi-impl
-    testAnnotationProcessor "no.entur.mapstruct.spi:protobuf-spi-impl:1.58.0"
+    testAnnotationProcessor "no.entur.mapstruct.spi:protobuf-spi-impl:1.61.0"
 }
 
 
@@ -147,7 +147,7 @@ configurations {
             force 'org.antlr:antlr4:4.13.2'
             force 'net.minidev:json-smart:2.6.0'
             //todo 临时使用
-            force "io.opentelemetry:opentelemetry-api-incubator:1.63.0-alpha"
+            force "io.opentelemetry:opentelemetry-api-incubator:1.64.0-alpha"
         }
 
         //exclude group: "log4j", module: "log4j"
