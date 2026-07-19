@@ -661,7 +661,7 @@ spring:
           lockWatchdogTimeout: 10000
   kafka:
     enabled: true
-    bootstrap-servers: ${remote-ip}:9092
+    bootstrap-servers: ${remote-ip}:9094
     producer:
       # 消息发送重试次数
       retries: 1
@@ -733,12 +733,12 @@ spring:
       # 在侦听器容器中运行的线程数，一般设置为 机器数*分区数
       concurrency: 4
       # 自动提交关闭，需要设置手动消息确认
-      ack-mode: manual_immediate
+      ack-mode: manual
       # 消费监听接口监听的主题不存在时，默认会报错，所以设置为false忽略错误
       missing-topics-fatal: false
       # 两次poll之间的最大间隔，默认值为5分钟。如果超过这个间隔会触发reBalance
       poll-timeout: 60s
-      type: batch #设置批量消费
+      type: single #设置批量消费
   security:
     oauth2:
       resourceserver:
