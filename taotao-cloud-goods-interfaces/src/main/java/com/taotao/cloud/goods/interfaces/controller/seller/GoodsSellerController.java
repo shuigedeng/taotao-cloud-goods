@@ -46,7 +46,10 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
- * 商户端,商品接口
+ * 商户端-商品接口
+ * <p>
+ * 提供商户端的商品 REST API，包括商品的查询、修改、上架、下架等操作
+ * </p>
  *
  * @author shuigedeng
  * @version 2022.04

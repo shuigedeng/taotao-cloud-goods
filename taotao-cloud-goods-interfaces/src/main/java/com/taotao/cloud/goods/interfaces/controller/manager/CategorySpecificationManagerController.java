@@ -37,7 +37,10 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
- * 管理端,商品分类规格接口
+ * 平台管理端-商品分类规格接口
+ * <p>
+ * 提供平台管理端的商品分类规格管理 REST API，包括分类规格的分配、查询等操作
+ * </p>
  *
  * @author shuigedeng
  * @version 2022.04

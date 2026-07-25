@@ -11,7 +11,10 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
- * CategorySpecificationQueryRepositoryImpl 类
+ * 商品分类规格查询仓储实现
+ * <p>
+ * 实现 CategorySpecificationQueryRepository 接口，提供商品分类规格的查询持久化操作
+ * </p>
  *
  * @author shuigedeng
  * @version 2022.05

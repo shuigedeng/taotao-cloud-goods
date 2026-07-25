@@ -35,6 +35,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * 商户端-商品计量单位接口
+ * <p>
+ * 提供商户端的商品计量单位查询 REST API
+ * </p>
  *
  * @author shuigedeng
  * @version 2022.04

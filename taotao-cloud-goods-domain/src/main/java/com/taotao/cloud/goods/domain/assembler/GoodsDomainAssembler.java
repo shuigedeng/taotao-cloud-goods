@@ -25,7 +25,10 @@ import org.mapstruct.MappingConstants;
 import org.mapstruct.factory.Mappers;
 
 /**
- * GoodsDomainAssembler
+ * 商品领域装配器
+ * <p>
+ * 负责领域对象之间的转换，如聚合根快照的生成
+ * </p>
  *
  * @author shuigedeng
  * @version 2026.04

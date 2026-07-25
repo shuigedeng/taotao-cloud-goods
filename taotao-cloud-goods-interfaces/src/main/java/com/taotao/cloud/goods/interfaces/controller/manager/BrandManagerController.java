@@ -46,7 +46,10 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
- * 平台管理端-品牌API
+ * 平台管理端-品牌接口
+ * <p>
+ * 提供平台管理端的品牌管理 REST API，包括品牌的查询、创建、修改、删除等操作
+ * </p>
  *
  * @author shuigedeng
  * @version 2022.04

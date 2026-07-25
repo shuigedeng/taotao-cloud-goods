@@ -35,7 +35,10 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 /**
- * 商户端,商品分类规格接口
+ * 商户端-商品分类规格接口
+ * <p>
+ * 提供商户端的商品分类规格查询 REST API
+ * </p>
  *
  * @author shuigedeng
  * @version 2022.04

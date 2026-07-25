@@ -30,7 +30,10 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * 管理端-品牌API
+ * 回调通知端-微信回调接口
+ * <p>
+ * 提供微信支付回调通知的处理接口
+ * </p>
  *
  * @author shuigedeng
  * @version 2022.04

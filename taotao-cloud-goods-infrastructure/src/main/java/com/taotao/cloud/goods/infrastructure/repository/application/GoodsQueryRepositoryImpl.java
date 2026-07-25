@@ -37,7 +37,10 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * BrandQueryRepositoryImpl
+ * 商品查询仓储实现
+ * <p>
+ * 实现 GoodsQueryRepository 接口，提供商品的查询持久化操作
+ * </p>
  *
  * @author shuigedeng
  * @version 2026.04

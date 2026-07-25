@@ -25,7 +25,11 @@ import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.stereotype.Service;
 
 /**
- * 商品分类业务层实现
+ * 商品分类命令服务实现
+ * <p>
+ * 实现 CategoryCommandService 接口，处理商品分类的写操作业务逻辑。
+ * 包括分类的创建、修改、删除等操作。
+ * </p>
  *
  * @author shuigedeng
  * @version 2022.04

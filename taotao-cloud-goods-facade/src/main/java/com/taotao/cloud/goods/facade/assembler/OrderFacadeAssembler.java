@@ -21,7 +21,10 @@ import org.mapstruct.MappingConstants;
 import org.mapstruct.factory.Mappers;
 
 /**
- * IParametersMapStruct
+ * 订单门面装配器
+ * <p>
+ * 负责订单模块 DTO 与应用层对象之间的转换
+ * </p>
  *
  * @author shuigedeng
  * @version 2022.04

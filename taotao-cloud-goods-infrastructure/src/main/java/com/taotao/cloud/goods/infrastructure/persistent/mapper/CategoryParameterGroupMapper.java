@@ -20,7 +20,10 @@ import com.taotao.boot.data.mybatis.mybatisplus.base.mapper.BaseMapper;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.CategoryParameterGroupPO;
 
 /**
- * 分类绑定参数组数据处理层
+ * 分类参数组 MyBatis Mapper 接口
+ * <p>
+ * 继承 BaseMapper，提供分类参数组的 MyBatis-Plus 数据访问操作
+ * </p>
  *
  * @author shuigedeng
  * @version 2022.04

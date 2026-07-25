@@ -31,7 +31,10 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * 移动端-字典API
+ * 内部服务端-商品API
+ * <p>
+ * 提供内部服务调用的商品 API，用于微服务间的商品数据交互
+ * </p>
  *
  * @author shuigedeng
  * @version 2021.9

@@ -41,7 +41,11 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * 商品业务层实现
+ * 商品查询服务实现
+ * <p>
+ * 实现 GoodsQueryService 接口，处理商品的查询操作。
+ * 使用 GoodsAppAssembler 进行领域对象与DTO的转换。
+ * </p>
  *
  * @author shuigedeng
  * @version 2022.04

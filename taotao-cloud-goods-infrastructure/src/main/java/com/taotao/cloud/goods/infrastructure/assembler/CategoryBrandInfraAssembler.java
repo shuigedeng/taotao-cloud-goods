@@ -25,7 +25,10 @@ import org.mapstruct.MappingConstants;
 import org.mapstruct.factory.Mappers;
 
 /**
- * ICategoryMapStruct
+ * 分类品牌基础设施装配器
+ * <p>
+ * 负责分类品牌 DO 与应用层对象之间的转换
+ * </p>
  *
  * @author shuigedeng
  * @version 2022.04

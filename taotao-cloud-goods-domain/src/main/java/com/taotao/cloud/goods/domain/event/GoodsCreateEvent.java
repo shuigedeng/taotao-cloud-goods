@@ -28,7 +28,13 @@ import lombok.ToString;
 import lombok.experimental.Accessors;
 
 /**
+ * 商品创建事件
+ * <p>
+ * 当新商品被创建时发布此事件，用于通知其他限界上下文或触发后续业务流程
+ * </p>
  *
+ * @author shuigedeng
+ * @since 2025-12-19
  */
 @Setter
 @Getter

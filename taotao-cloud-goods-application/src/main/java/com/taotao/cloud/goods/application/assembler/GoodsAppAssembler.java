@@ -27,7 +27,10 @@ import org.mapstruct.MappingConstants;
 import org.mapstruct.factory.Mappers;
 
 /**
- * IParametersMapStruct
+ * 商品应用层装配器
+ * <p>
+ * 负责将商品领域对象转换为应用层DTO，供接口层返回
+ * </p>
  *
  * @author shuigedeng
  * @version 2022.04

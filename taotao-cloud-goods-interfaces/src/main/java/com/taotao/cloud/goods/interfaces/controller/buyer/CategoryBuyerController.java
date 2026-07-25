@@ -35,7 +35,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * 买家端,商品分类接口
+ * 买家端-商品分类接口
+ * <p>
+ * 提供买家端的商品分类查询 REST API
+ * </p>
  *
  * @author shuigedeng
  * @version 2022.04

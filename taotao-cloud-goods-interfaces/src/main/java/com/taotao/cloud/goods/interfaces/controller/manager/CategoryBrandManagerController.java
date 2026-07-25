@@ -35,7 +35,10 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * 管理端,分类品牌接口
+ * 平台管理端-分类品牌接口
+ * <p>
+ * 提供平台管理端的分类品牌管理 REST API，包括品牌分配、查询等操作
+ * </p>
  *
  * @author shuigedeng
  * @version 2022.04

@@ -19,6 +19,15 @@ package com.taotao.cloud.goods.domain.service;
 import com.taotao.boot.ddd.model.domain.service.DomainService;
 import com.taotao.cloud.goods.domain.aggregate.GoodsAgg;
 
+/**
+ * 商品领域服务接口
+ * <p>
+ * 定义跨越多个聚合根的领域业务逻辑
+ * </p>
+ *
+ * @author shuigedeng
+ * @since 2025-12-19
+ */
 public interface GoodsDomainService extends DomainService {
 
 }

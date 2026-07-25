@@ -37,7 +37,12 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * GoodsAgg
+ * 商品聚合根
+ * <p>
+ * 商品的核心领域模型，封装了商品的所有业务逻辑和状态管理。
+ * 包含商品名称、规格、价格、状态、标签、分类等属性，
+ * 以及上架、下架、修改运费模板等业务行为。
+ * </p>
  *
  * @author shuigedeng
  * @version 2026.04

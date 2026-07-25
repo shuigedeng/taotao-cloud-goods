@@ -41,7 +41,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- * 商品业务层实现
+ * 商品命令服务实现
+ * <p>
+ * 实现 GoodsCommandService 接口，处理商品的写操作业务逻辑。
+ * 使用 GoodsDomainRepository 进行商品聚合根的持久化。
+ * </p>
  *
  * @author shuigedeng
  * @version 2022.04

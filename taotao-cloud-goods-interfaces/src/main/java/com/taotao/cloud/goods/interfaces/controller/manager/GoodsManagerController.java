@@ -43,7 +43,10 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * 管理端,商品管理接口
+ * 平台管理端-商品管理接口
+ * <p>
+ * 提供商品的管理端 REST API，包括商品的查询、创建、修改、上架、下架等操作
+ * </p>
  *
  * @author shuigedeng
  * @version 2022.04

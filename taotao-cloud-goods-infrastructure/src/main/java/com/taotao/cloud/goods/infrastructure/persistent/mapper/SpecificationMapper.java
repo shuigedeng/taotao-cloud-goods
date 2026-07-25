@@ -20,7 +20,10 @@ import com.taotao.boot.data.mybatis.mybatisplus.base.mapper.BaseMapper;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.SpecificationPO;
 
 /**
- * 规格数据处理层
+ * 商品规格 MyBatis Mapper 接口
+ * <p>
+ * 继承 BaseMapper，提供商品规格的 MyBatis-Plus 数据访问操作
+ * </p>
  *
  * @author shuigedeng
  * @version 2022.04

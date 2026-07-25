@@ -24,7 +24,10 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 /**
- * GoodsDomainServiceImpl
+ * 商品领域服务实现
+ * <p>
+ * 实现跨越多个聚合根的领域业务逻辑
+ * </p>
  *
  * @author shuigedeng
  * @version 2026.04

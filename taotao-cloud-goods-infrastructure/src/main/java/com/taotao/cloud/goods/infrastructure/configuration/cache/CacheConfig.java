@@ -17,7 +17,10 @@
 package com.taotao.cloud.goods.infrastructure.configuration.cache;
 
 /**
- * CacheConfig
+ * 缓存配置类
+ * <p>
+ * 商品模块的缓存相关配置
+ * </p>
  *
  * @author shuigedeng
  * @version 2026.04

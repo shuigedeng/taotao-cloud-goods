@@ -20,6 +20,14 @@ import com.taotao.boot.data.jpa.base.repository.ExtendRepository;
 import com.taotao.boot.data.jpa.base.repository.BaseRepository;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.ParametersPO;
 
+/**
+ * 参数持久化仓储接口
+ * <p>
+ * 继承 JPA BaseRepository 和 ExtendRepository，提供参数 PO 的基础 CRUD 操作
+ * </p>
+ *
+ * @author shuigedeng
+ */
 public interface ParametersRepository
         extends BaseRepository<ParametersPO>,
 				ExtendRepository<ParametersPO, Long> {}

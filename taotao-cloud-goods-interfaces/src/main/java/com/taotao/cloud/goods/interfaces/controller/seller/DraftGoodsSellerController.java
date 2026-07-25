@@ -37,7 +37,10 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * 商户端,草稿商品接口
+ * 商户端-草稿商品接口
+ * <p>
+ * 提供商户端的草稿商品 REST API，包括草稿商品的查询、保存、删除等操作
+ * </p>
  *
  * @author shuigedeng
  * @version 2022.04

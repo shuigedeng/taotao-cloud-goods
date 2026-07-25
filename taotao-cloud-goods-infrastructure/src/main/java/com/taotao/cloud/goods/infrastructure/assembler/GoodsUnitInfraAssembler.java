@@ -24,7 +24,10 @@ import org.mapstruct.MappingConstants;
 import org.mapstruct.factory.Mappers;
 
 /**
- * IGoodsSkuMapStruct
+ * 商品计量单位基础设施装配器
+ * <p>
+ * 负责商品计量单位 PO 与应用层对象之间的转换
+ * </p>
  *
  * @author shuigedeng
  * @version 2022.04

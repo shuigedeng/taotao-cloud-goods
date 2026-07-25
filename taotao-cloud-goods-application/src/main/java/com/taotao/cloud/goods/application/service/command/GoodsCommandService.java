@@ -27,7 +27,10 @@ import com.taotao.cloud.goods.application.dto.goods.result.GoodsResult;
 import java.util.List;
 
 /**
- * 商品业务层
+ * 商品命令服务接口
+ * <p>
+ * 定义商品的写操作，包括商品的创建、修改、上架、下架、删除等业务逻辑
+ * </p>
  *
  * @author shuigedeng
  * @version 2022.04

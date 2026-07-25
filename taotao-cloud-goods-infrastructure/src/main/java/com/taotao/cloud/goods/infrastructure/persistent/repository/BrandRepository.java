@@ -25,7 +25,12 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.simple.JdbcClient;
 
 /**
- * @author 1
+ * 品牌持久化仓储接口
+ * <p>
+ * 继承 JPA BaseRepository 和 ExtendRepository，提供品牌 PO 的基础 CRUD 操作
+ * </p>
+ *
+ * @author shuigedeng
  */
 public interface BrandRepository
         extends BaseRepository<BrandPO>, ExtendRepository<BrandPO, Long> {

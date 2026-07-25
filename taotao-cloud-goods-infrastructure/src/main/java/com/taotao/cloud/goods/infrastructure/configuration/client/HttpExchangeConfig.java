@@ -17,7 +17,10 @@ import org.springframework.web.service.registry.AbstractHttpServiceRegistrar;
 import java.util.Set;
 
 /**
- * HttpExantge 类
+ * HTTP Exchange 客户端配置类
+ * <p>
+ * 配置微服务间的 HTTP 声明式客户端，用于服务间调用
+ * </p>
  *
  * @author shuigedeng
  * @version 2022.05

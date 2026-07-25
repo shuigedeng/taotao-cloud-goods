@@ -40,7 +40,11 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 /**
- * GoodsDomainRepositoryImpl
+ * 商品领域仓储实现
+ * <p>
+ * 实现 GoodsDomainRepository 接口，负责商品聚合根的持久化操作。
+ * 使用 GoodsInfraAssembler 进行领域对象与持久化对象之间的转换。
+ * </p>
  *
  * @author shuigedeng
  * @version 2026.04

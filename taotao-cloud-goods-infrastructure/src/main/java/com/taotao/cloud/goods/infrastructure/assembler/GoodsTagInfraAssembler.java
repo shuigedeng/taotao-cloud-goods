@@ -21,7 +21,10 @@ import org.mapstruct.Mapper;
 import org.mapstruct.MappingConstants;
 
 /**
- * GoodsTag转换器
+ * 商品标签基础设施装配器
+ * <p>
+ * 负责商品标签 PO 与应用层对象之间的转换
+ * </p>
  *
  * @author shuigedeng
  * @since 2023-08-03

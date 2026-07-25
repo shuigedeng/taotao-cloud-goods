@@ -38,7 +38,10 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
- * 管理端,分类绑定参数组接口
+ * 平台管理端-分类绑定参数组接口
+ * <p>
+ * 提供平台管理端的分类参数组管理 REST API
+ * </p>
  *
  * @author shuigedeng
  * @version 2022.04

@@ -32,7 +32,10 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * 管理端,分类绑定参数组管理接口
+ * 平台管理端-参数接口
+ * <p>
+ * 提供平台管理端的参数管理 REST API，包括参数的创建、修改、删除等操作
+ * </p>
  *
  * @author shuigedeng
  * @version 2022.04

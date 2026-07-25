@@ -22,7 +22,10 @@ import org.mapstruct.MappingConstants;
 import org.mapstruct.factory.Mappers;
 
 /**
- * ICustomWordsMapStruct
+ * 自定义分词基础设施装配器
+ * <p>
+ * 负责自定义分词 PO 与应用层对象之间的转换
+ * </p>
  *
  * @author shuigedeng
  * @version 2022.04

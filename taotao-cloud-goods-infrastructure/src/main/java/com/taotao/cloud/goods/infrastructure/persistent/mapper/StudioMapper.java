@@ -20,7 +20,10 @@ import com.taotao.boot.data.mybatis.mybatisplus.base.mapper.BaseMapper;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.StudioPO;
 
 /**
- * 直播间数据层
+ * 工作室 MyBatis Mapper 接口
+ * <p>
+ * 继承 BaseMapper，提供工作室的 MyBatis-Plus 数据访问操作
+ * </p>
  *
  * @author shuigedeng
  * @version 2022.04

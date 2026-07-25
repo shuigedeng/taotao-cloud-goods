@@ -17,7 +17,10 @@
 package com.taotao.cloud.goods.infrastructure.configuration.logbook;
 
 /**
- * LogbookConfig
+ * Logbook 日志配置类
+ * <p>
+ * 商品模块的 HTTP 请求/响应日志配置
+ * </p>
  *
  * @author shuigedeng
  * @version 2026.04

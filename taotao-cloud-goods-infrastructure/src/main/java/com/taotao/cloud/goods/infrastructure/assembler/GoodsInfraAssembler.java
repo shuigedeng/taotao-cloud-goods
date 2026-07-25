@@ -32,7 +32,10 @@ import org.mapstruct.factory.Mappers;
 import java.util.List;
 
 /**
- * IGoodsSkuMapStruct
+ * 商品基础设施装配器
+ * <p>
+ * 负责 GoodsPO/GoodsDO 与聚合根 GoodsAgg、DTO 之间的转换
+ * </p>
  *
  * @author shuigedeng
  * @version 2022.04

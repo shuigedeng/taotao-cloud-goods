@@ -22,7 +22,10 @@ import org.mapstruct.MappingConstants;
 import org.mapstruct.factory.Mappers;
 
 /**
- * IParametersMapStruct
+ * 草稿商品基础设施装配器
+ * <p>
+ * 负责草稿商品 PO 与应用层对象之间的转换
+ * </p>
  *
  * @author shuigedeng
  * @version 2022.04

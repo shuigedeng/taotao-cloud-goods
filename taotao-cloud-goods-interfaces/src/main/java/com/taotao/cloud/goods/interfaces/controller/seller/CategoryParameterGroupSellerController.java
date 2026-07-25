@@ -34,7 +34,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * 商户端,分类绑定参数组接口
+ * 商户端-分类绑定参数组接口
+ * <p>
+ * 提供商户端的分类参数组查询 REST API
+ * </p>
  *
  * @author shuigedeng
  * @version 2022.04

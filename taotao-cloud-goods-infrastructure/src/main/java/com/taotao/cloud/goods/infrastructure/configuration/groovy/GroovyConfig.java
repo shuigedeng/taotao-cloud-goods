@@ -1,7 +1,10 @@
 package com.taotao.cloud.goods.infrastructure.configuration.groovy;
 
 /**
- * GroovyConfig
+ * Groovy 脚本配置类
+ * <p>
+ * 商品模块的 Groovy 动态脚本相关配置
+ * </p>
  *
  * @author shuigedeng
  * @version 2026.04

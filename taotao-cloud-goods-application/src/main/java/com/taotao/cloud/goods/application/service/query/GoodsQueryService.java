@@ -25,7 +25,10 @@ import com.taotao.cloud.goods.application.dto.goods.result.GoodsSkuParamsResult;
 import java.util.List;
 
 /**
- * 商品业务层
+ * 商品查询服务接口
+ * <p>
+ * 定义商品的查询操作，包括商品分页查询、按品牌查询、获取SKU参数等
+ * </p>
  *
  * @author shuigedeng
  * @version 2022.04

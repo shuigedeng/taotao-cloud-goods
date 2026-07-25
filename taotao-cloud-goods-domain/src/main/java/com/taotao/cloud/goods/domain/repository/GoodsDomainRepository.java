@@ -27,6 +27,15 @@ import java.util.Collection;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+/**
+ * 商品领域仓储接口
+ * <p>
+ * 定义商品聚合根的持久化操作，包括商品状态查询、批量更新等
+ * </p>
+ *
+ * @author shuigedeng
+ * @since 2025-12-19
+ */
 public interface GoodsDomainRepository extends DomainRepository<BizId,GoodsAgg> {
 
 

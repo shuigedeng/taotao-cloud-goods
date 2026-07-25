@@ -23,7 +23,10 @@ import org.apache.ibatis.annotations.Select;
 import java.util.List;
 
 /**
- * 直播商品数据层
+ * 商品 MyBatis Mapper 接口
+ * <p>
+ * 继承 BaseMapper，提供商品的 MyBatis-Plus 数据访问操作
+ * </p>
  *
  * @author shuigedeng
  * @version 2022.04

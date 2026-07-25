@@ -25,7 +25,10 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 /**
- * 规格项数据处理层
+ * 商品SKU MyBatis Mapper 接口
+ * <p>
+ * 继承 BaseMapper，提供商品 SKU 的 MyBatis-Plus 数据访问操作
+ * </p>
  *
  * @author shuigedeng
  * @version 2022.04

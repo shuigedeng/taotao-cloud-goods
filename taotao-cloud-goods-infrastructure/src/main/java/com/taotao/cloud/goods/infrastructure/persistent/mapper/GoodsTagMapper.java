@@ -21,7 +21,10 @@ import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsTagPO;
 import org.springframework.stereotype.Repository;
 
 /**
- * 规格项数据处理层
+ * 商品标签 MyBatis Mapper 接口
+ * <p>
+ * 继承 BaseMapper，提供商品标签的 MyBatis-Plus 数据访问操作
+ * </p>
  *
  * @author shuigedeng
  * @version 2022.04

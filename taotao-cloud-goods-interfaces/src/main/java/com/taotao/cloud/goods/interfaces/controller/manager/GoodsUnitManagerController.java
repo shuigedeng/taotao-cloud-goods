@@ -36,7 +36,10 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * 管理端,商品计量单位接口
+ * 平台管理端-商品计量单位接口
+ * <p>
+ * 提供平台管理端的商品计量单位管理 REST API
+ * </p>
  *
  * @author shuigedeng
  * @version 2022.04

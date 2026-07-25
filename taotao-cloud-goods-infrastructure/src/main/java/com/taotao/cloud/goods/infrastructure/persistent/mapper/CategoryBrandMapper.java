@@ -24,7 +24,10 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 /**
- * 商品分类品牌数据处理层
+ * 商品分类品牌 MyBatis Mapper 接口
+ * <p>
+ * 继承 BaseMapper，提供商品分类品牌的 MyBatis-Plus 数据访问操作
+ * </p>
  *
  * @author shuigedeng
  * @version 2022.04

@@ -27,7 +27,11 @@ import com.taotao.cloud.goods.domain.entity.Tag;
 import com.taotao.cloud.goods.domain.valobj.*;
 
 /**
- * 商品创建工厂<br/> 注：领域对象创建工厂，强调初始创建领域对象的操作（区别于技术层面的构造函数）
+ * 商品聚合根工厂
+ * <p>
+ * 领域对象创建工厂，强调初始创建领域对象的操作（区别于技术层面的构造函数）。
+ * 负责根据 CreateGoodsCommand 创建商品聚合根，封装复杂的领域对象构建逻辑。
+ * </p>
  */
 public class GoodsFactory implements MarkerFactory {
 

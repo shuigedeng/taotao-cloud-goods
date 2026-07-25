@@ -22,7 +22,10 @@ import org.mapstruct.MappingConstants;
 import org.mapstruct.factory.Mappers;
 
 /**
- * IGoodsSkuMapStruct
+ * 商品SKU基础设施装配器
+ * <p>
+ * 负责商品SKU PO 与应用层对象之间的转换
+ * </p>
  *
  * @author shuigedeng
  * @version 2022.04

@@ -17,7 +17,10 @@
 package com.taotao.cloud.goods.infrastructure.configuration.roketmq;
 
 /**
- * RocketmqConfig
+ * RocketMQ 配置类
+ * <p>
+ * 商品模块的 RocketMQ 消息队列相关配置
+ * </p>
  *
  * @author shuigedeng
  * @version 2026.04

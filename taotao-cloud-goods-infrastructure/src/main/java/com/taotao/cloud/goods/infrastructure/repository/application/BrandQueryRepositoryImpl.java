@@ -34,7 +34,10 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 /**
- * BrandQueryRepositoryImpl
+ * 品牌查询仓储实现
+ * <p>
+ * 实现 BrandQueryRepository 接口，提供品牌的查询持久化操作
+ * </p>
  *
  * @author shuigedeng
  * @version 2026.04

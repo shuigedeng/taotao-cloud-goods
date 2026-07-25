@@ -23,7 +23,10 @@ import com.taotao.cloud.goods.domain.valobj.CategoryName;
 import com.taotao.cloud.goods.domain.valobj.GoodsName;
 
 /**
- * IGoodsSkuMapStruct
+ * 基础设施装配器基类
+ * <p>
+ * 提供通用的类型转换方法，如 BizId 与 Long、值对象与 String 之间的转换
+ * </p>
  *
  * @author shuigedeng
  * @version 2022.04

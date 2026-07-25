@@ -21,7 +21,10 @@ import com.taotao.boot.data.jpa.base.repository.BaseRepository;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsPO;
 
 /**
- * IDeptRepository
+ * 商品持久化仓储接口
+ * <p>
+ * 继承 JPA BaseRepository 和 ExtendRepository，提供商品 PO 的基础 CRUD 操作
+ * </p>
  *
  * @author shuigedeng
  * @version 2022.03

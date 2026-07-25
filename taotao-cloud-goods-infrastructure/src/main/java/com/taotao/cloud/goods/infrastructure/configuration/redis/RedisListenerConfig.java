@@ -19,7 +19,10 @@ package com.taotao.cloud.goods.infrastructure.configuration.redis;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * RedisListenerConfig
+ * Redis 监听器配置类
+ * <p>
+ * 配置 Redis 消息监听容器和相关监听器
+ * </p>
  *
  * @author shuigedeng
  * @version 2022.03

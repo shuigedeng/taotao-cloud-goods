@@ -42,7 +42,10 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 买家端,商品接口
+ * 买家端-商品接口
+ * <p>
+ * 提供买家端的商品 REST API，包括商品查询、搜索、详情查看等操作
+ * </p>
  *
  * @author shuigedeng
  * @version 2022.04
