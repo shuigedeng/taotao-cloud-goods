@@ -273,7 +273,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * @return 字符串
 	 * @since 2022.03
 	 */
-
 	public String getGoodsNo() {
 		return goodsNo;
 	}
@@ -285,7 +284,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * @return 无返回值
 	 * @since 2022.03
 	 */
-
 	public void setGoodsNo(String goodsNo) {
 		this.goodsNo = goodsNo;
 	}
@@ -296,7 +294,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * @return 字符串
 	 * @since 2022.03
 	 */
-
 	public String getGoodsName() {
 		return goodsName;
 	}
@@ -308,7 +305,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * @return 无返回值
 	 * @since 2022.03
 	 */
-
 	public void setGoodsName(String goodsName) {
 		this.goodsName = goodsName;
 	}
@@ -319,7 +315,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * @return BigDecimal
 	 * @since 2022.03
 	 */
-
 	public BigDecimal getPrice() {
 		return price;
 	}
@@ -331,7 +326,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * @return 无返回值
 	 * @since 2022.03
 	 */
-
 	public void setPrice(BigDecimal price) {
 		this.price = price;
 	}
@@ -342,7 +336,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * @return 结果数量
 	 * @since 2022.03
 	 */
-
 	public Long getBrandId() {
 		return brandId;
 	}
@@ -354,7 +347,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * @return 无返回值
 	 * @since 2022.03
 	 */
-
 	public void setBrandId(Long brandId) {
 		this.brandId = brandId;
 	}
@@ -365,7 +357,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * @return 字符串
 	 * @since 2022.03
 	 */
-
 	public String getCategoryPath() {
 		return categoryPath;
 	}
@@ -377,7 +368,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * @return 无返回值
 	 * @since 2022.03
 	 */
-
 	public void setCategoryPath(String categoryPath) {
 		this.categoryPath = categoryPath;
 	}
@@ -388,7 +378,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * @return 字符串
 	 * @since 2022.03
 	 */
-
 	public String getGoodsUnit() {
 		return goodsUnit;
 	}
@@ -400,7 +389,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * @return 无返回值
 	 * @since 2022.03
 	 */
-
 	public void setGoodsUnit(String goodsUnit) {
 		this.goodsUnit = goodsUnit;
 	}
@@ -411,7 +399,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * @return 字符串
 	 * @since 2022.03
 	 */
-
 	public String getSellingPoint() {
 		return sellingPoint;
 	}
@@ -423,7 +410,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * @return 无返回值
 	 * @since 2022.03
 	 */
-
 	public void setSellingPoint(String sellingPoint) {
 		this.sellingPoint = sellingPoint;
 	}
@@ -434,7 +420,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * @return 字符串
 	 * @since 2022.03
 	 */
-
 	public String getMarketEnable() {
 		return marketEnable;
 	}
@@ -446,7 +431,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * @return 无返回值
 	 * @since 2022.03
 	 */
-
 	public void setMarketEnable(String marketEnable) {
 		this.marketEnable = marketEnable;
 	}
@@ -458,7 +442,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * @return 无返回值
 	 * @since 2022.03
 	 */
-
 	public void setIntro(String intro) {
 		this.intro = intro;
 	}
@@ -469,7 +452,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * @return 结果数量
 	 * @since 2022.03
 	 */
-
 	public Integer getBuyCount() {
 		return buyCount;
 	}
@@ -481,7 +463,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * @return 无返回值
 	 * @since 2022.03
 	 */
-
 	public void setBuyCount(Integer buyCount) {
 		this.buyCount = buyCount;
 	}
@@ -492,7 +473,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * @return 结果数量
 	 * @since 2022.03
 	 */
-
 	public Integer getQuantity() {
 		return quantity;
 	}
@@ -504,7 +484,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * @return 无返回值
 	 * @since 2022.03
 	 */
-
 	public void setQuantity(Integer quantity) {
 		this.quantity = quantity;
 	}
@@ -515,7 +494,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * @return BigDecimal
 	 * @since 2022.03
 	 */
-
 	public BigDecimal getGrade() {
 		return grade;
 	}
@@ -527,7 +505,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * @return 无返回值
 	 * @since 2022.03
 	 */
-
 	public void setGrade(BigDecimal grade) {
 		this.grade = grade;
 	}
@@ -538,7 +515,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * @return 字符串
 	 * @since 2022.03
 	 */
-
 	public String getThumbnail() {
 		return thumbnail;
 	}
@@ -550,7 +526,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * @return 无返回值
 	 * @since 2022.03
 	 */
-
 	public void setThumbnail(String thumbnail) {
 		this.thumbnail = thumbnail;
 	}
@@ -561,7 +536,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * @return 字符串
 	 * @since 2022.03
 	 */
-
 	public String getSmall() {
 		return small;
 	}
@@ -573,7 +547,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * @return 无返回值
 	 * @since 2022.03
 	 */
-
 	public void setSmall(String small) {
 		this.small = small;
 	}
@@ -584,7 +557,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * @return 字符串
 	 * @since 2022.03
 	 */
-
 	public String getOriginal() {
 		return original;
 	}
@@ -596,7 +568,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * @return 无返回值
 	 * @since 2022.03
 	 */
-
 	public void setOriginal(String original) {
 		this.original = original;
 	}
@@ -607,7 +578,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * @return 字符串
 	 * @since 2022.03
 	 */
-
 	public String getStoreCategoryPath() {
 		return storeCategoryPath;
 	}
@@ -619,7 +589,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * @return 无返回值
 	 * @since 2022.03
 	 */
-
 	public void setStoreCategoryPath(String storeCategoryPath) {
 		this.storeCategoryPath = storeCategoryPath;
 	}
@@ -630,7 +599,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * @return 结果数量
 	 * @since 2022.03
 	 */
-
 	public Integer getCommentNum() {
 		return commentNum;
 	}
@@ -642,7 +610,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * @return 无返回值
 	 * @since 2022.03
 	 */
-
 	public void setCommentNum(Integer commentNum) {
 		this.commentNum = commentNum;
 	}
@@ -653,7 +620,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * @return 结果数量
 	 * @since 2022.03
 	 */
-
 	public Long getStoreId() {
 		return storeId;
 	}
@@ -665,7 +631,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * @return 无返回值
 	 * @since 2022.03
 	 */
-
 	public void setStoreId(Long storeId) {
 		this.storeId = storeId;
 	}
@@ -676,7 +641,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * @return 字符串
 	 * @since 2022.03
 	 */
-
 	public String getStoreName() {
 		return storeName;
 	}
@@ -688,7 +652,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * @return 无返回值
 	 * @since 2022.03
 	 */
-
 	public void setStoreName(String storeName) {
 		this.storeName = storeName;
 	}
@@ -699,7 +662,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * @return 结果数量
 	 * @since 2022.03
 	 */
-
 	public Long getTemplateId() {
 		return templateId;
 	}
@@ -711,7 +673,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * @return 无返回值
 	 * @since 2022.03
 	 */
-
 	public void setTemplateId(Long templateId) {
 		this.templateId = templateId;
 	}
@@ -722,7 +683,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * @return 字符串
 	 * @since 2022.03
 	 */
-
 	public String getAuthFlag() {
 		return authFlag;
 	}
@@ -734,7 +694,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * @return 无返回值
 	 * @since 2022.03
 	 */
-
 	public void setAuthFlag(String authFlag) {
 		this.authFlag = authFlag;
 	}
@@ -745,7 +704,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * @return 字符串
 	 * @since 2022.03
 	 */
-
 	public String getAuthMessage() {
 		return authMessage;
 	}
@@ -757,7 +715,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * @return 无返回值
 	 * @since 2022.03
 	 */
-
 	public void setAuthMessage(String authMessage) {
 		this.authMessage = authMessage;
 	}
@@ -768,7 +725,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * @return 字符串
 	 * @since 2022.03
 	 */
-
 	public String getUnderMessage() {
 		return underMessage;
 	}
@@ -780,7 +736,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * @return 无返回值
 	 * @since 2022.03
 	 */
-
 	public void setUnderMessage(String underMessage) {
 		this.underMessage = underMessage;
 	}
@@ -791,7 +746,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * @return 是否成功
 	 * @since 2022.03
 	 */
-
 	public Boolean getSelfOperated() {
 		return selfOperated;
 	}
@@ -803,7 +757,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * @return 无返回值
 	 * @since 2022.03
 	 */
-
 	public void setSelfOperated(Boolean selfOperated) {
 		this.selfOperated = selfOperated;
 	}
@@ -815,7 +768,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * @return 无返回值
 	 * @since 2022.03
 	 */
-
 	public void setMobileIntro(String mobileIntro) {
 		this.mobileIntro = mobileIntro;
 	}
@@ -826,7 +778,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * @return 字符串
 	 * @since 2022.03
 	 */
-
 	public String getGoodsVideo() {
 		return goodsVideo;
 	}
@@ -838,7 +789,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * @return 无返回值
 	 * @since 2022.03
 	 */
-
 	public void setGoodsVideo(String goodsVideo) {
 		this.goodsVideo = goodsVideo;
 	}
@@ -849,7 +799,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * @return 是否成功
 	 * @since 2022.03
 	 */
-
 	public Boolean getRecommend() {
 		return recommend;
 	}
@@ -861,7 +810,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * @return 无返回值
 	 * @since 2022.03
 	 */
-
 	public void setRecommend(Boolean recommend) {
 		this.recommend = recommend;
 	}
@@ -872,7 +820,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * @return 字符串
 	 * @since 2022.03
 	 */
-
 	public String getSalesModel() {
 		return salesModel;
 	}
@@ -884,7 +831,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * @return 无返回值
 	 * @since 2022.03
 	 */
-
 	public void setSalesModel(String salesModel) {
 		this.salesModel = salesModel;
 	}
@@ -895,7 +841,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * @return 结果数量
 	 * @since 2022.03
 	 */
-
 	public Long getPosterPicId() {
 		return posterPicId;
 	}
@@ -907,7 +852,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * @return 无返回值
 	 * @since 2022.03
 	 */
-
 	public void setPosterPicId(Long posterPicId) {
 		this.posterPicId = posterPicId;
 	}
@@ -918,7 +862,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * @return 字符串
 	 * @since 2022.03
 	 */
-
 	public String getGoodsType() {
 		return goodsType;
 	}
@@ -930,7 +873,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * @return 无返回值
 	 * @since 2022.03
 	 */
-
 	public void setGoodsType(String goodsType) {
 		this.goodsType = goodsType;
 	}
@@ -941,7 +883,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * @return 字符串
 	 * @since 2022.03
 	 */
-
 	public String getParams() {
 		return params;
 	}
@@ -953,7 +894,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * @return 无返回值
 	 * @since 2022.03
 	 */
-
 	public void setParams(String params) {
 		this.params = params;
 	}
@@ -1023,7 +963,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * @return 字符串
 	 * @since 2022.03
 	 */
-
 	public String getIntro() {
 		if (CharSequenceUtil.isNotEmpty(intro)) {
 			return HtmlUtil.unescape(intro);
@@ -1037,7 +976,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * @return 字符串
 	 * @since 2022.03
 	 */
-
 	public String getMobileIntro() {
 		if (CharSequenceUtil.isNotEmpty(mobileIntro)) {
 			return HtmlUtil.unescape(mobileIntro);

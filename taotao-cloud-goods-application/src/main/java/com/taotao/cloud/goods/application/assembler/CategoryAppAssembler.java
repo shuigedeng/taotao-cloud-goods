@@ -44,10 +44,6 @@ public interface CategoryAppAssembler extends MarkerAssembler {
 
 	CategoryTreeResult toResult( Category categoryAgg);
 
-
-
-
-
     /**
      * map 方法
      *
@@ -55,14 +51,10 @@ public interface CategoryAppAssembler extends MarkerAssembler {
      * @return 无返回值
      * @since 2022.03
      */
-
     default Long map(BizId value) {
         return value != null ? value.id() : null;
     }
 
-
-
-
     /**
      * map 方法
      *
@@ -70,7 +62,6 @@ public interface CategoryAppAssembler extends MarkerAssembler {
      * @return 无返回值
      * @since 2022.03
      */
-
     default String map(GoodsName value) {
         return value != null ? value.value() : null;
     }

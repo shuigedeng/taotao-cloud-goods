@@ -93,7 +93,6 @@ public class ParametersPO extends BasePO<ParametersPO> {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getParamName() {
         return paramName;
     }
@@ -105,7 +104,6 @@ public class ParametersPO extends BasePO<ParametersPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setParamName(String paramName) {
         this.paramName = paramName;
     }
@@ -116,7 +114,6 @@ public class ParametersPO extends BasePO<ParametersPO> {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getOptions() {
         return options;
     }
@@ -128,7 +125,6 @@ public class ParametersPO extends BasePO<ParametersPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setOptions(String options) {
         this.options = options;
     }
@@ -139,7 +135,6 @@ public class ParametersPO extends BasePO<ParametersPO> {
      * @return 结果数量
      * @since 2022.03
      */
-
     public Integer getIsIndex() {
         return isIndex;
     }
@@ -151,7 +146,6 @@ public class ParametersPO extends BasePO<ParametersPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setIsIndex(Integer isIndex) {
         this.isIndex = isIndex;
     }
@@ -162,7 +156,6 @@ public class ParametersPO extends BasePO<ParametersPO> {
      * @return 结果数量
      * @since 2022.03
      */
-
     public Integer getRequired() {
         return required;
     }
@@ -174,7 +167,6 @@ public class ParametersPO extends BasePO<ParametersPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setRequired(Integer required) {
         this.required = required;
     }
@@ -185,7 +177,6 @@ public class ParametersPO extends BasePO<ParametersPO> {
      * @return 结果数量
      * @since 2022.03
      */
-
     public Long getGroupId() {
         return groupId;
     }
@@ -197,7 +188,6 @@ public class ParametersPO extends BasePO<ParametersPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setGroupId(Long groupId) {
         this.groupId = groupId;
     }
@@ -208,7 +198,6 @@ public class ParametersPO extends BasePO<ParametersPO> {
      * @return 结果数量
      * @since 2022.03
      */
-
     public Long getCategoryId() {
         return categoryId;
     }
@@ -220,7 +209,6 @@ public class ParametersPO extends BasePO<ParametersPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setCategoryId(Long categoryId) {
         this.categoryId = categoryId;
     }
@@ -231,7 +219,6 @@ public class ParametersPO extends BasePO<ParametersPO> {
      * @return 结果数量
      * @since 2022.03
      */
-
     public Integer getSort() {
         return sort;
     }
@@ -243,7 +230,6 @@ public class ParametersPO extends BasePO<ParametersPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setSort(Integer sort) {
         this.sort = sort;
     }

@@ -143,7 +143,6 @@ public class StudioPO extends BasePO<StudioPO> {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getName() {
         return name;
     }
@@ -155,7 +154,6 @@ public class StudioPO extends BasePO<StudioPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setName(String name) {
         this.name = name;
     }
@@ -166,7 +164,6 @@ public class StudioPO extends BasePO<StudioPO> {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getCoverImg() {
         return coverImg;
     }
@@ -178,7 +175,6 @@ public class StudioPO extends BasePO<StudioPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setCoverImg(String coverImg) {
         this.coverImg = coverImg;
     }
@@ -189,7 +185,6 @@ public class StudioPO extends BasePO<StudioPO> {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getStartTime() {
         return startTime;
     }
@@ -201,7 +196,6 @@ public class StudioPO extends BasePO<StudioPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setStartTime(String startTime) {
         this.startTime = startTime;
     }
@@ -212,7 +206,6 @@ public class StudioPO extends BasePO<StudioPO> {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getEndTime() {
         return endTime;
     }
@@ -224,7 +217,6 @@ public class StudioPO extends BasePO<StudioPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setEndTime(String endTime) {
         this.endTime = endTime;
     }
@@ -235,7 +227,6 @@ public class StudioPO extends BasePO<StudioPO> {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getAnchorName() {
         return anchorName;
     }
@@ -247,7 +238,6 @@ public class StudioPO extends BasePO<StudioPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setAnchorName(String anchorName) {
         this.anchorName = anchorName;
     }
@@ -258,7 +248,6 @@ public class StudioPO extends BasePO<StudioPO> {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getAnchorWechat() {
         return anchorWechat;
     }
@@ -270,7 +259,6 @@ public class StudioPO extends BasePO<StudioPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setAnchorWechat(String anchorWechat) {
         this.anchorWechat = anchorWechat;
     }
@@ -281,7 +269,6 @@ public class StudioPO extends BasePO<StudioPO> {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getShareImg() {
         return shareImg;
     }
@@ -293,7 +280,6 @@ public class StudioPO extends BasePO<StudioPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setShareImg(String shareImg) {
         this.shareImg = shareImg;
     }
@@ -304,7 +290,6 @@ public class StudioPO extends BasePO<StudioPO> {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getFeedsImg() {
         return feedsImg;
     }
@@ -316,7 +301,6 @@ public class StudioPO extends BasePO<StudioPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setFeedsImg(String feedsImg) {
         this.feedsImg = feedsImg;
     }
@@ -327,7 +311,6 @@ public class StudioPO extends BasePO<StudioPO> {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getMediaUrl() {
         return mediaUrl;
     }
@@ -339,7 +322,6 @@ public class StudioPO extends BasePO<StudioPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setMediaUrl(String mediaUrl) {
         this.mediaUrl = mediaUrl;
     }
@@ -350,7 +332,6 @@ public class StudioPO extends BasePO<StudioPO> {
      * @return 结果数量
      * @since 2022.03
      */
-
     public Integer getRoomId() {
         return roomId;
     }
@@ -362,7 +343,6 @@ public class StudioPO extends BasePO<StudioPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setRoomId(Integer roomId) {
         this.roomId = roomId;
     }
@@ -373,7 +353,6 @@ public class StudioPO extends BasePO<StudioPO> {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getQrCodeUrl() {
         return qrCodeUrl;
     }
@@ -385,7 +364,6 @@ public class StudioPO extends BasePO<StudioPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setQrCodeUrl(String qrCodeUrl) {
         this.qrCodeUrl = qrCodeUrl;
     }
@@ -396,7 +374,6 @@ public class StudioPO extends BasePO<StudioPO> {
      * @return 结果数量
      * @since 2022.03
      */
-
     public Long getStoreId() {
         return storeId;
     }
@@ -408,7 +385,6 @@ public class StudioPO extends BasePO<StudioPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setStoreId(Long storeId) {
         this.storeId = storeId;
     }
@@ -419,7 +395,6 @@ public class StudioPO extends BasePO<StudioPO> {
      * @return 结果数量
      * @since 2022.03
      */
-
     public Integer getRoomGoodsNum() {
         return roomGoodsNum;
     }
@@ -431,7 +406,6 @@ public class StudioPO extends BasePO<StudioPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setRoomGoodsNum(Integer roomGoodsNum) {
         this.roomGoodsNum = roomGoodsNum;
     }
@@ -442,7 +416,6 @@ public class StudioPO extends BasePO<StudioPO> {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getRoomGoodsList() {
         return roomGoodsList;
     }
@@ -454,7 +427,6 @@ public class StudioPO extends BasePO<StudioPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setRoomGoodsList(String roomGoodsList) {
         this.roomGoodsList = roomGoodsList;
     }
@@ -465,7 +437,6 @@ public class StudioPO extends BasePO<StudioPO> {
      * @return 是否成功
      * @since 2022.03
      */
-
     public Boolean getRecommend() {
         return recommend;
     }
@@ -477,7 +448,6 @@ public class StudioPO extends BasePO<StudioPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setRecommend(Boolean recommend) {
         this.recommend = recommend;
     }
@@ -488,7 +458,6 @@ public class StudioPO extends BasePO<StudioPO> {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getStatus() {
         return status;
     }
@@ -500,7 +469,6 @@ public class StudioPO extends BasePO<StudioPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setStatus(String status) {
         this.status = status;
     }

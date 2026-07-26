@@ -140,7 +140,6 @@ public class GoodsCommentPO extends BasePO<GoodsCommentPO> {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getGoodsSpecName() {
         return goodsSpecName;
     }
@@ -152,7 +151,6 @@ public class GoodsCommentPO extends BasePO<GoodsCommentPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setGoodsSpecName(String goodsSpecName) {
         this.goodsSpecName = goodsSpecName;
     }
@@ -163,7 +161,6 @@ public class GoodsCommentPO extends BasePO<GoodsCommentPO> {
      * @return 结果数量
      * @since 2022.03
      */
-
     public Long getMallId() {
         return mallId;
     }
@@ -175,7 +172,6 @@ public class GoodsCommentPO extends BasePO<GoodsCommentPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setMallId(Long mallId) {
         this.mallId = mallId;
     }
@@ -186,7 +182,6 @@ public class GoodsCommentPO extends BasePO<GoodsCommentPO> {
      * @return 结果数量
      * @since 2022.03
      */
-
     public Long getSceneId() {
         return sceneId;
     }
@@ -198,7 +193,6 @@ public class GoodsCommentPO extends BasePO<GoodsCommentPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setSceneId(Long sceneId) {
         this.sceneId = sceneId;
     }
@@ -209,7 +203,6 @@ public class GoodsCommentPO extends BasePO<GoodsCommentPO> {
      * @return 结果数量
      * @since 2022.03
      */
-
     public Long getCustomerId() {
         return customerId;
     }
@@ -221,7 +214,6 @@ public class GoodsCommentPO extends BasePO<GoodsCommentPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setCustomerId(Long customerId) {
         this.customerId = customerId;
     }
@@ -232,7 +224,6 @@ public class GoodsCommentPO extends BasePO<GoodsCommentPO> {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getMemberNick() {
         return memberNick;
     }
@@ -244,7 +235,6 @@ public class GoodsCommentPO extends BasePO<GoodsCommentPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setMemberNick(String memberNick) {
         this.memberNick = memberNick;
     }
@@ -255,7 +245,6 @@ public class GoodsCommentPO extends BasePO<GoodsCommentPO> {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getMemberAvatar() {
         return memberAvatar;
     }
@@ -267,7 +256,6 @@ public class GoodsCommentPO extends BasePO<GoodsCommentPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setMemberAvatar(String memberAvatar) {
         this.memberAvatar = memberAvatar;
     }
@@ -278,7 +266,6 @@ public class GoodsCommentPO extends BasePO<GoodsCommentPO> {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getOrderCode() {
         return orderCode;
     }
@@ -290,7 +277,6 @@ public class GoodsCommentPO extends BasePO<GoodsCommentPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setOrderCode(String orderCode) {
         this.orderCode = orderCode;
     }
@@ -301,7 +287,6 @@ public class GoodsCommentPO extends BasePO<GoodsCommentPO> {
      * @return 结果数量
      * @since 2022.03
      */
-
     public Integer getType() {
         return type;
     }
@@ -313,7 +298,6 @@ public class GoodsCommentPO extends BasePO<GoodsCommentPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setType(Integer type) {
         this.type = type;
     }
@@ -324,7 +308,6 @@ public class GoodsCommentPO extends BasePO<GoodsCommentPO> {
      * @return 结果数量
      * @since 2022.03
      */
-
     public Integer getRank() {
         return rank;
     }
@@ -336,7 +319,6 @@ public class GoodsCommentPO extends BasePO<GoodsCommentPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setRank(Integer rank) {
         this.rank = rank;
     }
@@ -347,7 +329,6 @@ public class GoodsCommentPO extends BasePO<GoodsCommentPO> {
      * @return 结果数量
      * @since 2022.03
      */
-
     public Integer getHasImage() {
         return hasImage;
     }
@@ -359,7 +340,6 @@ public class GoodsCommentPO extends BasePO<GoodsCommentPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setHasImage(Integer hasImage) {
         this.hasImage = hasImage;
     }
@@ -370,7 +350,6 @@ public class GoodsCommentPO extends BasePO<GoodsCommentPO> {
      * @return 结果数量
      * @since 2022.03
      */
-
     public Long getCommentPicId() {
         return commentPicId;
     }
@@ -382,7 +361,6 @@ public class GoodsCommentPO extends BasePO<GoodsCommentPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setCommentPicId(Long commentPicId) {
         this.commentPicId = commentPicId;
     }
@@ -393,7 +371,6 @@ public class GoodsCommentPO extends BasePO<GoodsCommentPO> {
      * @return 结果数量
      * @since 2022.03
      */
-
     public Integer getHasSenWord() {
         return hasSenWord;
     }
@@ -405,7 +382,6 @@ public class GoodsCommentPO extends BasePO<GoodsCommentPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setHasSenWord(Integer hasSenWord) {
         this.hasSenWord = hasSenWord;
     }
@@ -416,7 +392,6 @@ public class GoodsCommentPO extends BasePO<GoodsCommentPO> {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getOriginContent() {
         return originContent;
     }
@@ -428,7 +403,6 @@ public class GoodsCommentPO extends BasePO<GoodsCommentPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setOriginContent(String originContent) {
         this.originContent = originContent;
     }
@@ -439,7 +413,6 @@ public class GoodsCommentPO extends BasePO<GoodsCommentPO> {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getFilterContent() {
         return filterContent;
     }
@@ -451,7 +424,6 @@ public class GoodsCommentPO extends BasePO<GoodsCommentPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setFilterContent(String filterContent) {
         this.filterContent = filterContent;
     }
@@ -462,7 +434,6 @@ public class GoodsCommentPO extends BasePO<GoodsCommentPO> {
      * @return 结果数量
      * @since 2022.03
      */
-
     public Integer getOpType() {
         return opType;
     }
@@ -474,7 +445,6 @@ public class GoodsCommentPO extends BasePO<GoodsCommentPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setOpType(Integer opType) {
         this.opType = opType;
     }
@@ -485,7 +455,6 @@ public class GoodsCommentPO extends BasePO<GoodsCommentPO> {
      * @return 结果数量
      * @since 2022.03
      */
-
     public Integer getReplyStatus() {
         return replyStatus;
     }
@@ -497,7 +466,6 @@ public class GoodsCommentPO extends BasePO<GoodsCommentPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setReplyStatus(Integer replyStatus) {
         this.replyStatus = replyStatus;
     }
@@ -508,7 +476,6 @@ public class GoodsCommentPO extends BasePO<GoodsCommentPO> {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getReplyContent() {
         return replyContent;
     }
@@ -520,7 +487,6 @@ public class GoodsCommentPO extends BasePO<GoodsCommentPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setReplyContent(String replyContent) {
         this.replyContent = replyContent;
     }
@@ -531,7 +497,6 @@ public class GoodsCommentPO extends BasePO<GoodsCommentPO> {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getReplyOriContent() {
         return replyOriContent;
     }
@@ -543,7 +508,6 @@ public class GoodsCommentPO extends BasePO<GoodsCommentPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setReplyOriContent(String replyOriContent) {
         this.replyOriContent = replyOriContent;
     }
@@ -554,7 +518,6 @@ public class GoodsCommentPO extends BasePO<GoodsCommentPO> {
      * @return LocalDateTime
      * @since 2022.03
      */
-
     public LocalDateTime getReplyTime() {
         return replyTime;
     }
@@ -566,7 +529,6 @@ public class GoodsCommentPO extends BasePO<GoodsCommentPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setReplyTime(LocalDateTime replyTime) {
         this.replyTime = replyTime;
     }
@@ -577,7 +539,6 @@ public class GoodsCommentPO extends BasePO<GoodsCommentPO> {
      * @return 结果数量
      * @since 2022.03
      */
-
     public Long getReplyUserId() {
         return replyUserId;
     }
@@ -589,7 +550,6 @@ public class GoodsCommentPO extends BasePO<GoodsCommentPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setReplyUserId(Long replyUserId) {
         this.replyUserId = replyUserId;
     }
@@ -600,7 +560,6 @@ public class GoodsCommentPO extends BasePO<GoodsCommentPO> {
      * @return 结果数量
      * @since 2022.03
      */
-
     public Long getReplyPicId() {
         return replyPicId;
     }
@@ -612,7 +571,6 @@ public class GoodsCommentPO extends BasePO<GoodsCommentPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setReplyPicId(Long replyPicId) {
         this.replyPicId = replyPicId;
     }
@@ -623,7 +581,6 @@ public class GoodsCommentPO extends BasePO<GoodsCommentPO> {
      * @return 结果数量
      * @since 2022.03
      */
-
     public Integer getHasAdd() {
         return hasAdd;
     }
@@ -635,7 +592,6 @@ public class GoodsCommentPO extends BasePO<GoodsCommentPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setHasAdd(Integer hasAdd) {
         this.hasAdd = hasAdd;
     }
@@ -646,7 +602,6 @@ public class GoodsCommentPO extends BasePO<GoodsCommentPO> {
      * @return 结果数量
      * @since 2022.03
      */
-
     public Integer getAfterDays() {
         return afterDays;
     }
@@ -658,7 +613,6 @@ public class GoodsCommentPO extends BasePO<GoodsCommentPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setAfterDays(Integer afterDays) {
         this.afterDays = afterDays;
     }
@@ -669,7 +623,6 @@ public class GoodsCommentPO extends BasePO<GoodsCommentPO> {
      * @return LocalDateTime
      * @since 2022.03
      */
-
     public LocalDateTime getAppendTime() {
         return appendTime;
     }
@@ -681,7 +634,6 @@ public class GoodsCommentPO extends BasePO<GoodsCommentPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setAppendTime(LocalDateTime appendTime) {
         this.appendTime = appendTime;
     }
@@ -692,7 +644,6 @@ public class GoodsCommentPO extends BasePO<GoodsCommentPO> {
      * @return 结果数量
      * @since 2022.03
      */
-
     public Integer getStatus() {
         return status;
     }
@@ -704,7 +655,6 @@ public class GoodsCommentPO extends BasePO<GoodsCommentPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setStatus(Integer status) {
         this.status = status;
     }

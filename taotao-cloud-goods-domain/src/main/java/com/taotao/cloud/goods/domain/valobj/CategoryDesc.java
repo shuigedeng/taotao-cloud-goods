@@ -31,9 +31,6 @@ import org.hibernate.validator.constraints.Length;
 public record CategoryDesc(@Length(min = 1, max = 512) String value)
 	implements ValueObject<CategoryDesc> {
 
-
-
-
 	/**
 	 * of 方法
 	 *
@@ -41,7 +38,6 @@ public record CategoryDesc(@Length(min = 1, max = 512) String value)
 	 * @return 分类描述
 	 * @since 2022.03
 	 */
-
 	public static CategoryDesc of( String value ) {
 		return new CategoryDesc(value).validateThis();
 	}

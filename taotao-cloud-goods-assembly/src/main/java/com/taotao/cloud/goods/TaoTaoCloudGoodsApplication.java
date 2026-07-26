@@ -62,9 +62,6 @@ import com.taotao.boot.web.annotation.TaoTaoBootApplication;
 @TaoTaoBootApplication
 public class TaoTaoCloudGoodsApplication {
 
-
-
-
     /**
      * main 方法
      *
@@ -72,7 +69,6 @@ public class TaoTaoCloudGoodsApplication {
      * @return 无返回值
      * @since 2022.03
      */
-
     public static void main(String[] args) {
         System.setProperty("com.google.protobuf.use_unsafe_pre22_gencode", "true");
 

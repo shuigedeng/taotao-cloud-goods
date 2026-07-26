@@ -72,7 +72,6 @@ public class GoodsAreaPO extends BasePO<GoodsAreaPO> {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getRegionJson() {
         return regionJson;
     }
@@ -84,7 +83,6 @@ public class GoodsAreaPO extends BasePO<GoodsAreaPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setRegionJson(String regionJson) {
         this.regionJson = regionJson;
     }
@@ -95,7 +93,6 @@ public class GoodsAreaPO extends BasePO<GoodsAreaPO> {
      * @return 结果数量
      * @since 2022.03
      */
-
     public Integer getType() {
         return type;
     }
@@ -107,7 +104,6 @@ public class GoodsAreaPO extends BasePO<GoodsAreaPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setType(Integer type) {
         this.type = type;
     }

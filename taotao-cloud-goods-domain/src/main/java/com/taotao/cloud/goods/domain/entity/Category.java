@@ -94,9 +94,6 @@ public class Category implements Entity {
 		this.id = id;
 	}
 
-
-
-
 	/**
 	 * bizId 方法
 	 *
@@ -104,7 +101,6 @@ public class Category implements Entity {
 	 * @return 分类
 	 * @since 2022.03
 	 */
-
 	public static Category bizId( BizId bizId ) {
 		return new Category(bizId);
 	}
@@ -154,7 +150,6 @@ public class Category implements Entity {
 	 * @return BizId
 	 * @since 2022.03
 	 */
-
 	public BizId getId() {
 		return id;
 	}
@@ -172,21 +167,16 @@ public class Category implements Entity {
 	 * @return BizId
 	 * @since 2022.03
 	 */
-
 	public BizId getParentCategoryId() {
 		return parentCategoryId;
 	}
 
-
-
-
 	/**
-	 * 设置父级分类ID
+	 * 父级分类ID
 	 *
 	 * @return 结果数量
 	 * @since 2022.03
 	 */
-
 	public Long parentCategoryId() {
 		return parentCategoryId.id();
 	}
@@ -204,21 +194,16 @@ public class Category implements Entity {
 	 * @return CategoryName
 	 * @since 2022.03
 	 */
-
 	public CategoryName getCategoryName() {
 		return categoryName;
 	}
 
-
-
-
 	/**
-	 * 设置分类名称
+	 * 分类名称
 	 *
 	 * @return 字符串
 	 * @since 2022.03
 	 */
-
 	public String categoryName() {
 		return categoryName.value();
 	}
@@ -236,7 +221,6 @@ public class Category implements Entity {
 	 * @return CategoryDesc
 	 * @since 2022.03
 	 */
-
 	public CategoryDesc getCategoryDesc() {
 		return categoryDesc;
 	}
@@ -254,7 +238,6 @@ public class Category implements Entity {
 	 * @return LocalDateTime
 	 * @since 2022.03
 	 */
-
 	public LocalDateTime getCreateTime() {
 		return createTime;
 	}
@@ -272,7 +255,6 @@ public class Category implements Entity {
 	 * @return LocalDateTime
 	 * @since 2022.03
 	 */
-
 	public LocalDateTime getUpdateTime() {
 		return updateTime;
 	}
@@ -291,7 +273,6 @@ public class Category implements Entity {
 	 * @return 无返回值
 	 * @since 2022.03
 	 */
-
 	public void setId( BizId id ) {
 		this.id = id;
 	}
@@ -310,7 +291,6 @@ public class Category implements Entity {
 	 * @return 无返回值
 	 * @since 2022.03
 	 */
-
 	public void setParentCategoryId( BizId parentCategoryId ) {
 		this.parentCategoryId = parentCategoryId;
 	}
@@ -329,7 +309,6 @@ public class Category implements Entity {
 	 * @return 无返回值
 	 * @since 2022.03
 	 */
-
 	public void setCategoryName( CategoryName categoryName ) {
 		this.categoryName = categoryName;
 	}
@@ -348,7 +327,6 @@ public class Category implements Entity {
 	 * @return 无返回值
 	 * @since 2022.03
 	 */
-
 	public void setCategoryDesc( CategoryDesc categoryDesc ) {
 		this.categoryDesc = categoryDesc;
 	}
@@ -367,7 +345,6 @@ public class Category implements Entity {
 	 * @return 无返回值
 	 * @since 2022.03
 	 */
-
 	public void setCreateTime( LocalDateTime createTime ) {
 		this.createTime = createTime;
 	}
@@ -386,7 +363,6 @@ public class Category implements Entity {
 	 * @return 无返回值
 	 * @since 2022.03
 	 */
-
 	public void setUpdateTime( LocalDateTime updateTime ) {
 		this.updateTime = updateTime;
 	}

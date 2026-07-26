@@ -72,7 +72,6 @@ public class CategoryBrandPO extends BasePO<CategoryBrandPO> {
      * @return 结果数量
      * @since 2022.03
      */
-
     public Long getCategoryId() {
         return categoryId;
     }
@@ -84,7 +83,6 @@ public class CategoryBrandPO extends BasePO<CategoryBrandPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setCategoryId(Long categoryId) {
         this.categoryId = categoryId;
     }
@@ -95,7 +93,6 @@ public class CategoryBrandPO extends BasePO<CategoryBrandPO> {
      * @return 结果数量
      * @since 2022.03
      */
-
     public Long getBrandId() {
         return brandId;
     }
@@ -107,7 +104,6 @@ public class CategoryBrandPO extends BasePO<CategoryBrandPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setBrandId(Long brandId) {
         this.brandId = brandId;
     }

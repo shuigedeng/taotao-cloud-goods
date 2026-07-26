@@ -96,9 +96,6 @@ public class Tag implements Entity{
         this.validateSelf();
     }
 
-
-
-
     /**
      * 修改
      *
@@ -107,7 +104,6 @@ public class Tag implements Entity{
      * @return 无返回值
      * @since 2022.03
      */
-
     public void modifyBasicInfo(String tagName, String tagDesc) {
         this.tagName = tagName;
         this.tagDesc = tagDesc;
@@ -128,7 +124,6 @@ public class Tag implements Entity{
      * @return BizId
      * @since 2022.03
      */
-
     public BizId getId() {
         return id;
     }
@@ -146,7 +141,6 @@ public class Tag implements Entity{
      * @return 字符串
      * @since 2022.03
      */
-
     public String getTagName() {
         return tagName;
     }
@@ -164,7 +158,6 @@ public class Tag implements Entity{
      * @return 字符串
      * @since 2022.03
      */
-
     public String getTagDesc() {
         return tagDesc;
     }
@@ -182,7 +175,6 @@ public class Tag implements Entity{
      * @return LocalDateTime
      * @since 2022.03
      */
-
     public LocalDateTime getCreateTime() {
         return createTime;
     }
@@ -200,7 +192,6 @@ public class Tag implements Entity{
      * @return LocalDateTime
      * @since 2022.03
      */
-
     public LocalDateTime getUpdateTime() {
         return updateTime;
     }
@@ -219,7 +210,6 @@ public class Tag implements Entity{
 	 * @return 无返回值
 	 * @since 2022.03
 	 */
-
 	public void setId( BizId id ) {
 		this.id = id;
 	}
@@ -238,7 +228,6 @@ public class Tag implements Entity{
 	 * @return 无返回值
 	 * @since 2022.03
 	 */
-
 	public void setTagName( String tagName ) {
 		this.tagName = tagName;
 	}
@@ -257,7 +246,6 @@ public class Tag implements Entity{
 	 * @return 无返回值
 	 * @since 2022.03
 	 */
-
 	public void setTagDesc( String tagDesc ) {
 		this.tagDesc = tagDesc;
 	}
@@ -276,7 +264,6 @@ public class Tag implements Entity{
 	 * @return 无返回值
 	 * @since 2022.03
 	 */
-
 	public void setCreateTime( LocalDateTime createTime ) {
 		this.createTime = createTime;
 	}
@@ -295,7 +282,6 @@ public class Tag implements Entity{
 	 * @return 无返回值
 	 * @since 2022.03
 	 */
-
 	public void setUpdateTime( LocalDateTime updateTime ) {
 		this.updateTime = updateTime;
 	}

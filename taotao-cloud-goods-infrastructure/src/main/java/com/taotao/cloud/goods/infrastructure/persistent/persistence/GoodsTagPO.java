@@ -57,7 +57,6 @@ public class GoodsTagPO extends BasePO<GoodsTagPO> {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getName() {
         return name;
     }
@@ -69,7 +68,6 @@ public class GoodsTagPO extends BasePO<GoodsTagPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setName(String name) {
         this.name = name;
     }
@@ -80,7 +78,6 @@ public class GoodsTagPO extends BasePO<GoodsTagPO> {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getDesc() {
         return desc;
     }
@@ -92,7 +89,6 @@ public class GoodsTagPO extends BasePO<GoodsTagPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setDesc(String desc) {
         this.desc = desc;
     }

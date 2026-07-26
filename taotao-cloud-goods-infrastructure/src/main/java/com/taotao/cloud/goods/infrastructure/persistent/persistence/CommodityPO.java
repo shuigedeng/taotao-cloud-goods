@@ -117,7 +117,6 @@ public class CommodityPO extends BasePO<CommodityPO> {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getGoodsImage() {
         return goodsImage;
     }
@@ -129,7 +128,6 @@ public class CommodityPO extends BasePO<CommodityPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setGoodsImage(String goodsImage) {
         this.goodsImage = goodsImage;
     }
@@ -140,7 +138,6 @@ public class CommodityPO extends BasePO<CommodityPO> {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getName() {
         return name;
     }
@@ -152,7 +149,6 @@ public class CommodityPO extends BasePO<CommodityPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setName(String name) {
         this.name = name;
     }
@@ -163,7 +159,6 @@ public class CommodityPO extends BasePO<CommodityPO> {
      * @return 结果数量
      * @since 2022.03
      */
-
     public Integer getPriceType() {
         return priceType;
     }
@@ -175,7 +170,6 @@ public class CommodityPO extends BasePO<CommodityPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setPriceType(Integer priceType) {
         this.priceType = priceType;
     }
@@ -186,7 +180,6 @@ public class CommodityPO extends BasePO<CommodityPO> {
      * @return BigDecimal
      * @since 2022.03
      */
-
     public BigDecimal getPrice() {
         return price;
     }
@@ -198,7 +191,6 @@ public class CommodityPO extends BasePO<CommodityPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setPrice(BigDecimal price) {
         this.price = price;
     }
@@ -209,7 +201,6 @@ public class CommodityPO extends BasePO<CommodityPO> {
      * @return BigDecimal
      * @since 2022.03
      */
-
     public BigDecimal getPrice2() {
         return price2;
     }
@@ -221,7 +212,6 @@ public class CommodityPO extends BasePO<CommodityPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setPrice2(BigDecimal price2) {
         this.price2 = price2;
     }
@@ -232,7 +222,6 @@ public class CommodityPO extends BasePO<CommodityPO> {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getUrl() {
         return url;
     }
@@ -244,7 +233,6 @@ public class CommodityPO extends BasePO<CommodityPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setUrl(String url) {
         this.url = url;
     }
@@ -255,7 +243,6 @@ public class CommodityPO extends BasePO<CommodityPO> {
      * @return 结果数量
      * @since 2022.03
      */
-
     public Long getLiveGoodsId() {
         return liveGoodsId;
     }
@@ -267,7 +254,6 @@ public class CommodityPO extends BasePO<CommodityPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setLiveGoodsId(Long liveGoodsId) {
         this.liveGoodsId = liveGoodsId;
     }
@@ -278,7 +264,6 @@ public class CommodityPO extends BasePO<CommodityPO> {
      * @return 结果数量
      * @since 2022.03
      */
-
     public Long getAuditId() {
         return auditId;
     }
@@ -290,7 +275,6 @@ public class CommodityPO extends BasePO<CommodityPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setAuditId(Long auditId) {
         this.auditId = auditId;
     }
@@ -301,7 +285,6 @@ public class CommodityPO extends BasePO<CommodityPO> {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getAuditStatus() {
         return auditStatus;
     }
@@ -313,7 +296,6 @@ public class CommodityPO extends BasePO<CommodityPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setAuditStatus(String auditStatus) {
         this.auditStatus = auditStatus;
     }
@@ -324,7 +306,6 @@ public class CommodityPO extends BasePO<CommodityPO> {
      * @return 结果数量
      * @since 2022.03
      */
-
     public Long getStoreId() {
         return storeId;
     }
@@ -336,7 +317,6 @@ public class CommodityPO extends BasePO<CommodityPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setStoreId(Long storeId) {
         this.storeId = storeId;
     }
@@ -347,7 +327,6 @@ public class CommodityPO extends BasePO<CommodityPO> {
      * @return 结果数量
      * @since 2022.03
      */
-
     public Long getGoodsId() {
         return goodsId;
     }
@@ -359,7 +338,6 @@ public class CommodityPO extends BasePO<CommodityPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setGoodsId(Long goodsId) {
         this.goodsId = goodsId;
     }
@@ -370,7 +348,6 @@ public class CommodityPO extends BasePO<CommodityPO> {
      * @return 结果数量
      * @since 2022.03
      */
-
     public Long getSkuId() {
         return skuId;
     }
@@ -382,7 +359,6 @@ public class CommodityPO extends BasePO<CommodityPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setSkuId(Long skuId) {
         this.skuId = skuId;
     }

@@ -53,9 +53,6 @@ public enum GoodsStatus implements ValueObjectEnum<Integer> {
         return desc;
     }
 
-
-
-
     /**
      * of 方法
      *
@@ -63,7 +60,6 @@ public enum GoodsStatus implements ValueObjectEnum<Integer> {
      * @return 商品状态
      * @since 2022.03
      */
-
     public static GoodsStatus of(Integer value) {
         return ValueObjectEnum.of(value, GoodsStatus.class);
     }

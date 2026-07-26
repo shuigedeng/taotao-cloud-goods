@@ -32,9 +32,6 @@ import java.math.BigDecimal;
 public record GoodsWeight(@NotNull @PositiveOrZero BigDecimal weight, @NotNull WeightUnit unit) implements
 	ValueObject<GoodsWeight> {
 
-
-
-
 	/**
 	 * 商品重量
 	 *
@@ -43,14 +40,10 @@ public record GoodsWeight(@NotNull @PositiveOrZero BigDecimal weight, @NotNull W
 	 * @return 无返回值
 	 * @since 2022.03
 	 */
-
 	public GoodsWeight( BigDecimal weight, WeightUnit unit ) {
 		this.weight = weight;
 		this.unit = unit;
 	}
-
-
-
 
 	/**
 	 * of 方法
@@ -60,7 +53,6 @@ public record GoodsWeight(@NotNull @PositiveOrZero BigDecimal weight, @NotNull W
 	 * @return 商品重量
 	 * @since 2022.03
 	 */
-
 	public static GoodsWeight of( BigDecimal weight, WeightUnit unit ) {
 		return new GoodsWeight(weight, unit);
 	}

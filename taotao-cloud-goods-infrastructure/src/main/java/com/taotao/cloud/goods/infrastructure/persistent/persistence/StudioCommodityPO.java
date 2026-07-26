@@ -71,7 +71,6 @@ public class StudioCommodityPO extends BasePO<StudioCommodityPO> {
      * @return 结果数量
      * @since 2022.03
      */
-
     public Long getRoomId() {
         return roomId;
     }
@@ -83,7 +82,6 @@ public class StudioCommodityPO extends BasePO<StudioCommodityPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setRoomId(Long roomId) {
         this.roomId = roomId;
     }
@@ -94,7 +92,6 @@ public class StudioCommodityPO extends BasePO<StudioCommodityPO> {
      * @return 结果数量
      * @since 2022.03
      */
-
     public Long getGoodsId() {
         return goodsId;
     }
@@ -106,7 +103,6 @@ public class StudioCommodityPO extends BasePO<StudioCommodityPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setGoodsId(Long goodsId) {
         this.goodsId = goodsId;
     }

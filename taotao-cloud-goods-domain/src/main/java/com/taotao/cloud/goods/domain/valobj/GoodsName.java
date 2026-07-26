@@ -30,9 +30,6 @@ import org.hibernate.validator.constraints.Length;
 public record GoodsName(@NotBlank @Length(min = 1, max = 120) String value)
 	implements ValueObject<GoodsName> {
 
-
-
-
 	/**
 	 * of 方法
 	 *
@@ -40,7 +37,6 @@ public record GoodsName(@NotBlank @Length(min = 1, max = 120) String value)
 	 * @return 商品名称
 	 * @since 2022.03
 	 */
-
 	public static GoodsName of( String value ) {
 		return new GoodsName(value).validateThis();
 	}

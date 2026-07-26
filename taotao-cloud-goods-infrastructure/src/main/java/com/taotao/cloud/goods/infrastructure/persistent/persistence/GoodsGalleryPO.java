@@ -89,7 +89,6 @@ public class GoodsGalleryPO extends BasePO<GoodsGalleryPO> {
      * @return 结果数量
      * @since 2022.03
      */
-
     public Long getGoodsId() {
         return goodsId;
     }
@@ -101,7 +100,6 @@ public class GoodsGalleryPO extends BasePO<GoodsGalleryPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setGoodsId(Long goodsId) {
         this.goodsId = goodsId;
     }
@@ -112,7 +110,6 @@ public class GoodsGalleryPO extends BasePO<GoodsGalleryPO> {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getThumbnail() {
         return thumbnail;
     }
@@ -124,7 +121,6 @@ public class GoodsGalleryPO extends BasePO<GoodsGalleryPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setThumbnail(String thumbnail) {
         this.thumbnail = thumbnail;
     }
@@ -135,7 +131,6 @@ public class GoodsGalleryPO extends BasePO<GoodsGalleryPO> {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getSmall() {
         return small;
     }
@@ -147,7 +142,6 @@ public class GoodsGalleryPO extends BasePO<GoodsGalleryPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setSmall(String small) {
         this.small = small;
     }
@@ -158,7 +152,6 @@ public class GoodsGalleryPO extends BasePO<GoodsGalleryPO> {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getOriginal() {
         return original;
     }
@@ -170,7 +163,6 @@ public class GoodsGalleryPO extends BasePO<GoodsGalleryPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setOriginal(String original) {
         this.original = original;
     }
@@ -181,7 +173,6 @@ public class GoodsGalleryPO extends BasePO<GoodsGalleryPO> {
      * @return 结果数量
      * @since 2022.03
      */
-
     public Integer getIsDefault() {
         return isDefault;
     }
@@ -193,7 +184,6 @@ public class GoodsGalleryPO extends BasePO<GoodsGalleryPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setIsDefault(Integer isDefault) {
         this.isDefault = isDefault;
     }
@@ -204,7 +194,6 @@ public class GoodsGalleryPO extends BasePO<GoodsGalleryPO> {
      * @return 结果数量
      * @since 2022.03
      */
-
     public Integer getSort() {
         return sort;
     }
@@ -216,7 +205,6 @@ public class GoodsGalleryPO extends BasePO<GoodsGalleryPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setSort(Integer sort) {
         this.sort = sort;
     }

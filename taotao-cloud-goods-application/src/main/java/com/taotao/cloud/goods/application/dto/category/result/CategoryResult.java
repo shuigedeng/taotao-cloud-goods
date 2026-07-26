@@ -64,7 +64,6 @@ public class CategoryResult implements MarkerResult {
      * @return 结果数量
      * @since 2022.03
      */
-
     public Long getId() {
         return id;
     }
@@ -76,7 +75,6 @@ public class CategoryResult implements MarkerResult {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setId(Long id) {
         this.id = id;
     }
@@ -87,7 +85,6 @@ public class CategoryResult implements MarkerResult {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getName() {
         return name;
     }
@@ -99,7 +96,6 @@ public class CategoryResult implements MarkerResult {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setName(String name) {
         this.name = name;
     }
@@ -110,7 +106,6 @@ public class CategoryResult implements MarkerResult {
      * @return 结果数量
      * @since 2022.03
      */
-
     public Long getParentId() {
         return parentId;
     }
@@ -122,7 +117,6 @@ public class CategoryResult implements MarkerResult {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setParentId(Long parentId) {
         this.parentId = parentId;
     }
@@ -133,7 +127,6 @@ public class CategoryResult implements MarkerResult {
      * @return 结果数量
      * @since 2022.03
      */
-
     public Integer getLevel() {
         return level;
     }
@@ -145,7 +138,6 @@ public class CategoryResult implements MarkerResult {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setLevel(Integer level) {
         this.level = level;
     }
@@ -156,7 +148,6 @@ public class CategoryResult implements MarkerResult {
      * @return 结果数量
      * @since 2022.03
      */
-
     public Integer getSortOrder() {
         return sortOrder;
     }
@@ -168,7 +159,6 @@ public class CategoryResult implements MarkerResult {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setSortOrder(Integer sortOrder) {
         this.sortOrder = sortOrder;
     }
@@ -179,7 +169,6 @@ public class CategoryResult implements MarkerResult {
      * @return BigDecimal
      * @since 2022.03
      */
-
     public BigDecimal getCommissionRate() {
         return commissionRate;
     }
@@ -191,7 +180,6 @@ public class CategoryResult implements MarkerResult {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setCommissionRate(BigDecimal commissionRate) {
         this.commissionRate = commissionRate;
     }
@@ -202,7 +190,6 @@ public class CategoryResult implements MarkerResult {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getImage() {
         return image;
     }
@@ -214,7 +201,6 @@ public class CategoryResult implements MarkerResult {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setImage(String image) {
         this.image = image;
     }
@@ -225,7 +211,6 @@ public class CategoryResult implements MarkerResult {
      * @return 是否成功
      * @since 2022.03
      */
-
     public Boolean getSupportChannel() {
         return supportChannel;
     }
@@ -237,7 +222,6 @@ public class CategoryResult implements MarkerResult {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setSupportChannel(Boolean supportChannel) {
         this.supportChannel = supportChannel;
     }

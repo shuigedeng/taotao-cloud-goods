@@ -46,15 +46,12 @@ public class RedissonDelayApplication {
 
     @Bean
 
-
-
     /**
      * redissonQueue 方法
      *
      * @return RedissonQueue
      * @since 2022.03
      */
-
     public RedissonQueue redissonQueue() {
 
         return new RedissonQueue("riven", true, null, new DefaultRedissonMessageConverter());
@@ -62,15 +59,12 @@ public class RedissonDelayApplication {
 
     @Bean("myMessageConverter")
 
-
-
     /**
-     * 设置消息Converter
+     * 消息Converter
      *
      * @return 消息Converter
      * @since 2022.03
      */
-
     public MessageConverter messageConverter() {
         return new MessageConverter() {
             @Override
@@ -93,8 +87,6 @@ public class RedissonDelayApplication {
 
     @RedissonListener(queues = "riven", messageConverter = "myMessageConverter")
 
-
-
     /**
      * 处理
      *
@@ -103,7 +95,6 @@ public class RedissonDelayApplication {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void handler(
             @Header(value = RedissonHeaders.MESSAGE_ID, required = false) String messageId,
             @Header(RedissonHeaders.DELIVERY_QUEUE_NAME) String queue,

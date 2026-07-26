@@ -5,15 +5,12 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotNull;
 @RecordBuilder
 
-
-
 /**
  * 分类IDQuery
  *
  * @return 记录
  * @since 2022.03
  */
-
 public record CategoryIdQuery(
 	@Schema(description = "分类id") @NotNull(message = "分类id不能为空") Long categoryId) {
 

@@ -42,37 +42,26 @@ public class BrandPageParam extends PageQuery {
         private String name;
         private PageQuery pageQuery;
 
-
-
-
         /**
          * 品牌页码参数Builder
          *
          * @return 无返回值
          * @since 2022.03
          */
-
         private BrandPageParamBuilder() {
         }
 
-
-
-
         /**
-         * 设置名称
+         * 名称
          *
          * @param name 名称
          * @return 品牌页码参数Builder
          * @since 2022.03
          */
-
         public BrandPageParamBuilder name( String name ) {
             this.name = name;
             return this;
         }
-
-
-
 
         /**
          * 分页查询
@@ -81,14 +70,10 @@ public class BrandPageParam extends PageQuery {
          * @return 品牌页码参数Builder
          * @since 2022.03
          */
-
         public BrandPageParamBuilder pageQuery( PageQuery pageQuery ) {
             this.pageQuery = pageQuery;
             return this;
         }
-
-
-
 
         /**
          * 构建
@@ -96,7 +81,6 @@ public class BrandPageParam extends PageQuery {
          * @return 品牌页码参数
          * @since 2022.03
          */
-
         public BrandPageParam build() {
             BrandPageParam brandPageParam = new BrandPageParam();
             brandPageParam.setName(name);

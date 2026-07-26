@@ -83,7 +83,6 @@ public class GoodsWordsPO extends BasePO<GoodsWordsPO> {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getWords() {
         return words;
     }
@@ -95,7 +94,6 @@ public class GoodsWordsPO extends BasePO<GoodsWordsPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setWords(String words) {
         this.words = words;
     }
@@ -106,7 +104,6 @@ public class GoodsWordsPO extends BasePO<GoodsWordsPO> {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getWholeSpell() {
         return wholeSpell;
     }
@@ -118,7 +115,6 @@ public class GoodsWordsPO extends BasePO<GoodsWordsPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setWholeSpell(String wholeSpell) {
         this.wholeSpell = wholeSpell;
     }
@@ -129,7 +125,6 @@ public class GoodsWordsPO extends BasePO<GoodsWordsPO> {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getAbbreviate() {
         return abbreviate;
     }
@@ -141,7 +136,6 @@ public class GoodsWordsPO extends BasePO<GoodsWordsPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setAbbreviate(String abbreviate) {
         this.abbreviate = abbreviate;
     }
@@ -152,7 +146,6 @@ public class GoodsWordsPO extends BasePO<GoodsWordsPO> {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getType() {
         return type;
     }
@@ -164,7 +157,6 @@ public class GoodsWordsPO extends BasePO<GoodsWordsPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setType(String type) {
         this.type = type;
     }
@@ -175,7 +167,6 @@ public class GoodsWordsPO extends BasePO<GoodsWordsPO> {
      * @return 结果数量
      * @since 2022.03
      */
-
     public Integer getSort() {
         return sort;
     }
@@ -187,7 +178,6 @@ public class GoodsWordsPO extends BasePO<GoodsWordsPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setSort(Integer sort) {
         this.sort = sort;
     }

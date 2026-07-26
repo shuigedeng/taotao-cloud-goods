@@ -65,7 +65,6 @@ public class CustomWordsPO extends BasePO<CustomWordsPO> {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getName() {
         return name;
     }
@@ -77,7 +76,6 @@ public class CustomWordsPO extends BasePO<CustomWordsPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setName(String name) {
         this.name = name;
     }
@@ -88,7 +86,6 @@ public class CustomWordsPO extends BasePO<CustomWordsPO> {
      * @return 结果数量
      * @since 2022.03
      */
-
     public Integer getDisabled() {
         return disabled;
     }
@@ -100,7 +97,6 @@ public class CustomWordsPO extends BasePO<CustomWordsPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setDisabled(Integer disabled) {
         this.disabled = disabled;
     }

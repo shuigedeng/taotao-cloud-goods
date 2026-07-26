@@ -31,9 +31,6 @@ public class RequestLogTopicMessageDelegate {
     // @Autowired
     // private ILogService logService;
 
-
-
-
     /**
      * 处理请求日志
      *
@@ -42,7 +39,6 @@ public class RequestLogTopicMessageDelegate {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void handleRequestLog(String message, String channel) {
         // try {
         //    Log log = JacksonUtils.MAPPER.readValue(message, Log.class);

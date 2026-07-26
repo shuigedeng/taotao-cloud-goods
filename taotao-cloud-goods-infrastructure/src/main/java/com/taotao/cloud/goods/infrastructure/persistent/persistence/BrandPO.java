@@ -91,7 +91,6 @@ public class BrandPO extends BaseLogicPO<BrandPO> {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getName() {
         return name;
     }
@@ -103,7 +102,6 @@ public class BrandPO extends BaseLogicPO<BrandPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setName(String name) {
         this.name = name;
     }
@@ -114,7 +112,6 @@ public class BrandPO extends BaseLogicPO<BrandPO> {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getLogo() {
         return logo;
     }
@@ -126,7 +123,6 @@ public class BrandPO extends BaseLogicPO<BrandPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setLogo(String logo) {
         this.logo = logo;
     }

@@ -70,7 +70,6 @@ public class CategoryParameterGroupPO extends BasePO<CategoryParameterGroupPO> {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getGroupName() {
         return groupName;
     }
@@ -82,7 +81,6 @@ public class CategoryParameterGroupPO extends BasePO<CategoryParameterGroupPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setGroupName(String groupName) {
         this.groupName = groupName;
     }
@@ -93,7 +91,6 @@ public class CategoryParameterGroupPO extends BasePO<CategoryParameterGroupPO> {
      * @return 结果数量
      * @since 2022.03
      */
-
     public Long getCategoryId() {
         return categoryId;
     }
@@ -105,7 +102,6 @@ public class CategoryParameterGroupPO extends BasePO<CategoryParameterGroupPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setCategoryId(Long categoryId) {
         this.categoryId = categoryId;
     }
@@ -116,7 +112,6 @@ public class CategoryParameterGroupPO extends BasePO<CategoryParameterGroupPO> {
      * @return 结果数量
      * @since 2022.03
      */
-
     public Integer getSortOrder() {
         return sortOrder;
     }
@@ -128,7 +123,6 @@ public class CategoryParameterGroupPO extends BasePO<CategoryParameterGroupPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setSortOrder(Integer sortOrder) {
         this.sortOrder = sortOrder;
     }

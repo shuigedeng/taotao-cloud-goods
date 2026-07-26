@@ -71,7 +71,6 @@ public class CategorySpecificationPO extends BasePO<CategorySpecificationPO> {
      * @return 结果数量
      * @since 2022.03
      */
-
     public Long getCategoryId() {
         return categoryId;
     }
@@ -83,7 +82,6 @@ public class CategorySpecificationPO extends BasePO<CategorySpecificationPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setCategoryId(Long categoryId) {
         this.categoryId = categoryId;
     }
@@ -94,7 +92,6 @@ public class CategorySpecificationPO extends BasePO<CategorySpecificationPO> {
      * @return 结果数量
      * @since 2022.03
      */
-
     public Long getSpecificationId() {
         return specificationId;
     }
@@ -106,7 +103,6 @@ public class CategorySpecificationPO extends BasePO<CategorySpecificationPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setSpecificationId(Long specificationId) {
         this.specificationId = specificationId;
     }

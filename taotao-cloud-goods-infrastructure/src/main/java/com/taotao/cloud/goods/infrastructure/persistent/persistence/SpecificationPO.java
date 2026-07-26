@@ -82,7 +82,6 @@ public class SpecificationPO extends BasePO<SpecificationPO> {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getSpecName() {
         return specName;
     }
@@ -94,7 +93,6 @@ public class SpecificationPO extends BasePO<SpecificationPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setSpecName(String specName) {
         this.specName = specName;
     }
@@ -105,7 +103,6 @@ public class SpecificationPO extends BasePO<SpecificationPO> {
      * @return 结果数量
      * @since 2022.03
      */
-
     public Long getStoreId() {
         return storeId;
     }
@@ -117,7 +114,6 @@ public class SpecificationPO extends BasePO<SpecificationPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setStoreId(Long storeId) {
         this.storeId = storeId;
     }
@@ -128,7 +124,6 @@ public class SpecificationPO extends BasePO<SpecificationPO> {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getSpecValue() {
         return specValue;
     }
@@ -140,7 +135,6 @@ public class SpecificationPO extends BasePO<SpecificationPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setSpecValue(String specValue) {
         this.specValue = specValue;
     }

@@ -307,22 +307,15 @@ public class GoodsJob    extends XxlJobBase {
         XxlJobHelper.log("XXL-JOB, Hello World.");
     }
 
-
-
-
     /**
      * 初始化
      *
      * @return 无返回值
      * @since 2022.03
      */
-
     public void init() {
         LogUtils.info("init");
     }
-
-
-
 
     /**
      * destroy 方法
@@ -330,7 +323,6 @@ public class GoodsJob    extends XxlJobBase {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void destroy() {
         LogUtils.info("destory");
     }

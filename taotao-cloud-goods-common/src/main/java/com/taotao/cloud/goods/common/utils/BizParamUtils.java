@@ -78,9 +78,6 @@ public class BizParamUtils {
         return ofDate(date, DEFAULT_ZONE_ID, DateTimeFormatter.ofPattern(format));
     }
 
-
-
-
     /**
      * ofDate 方法
      *
@@ -90,14 +87,10 @@ public class BizParamUtils {
      * @return 日期
      * @since 2022.03
      */
-
     public static Date ofDate(String date, ZoneId zoneId, DateTimeFormatter formatter) {
         return Date.from(
                 LocalDate.parse(date, formatter).atStartOfDay().atZone(zoneId).toInstant());
     }
-
-
-
 
     /**
      * formatDate 方法
@@ -106,13 +99,9 @@ public class BizParamUtils {
      * @return 字符串
      * @since 2022.03
      */
-
     public static String formatDate(@NonNull Date date) {
         return format(date, DEFAULT_ZONE_ID, DEFAULT_DATE_FORMATTER);
     }
-
-
-
 
     /**
      * formatDateTime 方法
@@ -121,7 +110,6 @@ public class BizParamUtils {
      * @return 字符串
      * @since 2022.03
      */
-
     public static String formatDateTime(@NonNull Date date) {
         return format(date, DEFAULT_ZONE_ID, DEFAULT_DATE_TIME_FORMATTER);
     }
@@ -133,9 +121,6 @@ public class BizParamUtils {
         return format(date, DEFAULT_ZONE_ID, DateTimeFormatter.ofPattern(format));
     }
 
-
-
-
     /**
      * format 方法
      *
@@ -145,7 +130,6 @@ public class BizParamUtils {
      * @return 字符串
      * @since 2022.03
      */
-
     public static String format(@NonNull Date date, ZoneId zoneId, DateTimeFormatter formatter) {
         return LocalDateTime.ofInstant(date.toInstant(), zoneId).format(formatter);
     }

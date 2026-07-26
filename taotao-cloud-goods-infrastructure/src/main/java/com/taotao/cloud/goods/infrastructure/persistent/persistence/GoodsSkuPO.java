@@ -237,7 +237,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * @return 结果数量
      * @since 2022.03
      */
-
     public Long getGoodsId() {
         return goodsId;
     }
@@ -249,7 +248,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setGoodsId(Long goodsId) {
         this.goodsId = goodsId;
     }
@@ -260,7 +258,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getSpecs() {
         return specs;
     }
@@ -272,7 +269,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setSpecs(String specs) {
         this.specs = specs;
     }
@@ -283,7 +279,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getSimpleSpecs() {
         return simpleSpecs;
     }
@@ -295,7 +290,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setSimpleSpecs(String simpleSpecs) {
         this.simpleSpecs = simpleSpecs;
     }
@@ -306,7 +300,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * @return 结果数量
      * @since 2022.03
      */
-
     public Long getFreightTemplateId() {
         return freightTemplateId;
     }
@@ -318,7 +311,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setFreightTemplateId(Long freightTemplateId) {
         this.freightTemplateId = freightTemplateId;
     }
@@ -329,7 +321,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * @return 是否成功
      * @since 2022.03
      */
-
     public Boolean getPromotionFlag() {
         return promotionFlag;
     }
@@ -341,7 +332,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setPromotionFlag(Boolean promotionFlag) {
         this.promotionFlag = promotionFlag;
     }
@@ -352,7 +342,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * @return BigDecimal
      * @since 2022.03
      */
-
     public BigDecimal getPromotionPrice() {
         return promotionPrice;
     }
@@ -364,7 +353,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setPromotionPrice(BigDecimal promotionPrice) {
         this.promotionPrice = promotionPrice;
     }
@@ -375,7 +363,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getGoodsName() {
         return goodsName;
     }
@@ -387,7 +374,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setGoodsName(String goodsName) {
         this.goodsName = goodsName;
     }
@@ -398,7 +384,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getSn() {
         return sn;
     }
@@ -410,7 +395,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setSn(String sn) {
         this.sn = sn;
     }
@@ -421,7 +405,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * @return 结果数量
      * @since 2022.03
      */
-
     public Long getBrandId() {
         return brandId;
     }
@@ -433,7 +416,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setBrandId(Long brandId) {
         this.brandId = brandId;
     }
@@ -444,7 +426,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getCategoryPath() {
         return categoryPath;
     }
@@ -456,7 +437,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setCategoryPath(String categoryPath) {
         this.categoryPath = categoryPath;
     }
@@ -467,7 +447,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getGoodsUnit() {
         return goodsUnit;
     }
@@ -479,7 +458,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setGoodsUnit(String goodsUnit) {
         this.goodsUnit = goodsUnit;
     }
@@ -490,7 +468,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getSellingPoint() {
         return sellingPoint;
     }
@@ -502,7 +479,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setSellingPoint(String sellingPoint) {
         this.sellingPoint = sellingPoint;
     }
@@ -514,7 +490,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setWeight(BigDecimal weight) {
         this.weight = weight;
     }
@@ -525,7 +500,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getMarketEnable() {
         return marketEnable;
     }
@@ -537,7 +511,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setMarketEnable(String marketEnable) {
         this.marketEnable = marketEnable;
     }
@@ -548,7 +521,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getIntro() {
         return intro;
     }
@@ -560,7 +532,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setIntro(String intro) {
         this.intro = intro;
     }
@@ -571,7 +542,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * @return BigDecimal
      * @since 2022.03
      */
-
     public BigDecimal getPrice() {
         return price;
     }
@@ -583,7 +553,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setPrice(BigDecimal price) {
         this.price = price;
     }
@@ -594,7 +563,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * @return BigDecimal
      * @since 2022.03
      */
-
     public BigDecimal getCost() {
         return cost;
     }
@@ -606,7 +574,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setCost(BigDecimal cost) {
         this.cost = cost;
     }
@@ -617,7 +584,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * @return 结果数量
      * @since 2022.03
      */
-
     public Integer getViewCount() {
         return viewCount;
     }
@@ -629,7 +595,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setViewCount(Integer viewCount) {
         this.viewCount = viewCount;
     }
@@ -640,7 +605,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * @return 结果数量
      * @since 2022.03
      */
-
     public Integer getBuyCount() {
         return buyCount;
     }
@@ -652,7 +616,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setBuyCount(Integer buyCount) {
         this.buyCount = buyCount;
     }
@@ -663,7 +626,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * @return 结果数量
      * @since 2022.03
      */
-
     public Integer getQuantity() {
         return quantity;
     }
@@ -675,7 +637,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setQuantity(Integer quantity) {
         this.quantity = quantity;
     }
@@ -686,7 +647,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * @return BigDecimal
      * @since 2022.03
      */
-
     public BigDecimal getGrade() {
         return grade;
     }
@@ -698,7 +658,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setGrade(BigDecimal grade) {
         this.grade = grade;
     }
@@ -709,7 +668,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getThumbnail() {
         return thumbnail;
     }
@@ -721,7 +679,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setThumbnail(String thumbnail) {
         this.thumbnail = thumbnail;
     }
@@ -732,7 +689,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getBig() {
         return big;
     }
@@ -744,7 +700,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setBig(String big) {
         this.big = big;
     }
@@ -755,7 +710,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getSmall() {
         return small;
     }
@@ -767,7 +721,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setSmall(String small) {
         this.small = small;
     }
@@ -778,7 +731,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getOriginal() {
         return original;
     }
@@ -790,7 +742,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setOriginal(String original) {
         this.original = original;
     }
@@ -801,7 +752,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getStoreCategoryPath() {
         return storeCategoryPath;
     }
@@ -813,7 +763,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setStoreCategoryPath(String storeCategoryPath) {
         this.storeCategoryPath = storeCategoryPath;
     }
@@ -824,7 +773,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * @return 结果数量
      * @since 2022.03
      */
-
     public Integer getCommentNum() {
         return commentNum;
     }
@@ -836,7 +784,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setCommentNum(Integer commentNum) {
         this.commentNum = commentNum;
     }
@@ -847,7 +794,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * @return 结果数量
      * @since 2022.03
      */
-
     public Long getStoreId() {
         return storeId;
     }
@@ -859,7 +805,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setStoreId(Long storeId) {
         this.storeId = storeId;
     }
@@ -870,7 +815,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getStoreName() {
         return storeName;
     }
@@ -882,7 +826,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setStoreName(String storeName) {
         this.storeName = storeName;
     }
@@ -893,7 +836,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * @return 结果数量
      * @since 2022.03
      */
-
     public Long getTemplateId() {
         return templateId;
     }
@@ -905,7 +847,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setTemplateId(Long templateId) {
         this.templateId = templateId;
     }
@@ -916,7 +857,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getAuthFlag() {
         return authFlag;
     }
@@ -928,7 +868,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setAuthFlag(String authFlag) {
         this.authFlag = authFlag;
     }
@@ -939,7 +878,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getAuthMessage() {
         return authMessage;
     }
@@ -951,7 +889,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setAuthMessage(String authMessage) {
         this.authMessage = authMessage;
     }
@@ -962,7 +899,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getUnderMessage() {
         return underMessage;
     }
@@ -974,7 +910,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setUnderMessage(String underMessage) {
         this.underMessage = underMessage;
     }
@@ -985,7 +920,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * @return 是否成功
      * @since 2022.03
      */
-
     public Boolean getSelfOperated() {
         return selfOperated;
     }
@@ -997,7 +931,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setSelfOperated(Boolean selfOperated) {
         this.selfOperated = selfOperated;
     }
@@ -1008,7 +941,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getMobileIntro() {
         return mobileIntro;
     }
@@ -1020,7 +952,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setMobileIntro(String mobileIntro) {
         this.mobileIntro = mobileIntro;
     }
@@ -1031,7 +962,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getGoodsVideo() {
         return goodsVideo;
     }
@@ -1043,7 +973,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setGoodsVideo(String goodsVideo) {
         this.goodsVideo = goodsVideo;
     }
@@ -1054,7 +983,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * @return 是否成功
      * @since 2022.03
      */
-
     public Boolean getRecommend() {
         return recommend;
     }
@@ -1066,7 +994,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setRecommend(Boolean recommend) {
         this.recommend = recommend;
     }
@@ -1077,7 +1004,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getSalesModel() {
         return salesModel;
     }
@@ -1089,7 +1015,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setSalesModel(String salesModel) {
         this.salesModel = salesModel;
     }
@@ -1100,7 +1025,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getGoodsType() {
         return goodsType;
     }
@@ -1112,7 +1036,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setGoodsType(String goodsType) {
         this.goodsType = goodsType;
     }
@@ -1123,7 +1046,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * @return BigDecimal
      * @since 2022.03
      */
-
     public BigDecimal getWeight() {
         if (weight == null) {
             return BigDecimal.ZERO;

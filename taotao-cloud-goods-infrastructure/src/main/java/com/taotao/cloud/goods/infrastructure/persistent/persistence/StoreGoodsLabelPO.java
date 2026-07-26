@@ -83,7 +83,6 @@ public class StoreGoodsLabelPO extends BasePO<StoreGoodsLabelPO> {
      * @return 结果数量
      * @since 2022.03
      */
-
     public Long getStoreId() {
         return storeId;
     }
@@ -95,7 +94,6 @@ public class StoreGoodsLabelPO extends BasePO<StoreGoodsLabelPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setStoreId(Long storeId) {
         this.storeId = storeId;
     }
@@ -106,7 +104,6 @@ public class StoreGoodsLabelPO extends BasePO<StoreGoodsLabelPO> {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getLabelName() {
         return labelName;
     }
@@ -118,7 +115,6 @@ public class StoreGoodsLabelPO extends BasePO<StoreGoodsLabelPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setLabelName(String labelName) {
         this.labelName = labelName;
     }
@@ -129,7 +125,6 @@ public class StoreGoodsLabelPO extends BasePO<StoreGoodsLabelPO> {
      * @return 结果数量
      * @since 2022.03
      */
-
     public Integer getSortOrder() {
         return sortOrder;
     }
@@ -141,7 +136,6 @@ public class StoreGoodsLabelPO extends BasePO<StoreGoodsLabelPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setSortOrder(Integer sortOrder) {
         this.sortOrder = sortOrder;
     }
@@ -152,7 +146,6 @@ public class StoreGoodsLabelPO extends BasePO<StoreGoodsLabelPO> {
      * @return 结果数量
      * @since 2022.03
      */
-
     public Long getParentId() {
         return parentId;
     }
@@ -164,7 +157,6 @@ public class StoreGoodsLabelPO extends BasePO<StoreGoodsLabelPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setParentId(Long parentId) {
         this.parentId = parentId;
     }
@@ -175,7 +167,6 @@ public class StoreGoodsLabelPO extends BasePO<StoreGoodsLabelPO> {
      * @return 结果数量
      * @since 2022.03
      */
-
     public Integer getLevel() {
         return level;
     }
@@ -187,7 +178,6 @@ public class StoreGoodsLabelPO extends BasePO<StoreGoodsLabelPO> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setLevel(Integer level) {
         this.level = level;
     }

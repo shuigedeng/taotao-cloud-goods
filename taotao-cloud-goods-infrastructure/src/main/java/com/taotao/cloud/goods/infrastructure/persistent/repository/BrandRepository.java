@@ -35,16 +35,12 @@ import org.springframework.jdbc.core.simple.JdbcClient;
 public interface BrandRepository
         extends BaseRepository<BrandPO>, ExtendRepository<BrandPO, Long> {
 
-
-
-
     /**
      * test 方法
      *
      * @return 无返回值
      * @since 2022.03
      */
-
     default void test() {
         JdbcClient jdbcClient = jdbcClient();
         List<BrandPO> maps = jdbcClient.sql("select * from ttc_brand").query(BrandPO.class).list();

@@ -49,21 +49,16 @@ public enum AppTypeEnum {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getDescription() {
         return description;
     }
 
-
-
-
     /**
-     * 设置描述
+     * 描述
      *
      * @return 字符串
      * @since 2022.03
      */
-
     public String description() {
         return this.description;
     }

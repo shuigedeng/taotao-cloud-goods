@@ -56,9 +56,6 @@ public interface GoodsAppAssembler extends MarkerAssembler {
 
 	GoodsSkuParamsResult toResult(GoodsResult goodsAgg);
 
-
-
-
     /**
      * map 方法
      *
@@ -66,14 +63,10 @@ public interface GoodsAppAssembler extends MarkerAssembler {
      * @return 无返回值
      * @since 2022.03
      */
-
     default Long map(BizId value) {
         return value != null ? value.id() : null;
     }
 
-
-
-
     /**
      * map 方法
      *
@@ -81,7 +74,6 @@ public interface GoodsAppAssembler extends MarkerAssembler {
      * @return 无返回值
      * @since 2022.03
      */
-
     default String map(GoodsName value) {
         return value != null ? value.value() : null;
     }
