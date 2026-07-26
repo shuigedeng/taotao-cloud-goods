@@ -28,9 +28,12 @@ import java.io.Serial;
 @RecordBuilder
 @Schema(description = "品牌CO")
 public record BrandResult(
-	@Schema(description = "id") String id,
-	@Schema(description = "名称") String name,
-	@Schema(description = "logo") String logo) implements MarkerResult {
+	@Schema(description = "id")
+	String id,
+	@Schema(description = "名称")
+	String name,
+	@Schema(description = "logo")
+	String logo) implements MarkerResult {
 
 	@Serial
 	private static final long serialVersionUID = 3829199991161122317L;

@@ -30,9 +30,13 @@ import java.util.Map;
  */
 @RecordBuilder
 public record UpdateDraftGoodsSkuParamsCommand(
-	@Schema(description = "商品图片") List<String> goodsGalleryList,
+	@Schema(description = "商品图片")
+	List<String> goodsGalleryList,
+
 	BaseDraftGoodsCommand goodsBaseCommand,
-	@Schema(description = "sku列表") @Valid List<Map<String, Object>> skuList) implements Command {
+	@Schema(description = "sku列表")
+	@Valid
+	List<Map<String, Object>> skuList) implements Command {
 
 	@Serial
 	private static final long serialVersionUID = 5255666163196674178L;

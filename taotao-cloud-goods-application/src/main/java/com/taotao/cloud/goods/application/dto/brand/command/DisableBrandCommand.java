@@ -29,8 +29,10 @@ import java.io.Serial;
 @RecordBuilder
 @Schema(description = "品牌DTO")
 public record DisableBrandCommand(
-	@Schema(description = "id") Long brandId,
-	@Schema(description = "名称") Boolean disable) implements
+	@Schema(description = "id")
+	Long brandId,
+	@Schema(description = "名称")
+	Boolean disable) implements
 	Command {
 
 	@Serial

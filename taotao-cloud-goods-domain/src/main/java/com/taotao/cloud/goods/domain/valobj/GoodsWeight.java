@@ -29,7 +29,11 @@ import java.math.BigDecimal;
  * @param unit 重量单位
  */
 @RecordBuilder
-public record GoodsWeight(@NotNull @PositiveOrZero BigDecimal weight, @NotNull WeightUnit unit) implements
+public record GoodsWeight(	@NotNull
+	@PositiveOrZero
+	BigDecimal weight,
+	@NotNull
+	WeightUnit unit) implements
 	ValueObject<GoodsWeight> {
 
 	/**

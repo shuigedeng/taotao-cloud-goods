@@ -15,7 +15,8 @@ import jakarta.validation.constraints.NotNull;
 @RecordBuilder
 @Schema(description = "ParentIdQuery")
 public record ParentIdQuery(
-	@Schema(description = "父id") @NotNull(message = "父id不能为空") Long parentId
-) implements Query {
+	@Schema(description = "父id")
+	@NotNull(message = "父id不能为空")
+	Long parentId) implements Query {
 
 }

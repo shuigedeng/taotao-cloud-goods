@@ -30,9 +30,15 @@ import jakarta.validation.constraints.Size;
  */
 @RecordBuilder
 public record HotWordsPageQuery(
-	@NotBlank(message = "搜索热词不能为空") @Size(max = 20, min = 1, message = "搜索热词长度限制在1-20") String keywords,
+	@NotBlank(message = "搜索热词不能为空")
+	@Size(max = 20, min = 1, message = "搜索热词长度限制在1-20")
+	String keywords,
+
 	PageQuery page,
-	@NotNull(message = "分数不能为空") @Max(value = 9999999999L, message = "分数不能大于9999999999") @Min(value = -9999999999L, message = "分数不能小于9999999999") Integer point) implements
+	@NotNull(message = "分数不能为空")
+	@Max(value = 9999999999L, message = "分数不能大于9999999999")
+	@Min(value = -9999999999L, message = "分数不能小于9999999999")
+	Integer point) implements
 	Query {
 
 }

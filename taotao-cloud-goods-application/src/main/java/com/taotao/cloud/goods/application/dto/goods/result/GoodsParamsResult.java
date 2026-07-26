@@ -27,10 +27,15 @@ import java.io.Serial;
  * @param isIndex @Schema(description = "参数组id") private String groupId;
  */
 @RecordBuilder
-public record GoodsParamsResult(@Schema(description = "1 输入项   2 选择项") Integer paramType,
-								@Schema(description = " 选择项的内容获取值，使用optionList") String options,
-								@Schema(description = "是否必填是  1    否   0") Integer required,
-								@Schema(description = "是否可索引  1 可以   0不可以") Integer isIndex,
+public record GoodsParamsResult(	@Schema(description = "1 输入项   2 选择项")
+	Integer paramType,
+	@Schema(description = " 选择项的内容获取值，使用optionList")
+	String options,
+	@Schema(description = "是否必填是  1    否   0")
+	Integer required,
+	@Schema(description = "是否可索引  1 可以   0不可以")
+	Integer isIndex,
+
 								String[] optionList) implements MarkerResult {
 
 	@Serial

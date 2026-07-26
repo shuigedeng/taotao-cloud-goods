@@ -36,9 +36,16 @@ import java.util.List;
 @RecordBuilder
 @Schema(description = "商品参数分组")
 public record CreateGoodsParamsCommand(
-	@Schema(description = "分组id") @NotEmpty(message = "xxxx") Long groupId,
-                                       @Schema(description = "分组名称") @NotBlank(message = "xxxx") String groupName,
-                                       @Schema(description = "分组内的商品参数列表") @NotEmpty(message = "xxxx") @Valid List<CreateGoodsParamsItemCommand> goodsParamsItemAddCmdList)
+	@Schema(description = "分组id")
+	@NotEmpty(message = "xxxx")
+	Long groupId,
+	@Schema(description = "分组名称")
+	@NotBlank(message = "xxxx")
+	String groupName,
+	@Schema(description = "分组内的商品参数列表")
+	@NotEmpty(message = "xxxx")
+	@Valid
+	List<CreateGoodsParamsItemCommand> goodsParamsItemAddCmdList)
 	implements Command {
 
 	@Serial

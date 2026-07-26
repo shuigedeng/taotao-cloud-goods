@@ -34,9 +34,16 @@ import org.hibernate.validator.constraints.Length;
  * @param goodsDesc 商品介绍
  */
 @RecordBuilder
-public record GoodsSpec(@NotNull @PastOrPresent LocalDate manufactureDate, @NotNull LocalDate expirationDate,
-						@NotNull GoodsWeight goodsWeight,
-						@NotBlank @Length(min = 1, max = 1024) String goodsDesc)
+public record GoodsSpec(	@NotNull
+	@PastOrPresent
+	LocalDate manufactureDate,
+	@NotNull
+	LocalDate expirationDate,
+	@NotNull
+	GoodsWeight goodsWeight,
+	@NotBlank
+	@Length(min = 1, max = 1024)
+	String goodsDesc)
 	implements ValueObject<GoodsSpec> {
 
 	/**

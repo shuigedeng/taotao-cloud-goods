@@ -33,8 +33,10 @@ import java.io.Serial;
  */
 @RecordBuilder
 public record StockWarningResult(
-	@Schema(description = "库存警告数量") Integer stockWarningNum,
-	@Schema(description = "商品SKU列表") PageResult<GoodsSkuResult> goodsSkuPage) implements
+	@Schema(description = "库存警告数量")
+	Integer stockWarningNum,
+	@Schema(description = "商品SKU列表")
+	PageResult<GoodsSkuResult> goodsSkuPage) implements
 	MarkerResult {
 
 	@Serial

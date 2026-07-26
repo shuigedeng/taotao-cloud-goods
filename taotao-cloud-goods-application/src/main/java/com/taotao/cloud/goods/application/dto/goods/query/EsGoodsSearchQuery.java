@@ -33,16 +33,27 @@ import java.util.Map;
  */
 @RecordBuilder
 public record EsGoodsSearchQuery(
-	@Schema(description = "关键字") String keyword, PageQuery page,
-	@Schema(description = "分类") String categoryId,
-	@Schema(description = "品牌,可以多选 品牌Id@品牌Id@品牌Id") String brandId,
-	@Schema(description = "是否为推荐商品") Boolean recommend,
-	@Schema(description = "价格", example = "10_30") String price,
-	@Schema(description = "属性:参数名_参数值@参数名_参数值", example = "屏幕类型_LED@屏幕尺寸_15英寸") String prop,
-	@Schema(description = "规格项列表") List<String> nameIds,
-	@Schema(description = "卖家id，搜索店铺商品的时候使用") String storeId,
-	@Schema(description = "商家分组id，搜索店铺商品的时候使用") String storeCatId,
-	@Schema(hidden = true) Map<String, List<String>> notShowCol) {
+	@Schema(description = "关键字")
+	String keyword,
+ PageQuery page,
+	@Schema(description = "分类")
+	String categoryId,
+	@Schema(description = "品牌,可以多选 品牌Id@品牌Id@品牌Id")
+	String brandId,
+	@Schema(description = "是否为推荐商品")
+	Boolean recommend,
+	@Schema(description = "价格", example = "10_30")
+	String price,
+	@Schema(description = "属性:参数名_参数值@参数名_参数值", example = "屏幕类型_LED@屏幕尺寸_15英寸")
+	String prop,
+	@Schema(description = "规格项列表")
+	List<String> nameIds,
+	@Schema(description = "卖家id，搜索店铺商品的时候使用")
+	String storeId,
+	@Schema(description = "商家分组id，搜索店铺商品的时候使用")
+	String storeCatId,
+	@Schema(hidden = true)
+	Map<String, List<String>> notShowCol) {
 
 	@Serial
 	private static final long serialVersionUID = -7605952923416404638L;

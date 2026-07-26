@@ -31,8 +31,10 @@ import java.io.Serial;
  */
 @RecordBuilder
 public record UpdateStoreParamsCommand(
-	@Schema(description = "店铺商品分类名称") Long goodsId,
-	@Schema(description = "层级, 从0开始") String params) implements Command {
+	@Schema(description = "店铺商品分类名称")
+	Long goodsId,
+	@Schema(description = "层级, 从0开始")
+	String params) implements Command {
 
 	@Serial
 	private static final long serialVersionUID = -7605952923416404638L;

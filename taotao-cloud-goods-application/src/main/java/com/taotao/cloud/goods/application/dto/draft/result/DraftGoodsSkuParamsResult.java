@@ -28,10 +28,14 @@ import java.util.List;
  */
 @RecordBuilder
 public record DraftGoodsSkuParamsResult(
-	@Schema(description = "分类名称") List<String> categoryName,
+	@Schema(description = "分类名称")
+	List<String> categoryName,
+
 	DraftGoodsResult draftGoodsResult,
-	@Schema(description = "商品图片") List<String> goodsGalleryList,
-	@Schema(description = "sku列表") List<GoodsSkuSpecGalleryResult> skuList) {
+	@Schema(description = "商品图片")
+	List<String> goodsGalleryList,
+	@Schema(description = "sku列表")
+	List<GoodsSkuSpecGalleryResult> skuList) {
 
 	@Serial
 	private static final long serialVersionUID = 6377623919990713567L;

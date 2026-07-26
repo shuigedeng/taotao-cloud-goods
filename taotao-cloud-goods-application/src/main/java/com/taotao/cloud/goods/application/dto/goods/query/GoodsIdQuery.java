@@ -12,6 +12,8 @@ import jakarta.validation.constraints.NotNull;
  * @since 2022.03
  */
 public record GoodsIdQuery(
-	@Schema(description = "商品id") @NotNull(message = "商品id不能为空") Long goodsId) {
+	@Schema(description = "商品id")
+	@NotNull(message = "商品id不能为空")
+	Long goodsId) {
 
 }

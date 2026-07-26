@@ -30,12 +30,18 @@ import java.io.Serial;
  */
 @RecordBuilder
 public record StoreGoodsLabelInfoResult(
-	@Schema(description = "店铺商品分类ID") Long id,
-										@Schema(description = "店铺商品分类名称") String labelName,
-										@Schema(description = "层级, 从0开始") Integer level,
-										@Schema(description = "店铺商品分类排序") Integer sortOrder,
-										@Schema(description = "父id, 根节点为0") Long parentId,
-										@Schema(description = "店铺ID") Long storeId)  implements MarkerResult {
+	@Schema(description = "店铺商品分类ID")
+	Long id,
+	@Schema(description = "店铺商品分类名称")
+	String labelName,
+	@Schema(description = "层级, 从0开始")
+	Integer level,
+	@Schema(description = "店铺商品分类排序")
+	Integer sortOrder,
+	@Schema(description = "父id, 根节点为0")
+	Long parentId,
+	@Schema(description = "店铺ID")
+	Long storeId)  implements MarkerResult {
 
 	@Serial
 	private static final long serialVersionUID = -7605952923416404638L;

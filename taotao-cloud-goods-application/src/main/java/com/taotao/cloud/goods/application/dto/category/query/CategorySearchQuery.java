@@ -36,16 +36,21 @@ import java.math.BigDecimal;
 @RecordBuilder
 @Schema(description = "分类查询参数")
 public record CategorySearchQuery(
-	@Schema(description = "分类名称") String name,
-	@Schema(description = "父id") String parentId,
-	@Schema(description = "层级") Integer level,
-	@Schema(description = "排序值") BigDecimal sortOrder,
-	@Schema(description = "佣金比例")
+	@Schema(description = "分类名称")
+	String name,
+	@Schema(description = "父id")
+	String parentId,
+	@Schema(description = "层级")
+	Integer level,
+	@Schema(description = "排序值")
+	BigDecimal sortOrder,
+@Schema(description = "佣金比例")
 	@Digits(integer = 9, fraction = 2, message = "佣金比例格式不正确")
 	@DecimalMin(value = "0.00", message = "佣金比例最小为0.00")
-	@DecimalMax(value = "1.00", message = "佣金比例最大为1.00") BigDecimal commissionRate,
-	@Schema(description = "父节点名称") String parentTitle
-) implements Query {
+	@DecimalMax(value = "1.00", message = "佣金比例最大为1.00")
+	BigDecimal commissionRate,
+	@Schema(description = "父节点名称")
+	String parentTitle) implements Query {
 
 	@Serial
 	private static final long serialVersionUID = -7605952923416404638L;

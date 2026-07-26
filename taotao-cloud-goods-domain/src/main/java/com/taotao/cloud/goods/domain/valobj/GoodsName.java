@@ -27,7 +27,9 @@ import org.hibernate.validator.constraints.Length;
  * @param value 商品名称
  */
 @RecordBuilder
-public record GoodsName(@NotBlank @Length(min = 1, max = 120) String value)
+public record GoodsName(	@NotBlank
+	@Length(min = 1, max = 120)
+	String value)
 	implements ValueObject<GoodsName> {
 
 	/**

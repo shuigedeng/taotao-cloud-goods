@@ -28,8 +28,11 @@ import java.util.List;
  */
 @RecordBuilder
 public record GoodsSkuSpecResult(
-	@Schema(description = "商品skuId") Long skuId,
-	@Schema(description = "商品sku所包含规格") List<SpecValueResult> specValues,
-	@Schema(description = "库存") Integer quantity) implements MarkerResult {
+	@Schema(description = "商品skuId")
+	Long skuId,
+	@Schema(description = "商品sku所包含规格")
+	List<SpecValueResult> specValues,
+	@Schema(description = "库存")
+	Integer quantity) implements MarkerResult {
 
 }

@@ -29,10 +29,12 @@ import java.util.List;
  */
 @RecordBuilder
 public record GoodsSkuSpecGalleryResult(
-	@Schema(description = "规格列表") List<SpecValueResult> specList,
-	@Schema(description = "商品图片") List<String> goodsGalleryList,
-	@Schema(description = "商品图片") GoodsSkuResult skuResult
-) implements
+	@Schema(description = "规格列表")
+	List<SpecValueResult> specList,
+	@Schema(description = "商品图片")
+	List<String> goodsGalleryList,
+	@Schema(description = "商品图片")
+	GoodsSkuResult skuResult) implements
 	MarkerResult {
 
 	@Serial

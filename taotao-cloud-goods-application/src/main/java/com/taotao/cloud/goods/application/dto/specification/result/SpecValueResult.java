@@ -29,10 +29,14 @@ import java.util.List;
  */
 @RecordBuilder
 public record SpecValueResult(
-	@Schema(description = "规格项名字") String specName,
-	@Schema(description = "规格值") String specValue,
-	@Schema(description = "该规格是否有图片，1 有 0 没有") Integer specType,
-	@Schema(description = "规格的图片") List<SpecImages> specImage) implements MarkerResult {
+	@Schema(description = "规格项名字")
+	String specName,
+	@Schema(description = "规格值")
+	String specValue,
+	@Schema(description = "该规格是否有图片，1 有 0 没有")
+	Integer specType,
+	@Schema(description = "规格的图片")
+	List<SpecImages> specImage) implements MarkerResult {
 
 	@Serial
 	private static final long serialVersionUID = -4433579132929428572L;

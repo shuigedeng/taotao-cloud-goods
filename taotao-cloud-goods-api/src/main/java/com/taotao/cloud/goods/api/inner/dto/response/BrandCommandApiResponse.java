@@ -27,8 +27,12 @@ import java.io.Serial;
  */
 @RecordBuilder
 @Schema(description = "品牌VO")
-public record BrandCommandApiResponse(@Schema(description = "id") String id, @Schema(description = "名称") String name,
-									  @Schema(description = "logo") String logo) implements MarkerResponse {
+public record BrandCommandApiResponse(	@Schema(description = "id")
+	String id,
+	@Schema(description = "名称")
+	String name,
+	@Schema(description = "logo")
+	String logo) implements MarkerResponse {
 
 	@Serial
 	private  static final long serialVersionUID = 3829199991161122317L;

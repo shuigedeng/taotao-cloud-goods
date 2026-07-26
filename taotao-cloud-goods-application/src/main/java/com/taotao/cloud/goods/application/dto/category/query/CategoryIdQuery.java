@@ -12,6 +12,8 @@ import jakarta.validation.constraints.NotNull;
  * @since 2022.03
  */
 public record CategoryIdQuery(
-	@Schema(description = "分类id") @NotNull(message = "分类id不能为空") Long categoryId) {
+	@Schema(description = "分类id")
+	@NotNull(message = "分类id不能为空")
+	Long categoryId) {
 
 }

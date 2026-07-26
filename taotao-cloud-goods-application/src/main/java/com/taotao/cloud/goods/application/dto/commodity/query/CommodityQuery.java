@@ -25,9 +25,14 @@ import io.swagger.v3.oas.annotations.media.Schema;
  */
 @RecordBuilder
 public record CommodityQuery(
-	@Schema(description = "商品ID") Long goodsId,
-							 @Schema(description = "商品名称") String name, @Schema(description = "url") String url,
-							 @Schema(description = "审核状态") Integer auditStatus) implements Query {
+	@Schema(description = "商品ID")
+	Long goodsId,
+	@Schema(description = "商品名称")
+	String name,
+	@Schema(description = "url")
+	String url,
+	@Schema(description = "审核状态")
+	Integer auditStatus) implements Query {
 
 
 }

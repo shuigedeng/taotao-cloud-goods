@@ -31,11 +31,16 @@ import java.util.List;
  */
 @RecordBuilder
 public record StoreGoodsLabelResult(
-	@Schema(description = "店铺商品分类ID") Long id,
-									@Schema(description = "店铺商品分类名称") String labelName,
-									@Schema(description = "层级, 从0开始") Integer level,
-									@Schema(description = "店铺商品分类排序") Integer sortOrder,
-									@Schema(description = "下级分类列表") List<StoreGoodsLabelResult> children) implements
+	@Schema(description = "店铺商品分类ID")
+	Long id,
+	@Schema(description = "店铺商品分类名称")
+	String labelName,
+	@Schema(description = "层级, 从0开始")
+	Integer level,
+	@Schema(description = "店铺商品分类排序")
+	Integer sortOrder,
+	@Schema(description = "下级分类列表")
+	List<StoreGoodsLabelResult> children) implements
 	MarkerResult {
 
 	@Serial

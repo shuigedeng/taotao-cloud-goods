@@ -31,7 +31,10 @@ import java.io.Serial;
 @RecordBuilder
 @Schema(description = "商品计量CO")
 public record GoodsUnitResult(
-	@Schema(description = "id") Long id, @Schema(description = "计量单位名称") String name)  implements
+	@Schema(description = "id")
+	Long id,
+	@Schema(description = "计量单位名称")
+	String name)  implements
 	MarkerResult {
 
 	@Serial

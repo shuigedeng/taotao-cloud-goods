@@ -20,8 +20,12 @@ import java.io.Serial;
 @Schema(description = "商品下架Command")
 @RecordBuilder
 public record UnderGoodsCommand(
-	@Schema(description = "商品id") @NotNull(message = "商品id不能为空") Long goodsId,
-                                @Schema(description = "下架原因") @NotBlank(message = "下架原因不能为空") String reason)
+	@Schema(description = "商品id")
+	@NotNull(message = "商品id不能为空")
+	Long goodsId,
+	@Schema(description = "下架原因")
+	@NotBlank(message = "下架原因不能为空")
+	String reason)
 	implements Command {
 
 	@Serial

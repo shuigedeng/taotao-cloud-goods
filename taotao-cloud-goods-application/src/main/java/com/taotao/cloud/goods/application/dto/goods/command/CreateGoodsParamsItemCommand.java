@@ -31,12 +31,18 @@ import java.io.Serial;
 @RecordBuilder
 @Schema(description = "商品参数列表")
 public record CreateGoodsParamsItemCommand(
-	@Schema(description = "参数ID") Long paramId,
-                                           @Schema(description = "参数名字") String paramName,
-                                           @Schema(description = "参数值") String paramValue,
-                                           @Schema(description = "是否可索引，0 不索引 1 索引") Integer isIndex,
-                                           @Schema(description = "是否必填，0 不显示 1 显示") Integer required,
-                                           @Schema(description = "排序") Integer sort)
+	@Schema(description = "参数ID")
+	Long paramId,
+	@Schema(description = "参数名字")
+	String paramName,
+	@Schema(description = "参数值")
+	String paramValue,
+	@Schema(description = "是否可索引，0 不索引 1 索引")
+	Integer isIndex,
+	@Schema(description = "是否必填，0 不显示 1 显示")
+	Integer required,
+	@Schema(description = "排序")
+	Integer sort)
 	implements Command {
 
 	@Serial

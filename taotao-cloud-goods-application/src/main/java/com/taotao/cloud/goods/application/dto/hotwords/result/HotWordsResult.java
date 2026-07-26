@@ -31,7 +31,8 @@ import java.io.Serial;
  */
 @RecordBuilder
 // public class DeptCO extends TreeUtil.TreeNode<DeptCO> {
-public record HotWordsResult(@Schema(name = "sort", description = "部门排序") Integer sort)implements MarkerResult {
+public record HotWordsResult(	@Schema(name = "sort", description = "部门排序")
+	Integer sort)implements MarkerResult {
 
 	@Serial
 	private static final long serialVersionUID = 4116703987840123059L;

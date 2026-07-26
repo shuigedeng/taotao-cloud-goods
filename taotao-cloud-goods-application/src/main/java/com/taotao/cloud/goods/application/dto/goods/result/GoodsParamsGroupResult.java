@@ -26,9 +26,12 @@ import java.util.List;
  * 商品参数vo
  */
 @RecordBuilder
-public record GoodsParamsGroupResult(@Schema(description = "参数组关联的参数集合") List<GoodsParamsResult> params,
-									 @Schema(description = "参数组名称") String groupName,
-									 @Schema(description = "参数组id") String groupId) implements MarkerResult {
+public record GoodsParamsGroupResult(	@Schema(description = "参数组关联的参数集合")
+	List<GoodsParamsResult> params,
+	@Schema(description = "参数组名称")
+	String groupName,
+	@Schema(description = "参数组id")
+	String groupId) implements MarkerResult {
 
 	@Serial
 	private static final long serialVersionUID = 1450550797436233753L;

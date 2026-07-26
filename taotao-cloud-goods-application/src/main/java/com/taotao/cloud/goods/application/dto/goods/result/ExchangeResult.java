@@ -23,10 +23,14 @@ import java.math.BigDecimal;
 /**
  * 兑换CO
  */
-public record ExchangeResult(@Schema(description = "是否允许积分兑换") Integer enableExchange,
-							 @Schema(description = "兑换所需金额 ") BigDecimal exchangeMoney,
-							 @Schema(description = "积分兑换所属分类 ") Integer categoryId,
-							 @Schema(description = "积分兑换使用的积分 ") Integer exchangePoint) implements
+public record ExchangeResult(	@Schema(description = "是否允许积分兑换")
+	Integer enableExchange,
+	@Schema(description = "兑换所需金额 ")
+	BigDecimal exchangeMoney,
+	@Schema(description = "积分兑换所属分类 ")
+	Integer categoryId,
+	@Schema(description = "积分兑换使用的积分 ")
+	Integer exchangePoint) implements
 	MarkerResult {
 
 }

@@ -26,7 +26,8 @@ import java.util.List;
  * 商品参数
  */
 @RecordBuilder
-public record GoodsIdsCommand(@Schema(description = "参数名称") List<Long> goodsIds) implements Command {
+public record GoodsIdsCommand(	@Schema(description = "参数名称")
+	List<Long> goodsIds) implements Command {
 
 	@Serial
 	private static final long serialVersionUID = 724427321881170297L;

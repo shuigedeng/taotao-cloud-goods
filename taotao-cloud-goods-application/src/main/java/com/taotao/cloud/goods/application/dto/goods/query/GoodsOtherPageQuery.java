@@ -30,21 +30,37 @@ import java.io.Serial;
  */
 @RecordBuilder
 public record GoodsOtherPageQuery(
-	@Schema(description = "商品编号") Long goodsId, PageQuery page,
-								  @Schema(description = "商品名称") String goodsName,
-								  @Schema(description = "商品编号") String id,
-								  @Schema(description = "商家ID") Long storeId,
-								  @Schema(description = "卖家名字") String storeName,
-								  @Schema(description = "价格,可以为范围，如10_1000") String price,
-								  @Schema(description = "分类path") String categoryPath,
-								  @Schema(description = "店铺分类id") String storeCategoryPath,
-								  @Schema(description = "是否自营") Boolean selfOperated,
-								  @Schema(description = "上下架状态") String marketEnable,
-								  @Schema(description = "审核状态") String authFlag,
-								  @Schema(description = "库存数量") Integer leQuantity,
-								  @Schema(description = "库存数量") Integer geQuantity,
-								  @Schema(description = "是否为推荐商品") Boolean recommend,
-								  @Schema(description = "商品类型") String goodsType) {
+	@Schema(description = "商品编号")
+	Long goodsId,
+ PageQuery page,
+	@Schema(description = "商品名称")
+	String goodsName,
+	@Schema(description = "商品编号")
+	String id,
+	@Schema(description = "商家ID")
+	Long storeId,
+	@Schema(description = "卖家名字")
+	String storeName,
+	@Schema(description = "价格,可以为范围，如10_1000")
+	String price,
+	@Schema(description = "分类path")
+	String categoryPath,
+	@Schema(description = "店铺分类id")
+	String storeCategoryPath,
+	@Schema(description = "是否自营")
+	Boolean selfOperated,
+	@Schema(description = "上下架状态")
+	String marketEnable,
+	@Schema(description = "审核状态")
+	String authFlag,
+	@Schema(description = "库存数量")
+	Integer leQuantity,
+	@Schema(description = "库存数量")
+	Integer geQuantity,
+	@Schema(description = "是否为推荐商品")
+	Boolean recommend,
+	@Schema(description = "商品类型")
+	String goodsType) {
 
 	@Serial
 	private static final long serialVersionUID = 2544015852728566887L;

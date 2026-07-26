@@ -27,6 +27,7 @@ import java.util.List;
  */
 @RecordBuilder
 public record StudioCommodityResult(
-	@Schema(description = "直播间商品列表") List<CommodityResult> commodityList) implements MarkerResult {
+	@Schema(description = "直播间商品列表")
+	List<CommodityResult> commodityList) implements MarkerResult {
 
 }

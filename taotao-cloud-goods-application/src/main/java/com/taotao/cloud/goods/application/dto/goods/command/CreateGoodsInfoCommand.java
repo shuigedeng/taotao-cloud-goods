@@ -32,12 +32,18 @@ import java.math.BigDecimal;
  */
 @RecordBuilder
 public record CreateGoodsInfoCommand(
-	@Schema(description = "图片mediaID") String coverImgUrl,
-                                     @Schema(description = "商品名称") String name,
-                                     @Schema(description = "价格类型") Integer priceType,
-                                     @Schema(description = "价格") BigDecimal price,
-                                     @Schema(description = "价格2") BigDecimal price2,
-                                     @Schema(description = "商品详情页的小程序路径") String url) implements Command {
+	@Schema(description = "图片mediaID")
+	String coverImgUrl,
+	@Schema(description = "商品名称")
+	String name,
+	@Schema(description = "价格类型")
+	Integer priceType,
+	@Schema(description = "价格")
+	BigDecimal price,
+	@Schema(description = "价格2")
+	BigDecimal price2,
+	@Schema(description = "商品详情页的小程序路径")
+	String url) implements Command {
 
 	// public GoodsInfo(Commodity commodity) {
 	//	BeanUtil.copyProperties(commodity, this);

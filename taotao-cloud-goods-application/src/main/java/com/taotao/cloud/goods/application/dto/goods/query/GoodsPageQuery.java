@@ -32,14 +32,23 @@ import java.time.LocalDateTime;
  */
 @RecordBuilder
 public record GoodsPageQuery(
+
 	PageQuery page,
-	@Schema(description = "商品名称") String goodsName,
-	@Schema(description = "商品分类ID") Long categoryId,
-	@Schema(description = "起始商品价格") BigDecimal startGoodsPrice,
-	@Schema(description = "终止商品价格") BigDecimal endGoodsPrice,
-	@Schema(description = "商品状态(10已上架, 20已下架)") Integer goodsStatus,
-	@Schema(description = "过期时间（在此之前过期）") LocalDate beforeExpirationDate,
-	@Schema(description = "起始创建时间") LocalDateTime createTimeStart,
-	@Schema(description = "结束创建时间") LocalDateTime createTimeEnd) {
+	@Schema(description = "商品名称")
+	String goodsName,
+	@Schema(description = "商品分类ID")
+	Long categoryId,
+	@Schema(description = "起始商品价格")
+	BigDecimal startGoodsPrice,
+	@Schema(description = "终止商品价格")
+	BigDecimal endGoodsPrice,
+	@Schema(description = "商品状态(10已上架, 20已下架)")
+	Integer goodsStatus,
+	@Schema(description = "过期时间（在此之前过期）")
+	LocalDate beforeExpirationDate,
+	@Schema(description = "起始创建时间")
+	LocalDateTime createTimeStart,
+	@Schema(description = "结束创建时间")
+	LocalDateTime createTimeEnd) {
 
 }

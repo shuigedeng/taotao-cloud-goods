@@ -14,7 +14,9 @@ import java.util.List;
  */
 @RecordBuilder
 public record FreightGoodsCommand(
-	@Schema(description = "商品id") List<Long> goodsId, Long templateId) {
+	@Schema(description = "商品id")
+	List<Long> goodsId,
+ Long templateId) {
 
 
 
