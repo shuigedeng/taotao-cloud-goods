@@ -83,49 +83,139 @@ public class GoodsGalleryPO extends BasePO<GoodsGalleryPO> {
     @Column(name = "`sort`", columnDefinition = "int not null default 0 comment '排序'")
     private Integer sort;
 
+    /**
+     * 获取
+     *
+     * @return 结果数量
+     * @since 2022.03
+     */
+
     public Long getGoodsId() {
         return goodsId;
     }
+
+    /**
+     * 设置
+     *
+     * @param goodsId goodsId
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setGoodsId(Long goodsId) {
         this.goodsId = goodsId;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getThumbnail() {
         return thumbnail;
     }
+
+    /**
+     * 设置
+     *
+     * @param thumbnail thumbnail
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setThumbnail(String thumbnail) {
         this.thumbnail = thumbnail;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getSmall() {
         return small;
     }
+
+    /**
+     * 设置
+     *
+     * @param small small
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setSmall(String small) {
         this.small = small;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getOriginal() {
         return original;
     }
+
+    /**
+     * 设置
+     *
+     * @param original original
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setOriginal(String original) {
         this.original = original;
     }
 
+    /**
+     * 获取
+     *
+     * @return 结果数量
+     * @since 2022.03
+     */
+
     public Integer getIsDefault() {
         return isDefault;
     }
+
+    /**
+     * 设置
+     *
+     * @param isDefault isDefault
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setIsDefault(Integer isDefault) {
         this.isDefault = isDefault;
     }
 
+    /**
+     * 获取
+     *
+     * @return 结果数量
+     * @since 2022.03
+     */
+
     public Integer getSort() {
         return sort;
     }
+
+    /**
+     * 设置
+     *
+     * @param sort sort
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setSort(Integer sort) {
         this.sort = sort;

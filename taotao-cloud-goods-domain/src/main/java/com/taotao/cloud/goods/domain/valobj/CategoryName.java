@@ -33,6 +33,17 @@ import org.hibernate.validator.constraints.Length;
 public record CategoryName(@NotBlank @Length(min = 1, max = 64) String value)
 	implements ValueObject<CategoryName> {
 
+
+
+
+	/**
+	 * of 方法
+	 *
+	 * @param value 值
+	 * @return 分类名称
+	 * @since 2022.03
+	 */
+
 	public static CategoryName of( String value ) {
 		return new CategoryName(value).validateThis();
 	}

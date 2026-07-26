@@ -38,6 +38,16 @@ public enum GoodsTypeEnum {
         this.description = description;
     }
 
+
+
+
+    /**
+     * 设置描述
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String description() {
         return description;
     }

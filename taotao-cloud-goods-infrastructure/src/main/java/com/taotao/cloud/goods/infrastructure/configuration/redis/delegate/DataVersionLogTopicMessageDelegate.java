@@ -31,6 +31,18 @@ public class DataVersionLogTopicMessageDelegate {
     // @Autowired
     // private ILogService logService;
 
+
+
+
+    /**
+     * 处理请求日志
+     *
+     * @param message 消息
+     * @param channel channel
+     * @return 无返回值
+     * @since 2022.03
+     */
+
     public void handleRequestLog(String message, String channel) {
         // try {
         //    Log log = JacksonUtils.MAPPER.readValue(message, Log.class);

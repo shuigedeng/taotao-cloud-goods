@@ -38,6 +38,16 @@ public enum StudioStatusEnum {
         this.clientName = des;
     }
 
+
+
+
+    /**
+     * clientName 方法
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String clientName() {
         return this.clientName;
     }

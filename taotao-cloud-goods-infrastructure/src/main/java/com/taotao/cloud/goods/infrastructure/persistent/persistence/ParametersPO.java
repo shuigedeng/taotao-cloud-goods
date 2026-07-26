@@ -87,57 +87,162 @@ public class ParametersPO extends BasePO<ParametersPO> {
     @Column(name = "`sort`", columnDefinition = "int not null comment '排序'")
     private Integer sort;
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getParamName() {
         return paramName;
     }
+
+    /**
+     * 设置
+     *
+     * @param paramName paramName
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setParamName(String paramName) {
         this.paramName = paramName;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getOptions() {
         return options;
     }
+
+    /**
+     * 设置
+     *
+     * @param options options
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setOptions(String options) {
         this.options = options;
     }
 
+    /**
+     * 获取
+     *
+     * @return 结果数量
+     * @since 2022.03
+     */
+
     public Integer getIsIndex() {
         return isIndex;
     }
+
+    /**
+     * 设置
+     *
+     * @param isIndex isIndex
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setIsIndex(Integer isIndex) {
         this.isIndex = isIndex;
     }
 
+    /**
+     * 获取
+     *
+     * @return 结果数量
+     * @since 2022.03
+     */
+
     public Integer getRequired() {
         return required;
     }
+
+    /**
+     * 设置
+     *
+     * @param required required
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setRequired(Integer required) {
         this.required = required;
     }
 
+    /**
+     * 获取
+     *
+     * @return 结果数量
+     * @since 2022.03
+     */
+
     public Long getGroupId() {
         return groupId;
     }
+
+    /**
+     * 设置
+     *
+     * @param groupId groupId
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setGroupId(Long groupId) {
         this.groupId = groupId;
     }
 
+    /**
+     * 获取
+     *
+     * @return 结果数量
+     * @since 2022.03
+     */
+
     public Long getCategoryId() {
         return categoryId;
     }
+
+    /**
+     * 设置
+     *
+     * @param categoryId categoryId
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setCategoryId(Long categoryId) {
         this.categoryId = categoryId;
     }
 
+    /**
+     * 获取
+     *
+     * @return 结果数量
+     * @since 2022.03
+     */
+
     public Integer getSort() {
         return sort;
     }
+
+    /**
+     * 设置
+     *
+     * @param sort sort
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setSort(Integer sort) {
         this.sort = sort;

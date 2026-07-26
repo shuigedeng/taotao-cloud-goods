@@ -77,41 +77,116 @@ public class StoreGoodsLabelPO extends BasePO<StoreGoodsLabelPO> {
     @Column(name = "`level`", columnDefinition = "int not null comment '层级, 从0开始'")
     private Integer level;
 
+    /**
+     * 获取
+     *
+     * @return 结果数量
+     * @since 2022.03
+     */
+
     public Long getStoreId() {
         return storeId;
     }
+
+    /**
+     * 设置
+     *
+     * @param storeId storeId
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setStoreId(Long storeId) {
         this.storeId = storeId;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getLabelName() {
         return labelName;
     }
+
+    /**
+     * 设置
+     *
+     * @param labelName labelName
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setLabelName(String labelName) {
         this.labelName = labelName;
     }
 
+    /**
+     * 获取
+     *
+     * @return 结果数量
+     * @since 2022.03
+     */
+
     public Integer getSortOrder() {
         return sortOrder;
     }
+
+    /**
+     * 设置
+     *
+     * @param sortOrder sortOrder
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setSortOrder(Integer sortOrder) {
         this.sortOrder = sortOrder;
     }
 
+    /**
+     * 获取
+     *
+     * @return 结果数量
+     * @since 2022.03
+     */
+
     public Long getParentId() {
         return parentId;
     }
+
+    /**
+     * 设置
+     *
+     * @param parentId parentId
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setParentId(Long parentId) {
         this.parentId = parentId;
     }
 
+    /**
+     * 获取
+     *
+     * @return 结果数量
+     * @since 2022.03
+     */
+
     public Integer getLevel() {
         return level;
     }
+
+    /**
+     * 设置
+     *
+     * @param level level
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setLevel(Integer level) {
         this.level = level;

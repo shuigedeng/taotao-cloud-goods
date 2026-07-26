@@ -34,21 +34,76 @@ import com.taotao.cloud.goods.domain.valobj.GoodsName;
  */
 public interface BaseInfraAssembler extends MarkerAssembler {
 
+
+
+
+	/**
+	 * 转换为
+	 *
+	 * @param id ID
+	 * @return 无返回值
+	 * @since 2022.03
+	 */
+
 	default BizId toBizId( Long id ) {
 		return id != null ? BizId.fromNullableValue(id) : null;
 	}
+
+
+
+
+	/**
+	 * 转换为
+	 *
+	 * @param value 值
+	 * @return 无返回值
+	 * @since 2022.03
+	 */
 
 	default Long toLong( BizId value ) {
 		return value != null ? value.id() : null;
 	}
 
+
+
+
+	/**
+	 * 转换为
+	 *
+	 * @param value 值
+	 * @return 无返回值
+	 * @since 2022.03
+	 */
+
 	default String toString( GoodsName value ) {
 		return value != null ? value.value() : null;
 	}
 
+
+
+
+	/**
+	 * 转换为
+	 *
+	 * @param name 名称
+	 * @return 无返回值
+	 * @since 2022.03
+	 */
+
 	default CategoryName toCategoryName( String name ) {
 		return name != null ? CategoryName.of(name) : null;
 	}
+
+
+
+
+	/**
+	 * 转换为
+	 *
+	 * @param desc 描述
+	 * @return 无返回值
+	 * @since 2022.03
+	 */
 
 	default CategoryDesc toCategoryDesc( String desc ) {
 		return desc != null ? CategoryDesc.of(desc) : null;

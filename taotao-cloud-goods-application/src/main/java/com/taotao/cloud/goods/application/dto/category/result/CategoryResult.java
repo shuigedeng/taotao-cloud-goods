@@ -58,65 +58,185 @@ public class CategoryResult implements MarkerResult {
     @Schema(description = "是否支持频道")
     private Boolean supportChannel;
 
+    /**
+     * 获取
+     *
+     * @return 结果数量
+     * @since 2022.03
+     */
+
     public Long getId() {
         return id;
     }
+
+    /**
+     * 设置
+     *
+     * @param id id
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setId(Long id) {
         this.id = id;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getName() {
         return name;
     }
+
+    /**
+     * 设置
+     *
+     * @param name name
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     * 获取
+     *
+     * @return 结果数量
+     * @since 2022.03
+     */
+
     public Long getParentId() {
         return parentId;
     }
+
+    /**
+     * 设置
+     *
+     * @param parentId parentId
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setParentId(Long parentId) {
         this.parentId = parentId;
     }
 
+    /**
+     * 获取
+     *
+     * @return 结果数量
+     * @since 2022.03
+     */
+
     public Integer getLevel() {
         return level;
     }
+
+    /**
+     * 设置
+     *
+     * @param level level
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setLevel(Integer level) {
         this.level = level;
     }
 
+    /**
+     * 获取
+     *
+     * @return 结果数量
+     * @since 2022.03
+     */
+
     public Integer getSortOrder() {
         return sortOrder;
     }
+
+    /**
+     * 设置
+     *
+     * @param sortOrder sortOrder
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setSortOrder(Integer sortOrder) {
         this.sortOrder = sortOrder;
     }
 
+    /**
+     * 获取
+     *
+     * @return BigDecimal
+     * @since 2022.03
+     */
+
     public BigDecimal getCommissionRate() {
         return commissionRate;
     }
+
+    /**
+     * 设置
+     *
+     * @param commissionRate commissionRate
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setCommissionRate(BigDecimal commissionRate) {
         this.commissionRate = commissionRate;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getImage() {
         return image;
     }
+
+    /**
+     * 设置
+     *
+     * @param image image
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setImage(String image) {
         this.image = image;
     }
 
+    /**
+     * 获取
+     *
+     * @return 是否成功
+     * @since 2022.03
+     */
+
     public Boolean getSupportChannel() {
         return supportChannel;
     }
+
+    /**
+     * 设置
+     *
+     * @param supportChannel supportChannel
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setSupportChannel(Boolean supportChannel) {
         this.supportChannel = supportChannel;

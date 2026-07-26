@@ -55,9 +55,24 @@ public class GoodsUnitPO extends BasePO<GoodsUnitPO> {
     @Column(name = "`name`", columnDefinition = "varchar(255) not null comment '计量单位名称'")
     private String name;
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getName() {
         return name;
     }
+
+    /**
+     * 设置
+     *
+     * @param name name
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setName(String name) {
         this.name = name;

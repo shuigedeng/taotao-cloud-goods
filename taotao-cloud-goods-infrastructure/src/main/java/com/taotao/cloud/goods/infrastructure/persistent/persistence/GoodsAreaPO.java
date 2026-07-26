@@ -66,17 +66,47 @@ public class GoodsAreaPO extends BasePO<GoodsAreaPO> {
     @Column(name = "`type`", columnDefinition = "int not null comment '类型'")
     private Integer type;
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getRegionJson() {
         return regionJson;
     }
+
+    /**
+     * 设置
+     *
+     * @param regionJson regionJson
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setRegionJson(String regionJson) {
         this.regionJson = regionJson;
     }
 
+    /**
+     * 获取
+     *
+     * @return 结果数量
+     * @since 2022.03
+     */
+
     public Integer getType() {
         return type;
     }
+
+    /**
+     * 设置
+     *
+     * @param type type
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setType(Integer type) {
         this.type = type;

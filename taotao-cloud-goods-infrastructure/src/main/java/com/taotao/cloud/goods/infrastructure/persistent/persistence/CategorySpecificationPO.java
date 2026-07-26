@@ -65,17 +65,47 @@ public class CategorySpecificationPO extends BasePO<CategorySpecificationPO> {
     @Column(name = "`specification_id`", columnDefinition = "bigint not null comment '规格id'")
     private Long specificationId;
 
+    /**
+     * 获取
+     *
+     * @return 结果数量
+     * @since 2022.03
+     */
+
     public Long getCategoryId() {
         return categoryId;
     }
+
+    /**
+     * 设置
+     *
+     * @param categoryId categoryId
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setCategoryId(Long categoryId) {
         this.categoryId = categoryId;
     }
 
+    /**
+     * 获取
+     *
+     * @return 结果数量
+     * @since 2022.03
+     */
+
     public Long getSpecificationId() {
         return specificationId;
     }
+
+    /**
+     * 设置
+     *
+     * @param specificationId specificationId
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setSpecificationId(Long specificationId) {
         this.specificationId = specificationId;

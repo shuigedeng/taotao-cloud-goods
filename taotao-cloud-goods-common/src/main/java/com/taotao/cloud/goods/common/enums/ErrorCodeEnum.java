@@ -13,6 +13,17 @@ public enum ErrorCodeEnum implements CommonEnum {
 	NOTICE_SEND_ERROR(code("514003"), "发送站内信异常，请检查系统日志");
 
 
+
+
+
+	/**
+	 * 设置编码
+	 *
+	 * @param code 编码
+	 * @return 编码
+	 * @since 2022.03
+	 */
+
 	public static Code code(String code) {
 		return Code.code(SYSTEM_CODE, CATEGORY_CODE).apply(code);
 	}
@@ -34,6 +45,16 @@ public enum ErrorCodeEnum implements CommonEnum {
 	}
 
 	;
+
+
+
+
+	/**
+	 * 设置编码
+	 *
+	 * @return 编码
+	 * @since 2022.03
+	 */
 
 	public Code code() {
 		return code;

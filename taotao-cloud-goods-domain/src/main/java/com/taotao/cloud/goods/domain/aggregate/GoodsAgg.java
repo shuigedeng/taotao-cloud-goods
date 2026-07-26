@@ -93,6 +93,17 @@ public class GoodsAgg extends AggregateRoot<BizId> {
 	private GoodsAgg() {
 	}
 
+
+
+
+
+	/**
+	 * 初始化
+	 *
+	 * @return 商品AggBuilder
+	 * @since 2022.03
+	 */
+
 	private static GoodsAggBuilder initBuilder() {
 		return new GoodsAggBuilder()
 			.id(BizId.newBizId())
@@ -100,6 +111,17 @@ public class GoodsAgg extends AggregateRoot<BizId> {
 			.createTime(LocalDateTime.now())
 			.updateTime(LocalDateTime.now());
 	}
+
+
+
+
+
+	/**
+	 * 初始化
+	 *
+	 * @return 商品Agg
+	 * @since 2022.03
+	 */
 
 	public static GoodsAgg init() {
 		return initBuilder().build();
@@ -135,6 +157,28 @@ public class GoodsAgg extends AggregateRoot<BizId> {
 			.validateThis();
 		return goodsAgg;
 	}
+
+
+
+
+
+	/**
+	 * 创建
+	 *
+	 * @param id ID
+	 * @param tagIds 标签ID集合
+	 * @param category 分类
+	 * @param goodsName 商品名称
+	 * @param goodsSpec 商品规格
+	 * @param goodsPrice 商品价格
+	 * @param goodsStatus 商品状态
+	 * @param createTime 创建时间
+	 * @param updateTime 更新时间
+	 * @param goodsNo 商品No
+	 * @param recommend recommend
+	 * @return 商品Agg
+	 * @since 2022.03
+	 */
 
 	public static GoodsAgg create(
 		BizId id,
@@ -215,6 +259,17 @@ public class GoodsAgg extends AggregateRoot<BizId> {
 		this.validateSelf();
 	}
 
+
+
+
+
+	/**
+	 * 创建
+	 *
+	 * @return 无返回值
+	 * @since 2022.03
+	 */
+
 	public void create() {
 		GoodsAgg agg = new GoodsAgg();
 		agg.id = this.id;
@@ -237,6 +292,28 @@ public class GoodsAgg extends AggregateRoot<BizId> {
 		this.goodsStatus = GoodsStatus.UNSHELVED;
 	}
 
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	 * 获取
+	 *
+	 * @return BizId
+	 * @since 2022.03
+	 */
+
 	public BizId getId() {
 		return id;
 	}
@@ -245,43 +322,255 @@ public class GoodsAgg extends AggregateRoot<BizId> {
 		return tags;
 	}
 
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	 * 获取
+	 *
+	 * @return 无返回值
+	 * @since 2022.03
+	 */
+
 	public @NotNull Category getCategory() {
 		return category;
 	}
+
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	 * 获取
+	 *
+	 * @return GoodsName
+	 * @since 2022.03
+	 */
 
 	public GoodsName getGoodsName() {
 		return goodsName;
 	}
 
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	 * 获取
+	 *
+	 * @return GoodsSpec
+	 * @since 2022.03
+	 */
+
 	public GoodsSpec getGoodsSpec() {
 		return goodsSpec;
 	}
+
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	 * 获取
+	 *
+	 * @return Price
+	 * @since 2022.03
+	 */
 
 	public Price getGoodsPrice() {
 		return goodsPrice;
 	}
 
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	 * 获取
+	 *
+	 * @return GoodsStatus
+	 * @since 2022.03
+	 */
+
 	public GoodsStatus getGoodsStatus() {
 		return goodsStatus;
 	}
+
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	 * 获取
+	 *
+	 * @return LocalDateTime
+	 * @since 2022.03
+	 */
 
 	public LocalDateTime getCreateTime() {
 		return createTime;
 	}
 
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	 * 获取
+	 *
+	 * @return LocalDateTime
+	 * @since 2022.03
+	 */
+
 	public LocalDateTime getUpdateTime() {
 		return updateTime;
 	}
 
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	 * 获取
+	 *
+	 * @return 字符串
+	 * @since 2022.03
+	 */
+
 	public String getTemplateId() {
 		return templateId;
 	}
+
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	 * 设置
+	 *
+	 * @param templateId templateId
+	 * @return 无返回值
+	 * @since 2022.03
+	 */
 
 	public void setTemplateId( String templateId ) {
 		this.templateId = templateId;
 	}
 
 	// 领域行为：修改运费模板
+
+
+
+
+	/**
+	 * changeFreightTemplate 方法
+	 *
+	 * @param newTemplateId newTemplateId
+	 * @param operatorId operatorId
+	 * @return 无返回值
+	 * @since 2022.03
+	 */
+
 	public void changeFreightTemplate( String newTemplateId, String operatorId ) {
 		// 领域规则校验
 		if (StringUtils.isEmpty(newTemplateId)) {
@@ -338,17 +627,107 @@ public class GoodsAgg extends AggregateRoot<BizId> {
 			+ '}';
 	}
 
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	 * 获取
+	 *
+	 * @return 字符串
+	 * @since 2022.03
+	 */
+
 	public String getGoodsNo() {
 		return goodsNo;
 	}
+
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	 * 设置
+	 *
+	 * @param goodsNo goodsNo
+	 * @return 无返回值
+	 * @since 2022.03
+	 */
 
 	public void setGoodsNo( String goodsNo ) {
 		this.goodsNo = goodsNo;
 	}
 
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	 * 获取
+	 *
+	 * @return 是否成功
+	 * @since 2022.03
+	 */
+
 	public Boolean getRecommend() {
 		return recommend;
 	}
+
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	 * 设置
+	 *
+	 * @param recommend recommend
+	 * @return 无返回值
+	 * @since 2022.03
+	 */
 
 	public void setRecommend( Boolean recommend ) {
 		this.recommend = recommend;
@@ -375,8 +754,31 @@ public class GoodsAgg extends AggregateRoot<BizId> {
 		private String serviceId;
 		private BizId id;
 
+
+
+
+
+		/**
+		 * 商品AggBuilder
+		 *
+		 * @return 无返回值
+		 * @since 2022.03
+		 */
+
 		public GoodsAggBuilder() {
 		}
+
+
+
+
+
+		/**
+		 * 商品AggBuilder
+		 *
+		 * @param other other
+		 * @return 无返回值
+		 * @since 2022.03
+		 */
 
 		public GoodsAggBuilder( GoodsAgg other ) {
 			this.tags = other.tags;
@@ -398,84 +800,287 @@ public class GoodsAgg extends AggregateRoot<BizId> {
 			this.id = other.id;
 		}
 
+
+
+
+
+		/**
+		 * aGoodsAgg 方法
+		 *
+		 * @return 商品AggBuilder
+		 * @since 2022.03
+		 */
+
 		public static GoodsAggBuilder aGoodsAgg() {
 			return new GoodsAggBuilder();
 		}
+
+
+
+
+
+		/**
+		 * 设置标签列表
+		 *
+		 * @param tags 标签列表
+		 * @return 商品AggBuilder
+		 * @since 2022.03
+		 */
 
 		public GoodsAggBuilder tags( List<Tag> tags ) {
 			this.tags = tags;
 			return this;
 		}
 
+
+
+
+
+		/**
+		 * 设置分类
+		 *
+		 * @param category 分类
+		 * @return 商品AggBuilder
+		 * @since 2022.03
+		 */
+
 		public GoodsAggBuilder category( Category category ) {
 			this.category = category;
 			return this;
 		}
+
+
+
+
+
+		/**
+		 * 设置商品名称
+		 *
+		 * @param goodsName 商品名称
+		 * @return 商品AggBuilder
+		 * @since 2022.03
+		 */
 
 		public GoodsAggBuilder goodsName( GoodsName goodsName ) {
 			this.goodsName = goodsName;
 			return this;
 		}
 
+
+
+
+
+		/**
+		 * 设置商品规格
+		 *
+		 * @param goodsSpec 商品规格
+		 * @return 商品AggBuilder
+		 * @since 2022.03
+		 */
+
 		public GoodsAggBuilder goodsSpec( GoodsSpec goodsSpec ) {
 			this.goodsSpec = goodsSpec;
 			return this;
 		}
+
+
+
+
+
+		/**
+		 * 设置商品价格
+		 *
+		 * @param goodsPrice 商品价格
+		 * @return 商品AggBuilder
+		 * @since 2022.03
+		 */
 
 		public GoodsAggBuilder goodsPrice( Price goodsPrice ) {
 			this.goodsPrice = goodsPrice;
 			return this;
 		}
 
+
+
+
+
+		/**
+		 * 设置商品状态
+		 *
+		 * @param goodsStatus 商品状态
+		 * @return 商品AggBuilder
+		 * @since 2022.03
+		 */
+
 		public GoodsAggBuilder goodsStatus( GoodsStatus goodsStatus ) {
 			this.goodsStatus = goodsStatus;
 			return this;
 		}
+
+
+
+
+
+		/**
+		 * 设置模板ID
+		 *
+		 * @param templateId 模板ID
+		 * @return 商品AggBuilder
+		 * @since 2022.03
+		 */
 
 		public GoodsAggBuilder templateId( String templateId ) {
 			this.templateId = templateId;
 			return this;
 		}
 
+
+
+
+
+		/**
+		 * 设置商品No
+		 *
+		 * @param goodsNo 商品No
+		 * @return 商品AggBuilder
+		 * @since 2022.03
+		 */
+
 		public GoodsAggBuilder goodsNo( String goodsNo ) {
 			this.goodsNo = goodsNo;
 			return this;
 		}
+
+
+
+
+
+		/**
+		 * recommend 方法
+		 *
+		 * @param recommend recommend
+		 * @return 商品AggBuilder
+		 * @since 2022.03
+		 */
 
 		public GoodsAggBuilder recommend( Boolean recommend ) {
 			this.recommend = recommend;
 			return this;
 		}
 
+
+
+
+
+		/**
+		 * 创建
+		 *
+		 * @param createUser createUser
+		 * @return 商品AggBuilder
+		 * @since 2022.03
+		 */
+
 		public GoodsAggBuilder createUser( String createUser ) {
 			this.createUser = createUser;
 			return this;
 		}
+
+
+
+
+
+		/**
+		 * 更新
+		 *
+		 * @param updateUser updateUser
+		 * @return 商品AggBuilder
+		 * @since 2022.03
+		 */
 
 		public GoodsAggBuilder updateUser( String updateUser ) {
 			this.updateUser = updateUser;
 			return this;
 		}
 
+
+
+
+
+		/**
+		 * 设置租户ID
+		 *
+		 * @param tenantId 租户ID
+		 * @return 商品AggBuilder
+		 * @since 2022.03
+		 */
+
 		public GoodsAggBuilder tenantId( String tenantId ) {
 			this.tenantId = tenantId;
 			return this;
 		}
+
+
+
+
+
+		/**
+		 * 创建时间
+		 *
+		 * @param createTime 创建时间
+		 * @return 商品AggBuilder
+		 * @since 2022.03
+		 */
 
 		public GoodsAggBuilder createTime( LocalDateTime createTime ) {
 			this.createTime = createTime;
 			return this;
 		}
 
+
+
+
+
+		/**
+		 * 更新时间
+		 *
+		 * @param updateTime 更新时间
+		 * @return 商品AggBuilder
+		 * @since 2022.03
+		 */
+
 		public GoodsAggBuilder updateTime( LocalDateTime updateTime ) {
 			this.updateTime = updateTime;
 			return this;
 		}
 
+
+
+
+
+		/**
+		 * 设置来源名称
+		 *
+		 * @param sourceName 来源名称
+		 * @return 商品AggBuilder
+		 * @since 2022.03
+		 */
+
 		public GoodsAggBuilder sourceName( String sourceName ) {
 			this.sourceName = sourceName;
 			return this;
 		}
+
+
+
+
+
+		/**
+		 * serviceId 方法
+		 *
+		 * @param serviceId serviceId
+		 * @return 商品AggBuilder
+		 * @since 2022.03
+		 */
 
 		public GoodsAggBuilder serviceId( String serviceId ) {
 			this.serviceId = serviceId;
@@ -483,10 +1088,33 @@ public class GoodsAgg extends AggregateRoot<BizId> {
 		}
 
 
+
+
+
+
+		/**
+		 * id 方法
+		 *
+		 * @param id ID
+		 * @return 商品AggBuilder
+		 * @since 2022.03
+		 */
+
 		public GoodsAggBuilder id( BizId id ) {
 			this.id = id;
 			return this;
 		}
+
+
+
+
+
+		/**
+		 * 构建
+		 *
+		 * @return 商品Agg
+		 * @since 2022.03
+		 */
 
 		public GoodsAgg build() {
 			GoodsAgg goodsAgg = new GoodsAgg();

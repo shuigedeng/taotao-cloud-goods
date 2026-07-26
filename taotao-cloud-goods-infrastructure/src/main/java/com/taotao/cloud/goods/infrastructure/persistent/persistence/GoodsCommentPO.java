@@ -134,201 +134,576 @@ public class GoodsCommentPO extends BasePO<GoodsCommentPO> {
     @Column(name = "`status`", columnDefinition = "int not null comment '会员ID'")
     private Integer status;
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getGoodsSpecName() {
         return goodsSpecName;
     }
+
+    /**
+     * 设置
+     *
+     * @param goodsSpecName goodsSpecName
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setGoodsSpecName(String goodsSpecName) {
         this.goodsSpecName = goodsSpecName;
     }
 
+    /**
+     * 获取
+     *
+     * @return 结果数量
+     * @since 2022.03
+     */
+
     public Long getMallId() {
         return mallId;
     }
+
+    /**
+     * 设置
+     *
+     * @param mallId mallId
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setMallId(Long mallId) {
         this.mallId = mallId;
     }
 
+    /**
+     * 获取
+     *
+     * @return 结果数量
+     * @since 2022.03
+     */
+
     public Long getSceneId() {
         return sceneId;
     }
+
+    /**
+     * 设置
+     *
+     * @param sceneId sceneId
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setSceneId(Long sceneId) {
         this.sceneId = sceneId;
     }
 
+    /**
+     * 获取
+     *
+     * @return 结果数量
+     * @since 2022.03
+     */
+
     public Long getCustomerId() {
         return customerId;
     }
+
+    /**
+     * 设置
+     *
+     * @param customerId customerId
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setCustomerId(Long customerId) {
         this.customerId = customerId;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getMemberNick() {
         return memberNick;
     }
+
+    /**
+     * 设置
+     *
+     * @param memberNick memberNick
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setMemberNick(String memberNick) {
         this.memberNick = memberNick;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getMemberAvatar() {
         return memberAvatar;
     }
+
+    /**
+     * 设置
+     *
+     * @param memberAvatar memberAvatar
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setMemberAvatar(String memberAvatar) {
         this.memberAvatar = memberAvatar;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getOrderCode() {
         return orderCode;
     }
+
+    /**
+     * 设置
+     *
+     * @param orderCode orderCode
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setOrderCode(String orderCode) {
         this.orderCode = orderCode;
     }
 
+    /**
+     * 获取
+     *
+     * @return 结果数量
+     * @since 2022.03
+     */
+
     public Integer getType() {
         return type;
     }
+
+    /**
+     * 设置
+     *
+     * @param type type
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setType(Integer type) {
         this.type = type;
     }
 
+    /**
+     * 获取
+     *
+     * @return 结果数量
+     * @since 2022.03
+     */
+
     public Integer getRank() {
         return rank;
     }
+
+    /**
+     * 设置
+     *
+     * @param rank rank
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setRank(Integer rank) {
         this.rank = rank;
     }
 
+    /**
+     * 获取
+     *
+     * @return 结果数量
+     * @since 2022.03
+     */
+
     public Integer getHasImage() {
         return hasImage;
     }
+
+    /**
+     * 设置
+     *
+     * @param hasImage hasImage
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setHasImage(Integer hasImage) {
         this.hasImage = hasImage;
     }
 
+    /**
+     * 获取
+     *
+     * @return 结果数量
+     * @since 2022.03
+     */
+
     public Long getCommentPicId() {
         return commentPicId;
     }
+
+    /**
+     * 设置
+     *
+     * @param commentPicId commentPicId
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setCommentPicId(Long commentPicId) {
         this.commentPicId = commentPicId;
     }
 
+    /**
+     * 获取
+     *
+     * @return 结果数量
+     * @since 2022.03
+     */
+
     public Integer getHasSenWord() {
         return hasSenWord;
     }
+
+    /**
+     * 设置
+     *
+     * @param hasSenWord hasSenWord
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setHasSenWord(Integer hasSenWord) {
         this.hasSenWord = hasSenWord;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getOriginContent() {
         return originContent;
     }
+
+    /**
+     * 设置
+     *
+     * @param originContent originContent
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setOriginContent(String originContent) {
         this.originContent = originContent;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getFilterContent() {
         return filterContent;
     }
+
+    /**
+     * 设置
+     *
+     * @param filterContent filterContent
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setFilterContent(String filterContent) {
         this.filterContent = filterContent;
     }
 
+    /**
+     * 获取
+     *
+     * @return 结果数量
+     * @since 2022.03
+     */
+
     public Integer getOpType() {
         return opType;
     }
+
+    /**
+     * 设置
+     *
+     * @param opType opType
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setOpType(Integer opType) {
         this.opType = opType;
     }
 
+    /**
+     * 获取
+     *
+     * @return 结果数量
+     * @since 2022.03
+     */
+
     public Integer getReplyStatus() {
         return replyStatus;
     }
+
+    /**
+     * 设置
+     *
+     * @param replyStatus replyStatus
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setReplyStatus(Integer replyStatus) {
         this.replyStatus = replyStatus;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getReplyContent() {
         return replyContent;
     }
+
+    /**
+     * 设置
+     *
+     * @param replyContent replyContent
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setReplyContent(String replyContent) {
         this.replyContent = replyContent;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getReplyOriContent() {
         return replyOriContent;
     }
+
+    /**
+     * 设置
+     *
+     * @param replyOriContent replyOriContent
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setReplyOriContent(String replyOriContent) {
         this.replyOriContent = replyOriContent;
     }
 
+    /**
+     * 获取
+     *
+     * @return LocalDateTime
+     * @since 2022.03
+     */
+
     public LocalDateTime getReplyTime() {
         return replyTime;
     }
+
+    /**
+     * 设置
+     *
+     * @param replyTime replyTime
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setReplyTime(LocalDateTime replyTime) {
         this.replyTime = replyTime;
     }
 
+    /**
+     * 获取
+     *
+     * @return 结果数量
+     * @since 2022.03
+     */
+
     public Long getReplyUserId() {
         return replyUserId;
     }
+
+    /**
+     * 设置
+     *
+     * @param replyUserId replyUserId
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setReplyUserId(Long replyUserId) {
         this.replyUserId = replyUserId;
     }
 
+    /**
+     * 获取
+     *
+     * @return 结果数量
+     * @since 2022.03
+     */
+
     public Long getReplyPicId() {
         return replyPicId;
     }
+
+    /**
+     * 设置
+     *
+     * @param replyPicId replyPicId
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setReplyPicId(Long replyPicId) {
         this.replyPicId = replyPicId;
     }
 
+    /**
+     * 获取
+     *
+     * @return 结果数量
+     * @since 2022.03
+     */
+
     public Integer getHasAdd() {
         return hasAdd;
     }
+
+    /**
+     * 设置
+     *
+     * @param hasAdd hasAdd
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setHasAdd(Integer hasAdd) {
         this.hasAdd = hasAdd;
     }
 
+    /**
+     * 获取
+     *
+     * @return 结果数量
+     * @since 2022.03
+     */
+
     public Integer getAfterDays() {
         return afterDays;
     }
+
+    /**
+     * 设置
+     *
+     * @param afterDays afterDays
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setAfterDays(Integer afterDays) {
         this.afterDays = afterDays;
     }
 
+    /**
+     * 获取
+     *
+     * @return LocalDateTime
+     * @since 2022.03
+     */
+
     public LocalDateTime getAppendTime() {
         return appendTime;
     }
+
+    /**
+     * 设置
+     *
+     * @param appendTime appendTime
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setAppendTime(LocalDateTime appendTime) {
         this.appendTime = appendTime;
     }
 
+    /**
+     * 获取
+     *
+     * @return 结果数量
+     * @since 2022.03
+     */
+
     public Integer getStatus() {
         return status;
     }
+
+    /**
+     * 设置
+     *
+     * @param status status
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setStatus(Integer status) {
         this.status = status;

@@ -39,6 +39,20 @@ public record GoodsSpec(@NotNull @PastOrPresent LocalDate manufactureDate, @NotN
 						@NotBlank @Length(min = 1, max = 1024) String goodsDesc)
 	implements ValueObject<GoodsSpec> {
 
+
+
+
+	/**
+	 * 商品规格
+	 *
+	 * @param manufactureDate manufactureDate
+	 * @param expirationDate expirationDate
+	 * @param goodsWeight 商品重量
+	 * @param goodsDesc 商品描述
+	 * @return 无返回值
+	 * @since 2022.03
+	 */
+
 	public GoodsSpec( LocalDate manufactureDate, LocalDate expirationDate, GoodsWeight goodsWeight, String goodsDesc ) {
 		this.manufactureDate = manufactureDate;
 		this.expirationDate = expirationDate;

@@ -94,6 +94,17 @@ public class Category implements Entity {
 		this.id = id;
 	}
 
+
+
+
+	/**
+	 * bizId 方法
+	 *
+	 * @param bizId bizId
+	 * @return 分类
+	 * @since 2022.03
+	 */
+
 	public static Category bizId( BizId bizId ) {
 		return new Category(bizId);
 	}
@@ -130,57 +141,251 @@ public class Category implements Entity {
 		this.validateSelf();
 	}
 
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	 * 获取
+	 *
+	 * @return BizId
+	 * @since 2022.03
+	 */
+
 	public BizId getId() {
 		return id;
 	}
+
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	 * 获取
+	 *
+	 * @return BizId
+	 * @since 2022.03
+	 */
 
 	public BizId getParentCategoryId() {
 		return parentCategoryId;
 	}
 
+
+
+
+	/**
+	 * 设置父级分类ID
+	 *
+	 * @return 结果数量
+	 * @since 2022.03
+	 */
+
 	public Long parentCategoryId() {
 		return parentCategoryId.id();
 	}
+
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	 * 获取
+	 *
+	 * @return CategoryName
+	 * @since 2022.03
+	 */
 
 	public CategoryName getCategoryName() {
 		return categoryName;
 	}
 
+
+
+
+	/**
+	 * 设置分类名称
+	 *
+	 * @return 字符串
+	 * @since 2022.03
+	 */
+
 	public String categoryName() {
 		return categoryName.value();
 	}
+
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	 * 获取
+	 *
+	 * @return CategoryDesc
+	 * @since 2022.03
+	 */
 
 	public CategoryDesc getCategoryDesc() {
 		return categoryDesc;
 	}
 
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	 * 获取
+	 *
+	 * @return LocalDateTime
+	 * @since 2022.03
+	 */
+
 	public LocalDateTime getCreateTime() {
 		return createTime;
 	}
+
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	 * 获取
+	 *
+	 * @return LocalDateTime
+	 * @since 2022.03
+	 */
 
 	public LocalDateTime getUpdateTime() {
 		return updateTime;
 	}
 
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	 * 设置
+	 *
+	 * @param id id
+	 * @return 无返回值
+	 * @since 2022.03
+	 */
+
 	public void setId( BizId id ) {
 		this.id = id;
 	}
+
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	 * 设置
+	 *
+	 * @param parentCategoryId parentCategoryId
+	 * @return 无返回值
+	 * @since 2022.03
+	 */
 
 	public void setParentCategoryId( BizId parentCategoryId ) {
 		this.parentCategoryId = parentCategoryId;
 	}
 
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	 * 设置
+	 *
+	 * @param categoryName categoryName
+	 * @return 无返回值
+	 * @since 2022.03
+	 */
+
 	public void setCategoryName( CategoryName categoryName ) {
 		this.categoryName = categoryName;
 	}
+
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	 * 设置
+	 *
+	 * @param categoryDesc categoryDesc
+	 * @return 无返回值
+	 * @since 2022.03
+	 */
 
 	public void setCategoryDesc( CategoryDesc categoryDesc ) {
 		this.categoryDesc = categoryDesc;
 	}
 
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	 * 设置
+	 *
+	 * @param createTime createTime
+	 * @return 无返回值
+	 * @since 2022.03
+	 */
+
 	public void setCreateTime( LocalDateTime createTime ) {
 		this.createTime = createTime;
 	}
+
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	 * 设置
+	 *
+	 * @param updateTime updateTime
+	 * @return 无返回值
+	 * @since 2022.03
+	 */
 
 	public void setUpdateTime( LocalDateTime updateTime ) {
 		this.updateTime = updateTime;

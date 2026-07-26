@@ -66,17 +66,47 @@ public class CategoryBrandPO extends BasePO<CategoryBrandPO> {
     @Column(name = "`brand_id`", columnDefinition = "bigint not null comment '品牌id'")
     private Long brandId;
 
+    /**
+     * 获取
+     *
+     * @return 结果数量
+     * @since 2022.03
+     */
+
     public Long getCategoryId() {
         return categoryId;
     }
+
+    /**
+     * 设置
+     *
+     * @param categoryId categoryId
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setCategoryId(Long categoryId) {
         this.categoryId = categoryId;
     }
 
+    /**
+     * 获取
+     *
+     * @return 结果数量
+     * @since 2022.03
+     */
+
     public Long getBrandId() {
         return brandId;
     }
+
+    /**
+     * 设置
+     *
+     * @param brandId brandId
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setBrandId(Long brandId) {
         this.brandId = brandId;

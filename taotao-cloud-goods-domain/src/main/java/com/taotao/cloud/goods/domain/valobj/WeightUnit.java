@@ -54,6 +54,17 @@ public enum WeightUnit implements ValueObjectEnum<String> {
         return this.desc;
     }
 
+
+
+
+    /**
+     * of 方法
+     *
+     * @param value 值
+     * @return 重量Unit
+     * @since 2022.03
+     */
+
     public static WeightUnit of(String value) {
         return ValueObjectEnum.of(value, WeightUnit.class);
     }

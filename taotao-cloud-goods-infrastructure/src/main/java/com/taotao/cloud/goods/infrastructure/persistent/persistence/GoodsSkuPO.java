@@ -231,313 +231,898 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
     @Column(name = "`goods_type`", columnDefinition = "varchar(255) not null comment '商品类型'")
     private String goodsType;
 
+    /**
+     * 获取
+     *
+     * @return 结果数量
+     * @since 2022.03
+     */
+
     public Long getGoodsId() {
         return goodsId;
     }
+
+    /**
+     * 设置
+     *
+     * @param goodsId goodsId
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setGoodsId(Long goodsId) {
         this.goodsId = goodsId;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getSpecs() {
         return specs;
     }
+
+    /**
+     * 设置
+     *
+     * @param specs specs
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setSpecs(String specs) {
         this.specs = specs;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getSimpleSpecs() {
         return simpleSpecs;
     }
+
+    /**
+     * 设置
+     *
+     * @param simpleSpecs simpleSpecs
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setSimpleSpecs(String simpleSpecs) {
         this.simpleSpecs = simpleSpecs;
     }
 
+    /**
+     * 获取
+     *
+     * @return 结果数量
+     * @since 2022.03
+     */
+
     public Long getFreightTemplateId() {
         return freightTemplateId;
     }
+
+    /**
+     * 设置
+     *
+     * @param freightTemplateId freightTemplateId
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setFreightTemplateId(Long freightTemplateId) {
         this.freightTemplateId = freightTemplateId;
     }
 
+    /**
+     * 获取
+     *
+     * @return 是否成功
+     * @since 2022.03
+     */
+
     public Boolean getPromotionFlag() {
         return promotionFlag;
     }
+
+    /**
+     * 设置
+     *
+     * @param promotionFlag promotionFlag
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setPromotionFlag(Boolean promotionFlag) {
         this.promotionFlag = promotionFlag;
     }
 
+    /**
+     * 获取
+     *
+     * @return BigDecimal
+     * @since 2022.03
+     */
+
     public BigDecimal getPromotionPrice() {
         return promotionPrice;
     }
+
+    /**
+     * 设置
+     *
+     * @param promotionPrice promotionPrice
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setPromotionPrice(BigDecimal promotionPrice) {
         this.promotionPrice = promotionPrice;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getGoodsName() {
         return goodsName;
     }
+
+    /**
+     * 设置
+     *
+     * @param goodsName goodsName
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setGoodsName(String goodsName) {
         this.goodsName = goodsName;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getSn() {
         return sn;
     }
+
+    /**
+     * 设置
+     *
+     * @param sn sn
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setSn(String sn) {
         this.sn = sn;
     }
 
+    /**
+     * 获取
+     *
+     * @return 结果数量
+     * @since 2022.03
+     */
+
     public Long getBrandId() {
         return brandId;
     }
+
+    /**
+     * 设置
+     *
+     * @param brandId brandId
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setBrandId(Long brandId) {
         this.brandId = brandId;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getCategoryPath() {
         return categoryPath;
     }
+
+    /**
+     * 设置
+     *
+     * @param categoryPath categoryPath
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setCategoryPath(String categoryPath) {
         this.categoryPath = categoryPath;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getGoodsUnit() {
         return goodsUnit;
     }
+
+    /**
+     * 设置
+     *
+     * @param goodsUnit goodsUnit
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setGoodsUnit(String goodsUnit) {
         this.goodsUnit = goodsUnit;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getSellingPoint() {
         return sellingPoint;
     }
+
+    /**
+     * 设置
+     *
+     * @param sellingPoint sellingPoint
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setSellingPoint(String sellingPoint) {
         this.sellingPoint = sellingPoint;
     }
 
+    /**
+     * 设置
+     *
+     * @param weight weight
+     * @return 无返回值
+     * @since 2022.03
+     */
+
     public void setWeight(BigDecimal weight) {
         this.weight = weight;
     }
+
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
 
     public String getMarketEnable() {
         return marketEnable;
     }
 
+    /**
+     * 设置
+     *
+     * @param marketEnable marketEnable
+     * @return 无返回值
+     * @since 2022.03
+     */
+
     public void setMarketEnable(String marketEnable) {
         this.marketEnable = marketEnable;
     }
+
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
 
     public String getIntro() {
         return intro;
     }
 
+    /**
+     * 设置
+     *
+     * @param intro intro
+     * @return 无返回值
+     * @since 2022.03
+     */
+
     public void setIntro(String intro) {
         this.intro = intro;
     }
+
+    /**
+     * 获取
+     *
+     * @return BigDecimal
+     * @since 2022.03
+     */
 
     public BigDecimal getPrice() {
         return price;
     }
 
+    /**
+     * 设置
+     *
+     * @param price price
+     * @return 无返回值
+     * @since 2022.03
+     */
+
     public void setPrice(BigDecimal price) {
         this.price = price;
     }
+
+    /**
+     * 获取
+     *
+     * @return BigDecimal
+     * @since 2022.03
+     */
 
     public BigDecimal getCost() {
         return cost;
     }
 
+    /**
+     * 设置
+     *
+     * @param cost cost
+     * @return 无返回值
+     * @since 2022.03
+     */
+
     public void setCost(BigDecimal cost) {
         this.cost = cost;
     }
+
+    /**
+     * 获取
+     *
+     * @return 结果数量
+     * @since 2022.03
+     */
 
     public Integer getViewCount() {
         return viewCount;
     }
 
+    /**
+     * 设置
+     *
+     * @param viewCount viewCount
+     * @return 无返回值
+     * @since 2022.03
+     */
+
     public void setViewCount(Integer viewCount) {
         this.viewCount = viewCount;
     }
+
+    /**
+     * 获取
+     *
+     * @return 结果数量
+     * @since 2022.03
+     */
 
     public Integer getBuyCount() {
         return buyCount;
     }
 
+    /**
+     * 设置
+     *
+     * @param buyCount buyCount
+     * @return 无返回值
+     * @since 2022.03
+     */
+
     public void setBuyCount(Integer buyCount) {
         this.buyCount = buyCount;
     }
+
+    /**
+     * 获取
+     *
+     * @return 结果数量
+     * @since 2022.03
+     */
 
     public Integer getQuantity() {
         return quantity;
     }
 
+    /**
+     * 设置
+     *
+     * @param quantity quantity
+     * @return 无返回值
+     * @since 2022.03
+     */
+
     public void setQuantity(Integer quantity) {
         this.quantity = quantity;
     }
+
+    /**
+     * 获取
+     *
+     * @return BigDecimal
+     * @since 2022.03
+     */
 
     public BigDecimal getGrade() {
         return grade;
     }
 
+    /**
+     * 设置
+     *
+     * @param grade grade
+     * @return 无返回值
+     * @since 2022.03
+     */
+
     public void setGrade(BigDecimal grade) {
         this.grade = grade;
     }
+
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
 
     public String getThumbnail() {
         return thumbnail;
     }
 
+    /**
+     * 设置
+     *
+     * @param thumbnail thumbnail
+     * @return 无返回值
+     * @since 2022.03
+     */
+
     public void setThumbnail(String thumbnail) {
         this.thumbnail = thumbnail;
     }
+
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
 
     public String getBig() {
         return big;
     }
 
+    /**
+     * 设置
+     *
+     * @param big big
+     * @return 无返回值
+     * @since 2022.03
+     */
+
     public void setBig(String big) {
         this.big = big;
     }
+
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
 
     public String getSmall() {
         return small;
     }
 
+    /**
+     * 设置
+     *
+     * @param small small
+     * @return 无返回值
+     * @since 2022.03
+     */
+
     public void setSmall(String small) {
         this.small = small;
     }
+
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
 
     public String getOriginal() {
         return original;
     }
 
+    /**
+     * 设置
+     *
+     * @param original original
+     * @return 无返回值
+     * @since 2022.03
+     */
+
     public void setOriginal(String original) {
         this.original = original;
     }
+
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
 
     public String getStoreCategoryPath() {
         return storeCategoryPath;
     }
 
+    /**
+     * 设置
+     *
+     * @param storeCategoryPath storeCategoryPath
+     * @return 无返回值
+     * @since 2022.03
+     */
+
     public void setStoreCategoryPath(String storeCategoryPath) {
         this.storeCategoryPath = storeCategoryPath;
     }
+
+    /**
+     * 获取
+     *
+     * @return 结果数量
+     * @since 2022.03
+     */
 
     public Integer getCommentNum() {
         return commentNum;
     }
 
+    /**
+     * 设置
+     *
+     * @param commentNum commentNum
+     * @return 无返回值
+     * @since 2022.03
+     */
+
     public void setCommentNum(Integer commentNum) {
         this.commentNum = commentNum;
     }
+
+    /**
+     * 获取
+     *
+     * @return 结果数量
+     * @since 2022.03
+     */
 
     public Long getStoreId() {
         return storeId;
     }
 
+    /**
+     * 设置
+     *
+     * @param storeId storeId
+     * @return 无返回值
+     * @since 2022.03
+     */
+
     public void setStoreId(Long storeId) {
         this.storeId = storeId;
     }
+
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
 
     public String getStoreName() {
         return storeName;
     }
 
+    /**
+     * 设置
+     *
+     * @param storeName storeName
+     * @return 无返回值
+     * @since 2022.03
+     */
+
     public void setStoreName(String storeName) {
         this.storeName = storeName;
     }
+
+    /**
+     * 获取
+     *
+     * @return 结果数量
+     * @since 2022.03
+     */
 
     public Long getTemplateId() {
         return templateId;
     }
 
+    /**
+     * 设置
+     *
+     * @param templateId templateId
+     * @return 无返回值
+     * @since 2022.03
+     */
+
     public void setTemplateId(Long templateId) {
         this.templateId = templateId;
     }
+
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
 
     public String getAuthFlag() {
         return authFlag;
     }
 
+    /**
+     * 设置
+     *
+     * @param authFlag authFlag
+     * @return 无返回值
+     * @since 2022.03
+     */
+
     public void setAuthFlag(String authFlag) {
         this.authFlag = authFlag;
     }
+
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
 
     public String getAuthMessage() {
         return authMessage;
     }
 
+    /**
+     * 设置
+     *
+     * @param authMessage authMessage
+     * @return 无返回值
+     * @since 2022.03
+     */
+
     public void setAuthMessage(String authMessage) {
         this.authMessage = authMessage;
     }
+
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
 
     public String getUnderMessage() {
         return underMessage;
     }
 
+    /**
+     * 设置
+     *
+     * @param underMessage underMessage
+     * @return 无返回值
+     * @since 2022.03
+     */
+
     public void setUnderMessage(String underMessage) {
         this.underMessage = underMessage;
     }
+
+    /**
+     * 获取
+     *
+     * @return 是否成功
+     * @since 2022.03
+     */
 
     public Boolean getSelfOperated() {
         return selfOperated;
     }
 
+    /**
+     * 设置
+     *
+     * @param selfOperated selfOperated
+     * @return 无返回值
+     * @since 2022.03
+     */
+
     public void setSelfOperated(Boolean selfOperated) {
         this.selfOperated = selfOperated;
     }
+
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
 
     public String getMobileIntro() {
         return mobileIntro;
     }
 
+    /**
+     * 设置
+     *
+     * @param mobileIntro mobileIntro
+     * @return 无返回值
+     * @since 2022.03
+     */
+
     public void setMobileIntro(String mobileIntro) {
         this.mobileIntro = mobileIntro;
     }
+
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
 
     public String getGoodsVideo() {
         return goodsVideo;
     }
 
+    /**
+     * 设置
+     *
+     * @param goodsVideo goodsVideo
+     * @return 无返回值
+     * @since 2022.03
+     */
+
     public void setGoodsVideo(String goodsVideo) {
         this.goodsVideo = goodsVideo;
     }
+
+    /**
+     * 获取
+     *
+     * @return 是否成功
+     * @since 2022.03
+     */
 
     public Boolean getRecommend() {
         return recommend;
     }
 
+    /**
+     * 设置
+     *
+     * @param recommend recommend
+     * @return 无返回值
+     * @since 2022.03
+     */
+
     public void setRecommend(Boolean recommend) {
         this.recommend = recommend;
     }
+
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
 
     public String getSalesModel() {
         return salesModel;
     }
 
+    /**
+     * 设置
+     *
+     * @param salesModel salesModel
+     * @return 无返回值
+     * @since 2022.03
+     */
+
     public void setSalesModel(String salesModel) {
         this.salesModel = salesModel;
     }
+
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
 
     public String getGoodsType() {
         return goodsType;
     }
 
+    /**
+     * 设置
+     *
+     * @param goodsType goodsType
+     * @return 无返回值
+     * @since 2022.03
+     */
+
     public void setGoodsType(String goodsType) {
         this.goodsType = goodsType;
     }
+
+    /**
+     * 获取
+     *
+     * @return BigDecimal
+     * @since 2022.03
+     */
 
     public BigDecimal getWeight() {
         if (weight == null) {

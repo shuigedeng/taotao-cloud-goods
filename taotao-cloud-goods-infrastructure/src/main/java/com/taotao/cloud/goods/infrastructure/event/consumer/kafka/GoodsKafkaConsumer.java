@@ -23,6 +23,17 @@ public class GoodsKafkaConsumer extends MqConsumerBase {
 //		errorHandler = "kafkaErrorHandler",
 //		containerFactory = "manualKafkaContainerFactory"
 	)
+
+
+
+	/**
+	 * 列表查询
+	 *
+	 * @param RECEIVED_TOPIC received_topic
+	 * @return 无返回值
+	 * @since 2022.03
+	 */
+
 	public void listenMsg(
 //		@Header(KafkaHeaders.RECEIVED_TOPIC) String topic,
 //		@Header(KafkaHeaders.RECEIVED_KEY) String key,

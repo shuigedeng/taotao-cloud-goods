@@ -85,17 +85,47 @@ public class BrandPO extends BaseLogicPO<BrandPO> {
         return getClass().hashCode();
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getName() {
         return name;
     }
+
+    /**
+     * 设置
+     *
+     * @param name name
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getLogo() {
         return logo;
     }
+
+    /**
+     * 设置
+     *
+     * @param logo logo
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setLogo(String logo) {
         this.logo = logo;

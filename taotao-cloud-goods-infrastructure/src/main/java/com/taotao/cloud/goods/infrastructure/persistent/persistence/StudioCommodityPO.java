@@ -65,17 +65,47 @@ public class StudioCommodityPO extends BasePO<StudioCommodityPO> {
     @Column(name = "`goods_id`", columnDefinition = "varchar(255) not null comment '商品ID'")
     private Long goodsId;
 
+    /**
+     * 获取
+     *
+     * @return 结果数量
+     * @since 2022.03
+     */
+
     public Long getRoomId() {
         return roomId;
     }
+
+    /**
+     * 设置
+     *
+     * @param roomId roomId
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setRoomId(Long roomId) {
         this.roomId = roomId;
     }
 
+    /**
+     * 获取
+     *
+     * @return 结果数量
+     * @since 2022.03
+     */
+
     public Long getGoodsId() {
         return goodsId;
     }
+
+    /**
+     * 设置
+     *
+     * @param goodsId goodsId
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setGoodsId(Long goodsId) {
         this.goodsId = goodsId;

@@ -77,41 +77,116 @@ public class GoodsWordsPO extends BasePO<GoodsWordsPO> {
     @Column(name = "`sort`", columnDefinition = "int not null default 0  comment '排序'")
     private Integer sort;
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getWords() {
         return words;
     }
+
+    /**
+     * 设置
+     *
+     * @param words words
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setWords(String words) {
         this.words = words;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getWholeSpell() {
         return wholeSpell;
     }
+
+    /**
+     * 设置
+     *
+     * @param wholeSpell wholeSpell
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setWholeSpell(String wholeSpell) {
         this.wholeSpell = wholeSpell;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getAbbreviate() {
         return abbreviate;
     }
+
+    /**
+     * 设置
+     *
+     * @param abbreviate abbreviate
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setAbbreviate(String abbreviate) {
         this.abbreviate = abbreviate;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getType() {
         return type;
     }
+
+    /**
+     * 设置
+     *
+     * @param type type
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setType(String type) {
         this.type = type;
     }
 
+    /**
+     * 获取
+     *
+     * @return 结果数量
+     * @since 2022.03
+     */
+
     public Integer getSort() {
         return sort;
     }
+
+    /**
+     * 设置
+     *
+     * @param sort sort
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setSort(Integer sort) {
         this.sort = sort;

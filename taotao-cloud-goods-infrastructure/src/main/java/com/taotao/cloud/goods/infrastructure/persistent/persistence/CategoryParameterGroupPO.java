@@ -64,25 +64,70 @@ public class CategoryParameterGroupPO extends BasePO<CategoryParameterGroupPO> {
     @Column(name = "`sort_order`", columnDefinition = "int not null default 0 comment '排序'")
     private Integer sortOrder;
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getGroupName() {
         return groupName;
     }
+
+    /**
+     * 设置
+     *
+     * @param groupName groupName
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setGroupName(String groupName) {
         this.groupName = groupName;
     }
 
+    /**
+     * 获取
+     *
+     * @return 结果数量
+     * @since 2022.03
+     */
+
     public Long getCategoryId() {
         return categoryId;
     }
+
+    /**
+     * 设置
+     *
+     * @param categoryId categoryId
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setCategoryId(Long categoryId) {
         this.categoryId = categoryId;
     }
 
+    /**
+     * 获取
+     *
+     * @return 结果数量
+     * @since 2022.03
+     */
+
     public Integer getSortOrder() {
         return sortOrder;
     }
+
+    /**
+     * 设置
+     *
+     * @param sortOrder sortOrder
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setSortOrder(Integer sortOrder) {
         this.sortOrder = sortOrder;

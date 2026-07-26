@@ -96,6 +96,18 @@ public class Tag implements Entity{
         this.validateSelf();
     }
 
+
+
+
+    /**
+     * 修改
+     *
+     * @param tagName 标签名称
+     * @param tagDesc 标签描述
+     * @return 无返回值
+     * @since 2022.03
+     */
+
     public void modifyBasicInfo(String tagName, String tagDesc) {
         this.tagName = tagName;
         this.tagDesc = tagDesc;
@@ -103,41 +115,186 @@ public class Tag implements Entity{
         this.validateSelf();
     }
 
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+     * 获取
+     *
+     * @return BizId
+     * @since 2022.03
+     */
+
     public BizId getId() {
         return id;
     }
+
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
 
     public String getTagName() {
         return tagName;
     }
 
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getTagDesc() {
         return tagDesc;
     }
+
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+     * 获取
+     *
+     * @return LocalDateTime
+     * @since 2022.03
+     */
 
     public LocalDateTime getCreateTime() {
         return createTime;
     }
 
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+     * 获取
+     *
+     * @return LocalDateTime
+     * @since 2022.03
+     */
+
     public LocalDateTime getUpdateTime() {
         return updateTime;
     }
+
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	 * 设置
+	 *
+	 * @param id id
+	 * @return 无返回值
+	 * @since 2022.03
+	 */
 
 	public void setId( BizId id ) {
 		this.id = id;
 	}
 
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	 * 设置
+	 *
+	 * @param tagName tagName
+	 * @return 无返回值
+	 * @since 2022.03
+	 */
+
 	public void setTagName( String tagName ) {
 		this.tagName = tagName;
 	}
+
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	 * 设置
+	 *
+	 * @param tagDesc tagDesc
+	 * @return 无返回值
+	 * @since 2022.03
+	 */
 
 	public void setTagDesc( String tagDesc ) {
 		this.tagDesc = tagDesc;
 	}
 
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	 * 设置
+	 *
+	 * @param createTime createTime
+	 * @return 无返回值
+	 * @since 2022.03
+	 */
+
 	public void setCreateTime( LocalDateTime createTime ) {
 		this.createTime = createTime;
 	}
+
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	/**
+	 * 设置
+	 *
+	 * @param updateTime updateTime
+	 * @return 无返回值
+	 * @since 2022.03
+	 */
 
 	public void setUpdateTime( LocalDateTime updateTime ) {
 		this.updateTime = updateTime;
