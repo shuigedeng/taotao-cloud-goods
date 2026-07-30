@@ -21,6 +21,7 @@ import com.taotao.boot.common.model.response.Response;
 import com.taotao.cloud.goods.api.rpc.dto.query.GoodsRpcQuery;
 import com.taotao.cloud.goods.api.rpc.dto.response.GoodsQueryRpcResponse;
 import com.taotao.cloud.goods.api.rpc.query.GoodsQueryRpcService;
+import com.taotao.cloud.goods.application.service.query.GoodsQueryService;
 import lombok.RequiredArgsConstructor;
 //import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.stereotype.Service;
@@ -37,9 +38,11 @@ import org.springframework.stereotype.Service;
 //@DubboService(interfaceClass = GoodsQueryRpcService.class, validation = "true")
 public class GoodsQueryRpcServiceImpl implements GoodsQueryRpcService {
 
+	private final GoodsQueryService goodsQueryService;
     @Override
     public Response<GoodsQueryRpcResponse> queryGoodsByParams(
             Request<GoodsRpcQuery> goodsQueryRpcRequest) {
-        return null;
+		GoodsQueryRpcResponse response = goodsQueryService.queryGoodsByParams(goodsQueryRpcRequest.getOrder());
+        return Response.from(response);
     }
 }

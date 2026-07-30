@@ -20,7 +20,7 @@ import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.security.spring.annotation.NotAuth;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
-import com.taotao.cloud.goods.application.dto.category.query.ParentIdQuery;
+import com.taotao.cloud.goods.application.dto.category.query.CategoryTreeQuery;
 import com.taotao.cloud.goods.application.dto.category.result.CategoryTreeResult;
 import com.taotao.cloud.goods.application.service.command.CategoryCommandService;
 import com.taotao.cloud.goods.application.service.query.CategoryQueryService;
@@ -59,8 +59,8 @@ public class CategoryBuyerController extends BusinessController {
     @RequestLogger
     @Operation(summary = "根据父id获取商品分类列表", description = "根据父id获取商品分类列表")
     @GetMapping(value = "/query/tree")
-    public Result<List<CategoryTreeResult>> queryCategoryTreeByParentId( ParentIdQuery parentIdQuery) {
-		List<CategoryTreeResult> result = categoryQueryService.queryCategoryTreeByParentId(parentIdQuery.parentId());
+    public Result<List<CategoryTreeResult>> queryCategoryTreeByParentId( CategoryTreeQuery categoryTreeQuery) {
+		List<CategoryTreeResult> result = categoryQueryService.queryCategoryTreeByParentId(categoryTreeQuery.parentId());
 		return Result.success(result);
     }
 }

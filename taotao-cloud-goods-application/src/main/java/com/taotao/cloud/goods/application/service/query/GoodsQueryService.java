@@ -18,6 +18,8 @@ package com.taotao.cloud.goods.application.service.query;
 
 import com.taotao.boot.common.model.result.PageResult;
 import com.taotao.boot.ddd.model.application.service.QueryService;
+import com.taotao.cloud.goods.api.rpc.dto.query.GoodsRpcQuery;
+import com.taotao.cloud.goods.api.rpc.dto.response.GoodsQueryRpcResponse;
 import com.taotao.cloud.goods.application.dto.goods.query.GoodsPageQuery;
 import com.taotao.cloud.goods.application.dto.goods.result.GoodsResult;
 import com.taotao.cloud.goods.application.dto.goods.result.GoodsSkuParamsResult;
@@ -80,4 +82,6 @@ public interface GoodsQueryService extends QueryService {
 	 * @since 2022-04-27 17:00:16
 	 */
 	Long queryCountStoreGoodsNum( Long storeId );
+
+    GoodsQueryRpcResponse queryGoodsByParams( GoodsRpcQuery order );
 }

@@ -13,8 +13,8 @@ import jakarta.validation.constraints.NotNull;
  * @since 2026/1/31
  */
 @RecordBuilder
-@Schema(description = "ParentIdQuery")
-public record ParentIdQuery(
+@Schema(description = "CategoryTreeQuery")
+public record CategoryTreeQuery(
 	@Schema(description = "父id")
 	@NotNull(message = "父id不能为空")
 	Long parentId) implements Query {

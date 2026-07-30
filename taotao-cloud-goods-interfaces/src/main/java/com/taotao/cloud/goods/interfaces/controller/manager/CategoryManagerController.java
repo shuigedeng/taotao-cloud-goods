@@ -24,7 +24,7 @@ import com.taotao.boot.webagg.controller.BusinessController;
 import com.taotao.cloud.goods.application.dto.category.command.CreateCategoryCommand;
 import com.taotao.cloud.goods.application.dto.category.command.CategoryTreeCommand;
 import com.taotao.cloud.goods.application.dto.category.command.DisableCommand;
-import com.taotao.cloud.goods.application.dto.category.query.ParentIdQuery;
+import com.taotao.cloud.goods.application.dto.category.query.CategoryTreeQuery;
 import com.taotao.cloud.goods.application.dto.category.result.CategoryResult;
 import com.taotao.cloud.goods.application.dto.category.result.CategoryTreeResult;
 import com.taotao.cloud.goods.application.service.command.CategoryCommandService;
@@ -69,7 +69,7 @@ public class CategoryManagerController extends BusinessController {
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/children")
-	public Result<List<CategoryResult>> queryChildrenByParentId( ParentIdQuery parentIdQuery) {
+	public Result<List<CategoryResult>> queryChildrenByParentId( CategoryTreeQuery parentIdQuery) {
 //		List<CategoryPO> categories = this.categoryQueryService.childrenList(parentId);
 //		return Result.success(CategoryAssembler.INSTANCE.convert(categories));
 		return null;
