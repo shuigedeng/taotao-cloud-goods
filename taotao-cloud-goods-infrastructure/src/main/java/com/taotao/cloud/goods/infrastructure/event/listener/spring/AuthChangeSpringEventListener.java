@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.infrastructure.event.listener;
+package com.taotao.cloud.goods.infrastructure.event.listener.spring;
 
 import com.taotao.cloud.goods.application.service.command.GoodsCommandService;
 import lombok.AllArgsConstructor;
