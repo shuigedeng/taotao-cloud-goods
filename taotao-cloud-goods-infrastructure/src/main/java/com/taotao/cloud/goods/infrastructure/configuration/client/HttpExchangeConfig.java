@@ -47,7 +47,6 @@ public class HttpExchangeConfig {
 		}
 	}
 
-	@Bean
 
 	/**
 	 * restClientCustomizer 方法
@@ -55,6 +54,7 @@ public class HttpExchangeConfig {
 	 * @return RestClientCustomizer
 	 * @since 2022.03
 	 */
+	@Bean
 	public RestClientCustomizer restClientCustomizer() {
 		return new RestClientCustomizer() {
 			@Override
@@ -65,7 +65,6 @@ public class HttpExchangeConfig {
 	}
 
 
-	@Bean
 
 	/**
 	 * sysGroupConfigurer 方法
@@ -74,6 +73,7 @@ public class HttpExchangeConfig {
 	 * @return RestClientHttpServiceGroupConfigurer
 	 * @since 2022.03
 	 */
+	@Bean
 	public RestClientHttpServiceGroupConfigurer sysGroupConfigurer( OpenTelemetry openTelemetry ) {
 		return groups -> {
 			// 1. 为所有组应用通用配置
@@ -112,7 +112,6 @@ public class HttpExchangeConfig {
 		};
 	}
 
-	@Bean
 
 	/**
 	 * githubGroupConfigurer 方法
@@ -120,6 +119,7 @@ public class HttpExchangeConfig {
 	 * @return RestClientHttpServiceGroupConfigurer
 	 * @since 2022.03
 	 */
+	@Bean
 	public RestClientHttpServiceGroupConfigurer githubGroupConfigurer() {
 		return groups -> {
 			groups
@@ -142,7 +142,6 @@ public class HttpExchangeConfig {
 		};
 	}
 
-	@Bean
 
 	/**
 	 * stackoverflowGroupConfigurer 方法
@@ -150,6 +149,7 @@ public class HttpExchangeConfig {
 	 * @return RestClientHttpServiceGroupConfigurer
 	 * @since 2022.03
 	 */
+	@Bean
 	public RestClientHttpServiceGroupConfigurer stackoverflowGroupConfigurer() {
 		return groups -> {
 			groups

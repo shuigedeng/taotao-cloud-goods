@@ -14,19 +14,15 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.infrastructure.configuration.init;
+package com.taotao.cloud.goods.infrastructure.configuration.initializer;
 
 import lombok.AllArgsConstructor;
-import org.apache.rocketmq.client.core.RocketMQClientTemplate;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
-import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.stereotype.Component;
-import tools.jackson.databind.json.JsonMapper;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.UUID;
 
 /**
  * 敏感词汇init
@@ -37,7 +33,7 @@ import java.util.UUID;
  */
 @Component
 @AllArgsConstructor
-public class SensitiveWordsInit implements ApplicationRunner {
+public class SensitiveWordsInitializer implements ApplicationRunner {
 //private final RocketMQClientTemplate rocketMQClientTemplate;
 //private final JsonMapper jsonMapper ;
     // @Autowired
