@@ -15,26 +15,26 @@ import org.springframework.stereotype.Component;
 
 import java.nio.charset.StandardCharsets;
 
-@Component
-@RocketMQMessageListener(
-	consumerGroup = "springboot_consumer_group"
-)
-@AllArgsConstructor
+//@Component
+//@RocketMQMessageListener(
+//	consumerGroup = "springboot_consumer_group"
+//)
+//@AllArgsConstructor
 public class GoodsRocketmqConsumer extends MqConsumerBase implements RocketMQListener {
-	private final GoodsCommandService goodsCommandService;
+//	private final GoodsCommandService goodsCommandService;
 
 	@Override
 	public ConsumeResult consume( MessageView messageView ) {
-		try {
-			String msg = StandardCharsets.UTF_8.decode(messageView.getBody()).toString();
-
-			NotifyGoodsCommand notifyGoodsCommand = from(msg, NotifyGoodsCommand.class);
-
-			goodsCommandService.handleKafkaNotify(notifyGoodsCommand);
-			//手动确认
-		} catch (Exception e) {
-
-		}
+//		try {
+//			String msg = StandardCharsets.UTF_8.decode(messageView.getBody()).toString();
+//
+//			NotifyGoodsCommand notifyGoodsCommand = from(msg, NotifyGoodsCommand.class);
+//
+//			goodsCommandService.handleKafkaNotify(notifyGoodsCommand);
+//			//手动确认
+//		} catch (Exception e) {
+//
+//		}
 		return ConsumeResult.SUCCESS;
 	}
 }

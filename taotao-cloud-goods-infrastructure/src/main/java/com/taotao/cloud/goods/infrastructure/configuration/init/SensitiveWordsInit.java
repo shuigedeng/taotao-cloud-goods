@@ -38,8 +38,8 @@ import java.util.UUID;
 @Component
 @AllArgsConstructor
 public class SensitiveWordsInit implements ApplicationRunner {
-private final RocketMQClientTemplate rocketMQClientTemplate;
-private final JsonMapper jsonMapper ;
+//private final RocketMQClientTemplate rocketMQClientTemplate;
+//private final JsonMapper jsonMapper ;
     // @Autowired
     // private ISensitiveWordService sensitiveWordsService;
 	private final String topic = "OrderTopic";
@@ -48,12 +48,12 @@ private final JsonMapper jsonMapper ;
     public void run(ApplicationArguments args) {
         // sensitiveWordsService.resetCache();
 		Map<String, String> data = new HashMap<>();
-		data.put("test", "1");
-		String eventJson = jsonMapper.writeValueAsString(data);
-		rocketMQClientTemplate.send(topic,
-				MessageBuilder.withPayload(eventJson)
-					.setHeader("eventType", "tst")
-					.setHeader("eventId", UUID.randomUUID().toString())
-					.build());
+//		data.put("test", "1");
+//		String eventJson = jsonMapper.writeValueAsString(data);
+//		rocketMQClientTemplate.send(topic,
+//				MessageBuilder.withPayload(eventJson)
+//					.setHeader("eventType", "tst")
+//					.setHeader("eventId", UUID.randomUUID().toString())
+//					.build());
     }
 }
