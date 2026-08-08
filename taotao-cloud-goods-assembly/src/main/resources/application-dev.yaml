@@ -405,7 +405,7 @@ rocketmq:
 spring:
   grpc:
     server:
-      port: 9098
+      port: 9092
       enabled: true
       servlet:
         enabled: false
@@ -413,7 +413,7 @@ spring:
       enabled: true
       channel:
         local:
-          target: static://localhost:9098
+          target: static://localhost:9092
           keepalive:
             timeout: 60s
           idle:
