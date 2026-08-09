@@ -405,7 +405,7 @@ rocketmq:
 spring:
   grpc:
     server:
-      port: 9092
+      port: 9099
       enabled: true
       servlet:
         enabled: false
