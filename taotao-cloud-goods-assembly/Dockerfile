@@ -18,7 +18,7 @@ ARG APP_NAME=taotao-cloud-monitor
 ARG APP_VERSION=2026.09
 ARG APP_JAR_NAME=${APP_NAME}-${APP_VERSION}.jar
 ARG APP_PORT=33332
-ARG APP_PRROFILES=dev
+ARG APP_PROFILES=dev
 ARG DINGDING_TOKEN_ID_ARG=xxxxxx
 ARG DINGDING_SECRET_ARG=xxxxxx
 ARG REQUEST_API_DOCS=1
@@ -33,7 +33,7 @@ ENV APP_NAME=${APP_NAME}
 ENV APP_PORT=${APP_PORT}
 ENV APP_VERSION=${APP_VERSION}
 ENV APP_JAR_NAME=${APP_NAME}-${APP_VERSION}.jar
-ENV APP_PRROFILES=${APP_PRROFILES}
+ENV APP_PROFILES=${APP_PROFILES}
 ENV REQUEST_API_DOCS=${REQUEST_API_DOCS}
 
 ENV DINGDING_TOKEN_ID=${DINGDING_TOKEN_ID_ARG}
@@ -157,7 +157,7 @@ ENV JAVA_OPTIONS="-Xms1g \
                   --add-opens java.base/java.math=ALL-UNNAMED \
                   --add-exports java.desktop/sun.awt=ALL-UNNAMED \
                   --add-opens java.desktop/sun.awt=ALL-UNNAMED \
-                  -Dspring.profiles.active=${APP_PRROFILES} \
+                  -Dspring.profiles.active=${APP_PROFILES} \
                   -javaagent:/skywalking/agent/skywalking-agent.jar"
 
 USER root
