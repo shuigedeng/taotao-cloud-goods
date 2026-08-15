@@ -17,7 +17,7 @@
 package com.taotao.cloud.goods.application.handler.pie.goods;
 
 import com.taotao.boot.common.support.pie.BootStrap;
-import com.taotao.cloud.goods.application.context.GoodsContext;
+import com.taotao.cloud.goods.application.support.context.GoodsContext;
 import com.taotao.cloud.goods.application.handler.pie.category.handlers.ArticleModifyContentHandler;
 import com.taotao.cloud.goods.application.handler.pie.category.handlers.ArticleModifyTitleHandler;
 import com.taotao.cloud.goods.application.handler.pie.category.handlers.CheckParameterHandler;

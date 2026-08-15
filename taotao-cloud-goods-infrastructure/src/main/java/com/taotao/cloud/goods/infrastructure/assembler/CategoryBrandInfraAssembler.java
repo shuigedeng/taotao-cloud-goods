@@ -18,7 +18,7 @@ package com.taotao.cloud.goods.infrastructure.assembler;
 
 import com.taotao.boot.common.model.ddd.types.MarkerAssembler;
 import com.taotao.cloud.goods.application.dto.category.result.CategoryBrandResult;
-import com.taotao.cloud.goods.infrastructure.data.dataobj.CategoryBrandDO;
+import com.taotao.cloud.goods.infrastructure.persistent.model.dos.CategoryBrandDO;
 import java.util.List;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingConstants;

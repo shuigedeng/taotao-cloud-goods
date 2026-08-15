@@ -14,23 +14,22 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.application.handler.pie.goods;
+package com.taotao.cloud.goods.application.support.context;
 
-import com.taotao.boot.common.support.pie.OutboundFactory;
-import com.taotao.cloud.goods.application.support.context.GoodsContext;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 /**
- * 出参工厂
+ * DraftGoodsContext
+ *
+ * @author shuigedeng
+ * @version 2026.04
+ * @since 2025-12-19 09:30:45
  */
-public class ResultFactory implements OutboundFactory {
+@Setter
+@Getter
+@ToString
+public class DraftGoodsContext {
 
-    private Logger logger = LoggerFactory.getLogger(ResultFactory.class);
-
-    @Override
-    public Object newInstance() {
-        GoodsContext result = new GoodsContext();
-        return result;
-    }
 }

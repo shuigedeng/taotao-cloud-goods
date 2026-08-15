@@ -18,14 +18,12 @@ package com.taotao.cloud.goods.infrastructure.persistent.mapper;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.taotao.boot.data.mybatis.mybatisplus.base.mapper.BaseMapper;
-import com.taotao.cloud.goods.infrastructure.data.dataobj.GoodsDO;
-import com.taotao.cloud.goods.infrastructure.data.dataparam.GoodsParam;
+import com.taotao.cloud.goods.infrastructure.persistent.model.dos.GoodsDO;
+import com.taotao.cloud.goods.infrastructure.persistent.model.params.GoodsParam;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsPO;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
-import org.springframework.stereotype.Repository;
-import org.xbill.DNS.dnssec.R;
 
 import java.util.List;
 

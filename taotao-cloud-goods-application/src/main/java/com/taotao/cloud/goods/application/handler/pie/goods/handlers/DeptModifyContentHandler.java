@@ -18,7 +18,7 @@ package com.taotao.cloud.goods.application.handler.pie.goods.handlers;
 
 import com.taotao.boot.common.support.pie.ChannelHandler;
 import com.taotao.boot.common.support.pie.ChannelHandlerContext;
-import com.taotao.cloud.goods.application.context.GoodsContext;
+import com.taotao.cloud.goods.application.support.context.GoodsContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

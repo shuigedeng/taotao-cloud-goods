@@ -29,7 +29,7 @@ import com.taotao.cloud.goods.common.enums.GoodsAuthEnum;
 import com.taotao.cloud.goods.common.enums.GoodsStatusEnum;
 import com.taotao.cloud.goods.application.assembler.GoodsAppAssembler;
 import com.taotao.cloud.goods.application.dto.goods.result.GoodsResult;
-import com.taotao.cloud.goods.application.factory.GoodsFactory;
+import com.taotao.cloud.goods.application.support.factory.GoodsFactory;
 import com.taotao.cloud.goods.application.service.command.GoodsCommandService;
 import com.taotao.cloud.goods.domain.aggregate.GoodsAgg;
 import com.taotao.cloud.goods.domain.repository.GoodsDomainRepository;

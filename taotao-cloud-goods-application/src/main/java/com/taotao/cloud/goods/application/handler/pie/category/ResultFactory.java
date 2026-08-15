@@ -17,7 +17,7 @@
 package com.taotao.cloud.goods.application.handler.pie.category;
 
 import com.taotao.boot.common.support.pie.OutboundFactory;
-import com.taotao.cloud.goods.application.context.DraftGoodsContext;
+import com.taotao.cloud.goods.application.support.context.DraftGoodsContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

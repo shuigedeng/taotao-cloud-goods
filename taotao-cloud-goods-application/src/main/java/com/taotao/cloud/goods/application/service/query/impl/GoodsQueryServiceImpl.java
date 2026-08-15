@@ -31,7 +31,7 @@ import com.taotao.cloud.goods.application.dto.goods.query.GoodsPageQuery;
 import com.taotao.cloud.goods.application.dto.goods.result.GoodsResult;
 import com.taotao.cloud.goods.application.dto.goods.result.GoodsSkuParamsResult;
 import com.taotao.cloud.goods.application.dto.goods.result.GoodsSkuSpecGalleryResult;
-import com.taotao.cloud.goods.application.repository.GoodsQueryRepository;
+import com.taotao.cloud.goods.application.adapter.repository.GoodsQueryRepository;
 import com.taotao.cloud.goods.application.service.query.GoodsGalleryQueryService;
 import com.taotao.cloud.goods.application.service.query.GoodsQueryService;
 import com.taotao.cloud.goods.common.enums.GoodsStatusEnum;

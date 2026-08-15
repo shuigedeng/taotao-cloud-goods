@@ -17,7 +17,7 @@
 package com.taotao.cloud.goods.infrastructure.persistent.mapper;
 
 import com.taotao.boot.data.mybatis.mybatisplus.base.mapper.BaseMapper;
-import com.taotao.cloud.goods.infrastructure.data.dataobj.CategoryBrandDO;
+import com.taotao.cloud.goods.infrastructure.persistent.model.dos.CategoryBrandDO;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.CategoryBrandPO;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
