@@ -68,8 +68,8 @@ public class BuyerGoodsController extends BusinessController {
 
 	private final EsGoodsQueryService esGoodsQueryService;
 
-	@RequestLogger
 	@Operation(summary = "通过id获取商品信息", description = "通过id获取商品信息")
+	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/detail")
 	public Result<GoodsSkuParamsResult> queryByGoodsId( Long goodsId) {
@@ -77,11 +77,11 @@ public class BuyerGoodsController extends BusinessController {
 		return Result.success(result);
 	}
 
+	//@PageViewPoint(type = PageViewEnum.SKU, id = "#id")
 	@Operation(summary = "通过skuId获取商品信息", description = "通过skuId获取商品信息")
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/goods-sku-detail")
-	//@PageViewPoint(type = PageViewEnum.SKU, id = "#id")
 	public Result<Map<String, Object>> querySkuById( GoodsSkuQuery goodsSkuQuery) {
 		Map<String, Object> map = goodsSkuQueryService.queryGoodsSkuDetail(goodsSkuQuery.goodsId(), goodsSkuQuery.skuId());
 		return Result.success(map);

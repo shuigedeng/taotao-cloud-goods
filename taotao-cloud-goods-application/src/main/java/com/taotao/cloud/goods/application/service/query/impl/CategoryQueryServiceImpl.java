@@ -38,9 +38,9 @@ import static com.taotao.boot.common.enums.CachePrefixEnum.CATEGORY_ARRAY;
  * @version 2022.04
  * @since 2022-04-27 17:02:09
  */
+//@CacheConfig(cacheNames = "{category}")
 @RequiredArgsConstructor
 @Service
-//@CacheConfig(cacheNames = "{category}")
 public class CategoryQueryServiceImpl implements CategoryQueryService {
 
     private final RedisRepository redisRepository;

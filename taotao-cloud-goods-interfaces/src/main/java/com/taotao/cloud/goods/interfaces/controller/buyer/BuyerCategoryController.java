@@ -55,9 +55,9 @@ public class BuyerCategoryController extends BusinessController {
 
     private final CategoryQueryService categoryQueryService;
 
+    @Operation(summary = "根据父id获取商品分类列表", description = "根据父id获取商品分类列表")
     @NotAuth
     @RequestLogger
-    @Operation(summary = "根据父id获取商品分类列表", description = "根据父id获取商品分类列表")
     @GetMapping(value = "/query/tree")
     public Result<List<CategoryTreeResult>> queryCategoryTree( CategoryTreeQuery categoryTreeQuery) {
 		List<CategoryTreeResult> result = categoryQueryService.queryCategoryTree(categoryTreeQuery.parentId());

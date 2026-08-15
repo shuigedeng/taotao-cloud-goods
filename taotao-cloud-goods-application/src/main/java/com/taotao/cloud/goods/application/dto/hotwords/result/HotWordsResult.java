@@ -29,8 +29,8 @@ import java.io.Serial;
  * @version 2026.04
  * @since 2025-12-19 09:30:45
  */
-@RecordBuilder
 // public class DeptCO extends TreeUtil.TreeNode<DeptCO> {
+@RecordBuilder
 public record HotWordsResult(	@Schema(name = "sort", description = "部门排序")
 	Integer sort)implements MarkerResult {
 

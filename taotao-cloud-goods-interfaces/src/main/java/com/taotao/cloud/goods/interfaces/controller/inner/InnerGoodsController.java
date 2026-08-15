@@ -46,23 +46,23 @@ import org.springframework.web.bind.annotation.RestController;
 @Tag(name = "内部服务端-商品API", description = "内部服务端-商品API")
 public class InnerGoodsController extends InnerController implements GoodsCommandApi , GoodsQueryApi {
 
+	@Operation(summary = "根据父id获取商品分类列表", description = "根据父id获取商品分类列表111")
     @Override
 	@RequestLogger
-	@Operation(summary = "根据父id获取商品分类列表", description = "根据父id获取商品分类列表111")
     public Response<GoodsCommandApiResponse> updateStoreDetail(@Validated Request<GoodsApiCommand> id) {
         return null;
     }
 
+	@Operation(summary = "根据父id获取商品分类列表", description = "根据父id获取商品分类列表222")
     @Override
 	@RequestLogger
-	@Operation(summary = "根据父id获取商品分类列表", description = "根据父id获取商品分类列表222")
     public Response<GoodsCommandApiResponse> underStoreGoods(@Validated Request<GoodsApiCommand> id) {
         return null;
     }
 
+	@Operation(summary = "根据父id获取商品分类列表", description = "根据父id获取商品分类列表33")
     @Override
 	@RequestLogger
-	@Operation(summary = "根据父id获取商品分类列表", description = "根据父id获取商品分类列表33")
     public Response<GoodsCommandApiResponse> countStoreGoodsNum(
 		@Validated Request<GoodsApiCommand> storeId) {
         return null;

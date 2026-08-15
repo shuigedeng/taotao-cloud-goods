@@ -66,10 +66,10 @@ public class AdminBrandController extends BusinessController {
 
 	private final BrandQueryService brandQueryService;
 
+	//@PreAuthorize("hasAuthority('dept:tree:data')")
 	@Operation(summary = "通过id获取", description = "通过id获取")
 	@RequestLogger
 	@NotAuth
-	//@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/detail")
 	public Result<BrandResult> queryDetail( IdQuery idQuery ) {
 		BrandResult brandCo = brandQueryService.queryDetail(idQuery.getId());
@@ -95,6 +95,7 @@ public class AdminBrandController extends BusinessController {
 		return null;
 	}
 
+	//@PreAuthorize("hasAuthority('dept:tree:data')")
 	@Operation(summary = "新增品牌", description = "新增品牌")
 	@RequestLogger
 	@NotAuth
@@ -102,7 +103,6 @@ public class AdminBrandController extends BusinessController {
 	@Limit(key = "limitTest", period = 10, count = 3)
 	@GuavaLimit
 	@SentinelResource("test")
-	//@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/create")
 	public Result<Void> createBrand( @RequestBody CreateBrandCommand brand ) {
 		brandCommandService.createBrand(brand);

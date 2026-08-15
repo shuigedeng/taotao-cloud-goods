@@ -64,19 +64,19 @@ public class AdminGoodsController extends BusinessController {
 
 	private final GoodsSkuCommandService goodsSkuCommandService;
 
+	//@PreAuthorize("hasAuthority('dept:tree:data')")
 	@Operation(summary = "分页获取商品列表", description = "分页获取商品列表")
 	@RequestLogger("分页获取商品列表")
 	@NotAuth
-	//@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/page")
 	public Result<PageResult<GoodsResult>> queryPage( @Validated GoodsPageQuery goodsPageQuery ) {
 		PageResult<GoodsResult> goodsPage = goodsQueryService.queryGoodsPage(goodsPageQuery);
 		return Result.success(goodsPage);
 	}
 
+	//@PreAuthorize("hasAuthority('dept:tree:data')")
 	@Operation(summary = "分页获取商品SKU列表", description = "分页获取商品SKU列表")
 	@RequestLogger("分页获取商品SKU列表")
-	//@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/sku/page")
 	public Result<PageResult<GoodsSkuResult>> querySkuPage( GoodsPageQuery goodsPageQuery ) {
 //		IPage<GoodsSkuPO> goodsSkuPage = goodsSkuQueryService.goodsSkuQueryPage(goodsPageQuery);
@@ -103,10 +103,10 @@ public class AdminGoodsController extends BusinessController {
 	}
 
 
+	//@PreAuthorize("hasAuthority('dept:tree:data')")
 	@Operation(summary = "管理员下架商品", description = "管理员下架商品")
 	@RequestLogger("管理员下架商品")
 	@NotAuth
-	//@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/under")
 	public Result<Void> underGoods( @RequestBody UnderGoodsCommand underCommand){
 //		return Result.success(
@@ -115,10 +115,10 @@ public class AdminGoodsController extends BusinessController {
 		return Result.success();
 	}
 
+	//@PreAuthorize("hasAuthority('dept:tree:data')")
 	@Operation(summary = "管理员下架商品xxx", description = "管理员下架商品")
 	@RequestLogger("管理员下架商品xxx")
 	@NotAuth
-	//@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/underxx")
 	public Result<Void> underGoodsxx( @RequestBody CreateGoodsParamsCommand underCommand){
 //		return Result.success(
