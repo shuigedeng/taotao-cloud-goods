@@ -44,14 +44,13 @@ import org.springframework.messaging.handler.annotation.Payload;
 @Configuration
 public class RedissonDelayApplication {
 
-    @Bean
-
     /**
      * redissonQueue 方法
      *
      * @return RedissonQueue
      * @since 2022.03
      */
+    @Bean
     public RedissonQueue redissonQueue() {
 
         return new RedissonQueue("riven", true, null, new DefaultRedissonMessageConverter());
@@ -130,3 +129,4 @@ public class RedissonDelayApplication {
         private String carNum;
     }
 }
+

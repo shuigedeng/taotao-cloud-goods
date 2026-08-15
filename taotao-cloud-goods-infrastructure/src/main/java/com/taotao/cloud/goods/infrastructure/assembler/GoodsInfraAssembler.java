@@ -46,14 +46,13 @@ public interface GoodsInfraAssembler extends BaseInfraAssembler, MarkerAssembler
 
 	GoodsInfraAssembler INSTANCE = Mappers.getMapper(GoodsInfraAssembler.class);
 
-	@ObjectFactory
-
 	/**
 	 * 创建商品Agg
 	 *
 	 * @return 无返回值
 	 * @since 2022.03
 	 */
+	@ObjectFactory
 	default GoodsAgg createGoodsAgg() {
 		return GoodsAgg.init();
 	}
@@ -76,3 +75,4 @@ public interface GoodsInfraAssembler extends BaseInfraAssembler, MarkerAssembler
 
 	void mergeFromPo( GoodsPO source, @MappingTarget GoodsAgg target );
 }
+
