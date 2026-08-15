@@ -24,7 +24,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import com.taotao.cloud.goods.application.dto.category.result.CategoryBrandResult;
 import com.taotao.cloud.goods.application.dto.category.result.CategoryBrandResultBuilder;
-import com.taotao.cloud.goods.application.dto.specification.result.SpecificationResult;
 import com.taotao.cloud.goods.application.service.query.CategorySpecificationQueryService;
 import java.util.List;
 import org.junit.jupiter.api.Nested;
@@ -41,7 +40,7 @@ import org.springframework.test.web.servlet.MockMvc;
  * @version 2026.04
  * @since 2026-06-22
  */
-@WebMvcTest(CategorySpecificationSellerController.class)
+@WebMvcTest(SellerCategorySpecificationController.class)
 public class CategorySpecificationSellerControllerTest {
 
     @Autowired

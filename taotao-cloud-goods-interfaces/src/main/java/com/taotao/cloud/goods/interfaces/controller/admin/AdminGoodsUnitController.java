@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.interfaces.controller.manager;
+package com.taotao.cloud.goods.interfaces.controller.admin;
 
 import com.taotao.boot.common.model.ddd.query.IdQuery;
 import com.taotao.boot.common.model.ddd.command.IdsCommand;
@@ -49,8 +49,8 @@ import org.springframework.web.bind.annotation.*;
 @Validated
 @RestController
 @Tag(name = "平台管理端-商品计量单位API", description = "平台管理端-商品计量单位API")
-@RequestMapping("/manager/goods/goods/unit")
-public class GoodsUnitManagerController extends BusinessController {
+@RequestMapping("/admin/goods/goods/unit")
+public class AdminGoodsUnitController extends BusinessController {
 
 	private final GoodsUnitQueryService goodsUnitQueryService;
 

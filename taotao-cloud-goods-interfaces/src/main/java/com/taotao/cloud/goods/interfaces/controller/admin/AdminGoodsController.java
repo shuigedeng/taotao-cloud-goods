@@ -14,19 +14,16 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.interfaces.controller.manager;
+package com.taotao.cloud.goods.interfaces.controller.admin;
 
 import com.taotao.boot.common.model.ddd.query.IdQuery;
-import com.taotao.boot.common.model.ddd.command.IdsCommand;
 
 import com.taotao.boot.common.model.result.PageResult;
 import com.taotao.boot.common.model.result.Result;
-import com.taotao.boot.data.mybatis.mybatisplus.MpUtils;
 import com.taotao.boot.security.spring.annotation.NotAuth;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
 import com.taotao.cloud.goods.application.dto.goods.command.*;
-import com.taotao.cloud.goods.common.enums.GoodsStatusEnum;
 import com.taotao.cloud.goods.application.dto.goods.query.GoodsPageQuery;
 import com.taotao.cloud.goods.application.dto.goods.result.GoodsResult;
 import com.taotao.cloud.goods.application.dto.goods.result.GoodsSkuParamsResult;
@@ -56,8 +53,8 @@ import org.springframework.web.bind.annotation.*;
 @Validated
 @RestController
 @Tag(name = "平台管理端-商品API", description = "平台管理端-商品API")
-@RequestMapping("/manager/goods")
-public class GoodsManagerController extends BusinessController {
+@RequestMapping("/admin/goods")
+public class AdminGoodsController extends BusinessController {
 
 	private final GoodsQueryService goodsQueryService;
 

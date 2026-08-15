@@ -29,6 +29,8 @@ import com.taotao.cloud.goods.application.dto.category.result.CategoryBrandResul
 import com.taotao.cloud.goods.application.service.command.CategoryBrandCommandService;
 import com.taotao.cloud.goods.application.service.query.CategoryBrandQueryService;
 import java.util.List;
+
+import com.taotao.cloud.goods.interfaces.controller.admin.AdminCategoryBrandController;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,7 +39,7 @@ import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
-@WebMvcTest(CategoryBrandManagerController.class)
+@WebMvcTest(AdminCategoryBrandController.class)
 public class CategoryBrandManagerControllerTest {
 
 	@Autowired
@@ -59,7 +61,7 @@ public class CategoryBrandManagerControllerTest {
 			when(categoryBrandQueryService.queryByCategoryId(anyLong()))
 				.thenReturn(List.of(brand));
 
-			mockMvc.perform(get("/manager/goods/category/brand/query/category-id")
+			mockMvc.perform(get("/admin/goods/category/brand/query/category-id")
 					.param("categoryId", "1"))
 				.andExpect(status().isOk())
 				.andExpect(jsonPath("$.data[0].id").value(1));
@@ -70,7 +72,7 @@ public class CategoryBrandManagerControllerTest {
 			when(categoryBrandQueryService.queryByCategoryId(anyLong()))
 				.thenReturn(List.of());
 
-			mockMvc.perform(get("/manager/goods/category/brand/query/category-id")
+			mockMvc.perform(get("/admin/goods/category/brand/query/category-id")
 					.param("categoryId", "999"))
 				.andExpect(status().isOk())
 				.andExpect(jsonPath("$.data").isEmpty());
@@ -82,7 +84,7 @@ public class CategoryBrandManagerControllerTest {
 
 		@Test
 		void shouldSaveSuccessfully() throws Exception {
-			mockMvc.perform(post("/manager/goods/category/brand/command/category/brands")
+			mockMvc.perform(post("/admin/goods/category/brand/command/category/brands")
 					.contentType(MediaType.APPLICATION_JSON)
 					.content("{\"categoryId\":1,\"brandIds\":[1,2,3]}"))
 				.andExpect(status().isOk());

@@ -23,13 +23,14 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import com.taotao.cloud.goods.application.dto.category.result.CategoryResult;
 import com.taotao.cloud.goods.application.dto.category.result.CategoryTreeResult;
 import com.taotao.cloud.goods.application.service.command.CategoryCommandService;
 import com.taotao.cloud.goods.application.service.command.GoodsCommandService;
 import com.taotao.cloud.goods.application.service.query.CategoryQueryService;
 import com.taotao.cloud.goods.application.service.query.GoodsQueryService;
 import java.util.List;
+
+import com.taotao.cloud.goods.interfaces.controller.admin.AdminCategoryController;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,7 +39,7 @@ import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
-@WebMvcTest(CategoryManagerController.class)
+@WebMvcTest(AdminCategoryController.class)
 public class CategoryManagerControllerTest {
 
 	@Autowired
@@ -61,7 +62,7 @@ public class CategoryManagerControllerTest {
 
 		@Test
 		void shouldReturnNull() throws Exception {
-			mockMvc.perform(get("/manager/goods/category/query/children")
+			mockMvc.perform(get("/admin/goods/category/query/children")
 					.param("parentId", "1"))
 				.andExpect(status().isOk());
 		}
@@ -76,7 +77,7 @@ public class CategoryManagerControllerTest {
 			when(categoryQueryService.queryCategoryTreeResult())
 				.thenReturn(List.of(tree));
 
-			mockMvc.perform(get("/manager/goods/category/query/children/all"))
+			mockMvc.perform(get("/admin/goods/category/query/children/all"))
 				.andExpect(status().isOk())
 				.andExpect(jsonPath("$.data[0].name").value("电子产品"));
 		}
@@ -86,7 +87,7 @@ public class CategoryManagerControllerTest {
 			when(categoryQueryService.queryCategoryTreeResult())
 				.thenReturn(List.of());
 
-			mockMvc.perform(get("/manager/goods/category/query/children/all"))
+			mockMvc.perform(get("/admin/goods/category/query/children/all"))
 				.andExpect(status().isOk())
 				.andExpect(jsonPath("$.data").isEmpty());
 		}
@@ -97,7 +98,7 @@ public class CategoryManagerControllerTest {
 
 		@Test
 		void shouldCreateSuccessfully() throws Exception {
-			mockMvc.perform(post("/manager/goods/category/command/create")
+			mockMvc.perform(post("/admin/goods/category/command/create")
 					.contentType(MediaType.APPLICATION_JSON)
 					.content("{\"name\":\"新分类\",\"parentId\":0}"))
 				.andExpect(status().isOk());
@@ -109,7 +110,7 @@ public class CategoryManagerControllerTest {
 
 		@Test
 		void shouldUpdateSuccessfully() throws Exception {
-			mockMvc.perform(post("/manager/goods/category/command/update")
+			mockMvc.perform(post("/admin/goods/category/command/update")
 					.contentType(MediaType.APPLICATION_JSON)
 					.content("{\"id\":1,\"name\":\"更新分类\"}"))
 				.andExpect(status().isOk());
@@ -121,7 +122,7 @@ public class CategoryManagerControllerTest {
 
 		@Test
 		void shouldDeleteSuccessfully() throws Exception {
-			mockMvc.perform(post("/manager/goods/category/command/delete")
+			mockMvc.perform(post("/admin/goods/category/command/delete")
 					.contentType(MediaType.APPLICATION_JSON)
 					.content("{\"id\":1}"))
 				.andExpect(status().isOk());
@@ -133,7 +134,7 @@ public class CategoryManagerControllerTest {
 
 		@Test
 		void shouldDisableSuccessfully() throws Exception {
-			mockMvc.perform(post("/manager/goods/category/command/disable")
+			mockMvc.perform(post("/admin/goods/category/command/disable")
 					.contentType(MediaType.APPLICATION_JSON)
 					.content("{\"id\":1,\"enable\":false}"))
 				.andExpect(status().isOk());

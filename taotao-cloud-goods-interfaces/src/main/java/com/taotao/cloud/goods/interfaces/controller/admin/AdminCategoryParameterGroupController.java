@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.interfaces.controller.manager;
+package com.taotao.cloud.goods.interfaces.controller.admin;
 
 import com.taotao.boot.common.model.ddd.command.IdCommand;
 
@@ -51,8 +51,8 @@ import java.util.List;
 @Validated
 @RestController
 @Tag(name = "平台管理端-分类绑定参数组API", description = "平台管理端-分类绑定参数组API")
-@RequestMapping("/manager/goods/category/parameters")
-public class CategoryParameterGroupManagerController extends BusinessController {
+@RequestMapping("/admin/goods/category/parameters")
+public class AdminCategoryParameterGroupController extends BusinessController {
 
 	private final ParametersQueryService parametersQueryService;
 

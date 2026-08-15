@@ -34,6 +34,7 @@ import com.taotao.cloud.goods.application.service.command.GoodsCommandService;
 import com.taotao.cloud.goods.application.service.command.GoodsSkuCommandService;
 import com.taotao.cloud.goods.application.service.query.GoodsQueryService;
 import com.taotao.cloud.goods.application.service.query.GoodsSkuQueryService;
+import com.taotao.cloud.goods.interfaces.controller.admin.AdminGoodsController;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,7 +43,7 @@ import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
-@WebMvcTest(GoodsManagerController.class)
+@WebMvcTest(AdminGoodsController.class)
 public class GoodsManagerControllerTest {
 
 	@Autowired
@@ -68,7 +69,7 @@ public class GoodsManagerControllerTest {
 			when(goodsQueryService.queryGoodsPage(any(GoodsPageQuery.class)))
 				.thenReturn(PageResult.<GoodsResult>builder().build());
 
-			mockMvc.perform(get("/manager/goods/query/page")
+			mockMvc.perform(get("/admin/goods/query/page")
 					.param("page", "1")
 					.param("size", "10"))
 				.andExpect(status().isOk());
@@ -80,7 +81,7 @@ public class GoodsManagerControllerTest {
 
 		@Test
 		void shouldReturnNull() throws Exception {
-			mockMvc.perform(get("/manager/goods/query/sku/page")
+			mockMvc.perform(get("/admin/goods/query/sku/page")
 					.param("page", "1")
 					.param("size", "10"))
 				.andExpect(status().isOk());
@@ -92,7 +93,7 @@ public class GoodsManagerControllerTest {
 
 		@Test
 		void shouldReturnNull() throws Exception {
-			mockMvc.perform(get("/manager/goods/query/auth/page")
+			mockMvc.perform(get("/admin/goods/query/auth/page")
 					.param("page", "1")
 					.param("size", "10"))
 				.andExpect(status().isOk());
@@ -107,7 +108,7 @@ public class GoodsManagerControllerTest {
 			GoodsResult result = GoodsResultBuilder.builder().id(1L).build();
 			when(goodsCommandService.createGoods(any())).thenReturn(result);
 
-			mockMvc.perform(post("/manager/goods/command/create")
+			mockMvc.perform(post("/admin/goods/command/create")
 					.contentType(MediaType.APPLICATION_JSON)
 					.content("{\"goodsName\":\"测试商品\",\"categoryId\":1}"))
 				.andExpect(status().isOk())
@@ -120,7 +121,7 @@ public class GoodsManagerControllerTest {
 
 		@Test
 		void shouldUnderSuccessfully() throws Exception {
-			mockMvc.perform(post("/manager/goods/command/under")
+			mockMvc.perform(post("/admin/goods/command/under")
 					.contentType(MediaType.APPLICATION_JSON)
 					.content("{\"goodsIds\":[1,2],\"reason\":\"下架\"}"))
 				.andExpect(status().isOk());
@@ -132,7 +133,7 @@ public class GoodsManagerControllerTest {
 
 		@Test
 		void shouldUnderxxSuccessfully() throws Exception {
-			mockMvc.perform(post("/manager/goods/command/underxx")
+			mockMvc.perform(post("/admin/goods/command/underxx")
 					.contentType(MediaType.APPLICATION_JSON)
 					.content("{\"params\":\"test\"}"))
 				.andExpect(status().isOk());
@@ -144,7 +145,7 @@ public class GoodsManagerControllerTest {
 
 		@Test
 		void shouldAuthSuccessfully() throws Exception {
-			mockMvc.perform(post("/manager/goods/command/auth")
+			mockMvc.perform(post("/admin/goods/command/auth")
 					.contentType(MediaType.APPLICATION_JSON)
 					.content("{\"goodsIds\":[1],\"authFlag\":\"PASS\"}"))
 				.andExpect(status().isOk());
@@ -156,7 +157,7 @@ public class GoodsManagerControllerTest {
 
 		@Test
 		void shouldUpGoodsSuccessfully() throws Exception {
-			mockMvc.perform(post("/manager/goods/command/up")
+			mockMvc.perform(post("/admin/goods/command/up")
 					.contentType(MediaType.APPLICATION_JSON)
 					.content("{\"goodsIds\":[1,2]}"))
 				.andExpect(status().isOk());
@@ -172,7 +173,7 @@ public class GoodsManagerControllerTest {
 				.build();
 			when(goodsQueryService.queryDetail(anyLong())).thenReturn(detail);
 
-			mockMvc.perform(get("/manager/goods/query/detail")
+			mockMvc.perform(get("/admin/goods/query/detail")
 					.param("id", "1"))
 				.andExpect(status().isOk())
 				.andExpect(jsonPath("$.data.id").value(1));
@@ -182,7 +183,7 @@ public class GoodsManagerControllerTest {
 		void shouldReturnNullWhenGoodsNotExists() throws Exception {
 			when(goodsQueryService.queryDetail(99999L)).thenReturn(null);
 
-			mockMvc.perform(get("/manager/goods/query/detail")
+			mockMvc.perform(get("/admin/goods/query/detail")
 					.param("id", "99999"))
 				.andExpect(status().isOk());
 		}

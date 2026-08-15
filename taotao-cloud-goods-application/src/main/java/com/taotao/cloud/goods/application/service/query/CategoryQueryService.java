@@ -78,7 +78,7 @@ public interface CategoryQueryService extends QueryService {
      * @param parentId 分类父ID
      * @return 所有的分类，父子关系
      */
-    List<CategoryTreeResult> queryCategoryTreeByParentId(Long parentId);
+    List<CategoryTreeResult> queryCategoryTree(Long parentId);
 
     /**
      * 查询所有的分类，父子关系 数据库获取

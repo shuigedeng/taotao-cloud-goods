@@ -22,10 +22,11 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import com.taotao.cloud.goods.application.dto.parameter.result.ParameterGroupResult;
 import com.taotao.cloud.goods.application.dto.parameter.result.ParameterGroupResultBuilder;
 import com.taotao.cloud.goods.application.service.query.CategoryParameterGroupQueryService;
 import java.util.List;
+
+import com.taotao.cloud.goods.interfaces.controller.admin.AdminCategoryParameterGroupController;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,7 +41,7 @@ import org.springframework.test.web.servlet.MockMvc;
  * @version 2026.04
  * @since 2026-06-22
  */
-@WebMvcTest(CategoryParameterGroupManagerController.class)
+@WebMvcTest(AdminCategoryParameterGroupController.class)
 public class CategoryParameterGroupManagerControllerTest {
 
     @Autowired
@@ -59,7 +60,7 @@ public class CategoryParameterGroupManagerControllerTest {
                     ParameterGroupResultBuilder.builder().groupId(1L).groupName("基本参数").build()
                 ));
 
-            mockMvc.perform(get("/manager/goods/category/parameters/query/category-id")
+            mockMvc.perform(get("/admin/goods/category/parameters/query/category-id")
                     .param("categoryId", "1"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.data[0].groupName").value("基本参数"));
@@ -70,7 +71,7 @@ public class CategoryParameterGroupManagerControllerTest {
             when(categoryParameterGroupQueryService.queryCategoryParams(99999L))
                 .thenReturn(List.of());
 
-            mockMvc.perform(get("/manager/goods/category/parameters/query/category-id")
+            mockMvc.perform(get("/admin/goods/category/parameters/query/category-id")
                     .param("categoryId", "99999"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.data").isEmpty());

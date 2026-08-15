@@ -54,7 +54,7 @@ import java.util.List;
 @RestController
 @Tag(name = "商户端-店铺分类API", description = "商户端-店铺分类API")
 @RequestMapping("/seller/goods/label")
-public class GoodsLabelSellerController extends BusinessController {
+public class SellerGoodsLabelController extends BusinessController {
 
 	private final StoreGoodsLabelQueryService storeGoodsLabelQueryService;
 

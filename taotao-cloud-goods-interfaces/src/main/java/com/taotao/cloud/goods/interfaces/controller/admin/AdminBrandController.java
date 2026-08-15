@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.interfaces.controller.manager;
+package com.taotao.cloud.goods.interfaces.controller.admin;
 
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.taotao.boot.common.model.ddd.command.IdsCommand;
@@ -59,8 +59,8 @@ import java.util.List;
 @Validated
 @RestController
 @Tag(name = "平台管理端-品牌API", description = "平台管理端-品牌API")
-@RequestMapping("/manager/goods/brand")
-public class BrandManagerController extends BusinessController {
+@RequestMapping("/admin/goods/brand")
+public class AdminBrandController extends BusinessController {
 
 	private final BrandCommandService brandCommandService;
 

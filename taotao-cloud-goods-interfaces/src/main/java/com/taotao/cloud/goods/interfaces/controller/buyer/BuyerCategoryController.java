@@ -49,7 +49,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @Tag(name = "买家端-商品分类API", description = "买家端-商品分类API")
 @RequestMapping("/buyer/goods/category")
-public class CategoryBuyerController extends BusinessController {
+public class BuyerCategoryController extends BusinessController {
 
     private final CategoryCommandService categoryCommandService;
 
@@ -59,8 +59,8 @@ public class CategoryBuyerController extends BusinessController {
     @RequestLogger
     @Operation(summary = "根据父id获取商品分类列表", description = "根据父id获取商品分类列表")
     @GetMapping(value = "/query/tree")
-    public Result<List<CategoryTreeResult>> queryCategoryTreeByParentId( CategoryTreeQuery categoryTreeQuery) {
-		List<CategoryTreeResult> result = categoryQueryService.queryCategoryTreeByParentId(categoryTreeQuery.parentId());
+    public Result<List<CategoryTreeResult>> queryCategoryTree( CategoryTreeQuery categoryTreeQuery) {
+		List<CategoryTreeResult> result = categoryQueryService.queryCategoryTree(categoryTreeQuery.parentId());
 		return Result.success(result);
     }
 }

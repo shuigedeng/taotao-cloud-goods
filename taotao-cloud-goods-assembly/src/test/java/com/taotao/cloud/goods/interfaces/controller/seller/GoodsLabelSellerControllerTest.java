@@ -36,7 +36,7 @@ import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
-@WebMvcTest(GoodsLabelSellerController.class)
+@WebMvcTest(SellerGoodsLabelController.class)
 public class GoodsLabelSellerControllerTest {
 
 	@Autowired

@@ -113,7 +113,7 @@ public class CategoryQueryServiceImpl implements CategoryQueryService {
 	}
 
     @Override
-    public List<CategoryTreeResult> queryCategoryTreeByParentId(Long parentId) {
+    public List<CategoryTreeResult> queryCategoryTree(Long parentId) {
 		if (Long.valueOf(0).equals(parentId)) {
 			return queryCategoryTree();
 		}

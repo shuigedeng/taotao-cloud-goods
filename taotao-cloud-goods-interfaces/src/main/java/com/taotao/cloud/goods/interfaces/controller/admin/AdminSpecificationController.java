@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.interfaces.controller.manager;
+package com.taotao.cloud.goods.interfaces.controller.admin;
 
 import com.taotao.boot.common.model.ddd.command.IdsCommand;
 
@@ -51,8 +51,8 @@ import java.util.List;
 @Validated
 @RestController
 @Tag(name = "平台管理端-商品规格API", description = "平台管理端-商品规格API")
-@RequestMapping("/manager/goods/spec")
-public class SpecificationManagerController extends BusinessController {
+@RequestMapping("/admin/goods/spec")
+public class AdminSpecificationController extends BusinessController {
 
 	private final SpecificationQueryService specificationQueryService;
 

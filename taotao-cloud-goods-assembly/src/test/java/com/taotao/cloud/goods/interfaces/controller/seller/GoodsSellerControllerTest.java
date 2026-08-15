@@ -40,7 +40,7 @@ import org.springframework.test.web.servlet.MockMvc;
  * @version 2026.04
  * @since 2026-06-22
  */
-@WebMvcTest(GoodsSellerController.class)
+@WebMvcTest(SellerGoodsController.class)
 public class GoodsSellerControllerTest {
 
     @Autowired

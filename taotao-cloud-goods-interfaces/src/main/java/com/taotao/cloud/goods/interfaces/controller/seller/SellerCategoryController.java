@@ -52,7 +52,7 @@ import java.util.List;
 @RestController
 @Tag(name = "商户端-商品分类API", description = "商户端-商品分类API")
 @RequestMapping("/seller/goods/category/store")
-public class CategorySellerController extends BusinessController {
+public class SellerCategoryController extends BusinessController {
 
 	private final CategoryQueryService categoryQueryService;
 

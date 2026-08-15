@@ -6,9 +6,9 @@
 
 | 角色 | 前缀 | 示例 Controller |
 |------|------|----------------|
-| 买家端 | `/buyer/goods/...` | `GoodsBuyerController` |
-| 卖家端 | `/seller/goods/...` | `GoodsSellerController` |
-| 管理端 | `/manager/goods/...` | `GoodsManagerController` |
+| 买家端 | `/buyer/goods/...` | `BuyerGoodsController` |
+| 卖家端 | `/seller/goods/...` | `SellerGoodsController` |
+| 管理端 | `/manager/goods/...` | `AdminGoodsController` |
 | 内部 API | `/inner/goods/...` | `GoodsCommandApiController` |
 | 开放平台 | `/open/...` | `AlipayNotifyController` |
 

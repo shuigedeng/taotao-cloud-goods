@@ -16,14 +16,13 @@
 
 package com.taotao.cloud.goods.interfaces.controller.seller;
 
-import com.taotao.boot.common.model.ddd.query.PageQuery;
-import com.taotao.boot.common.model.result.PageResult;
 import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
-import com.taotao.cloud.goods.application.dto.goods.result.GoodsUnitResult;
-import com.taotao.cloud.goods.application.service.command.GoodsUnitCommandService;
-import com.taotao.cloud.goods.application.service.query.GoodsUnitQueryService;
+import com.taotao.cloud.goods.application.dto.category.query.CategoryIdQuery;
+import com.taotao.cloud.goods.application.dto.specification.result.SpecificationResult;
+import com.taotao.cloud.goods.application.service.command.CategorySpecificationCommandService;
+import com.taotao.cloud.goods.application.service.query.CategorySpecificationQueryService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
@@ -33,35 +32,36 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 /**
- * 商户端-商品计量单位接口
+ * 商户端-规格接口
  * <p>
- * 提供商户端的商品计量单位查询 REST API
+ * 提供商户端的商品规格查询 REST API
  * </p>
  *
  * @author shuigedeng
  * @version 2022.04
- * @since 2022-04-14 21:05:11
+ * @since 2022-04-14 20:51:29
  */
 @RequiredArgsConstructor
 @Validated
 @RestController
-@Tag(name = "商户端-商品计量单位API", description = "商户端-商品计量单位API")
-@RequestMapping("/seller/goods/unit")
-public class GoodsUnitSellerController extends BusinessController {
+@Tag(name = "商户端-规格API", description = "商户端-规格API")
+@RequestMapping("/seller/goods/specification")
+@RequestLogger
+public class SellerSpecificationController extends BusinessController {
 
-	private final GoodsUnitQueryService goodsUnitQueryService;
+	private final CategorySpecificationQueryService categorySpecificationQueryService;
 
-	private final GoodsUnitCommandService goodsUnitCommandService;
+	private final CategorySpecificationCommandService categorySpecificationCommandService;
 
-	@Operation(summary = "分页获取商品计量单位", description = "分页获取商品计量单位")
-	@RequestLogger
+	@Operation(summary = "获取分类规格", description = "获取分类规格")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@GetMapping("/query/page")
-	public Result<PageResult<GoodsUnitResult>> queryByPage( PageQuery pageQuery ) {
-//            IPage<GoodsUnitPO> page = goodsUnitQueryService.page(MpUtils.buildMpPage(pageQuery));
-//            return Result.success(MpUtils.convertMpPage(page,
-//     GoodsUnitAssembler.INSTANCE::convert));
-		return null;
+	@GetMapping(value = "/query/category-id")
+	public Result<List<SpecificationResult>> queryByCategoryId( CategoryIdQuery categoryIdQuery ) {
+		List<SpecificationResult> categorySpecList = categorySpecificationQueryService.queryByCategoryId(
+				categoryIdQuery.categoryId());
+		return Result.success(categorySpecList);
 	}
 }

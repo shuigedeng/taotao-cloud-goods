@@ -60,7 +60,7 @@ import java.util.List;
 @RestController
 @Tag(name = "商户端-商品API", description = "商户端-商品API")
 @RequestMapping("/seller/goods")
-public class GoodsSellerController extends BusinessController {
+public class SellerGoodsController extends BusinessController {
 
 	private final GoodsQueryService goodsQueryService;
 

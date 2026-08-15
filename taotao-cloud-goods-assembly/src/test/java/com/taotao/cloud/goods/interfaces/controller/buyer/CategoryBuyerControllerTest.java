@@ -30,7 +30,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
-import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 
 /**
@@ -40,7 +39,7 @@ import org.springframework.test.web.servlet.MockMvc;
  * @version 2026.04
  * @since 2026-06-22
  */
-@WebMvcTest(CategoryBuyerController.class)
+@WebMvcTest(BuyerCategoryController.class)
 public class CategoryBuyerControllerTest {
 
     @Autowired
@@ -56,7 +55,7 @@ public class CategoryBuyerControllerTest {
         void shouldReturnCategoryTreeByParentId() throws Exception {
             CategoryTreeResult treeNode = new CategoryTreeResult();
             treeNode.setId(1L);
-            when(categoryQueryService.queryCategoryTreeByParentId(anyLong()))
+            when(categoryQueryService.queryCategoryTree(anyLong()))
                 .thenReturn(List.of(treeNode));
 
             mockMvc.perform(get("/buyer/goods/category/query/tree/parent-id")
@@ -67,7 +66,7 @@ public class CategoryBuyerControllerTest {
 
         @Test
         void shouldReturnEmptyListWhenParentIdNotExists() throws Exception {
-            when(categoryQueryService.queryCategoryTreeByParentId(99999L))
+            when(categoryQueryService.queryCategoryTree(99999L))
                 .thenReturn(List.of());
 
             mockMvc.perform(get("/buyer/goods/category/query/tree/parent-id")

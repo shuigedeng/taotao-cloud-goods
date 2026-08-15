@@ -25,6 +25,7 @@ import com.taotao.boot.common.model.result.PageResult;
 import com.taotao.cloud.goods.application.dto.brand.query.BrandPageQuery;
 import com.taotao.cloud.goods.application.dto.brand.result.BrandResult;
 import com.taotao.cloud.goods.application.service.query.BrandQueryService;
+import com.taotao.cloud.goods.interfaces.controller.admin.AdminBrandController;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,7 +40,7 @@ import org.springframework.test.web.servlet.MockMvc;
  * @version 2026.04
  * @since 2026-06-22
  */
-@WebMvcTest(BrandManagerController.class)
+@WebMvcTest(AdminBrandController.class)
 public class BrandManagerControllerTest {
 
     @Autowired
@@ -56,7 +57,7 @@ public class BrandManagerControllerTest {
             when(brandQueryService.queryPage(any(BrandPageQuery.class)))
                 .thenReturn(PageResult.<BrandResult>builder().build());
 
-            mockMvc.perform(get("/manager/goods/brand/query/page")
+            mockMvc.perform(get("/admin/goods/brand/query/page")
                     .param("name", "test"))
                 .andExpect(status().isOk());
         }

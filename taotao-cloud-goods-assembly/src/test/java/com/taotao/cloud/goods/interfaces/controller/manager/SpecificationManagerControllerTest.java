@@ -22,6 +22,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import com.taotao.cloud.goods.application.service.command.SpecificationCommandService;
 import com.taotao.cloud.goods.application.service.query.SpecificationQueryService;
+import com.taotao.cloud.goods.interfaces.controller.admin.AdminSpecificationController;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +31,7 @@ import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
-@WebMvcTest(SpecificationManagerController.class)
+@WebMvcTest(AdminSpecificationController.class)
 public class SpecificationManagerControllerTest {
 
 	@Autowired
@@ -47,7 +48,7 @@ public class SpecificationManagerControllerTest {
 
 		@Test
 		void shouldReturnNull() throws Exception {
-			mockMvc.perform(get("/manager/goods/spec/query/all"))
+			mockMvc.perform(get("/admin/goods/spec/query/all"))
 				.andExpect(status().isOk());
 		}
 	}
@@ -57,7 +58,7 @@ public class SpecificationManagerControllerTest {
 
 		@Test
 		void shouldReturnNull() throws Exception {
-			mockMvc.perform(get("/manager/goods/spec/query/page")
+			mockMvc.perform(get("/admin/goods/spec/query/page")
 					.param("specName", "颜色"))
 				.andExpect(status().isOk());
 		}
@@ -68,7 +69,7 @@ public class SpecificationManagerControllerTest {
 
 		@Test
 		void shouldCreateSuccessfully() throws Exception {
-			mockMvc.perform(post("/manager/goods/spec/command/create")
+			mockMvc.perform(post("/admin/goods/spec/command/create")
 					.contentType(MediaType.APPLICATION_JSON)
 					.content("{\"specName\":\"颜色\",\"specValue\":\"红,蓝\"}"))
 				.andExpect(status().isOk());
@@ -80,7 +81,7 @@ public class SpecificationManagerControllerTest {
 
 		@Test
 		void shouldUpdateSuccessfully() throws Exception {
-			mockMvc.perform(post("/manager/goods/spec/command/update")
+			mockMvc.perform(post("/admin/goods/spec/command/update")
 					.contentType(MediaType.APPLICATION_JSON)
 					.content("{\"id\":1,\"specName\":\"尺寸\",\"specValue\":\"S,M,L\"}"))
 				.andExpect(status().isOk());
@@ -92,7 +93,7 @@ public class SpecificationManagerControllerTest {
 
 		@Test
 		void shouldDeleteBatchSuccessfully() throws Exception {
-			mockMvc.perform(post("/manager/goods/spec/command/delete-batch")
+			mockMvc.perform(post("/admin/goods/spec/command/delete-batch")
 					.contentType(MediaType.APPLICATION_JSON)
 					.content("{\"ids\":[1,2,3]}"))
 				.andExpect(status().isOk());

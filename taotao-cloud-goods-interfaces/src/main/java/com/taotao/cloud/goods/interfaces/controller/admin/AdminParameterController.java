@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.interfaces.controller.manager;
+package com.taotao.cloud.goods.interfaces.controller.admin;
 
 import com.taotao.boot.common.model.ddd.command.IdCommand;
 
@@ -45,8 +45,8 @@ import org.springframework.web.bind.annotation.*;
 @Validated
 @RestController
 @Tag(name = "平台管理端-参数API", description = "平台管理端-参数API")
-@RequestMapping("/manager/goods/parameters")
-public class ParameterManagerController extends BusinessController {
+@RequestMapping("/admin/goods/parameters")
+public class AdminParameterController extends BusinessController {
 
 	private final ParametersQueryService parametersQueryService;
 

@@ -56,7 +56,7 @@ import java.util.Map;
 @RestController
 @Tag(name = "买家端-商品API", description = "买家端-商品API")
 @RequestMapping("/buyer/goods")
-public class GoodsBuyerController extends BusinessController {
+public class BuyerGoodsController extends BusinessController {
 
 	private final GoodsCommandService goodsCommandService;
 

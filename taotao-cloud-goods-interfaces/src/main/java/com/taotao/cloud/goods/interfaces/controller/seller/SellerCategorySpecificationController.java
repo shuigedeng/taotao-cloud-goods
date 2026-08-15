@@ -35,33 +35,32 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 /**
- * 商户端-规格接口
+ * 商户端-商品分类规格接口
  * <p>
- * 提供商户端的商品规格查询 REST API
+ * 提供商户端的商品分类规格查询 REST API
  * </p>
  *
  * @author shuigedeng
  * @version 2022.04
- * @since 2022-04-14 20:51:29
+ * @since 2022-04-20 16:59:38
  */
 @RequiredArgsConstructor
 @Validated
 @RestController
-@Tag(name = "商户端-规格API", description = "商户端-规格API")
-@RequestMapping("/seller/goods/specification")
-@RequestLogger
-public class SpecificationSellerController extends BusinessController {
+@Tag(name = "商户端-商品分类规格API", description = "商户端-商品分类规格API")
+@RequestMapping("/seller/goods/category/spec")
+public class SellerCategorySpecificationController extends BusinessController {
 
 	private final CategorySpecificationQueryService categorySpecificationQueryService;
 
 	private final CategorySpecificationCommandService categorySpecificationCommandService;
 
-	@Operation(summary = "获取分类规格", description = "获取分类规格")
+	@Operation(summary = "查询某分类下绑定的规格信息", description = "查询某分类下绑定的规格信息")
+	@RequestLogger("查询某分类下绑定的规格信息")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/category-id")
-	public Result<List<SpecificationResult>> queryByCategoryId( CategoryIdQuery categoryIdQuery ) {
-		List<SpecificationResult> categorySpecList = categorySpecificationQueryService.queryByCategoryId(
-				categoryIdQuery.categoryId());
-		return Result.success(categorySpecList);
+	public Result<List<SpecificationResult>> queryByCategoryId( CategoryIdQuery categoryIdQuery) {
+		List<SpecificationResult> result = categorySpecificationQueryService.queryByCategoryId(categoryIdQuery.categoryId());
+		return Result.success(result);
 	}
 }

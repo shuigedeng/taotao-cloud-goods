@@ -30,6 +30,8 @@ import com.taotao.cloud.goods.application.service.command.SpecificationCommandSe
 import com.taotao.cloud.goods.application.service.query.CategorySpecificationQueryService;
 import com.taotao.cloud.goods.application.service.query.SpecificationQueryService;
 import java.util.List;
+
+import com.taotao.cloud.goods.interfaces.controller.admin.AdminCategorySpecificationController;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,7 +40,7 @@ import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
-@WebMvcTest(CategorySpecificationManagerController.class)
+@WebMvcTest(AdminCategorySpecificationController.class)
 public class CategorySpecificationManagerControllerTest {
 
 	@Autowired
@@ -68,7 +70,7 @@ public class CategorySpecificationManagerControllerTest {
 			when(categorySpecificationQueryService.queryByCategoryId(anyLong()))
 				.thenReturn(List.of(spec));
 
-			mockMvc.perform(get("/manager/goods/category/spec/query/category-id")
+			mockMvc.perform(get("/admin/goods/category/spec/query/category-id")
 					.param("categoryId", "1"))
 				.andExpect(status().isOk())
 				.andExpect(jsonPath("$.data[0].specName").value("颜色"));
@@ -79,7 +81,7 @@ public class CategorySpecificationManagerControllerTest {
 			when(categorySpecificationQueryService.queryByCategoryId(anyLong()))
 				.thenReturn(List.of());
 
-			mockMvc.perform(get("/manager/goods/category/spec/query/category-id")
+			mockMvc.perform(get("/admin/goods/category/spec/query/category-id")
 					.param("categoryId", "999"))
 				.andExpect(status().isOk())
 				.andExpect(jsonPath("$.data").isEmpty());
@@ -91,7 +93,7 @@ public class CategorySpecificationManagerControllerTest {
 
 		@Test
 		void shouldReturnNull() throws Exception {
-			mockMvc.perform(get("/manager/goods/category/spec/query/goods/category-id")
+			mockMvc.perform(get("/admin/goods/category/spec/query/goods/category-id")
 					.param("categoryId", "1"))
 				.andExpect(status().isOk());
 		}
@@ -102,7 +104,7 @@ public class CategorySpecificationManagerControllerTest {
 
 		@Test
 		void shouldCreateSuccessfully() throws Exception {
-			mockMvc.perform(post("/manager/goods/category/spec/command/create")
+			mockMvc.perform(post("/admin/goods/category/spec/command/create")
 					.contentType(MediaType.APPLICATION_JSON)
 					.content("{\"categoryId\":1,\"specIds\":[1,2]}"))
 				.andExpect(status().isOk());

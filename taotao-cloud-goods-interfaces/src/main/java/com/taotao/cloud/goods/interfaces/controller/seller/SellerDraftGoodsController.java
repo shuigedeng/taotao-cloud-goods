@@ -51,7 +51,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @Tag(name = "商户端-草稿商品API", description = "商户端-草稿商品API")
 @RequestMapping("/seller/goods/draft/goods")
-public class DraftGoodsSellerController extends BusinessController {
+public class SellerDraftGoodsController extends BusinessController {
 
 	private final DraftGoodsQueryService draftGoodsQueryService;
 

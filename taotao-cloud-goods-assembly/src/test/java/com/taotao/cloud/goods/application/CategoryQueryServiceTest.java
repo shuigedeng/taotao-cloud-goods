@@ -50,13 +50,13 @@ public class CategoryQueryServiceTest extends TaoTaoCloudGoodsApplicationTests {
 
         @Test
         void shouldReturnCategoryTreeByParentId() {
-            List<CategoryTreeResult> tree = categoryQueryService.queryCategoryTreeByParentId(0L);
+            List<CategoryTreeResult> tree = categoryQueryService.queryCategoryTree(0L);
             assertThat(tree).isNotNull();
         }
 
         @Test
         void shouldReturnEmptyWhenParentIdNotExists() {
-            List<CategoryTreeResult> tree = categoryQueryService.queryCategoryTreeByParentId(99999L);
+            List<CategoryTreeResult> tree = categoryQueryService.queryCategoryTree(99999L);
             assertThat(tree).isNotNull();
         }
     }

@@ -16,16 +16,16 @@
 
 package com.taotao.cloud.goods.interfaces.controller.seller;
 
+import com.taotao.boot.common.model.ddd.query.PageQuery;
+import com.taotao.boot.common.model.result.PageResult;
 import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
-import com.taotao.cloud.goods.application.dto.category.query.CategoryIdQuery;
-import com.taotao.cloud.goods.application.dto.parameter.result.ParameterGroupResult;
-import com.taotao.cloud.goods.application.service.command.CategoryParameterGroupCommandService;
-import com.taotao.cloud.goods.application.service.query.CategoryParameterGroupQueryService;
+import com.taotao.cloud.goods.application.dto.goods.result.GoodsUnitResult;
+import com.taotao.cloud.goods.application.service.command.GoodsUnitCommandService;
+import com.taotao.cloud.goods.application.service.query.GoodsUnitQueryService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
@@ -34,31 +34,34 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * 商户端-分类绑定参数组接口
+ * 商户端-商品计量单位接口
  * <p>
- * 提供商户端的分类参数组查询 REST API
+ * 提供商户端的商品计量单位查询 REST API
  * </p>
  *
  * @author shuigedeng
  * @version 2022.04
- * @since 2022-04-20 16:59:38
+ * @since 2022-04-14 21:05:11
  */
 @RequiredArgsConstructor
 @Validated
 @RestController
-@Tag(name = "商户端-分类绑定参数组API", description = "商户端-分类绑定参数组API")
-@RequestMapping("/seller/goods/category/parameters")
-public class CategoryParameterGroupSellerController extends BusinessController {
+@Tag(name = "商户端-商品计量单位API", description = "商户端-商品计量单位API")
+@RequestMapping("/seller/goods/unit")
+public class SellerGoodsUnitController extends BusinessController {
 
-    private final CategoryParameterGroupQueryService categoryParameterGroupQueryService;
+	private final GoodsUnitQueryService goodsUnitQueryService;
 
-    private final CategoryParameterGroupCommandService categoryParameterGroupCommandService;
+	private final GoodsUnitCommandService goodsUnitCommandService;
 
-    @Operation(summary = "查询某分类下绑定的参数信息", description = "查询某分类下绑定的参数信息")
-    @RequestLogger("查询某分类下绑定的参数信息")
-    @PreAuthorize("hasAuthority('dept:tree:data')")
-    @GetMapping(value = "/query/category-id")
-    public Result<List<ParameterGroupResult>> queryByCategoryId( CategoryIdQuery categoryIdQuery) {
-        return Result.success(categoryParameterGroupQueryService.queryCategoryParams(categoryIdQuery.categoryId()));
-    }
+	@Operation(summary = "分页获取商品计量单位", description = "分页获取商品计量单位")
+	@RequestLogger
+	@PreAuthorize("hasAuthority('dept:tree:data')")
+	@GetMapping("/query/page")
+	public Result<PageResult<GoodsUnitResult>> queryByPage( PageQuery pageQuery ) {
+//            IPage<GoodsUnitPO> page = goodsUnitQueryService.page(MpUtils.buildMpPage(pageQuery));
+//            return Result.success(MpUtils.convertMpPage(page,
+//     GoodsUnitAssembler.INSTANCE::convert));
+		return null;
+	}
 }

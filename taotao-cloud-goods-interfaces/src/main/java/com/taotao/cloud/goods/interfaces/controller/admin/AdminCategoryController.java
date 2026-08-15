@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.interfaces.controller.manager;
+package com.taotao.cloud.goods.interfaces.controller.admin;
 
 import com.taotao.boot.common.model.ddd.command.IdCommand;
 
@@ -54,8 +54,8 @@ import java.util.List;
 @Validated
 @RestController
 @Tag(name = "平台管理端-商品分类API", description = "平台管理端-商品分类API")
-@RequestMapping("/manager/goods/category")
-public class CategoryManagerController extends BusinessController {
+@RequestMapping("/admin/goods/category")
+public class AdminCategoryController extends BusinessController {
 
 	private final CategoryQueryService categoryQueryService;
 

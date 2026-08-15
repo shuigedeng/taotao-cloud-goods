@@ -24,7 +24,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import com.taotao.boot.common.model.result.PageResult;
-import com.taotao.cloud.goods.application.dto.goods.query.GoodsOtherPageQuery;
 import com.taotao.cloud.goods.application.dto.goods.query.GoodsPageQuery;
 import com.taotao.cloud.goods.application.dto.goods.result.GoodsResult;
 import com.taotao.cloud.goods.application.dto.goods.result.GoodsSkuParamsResult;
@@ -45,7 +44,7 @@ import org.springframework.test.web.servlet.MockMvc;
  * @version 2026.04
  * @since 2026-06-22
  */
-@WebMvcTest(GoodsBuyerController.class)
+@WebMvcTest(BuyerGoodsController.class)
 public class GoodsBuyerControllerTest {
 
     @Autowired

@@ -21,6 +21,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import com.taotao.cloud.goods.application.service.command.ParametersCommandService;
 import com.taotao.cloud.goods.application.service.query.ParametersQueryService;
+import com.taotao.cloud.goods.interfaces.controller.admin.AdminParameterController;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +30,7 @@ import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
-@WebMvcTest(ParameterManagerController.class)
+@WebMvcTest(AdminParameterController.class)
 public class ParameterManagerControllerTest {
 
 	@Autowired
@@ -46,7 +47,7 @@ public class ParameterManagerControllerTest {
 
 		@Test
 		void shouldCreateSuccessfully() throws Exception {
-			mockMvc.perform(post("/manager/goods/parameters/command/create")
+			mockMvc.perform(post("/admin/goods/parameters/command/create")
 					.contentType(MediaType.APPLICATION_JSON)
 					.content("{\"name\":\"参数名\",\"groupId\":1}"))
 				.andExpect(status().isOk());
@@ -58,7 +59,7 @@ public class ParameterManagerControllerTest {
 
 		@Test
 		void shouldUpdateSuccessfully() throws Exception {
-			mockMvc.perform(post("/manager/goods/parameters/command/update")
+			mockMvc.perform(post("/admin/goods/parameters/command/update")
 					.contentType(MediaType.APPLICATION_JSON)
 					.content("{\"name\":\"更新参数\",\"groupId\":1}"))
 				.andExpect(status().isOk());
@@ -70,7 +71,7 @@ public class ParameterManagerControllerTest {
 
 		@Test
 		void shouldDeleteSuccessfully() throws Exception {
-			mockMvc.perform(post("/manager/goods/parameters/command/delete")
+			mockMvc.perform(post("/admin/goods/parameters/command/delete")
 					.contentType(MediaType.APPLICATION_JSON)
 					.content("{\"id\":1}"))
 				.andExpect(status().isOk());

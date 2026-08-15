@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.interfaces.controller.manager;
+package com.taotao.cloud.goods.interfaces.controller.admin;
 
 
 import com.taotao.boot.common.model.result.Result;
@@ -48,8 +48,8 @@ import org.springframework.web.bind.annotation.*;
 @Validated
 @RestController
 @Tag(name = "平台管理端-分类品牌API", description = "平台管理端-分类品牌API")
-@RequestMapping("/manager/goods/category/brand")
-public class CategoryBrandManagerController extends BusinessController {
+@RequestMapping("/admin/goods/category/brand")
+public class AdminCategoryBrandController extends BusinessController {
 
     private final CategoryBrandCommandService categoryBrandCommandService;
 

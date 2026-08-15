@@ -22,6 +22,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import com.taotao.cloud.goods.application.service.command.GoodsUnitCommandService;
 import com.taotao.cloud.goods.application.service.query.GoodsUnitQueryService;
+import com.taotao.cloud.goods.interfaces.controller.admin.AdminGoodsUnitController;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +31,7 @@ import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
-@WebMvcTest(GoodsUnitManagerController.class)
+@WebMvcTest(AdminGoodsUnitController.class)
 public class GoodsUnitManagerControllerTest {
 
 	@Autowired
@@ -47,7 +48,7 @@ public class GoodsUnitManagerControllerTest {
 
 		@Test
 		void shouldReturnNull() throws Exception {
-			mockMvc.perform(get("/manager/goods/goods/unit/query/page")
+			mockMvc.perform(get("/admin/goods/goods/unit/query/page")
 					.param("currentPage", "1")
 					.param("pageSize", "10"))
 				.andExpect(status().isOk());
@@ -59,7 +60,7 @@ public class GoodsUnitManagerControllerTest {
 
 		@Test
 		void shouldReturnNull() throws Exception {
-			mockMvc.perform(get("/manager/goods/goods/unit/query")
+			mockMvc.perform(get("/admin/goods/goods/unit/query")
 					.param("id", "1"))
 				.andExpect(status().isOk());
 		}
@@ -70,7 +71,7 @@ public class GoodsUnitManagerControllerTest {
 
 		@Test
 		void shouldCreateSuccessfully() throws Exception {
-			mockMvc.perform(post("/manager/goods/goods/unit/command/create")
+			mockMvc.perform(post("/admin/goods/goods/unit/command/create")
 					.contentType(MediaType.APPLICATION_JSON)
 					.content("{\"name\":\"件\"}"))
 				.andExpect(status().isOk());
@@ -82,7 +83,7 @@ public class GoodsUnitManagerControllerTest {
 
 		@Test
 		void shouldUpdateSuccessfully() throws Exception {
-			mockMvc.perform(post("/manager/goods/goods/unit/commmand/update")
+			mockMvc.perform(post("/admin/goods/goods/unit/commmand/update")
 					.contentType(MediaType.APPLICATION_JSON)
 					.content("{\"id\":1,\"name\":\"箱\"}"))
 				.andExpect(status().isOk());
@@ -94,7 +95,7 @@ public class GoodsUnitManagerControllerTest {
 
 		@Test
 		void shouldDeleteBatchSuccessfully() throws Exception {
-			mockMvc.perform(post("/manager/goods/goods/unit/commnad/delete-batch")
+			mockMvc.perform(post("/admin/goods/goods/unit/commnad/delete-batch")
 					.contentType(MediaType.APPLICATION_JSON)
 					.content("{\"ids\":[1,2,3]}"))
 				.andExpect(status().isOk());
