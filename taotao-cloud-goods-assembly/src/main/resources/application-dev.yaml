@@ -374,16 +374,16 @@ seata:
 #    pull-batch-size: 10
 rocketmq:
   producer:
-    endpoints: 127.0.0.1:18681
+    endpoints: ${remote-ip}:18681
     group: ${spring.application.name}
     access-key: taotaocloud
     secret-key: taotaocloud
-    topic: OrderTopic # 建议配置默认Topic
+    topic: GoodsTopic # 建议配置默认Topic
     request-timeout: 3 # 超时时间(秒)
     ssl-enabled: false # WSL2本地开发建议关闭SSL
   simple-consumer:
-    endpoints: 127.0.0.1:18681
-    consumer-group: springboot_consumer_group
+    endpoints: ${remote-ip}:18681
+    consumer-group: goods_consumer_group
     access-key: taotaocloud
     secret-key: taotaocloud
     topic: OrderTopic
@@ -392,11 +392,11 @@ rocketmq:
     request-timeout: 3
     ssl-enabled: false # WSL2本地开发建议关闭SSL
   push-consumer:
-    endpoints: 127.0.0.1:18681
-    consumer-group: springboot_consumer_group
+    endpoints: ${remote-ip}:18681
+    consumer-group: goods_consumer_group
     access-key: taotaocloud
     secret-key: taotaocloud
-    topic: OrderTopic
+    topic: GoodsTopic
     tag: "*" # 订阅所有Tag
     await-duration: 5 # 长轮询等待时间(秒)
     request-timeout: 3
