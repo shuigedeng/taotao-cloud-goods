@@ -17,7 +17,7 @@
 package com.taotao.cloud.goods.application.service.command.impl;
 
 import com.taotao.boot.data.datasource.wrapper.TransactionSynchronizationWrapper;
-import com.taotao.boot.data.datasource.wrapper.TransactionalWrapper;
+import com.taotao.boot.data.datasource.wrapper.TransactionWrapper;
 import com.taotao.boot.data.mybatis.utils.MybatisUtil;
 import com.taotao.boot.ddd.model.event.EventDispatcher;
 import com.taotao.boot.security.spring.support.core.details.TtcUser;
@@ -25,8 +25,6 @@ import com.taotao.boot.security.spring.support.utils.SecurityUtils;
 import com.taotao.cloud.goods.application.dto.goods.command.*;
 import com.taotao.cloud.goods.application.dto.store.command.StoreIdCommand;
 import com.taotao.cloud.goods.application.dto.store.command.UpdateStoreParamsCommand;
-import com.taotao.cloud.goods.common.enums.GoodsAuthEnum;
-import com.taotao.cloud.goods.common.enums.GoodsStatusEnum;
 import com.taotao.cloud.goods.application.assembler.GoodsAppAssembler;
 import com.taotao.cloud.goods.application.dto.goods.result.GoodsResult;
 import com.taotao.cloud.goods.application.support.factory.GoodsFactory;
@@ -34,11 +32,9 @@ import com.taotao.cloud.goods.application.service.command.GoodsCommandService;
 import com.taotao.cloud.goods.domain.aggregate.GoodsAgg;
 import com.taotao.cloud.goods.domain.repository.GoodsDomainRepository;
 
-import java.util.ArrayList;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 /**
  * 商品命令服务实现
@@ -58,53 +54,42 @@ public class GoodsCommandServiceImpl implements GoodsCommandService {
 //    private final GoodsTagDomainRepository goodsTagDomainRepository;
     private final GoodsDomainRepository goodsDomainRepository;
     private final GoodsAppAssembler goodsAppAssembler;
-	private final TransactionalWrapper transactionalWrapper;
-	private final MybatisUtil mybatisUtil;
-	private final TransactionSynchronizationWrapper txSynchronizationWrapper;
+	private final TransactionWrapper transactionWrapper;
+	private final TransactionSynchronizationWrapper transactionSynchronizationWrapper;
 	private final EventDispatcher eventDispatcher;
+	private final MybatisUtil mybatisUtil;
     @Override
-    public boolean underStoreGoods( StoreIdCommand storeIdCommand) {
-        return false;
+    public void underStoreGoods( StoreIdCommand storeIdCommand) {
     }
 
 	@Override
-	public boolean updateGoodsParams( UpdateStoreParamsCommand updateStoreParamsCommand ) {
-		return false;
+	public void updateGoodsParams( UpdateStoreParamsCommand updateStoreParamsCommand ) {
 	}
 
 
 	@Override
-    public boolean addGoods( SaveGoodsCommand goodsAddCmd) {
-        return false;
+    public void addGoods( SaveGoodsCommand goodsAddCmd) {
     }
 
 	@Override
-	public boolean editGoods( SaveGoodsCommand goodsAddCmd ) {
-		return false;
+	public void editGoods( SaveGoodsCommand goodsAddCmd ) {
 	}
 
 	@Override
-	public boolean auditGoods( AuditGoodsCommand auditGoodsCommand ) {
-		return false;
+	public void auditGoods( AuditGoodsCommand auditGoodsCommand ) {
 	}
 
 	@Override
-	public boolean updateGoodsMarketAble( MarketAbleGoodsCommand marketAbleGoodsCommand ) {
-		return false;
+	public void updateGoodsMarketAble( MarketAbleGoodsCommand marketAbleGoodsCommand ) {
+	}
+
+
+	@Override
+	public void deleteGoods( GoodsIdsCommand goodsIdsCommand ) {
 	}
 
 	@Override
-	public boolean managerUpdateGoodsMarketAble( MarketAbleGoodsCommand marketAbleGoodsCommand ) {
-		return false;
-	}
-
-	@Override
-	public boolean deleteGoods( GoodsIdsCommand goodsIdsCommand ) {
-		return false;
-	}
-
-	@Override
-	public boolean freight( FreightGoodsCommand freightGoodsCommand ) {
+	public void freight( FreightGoodsCommand freightGoodsCommand ) {
 
 		TtcUser authUser = SecurityUtils.getCurrentUser();
 		//
@@ -116,34 +101,30 @@ public class GoodsCommandServiceImpl implements GoodsCommandService {
 		//		throw new BusinessException(ResultEnum.USER_AUTHORITY_ERROR);
 		//	}
 		List<Long> goodsIds = freightGoodsCommand.goodsId();
-		transactionalWrapper.doInTransaction(()->{
+		transactionWrapper.doInTransaction(()->{
 			List<GoodsAgg> goodsAggs = goodsDomainRepository.findUsingIdCols(goodsIds, true);
 
 			goodsAggs.forEach(goodsAgg ->
 				goodsAgg.changeFreightTemplate(String.valueOf(freightGoodsCommand.templateId()), "")
 			);
 
-			txSynchronizationWrapper.afterCommit(() -> eventDispatcher.dispatchEvents(goodsAggs));
+			transactionSynchronizationWrapper.afterCommit(() -> eventDispatcher.dispatchEvents(goodsAggs));
 
 			goodsDomainRepository.saves(goodsAggs, true);
 		});
 
-		return true;
 	}
 
 	@Override
-	public boolean updateStock( UpdateStockGoodsCommand updateStockGoodsCommand ) {
-		return false;
+	public void updateStock( UpdateStockGoodsCommand updateStockGoodsCommand ) {
 	}
 
 	@Override
-	public boolean updateGoodsCommentNum( GoodsIdCommand goodsIdCommand ) {
-		return false;
+	public void updateGoodsCommentNum( GoodsIdCommand goodsIdCommand ) {
 	}
 
 	@Override
-	public boolean UpdateGoodsBuyCountCommand( UpdateGoodsBuyCountCommand updateGoodsBuyCountCommand ) {
-		return false;
+	public void updateGoodsBuyCount( UpdateGoodsBuyCountCommand updateGoodsBuyCountCommand ) {
 	}
 
 
@@ -168,6 +149,11 @@ public class GoodsCommandServiceImpl implements GoodsCommandService {
 
 	@Override
 	public void scheduleAutoCreateGoods( ScheduleAutoCreateGoodsCommand scheduleAutoCreateGoodsCommand ) {
+
+	}
+
+	@Override
+	public void handleGoodsCreatedEvent( GoodsCreatedHandleCommand build ) {
 
 	}
 

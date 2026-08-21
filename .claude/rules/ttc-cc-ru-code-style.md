@@ -28,7 +28,7 @@ com.taotao.cloud.goods.{layer}.{subdomain}
 | 聚合根 | `{Entity}Agg` | `GoodsAgg` |
 | 实体 | 业务名词 | `Category`, `Tag` |
 | 值对象 | 描述性名词 | `GoodsWeight`, `GoodsStatus`, `GoodsName` |
-| 领域事件 | `{名词}{过去式}Event` | `GoodsCreateEvent`, `CategoryCreateEvent` |
+| 领域事件 | `{名词}{过去式}Event` | `GoodsCreatedEvent`, `CategoryCreateEvent` |
 | 仓储接口 | `{Entity}DomainRepository` | `GoodsDomainRepository` |
 | 领域服务 | `{Entity}DomainService` | `GoodsDomainService` |
 | 命令 DTO | `{动词}{名词}Command` | `CreateGoodsCommand` |

@@ -25,6 +25,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import com.taotao.cloud.goods.application.dto.category.result.CategoryTreeResult;
 import com.taotao.cloud.goods.application.service.query.CategoryQueryService;
 import java.util.List;
+
+import com.taotao.cloud.goods.interfaces.controller.buyer.common.BuyerCategoryController;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

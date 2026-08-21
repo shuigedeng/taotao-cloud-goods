@@ -25,7 +25,7 @@ import com.taotao.cloud.goods.domain.assembler.GoodsDomainAssembler;
 import com.taotao.cloud.goods.domain.entity.Category;
 import com.taotao.cloud.goods.domain.entity.Tag;
 import com.taotao.cloud.goods.domain.event.FreightTemplateChangedEvent;
-import com.taotao.cloud.goods.domain.event.GoodsCreateEvent;
+import com.taotao.cloud.goods.domain.event.GoodsCreatedEvent;
 import com.taotao.cloud.goods.domain.valobj.GoodsName;
 import com.taotao.cloud.goods.domain.valobj.GoodsSpec;
 import com.taotao.cloud.goods.domain.valobj.GoodsStatus;
@@ -253,7 +253,7 @@ public class GoodsAgg extends AggregateRoot<BizId> {
 	public void create() {
 		GoodsAgg agg = new GoodsAgg();
 		agg.id = this.id;
-		GoodsCreateEvent goodsCreateEvent = new GoodsCreateEvent();
+		GoodsCreatedEvent goodsCreateEvent = new GoodsCreatedEvent();
 		goodsCreateEvent.setName("");
 		registerEvent(goodsCreateEvent);
 	}

@@ -30,6 +30,8 @@ import com.taotao.cloud.goods.application.dto.goods.result.GoodsSkuParamsResult;
 import com.taotao.cloud.goods.application.dto.goods.result.GoodsSkuParamsResultBuilder;
 import com.taotao.cloud.goods.application.service.query.GoodsQueryService;
 import java.util.List;
+
+import com.taotao.cloud.goods.interfaces.controller.buyer.common.BuyerGoodsController;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

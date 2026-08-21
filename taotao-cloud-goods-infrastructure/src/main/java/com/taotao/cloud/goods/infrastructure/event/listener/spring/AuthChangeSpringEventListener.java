@@ -16,9 +16,12 @@
 
 package com.taotao.cloud.goods.infrastructure.event.listener.spring;
 
+import com.taotao.cloud.goods.application.dto.goods.command.GoodsCreatedHandleCommand;
 import com.taotao.cloud.goods.application.service.command.GoodsCommandService;
+import com.taotao.cloud.goods.domain.event.GoodsCreatedEvent;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 
 /**
@@ -35,8 +38,10 @@ public class AuthChangeSpringEventListener {
 
 	private final GoodsCommandService goodsCommandService;
 
-//	@EventListener(AuthChangeEvent.class)
-//	public void handleAuthChangeEvent( AuthChangeEvent authChangeEvent ){
-//		log.info("接受到AuthChangeEvent:{}", authChangeEvent);
-//	}
+	@EventListener(GoodsCreatedEvent.class)
+	public void handleGoodsCreatedEvent( GoodsCreatedEvent goodsCreatedEvent ){
+		log.info("接受到GoodsCreatedEvent:{}", goodsCreatedEvent);
+		goodsCommandService.handleGoodsCreatedEvent(GoodsCreatedHandleCommand.builder()
+			.goodsCreatedEvent(goodsCreatedEvent).build());
+	}
 }

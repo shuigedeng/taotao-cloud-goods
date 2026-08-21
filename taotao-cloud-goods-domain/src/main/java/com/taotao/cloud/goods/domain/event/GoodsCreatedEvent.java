@@ -25,7 +25,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-import lombok.experimental.Accessors;
 
 /**
  * 商品创建事件
@@ -42,7 +41,7 @@ import lombok.experimental.Accessors;
 @AllArgsConstructor
 @NoArgsConstructor
 @Schema(name = "OperateLogEvent", description = "操作日志事件")
-public class GoodsCreateEvent extends DomainEvent<BizId> {
+public class GoodsCreatedEvent extends DomainEvent<BizId> {
 
     @Serial private static final long serialVersionUID = -6523521638764501311L;
 

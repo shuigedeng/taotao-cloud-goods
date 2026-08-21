@@ -20,11 +20,7 @@ import com.taotao.boot.ddd.model.application.service.CommandService;
 import com.taotao.cloud.goods.application.dto.goods.command.*;
 import com.taotao.cloud.goods.application.dto.store.command.StoreIdCommand;
 import com.taotao.cloud.goods.application.dto.store.command.UpdateStoreParamsCommand;
-import com.taotao.cloud.goods.common.enums.GoodsAuthEnum;
-import com.taotao.cloud.goods.common.enums.GoodsStatusEnum;
 import com.taotao.cloud.goods.application.dto.goods.result.GoodsResult;
-
-import java.util.List;
 
 /**
  * 商品命令服务接口
@@ -42,116 +38,108 @@ public interface GoodsCommandService extends CommandService {
      * 下架所有商家商品
      *
      * @param storeIdCommand 店铺ID
-     * @return {@link boolean }
      * @since 2022-04-27 17:00:15
      */
-    boolean underStoreGoods( StoreIdCommand storeIdCommand);
+    void underStoreGoods( StoreIdCommand storeIdCommand);
 
     /**
      * 更新商品参数
      *
      * @param updateStoreParamsCommand 商品id
-     * @return {@link boolean }
      * @since 2022-04-27 17:00:15
      */
-    boolean updateGoodsParams( UpdateStoreParamsCommand updateStoreParamsCommand);
+    void updateGoodsParams( UpdateStoreParamsCommand updateStoreParamsCommand);
 
     /**
      * 添加商品
      *
      * @param goodsAddCmd 商品查询条件
-     * @return {@link boolean }
      * @since 2022-04-27 17:00:15
      */
-    boolean addGoods( SaveGoodsCommand goodsAddCmd);
+    void addGoods( SaveGoodsCommand goodsAddCmd);
 
     /**
      * 修改商品
      *
      * @param goodsAddCmd 商品查询条件
-     * @return {@link boolean }
      * @since 2022-04-27 17:00:15
      */
-    boolean editGoods( SaveGoodsCommand goodsAddCmd);
+    void editGoods( SaveGoodsCommand goodsAddCmd);
 
     /**
-     * 批量审核商品
-     *
-     * @param auditGoodsCommand      商品id列表
-     * @return {@link boolean }
-     * @since 2022-04-27 17:00:16
-     */
-    boolean auditGoods( AuditGoodsCommand auditGoodsCommand );
+	 * 批量审核商品
+	 *
+	 * @param auditGoodsCommand 商品id列表
+	 * @since 2022-04-27 17:00:16
+	 */
+    void auditGoods( AuditGoodsCommand auditGoodsCommand );
 
     /**
      * 更新商品上架状态状态
      *
      * @param marketAbleGoodsCommand 更新的商品状态
-     * @return {@link boolean }
      * @since 2022-04-27 17:00:16
      */
-    boolean updateGoodsMarketAble( MarketAbleGoodsCommand marketAbleGoodsCommand );
-
-    /**
-     * 更新商品上架状态状态
-     *
-     * @param marketAbleGoodsCommand        商品ID集合
-     * @return {@link boolean }
-     * @since 2022-04-27 17:00:16
-     */
-    boolean managerUpdateGoodsMarketAble(MarketAbleGoodsCommand marketAbleGoodsCommand );
+    void updateGoodsMarketAble( MarketAbleGoodsCommand marketAbleGoodsCommand );
+//
+//    /**
+//	 * 更新商品上架状态状态
+//	 *
+//	 * @param marketAbleGoodsCommand 商品ID集合
+//	 * @since 2022-04-27 17:00:16
+//	 */
+//    void updateGoodsMarketAble(MarketAbleGoodsCommand marketAbleGoodsCommand );
 
     /**
      * 删除商品
      *
      * @param goodsIdsCommand 商品ID
-     * @return {@link boolean }
      * @since 2022-04-27 17:00:16
      */
-    boolean deleteGoods(GoodsIdsCommand goodsIdsCommand);
+    void deleteGoods(GoodsIdsCommand goodsIdsCommand);
 
     /**
-     * 设置商品运费模板
-     *
-     * @param freightGoodsCommand   商品列表
-     * @return {@link boolean }
-     * @since 2022-04-27 17:00:16
-     */
-    boolean freight(FreightGoodsCommand freightGoodsCommand);
+	 * 设置商品运费模板
+	 *
+	 * @param freightGoodsCommand 商品列表
+	 * @since 2022-04-27 17:00:16
+	 */
+    void freight(FreightGoodsCommand freightGoodsCommand);
 
     /**
-     * 修改商品库存数量
-     *
-     * @param updateStockGoodsCommand  商品ID
-     * @return {@link boolean }
-     * @since 2022-04-27 17:00:16
-     */
-    boolean updateStock(UpdateStockGoodsCommand updateStockGoodsCommand);
+	 * 修改商品库存数量
+	 *
+	 * @param updateStockGoodsCommand 商品ID
+	 * @since 2022-04-27 17:00:16
+	 */
+
+    void updateStock(UpdateStockGoodsCommand updateStockGoodsCommand);
 
     /**
      * 更新商品评价数量
      *
      * @param goodsIdCommand 商品ID
-     * @return {@link boolean }
      * @since 2022-04-27 17:00:16
      */
-    boolean updateGoodsCommentNum(GoodsIdCommand goodsIdCommand);
+    void updateGoodsCommentNum(GoodsIdCommand goodsIdCommand);
 
     /**
-     * 更新商品的购买数量
-     *
-     * @param updateGoodsBuyCountCommand  商品ID
-     * @return {@link boolean }
-     * @since 2022-04-27 17:00:16
-     */
-    boolean UpdateGoodsBuyCountCommand(UpdateGoodsBuyCountCommand updateGoodsBuyCountCommand);
+	 * 更新商品的购买数量
+	 *
+	 * @param updateGoodsBuyCountCommand 商品ID
+	 * @since 2022-04-27 17:00:16
+	 */
+    void updateGoodsBuyCount(UpdateGoodsBuyCountCommand updateGoodsBuyCountCommand);
 
     GoodsResult createGoods( CreateGoodsCommand goodsCreateCommand);
+
+
 
     void handleKafkaNotify( NotifyGoodsCommand notifyGoodsCommand );
 
 	void scheduleAutoCreateGoods( ScheduleAutoCreateGoodsCommand scheduleAutoCreateGoodsCommand );
 
+	void handleGoodsCreatedEvent( GoodsCreatedHandleCommand build );
 
 	/**
      * 批量更新商品的店铺信息

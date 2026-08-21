@@ -289,7 +289,7 @@ return Result.fail(ErrorCode.GOODS_NOT_FOUND);
 | 聚合根 | `{Entity}Agg` | `GoodsAgg` |
 | 实体 | 业务名词 | `Category`, `Tag` |
 | 值对象 | 描述性名词 | `GoodsWeight`, `GoodsStatus` |
-| 领域事件 | `{名词}{过去式动词}Event` | `GoodsCreateEvent` |
+| 领域事件 | `{名词}{过去式动词}Event` | `GoodsCreatedEvent` |
 | 仓储接口 | `{Entity}DomainRepository` | `GoodsDomainRepository` |
 | 领域服务 | `{Entity}DomainService` | `GoodsDomainService` |
 | 命令 DTO | `{动词}{名词}Command` | `CreateGoodsCommand` |
