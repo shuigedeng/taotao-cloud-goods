@@ -523,7 +523,7 @@ spring:
     #driver-class-name: com.mysql.cj.jdbc.Driver
     #url: jdbc:p6spy:mysql://${remote-ip}:13306/${spring.application.name}?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&useSSL=false&rewriteBatchedStatements=true&zeroDateTimeBehavior=convertToNull&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&allowMultiQueries=true&autoReconnect=true&rewriteBatchedStatements=true
     #driver-class-name: com.p6spy.engine.spy.P6SpyDriver
-    url: jdbc:mysql://${remote-ip}:3306/${spring.application.name}?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&useSSL=false&rewriteBatchedStatements=true&zeroDateTimeBehavior=convertToNull&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&allowMultiQueries=true&autoReconnect=true&useCursorFetch=true&allowPublicKeyRetrieval=true
+    url: jdbc:mysql://${remote-ip}:3306/taotao_cloud_goods?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&useSSL=false&rewriteBatchedStatements=true&zeroDateTimeBehavior=convertToNull&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&allowMultiQueries=true&autoReconnect=true&useCursorFetch=true&allowPublicKeyRetrieval=true
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: 123456
@@ -1113,7 +1113,11 @@ taotao:
       version: ${ttcVersion}
       title: 系统管理模块
       packages-to-scan:
-        - com.taotao.cloud.goods.interfaces.controller.**
+        - com.taotao.cloud.goods.interfaces.controller.admin
+        - com.taotao.cloud.goods.interfaces.controller.buyer
+        - com.taotao.cloud.goods.interfaces.controller.inner
+        - com.taotao.cloud.goods.interfaces.controller.notify
+        - com.taotao.cloud.goods.interfaces.controller.seller
     metrics:
       enabled: true
       druid:

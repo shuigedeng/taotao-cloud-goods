@@ -2,4 +2,4 @@ spring:
   profiles:
     active: @activeProfile@
 
-remote-ip: 172.21.104.106
+remote-ip: 172.21.101.27
