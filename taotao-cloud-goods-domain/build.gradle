@@ -88,12 +88,12 @@ dependencies {
     //https://code.google.com/p/aviator/
     //http://code.google.com/p/aviator/wiki/User_Guide_zh
     //https://search.maven.org/artifact/com.googlecode.aviator/aviator
-    api "com.googlecode.aviator:aviator:5.4.3"
+    api "com.googlecode.aviator:aviator:5.4.4"
 
     //https://search.maven.org/artifact/com.google.protobuf/protobuf-java
-    api "com.google.protobuf:protobuf-java:4.35.0"
+    api "com.google.protobuf:protobuf-java:4.36.0"
     //https://search.maven.org/artifact/com.google.protobuf/protobuf-java-util
-    api "com.google.protobuf:protobuf-java-util:4.35.0"
+    api "com.google.protobuf:protobuf-java-util:4.36.0"
     //https://search.maven.org/artifact/com.googlecode.protobuf-java-format/protobuf-java-format
     //api "com.googlecode.protobuf-java-format:protobuf-java-format:1.4"
 

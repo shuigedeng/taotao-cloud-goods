@@ -18,7 +18,7 @@ description: 初始化项目上下文，分析 DDD 工程结构、依赖、分�
 ### 2. 分析技术栈
 - JDK 版本（25 预览特性）
 - Gradle 版本及关键插件（spotbugs/checkstyle/pmd/spotless/jacoco）
-- Spring Boot 4.1.0 / Spring Cloud 2025.1.1
+- Spring Boot 4.1.1 / Spring Cloud 2025.1.1
 - 持久化框架（MyBatis-Plus / JPA）
 - 消息中间件（RocketMQ / Kafka）
 - 注册中心（Nacos）

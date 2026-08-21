@@ -6,7 +6,7 @@
 
 ## OVERVIEW
 
-商品域 DDD 单体服务，基于 Spring Boot 4.1.0 / JDK 25 / Gradle 9.5。
+商品域 DDD 单体服务，基于 Spring Boot 4.1.1 / JDK 25 / Gradle 9.5。
 严格遵循六边形架构 + 领域驱动设计，属于 taotao-cloud 微服务体系的商品领域服务。
 
 核心业务：商品管理、分类管理、品牌管理、规格参数、标签管理、SKU 库存。
@@ -170,7 +170,7 @@ Factories:
 |------|------|
 | JDK | 25 (预览特性, `--enable-preview`) |
 | Gradle | 9.5 |
-| Spring Boot | 4.1.0 |
+| Spring Boot | 4.1.1 |
 | Spring Cloud | 2025.1.1 |
 | Spring Cloud Alibaba | 2025.1.0.0 |
 | MyBatis-Plus | 3.5.16 |

@@ -16,7 +16,7 @@ DDD 商品域单体服务 — 基于 Spring Boot 4.1 / Spring Cloud Alibaba 2025
 
 - **JDK 25**（预览特性，`--enable-preview`）
 - **Gradle 9.5**（构建工具）
-- **Spring Boot 4.1.0** / **Spring Cloud 2025.1.1**
+- **Spring Boot 4.1.1** / **Spring Cloud 2025.1.1**
 - **Spring Cloud Alibaba 2025.1.0.0**（Nacos, Sentinel, Seata）
 - **MyBatis-Plus 3.5.16** / **JPA**（持久化）
 - **MapStruct 1.6.3** + **Record Builder** + **Lombok 1.18.46**
