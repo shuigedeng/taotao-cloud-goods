@@ -2,6 +2,7 @@ package com.taotao.cloud.goods.infrastructure.configuration.properties;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
 /**
@@ -14,7 +15,8 @@ import org.springframework.context.annotation.Configuration;
 @Data
 @Configuration
 @ConfigurationProperties(prefix = "taotao.cloud.goods.link")
+@EnableConfigurationProperties({LinkProperties.class})
 public class LinkProperties {
-
+private String link;
 }
 

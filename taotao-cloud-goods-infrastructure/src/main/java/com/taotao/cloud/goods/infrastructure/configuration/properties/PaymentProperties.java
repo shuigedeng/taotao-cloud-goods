@@ -2,6 +2,7 @@ package com.taotao.cloud.goods.infrastructure.configuration.properties;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
 import java.math.BigDecimal;
@@ -16,13 +17,10 @@ import java.math.BigDecimal;
 @Data
 @Configuration
 @ConfigurationProperties(prefix = "taotao.cloud.goods.payment")
+@EnableConfigurationProperties({PaymentProperties.class})
 public class PaymentProperties {
 
-	public int getMaxRetryTimes() {
-		return 0;
-	}
+	private int maxRetryTimes;
+	private BigDecimal discountRate;
 
-	public BigDecimal getDiscountRate() {
-		return null;
-	}
 }
