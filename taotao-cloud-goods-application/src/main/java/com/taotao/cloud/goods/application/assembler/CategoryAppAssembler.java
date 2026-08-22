@@ -48,7 +48,6 @@ public interface CategoryAppAssembler extends MarkerAssembler {
      * map 方法
      *
      * @param value 值
-     * @return 无返回值
      * @since 2022.03
      */
     default Long map(BizId value) {
@@ -59,7 +58,6 @@ public interface CategoryAppAssembler extends MarkerAssembler {
      * map 方法
      *
      * @param value 值
-     * @return 无返回值
      * @since 2022.03
      */
     default String map(GoodsName value) {

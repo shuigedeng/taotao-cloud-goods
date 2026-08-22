@@ -45,7 +45,6 @@ public class BrandPageParam extends PageQuery {
         /**
          * 品牌页码参数Builder
          *
-         * @return 无返回值
          * @since 2022.03
          */
         private BrandPageParamBuilder() {

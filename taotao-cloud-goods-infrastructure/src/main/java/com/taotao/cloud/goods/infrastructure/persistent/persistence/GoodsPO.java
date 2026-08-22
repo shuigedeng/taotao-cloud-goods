@@ -281,7 +281,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * 设置
 	 *
 	 * @param goodsNo goodsNo
-	 * @return 无返回值
 	 * @since 2022.03
 	 */
 	public void setGoodsNo(String goodsNo) {
@@ -302,7 +301,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * 设置
 	 *
 	 * @param goodsName goodsName
-	 * @return 无返回值
 	 * @since 2022.03
 	 */
 	public void setGoodsName(String goodsName) {
@@ -323,7 +321,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * 设置
 	 *
 	 * @param price price
-	 * @return 无返回值
 	 * @since 2022.03
 	 */
 	public void setPrice(BigDecimal price) {
@@ -344,7 +341,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * 设置
 	 *
 	 * @param brandId brandId
-	 * @return 无返回值
 	 * @since 2022.03
 	 */
 	public void setBrandId(Long brandId) {
@@ -365,7 +361,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * 设置
 	 *
 	 * @param categoryPath categoryPath
-	 * @return 无返回值
 	 * @since 2022.03
 	 */
 	public void setCategoryPath(String categoryPath) {
@@ -386,7 +381,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * 设置
 	 *
 	 * @param goodsUnit goodsUnit
-	 * @return 无返回值
 	 * @since 2022.03
 	 */
 	public void setGoodsUnit(String goodsUnit) {
@@ -407,7 +401,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * 设置
 	 *
 	 * @param sellingPoint sellingPoint
-	 * @return 无返回值
 	 * @since 2022.03
 	 */
 	public void setSellingPoint(String sellingPoint) {
@@ -428,7 +421,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * 设置
 	 *
 	 * @param marketEnable marketEnable
-	 * @return 无返回值
 	 * @since 2022.03
 	 */
 	public void setMarketEnable(String marketEnable) {
@@ -439,7 +431,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * 设置
 	 *
 	 * @param intro intro
-	 * @return 无返回值
 	 * @since 2022.03
 	 */
 	public void setIntro(String intro) {
@@ -460,7 +451,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * 设置
 	 *
 	 * @param buyCount buyCount
-	 * @return 无返回值
 	 * @since 2022.03
 	 */
 	public void setBuyCount(Integer buyCount) {
@@ -481,7 +471,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * 设置
 	 *
 	 * @param quantity quantity
-	 * @return 无返回值
 	 * @since 2022.03
 	 */
 	public void setQuantity(Integer quantity) {
@@ -502,7 +491,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * 设置
 	 *
 	 * @param grade grade
-	 * @return 无返回值
 	 * @since 2022.03
 	 */
 	public void setGrade(BigDecimal grade) {
@@ -523,7 +511,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * 设置
 	 *
 	 * @param thumbnail thumbnail
-	 * @return 无返回值
 	 * @since 2022.03
 	 */
 	public void setThumbnail(String thumbnail) {
@@ -544,7 +531,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * 设置
 	 *
 	 * @param small small
-	 * @return 无返回值
 	 * @since 2022.03
 	 */
 	public void setSmall(String small) {
@@ -565,7 +551,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * 设置
 	 *
 	 * @param original original
-	 * @return 无返回值
 	 * @since 2022.03
 	 */
 	public void setOriginal(String original) {
@@ -586,7 +571,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * 设置
 	 *
 	 * @param storeCategoryPath storeCategoryPath
-	 * @return 无返回值
 	 * @since 2022.03
 	 */
 	public void setStoreCategoryPath(String storeCategoryPath) {
@@ -607,7 +591,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * 设置
 	 *
 	 * @param commentNum commentNum
-	 * @return 无返回值
 	 * @since 2022.03
 	 */
 	public void setCommentNum(Integer commentNum) {
@@ -628,7 +611,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * 设置
 	 *
 	 * @param storeId storeId
-	 * @return 无返回值
 	 * @since 2022.03
 	 */
 	public void setStoreId(Long storeId) {
@@ -649,7 +631,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * 设置
 	 *
 	 * @param storeName storeName
-	 * @return 无返回值
 	 * @since 2022.03
 	 */
 	public void setStoreName(String storeName) {
@@ -670,7 +651,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * 设置
 	 *
 	 * @param templateId templateId
-	 * @return 无返回值
 	 * @since 2022.03
 	 */
 	public void setTemplateId(Long templateId) {
@@ -691,7 +671,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * 设置
 	 *
 	 * @param authFlag authFlag
-	 * @return 无返回值
 	 * @since 2022.03
 	 */
 	public void setAuthFlag(String authFlag) {
@@ -712,7 +691,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * 设置
 	 *
 	 * @param authMessage authMessage
-	 * @return 无返回值
 	 * @since 2022.03
 	 */
 	public void setAuthMessage(String authMessage) {
@@ -733,7 +711,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * 设置
 	 *
 	 * @param underMessage underMessage
-	 * @return 无返回值
 	 * @since 2022.03
 	 */
 	public void setUnderMessage(String underMessage) {
@@ -754,7 +731,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * 设置
 	 *
 	 * @param selfOperated selfOperated
-	 * @return 无返回值
 	 * @since 2022.03
 	 */
 	public void setSelfOperated(Boolean selfOperated) {
@@ -765,7 +741,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * 设置
 	 *
 	 * @param mobileIntro mobileIntro
-	 * @return 无返回值
 	 * @since 2022.03
 	 */
 	public void setMobileIntro(String mobileIntro) {
@@ -786,7 +761,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * 设置
 	 *
 	 * @param goodsVideo goodsVideo
-	 * @return 无返回值
 	 * @since 2022.03
 	 */
 	public void setGoodsVideo(String goodsVideo) {
@@ -807,7 +781,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * 设置
 	 *
 	 * @param recommend recommend
-	 * @return 无返回值
 	 * @since 2022.03
 	 */
 	public void setRecommend(Boolean recommend) {
@@ -828,7 +801,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * 设置
 	 *
 	 * @param salesModel salesModel
-	 * @return 无返回值
 	 * @since 2022.03
 	 */
 	public void setSalesModel(String salesModel) {
@@ -849,7 +821,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * 设置
 	 *
 	 * @param posterPicId posterPicId
-	 * @return 无返回值
 	 * @since 2022.03
 	 */
 	public void setPosterPicId(Long posterPicId) {
@@ -870,7 +841,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * 设置
 	 *
 	 * @param goodsType goodsType
-	 * @return 无返回值
 	 * @since 2022.03
 	 */
 	public void setGoodsType(String goodsType) {
@@ -891,7 +861,6 @@ public class GoodsPO extends BasePO<GoodsPO> {
 	 * 设置
 	 *
 	 * @param params params
-	 * @return 无返回值
 	 * @since 2022.03
 	 */
 	public void setParams(String params) {

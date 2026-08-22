@@ -37,7 +37,6 @@ public class SensitiveWordsTopicMessageDelegate {
      * 处理
      *
      * @param message 消息
-     * @return 无返回值
      * @since 2022.03
      */
     public void handleSensitiveWords(String message) {

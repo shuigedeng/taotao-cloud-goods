@@ -80,7 +80,6 @@ public class GoodsAreaPO extends BasePO<GoodsAreaPO> {
      * 设置
      *
      * @param regionJson regionJson
-     * @return 无返回值
      * @since 2022.03
      */
     public void setRegionJson(String regionJson) {
@@ -101,7 +100,6 @@ public class GoodsAreaPO extends BasePO<GoodsAreaPO> {
      * 设置
      *
      * @param type type
-     * @return 无返回值
      * @since 2022.03
      */
     public void setType(Integer type) {

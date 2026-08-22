@@ -101,7 +101,6 @@ public class ParametersPO extends BasePO<ParametersPO> {
      * 设置
      *
      * @param paramName paramName
-     * @return 无返回值
      * @since 2022.03
      */
     public void setParamName(String paramName) {
@@ -122,7 +121,6 @@ public class ParametersPO extends BasePO<ParametersPO> {
      * 设置
      *
      * @param options options
-     * @return 无返回值
      * @since 2022.03
      */
     public void setOptions(String options) {
@@ -143,7 +141,6 @@ public class ParametersPO extends BasePO<ParametersPO> {
      * 设置
      *
      * @param isIndex isIndex
-     * @return 无返回值
      * @since 2022.03
      */
     public void setIsIndex(Integer isIndex) {
@@ -164,7 +161,6 @@ public class ParametersPO extends BasePO<ParametersPO> {
      * 设置
      *
      * @param required required
-     * @return 无返回值
      * @since 2022.03
      */
     public void setRequired(Integer required) {
@@ -185,7 +181,6 @@ public class ParametersPO extends BasePO<ParametersPO> {
      * 设置
      *
      * @param groupId groupId
-     * @return 无返回值
      * @since 2022.03
      */
     public void setGroupId(Long groupId) {
@@ -206,7 +201,6 @@ public class ParametersPO extends BasePO<ParametersPO> {
      * 设置
      *
      * @param categoryId categoryId
-     * @return 无返回值
      * @since 2022.03
      */
     public void setCategoryId(Long categoryId) {
@@ -227,7 +221,6 @@ public class ParametersPO extends BasePO<ParametersPO> {
      * 设置
      *
      * @param sort sort
-     * @return 无返回值
      * @since 2022.03
      */
     public void setSort(Integer sort) {

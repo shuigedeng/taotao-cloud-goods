@@ -73,7 +73,6 @@ public class CustomWordsPO extends BasePO<CustomWordsPO> {
      * 设置
      *
      * @param name name
-     * @return 无返回值
      * @since 2022.03
      */
     public void setName(String name) {
@@ -94,7 +93,6 @@ public class CustomWordsPO extends BasePO<CustomWordsPO> {
      * 设置
      *
      * @param disabled disabled
-     * @return 无返回值
      * @since 2022.03
      */
     public void setDisabled(Integer disabled) {

@@ -270,7 +270,6 @@ public class Category implements Entity {
 	 * 设置
 	 *
 	 * @param id id
-	 * @return 无返回值
 	 * @since 2022.03
 	 */
 	public void setId( BizId id ) {
@@ -288,7 +287,6 @@ public class Category implements Entity {
 	 * 设置
 	 *
 	 * @param parentCategoryId parentCategoryId
-	 * @return 无返回值
 	 * @since 2022.03
 	 */
 	public void setParentCategoryId( BizId parentCategoryId ) {
@@ -306,7 +304,6 @@ public class Category implements Entity {
 	 * 设置
 	 *
 	 * @param categoryName categoryName
-	 * @return 无返回值
 	 * @since 2022.03
 	 */
 	public void setCategoryName( CategoryName categoryName ) {
@@ -324,7 +321,6 @@ public class Category implements Entity {
 	 * 设置
 	 *
 	 * @param categoryDesc categoryDesc
-	 * @return 无返回值
 	 * @since 2022.03
 	 */
 	public void setCategoryDesc( CategoryDesc categoryDesc ) {
@@ -342,7 +338,6 @@ public class Category implements Entity {
 	 * 设置
 	 *
 	 * @param createTime createTime
-	 * @return 无返回值
 	 * @since 2022.03
 	 */
 	public void setCreateTime( LocalDateTime createTime ) {
@@ -360,7 +355,6 @@ public class Category implements Entity {
 	 * 设置
 	 *
 	 * @param updateTime updateTime
-	 * @return 无返回值
 	 * @since 2022.03
 	 */
 	public void setUpdateTime( LocalDateTime updateTime ) {

@@ -151,7 +151,6 @@ public class StudioPO extends BasePO<StudioPO> {
      * 设置
      *
      * @param name name
-     * @return 无返回值
      * @since 2022.03
      */
     public void setName(String name) {
@@ -172,7 +171,6 @@ public class StudioPO extends BasePO<StudioPO> {
      * 设置
      *
      * @param coverImg coverImg
-     * @return 无返回值
      * @since 2022.03
      */
     public void setCoverImg(String coverImg) {
@@ -193,7 +191,6 @@ public class StudioPO extends BasePO<StudioPO> {
      * 设置
      *
      * @param startTime startTime
-     * @return 无返回值
      * @since 2022.03
      */
     public void setStartTime(String startTime) {
@@ -214,7 +211,6 @@ public class StudioPO extends BasePO<StudioPO> {
      * 设置
      *
      * @param endTime endTime
-     * @return 无返回值
      * @since 2022.03
      */
     public void setEndTime(String endTime) {
@@ -235,7 +231,6 @@ public class StudioPO extends BasePO<StudioPO> {
      * 设置
      *
      * @param anchorName anchorName
-     * @return 无返回值
      * @since 2022.03
      */
     public void setAnchorName(String anchorName) {
@@ -256,7 +251,6 @@ public class StudioPO extends BasePO<StudioPO> {
      * 设置
      *
      * @param anchorWechat anchorWechat
-     * @return 无返回值
      * @since 2022.03
      */
     public void setAnchorWechat(String anchorWechat) {
@@ -277,7 +271,6 @@ public class StudioPO extends BasePO<StudioPO> {
      * 设置
      *
      * @param shareImg shareImg
-     * @return 无返回值
      * @since 2022.03
      */
     public void setShareImg(String shareImg) {
@@ -298,7 +291,6 @@ public class StudioPO extends BasePO<StudioPO> {
      * 设置
      *
      * @param feedsImg feedsImg
-     * @return 无返回值
      * @since 2022.03
      */
     public void setFeedsImg(String feedsImg) {
@@ -319,7 +311,6 @@ public class StudioPO extends BasePO<StudioPO> {
      * 设置
      *
      * @param mediaUrl mediaUrl
-     * @return 无返回值
      * @since 2022.03
      */
     public void setMediaUrl(String mediaUrl) {
@@ -340,7 +331,6 @@ public class StudioPO extends BasePO<StudioPO> {
      * 设置
      *
      * @param roomId roomId
-     * @return 无返回值
      * @since 2022.03
      */
     public void setRoomId(Integer roomId) {
@@ -361,7 +351,6 @@ public class StudioPO extends BasePO<StudioPO> {
      * 设置
      *
      * @param qrCodeUrl qrCodeUrl
-     * @return 无返回值
      * @since 2022.03
      */
     public void setQrCodeUrl(String qrCodeUrl) {
@@ -382,7 +371,6 @@ public class StudioPO extends BasePO<StudioPO> {
      * 设置
      *
      * @param storeId storeId
-     * @return 无返回值
      * @since 2022.03
      */
     public void setStoreId(Long storeId) {
@@ -403,7 +391,6 @@ public class StudioPO extends BasePO<StudioPO> {
      * 设置
      *
      * @param roomGoodsNum roomGoodsNum
-     * @return 无返回值
      * @since 2022.03
      */
     public void setRoomGoodsNum(Integer roomGoodsNum) {
@@ -424,7 +411,6 @@ public class StudioPO extends BasePO<StudioPO> {
      * 设置
      *
      * @param roomGoodsList roomGoodsList
-     * @return 无返回值
      * @since 2022.03
      */
     public void setRoomGoodsList(String roomGoodsList) {
@@ -445,7 +431,6 @@ public class StudioPO extends BasePO<StudioPO> {
      * 设置
      *
      * @param recommend recommend
-     * @return 无返回值
      * @since 2022.03
      */
     public void setRecommend(Boolean recommend) {
@@ -466,7 +451,6 @@ public class StudioPO extends BasePO<StudioPO> {
      * 设置
      *
      * @param status status
-     * @return 无返回值
      * @since 2022.03
      */
     public void setStatus(String status) {

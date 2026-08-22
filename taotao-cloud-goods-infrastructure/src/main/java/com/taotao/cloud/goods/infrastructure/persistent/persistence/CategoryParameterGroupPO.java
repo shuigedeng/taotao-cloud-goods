@@ -78,7 +78,6 @@ public class CategoryParameterGroupPO extends BasePO<CategoryParameterGroupPO> {
      * 设置
      *
      * @param groupName groupName
-     * @return 无返回值
      * @since 2022.03
      */
     public void setGroupName(String groupName) {
@@ -99,7 +98,6 @@ public class CategoryParameterGroupPO extends BasePO<CategoryParameterGroupPO> {
      * 设置
      *
      * @param categoryId categoryId
-     * @return 无返回值
      * @since 2022.03
      */
     public void setCategoryId(Long categoryId) {
@@ -120,7 +118,6 @@ public class CategoryParameterGroupPO extends BasePO<CategoryParameterGroupPO> {
      * 设置
      *
      * @param sortOrder sortOrder
-     * @return 无返回值
      * @since 2022.03
      */
     public void setSortOrder(Integer sortOrder) {

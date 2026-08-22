@@ -218,7 +218,6 @@ public class DraftGoodsPO extends BasePO<DraftGoodsPO> {
      * 设置
      *
      * @param goodsName goodsName
-     * @return 无返回值
      * @since 2022.03
      */
     public void setGoodsName(String goodsName) {
@@ -239,7 +238,6 @@ public class DraftGoodsPO extends BasePO<DraftGoodsPO> {
      * 设置
      *
      * @param price price
-     * @return 无返回值
      * @since 2022.03
      */
     public void setPrice(BigDecimal price) {
@@ -260,7 +258,6 @@ public class DraftGoodsPO extends BasePO<DraftGoodsPO> {
      * 设置
      *
      * @param brandId brandId
-     * @return 无返回值
      * @since 2022.03
      */
     public void setBrandId(Long brandId) {
@@ -281,7 +278,6 @@ public class DraftGoodsPO extends BasePO<DraftGoodsPO> {
      * 设置
      *
      * @param categoryPath categoryPath
-     * @return 无返回值
      * @since 2022.03
      */
     public void setCategoryPath(String categoryPath) {
@@ -302,7 +298,6 @@ public class DraftGoodsPO extends BasePO<DraftGoodsPO> {
      * 设置
      *
      * @param goodsUnit goodsUnit
-     * @return 无返回值
      * @since 2022.03
      */
     public void setGoodsUnit(String goodsUnit) {
@@ -323,7 +318,6 @@ public class DraftGoodsPO extends BasePO<DraftGoodsPO> {
      * 设置
      *
      * @param sellingPoint sellingPoint
-     * @return 无返回值
      * @since 2022.03
      */
     public void setSellingPoint(String sellingPoint) {
@@ -344,7 +338,6 @@ public class DraftGoodsPO extends BasePO<DraftGoodsPO> {
      * 设置
      *
      * @param marketEnable marketEnable
-     * @return 无返回值
      * @since 2022.03
      */
     public void setMarketEnable(String marketEnable) {
@@ -355,7 +348,6 @@ public class DraftGoodsPO extends BasePO<DraftGoodsPO> {
      * 设置
      *
      * @param intro intro
-     * @return 无返回值
      * @since 2022.03
      */
     public void setIntro(String intro) {
@@ -366,7 +358,6 @@ public class DraftGoodsPO extends BasePO<DraftGoodsPO> {
      * 设置
      *
      * @param mobileIntro mobileIntro
-     * @return 无返回值
      * @since 2022.03
      */
     public void setMobileIntro(String mobileIntro) {
@@ -387,7 +378,6 @@ public class DraftGoodsPO extends BasePO<DraftGoodsPO> {
      * 设置
      *
      * @param buyCount buyCount
-     * @return 无返回值
      * @since 2022.03
      */
     public void setBuyCount(Integer buyCount) {
@@ -408,7 +398,6 @@ public class DraftGoodsPO extends BasePO<DraftGoodsPO> {
      * 设置
      *
      * @param quantity quantity
-     * @return 无返回值
      * @since 2022.03
      */
     public void setQuantity(Integer quantity) {
@@ -429,7 +418,6 @@ public class DraftGoodsPO extends BasePO<DraftGoodsPO> {
      * 设置
      *
      * @param enableQuantity enableQuantity
-     * @return 无返回值
      * @since 2022.03
      */
     public void setEnableQuantity(Integer enableQuantity) {
@@ -450,7 +438,6 @@ public class DraftGoodsPO extends BasePO<DraftGoodsPO> {
      * 设置
      *
      * @param grade grade
-     * @return 无返回值
      * @since 2022.03
      */
     public void setGrade(BigDecimal grade) {
@@ -471,7 +458,6 @@ public class DraftGoodsPO extends BasePO<DraftGoodsPO> {
      * 设置
      *
      * @param thumbnail thumbnail
-     * @return 无返回值
      * @since 2022.03
      */
     public void setThumbnail(String thumbnail) {
@@ -492,7 +478,6 @@ public class DraftGoodsPO extends BasePO<DraftGoodsPO> {
      * 设置
      *
      * @param big big
-     * @return 无返回值
      * @since 2022.03
      */
     public void setBig(String big) {
@@ -513,7 +498,6 @@ public class DraftGoodsPO extends BasePO<DraftGoodsPO> {
      * 设置
      *
      * @param small small
-     * @return 无返回值
      * @since 2022.03
      */
     public void setSmall(String small) {
@@ -534,7 +518,6 @@ public class DraftGoodsPO extends BasePO<DraftGoodsPO> {
      * 设置
      *
      * @param original original
-     * @return 无返回值
      * @since 2022.03
      */
     public void setOriginal(String original) {
@@ -555,7 +538,6 @@ public class DraftGoodsPO extends BasePO<DraftGoodsPO> {
      * 设置
      *
      * @param storeCategoryPath storeCategoryPath
-     * @return 无返回值
      * @since 2022.03
      */
     public void setStoreCategoryPath(String storeCategoryPath) {
@@ -576,7 +558,6 @@ public class DraftGoodsPO extends BasePO<DraftGoodsPO> {
      * 设置
      *
      * @param commentNum commentNum
-     * @return 无返回值
      * @since 2022.03
      */
     public void setCommentNum(Integer commentNum) {
@@ -597,7 +578,6 @@ public class DraftGoodsPO extends BasePO<DraftGoodsPO> {
      * 设置
      *
      * @param storeId storeId
-     * @return 无返回值
      * @since 2022.03
      */
     public void setStoreId(Long storeId) {
@@ -618,7 +598,6 @@ public class DraftGoodsPO extends BasePO<DraftGoodsPO> {
      * 设置
      *
      * @param storeName storeName
-     * @return 无返回值
      * @since 2022.03
      */
     public void setStoreName(String storeName) {
@@ -639,7 +618,6 @@ public class DraftGoodsPO extends BasePO<DraftGoodsPO> {
      * 设置
      *
      * @param templateId templateId
-     * @return 无返回值
      * @since 2022.03
      */
     public void setTemplateId(Long templateId) {
@@ -660,7 +638,6 @@ public class DraftGoodsPO extends BasePO<DraftGoodsPO> {
      * 设置
      *
      * @param selfOperated selfOperated
-     * @return 无返回值
      * @since 2022.03
      */
     public void setSelfOperated(Boolean selfOperated) {
@@ -681,7 +658,6 @@ public class DraftGoodsPO extends BasePO<DraftGoodsPO> {
      * 设置
      *
      * @param goodsVideo goodsVideo
-     * @return 无返回值
      * @since 2022.03
      */
     public void setGoodsVideo(String goodsVideo) {
@@ -702,7 +678,6 @@ public class DraftGoodsPO extends BasePO<DraftGoodsPO> {
      * 设置
      *
      * @param recommend recommend
-     * @return 无返回值
      * @since 2022.03
      */
     public void setRecommend(Boolean recommend) {
@@ -723,7 +698,6 @@ public class DraftGoodsPO extends BasePO<DraftGoodsPO> {
      * 设置
      *
      * @param salesModel salesModel
-     * @return 无返回值
      * @since 2022.03
      */
     public void setSalesModel(String salesModel) {
@@ -744,7 +718,6 @@ public class DraftGoodsPO extends BasePO<DraftGoodsPO> {
      * 设置
      *
      * @param saveType saveType
-     * @return 无返回值
      * @since 2022.03
      */
     public void setSaveType(String saveType) {
@@ -765,7 +738,6 @@ public class DraftGoodsPO extends BasePO<DraftGoodsPO> {
      * 设置
      *
      * @param categoryNameJson categoryNameJson
-     * @return 无返回值
      * @since 2022.03
      */
     public void setCategoryNameJson(String categoryNameJson) {
@@ -786,7 +758,6 @@ public class DraftGoodsPO extends BasePO<DraftGoodsPO> {
      * 设置
      *
      * @param goodsParamsListJson goodsParamsListJson
-     * @return 无返回值
      * @since 2022.03
      */
     public void setGoodsParamsListJson(String goodsParamsListJson) {
@@ -807,7 +778,6 @@ public class DraftGoodsPO extends BasePO<DraftGoodsPO> {
      * 设置
      *
      * @param goodsGalleryListJson goodsGalleryListJson
-     * @return 无返回值
      * @since 2022.03
      */
     public void setGoodsGalleryListJson(String goodsGalleryListJson) {
@@ -828,7 +798,6 @@ public class DraftGoodsPO extends BasePO<DraftGoodsPO> {
      * 设置
      *
      * @param skuListJson skuListJson
-     * @return 无返回值
      * @since 2022.03
      */
     public void setSkuListJson(String skuListJson) {
@@ -849,7 +818,6 @@ public class DraftGoodsPO extends BasePO<DraftGoodsPO> {
      * 设置
      *
      * @param goodsType goodsType
-     * @return 无返回值
      * @since 2022.03
      */
     public void setGoodsType(String goodsType) {

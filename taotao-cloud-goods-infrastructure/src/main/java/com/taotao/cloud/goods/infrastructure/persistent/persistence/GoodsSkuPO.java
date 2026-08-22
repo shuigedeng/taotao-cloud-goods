@@ -245,7 +245,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * 设置
      *
      * @param goodsId goodsId
-     * @return 无返回值
      * @since 2022.03
      */
     public void setGoodsId(Long goodsId) {
@@ -266,7 +265,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * 设置
      *
      * @param specs specs
-     * @return 无返回值
      * @since 2022.03
      */
     public void setSpecs(String specs) {
@@ -287,7 +285,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * 设置
      *
      * @param simpleSpecs simpleSpecs
-     * @return 无返回值
      * @since 2022.03
      */
     public void setSimpleSpecs(String simpleSpecs) {
@@ -308,7 +305,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * 设置
      *
      * @param freightTemplateId freightTemplateId
-     * @return 无返回值
      * @since 2022.03
      */
     public void setFreightTemplateId(Long freightTemplateId) {
@@ -329,7 +325,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * 设置
      *
      * @param promotionFlag promotionFlag
-     * @return 无返回值
      * @since 2022.03
      */
     public void setPromotionFlag(Boolean promotionFlag) {
@@ -350,7 +345,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * 设置
      *
      * @param promotionPrice promotionPrice
-     * @return 无返回值
      * @since 2022.03
      */
     public void setPromotionPrice(BigDecimal promotionPrice) {
@@ -371,7 +365,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * 设置
      *
      * @param goodsName goodsName
-     * @return 无返回值
      * @since 2022.03
      */
     public void setGoodsName(String goodsName) {
@@ -392,7 +385,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * 设置
      *
      * @param sn sn
-     * @return 无返回值
      * @since 2022.03
      */
     public void setSn(String sn) {
@@ -413,7 +405,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * 设置
      *
      * @param brandId brandId
-     * @return 无返回值
      * @since 2022.03
      */
     public void setBrandId(Long brandId) {
@@ -434,7 +425,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * 设置
      *
      * @param categoryPath categoryPath
-     * @return 无返回值
      * @since 2022.03
      */
     public void setCategoryPath(String categoryPath) {
@@ -455,7 +445,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * 设置
      *
      * @param goodsUnit goodsUnit
-     * @return 无返回值
      * @since 2022.03
      */
     public void setGoodsUnit(String goodsUnit) {
@@ -476,7 +465,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * 设置
      *
      * @param sellingPoint sellingPoint
-     * @return 无返回值
      * @since 2022.03
      */
     public void setSellingPoint(String sellingPoint) {
@@ -487,7 +475,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * 设置
      *
      * @param weight weight
-     * @return 无返回值
      * @since 2022.03
      */
     public void setWeight(BigDecimal weight) {
@@ -508,7 +495,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * 设置
      *
      * @param marketEnable marketEnable
-     * @return 无返回值
      * @since 2022.03
      */
     public void setMarketEnable(String marketEnable) {
@@ -529,7 +515,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * 设置
      *
      * @param intro intro
-     * @return 无返回值
      * @since 2022.03
      */
     public void setIntro(String intro) {
@@ -550,7 +535,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * 设置
      *
      * @param price price
-     * @return 无返回值
      * @since 2022.03
      */
     public void setPrice(BigDecimal price) {
@@ -571,7 +555,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * 设置
      *
      * @param cost cost
-     * @return 无返回值
      * @since 2022.03
      */
     public void setCost(BigDecimal cost) {
@@ -592,7 +575,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * 设置
      *
      * @param viewCount viewCount
-     * @return 无返回值
      * @since 2022.03
      */
     public void setViewCount(Integer viewCount) {
@@ -613,7 +595,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * 设置
      *
      * @param buyCount buyCount
-     * @return 无返回值
      * @since 2022.03
      */
     public void setBuyCount(Integer buyCount) {
@@ -634,7 +615,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * 设置
      *
      * @param quantity quantity
-     * @return 无返回值
      * @since 2022.03
      */
     public void setQuantity(Integer quantity) {
@@ -655,7 +635,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * 设置
      *
      * @param grade grade
-     * @return 无返回值
      * @since 2022.03
      */
     public void setGrade(BigDecimal grade) {
@@ -676,7 +655,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * 设置
      *
      * @param thumbnail thumbnail
-     * @return 无返回值
      * @since 2022.03
      */
     public void setThumbnail(String thumbnail) {
@@ -697,7 +675,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * 设置
      *
      * @param big big
-     * @return 无返回值
      * @since 2022.03
      */
     public void setBig(String big) {
@@ -718,7 +695,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * 设置
      *
      * @param small small
-     * @return 无返回值
      * @since 2022.03
      */
     public void setSmall(String small) {
@@ -739,7 +715,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * 设置
      *
      * @param original original
-     * @return 无返回值
      * @since 2022.03
      */
     public void setOriginal(String original) {
@@ -760,7 +735,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * 设置
      *
      * @param storeCategoryPath storeCategoryPath
-     * @return 无返回值
      * @since 2022.03
      */
     public void setStoreCategoryPath(String storeCategoryPath) {
@@ -781,7 +755,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * 设置
      *
      * @param commentNum commentNum
-     * @return 无返回值
      * @since 2022.03
      */
     public void setCommentNum(Integer commentNum) {
@@ -802,7 +775,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * 设置
      *
      * @param storeId storeId
-     * @return 无返回值
      * @since 2022.03
      */
     public void setStoreId(Long storeId) {
@@ -823,7 +795,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * 设置
      *
      * @param storeName storeName
-     * @return 无返回值
      * @since 2022.03
      */
     public void setStoreName(String storeName) {
@@ -844,7 +815,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * 设置
      *
      * @param templateId templateId
-     * @return 无返回值
      * @since 2022.03
      */
     public void setTemplateId(Long templateId) {
@@ -865,7 +835,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * 设置
      *
      * @param authFlag authFlag
-     * @return 无返回值
      * @since 2022.03
      */
     public void setAuthFlag(String authFlag) {
@@ -886,7 +855,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * 设置
      *
      * @param authMessage authMessage
-     * @return 无返回值
      * @since 2022.03
      */
     public void setAuthMessage(String authMessage) {
@@ -907,7 +875,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * 设置
      *
      * @param underMessage underMessage
-     * @return 无返回值
      * @since 2022.03
      */
     public void setUnderMessage(String underMessage) {
@@ -928,7 +895,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * 设置
      *
      * @param selfOperated selfOperated
-     * @return 无返回值
      * @since 2022.03
      */
     public void setSelfOperated(Boolean selfOperated) {
@@ -949,7 +915,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * 设置
      *
      * @param mobileIntro mobileIntro
-     * @return 无返回值
      * @since 2022.03
      */
     public void setMobileIntro(String mobileIntro) {
@@ -970,7 +935,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * 设置
      *
      * @param goodsVideo goodsVideo
-     * @return 无返回值
      * @since 2022.03
      */
     public void setGoodsVideo(String goodsVideo) {
@@ -991,7 +955,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * 设置
      *
      * @param recommend recommend
-     * @return 无返回值
      * @since 2022.03
      */
     public void setRecommend(Boolean recommend) {
@@ -1012,7 +975,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * 设置
      *
      * @param salesModel salesModel
-     * @return 无返回值
      * @since 2022.03
      */
     public void setSalesModel(String salesModel) {
@@ -1033,7 +995,6 @@ public class GoodsSkuPO extends BasePO<GoodsSkuPO> {
      * 设置
      *
      * @param goodsType goodsType
-     * @return 无返回值
      * @since 2022.03
      */
     public void setGoodsType(String goodsType) {

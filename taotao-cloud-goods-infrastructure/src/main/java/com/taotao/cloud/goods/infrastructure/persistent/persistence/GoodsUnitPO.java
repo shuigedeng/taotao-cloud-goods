@@ -69,7 +69,6 @@ public class GoodsUnitPO extends BasePO<GoodsUnitPO> {
      * 设置
      *
      * @param name name
-     * @return 无返回值
      * @since 2022.03
      */
     public void setName(String name) {

@@ -91,7 +91,6 @@ public class GoodsWordsPO extends BasePO<GoodsWordsPO> {
      * 设置
      *
      * @param words words
-     * @return 无返回值
      * @since 2022.03
      */
     public void setWords(String words) {
@@ -112,7 +111,6 @@ public class GoodsWordsPO extends BasePO<GoodsWordsPO> {
      * 设置
      *
      * @param wholeSpell wholeSpell
-     * @return 无返回值
      * @since 2022.03
      */
     public void setWholeSpell(String wholeSpell) {
@@ -133,7 +131,6 @@ public class GoodsWordsPO extends BasePO<GoodsWordsPO> {
      * 设置
      *
      * @param abbreviate abbreviate
-     * @return 无返回值
      * @since 2022.03
      */
     public void setAbbreviate(String abbreviate) {
@@ -154,7 +151,6 @@ public class GoodsWordsPO extends BasePO<GoodsWordsPO> {
      * 设置
      *
      * @param type type
-     * @return 无返回值
      * @since 2022.03
      */
     public void setType(String type) {
@@ -175,7 +171,6 @@ public class GoodsWordsPO extends BasePO<GoodsWordsPO> {
      * 设置
      *
      * @param sort sort
-     * @return 无返回值
      * @since 2022.03
      */
     public void setSort(Integer sort) {

@@ -99,7 +99,6 @@ public class BrandPO extends BaseLogicPO<BrandPO> {
      * 设置
      *
      * @param name name
-     * @return 无返回值
      * @since 2022.03
      */
     public void setName(String name) {
@@ -120,7 +119,6 @@ public class BrandPO extends BaseLogicPO<BrandPO> {
      * 设置
      *
      * @param logo logo
-     * @return 无返回值
      * @since 2022.03
      */
     public void setLogo(String logo) {

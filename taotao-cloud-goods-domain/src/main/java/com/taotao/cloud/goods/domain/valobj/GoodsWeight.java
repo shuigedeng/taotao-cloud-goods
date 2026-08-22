@@ -41,7 +41,6 @@ public record GoodsWeight(	@NotNull
 	 *
 	 * @param weight 重量
 	 * @param unit unit
-	 * @return 无返回值
 	 * @since 2022.03
 	 */
 	public GoodsWeight( BigDecimal weight, WeightUnit unit ) {

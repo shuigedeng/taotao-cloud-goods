@@ -247,7 +247,6 @@ public class GoodsAgg extends AggregateRoot<BizId> {
 	/**
 	 * 创建
 	 *
-	 * @return 无返回值
 	 * @since 2022.03
 	 */
 	public void create() {
@@ -319,7 +318,6 @@ public class GoodsAgg extends AggregateRoot<BizId> {
 	/**
 	 * 获取
 	 *
-	 * @return 无返回值
 	 * @since 2022.03
 	 */
 	public @NotNull Category getCategory() {
@@ -520,7 +518,6 @@ public class GoodsAgg extends AggregateRoot<BizId> {
 	 * 设置
 	 *
 	 * @param templateId templateId
-	 * @return 无返回值
 	 * @since 2022.03
 	 */
 	public void setTemplateId( String templateId ) {
@@ -534,7 +531,6 @@ public class GoodsAgg extends AggregateRoot<BizId> {
 	 *
 	 * @param newTemplateId 新模板ID
 	 * @param operatorId 操作人ID
-	 * @return 无返回值
 	 * @since 2022.03
 	 */
 	public void changeFreightTemplate( String newTemplateId, String operatorId ) {
@@ -637,7 +633,6 @@ public class GoodsAgg extends AggregateRoot<BizId> {
 	 * 设置
 	 *
 	 * @param goodsNo goodsNo
-	 * @return 无返回值
 	 * @since 2022.03
 	 */
 	public void setGoodsNo( String goodsNo ) {
@@ -688,7 +683,6 @@ public class GoodsAgg extends AggregateRoot<BizId> {
 	 * 设置
 	 *
 	 * @param recommend recommend
-	 * @return 无返回值
 	 * @since 2022.03
 	 */
 	public void setRecommend( Boolean recommend ) {
@@ -719,7 +713,6 @@ public class GoodsAgg extends AggregateRoot<BizId> {
 		/**
 		 * 商品AggBuilder
 		 *
-		 * @return 无返回值
 		 * @since 2022.03
 		 */
 		public GoodsAggBuilder() {
@@ -729,7 +722,6 @@ public class GoodsAgg extends AggregateRoot<BizId> {
 		 * 商品AggBuilder
 		 *
 		 * @param other other
-		 * @return 无返回值
 		 * @since 2022.03
 		 */
 		public GoodsAggBuilder( GoodsAgg other ) {

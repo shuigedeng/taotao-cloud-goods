@@ -80,7 +80,6 @@ public class CategoryBrandPO extends BasePO<CategoryBrandPO> {
      * 设置
      *
      * @param categoryId categoryId
-     * @return 无返回值
      * @since 2022.03
      */
     public void setCategoryId(Long categoryId) {
@@ -101,7 +100,6 @@ public class CategoryBrandPO extends BasePO<CategoryBrandPO> {
      * 设置
      *
      * @param brandId brandId
-     * @return 无返回值
      * @since 2022.03
      */
     public void setBrandId(Long brandId) {

@@ -148,7 +148,6 @@ public class GoodsCommentPO extends BasePO<GoodsCommentPO> {
      * 设置
      *
      * @param goodsSpecName goodsSpecName
-     * @return 无返回值
      * @since 2022.03
      */
     public void setGoodsSpecName(String goodsSpecName) {
@@ -169,7 +168,6 @@ public class GoodsCommentPO extends BasePO<GoodsCommentPO> {
      * 设置
      *
      * @param mallId mallId
-     * @return 无返回值
      * @since 2022.03
      */
     public void setMallId(Long mallId) {
@@ -190,7 +188,6 @@ public class GoodsCommentPO extends BasePO<GoodsCommentPO> {
      * 设置
      *
      * @param sceneId sceneId
-     * @return 无返回值
      * @since 2022.03
      */
     public void setSceneId(Long sceneId) {
@@ -211,7 +208,6 @@ public class GoodsCommentPO extends BasePO<GoodsCommentPO> {
      * 设置
      *
      * @param customerId customerId
-     * @return 无返回值
      * @since 2022.03
      */
     public void setCustomerId(Long customerId) {
@@ -232,7 +228,6 @@ public class GoodsCommentPO extends BasePO<GoodsCommentPO> {
      * 设置
      *
      * @param memberNick memberNick
-     * @return 无返回值
      * @since 2022.03
      */
     public void setMemberNick(String memberNick) {
@@ -253,7 +248,6 @@ public class GoodsCommentPO extends BasePO<GoodsCommentPO> {
      * 设置
      *
      * @param memberAvatar memberAvatar
-     * @return 无返回值
      * @since 2022.03
      */
     public void setMemberAvatar(String memberAvatar) {
@@ -274,7 +268,6 @@ public class GoodsCommentPO extends BasePO<GoodsCommentPO> {
      * 设置
      *
      * @param orderCode orderCode
-     * @return 无返回值
      * @since 2022.03
      */
     public void setOrderCode(String orderCode) {
@@ -295,7 +288,6 @@ public class GoodsCommentPO extends BasePO<GoodsCommentPO> {
      * 设置
      *
      * @param type type
-     * @return 无返回值
      * @since 2022.03
      */
     public void setType(Integer type) {
@@ -316,7 +308,6 @@ public class GoodsCommentPO extends BasePO<GoodsCommentPO> {
      * 设置
      *
      * @param rank rank
-     * @return 无返回值
      * @since 2022.03
      */
     public void setRank(Integer rank) {
@@ -337,7 +328,6 @@ public class GoodsCommentPO extends BasePO<GoodsCommentPO> {
      * 设置
      *
      * @param hasImage hasImage
-     * @return 无返回值
      * @since 2022.03
      */
     public void setHasImage(Integer hasImage) {
@@ -358,7 +348,6 @@ public class GoodsCommentPO extends BasePO<GoodsCommentPO> {
      * 设置
      *
      * @param commentPicId commentPicId
-     * @return 无返回值
      * @since 2022.03
      */
     public void setCommentPicId(Long commentPicId) {
@@ -379,7 +368,6 @@ public class GoodsCommentPO extends BasePO<GoodsCommentPO> {
      * 设置
      *
      * @param hasSenWord hasSenWord
-     * @return 无返回值
      * @since 2022.03
      */
     public void setHasSenWord(Integer hasSenWord) {
@@ -400,7 +388,6 @@ public class GoodsCommentPO extends BasePO<GoodsCommentPO> {
      * 设置
      *
      * @param originContent originContent
-     * @return 无返回值
      * @since 2022.03
      */
     public void setOriginContent(String originContent) {
@@ -421,7 +408,6 @@ public class GoodsCommentPO extends BasePO<GoodsCommentPO> {
      * 设置
      *
      * @param filterContent filterContent
-     * @return 无返回值
      * @since 2022.03
      */
     public void setFilterContent(String filterContent) {
@@ -442,7 +428,6 @@ public class GoodsCommentPO extends BasePO<GoodsCommentPO> {
      * 设置
      *
      * @param opType opType
-     * @return 无返回值
      * @since 2022.03
      */
     public void setOpType(Integer opType) {
@@ -463,7 +448,6 @@ public class GoodsCommentPO extends BasePO<GoodsCommentPO> {
      * 设置
      *
      * @param replyStatus replyStatus
-     * @return 无返回值
      * @since 2022.03
      */
     public void setReplyStatus(Integer replyStatus) {
@@ -484,7 +468,6 @@ public class GoodsCommentPO extends BasePO<GoodsCommentPO> {
      * 设置
      *
      * @param replyContent replyContent
-     * @return 无返回值
      * @since 2022.03
      */
     public void setReplyContent(String replyContent) {
@@ -505,7 +488,6 @@ public class GoodsCommentPO extends BasePO<GoodsCommentPO> {
      * 设置
      *
      * @param replyOriContent replyOriContent
-     * @return 无返回值
      * @since 2022.03
      */
     public void setReplyOriContent(String replyOriContent) {
@@ -526,7 +508,6 @@ public class GoodsCommentPO extends BasePO<GoodsCommentPO> {
      * 设置
      *
      * @param replyTime replyTime
-     * @return 无返回值
      * @since 2022.03
      */
     public void setReplyTime(LocalDateTime replyTime) {
@@ -547,7 +528,6 @@ public class GoodsCommentPO extends BasePO<GoodsCommentPO> {
      * 设置
      *
      * @param replyUserId replyUserId
-     * @return 无返回值
      * @since 2022.03
      */
     public void setReplyUserId(Long replyUserId) {
@@ -568,7 +548,6 @@ public class GoodsCommentPO extends BasePO<GoodsCommentPO> {
      * 设置
      *
      * @param replyPicId replyPicId
-     * @return 无返回值
      * @since 2022.03
      */
     public void setReplyPicId(Long replyPicId) {
@@ -589,7 +568,6 @@ public class GoodsCommentPO extends BasePO<GoodsCommentPO> {
      * 设置
      *
      * @param hasAdd hasAdd
-     * @return 无返回值
      * @since 2022.03
      */
     public void setHasAdd(Integer hasAdd) {
@@ -610,7 +588,6 @@ public class GoodsCommentPO extends BasePO<GoodsCommentPO> {
      * 设置
      *
      * @param afterDays afterDays
-     * @return 无返回值
      * @since 2022.03
      */
     public void setAfterDays(Integer afterDays) {
@@ -631,7 +608,6 @@ public class GoodsCommentPO extends BasePO<GoodsCommentPO> {
      * 设置
      *
      * @param appendTime appendTime
-     * @return 无返回值
      * @since 2022.03
      */
     public void setAppendTime(LocalDateTime appendTime) {
@@ -652,7 +628,6 @@ public class GoodsCommentPO extends BasePO<GoodsCommentPO> {
      * 设置
      *
      * @param status status
-     * @return 无返回值
      * @since 2022.03
      */
     public void setStatus(Integer status) {

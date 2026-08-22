@@ -125,7 +125,6 @@ public class CommodityPO extends BasePO<CommodityPO> {
      * 设置
      *
      * @param goodsImage goodsImage
-     * @return 无返回值
      * @since 2022.03
      */
     public void setGoodsImage(String goodsImage) {
@@ -146,7 +145,6 @@ public class CommodityPO extends BasePO<CommodityPO> {
      * 设置
      *
      * @param name name
-     * @return 无返回值
      * @since 2022.03
      */
     public void setName(String name) {
@@ -167,7 +165,6 @@ public class CommodityPO extends BasePO<CommodityPO> {
      * 设置
      *
      * @param priceType priceType
-     * @return 无返回值
      * @since 2022.03
      */
     public void setPriceType(Integer priceType) {
@@ -188,7 +185,6 @@ public class CommodityPO extends BasePO<CommodityPO> {
      * 设置
      *
      * @param price price
-     * @return 无返回值
      * @since 2022.03
      */
     public void setPrice(BigDecimal price) {
@@ -209,7 +205,6 @@ public class CommodityPO extends BasePO<CommodityPO> {
      * 设置
      *
      * @param price2 price2
-     * @return 无返回值
      * @since 2022.03
      */
     public void setPrice2(BigDecimal price2) {
@@ -230,7 +225,6 @@ public class CommodityPO extends BasePO<CommodityPO> {
      * 设置
      *
      * @param url url
-     * @return 无返回值
      * @since 2022.03
      */
     public void setUrl(String url) {
@@ -251,7 +245,6 @@ public class CommodityPO extends BasePO<CommodityPO> {
      * 设置
      *
      * @param liveGoodsId liveGoodsId
-     * @return 无返回值
      * @since 2022.03
      */
     public void setLiveGoodsId(Long liveGoodsId) {
@@ -272,7 +265,6 @@ public class CommodityPO extends BasePO<CommodityPO> {
      * 设置
      *
      * @param auditId auditId
-     * @return 无返回值
      * @since 2022.03
      */
     public void setAuditId(Long auditId) {
@@ -293,7 +285,6 @@ public class CommodityPO extends BasePO<CommodityPO> {
      * 设置
      *
      * @param auditStatus auditStatus
-     * @return 无返回值
      * @since 2022.03
      */
     public void setAuditStatus(String auditStatus) {
@@ -314,7 +305,6 @@ public class CommodityPO extends BasePO<CommodityPO> {
      * 设置
      *
      * @param storeId storeId
-     * @return 无返回值
      * @since 2022.03
      */
     public void setStoreId(Long storeId) {
@@ -335,7 +325,6 @@ public class CommodityPO extends BasePO<CommodityPO> {
      * 设置
      *
      * @param goodsId goodsId
-     * @return 无返回值
      * @since 2022.03
      */
     public void setGoodsId(Long goodsId) {
@@ -356,7 +345,6 @@ public class CommodityPO extends BasePO<CommodityPO> {
      * 设置
      *
      * @param skuId skuId
-     * @return 无返回值
      * @since 2022.03
      */
     public void setSkuId(Long skuId) {

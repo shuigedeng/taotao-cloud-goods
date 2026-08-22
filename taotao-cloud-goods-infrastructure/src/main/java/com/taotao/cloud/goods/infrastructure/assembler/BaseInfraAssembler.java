@@ -38,7 +38,6 @@ public interface BaseInfraAssembler extends MarkerAssembler {
 	 * 转换为
 	 *
 	 * @param id ID
-	 * @return 无返回值
 	 * @since 2022.03
 	 */
 	default BizId toBizId( Long id ) {
@@ -49,7 +48,6 @@ public interface BaseInfraAssembler extends MarkerAssembler {
 	 * 转换为
 	 *
 	 * @param value 值
-	 * @return 无返回值
 	 * @since 2022.03
 	 */
 	default Long toLong( BizId value ) {
@@ -60,7 +58,6 @@ public interface BaseInfraAssembler extends MarkerAssembler {
 	 * 转换为
 	 *
 	 * @param value 值
-	 * @return 无返回值
 	 * @since 2022.03
 	 */
 	default String toString( GoodsName value ) {
@@ -71,7 +68,6 @@ public interface BaseInfraAssembler extends MarkerAssembler {
 	 * 转换为
 	 *
 	 * @param name 名称
-	 * @return 无返回值
 	 * @since 2022.03
 	 */
 	default CategoryName toCategoryName( String name ) {
@@ -82,7 +78,6 @@ public interface BaseInfraAssembler extends MarkerAssembler {
 	 * 转换为
 	 *
 	 * @param desc 描述
-	 * @return 无返回值
 	 * @since 2022.03
 	 */
 	default CategoryDesc toCategoryDesc( String desc ) {

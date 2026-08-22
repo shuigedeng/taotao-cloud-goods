@@ -28,7 +28,6 @@ public class GoodsKafkaConsumer extends MqConsumerBase {
 	 * 列表查询
 	 *
 	 * @param RECEIVED_TOPIC received_topic
-	 * @return 无返回值
 	 * @since 2022.03
 	 */
 	public void listenMsg(

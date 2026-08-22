@@ -10,7 +10,6 @@ public class GuavaEventSubscriber {
 	 * onMessage 方法
 	 *
 	 * @param message 消息
-	 * @return 无返回值
 	 * @since 2022.03
 	 */
 	@Subscribe

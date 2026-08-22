@@ -10,7 +10,6 @@ public class GreenrobotEventSubscriber {
 	 * onMessage 方法
 	 *
 	 * @param message 消息
-	 * @return 无返回值
 	 * @since 2022.03
 	 */
 	@org.greenrobot.eventbus.Subscribe(threadMode = ThreadMode.ASYNC)

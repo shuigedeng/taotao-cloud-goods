@@ -72,7 +72,6 @@ public class CategoryResult implements MarkerResult {
      * 设置
      *
      * @param id id
-     * @return 无返回值
      * @since 2022.03
      */
     public void setId(Long id) {
@@ -93,7 +92,6 @@ public class CategoryResult implements MarkerResult {
      * 设置
      *
      * @param name name
-     * @return 无返回值
      * @since 2022.03
      */
     public void setName(String name) {
@@ -114,7 +112,6 @@ public class CategoryResult implements MarkerResult {
      * 设置
      *
      * @param parentId parentId
-     * @return 无返回值
      * @since 2022.03
      */
     public void setParentId(Long parentId) {
@@ -135,7 +132,6 @@ public class CategoryResult implements MarkerResult {
      * 设置
      *
      * @param level level
-     * @return 无返回值
      * @since 2022.03
      */
     public void setLevel(Integer level) {
@@ -156,7 +152,6 @@ public class CategoryResult implements MarkerResult {
      * 设置
      *
      * @param sortOrder sortOrder
-     * @return 无返回值
      * @since 2022.03
      */
     public void setSortOrder(Integer sortOrder) {
@@ -177,7 +172,6 @@ public class CategoryResult implements MarkerResult {
      * 设置
      *
      * @param commissionRate commissionRate
-     * @return 无返回值
      * @since 2022.03
      */
     public void setCommissionRate(BigDecimal commissionRate) {
@@ -198,7 +192,6 @@ public class CategoryResult implements MarkerResult {
      * 设置
      *
      * @param image image
-     * @return 无返回值
      * @since 2022.03
      */
     public void setImage(String image) {
@@ -219,7 +212,6 @@ public class CategoryResult implements MarkerResult {
      * 设置
      *
      * @param supportChannel supportChannel
-     * @return 无返回值
      * @since 2022.03
      */
     public void setSupportChannel(Boolean supportChannel) {

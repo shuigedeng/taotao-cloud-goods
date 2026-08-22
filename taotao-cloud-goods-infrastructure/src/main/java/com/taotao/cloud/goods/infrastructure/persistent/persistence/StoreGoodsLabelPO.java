@@ -91,7 +91,6 @@ public class StoreGoodsLabelPO extends BasePO<StoreGoodsLabelPO> {
      * 设置
      *
      * @param storeId storeId
-     * @return 无返回值
      * @since 2022.03
      */
     public void setStoreId(Long storeId) {
@@ -112,7 +111,6 @@ public class StoreGoodsLabelPO extends BasePO<StoreGoodsLabelPO> {
      * 设置
      *
      * @param labelName labelName
-     * @return 无返回值
      * @since 2022.03
      */
     public void setLabelName(String labelName) {
@@ -133,7 +131,6 @@ public class StoreGoodsLabelPO extends BasePO<StoreGoodsLabelPO> {
      * 设置
      *
      * @param sortOrder sortOrder
-     * @return 无返回值
      * @since 2022.03
      */
     public void setSortOrder(Integer sortOrder) {
@@ -154,7 +151,6 @@ public class StoreGoodsLabelPO extends BasePO<StoreGoodsLabelPO> {
      * 设置
      *
      * @param parentId parentId
-     * @return 无返回值
      * @since 2022.03
      */
     public void setParentId(Long parentId) {
@@ -175,7 +171,6 @@ public class StoreGoodsLabelPO extends BasePO<StoreGoodsLabelPO> {
      * 设置
      *
      * @param level level
-     * @return 无返回值
      * @since 2022.03
      */
     public void setLevel(Integer level) {

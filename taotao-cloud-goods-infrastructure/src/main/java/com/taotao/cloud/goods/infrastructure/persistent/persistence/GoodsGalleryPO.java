@@ -97,7 +97,6 @@ public class GoodsGalleryPO extends BasePO<GoodsGalleryPO> {
      * 设置
      *
      * @param goodsId goodsId
-     * @return 无返回值
      * @since 2022.03
      */
     public void setGoodsId(Long goodsId) {
@@ -118,7 +117,6 @@ public class GoodsGalleryPO extends BasePO<GoodsGalleryPO> {
      * 设置
      *
      * @param thumbnail thumbnail
-     * @return 无返回值
      * @since 2022.03
      */
     public void setThumbnail(String thumbnail) {
@@ -139,7 +137,6 @@ public class GoodsGalleryPO extends BasePO<GoodsGalleryPO> {
      * 设置
      *
      * @param small small
-     * @return 无返回值
      * @since 2022.03
      */
     public void setSmall(String small) {
@@ -160,7 +157,6 @@ public class GoodsGalleryPO extends BasePO<GoodsGalleryPO> {
      * 设置
      *
      * @param original original
-     * @return 无返回值
      * @since 2022.03
      */
     public void setOriginal(String original) {
@@ -181,7 +177,6 @@ public class GoodsGalleryPO extends BasePO<GoodsGalleryPO> {
      * 设置
      *
      * @param isDefault isDefault
-     * @return 无返回值
      * @since 2022.03
      */
     public void setIsDefault(Integer isDefault) {
@@ -202,7 +197,6 @@ public class GoodsGalleryPO extends BasePO<GoodsGalleryPO> {
      * 设置
      *
      * @param sort sort
-     * @return 无返回值
      * @since 2022.03
      */
     public void setSort(Integer sort) {

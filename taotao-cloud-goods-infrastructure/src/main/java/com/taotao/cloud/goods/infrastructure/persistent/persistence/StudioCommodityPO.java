@@ -79,7 +79,6 @@ public class StudioCommodityPO extends BasePO<StudioCommodityPO> {
      * 设置
      *
      * @param roomId roomId
-     * @return 无返回值
      * @since 2022.03
      */
     public void setRoomId(Long roomId) {
@@ -100,7 +99,6 @@ public class StudioCommodityPO extends BasePO<StudioCommodityPO> {
      * 设置
      *
      * @param goodsId goodsId
-     * @return 无返回值
      * @since 2022.03
      */
     public void setGoodsId(Long goodsId) {

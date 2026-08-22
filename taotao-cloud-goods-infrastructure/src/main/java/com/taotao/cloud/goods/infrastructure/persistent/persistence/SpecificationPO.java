@@ -90,7 +90,6 @@ public class SpecificationPO extends BasePO<SpecificationPO> {
      * 设置
      *
      * @param specName specName
-     * @return 无返回值
      * @since 2022.03
      */
     public void setSpecName(String specName) {
@@ -111,7 +110,6 @@ public class SpecificationPO extends BasePO<SpecificationPO> {
      * 设置
      *
      * @param storeId storeId
-     * @return 无返回值
      * @since 2022.03
      */
     public void setStoreId(Long storeId) {
@@ -132,7 +130,6 @@ public class SpecificationPO extends BasePO<SpecificationPO> {
      * 设置
      *
      * @param specValue specValue
-     * @return 无返回值
      * @since 2022.03
      */
     public void setSpecValue(String specValue) {

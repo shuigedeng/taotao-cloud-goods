@@ -79,7 +79,6 @@ public class CategorySpecificationPO extends BasePO<CategorySpecificationPO> {
      * 设置
      *
      * @param categoryId categoryId
-     * @return 无返回值
      * @since 2022.03
      */
     public void setCategoryId(Long categoryId) {
@@ -100,7 +99,6 @@ public class CategorySpecificationPO extends BasePO<CategorySpecificationPO> {
      * 设置
      *
      * @param specificationId specificationId
-     * @return 无返回值
      * @since 2022.03
      */
     public void setSpecificationId(Long specificationId) {
