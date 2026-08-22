@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.application;
+package com.taotao.cloud.goods.application.query;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

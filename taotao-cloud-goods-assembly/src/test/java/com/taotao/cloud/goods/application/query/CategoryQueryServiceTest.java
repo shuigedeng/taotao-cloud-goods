@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.application;
+package com.taotao.cloud.goods.application.query;
 
 import com.taotao.cloud.goods.TaoTaoCloudGoodsApplicationTests;
 import com.taotao.cloud.goods.application.dto.category.result.CategoryTreeResult;
@@ -66,8 +66,7 @@ public class CategoryQueryServiceTest extends TaoTaoCloudGoodsApplicationTests {
 
         @Test
         void shouldReturnCategoryNames() {
-            // 假设已预置分类数据
-            // List<String> names = categoryQueryService.queryCategoryNameByIds(List.of(1L, 2L));
+            // 假设已预置分类数"            // List<String> names = categoryQueryService.queryCategoryNameByIds(List.of(1L, 2L));
             // assertThat(names).isNotEmpty();
         }
 

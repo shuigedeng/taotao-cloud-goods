@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.application;
+package com.taotao.cloud.goods.application.query;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -45,7 +45,7 @@ class GoodsSkuQueryServiceTest extends TaoTaoCloudGoodsApplicationTests {
         @Test
         void shouldReturnDetailWhenSkuExists() {
             Map<String, Object> result = goodsSkuQueryService.queryGoodsSkuDetail(1L, 100L);
-            // May return null if no data preloaded — verify service contract behavior
+            // May return null if no data preloaded "verify service contract behavior
         }
 
         @Test

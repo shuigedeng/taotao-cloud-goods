@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.application;
+package com.taotao.cloud.goods.application.query;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -62,7 +62,7 @@ class GoodsQueryServiceTest extends TaoTaoCloudGoodsApplicationTests {
 
         @Test
         void shouldReturnPagedResultWithDefaultParams() {
-            // Default page query — returns PageResult.empty() currently
+            // Default page query "returns PageResult.empty() currently
             PageResult<GoodsResult> page = goodsQueryService.queryGoodsPage(null);
             assertThat(page).isNotNull();
         }
