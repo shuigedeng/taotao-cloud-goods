@@ -13,6 +13,10 @@ import static com.taotao.boot.flowengine.easywork.flow.SequentialFlow.aNewSequen
 
 public class UseCreditFlow {
 
+	static void main() {
+		UseCreditFlow flow = new UseCreditFlow();
+		flow.start();
+	}
     public  void start() {
         PrintMessageWork work1 = new PrintMessageWork("foo");
         PrintMessageWork work2 = new PrintMessageWork("hello");
@@ -25,7 +29,7 @@ public class UseCreditFlow {
 
         SequentialFlow flow = aNewSequentialFlow(
                 aNewRepeatFlow(work1).times(3),
-                aNewConditionalFlow(aNewParallelFlow(work2,work3)).when(WorkReportPredicate.COMPLETED, work4, work5)
+                aNewConditionalFlow(aNewParallelFlow(work2,work3)).when(WorkReportPredicate.ALWAYS_TRUE, work4, work5)
         ).named("sequential");
 
         aNewWorkFlowEngine().run(flow, workContext);

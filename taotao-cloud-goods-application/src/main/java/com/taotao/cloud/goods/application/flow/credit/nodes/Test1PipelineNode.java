@@ -12,5 +12,6 @@ public class Test1PipelineNode implements PipelineNode<CreditContext> {
 	public void execute(PipelineContext<CreditContext> context) throws PipelineException {
 		CreditContext creditContext = context.getData();
 
+		System.out.println("Test1PipelineNode");
 	}
 }

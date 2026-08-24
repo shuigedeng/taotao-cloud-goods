@@ -11,6 +11,6 @@ public class TestPipelineNode implements PipelineNode<CreditContext> {
 	@Override
 	public void execute(PipelineContext<CreditContext> context) throws PipelineException {
 		CreditContext creditContext = context.getData();
-
+		System.out.println("TestPipelineNode");
 	}
 }

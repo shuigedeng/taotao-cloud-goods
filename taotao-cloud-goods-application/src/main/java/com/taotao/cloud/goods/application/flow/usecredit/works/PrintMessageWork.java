@@ -15,6 +15,7 @@ public class PrintMessageWork implements Work {
     @Override
     public String execute(WorkContext workContext) {
         System.out.println(message);
+
         return message;
     }
 }
