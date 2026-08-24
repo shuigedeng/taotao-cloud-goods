@@ -20,6 +20,8 @@ import com.taotao.boot.common.model.ddd.command.IdsCommand;
 import com.taotao.cloud.goods.application.dto.brand.command.CreateBrandCommand;
 import com.taotao.cloud.goods.application.dto.brand.command.DisableBrandCommand;
 import com.taotao.cloud.goods.application.dto.brand.command.UpdateBrandCommand;
+import com.taotao.cloud.goods.application.flow.credit.CreditFlow;
+import com.taotao.cloud.goods.application.flow.precredit.PreCreditFlow;
 import com.taotao.cloud.goods.application.service.command.BrandCommandService;
 import com.taotao.cloud.goods.application.service.command.CategoryBrandCommandService;
 import com.taotao.cloud.goods.application.service.command.CategoryCommandService;
@@ -63,8 +65,14 @@ public class BrandCommandServiceImpl implements BrandCommandService {
 
     private final GoodsQueryService goodsQueryService;
 
+    private final CreditFlow creditFlow;
+    private final PreCreditFlow preCreditFlow;
+
     @Override
     public void deleteBrands( IdsCommand idsCommand) {
+		creditFlow.start();
+
+		preCreditFlow.start();
     }
 
     @Override
