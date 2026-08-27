@@ -22,7 +22,7 @@ import com.taotao.boot.ddd.model.domain.ValueObjectEnum;
  * 商品状态
  *
  */
-public enum GoodsStatus implements ValueObjectEnum<Integer> {
+public enum GoodsStatusEnum implements ValueObjectEnum<Integer> {
     // 10 - 已上架
     SHELVED(10, "已上架"),
     // 20 - 已下架
@@ -38,7 +38,7 @@ public enum GoodsStatus implements ValueObjectEnum<Integer> {
      */
     private final  String desc;
 
-    GoodsStatus(Integer value, String desc) {
+    GoodsStatusEnum(Integer value, String desc) {
         this.value = value;
         this.desc = desc;
     }
@@ -60,8 +60,8 @@ public enum GoodsStatus implements ValueObjectEnum<Integer> {
      * @return 商品状态
      * @since 2022.03
      */
-    public static GoodsStatus of(Integer value) {
-        return ValueObjectEnum.of(value, GoodsStatus.class);
+    public static GoodsStatusEnum of(Integer value) {
+        return ValueObjectEnum.of(value, GoodsStatusEnum.class);
     }
 
 	@Override

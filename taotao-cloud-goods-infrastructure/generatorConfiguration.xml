@@ -122,7 +122,7 @@
 		<!--生成全部表tableName设为%-->
 		<!-- 指定数据库表 -->
 		<table tableName="ttc%" >
-			<generatedKey column="id" sqlStatement="JDBC" identity="true" type="post"/>
+			<generatedKey column="id" sqlStatement="JDBC" identity="true"/>
 <!--			<domainObjectRenamingRule searchString="^Ttc" replaceString="" />-->
 			<domainObjectRenamingRule searchString="^Ttc(.*)" replaceString="$1PO" />
 			<ignoreColumn column="create_date"/>

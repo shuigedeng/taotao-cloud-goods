@@ -21,7 +21,7 @@ import com.taotao.boot.ddd.model.domain.ValueObjectEnum;
 /**
  * 重量单位
  */
-public enum WeightUnit implements ValueObjectEnum<String> {
+public enum WeightUnitEnum implements ValueObjectEnum<String> {
     // 吨
     T("t", "吨"),
     // 公斤
@@ -39,7 +39,7 @@ public enum WeightUnit implements ValueObjectEnum<String> {
      */
     private final String desc;
 
-    WeightUnit(String value, String desc) {
+    WeightUnitEnum(String value, String desc) {
         this.value = value;
         this.desc = desc;
     }
@@ -61,8 +61,8 @@ public enum WeightUnit implements ValueObjectEnum<String> {
      * @return 重量Unit
      * @since 2022.03
      */
-    public static WeightUnit of(String value) {
-        return ValueObjectEnum.of(value, WeightUnit.class);
+    public static WeightUnitEnum of(String value) {
+        return ValueObjectEnum.of(value, WeightUnitEnum.class);
     }
 
 	@Override

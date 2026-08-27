@@ -16,27 +16,18 @@
 
 package com.taotao.cloud.goods.infrastructure.repository;
 
-import com.taotao.boot.data.datasource.wrapper.TransactionWrapper;
-import com.taotao.boot.data.mybatis.utils.MybatisUtil;
-import com.taotao.boot.ddd.model.domain.AggregateRoot;
 import com.taotao.boot.ddd.model.val.BizId;
 import com.taotao.cloud.goods.domain.aggregate.GoodsAgg;
 import com.taotao.cloud.goods.domain.repository.GoodsDomainRepository;
-import com.taotao.cloud.goods.domain.valobj.GoodsStatus;
+import com.taotao.cloud.goods.domain.valobj.GoodsStatusEnum;
 import com.taotao.cloud.goods.infrastructure.assembler.GoodsInfraAssembler;
 import com.taotao.cloud.goods.infrastructure.persistent.mapper.GoodsMapper;
 import com.taotao.cloud.goods.infrastructure.persistent.mapper.GoodsSkuMapper;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsPO;
 
-import java.math.BigDecimal;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.Collection;
 
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 /**
@@ -75,7 +66,7 @@ public class GoodsDomainRepositoryImpl implements GoodsDomainRepository {
     }
 
     @Override
-    public Boolean existsByIdInAndGoodsStatus( Collection<BizId> goodsIds, GoodsStatus goodsStatus ) {
+    public Boolean existsByIdInAndGoodsStatus( Collection<BizId> goodsIds, GoodsStatusEnum goodsStatus ) {
         return null;
     }
 
@@ -85,7 +76,7 @@ public class GoodsDomainRepositoryImpl implements GoodsDomainRepository {
     }
 
     @Override
-    public void batchModifyGoodsStatus( Collection<BizId> goodsIds, GoodsStatus goodsStatus ) {
+    public void batchModifyGoodsStatus( Collection<BizId> goodsIds, GoodsStatusEnum goodsStatus ) {
     }
 
     @Override

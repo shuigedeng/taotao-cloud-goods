@@ -1,8 +1,7 @@
 package com.taotao.cloud.goods.application.dto.goods.command;
 
 import com.taotao.boot.common.model.ddd.types.Command;
-import com.taotao.cloud.goods.common.enums.GoodsAuthEnum;
-import com.taotao.cloud.goods.common.enums.GoodsStatusEnum;
+import com.taotao.cloud.goods.domain.valobj.GoodsStatusEnum;
 import io.soabase.recordbuilder.core.RecordBuilder;
 
 import java.util.List;
@@ -20,7 +19,7 @@ public record MarketAbleGoodsCommand(List<Long> goodsIds, GoodsStatusEnum goodsS
 	public MarketAbleGoodsCommand {
 		// 设置默认值
 		if (goodsStatusEnum == null) {
-			goodsStatusEnum = GoodsStatusEnum.UPPER; // 或其他默认枚举值
+			goodsStatusEnum = GoodsStatusEnum.SHELVED; // 或其他默认枚举值
 		}
 		if (underReason == null || underReason.isBlank()) {
 			underReason = ""; // 或默认原因文本

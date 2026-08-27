@@ -22,8 +22,8 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.handlers.FastjsonTypeHandler;
 import com.taotao.boot.webagg.entity.BasePO;
-import com.taotao.cloud.goods.common.enums.GoodsAuthEnum;
-import com.taotao.cloud.goods.common.enums.GoodsTypeEnum;
+import com.taotao.cloud.goods.domain.valobj.GoodsAuthEnum;
+import com.taotao.cloud.goods.domain.valobj.GoodsTypeEnum;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Index;
@@ -36,7 +36,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.hibernate.Hibernate;
 
 /**

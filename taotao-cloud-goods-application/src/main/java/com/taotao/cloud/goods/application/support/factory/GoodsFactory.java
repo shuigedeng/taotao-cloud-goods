@@ -48,7 +48,7 @@ public class GoodsFactory implements MarkerFactory {
 		GoodsWeight goodsWeight = GoodsWeightBuilder
 			.builder()
 			.weight(createGoodsCommand.goodsWeight())
-			.unit(WeightUnit.of(createGoodsCommand.goodsWeightUnit()))
+			.unit(WeightUnitEnum.of(createGoodsCommand.goodsWeightUnit()))
 			.build();
 
 		GoodsSpec goodsSpec = GoodsSpecBuilder
@@ -65,7 +65,7 @@ public class GoodsFactory implements MarkerFactory {
 			GoodsName.of(createGoodsCommand.goodsName()),
 			goodsSpec,
 			Price.of(createGoodsCommand.goodsPrice()),
-			GoodsStatus.UNSHELVED,
+			GoodsStatusEnum.UNSHELVED,
 			Tag.bizIds(BizId.fromNullableValues(createGoodsCommand.tagIds())));
 	}
 }

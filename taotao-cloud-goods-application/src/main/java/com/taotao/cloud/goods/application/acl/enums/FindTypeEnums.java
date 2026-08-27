@@ -14,37 +14,10 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.common.enums;
+package com.taotao.cloud.goods.application.acl.enums;
 
-/**
- * 商品类型
- *
- * @author shuigedeng
- * @version 2022.04
- * @since 2022-04-25 16:32:22
- */
-public enum GoodsTypeEnum {
-
-    /** "实物商品" */
-    PHYSICAL_GOODS("实物商品"),
-    /** "虚拟商品" */
-    VIRTUAL_GOODS("虚拟商品"),
-    /** "电子卡券" */
-    E_COUPON("电子卡券");
-
-    private final String description;
-
-    GoodsTypeEnum(String description) {
-        this.description = description;
-    }
-
-    /**
-     * 描述
-     *
-     * @return 字符串
-     * @since 2022.03
-     */
-    public String description() {
-        return description;
-    }
+public enum FindTypeEnums {
+    LIST,
+    TREE_LIST,
+    USER_TREE_LIST
 }

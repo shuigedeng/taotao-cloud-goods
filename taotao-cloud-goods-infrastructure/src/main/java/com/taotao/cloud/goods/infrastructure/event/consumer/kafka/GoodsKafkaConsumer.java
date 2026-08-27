@@ -16,13 +16,6 @@ public class GoodsKafkaConsumer extends MqConsumerBase {
 
 	private final GoodsCommandService goodsCommandService;
 
-	@KafkaListener(
-		topics = "GoodsTopic",
-		groupId = "taotao-cloud-GoodsTopic",
-		concurrency = "3"
-//		errorHandler = "kafkaErrorHandler",
-//		containerFactory = "manualKafkaContainerFactory"
-	)
 
 	/**
 	 * 列表查询
@@ -30,6 +23,13 @@ public class GoodsKafkaConsumer extends MqConsumerBase {
 	 * @param RECEIVED_TOPIC received_topic
 	 * @since 2022.03
 	 */
+	@KafkaListener(
+		topics = "GoodsTopic",
+		groupId = "taotao-cloud-GoodsTopic",
+		concurrency = "3"
+//		errorHandler = "kafkaErrorHandler",
+//		containerFactory = "manualKafkaContainerFactory"
+	)
 	public void listenMsg(
 //		@Header(KafkaHeaders.RECEIVED_TOPIC) String topic,
 //		@Header(KafkaHeaders.RECEIVED_KEY) String key,
@@ -41,7 +41,9 @@ public class GoodsKafkaConsumer extends MqConsumerBase {
 			String msg = record.value();
 			NotifyGoodsCommand notifyGoodsCommand = from(msg, NotifyGoodsCommand.class);
 
-			goodsCommandService.handleKafkaNotify(notifyGoodsCommand);
+			handleNotify(() -> {
+				goodsCommandService.handleKafkaNotify(notifyGoodsCommand);
+			});
 
 			//手动确认
 			ack.acknowledge();

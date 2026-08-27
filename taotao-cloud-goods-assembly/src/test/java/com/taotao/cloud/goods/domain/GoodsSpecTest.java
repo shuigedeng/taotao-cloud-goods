@@ -20,9 +20,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import com.taotao.cloud.goods.domain.valobj.GoodsSpec;
 import com.taotao.cloud.goods.domain.valobj.GoodsWeight;
-import com.taotao.cloud.goods.domain.valobj.WeightUnit;
+import com.taotao.cloud.goods.domain.valobj.WeightUnitEnum;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+
 import org.junit.jupiter.api.Test;
 
 /**
@@ -32,7 +33,7 @@ class GoodsSpecTest {
 
 	@Test
 	void sameValueAsShouldReturnTrueWhenAllFieldsEqual() {
-		GoodsWeight weight = GoodsWeight.of(BigDecimal.ONE, WeightUnit.KG);
+		GoodsWeight weight = GoodsWeight.of(BigDecimal.ONE, WeightUnitEnum.KG);
 		LocalDate date = LocalDate.of(2026, 1, 1);
 
 		GoodsSpec spec1 = new GoodsSpec(date, date.plusDays(365), weight, "介绍");
@@ -43,7 +44,7 @@ class GoodsSpecTest {
 
 	@Test
 	void sameValueAsShouldReturnFalseWhenAnyFieldDiffers() {
-		GoodsWeight weight = GoodsWeight.of(BigDecimal.ONE, WeightUnit.KG);
+		GoodsWeight weight = GoodsWeight.of(BigDecimal.ONE, WeightUnitEnum.KG);
 		LocalDate date = LocalDate.of(2026, 1, 1);
 
 		GoodsSpec spec1 = new GoodsSpec(date, date.plusDays(365), weight, "介绍A");

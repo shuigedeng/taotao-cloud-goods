@@ -28,8 +28,11 @@ import com.taotao.cloud.goods.domain.event.FreightTemplateChangedEvent;
 import com.taotao.cloud.goods.domain.event.GoodsCreatedEvent;
 import com.taotao.cloud.goods.domain.valobj.GoodsName;
 import com.taotao.cloud.goods.domain.valobj.GoodsSpec;
-import com.taotao.cloud.goods.domain.valobj.GoodsStatus;
+import com.taotao.cloud.goods.domain.valobj.GoodsStatusEnum;
 import jakarta.validation.constraints.NotNull;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -48,9 +51,14 @@ import java.util.Objects;
  * @version 2026.04
  * @since 2025-12-19 09:30:45
  */
+@Getter
+@Setter
 public class GoodsAgg extends AggregateRoot<BizId> {
 
+	private String goodsNo;
+	private String templateId;
 
+	private Boolean recommend;
 	/**
 	 * 商品标签集合
 	 */
@@ -59,36 +67,32 @@ public class GoodsAgg extends AggregateRoot<BizId> {
 	/**
 	 * 商品所属分类
 	 */
-	private @NotNull Category category;
+	private Category category;
 
 	/**
 	 * 商品名称
 	 */
-	@NotNull
+
 	private GoodsName goodsName;
 
 	/**
 	 * 商品描述
 	 */
-	@NotNull
+
 	private GoodsSpec goodsSpec;
 
 	/**
 	 * 商品价格
 	 */
-	@NotNull
+
 	private Price goodsPrice;
 
 	/**
 	 * 商品状态
 	 */
-	@NotNull
-	private GoodsStatus goodsStatus;
 
-	private String templateId;
+	private GoodsStatusEnum goodsStatus;
 
-	private String goodsNo;
-	private Boolean recommend;
 
 	private GoodsAgg() {
 	}
@@ -100,11 +104,7 @@ public class GoodsAgg extends AggregateRoot<BizId> {
 	 * @since 2022.03
 	 */
 	private static GoodsAggBuilder initBuilder() {
-		return new GoodsAggBuilder()
-			.id(BizId.newBizId())
-			.tags(new ArrayList<>())
-			.createTime(LocalDateTime.now())
-			.updateTime(LocalDateTime.now());
+		return new GoodsAggBuilder().id(BizId.newBizId()).tags(new ArrayList<>()).createTime(LocalDateTime.now()).updateTime(LocalDateTime.now());
 	}
 
 	/**
@@ -120,103 +120,62 @@ public class GoodsAgg extends AggregateRoot<BizId> {
 	/**
 	 * 初始创建商品信息
 	 *
-	 * @param id 商品ID
-	 * @param category 商品所属分类ID
-	 * @param goodsName 商品名称
-	 * @param goodsSpec 商品描述
-	 * @param goodsPrice 商品价格
+	 * @param id          商品ID
+	 * @param category    商品所属分类ID
+	 * @param goodsName   商品名称
+	 * @param goodsSpec   商品描述
+	 * @param goodsPrice  商品价格
 	 * @param goodsStatus 商品状态
 	 */
-	public static GoodsAgg create(
-		BizId id,
-		@NotNull Category category,
-		GoodsName goodsName,
-		GoodsSpec goodsSpec,
-		Price goodsPrice,
-		GoodsStatus goodsStatus,
-		List<Tag> tagIds ) {
-		GoodsAgg goodsAgg = initBuilder()
-			.id(id)
-			.category(category)
-			.goodsName(goodsName)
-			.goodsSpec(goodsSpec)
-			.goodsPrice(goodsPrice)
-			.goodsStatus(goodsStatus)
-			.tags(tagIds)
-			.build()
-			.validateThis();
+	public static GoodsAgg create(BizId id, Category category, GoodsName goodsName, GoodsSpec goodsSpec,
+								  Price goodsPrice, GoodsStatusEnum goodsStatus, List<Tag> tagIds) {
+		GoodsAgg goodsAgg = initBuilder().id(id).category(category).goodsName(goodsName).goodsSpec(goodsSpec).goodsPrice(goodsPrice).goodsStatus(goodsStatus).tags(tagIds).build().validateThis();
 		return goodsAgg;
 	}
 
 	/**
 	 * 创建
 	 *
-	 * @param id ID
-	 * @param tagIds 标签ID集合
-	 * @param category 分类
-	 * @param goodsName 商品名称
-	 * @param goodsSpec 商品规格
-	 * @param goodsPrice 商品价格
+	 * @param id          ID
+	 * @param tagIds      标签ID集合
+	 * @param category    分类
+	 * @param goodsName   商品名称
+	 * @param goodsSpec   商品规格
+	 * @param goodsPrice  商品价格
 	 * @param goodsStatus 商品状态
-	 * @param createTime 创建时间
-	 * @param updateTime 更新时间
-	 * @param goodsNo 商品No
-	 * @param recommend recommend
+	 * @param createTime  创建时间
+	 * @param updateTime  更新时间
+	 * @param goodsNo     商品No
+	 * @param recommend   recommend
 	 * @return 商品Agg
 	 * @since 2022.03
 	 */
-	public static GoodsAgg create(
-		BizId id,
-		List<Tag> tagIds,
-		@NotNull Category category,
-		GoodsName goodsName,
-		GoodsSpec goodsSpec,
-		Price goodsPrice,
-		GoodsStatus goodsStatus,
-		LocalDateTime createTime,
-		LocalDateTime updateTime,
-		String goodsNo,
-		Boolean recommend ) {
-		GoodsAgg goodsAgg = initBuilder()
-			.id(id)
-			.tags(tagIds)
-			.category(category)
-			.goodsName(goodsName)
-			.goodsSpec(goodsSpec)
-			.goodsPrice(goodsPrice)
-			.goodsStatus(goodsStatus)
-			.createTime(createTime)
-			.updateTime(updateTime)
-			.goodsNo(goodsNo)
-			.recommend(recommend)
-			.build()
-			.validateThis();
+	public static GoodsAgg create(BizId id, List<Tag> tagIds, Category category, GoodsName goodsName,
+								  GoodsSpec goodsSpec, Price goodsPrice, GoodsStatusEnum goodsStatus,
+								  LocalDateTime createTime, LocalDateTime updateTime, String goodsNo, Boolean recommend) {
+		GoodsAgg goodsAgg = initBuilder().id(id).tags(tagIds).category(category).goodsName(goodsName).goodsSpec(goodsSpec).goodsPrice(goodsPrice).goodsStatus(goodsStatus).createTime(createTime).updateTime(updateTime).goodsNo(goodsNo).recommend(recommend).build().validateThis();
 		return goodsAgg;
 	}
 
 	/**
 	 * 创建初始商品
 	 *
-	 * @param category 商品分类ID
-	 * @param goodsName 商品名称
-	 * @param goodsSpec 商品规格
+	 * @param category   商品分类ID
+	 * @param goodsName  商品名称
+	 * @param goodsSpec  商品规格
 	 * @param goodsPrice 商品价格
-	 * @param tagIds 商品标签ID集合
+	 * @param tagIds     商品标签ID集合
 	 * @return 初始商品
 	 */
-	public static GoodsAgg createGoods(
-		@NotNull Category category,
-		GoodsName goodsName,
-		GoodsSpec goodsSpec,
-		Price goodsPrice,
-		List<Tag> tagIds ) {
+	public static GoodsAgg createGoods(Category category, GoodsName goodsName, GoodsSpec goodsSpec,
+									   Price goodsPrice, List<Tag> tagIds) {
 		GoodsAgg goodsAgg = initBuilder()
 			.tags(tagIds)
 			.category(category)
 			.goodsName(goodsName)
 			.goodsSpec(goodsSpec)
 			.goodsPrice(goodsPrice)
-			.goodsStatus(GoodsStatus.UNSHELVED)
+			.goodsStatus(GoodsStatusEnum.UNSHELVED)
 			.build()
 			.validateThis();
 		return goodsAgg;
@@ -226,16 +185,12 @@ public class GoodsAgg extends AggregateRoot<BizId> {
 	 * 修改基础信息
 	 *
 	 * @param categoryId 分类ID
-	 * @param goodsName 商品名称
-	 * @param goodsSpec 商品规格
+	 * @param goodsName  商品名称
+	 * @param goodsSpec  商品规格
 	 * @param goodsPrice 商品价格
 	 */
-	public void modifyBasicInfo(
-		@NotNull Category categoryId,
-		GoodsName goodsName,
-		GoodsSpec goodsSpec,
-		Price goodsPrice,
-		List<Tag> tagIds ) {
+	public void modifyBasicInfo(Category categoryId, GoodsName goodsName, GoodsSpec goodsSpec,
+								Price goodsPrice, List<Tag> tagIds) {
 		this.category = categoryId;
 		this.goodsName = goodsName;
 		this.goodsSpec = goodsSpec;
@@ -261,443 +216,46 @@ public class GoodsAgg extends AggregateRoot<BizId> {
 	 * 上架商品
 	 */
 	public void shelve() {
-		this.goodsStatus = GoodsStatus.SHELVED;
+		this.goodsStatus = GoodsStatusEnum.SHELVED;
 	}
 
 	/**
 	 * 下架商品
 	 */
 	public void unshelve() {
-		this.goodsStatus = GoodsStatus.UNSHELVED;
+		this.goodsStatus = GoodsStatusEnum.UNSHELVED;
 	}
 
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	 * 获取
-	 *
-	 * @return BizId
-	 * @since 2022.03
-	 */
-	public BizId getId() {
-		return id;
-	}
-
-	public List<Tag> getTags() {
-		return tags;
-	}
 
 	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	 * 获取
-	 *
-	 * @since 2022.03
-	 */
-	public @NotNull Category getCategory() {
-		return category;
-	}
-
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	 * 获取
-	 *
-	 * @return GoodsName
-	 * @since 2022.03
-	 */
-	public GoodsName getGoodsName() {
-		return goodsName;
-	}
-
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	 * 获取
-	 *
-	 * @return GoodsSpec
-	 * @since 2022.03
-	 */
-	public GoodsSpec getGoodsSpec() {
-		return goodsSpec;
-	}
-
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	 * 获取
-	 *
-	 * @return Price
-	 * @since 2022.03
-	 */
-	public Price getGoodsPrice() {
-		return goodsPrice;
-	}
-
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	 * 获取
-	 *
-	 * @return GoodsStatus
-	 * @since 2022.03
-	 */
-	public GoodsStatus getGoodsStatus() {
-		return goodsStatus;
-	}
-
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	 * 获取
-	 *
-	 * @return LocalDateTime
-	 * @since 2022.03
-	 */
-	public LocalDateTime getCreateTime() {
-		return createTime;
-	}
-
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	 * 获取
-	 *
-	 * @return LocalDateTime
-	 * @since 2022.03
-	 */
-	public LocalDateTime getUpdateTime() {
-		return updateTime;
-	}
-
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	 * 获取
-	 *
-	 * @return 字符串
-	 * @since 2022.03
-	 */
-	public String getTemplateId() {
-		return templateId;
-	}
-
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	 * 设置
-	 *
-	 * @param templateId templateId
-	 * @since 2022.03
-	 */
-	public void setTemplateId( String templateId ) {
-		this.templateId = templateId;
-	}
-
-	// 领域行为：修改运费模板
-
-	/**
-	 * changeFreightTemplate 方法
+	 * 修改运费模板 方法
 	 *
 	 * @param newTemplateId 新模板ID
-	 * @param operatorId 操作人ID
+	 * @param operatorId    操作人ID
 	 * @since 2022.03
 	 */
-	public void changeFreightTemplate( String newTemplateId, String operatorId ) {
+	public void changeFreightTemplate(String newTemplateId, String operatorId) {
 		// 领域规则校验
 		if (StringUtils.isEmpty(newTemplateId)) {
 			throw new BusinessException("运费模板ID不能为空");
 		}
 
-		FreightTemplateChangedEvent freightTemplateChangedEvent = new FreightTemplateChangedEvent(
-			this.id, this.templateId, newTemplateId, operatorId,
-			GoodsDomainAssembler.INSTANCE.toAggSnapshot(this));
+		FreightTemplateChangedEvent freightTemplateChangedEvent = new FreightTemplateChangedEvent(this.id, this.templateId, newTemplateId, operatorId, GoodsDomainAssembler.INSTANCE.toAggSnapshot(this));
 		registerEvent(freightTemplateChangedEvent);
 
 		// 修改状态
 		this.templateId = newTemplateId;
 	}
 
-	@Override
-	public boolean equals( Object o ) {
-		if (this == o) {
-			return true;
-		}
-		if (o == null || getClass() != o.getClass()) {
-			return false;
-		}
-		GoodsAgg goods = (GoodsAgg) o;
-		return Objects.equals(id, goods.id);
-	}
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(id);
-	}
-
-	@Override
-	public String toString() {
-		return "Goods{"
-			+ "id="
-			+ id
-			+ ", tags="
-			+ tags
-			+ ", categoryId="
-			+ category
-			+ ", goodsName="
-			+ goodsName
-			+ ", goodsSpec="
-			+ goodsSpec
-			+ ", goodsPrice="
-			+ goodsPrice
-			+ ", goodsStatus="
-			+ goodsStatus
-			+ ", createTime="
-			+ createTime
-			+ ", updateTime="
-			+ updateTime
-			+ '}';
-	}
-
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	 * 获取
-	 *
-	 * @return 字符串
-	 * @since 2022.03
-	 */
-	public String getGoodsNo() {
-		return goodsNo;
-	}
-
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	 * 设置
-	 *
-	 * @param goodsNo goodsNo
-	 * @since 2022.03
-	 */
-	public void setGoodsNo( String goodsNo ) {
-		this.goodsNo = goodsNo;
-	}
-
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	 * 获取
-	 *
-	 * @return 是否成功
-	 * @since 2022.03
-	 */
-	public Boolean getRecommend() {
-		return recommend;
-	}
-
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	 * 设置
-	 *
-	 * @param recommend recommend
-	 * @since 2022.03
-	 */
-	public void setRecommend( Boolean recommend ) {
-		this.recommend = recommend;
-	}
-
 
 	public static final class GoodsAggBuilder {
 
 		private List<Tag> tags;
-		private @NotNull Category category;
-		private @NotNull GoodsName goodsName;
-		private @NotNull GoodsSpec goodsSpec;
-		private @NotNull Price goodsPrice;
-		private @NotNull GoodsStatus goodsStatus;
+		private Category category;
+		private GoodsName goodsName;
+		private GoodsSpec goodsSpec;
+		private Price goodsPrice;
+		private GoodsStatusEnum goodsStatus;
 		private String templateId;
 		private String goodsNo;
 		private Boolean recommend;
@@ -724,7 +282,7 @@ public class GoodsAgg extends AggregateRoot<BizId> {
 		 * @param other other
 		 * @since 2022.03
 		 */
-		public GoodsAggBuilder( GoodsAgg other ) {
+		public GoodsAggBuilder(GoodsAgg other) {
 			this.tags = other.tags;
 			this.category = other.category;
 			this.goodsName = other.goodsName;
@@ -761,7 +319,7 @@ public class GoodsAgg extends AggregateRoot<BizId> {
 		 * @return 商品AggBuilder
 		 * @since 2022.03
 		 */
-		public GoodsAggBuilder tags( List<Tag> tags ) {
+		public GoodsAggBuilder tags(List<Tag> tags) {
 			this.tags = tags;
 			return this;
 		}
@@ -773,7 +331,7 @@ public class GoodsAgg extends AggregateRoot<BizId> {
 		 * @return 商品AggBuilder
 		 * @since 2022.03
 		 */
-		public GoodsAggBuilder category( Category category ) {
+		public GoodsAggBuilder category(Category category) {
 			this.category = category;
 			return this;
 		}
@@ -785,7 +343,7 @@ public class GoodsAgg extends AggregateRoot<BizId> {
 		 * @return 商品AggBuilder
 		 * @since 2022.03
 		 */
-		public GoodsAggBuilder goodsName( GoodsName goodsName ) {
+		public GoodsAggBuilder goodsName(GoodsName goodsName) {
 			this.goodsName = goodsName;
 			return this;
 		}
@@ -797,7 +355,7 @@ public class GoodsAgg extends AggregateRoot<BizId> {
 		 * @return 商品AggBuilder
 		 * @since 2022.03
 		 */
-		public GoodsAggBuilder goodsSpec( GoodsSpec goodsSpec ) {
+		public GoodsAggBuilder goodsSpec(GoodsSpec goodsSpec) {
 			this.goodsSpec = goodsSpec;
 			return this;
 		}
@@ -809,7 +367,7 @@ public class GoodsAgg extends AggregateRoot<BizId> {
 		 * @return 商品AggBuilder
 		 * @since 2022.03
 		 */
-		public GoodsAggBuilder goodsPrice( Price goodsPrice ) {
+		public GoodsAggBuilder goodsPrice(Price goodsPrice) {
 			this.goodsPrice = goodsPrice;
 			return this;
 		}
@@ -821,7 +379,7 @@ public class GoodsAgg extends AggregateRoot<BizId> {
 		 * @return 商品AggBuilder
 		 * @since 2022.03
 		 */
-		public GoodsAggBuilder goodsStatus( GoodsStatus goodsStatus ) {
+		public GoodsAggBuilder goodsStatus(GoodsStatusEnum goodsStatus) {
 			this.goodsStatus = goodsStatus;
 			return this;
 		}
@@ -833,7 +391,7 @@ public class GoodsAgg extends AggregateRoot<BizId> {
 		 * @return 商品AggBuilder
 		 * @since 2022.03
 		 */
-		public GoodsAggBuilder templateId( String templateId ) {
+		public GoodsAggBuilder templateId(String templateId) {
 			this.templateId = templateId;
 			return this;
 		}
@@ -845,7 +403,7 @@ public class GoodsAgg extends AggregateRoot<BizId> {
 		 * @return 商品AggBuilder
 		 * @since 2022.03
 		 */
-		public GoodsAggBuilder goodsNo( String goodsNo ) {
+		public GoodsAggBuilder goodsNo(String goodsNo) {
 			this.goodsNo = goodsNo;
 			return this;
 		}
@@ -857,7 +415,7 @@ public class GoodsAgg extends AggregateRoot<BizId> {
 		 * @return 商品AggBuilder
 		 * @since 2022.03
 		 */
-		public GoodsAggBuilder recommend( Boolean recommend ) {
+		public GoodsAggBuilder recommend(Boolean recommend) {
 			this.recommend = recommend;
 			return this;
 		}
@@ -869,7 +427,7 @@ public class GoodsAgg extends AggregateRoot<BizId> {
 		 * @return 商品AggBuilder
 		 * @since 2022.03
 		 */
-		public GoodsAggBuilder createUser( String createUser ) {
+		public GoodsAggBuilder createUser(String createUser) {
 			this.createUser = createUser;
 			return this;
 		}
@@ -881,7 +439,7 @@ public class GoodsAgg extends AggregateRoot<BizId> {
 		 * @return 商品AggBuilder
 		 * @since 2022.03
 		 */
-		public GoodsAggBuilder updateUser( String updateUser ) {
+		public GoodsAggBuilder updateUser(String updateUser) {
 			this.updateUser = updateUser;
 			return this;
 		}
@@ -893,7 +451,7 @@ public class GoodsAgg extends AggregateRoot<BizId> {
 		 * @return 商品AggBuilder
 		 * @since 2022.03
 		 */
-		public GoodsAggBuilder tenantId( String tenantId ) {
+		public GoodsAggBuilder tenantId(String tenantId) {
 			this.tenantId = tenantId;
 			return this;
 		}
@@ -905,7 +463,7 @@ public class GoodsAgg extends AggregateRoot<BizId> {
 		 * @return 商品AggBuilder
 		 * @since 2022.03
 		 */
-		public GoodsAggBuilder createTime( LocalDateTime createTime ) {
+		public GoodsAggBuilder createTime(LocalDateTime createTime) {
 			this.createTime = createTime;
 			return this;
 		}
@@ -917,7 +475,7 @@ public class GoodsAgg extends AggregateRoot<BizId> {
 		 * @return 商品AggBuilder
 		 * @since 2022.03
 		 */
-		public GoodsAggBuilder updateTime( LocalDateTime updateTime ) {
+		public GoodsAggBuilder updateTime(LocalDateTime updateTime) {
 			this.updateTime = updateTime;
 			return this;
 		}
@@ -929,7 +487,7 @@ public class GoodsAgg extends AggregateRoot<BizId> {
 		 * @return 商品AggBuilder
 		 * @since 2022.03
 		 */
-		public GoodsAggBuilder sourceName( String sourceName ) {
+		public GoodsAggBuilder sourceName(String sourceName) {
 			this.sourceName = sourceName;
 			return this;
 		}
@@ -941,7 +499,7 @@ public class GoodsAgg extends AggregateRoot<BizId> {
 		 * @return 商品AggBuilder
 		 * @since 2022.03
 		 */
-		public GoodsAggBuilder serviceId( String serviceId ) {
+		public GoodsAggBuilder serviceId(String serviceId) {
 			this.serviceId = serviceId;
 			return this;
 		}
@@ -953,7 +511,7 @@ public class GoodsAgg extends AggregateRoot<BizId> {
 		 * @return 商品AggBuilder
 		 * @since 2022.03
 		 */
-		public GoodsAggBuilder id( BizId id ) {
+		public GoodsAggBuilder id(BizId id) {
 			this.id = id;
 			return this;
 		}

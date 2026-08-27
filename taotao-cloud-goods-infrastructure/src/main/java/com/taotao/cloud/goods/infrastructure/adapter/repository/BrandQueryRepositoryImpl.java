@@ -17,13 +17,18 @@
 package com.taotao.cloud.goods.infrastructure.adapter.repository;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.taotao.boot.common.model.result.PageResult;
+import com.taotao.boot.data.mybatis.mybatisplus.MpUtils;
 import com.taotao.cloud.goods.application.acl.service.SysAclService;
+import com.taotao.cloud.goods.application.dto.brand.query.BrandPageQuery;
 import com.taotao.cloud.goods.application.dto.brand.result.BrandResult;
 import com.taotao.cloud.goods.application.acl.dto.sys.req.DictReq;
 import com.taotao.cloud.goods.application.acl.dto.sys.res.DictRes;
 import com.taotao.cloud.goods.application.adapter.repository.BrandQueryRepository;
 import com.taotao.cloud.goods.infrastructure.assembler.BrandInfraAssembler;
 import com.taotao.cloud.goods.infrastructure.persistent.mapper.BrandMapper;
+import com.taotao.cloud.goods.infrastructure.persistent.model.params.BrandPageParam;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.BrandPO;
 import com.taotao.cloud.goods.infrastructure.persistent.repository.BrandRepository;
 
@@ -54,7 +59,7 @@ public class BrandQueryRepositoryImpl implements BrandQueryRepository {
 
     @Override
     public BrandResult queryById( Long id ) {
-//        BrandPO brandPO = brandMapper.selectById(id);
+        BrandPO brandPO = brandMapper.selectById(id);
 
         DictRes dictRes = sysAclService.findByCode(DictReq.builder().code("123").build());
 
@@ -67,9 +72,14 @@ public class BrandQueryRepositoryImpl implements BrandQueryRepository {
 
 	@Override
 	public List<BrandResult> queryAllAvailable() {
-		LambdaQueryWrapper<BrandPO> lambdaQueryWrapper = new LambdaQueryWrapper<>();
-		lambdaQueryWrapper.eq(BrandPO::getDelFlag, 0);
-		List<BrandPO> brandPos = brandMapper.selectList(lambdaQueryWrapper);
+		List<BrandPO> brandPos = brandMapper.queryAllAvailable();
 		return brandInfraAssembler.toResult(brandPos);
+	}
+
+	@Override
+	public PageResult<BrandResult> queryPage(BrandPageQuery page) {
+		BrandPageParam brandPageParam = brandInfraAssembler.toParam(page);
+		IPage<BrandPO> brandPage = brandMapper.selectBrandPage(brandPageParam);
+		return MpUtils.convertMpPage(brandPage, brandInfraAssembler::toResult);
 	}
 }

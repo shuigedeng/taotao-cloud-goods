@@ -19,8 +19,9 @@ package com.taotao.cloud.goods.domain;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.taotao.cloud.goods.domain.valobj.GoodsWeight;
-import com.taotao.cloud.goods.domain.valobj.WeightUnit;
+import com.taotao.cloud.goods.domain.valobj.WeightUnitEnum;
 import java.math.BigDecimal;
+
 import org.junit.jupiter.api.Test;
 
 /**
@@ -30,22 +31,22 @@ class GoodsWeightTest {
 
 	@Test
 	void sameValueAsShouldReturnTrueWhenAllFieldsEqual() {
-		GoodsWeight w1 = GoodsWeight.of(BigDecimal.TEN, WeightUnit.KG);
-		GoodsWeight w2 = GoodsWeight.of(BigDecimal.TEN, WeightUnit.KG);
+		GoodsWeight w1 = GoodsWeight.of(BigDecimal.TEN, WeightUnitEnum.KG);
+		GoodsWeight w2 = GoodsWeight.of(BigDecimal.TEN, WeightUnitEnum.KG);
 		assertThat(w1.sameValueAs(w2)).isTrue();
 	}
 
 	@Test
 	void sameValueAsShouldReturnFalseWhenWeightDiffers() {
-		GoodsWeight w1 = GoodsWeight.of(BigDecimal.ONE, WeightUnit.KG);
-		GoodsWeight w2 = GoodsWeight.of(BigDecimal.TEN, WeightUnit.KG);
+		GoodsWeight w1 = GoodsWeight.of(BigDecimal.ONE, WeightUnitEnum.KG);
+		GoodsWeight w2 = GoodsWeight.of(BigDecimal.TEN, WeightUnitEnum.KG);
 		assertThat(w1.sameValueAs(w2)).isFalse();
 	}
 
 	@Test
 	void sameValueAsShouldReturnFalseWhenUnitDiffers() {
-		GoodsWeight w1 = GoodsWeight.of(BigDecimal.ONE, WeightUnit.KG);
-		GoodsWeight w2 = GoodsWeight.of(BigDecimal.ONE, WeightUnit.G);
+		GoodsWeight w1 = GoodsWeight.of(BigDecimal.ONE, WeightUnitEnum.KG);
+		GoodsWeight w2 = GoodsWeight.of(BigDecimal.ONE, WeightUnitEnum.G);
 		assertThat(w1.sameValueAs(w2)).isFalse();
 	}
 }

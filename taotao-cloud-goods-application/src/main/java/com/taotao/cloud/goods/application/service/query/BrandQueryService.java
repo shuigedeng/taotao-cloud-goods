@@ -20,6 +20,7 @@ import com.taotao.boot.common.model.result.PageResult;
 import com.taotao.boot.ddd.model.application.service.QueryService;
 import com.taotao.cloud.goods.application.dto.brand.query.BrandPageQuery;
 import com.taotao.cloud.goods.application.dto.brand.result.BrandResult;
+
 import java.util.List;
 import java.util.Map;
 
@@ -32,44 +33,32 @@ import java.util.Map;
  */
 public interface BrandQueryService extends QueryService {
 
-    //	IPage<BrandPO> brandsQueryPage(BrandPageQry page);
-    //
-    //	/**
-    //	 * 根据条件分页获取品牌列表
-    //	 *
-    //	 * @param page 条件参数
-    //	 * @return 品牌列表
-    //	 */
-    //	IPage<BrandPO> queryBrandsByPage(BrandPageQry page);
-    //
-    //	List<BrandPO> queryBrandsByCategorys(Long categoryIds);
-    //
-    	List<BrandResult> queryAllAvailable();
-    //
-    //
-    //	/**
-    //	 * 根据分类ID获取品牌列表
-    //	 *
-    //	 * @param categoryId 分类ID
-    //	 * @return 品牌列表
-    //	 */
-    //	List<BrandPO> queryBrandsByCategory(Long categoryId);
+	List<BrandResult> queryAllAvailable();
 
-    /**
-     * 根据分类ID获取品牌列表
-     *
-     * @param categoryIds 分类ID
-     * @return 品牌列表
-     */
-    List<Map<String, Object>> queryBrandsMapsByCategory(List<Long> categoryIds, String columns);
 
-    BrandResult queryDetail(Long id);
+	/**
+	 * 根据分类ID获取品牌列表
+	 *
+	 * @param categoryId 分类ID
+	 * @return 品牌列表
+	 */
+	List<BrandResult> queryBrandsByCategory(Long categoryId);
 
-    /**
-     * 分页获取品牌列表
-     *
-     * @param page 分页查询参数
-     * @return 品牌分页结果
-     */
-    PageResult<BrandResult> queryPage(BrandPageQuery page);
+	/**
+	 * 根据分类ID获取品牌列表
+	 *
+	 * @param categoryIds 分类ID
+	 * @return 品牌列表
+	 */
+	List<Map<String, Object>> queryBrandsMapsByCategory(List<Long> categoryIds, String columns);
+
+	BrandResult queryDetail(Long id);
+
+	/**
+	 * 分页获取品牌列表
+	 *
+	 * @param page 分页查询参数
+	 * @return 品牌分页结果
+	 */
+	PageResult<BrandResult> queryPage(BrandPageQuery page);
 }

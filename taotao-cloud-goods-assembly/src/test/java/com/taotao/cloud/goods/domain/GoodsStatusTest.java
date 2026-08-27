@@ -18,7 +18,7 @@ package com.taotao.cloud.goods.domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import com.taotao.cloud.goods.domain.valobj.GoodsStatus;
+import com.taotao.cloud.goods.domain.valobj.GoodsStatusEnum;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -28,37 +28,37 @@ class GoodsStatusTest {
 
 	@Test
 	void shelvedShouldHaveValue10() {
-		assertThat(GoodsStatus.SHELVED.getValue()).isEqualTo(10);
+		assertThat(GoodsStatusEnum.SHELVED.getValue()).isEqualTo(10);
 	}
 
 	@Test
 	void unshelvedShouldHaveValue20() {
-		assertThat(GoodsStatus.UNSHELVED.getValue()).isEqualTo(20);
+		assertThat(GoodsStatusEnum.UNSHELVED.getValue()).isEqualTo(20);
 	}
 
 	@Test
 	void sameValueAsShouldReturnTrueWhenSameValue() {
-		assertThat(GoodsStatus.SHELVED.sameValueAs(10)).isTrue();
+		assertThat(GoodsStatusEnum.SHELVED.sameValueAs(10)).isTrue();
 	}
 
 	@Test
 	void sameValueAsShouldReturnFalseWhenDifferentValue() {
-		assertThat(GoodsStatus.SHELVED.sameValueAs(20)).isFalse();
+		assertThat(GoodsStatusEnum.SHELVED.sameValueAs(20)).isFalse();
 	}
 
 	@Test
 	void ofShouldReturnCorrectEnum() {
-		assertThat(GoodsStatus.of(10)).isEqualTo(GoodsStatus.SHELVED);
-		assertThat(GoodsStatus.of(20)).isEqualTo(GoodsStatus.UNSHELVED);
+		assertThat(GoodsStatusEnum.of(10)).isEqualTo(GoodsStatusEnum.SHELVED);
+		assertThat(GoodsStatusEnum.of(20)).isEqualTo(GoodsStatusEnum.UNSHELVED);
 	}
 
 	@Test
 	void shelvedDescShouldBe已上架() {
-		assertThat(GoodsStatus.SHELVED.getDesc()).isEqualTo("已上架");
+		assertThat(GoodsStatusEnum.SHELVED.getDesc()).isEqualTo("已上架");
 	}
 
 	@Test
 	void unshelvedDescShouldBe已下架() {
-		assertThat(GoodsStatus.UNSHELVED.getDesc()).isEqualTo("已下架");
+		assertThat(GoodsStatusEnum.UNSHELVED.getDesc()).isEqualTo("已下架");
 	}
 }

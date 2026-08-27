@@ -16,10 +16,6 @@
 
 package com.taotao.cloud.goods.application.service.query.impl;
 
-import cn.hutool.core.util.StrUtil;
-import cn.hutool.json.JSONUtil;
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.p6spy.engine.logging.Category;
 import com.taotao.boot.cache.redis.repository.RedisRepository;
 import com.taotao.boot.common.exception.BusinessException;
 import com.taotao.boot.common.model.result.PageResult;
@@ -30,17 +26,13 @@ import com.taotao.cloud.goods.application.assembler.GoodsAppAssembler;
 import com.taotao.cloud.goods.application.dto.goods.query.GoodsPageQuery;
 import com.taotao.cloud.goods.application.dto.goods.result.GoodsResult;
 import com.taotao.cloud.goods.application.dto.goods.result.GoodsSkuParamsResult;
-import com.taotao.cloud.goods.application.dto.goods.result.GoodsSkuSpecGalleryResult;
 import com.taotao.cloud.goods.application.adapter.repository.GoodsQueryRepository;
 import com.taotao.cloud.goods.application.service.query.GoodsGalleryQueryService;
 import com.taotao.cloud.goods.application.service.query.GoodsQueryService;
-import com.taotao.cloud.goods.common.enums.GoodsStatusEnum;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
 
 /**
  * 商品查询服务实现

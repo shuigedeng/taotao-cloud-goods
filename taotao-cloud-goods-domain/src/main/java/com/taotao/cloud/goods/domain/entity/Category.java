@@ -137,14 +137,7 @@ public class Category implements Entity {
 		this.validateSelf();
 	}
 
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
+    /**
 	 * 获取
 	 *
 	 * @return BizId
@@ -154,14 +147,7 @@ public class Category implements Entity {
 		return id;
 	}
 
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
+    /**
 	 * 获取
 	 *
 	 * @return BizId
@@ -181,14 +167,7 @@ public class Category implements Entity {
 		return parentCategoryId.id();
 	}
 
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
+    /**
 	 * 获取
 	 *
 	 * @return CategoryName
@@ -208,14 +187,7 @@ public class Category implements Entity {
 		return categoryName.value();
 	}
 
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
+    /**
 	 * 获取
 	 *
 	 * @return CategoryDesc
@@ -225,14 +197,7 @@ public class Category implements Entity {
 		return categoryDesc;
 	}
 
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
+    /**
 	 * 获取
 	 *
 	 * @return LocalDateTime
@@ -242,14 +207,7 @@ public class Category implements Entity {
 		return createTime;
 	}
 
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
+    /**
 	 * 获取
 	 *
 	 * @return LocalDateTime
@@ -259,14 +217,7 @@ public class Category implements Entity {
 		return updateTime;
 	}
 
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
+    /**
 	 * 设置
 	 *
 	 * @param id id
@@ -276,14 +227,7 @@ public class Category implements Entity {
 		this.id = id;
 	}
 
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
+    /**
 	 * 设置
 	 *
 	 * @param parentCategoryId parentCategoryId
@@ -293,14 +237,7 @@ public class Category implements Entity {
 		this.parentCategoryId = parentCategoryId;
 	}
 
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
+    /**
 	 * 设置
 	 *
 	 * @param categoryName categoryName
@@ -310,14 +247,7 @@ public class Category implements Entity {
 		this.categoryName = categoryName;
 	}
 
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
+    /**
 	 * 设置
 	 *
 	 * @param categoryDesc categoryDesc
@@ -327,14 +257,7 @@ public class Category implements Entity {
 		this.categoryDesc = categoryDesc;
 	}
 
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
+    /**
 	 * 设置
 	 *
 	 * @param createTime createTime
@@ -344,14 +267,7 @@ public class Category implements Entity {
 		this.createTime = createTime;
 	}
 
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
+    /**
 	 * 设置
 	 *
 	 * @param updateTime updateTime

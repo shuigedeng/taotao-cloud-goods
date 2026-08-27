@@ -25,17 +25,10 @@ import com.taotao.boot.ddd.model.val.Price;
 import com.taotao.cloud.goods.domain.aggregate.GoodsAgg;
 import com.taotao.cloud.goods.domain.entity.Category;
 import com.taotao.cloud.goods.domain.entity.Tag;
-import com.taotao.cloud.goods.domain.event.FreightTemplateChangedEvent;
-import com.taotao.cloud.goods.domain.valobj.CategoryDesc;
-import com.taotao.cloud.goods.domain.valobj.CategoryName;
-import com.taotao.cloud.goods.domain.valobj.GoodsName;
-import com.taotao.cloud.goods.domain.valobj.GoodsSpec;
-import com.taotao.cloud.goods.domain.valobj.GoodsStatus;
-import com.taotao.cloud.goods.domain.valobj.GoodsWeight;
-import com.taotao.cloud.goods.domain.valobj.WeightUnit;
+import com.taotao.cloud.goods.domain.valobj.*;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.List;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -67,7 +60,7 @@ class GoodsAggTest {
 		return new GoodsSpec(
 			LocalDate.now(),
 			LocalDate.now().plusDays(365),
-			GoodsWeight.of(BigDecimal.valueOf(1.0), WeightUnit.KG),
+			GoodsWeight.of(BigDecimal.valueOf(1.0), WeightUnitEnum.KG),
 			"测试商品介绍");
 	}
 
@@ -88,7 +81,7 @@ class GoodsAggTest {
 
 			GoodsAgg goods = GoodsAgg.createGoods(category, goodsName, goodsSpec, price, tags);
 
-			assertThat(goods.getGoodsStatus()).isEqualTo(GoodsStatus.UNSHELVED);
+			assertThat(goods.getGoodsStatus()).isEqualTo(GoodsStatusEnum.UNSHELVED);
 			assertThat(goods.getCategory()).isEqualTo(category);
 			assertThat(goods.getGoodsName()).isEqualTo(goodsName);
 			assertThat(goods.getGoodsSpec()).isEqualTo(goodsSpec);
@@ -109,11 +102,11 @@ class GoodsAggTest {
 				createGoodsName(),
 				createGoodsSpec(),
 				createPrice(),
-				GoodsStatus.SHELVED,
+				GoodsStatusEnum.SHELVED,
 				List.of(createTag("标签1")));
 
 			assertThat(goods.getId()).isEqualTo(id);
-			assertThat(goods.getGoodsStatus()).isEqualTo(GoodsStatus.SHELVED);
+			assertThat(goods.getGoodsStatus()).isEqualTo(GoodsStatusEnum.SHELVED);
 		}
 	}
 
@@ -126,7 +119,7 @@ class GoodsAggTest {
 
 			goods.shelve();
 
-			assertThat(goods.getGoodsStatus()).isEqualTo(GoodsStatus.SHELVED);
+			assertThat(goods.getGoodsStatus()).isEqualTo(GoodsStatusEnum.SHELVED);
 		}
 	}
 
@@ -139,7 +132,7 @@ class GoodsAggTest {
 
 			goods.unshelve();
 
-			assertThat(goods.getGoodsStatus()).isEqualTo(GoodsStatus.UNSHELVED);
+			assertThat(goods.getGoodsStatus()).isEqualTo(GoodsStatusEnum.UNSHELVED);
 		}
 	}
 
@@ -155,7 +148,7 @@ class GoodsAggTest {
 			GoodsName newName = GoodsName.of("新商品名");
 			GoodsSpec newSpec = new GoodsSpec(
 				LocalDate.now(), LocalDate.now().plusDays(180),
-				GoodsWeight.of(BigDecimal.valueOf(2.5), WeightUnit.KG), "新介绍");
+				GoodsWeight.of(BigDecimal.valueOf(2.5), WeightUnitEnum.KG), "新介绍");
 			Price newPrice = Price.of(BigDecimal.valueOf(199.99));
 			List<Tag> newTags = List.of(createTag("新标签"));
 
@@ -210,9 +203,9 @@ class GoodsAggTest {
 			Category category = createCategory();
 
 			GoodsAgg goods1 = GoodsAgg.create(id, category, createGoodsName(), createGoodsSpec(),
-				createPrice(), GoodsStatus.UNSHELVED, List.of(createTag("标签1")));
+				createPrice(), GoodsStatusEnum.UNSHELVED, List.of(createTag("标签1")));
 			GoodsAgg goods2 = GoodsAgg.create(id, category, createGoodsName(), createGoodsSpec(),
-				createPrice(), GoodsStatus.UNSHELVED, List.of(createTag("标签1")));
+				createPrice(), GoodsStatusEnum.UNSHELVED, List.of(createTag("标签1")));
 
 			assertThat(goods1).isEqualTo(goods2);
 			assertThat(goods1.hashCode()).isEqualTo(goods2.hashCode());
@@ -224,10 +217,10 @@ class GoodsAggTest {
 
 			GoodsAgg goods1 = GoodsAgg.create(BizId.newBizId(), category,
 				createGoodsName(), createGoodsSpec(), createPrice(),
-				GoodsStatus.UNSHELVED, List.of(createTag("标签1")));
+				GoodsStatusEnum.UNSHELVED, List.of(createTag("标签1")));
 			GoodsAgg goods2 = GoodsAgg.create(BizId.newBizId(), category,
 				createGoodsName(), createGoodsSpec(), createPrice(),
-				GoodsStatus.UNSHELVED, List.of(createTag("标签1")));
+				GoodsStatusEnum.UNSHELVED, List.of(createTag("标签1")));
 
 			assertThat(goods1).isNotEqualTo(goods2);
 		}

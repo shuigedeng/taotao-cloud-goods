@@ -16,25 +16,19 @@
 
 package com.taotao.cloud.goods.domain.event;
 
-import com.taotao.boot.common.exception.BusinessException;
-import com.taotao.boot.common.utils.lang.StringUtils;
-import com.taotao.boot.ddd.model.domain.AggregateRoot;
 import com.taotao.boot.ddd.model.val.BizId;
 import com.taotao.boot.ddd.model.val.Price;
-import com.taotao.cloud.goods.domain.aggregate.GoodsAgg;
 import com.taotao.cloud.goods.domain.entity.Category;
 import com.taotao.cloud.goods.domain.entity.Tag;
 import com.taotao.cloud.goods.domain.valobj.GoodsName;
 import com.taotao.cloud.goods.domain.valobj.GoodsSpec;
-import com.taotao.cloud.goods.domain.valobj.GoodsStatus;
+import com.taotao.cloud.goods.domain.valobj.GoodsStatusEnum;
 import jakarta.validation.constraints.NotNull;
 import lombok.Builder;
 import lombok.Data;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 /**
  * GoodsAgg
@@ -45,7 +39,7 @@ import java.util.Objects;
  */
 @Data
 @Builder
-public class GoodsAggSnapshot  {
+public class GoodsAggSnapshotEvent {
 
 	/**
 	 * 商品ID
@@ -85,7 +79,7 @@ public class GoodsAggSnapshot  {
 	 * 商品状态
 	 */
 	@NotNull
-	private GoodsStatus goodsStatus;
+	private GoodsStatusEnum goodsStatus;
 
 	private String templateId;
 

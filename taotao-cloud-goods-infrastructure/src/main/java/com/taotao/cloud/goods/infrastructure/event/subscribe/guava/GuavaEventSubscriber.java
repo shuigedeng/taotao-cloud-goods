@@ -12,7 +12,7 @@ public class GuavaEventSubscriber {
 	 * @param message 消息
 	 * @since 2022.03
 	 */
-	@Subscribe
+	@com.google.common.eventbus.Subscribe
 	public void onMessage( EventModel<?> message) {
 		LogUtils.info("收到消息：{}", message);
 	}

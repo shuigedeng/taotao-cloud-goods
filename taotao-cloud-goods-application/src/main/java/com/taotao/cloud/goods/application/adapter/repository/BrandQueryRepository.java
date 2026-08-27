@@ -16,6 +16,8 @@
 
 package com.taotao.cloud.goods.application.adapter.repository;
 
+import com.taotao.boot.common.model.result.PageResult;
+import com.taotao.cloud.goods.application.dto.brand.query.BrandPageQuery;
 import com.taotao.cloud.goods.application.dto.brand.result.BrandResult;
 
 import java.util.List;
@@ -26,4 +28,5 @@ public interface BrandQueryRepository {
 
 	List<BrandResult> queryAllAvailable();
 
+	PageResult<BrandResult> queryPage(BrandPageQuery page);
 }

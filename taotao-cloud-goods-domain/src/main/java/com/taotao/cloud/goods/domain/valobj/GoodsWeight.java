@@ -33,7 +33,7 @@ public record GoodsWeight(	@NotNull
 	@PositiveOrZero
 	BigDecimal weight,
 	@NotNull
-	WeightUnit unit) implements
+							  WeightUnitEnum unit) implements
 	ValueObject<GoodsWeight> {
 
 	/**
@@ -43,7 +43,7 @@ public record GoodsWeight(	@NotNull
 	 * @param unit unit
 	 * @since 2022.03
 	 */
-	public GoodsWeight( BigDecimal weight, WeightUnit unit ) {
+	public GoodsWeight( BigDecimal weight, WeightUnitEnum unit ) {
 		this.weight = weight;
 		this.unit = unit;
 	}
@@ -56,7 +56,7 @@ public record GoodsWeight(	@NotNull
 	 * @return 商品重量
 	 * @since 2022.03
 	 */
-	public static GoodsWeight of( BigDecimal weight, WeightUnit unit ) {
+	public static GoodsWeight of( BigDecimal weight, WeightUnitEnum unit ) {
 		return new GoodsWeight(weight, unit);
 	}
 

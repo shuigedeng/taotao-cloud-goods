@@ -66,18 +66,17 @@ public class AdminBrandController extends BusinessController {
 
 	private final BrandQueryService brandQueryService;
 
-	//@PreAuthorize("hasAuthority('dept:tree:data')")
-	@Operation(summary = "通过id获取", description = "通过id获取")
-	@RequestLogger
 	@NotAuth
+	@RequestLogger
+	@Operation(summary = "通过id获取", description = "通过id获取")
 	@GetMapping(value = "/query/detail")
 	public Result<BrandResult> queryDetail( IdQuery idQuery ) {
-		BrandResult brandCo = brandQueryService.queryDetail(idQuery.getId());
-		return Result.success(brandCo);
+		BrandResult brandResult = brandQueryService.queryDetail(idQuery.getId());
+		return Result.success(brandResult);
 	}
 
-	@Operation(summary = "获取所有可用品牌", description = "获取所有可用品牌")
 	@RequestLogger
+	@Operation(summary = "获取所有可用品牌", description = "获取所有可用品牌")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/all-available")
 	public Result<List<BrandResult>> queryAllAvailable() {
@@ -85,14 +84,13 @@ public class AdminBrandController extends BusinessController {
 		return Result.success(list);
 	}
 
-	@Operation(summary = "分页获取", description = "分页获取")
 	@RequestLogger
+	@Operation(summary = "分页获取", description = "分页获取")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/page")
 	public Result<PageResult<BrandResult>> queryPage( BrandPageQuery page ) {
-//		IPage<BrandPO> brandPage = brandQueryService.brandsQueryPage(page);
-//		return Result.success(MpUtils.convertMpPage(brandPage, BrandCO.class));
-		return null;
+		PageResult<BrandResult> brandPage = brandQueryService.queryPage(page);
+		return Result.success(brandPage);
 	}
 
 	//@PreAuthorize("hasAuthority('dept:tree:data')")

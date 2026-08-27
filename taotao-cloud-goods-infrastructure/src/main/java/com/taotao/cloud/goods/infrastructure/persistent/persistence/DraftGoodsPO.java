@@ -20,9 +20,8 @@ import cn.hutool.core.text.CharSequenceUtil;
 import cn.hutool.http.HtmlUtil;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.taotao.boot.webagg.entity.BasePO;
-import com.taotao.cloud.goods.common.enums.DraftGoodsSaveTypeEnum;
-import com.taotao.cloud.goods.common.enums.GoodsStatusEnum;
-import com.taotao.cloud.goods.common.enums.GoodsTypeEnum;
+import com.taotao.cloud.goods.domain.valobj.DraftGoodsSaveTypeEnum;
+import com.taotao.cloud.goods.domain.valobj.GoodsTypeEnum;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Index;
@@ -34,7 +33,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.hibernate.Hibernate;
 
 /** 草稿商品表 */

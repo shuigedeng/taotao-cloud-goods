@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.common.enums;
+package com.taotao.cloud.goods.domain.valobj;
 
 /**
  * 商品关键字类型

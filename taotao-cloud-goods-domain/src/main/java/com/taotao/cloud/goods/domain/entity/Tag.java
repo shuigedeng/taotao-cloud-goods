@@ -111,13 +111,6 @@ public class Tag implements Entity{
     }
 
     /**
-    /**
-    /**
-    /**
-    /**
-    /**
-    /**
-    /**
      * 获取
      *
      * @return BizId
@@ -127,13 +120,6 @@ public class Tag implements Entity{
         return id;
     }
 
-    /**
-    /**
-    /**
-    /**
-    /**
-    /**
-    /**
     /**
      * 获取
      *
@@ -145,13 +131,6 @@ public class Tag implements Entity{
     }
 
     /**
-    /**
-    /**
-    /**
-    /**
-    /**
-    /**
-    /**
      * 获取
      *
      * @return 字符串
@@ -161,13 +140,6 @@ public class Tag implements Entity{
         return tagDesc;
     }
 
-    /**
-    /**
-    /**
-    /**
-    /**
-    /**
-    /**
     /**
      * 获取
      *
@@ -179,13 +151,6 @@ public class Tag implements Entity{
     }
 
     /**
-    /**
-    /**
-    /**
-    /**
-    /**
-    /**
-    /**
      * 获取
      *
      * @return LocalDateTime
@@ -195,14 +160,7 @@ public class Tag implements Entity{
         return updateTime;
     }
 
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
+    /**
 	 * 设置
 	 *
 	 * @param id id
@@ -212,14 +170,7 @@ public class Tag implements Entity{
 		this.id = id;
 	}
 
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
+    /**
 	 * 设置
 	 *
 	 * @param tagName tagName
@@ -229,14 +180,7 @@ public class Tag implements Entity{
 		this.tagName = tagName;
 	}
 
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
+    /**
 	 * 设置
 	 *
 	 * @param tagDesc tagDesc
@@ -246,14 +190,7 @@ public class Tag implements Entity{
 		this.tagDesc = tagDesc;
 	}
 
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
+    /**
 	 * 设置
 	 *
 	 * @param createTime createTime
@@ -263,14 +200,7 @@ public class Tag implements Entity{
 		this.createTime = createTime;
 	}
 
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
-	/**
+    /**
 	 * 设置
 	 *
 	 * @param updateTime updateTime

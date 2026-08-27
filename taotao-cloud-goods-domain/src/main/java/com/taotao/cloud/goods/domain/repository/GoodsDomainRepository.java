@@ -19,13 +19,9 @@ package com.taotao.cloud.goods.domain.repository;
 import com.taotao.boot.ddd.model.domain.repository.DomainRepository;
 import com.taotao.boot.ddd.model.val.BizId;
 import com.taotao.cloud.goods.domain.aggregate.GoodsAgg;
-import com.taotao.cloud.goods.domain.valobj.GoodsStatus;
-import java.math.BigDecimal;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
+import com.taotao.cloud.goods.domain.valobj.GoodsStatusEnum;
+
 import java.util.Collection;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 
 /**
  * 商品领域仓储接口
@@ -62,7 +58,7 @@ public interface GoodsDomainRepository extends DomainRepository<BizId,GoodsAgg> 
      * @param goodsStatus 商品状态
      * @return 是否存在
      */
-    Boolean existsByIdInAndGoodsStatus(Collection<BizId> goodsIds, GoodsStatus goodsStatus);
+    Boolean existsByIdInAndGoodsStatus(Collection<BizId> goodsIds, GoodsStatusEnum goodsStatus);
 
     /**
      * 是否存在已上架的商品
@@ -78,7 +74,7 @@ public interface GoodsDomainRepository extends DomainRepository<BizId,GoodsAgg> 
      * @param goodsIds    商品ID列表
      * @param goodsStatus 商品状态
      */
-    void batchModifyGoodsStatus(Collection<BizId> goodsIds, GoodsStatus goodsStatus);
+    void batchModifyGoodsStatus(Collection<BizId> goodsIds, GoodsStatusEnum goodsStatus);
 
     /**
      * 根据ID查询商品详情

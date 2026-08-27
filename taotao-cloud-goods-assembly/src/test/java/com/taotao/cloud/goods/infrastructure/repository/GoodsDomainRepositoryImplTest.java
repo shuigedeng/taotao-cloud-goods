@@ -18,6 +18,7 @@ package com.taotao.cloud.goods.infrastructure.repository;
 
 import com.taotao.cloud.goods.TaoTaoCloudGoodsApplicationTests;
 import com.taotao.cloud.goods.domain.repository.GoodsDomainRepository;
+import com.taotao.cloud.goods.domain.valobj.GoodsStatusEnum;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,7 +62,7 @@ class GoodsDomainRepositoryImplTest extends TaoTaoCloudGoodsApplicationTests {
     @DisplayName("检查商品ID和状态是否存在")
     void shouldExistsByIdInAndGoodsStatus() {
         Boolean result = goodsDomainRepository.existsByIdInAndGoodsStatus(
-                java.util.List.of(), com.taotao.cloud.goods.domain.valobj.GoodsStatus.SHELVED);
+                java.util.List.of(), GoodsStatusEnum.SHELVED);
         assertThat(result).isNull();
     }
 

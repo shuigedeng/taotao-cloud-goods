@@ -18,43 +18,43 @@ package com.taotao.cloud.goods.domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import com.taotao.cloud.goods.domain.valobj.WeightUnit;
+import com.taotao.cloud.goods.domain.valobj.WeightUnitEnum;
 import org.junit.jupiter.api.Test;
 
 /**
  * WeightUnit 枚举值对象单元测试
  */
-class WeightUnitTest {
+class WeightUnitEnumTest {
 
 	@Test
 	void tShouldHaveValueT() {
-		assertThat(WeightUnit.T.getValue()).isEqualTo("t");
+		assertThat(WeightUnitEnum.T.getValue()).isEqualTo("t");
 	}
 
 	@Test
 	void kgShouldHaveValueKg() {
-		assertThat(WeightUnit.KG.getValue()).isEqualTo("kg");
+		assertThat(WeightUnitEnum.KG.getValue()).isEqualTo("kg");
 	}
 
 	@Test
 	void gShouldHaveValueG() {
-		assertThat(WeightUnit.G.getValue()).isEqualTo("g");
+		assertThat(WeightUnitEnum.G.getValue()).isEqualTo("g");
 	}
 
 	@Test
 	void sameValueAsShouldReturnTrueWhenSameValue() {
-		assertThat(WeightUnit.KG.sameValueAs("kg")).isTrue();
+		assertThat(WeightUnitEnum.KG.sameValueAs("kg")).isTrue();
 	}
 
 	@Test
 	void sameValueAsShouldReturnFalseWhenDifferentValue() {
-		assertThat(WeightUnit.KG.sameValueAs("t")).isFalse();
+		assertThat(WeightUnitEnum.KG.sameValueAs("t")).isFalse();
 	}
 
 	@Test
 	void ofShouldReturnCorrectEnum() {
-		assertThat(WeightUnit.of("t")).isEqualTo(WeightUnit.T);
-		assertThat(WeightUnit.of("kg")).isEqualTo(WeightUnit.KG);
-		assertThat(WeightUnit.of("g")).isEqualTo(WeightUnit.G);
+		assertThat(WeightUnitEnum.of("t")).isEqualTo(WeightUnitEnum.T);
+		assertThat(WeightUnitEnum.of("kg")).isEqualTo(WeightUnitEnum.KG);
+		assertThat(WeightUnitEnum.of("g")).isEqualTo(WeightUnitEnum.G);
 	}
 }

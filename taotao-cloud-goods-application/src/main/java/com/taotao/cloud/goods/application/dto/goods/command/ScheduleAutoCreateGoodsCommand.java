@@ -1,7 +1,7 @@
 package com.taotao.cloud.goods.application.dto.goods.command;
 
 import com.taotao.boot.common.model.ddd.types.Command;
-import com.taotao.cloud.goods.common.enums.GoodsAuthEnum;
+import com.taotao.cloud.goods.domain.valobj.GoodsAuthEnum;
 import io.soabase.recordbuilder.core.RecordBuilder;
 
 import java.util.List;

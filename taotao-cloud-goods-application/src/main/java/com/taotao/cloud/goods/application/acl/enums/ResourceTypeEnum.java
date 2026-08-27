@@ -14,52 +14,50 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.common.enums;
+package com.taotao.cloud.goods.application.acl.enums;
 
 /**
- * app类型 安卓 IOS
+ * 菜单类型
  *
  * @author shuigedeng
- * @version 2022.04
- * @since 2022-04-25 16:47:12
+ * @version 2021.9
+ * @since 2021-09-02 22:14:43
  */
-public enum AppTypeEnum {
+public enum ResourceTypeEnum {
 
-    /** IOS */
-    IOS("IOS"),
-    /** 安卓 */
-    ANDROID("安卓");
+    /** 目录 */
+    DIR(1, "目录"),
+    /** 菜单 */
+    MENU(2, "菜单"),
+    /** 资源 (包括分页、各种按钮、删除 等等 对应的是请求路径如：/api/menu/find) */
+    RESOURCE(3, "资源");
 
-    private final String description;
+    private final Integer code;
 
-    AppTypeEnum(String description) {
-        this.description = description;
+    private final String message;
+
+    ResourceTypeEnum(Integer code, String message) {
+        this.code = code;
+        this.message = message;
     }
 
     /**
-    /**
-    /**
-    /**
-    /**
-    /**
-    /**
+     * 获取
+     *
+     * @return 结果数量
+     * @since 2022.03
+     */
+    public Integer getCode() {
+        return code;
+    }
+
     /**
      * 获取
      *
      * @return 字符串
      * @since 2022.03
      */
-    public String getDescription() {
-        return description;
-    }
-
-    /**
-     * 描述
-     *
-     * @return 字符串
-     * @since 2022.03
-     */
-    public String description() {
-        return this.description;
+    public String getMessage() {
+        return message;
     }
 }

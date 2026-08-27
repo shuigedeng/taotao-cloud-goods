@@ -14,24 +14,24 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.common.enums;
+package com.taotao.cloud.goods.domain.valobj;
 
 /**
- * 商品类型枚举
+ * 商品审核
  *
  * @author shuigedeng
  * @version 2022.04
- * @since 2022-04-25 16:32:20
+ * @since 2022-04-25 16:32:17
  */
-public enum GoodsStatusEnum {
-    /** 上架 */
-    UPPER("上架"),
-    /** 下架 */
-    DOWN("下架");
+public enum GoodsSalesModeEnum {
+    /** 需要审核 并且待审核 */
+    RETAIL("零售"),
+    /** 审核通过 */
+    WHOLESALE("批发");
 
     private final String description;
 
-    GoodsStatusEnum(String description) {
+    GoodsSalesModeEnum(String description) {
         this.description = description;
     }
 

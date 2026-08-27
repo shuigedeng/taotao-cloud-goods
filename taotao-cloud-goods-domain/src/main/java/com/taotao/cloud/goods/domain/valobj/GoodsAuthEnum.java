@@ -14,13 +14,41 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.infrastructure.event.subscribe.redis;
+package com.taotao.cloud.goods.domain.valobj;
 
 /**
- * RedisEventSubscriber
+ * 商品审核
  *
  * @author shuigedeng
- * @version 2026.04
- * @since 2025-12-19 09:30:45
+ * @version 2022.04
+ * @since 2022-04-25 16:32:10
  */
-public class RedisEventSubscriber {}
+public enum GoodsAuthEnum {
+	/**
+	 * 需要审核 并且待审核
+	 */
+	TOBEAUDITED("待审核"),
+	/**
+	 * 审核通过
+	 */
+	PASS("审核通过"),
+	/**
+	 * 审核通过
+	 */
+	REFUSE("审核拒绝");
+
+	private final String description;
+
+	GoodsAuthEnum( String description ) {
+		this.description = description;
+	}
+
+	/**
+	 * description
+	 *
+	 * @return String
+	 */
+	public String description() {
+		return description;
+	}
+}

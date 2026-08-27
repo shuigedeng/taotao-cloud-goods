@@ -17,9 +17,11 @@
 package com.taotao.cloud.goods.infrastructure.assembler;
 
 import com.taotao.boot.common.model.ddd.types.MarkerAssembler;
+import com.taotao.boot.ddd.model.val.BizId;
 import com.taotao.cloud.goods.application.dto.goods.query.GoodsPageQuery;
 import com.taotao.cloud.goods.application.dto.goods.result.GoodsResult;
 import com.taotao.cloud.goods.domain.aggregate.GoodsAgg;
+import com.taotao.cloud.goods.domain.valobj.GoodsName;
 import com.taotao.cloud.goods.infrastructure.persistent.model.dos.GoodsDO;
 import com.taotao.cloud.goods.infrastructure.persistent.model.params.GoodsParam;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsPO;
@@ -46,11 +48,10 @@ public interface GoodsInfraAssembler extends BaseInfraAssembler, MarkerAssembler
 
 	GoodsInfraAssembler INSTANCE = Mappers.getMapper(GoodsInfraAssembler.class);
 
-	/**
-	 * 创建商品Agg
-	 *
-	 * @since 2022.03
-	 */
+	default GoodsName toGoodsName(String value ) {
+		return value != null ? GoodsName.of(value) : null;
+	}
+
 	@ObjectFactory
 	default GoodsAgg createGoodsAgg() {
 		return GoodsAgg.init();

@@ -18,10 +18,13 @@ package com.taotao.cloud.goods.infrastructure.persistent.mapper;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.taotao.boot.common.enums.DelFlagEnum;
 import com.taotao.boot.common.utils.lang.StringUtils;
 import com.taotao.boot.data.mybatis.mybatisplus.base.mapper.BaseMapper;
 import com.taotao.cloud.goods.infrastructure.persistent.model.params.BrandPageParam;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.BrandPO;
+
+import java.util.List;
 
 /**
  * 商品品牌数据处理层
@@ -35,11 +38,14 @@ public interface BrandMapper extends BaseMapper<BrandPO> {
     default IPage<BrandPO> selectBrandPage(BrandPageParam brandPageParam) {
         LambdaQueryWrapper<BrandPO> queryWrapper = new LambdaQueryWrapper<>();
 
-        queryWrapper.like(
-                StringUtils.isNotBlank(brandPageParam.getName()),
-                BrandPO::getName,
-                brandPageParam.getName());
+        queryWrapper.like(StringUtils.isNotBlank(brandPageParam.getName()), BrandPO::getName, brandPageParam.getName());
 
         return this.selectPage(queryWrapper, brandPageParam);
     }
+
+	default List<BrandPO> queryAllAvailable(){
+		LambdaQueryWrapper<BrandPO> lambdaQueryWrapper = new LambdaQueryWrapper<>();
+		lambdaQueryWrapper.eq(BrandPO::getDelFlag, DelFlagEnum.NORMAL.getCode());
+		return selectList(lambdaQueryWrapper);
+	}
 }

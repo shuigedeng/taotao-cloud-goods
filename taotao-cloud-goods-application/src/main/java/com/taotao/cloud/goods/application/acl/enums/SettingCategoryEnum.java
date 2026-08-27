@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.common.enums;
+package com.taotao.cloud.goods.application.acl.enums;
 
 /**
  * 系统设置常量

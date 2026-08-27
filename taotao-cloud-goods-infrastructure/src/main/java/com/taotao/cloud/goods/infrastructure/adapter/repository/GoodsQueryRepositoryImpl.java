@@ -24,7 +24,7 @@ import com.taotao.boot.data.mybatis.mybatisplus.MpUtils;
 import com.taotao.cloud.goods.application.dto.goods.query.GoodsPageQuery;
 import com.taotao.cloud.goods.application.dto.goods.result.GoodsResult;
 import com.taotao.cloud.goods.application.adapter.repository.GoodsQueryRepository;
-import com.taotao.cloud.goods.common.enums.GoodsStatusEnum;
+import com.taotao.cloud.goods.domain.valobj.GoodsStatusEnum;
 import com.taotao.cloud.goods.infrastructure.assembler.GoodsInfraAssembler;
 import com.taotao.cloud.goods.infrastructure.persistent.model.dos.GoodsDO;
 import com.taotao.cloud.goods.infrastructure.persistent.model.params.GoodsParam;
@@ -94,7 +94,7 @@ public class GoodsQueryRepositoryImpl implements GoodsQueryRepository {
 		LambdaQueryWrapper<GoodsPO> queryWrapper = new LambdaQueryWrapper<GoodsPO>()
 			.eq(GoodsPO::getStoreId, storeId)
 			// .eq(Goods::getAuthFlag, GoodsAuthEnum.PASS.name())
-			.eq(GoodsPO::getMarketEnable, GoodsStatusEnum.UPPER.name());
+			.eq(GoodsPO::getMarketEnable, GoodsStatusEnum.SHELVED.name());
 
 		return goodsMapper.selectCount(queryWrapper);
 	}

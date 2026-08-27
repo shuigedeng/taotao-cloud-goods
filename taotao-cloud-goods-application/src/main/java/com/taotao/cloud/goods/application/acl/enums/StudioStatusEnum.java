@@ -14,50 +14,37 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.common.enums;
+package com.taotao.cloud.goods.application.acl.enums;
 
 /**
- * 菜单类型
+ * 直播间状态
  *
  * @author shuigedeng
- * @version 2021.9
- * @since 2021-09-02 22:14:43
+ * @version 2022.04
+ * @since 2022-04-25 16:32:28
  */
-public enum ResourceTypeEnum {
+public enum StudioStatusEnum {
 
-    /** 目录 */
-    DIR(1, "目录"),
-    /** 菜单 */
-    MENU(2, "菜单"),
-    /** 资源 (包括分页、各种按钮、删除 等等 对应的是请求路径如：/api/menu/find) */
-    RESOURCE(3, "资源");
+    /** 新建 */
+    NEW("新建"),
+    /** 开始 */
+    START("开始"),
+    /** 结束 */
+    END("结束");
 
-    private final Integer code;
+    private final String clientName;
 
-    private final String message;
-
-    ResourceTypeEnum(Integer code, String message) {
-        this.code = code;
-        this.message = message;
+    StudioStatusEnum(String des) {
+        this.clientName = des;
     }
 
     /**
-     * 获取
-     *
-     * @return 结果数量
-     * @since 2022.03
-     */
-    public Integer getCode() {
-        return code;
-    }
-
-    /**
-     * 获取
+     * clientName 方法
      *
      * @return 字符串
      * @since 2022.03
      */
-    public String getMessage() {
-        return message;
+    public String clientName() {
+        return this.clientName;
     }
 }
