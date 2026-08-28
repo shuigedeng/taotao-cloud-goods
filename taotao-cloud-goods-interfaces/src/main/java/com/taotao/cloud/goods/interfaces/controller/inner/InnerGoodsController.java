@@ -22,7 +22,7 @@ import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.InnerController;
 import com.taotao.cloud.goods.api.inner.command.GoodsCommandApi;
 import com.taotao.cloud.goods.api.inner.dto.command.GoodsApiCommand;
-import com.taotao.cloud.goods.api.inner.dto.response.GoodsCommandApiResponse;
+import com.taotao.cloud.goods.api.inner.dto.response.GoodsApiResponse;
 import com.taotao.cloud.goods.api.inner.query.GoodsQueryApi;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -49,37 +49,30 @@ public class InnerGoodsController extends InnerController implements GoodsComman
 	@Operation(summary = "根据父id获取商品分类列表", description = "根据父id获取商品分类列表111")
     @Override
 	@RequestLogger
-    public Response<GoodsCommandApiResponse> updateStoreDetail(@Validated Request<GoodsApiCommand> id) {
+    public Response<GoodsApiResponse> updateStoreDetail(@Validated Request<GoodsApiCommand> id) {
         return null;
     }
 
 	@Operation(summary = "根据父id获取商品分类列表", description = "根据父id获取商品分类列表222")
     @Override
 	@RequestLogger
-    public Response<GoodsCommandApiResponse> underStoreGoods(@Validated Request<GoodsApiCommand> id) {
+    public Response<GoodsApiResponse> underStoreGoods(@Validated Request<GoodsApiCommand> id) {
         return null;
     }
 
-	@Operation(summary = "根据父id获取商品分类列表", description = "根据父id获取商品分类列表33")
-    @Override
-	@RequestLogger
-    public Response<GoodsCommandApiResponse> countStoreGoodsNum(
-		@Validated Request<GoodsApiCommand> storeId) {
-        return null;
-    }
 
 	@Override
-	public Response<GoodsCommandApiResponse> queryStoreDetail( Request<GoodsApiCommand> id ) {
+	public Response<GoodsApiResponse> queryStoreDetail(Request<GoodsApiCommand> id ) {
 		return null;
 	}
 
 	@Override
-	public Response<GoodsCommandApiResponse> queryUnderStoreGoods( Request<GoodsApiCommand> id ) {
+	public Response<GoodsApiResponse> queryUnderStoreGoods(Request<GoodsApiCommand> id ) {
 		return null;
 	}
 
 	@Override
-	public Response<GoodsCommandApiResponse> queryCountStoreGoodsNum( Request<GoodsApiCommand> storeId ) {
+	public Response<GoodsApiResponse> queryCountStoreGoodsNum(Request<GoodsApiCommand> storeId ) {
 		return null;
 	}
 }

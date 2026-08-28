@@ -18,6 +18,7 @@ package com.taotao.cloud.goods.interfaces.rpc;
 
 import com.taotao.boot.common.model.request.Request;
 import com.taotao.cloud.goods.TaoTaoCloudGoodsApplicationTests;
+import com.taotao.cloud.goods.api.rpc.dto.command.CreateGoodsRpcCommand;
 import com.taotao.cloud.goods.api.rpc.dto.query.GoodsRpcQuery;
 import com.taotao.cloud.goods.api.rpc.command.GoodsCommandRpcService;
 import org.junit.jupiter.api.DisplayName;
@@ -48,8 +49,8 @@ class GoodsCommandRpcServiceImplTest extends TaoTaoCloudGoodsApplicationTests {
     @Test
     @DisplayName("根据参数查询商品")
     void shouldQueryGoodsByParams() {
-        Request<GoodsRpcQuery> request = Request.from(new GoodsRpcQuery(1L));
-        var result = goodsCommandRpcService.queryGoodsByParams(request);
+        Request<CreateGoodsRpcCommand> request = Request.from(new CreateGoodsRpcCommand(1L));
+        var result = goodsCommandRpcService.createGoods(request);
         assertThat(result).isNull();
     }
 }

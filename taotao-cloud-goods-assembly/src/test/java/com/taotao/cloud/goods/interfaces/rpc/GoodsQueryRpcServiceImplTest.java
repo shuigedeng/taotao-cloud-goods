@@ -49,7 +49,7 @@ class GoodsQueryRpcServiceImplTest extends TaoTaoCloudGoodsApplicationTests {
     @DisplayName("根据参数查询商品")
     void shouldQueryGoodsByParams() {
         Request<GoodsRpcQuery> request = Request.from(new GoodsRpcQuery(1L));
-        var result = goodsQueryRpcService.queryGoodsByParams(request);
+        var result = goodsQueryRpcService.queryGoods(request);
         assertThat(result).isNotNull();
     }
 }

@@ -43,7 +43,7 @@ public interface GoodsLabelStoreInfraAssembler extends MarkerAssembler {
 
     StoreGoodsLabelInfoResult toResult(StoreGoodsLabelPO storeGoodsLabel);
 
-    StoreGoodsLabelPO toPo( CreateStoreGoodsLabelCommand createStoreGoodsLabelCommand);
+    StoreGoodsLabelPO toPo( CreateStoreGoodsLabelCommand source);
 
-    StoreGoodsLabelPO toPo( UpdateStoreGoodsLabelCommand updateStoreGoodsLabelCommand);
+    StoreGoodsLabelPO toPo( UpdateStoreGoodsLabelCommand source);
 }

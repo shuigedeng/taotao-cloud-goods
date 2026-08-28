@@ -25,10 +25,7 @@ import com.taotao.cloud.goods.domain.valobj.GoodsName;
 import com.taotao.cloud.goods.infrastructure.persistent.model.dos.GoodsDO;
 import com.taotao.cloud.goods.infrastructure.persistent.model.params.GoodsParam;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsPO;
-import org.mapstruct.Mapper;
-import org.mapstruct.MappingConstants;
-import org.mapstruct.MappingTarget;
-import org.mapstruct.ObjectFactory;
+import org.mapstruct.*;
 import org.mapstruct.factory.Mappers;
 
 import java.util.List;
@@ -73,6 +70,7 @@ public interface GoodsInfraAssembler extends BaseInfraAssembler, MarkerAssembler
 
 	void mergeFromAgg( GoodsAgg source, @MappingTarget GoodsAgg target );
 
-	void mergeFromPo( GoodsPO source, @MappingTarget GoodsAgg target );
+	@Mapping(target = "EVENTS", ignore = true)
+	void mergeFromPo(GoodsPO source, @MappingTarget GoodsAgg target );
 }
 

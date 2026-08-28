@@ -21,6 +21,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.taotao.boot.common.enums.DelFlagEnum;
 import com.taotao.boot.common.utils.lang.StringUtils;
 import com.taotao.boot.data.mybatis.mybatisplus.base.mapper.BaseMapper;
+import com.taotao.cloud.goods.application.dto.brand.query.BrandPageQuery;
 import com.taotao.cloud.goods.infrastructure.persistent.model.params.BrandPageParam;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.BrandPO;
 
@@ -35,12 +36,12 @@ import java.util.List;
  */
 public interface BrandMapper extends BaseMapper<BrandPO> {
 
-    default IPage<BrandPO> selectBrandPage(BrandPageParam brandPageParam) {
+    default IPage<BrandPO> selectBrandPage(BrandPageQuery brandPageParam) {
         LambdaQueryWrapper<BrandPO> queryWrapper = new LambdaQueryWrapper<>();
 
-        queryWrapper.like(StringUtils.isNotBlank(brandPageParam.getName()), BrandPO::getName, brandPageParam.getName());
+        queryWrapper.like(StringUtils.isNotBlank(brandPageParam.name()), BrandPO::getName, brandPageParam.name());
 
-        return this.selectPage(queryWrapper, brandPageParam);
+        return this.selectPage(queryWrapper, brandPageParam.page());
     }
 
 	default List<BrandPO> queryAllAvailable(){

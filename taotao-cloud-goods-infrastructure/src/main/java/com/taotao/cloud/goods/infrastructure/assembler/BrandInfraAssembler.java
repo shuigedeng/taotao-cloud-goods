@@ -25,6 +25,7 @@ import com.taotao.cloud.goods.infrastructure.persistent.persistence.BrandPO;
 import java.util.List;
 import nl.basjes.parse.useragent.clienthints.ClientHints.Brand;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 import org.mapstruct.MappingConstants;
 import org.mapstruct.factory.Mappers;
 
@@ -44,8 +45,6 @@ public interface BrandInfraAssembler extends MarkerAssembler {
     BrandInfraAssembler INSTANCE = Mappers.getMapper(BrandInfraAssembler.class);
 
     BrandResult toResult(BrandPO brandPo);
-
-	BrandPageParam toParam(BrandPageQuery brandPageQuery);
 
     List<BrandResult> toResult(List<BrandPO> brandPos);
 

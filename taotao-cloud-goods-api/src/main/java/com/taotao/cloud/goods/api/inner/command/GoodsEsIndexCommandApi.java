@@ -23,7 +23,7 @@ import com.taotao.boot.common.model.response.BatchResponse;
 import com.taotao.boot.common.model.response.EmptyResponse;
 import com.taotao.boot.common.model.response.Response;
 import com.taotao.cloud.goods.api.inner.dto.command.GoodsApiCommand;
-import com.taotao.cloud.goods.api.inner.dto.response.EsGoodsIndexCommandApiResponse;
+import com.taotao.cloud.goods.api.inner.dto.response.EsGoodsIndexApiResponse;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.service.annotation.HttpExchange;
@@ -37,15 +37,6 @@ import org.springframework.web.service.annotation.PostExchange;
  */
 @HttpExchange(value = ServiceNameConstants.TAOTAO_CLOUD_GOODS)
 public interface GoodsEsIndexCommandApi {
-
-	/**
-	 * getEsGoodsBySkuIds
-	 *
-	 * @return Response<BatchResponse<EsGoodsIndexCommandApiResponse>>
-	 */
-	@PostExchange(value = "/es/goods/sku/ids")
-	Response<BatchResponse<EsGoodsIndexCommandApiResponse>> getEsGoodsBySkuIds(
-		@Validated @RequestBody Request<BatchRequest<GoodsApiCommand>> skuIdList );
 
 	/**
 	 * cleanInvalidPromotion

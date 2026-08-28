@@ -32,7 +32,8 @@ import java.io.Serial;
  */
 @RecordBuilder
 @Schema(description = "商品查询请求")
-public record GoodsApiCommand(	@Schema(description = "租户id")
+public record GoodsApiCommand(
+	@Schema(description = "租户id")
 	String tenantId,
 	@Schema(description = "租户密钥")
 	String tenantSecret,
@@ -58,7 +59,7 @@ public record GoodsApiCommand(	@Schema(description = "租户id")
 	@Schema(description = "所在地区")
 	String regionInfo,
 	@Schema(description = "公司类型")
-	Integer type)  implements Command {
+	Integer type) implements Command {
 
 	@Serial
 	private static final long serialVersionUID = -4132785717179910025L;

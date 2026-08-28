@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.api.inner.command;
+package com.taotao.cloud.goods.api.inner.query;
 
 import com.taotao.boot.common.constant.ServiceNameConstants;
 import com.taotao.boot.common.model.request.BatchRequest;
@@ -23,9 +23,7 @@ import com.taotao.boot.common.model.response.BatchResponse;
 import com.taotao.boot.common.model.response.EmptyResponse;
 import com.taotao.boot.common.model.response.Response;
 import com.taotao.cloud.goods.api.inner.dto.command.GoodsApiCommand;
-import com.taotao.cloud.goods.api.inner.dto.command.GoodsSkuSpecGalleryApiCommand;
-import com.taotao.cloud.goods.api.inner.dto.response.CategoryApiResponse;
-import com.taotao.cloud.goods.api.inner.dto.response.GoodsSkuSpecGalleryApiResponse;
+import com.taotao.cloud.goods.api.inner.dto.response.EsGoodsIndexApiResponse;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.service.annotation.HttpExchange;
@@ -38,24 +36,14 @@ import org.springframework.web.service.annotation.PostExchange;
  * @since 2020/5/2 16:42
  */
 @HttpExchange(value = ServiceNameConstants.TAOTAO_CLOUD_GOODS)
-public interface GoodsSkuCommandApi {
+public interface GoodsEsIndexQueryApi {
 
 	/**
-	 * updateGoodsStuck
+	 * getEsGoodsBySkuIds
 	 *
-	 * @return Response<EmptyResponse>
+	 * @return Response<BatchResponse<EsGoodsIndexCommandApiResponse>>
 	 */
-	@PostExchange(value = "/product/updateGoodsStuck")
-	Response<EmptyResponse> updateGoodsStuck(
-		@Validated @RequestBody Request<BatchRequest<GoodsSkuSpecGalleryApiCommand>> request );
-
-	/**
-	 * updateBatchById
-	 *
-	 * @return Response<EmptyResponse>
-	 */
-	@PostExchange(value = "/product/updateBatchById")
-	Response<EmptyResponse> updateBatchById(
-		@Validated @RequestBody Request<BatchRequest<GoodsSkuSpecGalleryApiCommand>> request );
-
+	@PostExchange(value = "/es/goods/sku/ids")
+	Response<BatchResponse<EsGoodsIndexApiResponse>> getEsGoodsBySkuIds(
+		@Validated @RequestBody Request<BatchRequest<GoodsApiCommand>> skuIdList );
 }

@@ -20,7 +20,7 @@ import com.taotao.boot.common.constant.ServiceNameConstants;
 import com.taotao.boot.common.model.request.Request;
 import com.taotao.boot.common.model.response.Response;
 import com.taotao.cloud.goods.api.inner.dto.command.GoodsApiCommand;
-import com.taotao.cloud.goods.api.inner.dto.response.GoodsCommandApiResponse;
+import com.taotao.cloud.goods.api.inner.dto.response.GoodsApiResponse;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.service.annotation.HttpExchange;
@@ -41,7 +41,7 @@ public interface GoodsQueryApi {
 	 * @return Response<GoodsCommandApiResponse>
 	 */
 	@PostExchange(value = "/inner/goods/query/strore/detail")
-	Response<GoodsCommandApiResponse> queryStoreDetail( @Validated @RequestBody Request<GoodsApiCommand> id );
+	Response<GoodsApiResponse> queryStoreDetail(@Validated @RequestBody Request<GoodsApiCommand> id );
 
 
 	/**
@@ -50,7 +50,7 @@ public interface GoodsQueryApi {
 	 * @return Response<GoodsCommandApiResponse>
 	 */
 	@PostExchange(value = "/inner/goods/query/strore/goods")
-	Response<GoodsCommandApiResponse> queryUnderStoreGoods( @Validated @RequestBody Request<GoodsApiCommand> id );
+	Response<GoodsApiResponse> queryUnderStoreGoods(@Validated @RequestBody Request<GoodsApiCommand> id );
 
 
 	/**
@@ -59,6 +59,6 @@ public interface GoodsQueryApi {
 	 * @return Response<GoodsCommandApiResponse>
 	 */
 	@PostExchange(value = "/inner/goods/query/strore/goods/num")
-	Response<GoodsCommandApiResponse> queryCountStoreGoodsNum(
+	Response<GoodsApiResponse> queryCountStoreGoodsNum(
 		@Validated @RequestBody Request<GoodsApiCommand> storeId );
 }

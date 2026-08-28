@@ -17,7 +17,6 @@
 package com.taotao.cloud.goods.api.inner.dto.response;
 
 import io.swagger.v3.oas.annotations.media.Schema;
-import lombok.*;
 
 import java.io.Serial;
 import java.util.Comparator;
@@ -26,7 +25,7 @@ import java.util.List;
 /**
  * 分类VO
  */
-public class CategoryTreeCommandApiResponse extends CategoryCommandApiResponse {
+public class CategoryTreeApiResponse extends CategoryApiResponse {
 
 	@Serial
 	private static final long serialVersionUID = 3775766246075838410L;
@@ -35,19 +34,19 @@ public class CategoryTreeCommandApiResponse extends CategoryCommandApiResponse {
 	private String parentTitle;
 
 	@Schema(description = "子分类列表")
-	private List<CategoryTreeCommandApiResponse> children;
+	private List<CategoryTreeApiResponse> children;
 
 	@Schema(description = "分类关联的品牌列表")
-	private List<BrandCommandApiResponse> brandList;
+	private List<BrandApiResponse> brandList;
 
 	/**
 	 * getChildren
 	 *
 	 * @return List<CategoryTreeCommandApiResponse>
 	 */
-	public List<CategoryTreeCommandApiResponse> getChildren() {
+	public List<CategoryTreeApiResponse> getChildren() {
 		if (children != null) {
-			children.sort(Comparator.comparing(CategoryCommandApiResponse::getSortOrder));
+			children.sort(Comparator.comparing(CategoryApiResponse::getSortOrder));
 			return children;
 		}
 		return null;

@@ -19,7 +19,7 @@ package com.taotao.cloud.goods.interfaces.rpc;
 import com.taotao.boot.common.model.request.Request;
 import com.taotao.boot.common.model.response.Response;
 import com.taotao.cloud.goods.api.rpc.dto.query.GoodsRpcQuery;
-import com.taotao.cloud.goods.api.rpc.dto.response.GoodsQueryRpcResponse;
+import com.taotao.cloud.goods.api.rpc.dto.response.GoodsRpcResponse;
 import com.taotao.cloud.goods.api.rpc.query.GoodsQueryRpcService;
 import com.taotao.cloud.goods.application.service.query.GoodsQueryService;
 import lombok.RequiredArgsConstructor;
@@ -40,8 +40,8 @@ public class GoodsQueryRpcServiceImpl implements GoodsQueryRpcService {
 
 	private final GoodsQueryService goodsQueryService;
     @Override
-    public Response<GoodsQueryRpcResponse> queryGoodsByParams( Request<GoodsRpcQuery> goodsQueryRpcRequest) {
-		GoodsQueryRpcResponse response = goodsQueryService.queryGoodsByParams(goodsQueryRpcRequest.getOrder());
+    public Response<GoodsRpcResponse> queryGoods(Request<GoodsRpcQuery> goodsQueryRpcRequest) {
+		GoodsRpcResponse response = goodsQueryService.queryGoodsByParams(goodsQueryRpcRequest.getOrder());
         return Response.from(response);
     }
 }

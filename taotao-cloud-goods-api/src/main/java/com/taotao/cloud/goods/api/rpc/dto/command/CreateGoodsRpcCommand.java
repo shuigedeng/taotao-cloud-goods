@@ -14,27 +14,25 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.api.inner.dto.response;
+package com.taotao.cloud.goods.api.rpc.dto.command;
 
-import com.taotao.boot.common.model.ddd.types.MarkerResponse;
+import com.taotao.boot.common.model.ddd.types.Command;
 import io.soabase.recordbuilder.core.RecordBuilder;
-import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.io.Serial;
 
 /**
- * 品牌VO
+ * 菜单查询对象
+ *
+ * @param id id
+ * @author shuigedeng
+ * @version 2021.10
+ * @since 2021-10-09 15:27:42
  */
 @RecordBuilder
-@Schema(description = "品牌VO")
-public record BrandCommandApiResponse(	@Schema(description = "id")
-	String id,
-	@Schema(description = "名称")
-	String name,
-	@Schema(description = "logo")
-	String logo) implements MarkerResponse {
+public record CreateGoodsRpcCommand(Long id) implements Command {
 
 	@Serial
-	private  static final long serialVersionUID = 3829199991161122317L;
+	private static final long serialVersionUID = 5126530068827085130L;
 
 }

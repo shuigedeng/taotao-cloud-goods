@@ -22,6 +22,7 @@ import com.taotao.cloud.goods.application.dto.category.result.CategoryTreeResult
 import com.taotao.cloud.goods.domain.entity.Category;
 import com.taotao.cloud.goods.domain.valobj.GoodsName;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 import org.mapstruct.MappingConstants;
 import org.mapstruct.factory.Mappers;
 
@@ -42,7 +43,8 @@ public interface CategoryAppAssembler extends MarkerAssembler {
     CategoryAppAssembler INSTANCE = Mappers.getMapper(CategoryAppAssembler.class);
 
 
-	CategoryTreeResult toResult( Category categoryAgg);
+	@Mapping(target = "brandList", ignore = true)
+	CategoryTreeResult toResult(Category categoryAgg);
 
     /**
      * map 方法

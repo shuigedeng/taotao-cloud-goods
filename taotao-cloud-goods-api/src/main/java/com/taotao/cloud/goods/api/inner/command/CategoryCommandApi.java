@@ -20,8 +20,8 @@ import com.taotao.boot.common.constant.ServiceNameConstants;
 import com.taotao.boot.common.model.request.Request;
 import com.taotao.boot.common.model.response.BatchResponse;
 import com.taotao.boot.common.model.response.Response;
-import com.taotao.cloud.goods.api.inner.dto.command.CategoryApiCommand;
-import com.taotao.cloud.goods.api.inner.dto.response.CategoryTreeCommandApiResponse;
+import com.taotao.cloud.goods.api.inner.dto.command.CreateCategoryApiCommand;
+import com.taotao.cloud.goods.api.inner.dto.response.CategoryApiResponse;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.service.annotation.HttpExchange;
@@ -36,7 +36,7 @@ import org.springframework.web.service.annotation.PostExchange;
 @HttpExchange(value = ServiceNameConstants.TAOTAO_CLOUD_GOODS)
 public interface CategoryCommandApi {
 
-	@PostExchange(value = "/inner/goods/category/command/tree")
-	Response<BatchResponse<CategoryTreeCommandApiResponse>> firstCategory(
-		@Validated @RequestBody Request<CategoryApiCommand> id);
+	@PostExchange(value = "/inner/goods/category/command/create")
+	Response<BatchResponse<CategoryApiResponse>> createCategory(
+		@Validated @RequestBody Request<CreateCategoryApiCommand> createCategoryApiCommandRequest);
 }

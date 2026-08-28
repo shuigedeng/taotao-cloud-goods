@@ -11,6 +11,6 @@ import io.soabase.recordbuilder.core.RecordBuilder;
  * @since 2025-12-19 09:30:45
  */
 @RecordBuilder
-public record GoodsSkuSpecGalleryCommandApiResponse() implements MarkerResponse  {
+public record GoodsSkuSpecGalleryApiResponse() implements MarkerResponse  {
 
 }

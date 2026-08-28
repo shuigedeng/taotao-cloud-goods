@@ -14,33 +14,31 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.api.rpc.dto.response;
+package com.taotao.cloud.goods.api.inner.dto.response;
 
 import com.taotao.boot.common.model.ddd.types.MarkerResponse;
 import io.soabase.recordbuilder.core.RecordBuilder;
 
 import java.io.Serial;
-import java.io.Serializable;
 
 /**
- * CompanyBO
+ * 商品属性索引
  *
+ * @param type 属性参数：0->规格；1->参数
+ * @param nameId 属性名称
+ * @param name 属性名称
+ * @param valueId 属性值
+ * @param value 属性值
+ * @param sort 排序
  * @author shuigedeng
- * @version 2021.10
- * @since 2021-10-19 20:47:05
- * @param tenantId 租户id
- * @param tenantSecret 租户密钥
- * @param name 公司名称
- * @param type 公司类型
+ * @version 2022.04
+ * @since 2022-04-25 16:18:03
  */
 @RecordBuilder
-public record GoodsCommandRpcResponse(
-	String tenantId,
-	String tenantSecret,
-	String name,
-	Integer type)
-	implements MarkerResponse {
+public record EsGoodsAttributeApiResponse(Integer type, String nameId, String name, String valueId, String value,
+										  Integer sort)  implements MarkerResponse {
 
 	@Serial
-	private static final long serialVersionUID = 5126530068827085130L;
+	private  static final long serialVersionUID = 4018042777559970062L;
+
 }

@@ -66,18 +66,18 @@ import java.util.List;
  * @since 2022-04-25 16:18:08
  */
 @RecordBuilder
-public record EsGoodsIndexCommandApiResponse(Long id, Long goodsId, String goodsName, String sn, Long storeId,
-											 String storeName, Integer buyCount, String small, String thumbnail,
-											 Long brandId, String brandName, String brandUrl, String categoryPath,
-											 String categoryNamePath, String storeCategoryPath,
-											 String storeCategoryNamePath, BigDecimal price, BigDecimal promotionPrice,
-											 Integer point, Integer commentNum, Integer highPraiseNum, BigDecimal grade,
-											 String intro, String mobileIntro, Boolean selfOperated, Boolean recommend,
-											 String salesModel, String authFlag, String sellingPoint,
-											 String marketEnable, String goodsVideo, LocalDateTime releaseTime,
-											 String goodsType, Integer skuSource,
-											 List<EsGoodsAttributeCommandApiResponse> attrList,
-											 String promotionMapJson) implements MarkerResponse {
+public record EsGoodsIndexApiResponse(Long id, Long goodsId, String goodsName, String sn, Long storeId,
+									  String storeName, Integer buyCount, String small, String thumbnail,
+									  Long brandId, String brandName, String brandUrl, String categoryPath,
+									  String categoryNamePath, String storeCategoryPath,
+									  String storeCategoryNamePath, BigDecimal price, BigDecimal promotionPrice,
+									  Integer point, Integer commentNum, Integer highPraiseNum, BigDecimal grade,
+									  String intro, String mobileIntro, Boolean selfOperated, Boolean recommend,
+									  String salesModel, String authFlag, String sellingPoint,
+									  String marketEnable, String goodsVideo, LocalDateTime releaseTime,
+									  String goodsType, Integer skuSource,
+									  List<EsGoodsAttributeApiResponse> attrList,
+									  String promotionMapJson) implements MarkerResponse {
 
 	@Serial
 	private  static final long serialVersionUID = -6856471777036048874L;

@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.api.inner.dto.response;
+package com.taotao.cloud.goods.api.inner.dto.command;
 
-import com.taotao.boot.common.model.ddd.types.MarkerResponse;
+import com.taotao.boot.common.model.ddd.types.Command;
 import io.soabase.recordbuilder.core.RecordBuilder;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.Pattern;
@@ -32,7 +32,8 @@ import java.io.Serial;
  */
 @RecordBuilder
 @Schema(description = "商品查询请求")
-public record GoodsCommandApiResponse(	@Schema(description = "租户id")
+public record CreateCategoryApiCommand(
+	@Schema(description = "租户id")
 	String tenantId,
 	@Schema(description = "租户密钥")
 	String tenantSecret,
@@ -58,9 +59,8 @@ public record GoodsCommandApiResponse(	@Schema(description = "租户id")
 	@Schema(description = "所在地区")
 	String regionInfo,
 	@Schema(description = "公司类型")
-	Integer type) implements MarkerResponse {
+	Integer type) implements Command {
 
 	@Serial
-	private  static final long serialVersionUID = -4132785717179910025L;
-
+	private static final long serialVersionUID = -4132785717179910025L;
 }

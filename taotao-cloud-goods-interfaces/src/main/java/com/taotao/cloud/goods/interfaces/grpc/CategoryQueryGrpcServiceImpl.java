@@ -17,8 +17,6 @@
 package com.taotao.cloud.goods.interfaces.grpc; /// *
 
 import com.taotao.cloud.goods.api.grpc.CategoryQueryGrpcServiceGrpc;
-import com.taotao.cloud.goods.api.grpc.FirstCategoryGrpcQuery;
-import com.taotao.cloud.goods.api.grpc.FirstCategoryGrpcQueryResponse;
 import io.grpc.stub.StreamObserver;
 import lombok.RequiredArgsConstructor;
 import org.springframework.grpc.server.service.GrpcService;
@@ -27,8 +25,4 @@ import org.springframework.grpc.server.service.GrpcService;
 @RequiredArgsConstructor
 public class CategoryQueryGrpcServiceImpl extends CategoryQueryGrpcServiceGrpc.CategoryQueryGrpcServiceImplBase {
 
-	@Override
-	public void firstCategory( FirstCategoryGrpcQuery request,
-		StreamObserver<FirstCategoryGrpcQueryResponse> responseObserver ) {
-	}
 }

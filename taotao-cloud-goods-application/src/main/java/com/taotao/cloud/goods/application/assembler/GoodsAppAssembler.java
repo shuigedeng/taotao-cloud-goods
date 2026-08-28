@@ -42,36 +42,15 @@ public interface GoodsAppAssembler extends MarkerAssembler {
     /** 实例 */
     GoodsAppAssembler INSTANCE = Mappers.getMapper(GoodsAppAssembler.class);
 
-    //
-    /// **
-    // * 参数参数vos
-    // *
-    // * @param parameters 参数
-    // * @return {@link List }<{@link ParametersVO }>
-    // * @since 2022-04-27 16:58:27
-    // */
-    // List<ParametersVO> convert(List<Parameters> parameters);
 
     GoodsResult toResult(GoodsAgg goodsAgg);
 
 	GoodsSkuParamsResult toResult(GoodsResult goodsAgg);
 
-    /**
-     * map 方法
-     *
-     * @param value 值
-     * @since 2022.03
-     */
     default Long map(BizId value) {
         return value != null ? value.id() : null;
     }
 
-    /**
-     * map 方法
-     *
-     * @param value 值
-     * @since 2022.03
-     */
     default String map(GoodsName value) {
         return value != null ? value.value() : null;
     }

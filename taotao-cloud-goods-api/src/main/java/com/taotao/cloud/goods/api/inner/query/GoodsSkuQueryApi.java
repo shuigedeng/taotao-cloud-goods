@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.api.inner.command;
+package com.taotao.cloud.goods.api.inner.query;
 
 import com.taotao.boot.common.constant.ServiceNameConstants;
 import com.taotao.boot.common.model.request.BatchRequest;
@@ -38,24 +38,23 @@ import org.springframework.web.service.annotation.PostExchange;
  * @since 2020/5/2 16:42
  */
 @HttpExchange(value = ServiceNameConstants.TAOTAO_CLOUD_GOODS)
-public interface GoodsSkuCommandApi {
+public interface GoodsSkuQueryApi {
+
 
 	/**
-	 * updateGoodsStuck
+	 * getGoodsSkuByIdFromCache
 	 *
-	 * @return Response<EmptyResponse>
+	 * @return Response<BatchResponse<GoodsSkuSpecGalleryCommandApiResponse>>
 	 */
-	@PostExchange(value = "/product/updateGoodsStuck")
-	Response<EmptyResponse> updateGoodsStuck(
-		@Validated @RequestBody Request<BatchRequest<GoodsSkuSpecGalleryApiCommand>> request );
+	@PostExchange(value = "/product/getGoodsSkuByIdFromCache/sku-ids")
+	Response<BatchResponse<GoodsSkuSpecGalleryApiResponse>> getGoodsSkuByIdFromCache(
+		@Validated @RequestBody Request<GoodsApiCommand> request );
 
 	/**
-	 * updateBatchById
+	 * getStock
 	 *
-	 * @return Response<EmptyResponse>
+	 * @return Response<CategoryCommandApiResponse>
 	 */
-	@PostExchange(value = "/product/updateBatchById")
-	Response<EmptyResponse> updateBatchById(
-		@Validated @RequestBody Request<BatchRequest<GoodsSkuSpecGalleryApiCommand>> request );
-
+	@PostExchange(value = "/product/getStock")
+	Response<CategoryApiResponse> getStock(@Validated @RequestBody Request<GoodsApiCommand> request );
 }

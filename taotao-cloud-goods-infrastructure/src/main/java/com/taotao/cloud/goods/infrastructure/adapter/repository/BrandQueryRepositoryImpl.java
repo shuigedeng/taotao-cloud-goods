@@ -78,8 +78,7 @@ public class BrandQueryRepositoryImpl implements BrandQueryRepository {
 
 	@Override
 	public PageResult<BrandResult> queryPage(BrandPageQuery page) {
-		BrandPageParam brandPageParam = brandInfraAssembler.toParam(page);
-		IPage<BrandPO> brandPage = brandMapper.selectBrandPage(brandPageParam);
+		IPage<BrandPO> brandPage = brandMapper.selectBrandPage(page);
 		return MpUtils.convertMpPage(brandPage, brandInfraAssembler::toResult);
 	}
 }

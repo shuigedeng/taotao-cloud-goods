@@ -19,6 +19,7 @@ package com.taotao.cloud.goods.api.inner.dto.response;
 import com.taotao.boot.common.model.ddd.types.MarkerResponse;
 import io.soabase.recordbuilder.core.RecordBuilder;
 import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.validation.constraints.Pattern;
 
 import java.io.Serial;
 
@@ -30,8 +31,9 @@ import java.io.Serial;
  * @since 2021-10-09 16:31:52
  */
 @RecordBuilder
-@Schema(description = "商品查询结果")
-public record GoodsQueryApiResponse(	@Schema(description = "租户id")
+@Schema(description = "商品查询请求")
+public record GoodsApiResponse(
+	@Schema(description = "租户id")
 	String tenantId,
 	@Schema(description = "租户密钥")
 	String tenantSecret,
@@ -40,6 +42,7 @@ public record GoodsQueryApiResponse(	@Schema(description = "租户id")
 	@Schema(description = "企业全称")
 	String fullName,
 	@Schema(description = "信用代码")
+	@Pattern(regexp = "^|[a-zA-Z0-9]{18}$", message = "信用代码格式错误")
 	String creditCode,
 	@Schema(description = "邮箱")
 	String email,
@@ -59,6 +62,6 @@ public record GoodsQueryApiResponse(	@Schema(description = "租户id")
 	Integer type) implements MarkerResponse {
 
 	@Serial
-	private  static final long serialVersionUID = -4132785717179910025L;
+	private static final long serialVersionUID = -4132785717179910025L;
 
 }

@@ -21,7 +21,7 @@ import com.taotao.boot.common.exception.BusinessException;
 import com.taotao.boot.common.model.result.PageResult;
 import com.taotao.boot.common.utils.log.LogUtils;
 import com.taotao.cloud.goods.api.rpc.dto.query.GoodsRpcQuery;
-import com.taotao.cloud.goods.api.rpc.dto.response.GoodsQueryRpcResponse;
+import com.taotao.cloud.goods.api.rpc.dto.response.GoodsRpcResponse;
 import com.taotao.cloud.goods.application.assembler.GoodsAppAssembler;
 import com.taotao.cloud.goods.application.dto.goods.query.GoodsPageQuery;
 import com.taotao.cloud.goods.application.dto.goods.result.GoodsResult;
@@ -126,7 +126,7 @@ public class GoodsQueryServiceImpl implements GoodsQueryService {
 	}
 
 	@Override
-	public GoodsQueryRpcResponse queryGoodsByParams( GoodsRpcQuery order ) {
+	public GoodsRpcResponse queryGoodsByParams(GoodsRpcQuery order ) {
 		return null;
 	}
 

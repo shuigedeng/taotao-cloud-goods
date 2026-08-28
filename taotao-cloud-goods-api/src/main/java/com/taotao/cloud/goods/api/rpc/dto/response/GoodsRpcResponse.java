@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.api.rpc.dto.command;
+package com.taotao.cloud.goods.api.rpc.dto.response;
 
-import com.taotao.boot.common.model.ddd.types.Command;
+import com.taotao.boot.common.model.ddd.types.MarkerResponse;
 import io.soabase.recordbuilder.core.RecordBuilder;
 
 import java.io.Serial;
@@ -30,7 +30,7 @@ import java.io.Serial;
  * @since 2021-10-09 15:27:42
  */
 @RecordBuilder
-public record GoodsRpcCommand(Long id) implements Command {
+public record GoodsRpcResponse(Long id) implements MarkerResponse {
 
 	@Serial
 	private static final long serialVersionUID = 5126530068827085130L;

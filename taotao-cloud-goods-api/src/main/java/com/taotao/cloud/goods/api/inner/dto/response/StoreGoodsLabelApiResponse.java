@@ -31,16 +31,16 @@ import java.util.List;
  * @since 2022-04-14 21:52:23
  */
 @RecordBuilder
-public record StoreGoodsLabelCommandApiResponse(	@Schema(description = "店铺商品分类ID")
+public record StoreGoodsLabelApiResponse(@Schema(description = "店铺商品分类ID")
 	Long id,
-	@Schema(description = "店铺商品分类名称")
+										 @Schema(description = "店铺商品分类名称")
 	String labelName,
-	@Schema(description = "层级, 从0开始")
+										 @Schema(description = "层级, 从0开始")
 	Integer level,
-	@Schema(description = "店铺商品分类排序")
+										 @Schema(description = "店铺商品分类排序")
 	Integer sortOrder,
-	@Schema(description = "下级分类列表")
-	List<StoreGoodsLabelCommandApiResponse> children)implements
+										 @Schema(description = "下级分类列表")
+	List<StoreGoodsLabelApiResponse> children)implements
 	MarkerResponse {
 
 	@Serial
