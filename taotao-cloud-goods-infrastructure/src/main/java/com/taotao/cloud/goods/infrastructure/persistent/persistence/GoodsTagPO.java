@@ -51,46 +51,6 @@ public class GoodsTagPO extends BasePO<GoodsTagPO> {
     @Column(name = "`desc`", columnDefinition = "varchar(255) not null comment '计量单位名称'")
     private String desc;
 
-    /**
-     * 获取
-     *
-     * @return 字符串
-     * @since 2022.03
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * 设置
-     *
-     * @param name name
-     * @since 2022.03
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    /**
-     * 获取
-     *
-     * @return 字符串
-     * @since 2022.03
-     */
-    public String getDesc() {
-        return desc;
-    }
-
-    /**
-     * 设置
-     *
-     * @param desc desc
-     * @since 2022.03
-     */
-    public void setDesc(String desc) {
-        this.desc = desc;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {

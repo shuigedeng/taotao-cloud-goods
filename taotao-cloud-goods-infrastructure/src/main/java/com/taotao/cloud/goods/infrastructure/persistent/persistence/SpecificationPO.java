@@ -76,66 +76,6 @@ public class SpecificationPO extends BasePO<SpecificationPO> {
     @Column(name = "`spec_value`", columnDefinition = "varchar(1024) not null comment '规格值名字'")
     private String specValue;
 
-    /**
-     * 获取
-     *
-     * @return 字符串
-     * @since 2022.03
-     */
-    public String getSpecName() {
-        return specName;
-    }
-
-    /**
-     * 设置
-     *
-     * @param specName specName
-     * @since 2022.03
-     */
-    public void setSpecName(String specName) {
-        this.specName = specName;
-    }
-
-    /**
-     * 获取
-     *
-     * @return 结果数量
-     * @since 2022.03
-     */
-    public Long getStoreId() {
-        return storeId;
-    }
-
-    /**
-     * 设置
-     *
-     * @param storeId storeId
-     * @since 2022.03
-     */
-    public void setStoreId(Long storeId) {
-        this.storeId = storeId;
-    }
-
-    /**
-     * 获取
-     *
-     * @return 字符串
-     * @since 2022.03
-     */
-    public String getSpecValue() {
-        return specValue;
-    }
-
-    /**
-     * 设置
-     *
-     * @param specValue specValue
-     * @since 2022.03
-     */
-    public void setSpecValue(String specValue) {
-        this.specValue = specValue;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {

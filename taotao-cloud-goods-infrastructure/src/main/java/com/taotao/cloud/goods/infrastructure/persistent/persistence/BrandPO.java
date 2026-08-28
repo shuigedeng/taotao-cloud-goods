@@ -80,5 +80,8 @@ public class BrandPO extends BaseLogicPO<BrandPO> {
         return getId() != null && Objects.equals(getId(), brandPO.getId());
     }
 
-
+    @Override
+    public int hashCode() {
+        return getClass().hashCode();
+    }
 }

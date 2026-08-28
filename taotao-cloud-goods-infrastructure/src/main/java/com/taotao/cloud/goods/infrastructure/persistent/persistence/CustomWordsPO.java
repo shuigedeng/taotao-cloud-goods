@@ -59,46 +59,6 @@ public class CustomWordsPO extends BasePO<CustomWordsPO> {
     @Column(name = "`disabled`", columnDefinition = "int null default 0 comment '是否禁用'")
     private Integer disabled;
 
-    /**
-     * 获取
-     *
-     * @return 字符串
-     * @since 2022.03
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * 设置
-     *
-     * @param name name
-     * @since 2022.03
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    /**
-     * 获取
-     *
-     * @return 结果数量
-     * @since 2022.03
-     */
-    public Integer getDisabled() {
-        return disabled;
-    }
-
-    /**
-     * 设置
-     *
-     * @param disabled disabled
-     * @since 2022.03
-     */
-    public void setDisabled(Integer disabled) {
-        this.disabled = disabled;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {
