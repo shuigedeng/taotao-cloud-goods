@@ -43,5 +43,5 @@ public interface CategoryQueryApi {
 	 */
 	@PostExchange(value = "/inner/goods/category/query/tree")
 	Response<BatchResponse<CategoryTreeApiResponse>> queryCategory(
-		@Validated @RequestBody Request<CreateCategoryApiCommand> id );
+		@Validated @RequestBody Request<CreateCategoryApiCommand> request );
 }

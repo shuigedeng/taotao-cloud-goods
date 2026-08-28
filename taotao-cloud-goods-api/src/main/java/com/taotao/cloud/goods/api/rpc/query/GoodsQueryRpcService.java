@@ -30,5 +30,5 @@ import com.taotao.cloud.goods.api.rpc.dto.response.GoodsRpcResponse;
  */
 public interface GoodsQueryRpcService {
 
-	Response<GoodsRpcResponse> queryGoods(Request<GoodsRpcQuery> goodsQueryRpcRequest);
+	Response<GoodsRpcResponse> queryGoods(Request<GoodsRpcQuery> request);
 }

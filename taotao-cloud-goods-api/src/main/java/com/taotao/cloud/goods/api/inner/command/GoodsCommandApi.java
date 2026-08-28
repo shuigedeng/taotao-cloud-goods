@@ -42,7 +42,8 @@ public interface GoodsCommandApi {
 	 * @return Response<GoodsCommandApiResponse>
 	 */
 	@PostExchange(value = "/inner/goods/command/store/detail")
-	Response<GoodsApiResponse> updateStoreDetail(@Validated @RequestBody Request<GoodsApiCommand> goodsApiCommandRequest );
+	Response<GoodsApiResponse> updateStoreDetail(
+		@Validated @RequestBody Request<GoodsApiCommand> request );
 
 	/**
 	 * underStoreGoods
@@ -50,5 +51,6 @@ public interface GoodsCommandApi {
 	 * @return Response<GoodsCommandApiResponse>
 	 */
 	@PostExchange(value = "/inner/goods/command/under-strore")
-	Response<GoodsApiResponse> underStoreGoods(@Validated @RequestBody Request<GoodsApiCommand> goodsApiCommandRequest );
+	Response<GoodsApiResponse> underStoreGoods(
+		@Validated @RequestBody Request<GoodsApiCommand> request );
 }

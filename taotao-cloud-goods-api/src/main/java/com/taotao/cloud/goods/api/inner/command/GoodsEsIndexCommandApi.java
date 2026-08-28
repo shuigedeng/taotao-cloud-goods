@@ -44,5 +44,6 @@ public interface GoodsEsIndexCommandApi {
 	 * @return Response<EmptyResponse>
 	 */
 	@PostExchange(value = "/es/clean/invalid-promotion")
-	Response<EmptyResponse> cleanInvalidPromotion( @Validated @RequestBody Request<GoodsApiCommand> Request );
+	Response<EmptyResponse> cleanInvalidPromotion(
+		@Validated @RequestBody Request<GoodsApiCommand> request );
 }

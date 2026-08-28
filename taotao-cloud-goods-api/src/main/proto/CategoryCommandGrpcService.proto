@@ -8,14 +8,14 @@ option java_outer_classname = "CategoryCommandGrpcServiceProto";
 //option objc_class_prefix = "HLW";
 
 service CategoryCommandGrpcService {
-  rpc createCategory (CreateCategoryGrpcCommand) returns (CreateCategoryGrpcResponse){}
+  rpc createCategory (CreateCategoryGrpcCommand) returns (CategoryGrpcResponse){}
 }
 
 message CreateCategoryGrpcCommand {
   string id = 1;
 }
 
-message CreateCategoryGrpcResponse {
+message CategoryGrpcResponse {
   string id = 1;
   string serialNum = 2;
   string userNum = 3;

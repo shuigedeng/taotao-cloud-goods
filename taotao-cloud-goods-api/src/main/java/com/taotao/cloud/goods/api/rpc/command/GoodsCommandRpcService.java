@@ -35,5 +35,5 @@ public interface GoodsCommandRpcService {
 	 *
 	 * @return 响应数据
 	 */
-	Response<CreateGoodsRpcResponse> createGoods(Request<CreateGoodsRpcCommand> createGoodsRpcCommandRequest );
+	Response<CreateGoodsRpcResponse> createGoods(Request<CreateGoodsRpcCommand> request );
 }

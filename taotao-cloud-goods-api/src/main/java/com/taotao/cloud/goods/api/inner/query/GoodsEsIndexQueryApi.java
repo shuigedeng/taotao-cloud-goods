@@ -45,5 +45,5 @@ public interface GoodsEsIndexQueryApi {
 	 */
 	@PostExchange(value = "/es/goods/sku/ids")
 	Response<BatchResponse<EsGoodsIndexApiResponse>> getEsGoodsBySkuIds(
-		@Validated @RequestBody Request<BatchRequest<GoodsApiCommand>> skuIdList );
+		@Validated @RequestBody Request<BatchRequest<GoodsApiCommand>> request );
 }

@@ -9,14 +9,14 @@ option java_outer_classname = "GoodsCommandGrpcServiceProto";
 
 service GoodsCommandGrpcService {
   // Sends a message
-  rpc createGoods (CreateGoodsGrpcCommand) returns (CreateGoodsGrpcResponse){}
+  rpc createGoods (CreateGoodsGrpcCommand) returns (GoodsGrpcResponse){}
 }
 
 message CreateGoodsGrpcCommand {
   string id = 1;
 }
 
-message CreateGoodsGrpcResponse {
+message GoodsGrpcResponse {
   string id = 1;
   string serialNum = 2;
   string userNum = 3;

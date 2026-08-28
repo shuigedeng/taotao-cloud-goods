@@ -56,5 +56,6 @@ public interface GoodsSkuQueryApi {
 	 * @return Response<CategoryCommandApiResponse>
 	 */
 	@PostExchange(value = "/product/getStock")
-	Response<CategoryApiResponse> getStock(@Validated @RequestBody Request<GoodsApiCommand> request );
+	Response<CategoryApiResponse> getStock(
+		@Validated @RequestBody Request<GoodsApiCommand> request );
 }

@@ -7,40 +7,27 @@ option java_package = "com.taotao.cloud.goods.api.grpc";
 option java_outer_classname = "GoodsSkuCommandGrpcServiceProto";
 //option objc_class_prefix = "HLW";
 
-// The device service definition.
 service GoodsSkuCommandGrpcService {
-  // Sends a message
-  rpc createGoods (CreateGoodsSkuGrpcCommand) returns (CreateGoodsSkuGrpcResponse){}
-  rpc updateGoods (UpdateGoodsSkuGrpcCommand) returns (UpdateGoodsSkuGrpcResponse){}
+  rpc createGoods (CreateGoodsSkuGrpcCommand) returns (GoodsSkuGrpcResponse){}
+  rpc updateGoods (UpdateGoodsSkuGrpcCommand) returns (GoodsSkuGrpcResponse){}
 }
 
-// The request message .
 message CreateGoodsSkuGrpcCommand {
   string id = 1;
 }
 
-message CreateGoodsSkuGrpcResponse {
-  string id = 1;
-  string serialNum = 2;
-  string userNum = 3;
-  int32  status = 4;
-  int32  type = 5;
-  string address = 6;
-  string createtime = 7;
-  string updatetime = 8;
-}
-
 message UpdateGoodsSkuGrpcCommand {
-  string id = 1;
+    string id = 1;
 }
 
-message UpdateGoodsSkuGrpcResponse {
+message GoodsSkuGrpcResponse {
   string id = 1;
   string serialNum = 2;
   string userNum = 3;
   int32  status = 4;
   int32  type = 5;
   string address = 6;
-  string createtime = 7;
-  string updatetime = 8;
+  string creatTime = 7;
+  string updateTime = 8;
 }
+

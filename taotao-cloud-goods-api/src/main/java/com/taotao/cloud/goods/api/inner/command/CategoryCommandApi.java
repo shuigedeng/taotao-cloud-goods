@@ -38,5 +38,5 @@ public interface CategoryCommandApi {
 
 	@PostExchange(value = "/inner/goods/category/command/create")
 	Response<BatchResponse<CategoryApiResponse>> createCategory(
-		@Validated @RequestBody Request<CreateCategoryApiCommand> createCategoryApiCommandRequest);
+		@Validated @RequestBody Request<CreateCategoryApiCommand> request);
 }
