@@ -22,6 +22,9 @@ import com.taotao.boot.ddd.model.val.BizId;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
@@ -34,6 +37,8 @@ import java.util.stream.Collectors;
  * @author shuigedeng
  * @since 2023-08-02
  */
+@Getter
+@Setter
 public class Tag implements Entity{
     /**
      * 商品ID
@@ -110,105 +115,6 @@ public class Tag implements Entity{
         this.validateSelf();
     }
 
-    /**
-     * 获取
-     *
-     * @return BizId
-     * @since 2022.03
-     */
-    public BizId getId() {
-        return id;
-    }
-
-    /**
-     * 获取
-     *
-     * @return 字符串
-     * @since 2022.03
-     */
-    public String getTagName() {
-        return tagName;
-    }
-
-    /**
-     * 获取
-     *
-     * @return 字符串
-     * @since 2022.03
-     */
-    public String getTagDesc() {
-        return tagDesc;
-    }
-
-    /**
-     * 获取
-     *
-     * @return LocalDateTime
-     * @since 2022.03
-     */
-    public LocalDateTime getCreateTime() {
-        return createTime;
-    }
-
-    /**
-     * 获取
-     *
-     * @return LocalDateTime
-     * @since 2022.03
-     */
-    public LocalDateTime getUpdateTime() {
-        return updateTime;
-    }
-
-    /**
-	 * 设置
-	 *
-	 * @param id id
-	 * @since 2022.03
-	 */
-	public void setId( BizId id ) {
-		this.id = id;
-	}
-
-    /**
-	 * 设置
-	 *
-	 * @param tagName tagName
-	 * @since 2022.03
-	 */
-	public void setTagName( String tagName ) {
-		this.tagName = tagName;
-	}
-
-    /**
-	 * 设置
-	 *
-	 * @param tagDesc tagDesc
-	 * @since 2022.03
-	 */
-	public void setTagDesc( String tagDesc ) {
-		this.tagDesc = tagDesc;
-	}
-
-    /**
-	 * 设置
-	 *
-	 * @param createTime createTime
-	 * @since 2022.03
-	 */
-	public void setCreateTime( LocalDateTime createTime ) {
-		this.createTime = createTime;
-	}
-
-    /**
-	 * 设置
-	 *
-	 * @param updateTime updateTime
-	 * @since 2022.03
-	 */
-	public void setUpdateTime( LocalDateTime updateTime ) {
-		this.updateTime = updateTime;
-	}
 
 	@Override
     public boolean equals(Object o) {

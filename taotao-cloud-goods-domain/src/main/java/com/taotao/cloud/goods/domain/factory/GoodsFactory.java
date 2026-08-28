@@ -17,8 +17,10 @@
 package com.taotao.cloud.goods.domain.factory;
 
 import com.taotao.boot.common.model.ddd.types.MarkerFactory;
+import org.springframework.stereotype.Component;
 
 /**
  * 商品创建工厂<br/> 注：领域对象创建工厂，强调初始创建领域对象的操作（区别于技术层面的构造函数）
  */
+@Component
 public class GoodsFactory implements MarkerFactory {}

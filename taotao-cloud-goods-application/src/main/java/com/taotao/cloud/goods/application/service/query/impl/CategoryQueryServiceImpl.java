@@ -94,8 +94,8 @@ public class CategoryQueryServiceImpl implements CategoryQueryService {
 	/**
 	 * 递归树形VO
 	 *
-	 * @param categories     分类列表
-	 * @param categoryTreeVO 分类VO
+	 * @param categoryAggs     分类列表
+	 * @param categoryTreeResult 分类VO
 	 * @return 分类VO列表
 	 */
 	private List<CategoryTreeResult> findChildren(List<Category> categoryAggs, CategoryTreeResult categoryTreeResult) {
@@ -134,7 +134,7 @@ public class CategoryQueryServiceImpl implements CategoryQueryService {
 	 * 递归自身，找到id等于parentId的对象，获取他的children 返回
 	 *
 	 * @param parentId           父ID
-	 * @param categoryTreeVOList 分类VO
+	 * @param categoryTreeResults 分类VO
 	 * @return 子分类列表VO
 	 */
 	private List<CategoryTreeResult> getChildren(Long parentId, List<CategoryTreeResult> categoryTreeResults) {
@@ -191,7 +191,7 @@ public class CategoryQueryServiceImpl implements CategoryQueryService {
 			for (Long id : ids) {
 				if (category.getId().id().equals(id)) {
 					// 写入商品分类
-					categoryName.add(category.categoryName());
+					categoryName.add(category.getCategoryName().value());
 				}
 			}
 		}

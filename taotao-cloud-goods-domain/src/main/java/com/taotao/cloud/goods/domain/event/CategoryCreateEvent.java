@@ -21,11 +21,15 @@ import com.taotao.boot.ddd.model.val.BizId;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 /**
  *
  */
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Schema(name = "OperateLogEvent", description = "操作日志事件")

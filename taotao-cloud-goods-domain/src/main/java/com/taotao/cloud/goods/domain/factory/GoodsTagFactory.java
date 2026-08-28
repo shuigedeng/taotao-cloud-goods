@@ -17,6 +17,7 @@
 package com.taotao.cloud.goods.domain.factory;
 
 import com.taotao.boot.common.model.ddd.types.MarkerFactory;
+import org.springframework.stereotype.Component;
 
 /**
  * 商品标签创建工厂<br/>
@@ -25,6 +26,7 @@ import com.taotao.boot.common.model.ddd.types.MarkerFactory;
  * @author shuigedeng
  * @since 2023-08-03
  */
+@Component
 public class GoodsTagFactory implements MarkerFactory {
 
     /**

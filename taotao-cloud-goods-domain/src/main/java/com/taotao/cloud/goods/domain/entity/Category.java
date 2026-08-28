@@ -21,6 +21,8 @@ import com.taotao.boot.ddd.model.val.BizId;
 import com.taotao.cloud.goods.domain.valobj.CategoryDesc;
 import com.taotao.cloud.goods.domain.valobj.CategoryName;
 import jakarta.validation.constraints.NotNull;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
@@ -31,6 +33,8 @@ import java.util.Objects;
  * @author shuigedeng
  * @since 2023-01-04 13:20
  */
+@Getter
+@Setter
 public class Category implements Entity {
 
 	/**
@@ -137,26 +141,6 @@ public class Category implements Entity {
 		this.validateSelf();
 	}
 
-    /**
-	 * 获取
-	 *
-	 * @return BizId
-	 * @since 2022.03
-	 */
-	public BizId getId() {
-		return id;
-	}
-
-    /**
-	 * 获取
-	 *
-	 * @return BizId
-	 * @since 2022.03
-	 */
-	public BizId getParentCategoryId() {
-		return parentCategoryId;
-	}
-
 	/**
 	 * 父级分类ID
 	 *
@@ -165,16 +149,6 @@ public class Category implements Entity {
 	 */
 	public Long parentCategoryId() {
 		return parentCategoryId.id();
-	}
-
-    /**
-	 * 获取
-	 *
-	 * @return CategoryName
-	 * @since 2022.03
-	 */
-	public CategoryName getCategoryName() {
-		return categoryName;
 	}
 
 	/**
@@ -187,95 +161,6 @@ public class Category implements Entity {
 		return categoryName.value();
 	}
 
-    /**
-	 * 获取
-	 *
-	 * @return CategoryDesc
-	 * @since 2022.03
-	 */
-	public CategoryDesc getCategoryDesc() {
-		return categoryDesc;
-	}
-
-    /**
-	 * 获取
-	 *
-	 * @return LocalDateTime
-	 * @since 2022.03
-	 */
-	public LocalDateTime getCreateTime() {
-		return createTime;
-	}
-
-    /**
-	 * 获取
-	 *
-	 * @return LocalDateTime
-	 * @since 2022.03
-	 */
-	public LocalDateTime getUpdateTime() {
-		return updateTime;
-	}
-
-    /**
-	 * 设置
-	 *
-	 * @param id id
-	 * @since 2022.03
-	 */
-	public void setId( BizId id ) {
-		this.id = id;
-	}
-
-    /**
-	 * 设置
-	 *
-	 * @param parentCategoryId parentCategoryId
-	 * @since 2022.03
-	 */
-	public void setParentCategoryId( BizId parentCategoryId ) {
-		this.parentCategoryId = parentCategoryId;
-	}
-
-    /**
-	 * 设置
-	 *
-	 * @param categoryName categoryName
-	 * @since 2022.03
-	 */
-	public void setCategoryName( CategoryName categoryName ) {
-		this.categoryName = categoryName;
-	}
-
-    /**
-	 * 设置
-	 *
-	 * @param categoryDesc categoryDesc
-	 * @since 2022.03
-	 */
-	public void setCategoryDesc( CategoryDesc categoryDesc ) {
-		this.categoryDesc = categoryDesc;
-	}
-
-    /**
-	 * 设置
-	 *
-	 * @param createTime createTime
-	 * @since 2022.03
-	 */
-	public void setCreateTime( LocalDateTime createTime ) {
-		this.createTime = createTime;
-	}
-
-    /**
-	 * 设置
-	 *
-	 * @param updateTime updateTime
-	 * @since 2022.03
-	 */
-	public void setUpdateTime( LocalDateTime updateTime ) {
-		this.updateTime = updateTime;
-	}
 
 	@Override
 	public boolean equals( Object o ) {
