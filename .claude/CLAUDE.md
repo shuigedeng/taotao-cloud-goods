@@ -113,6 +113,6 @@ taotao-cloud-goods/
 ## 注意事项
 
 - JDK 25 预览特性需 `--enable-preview`，大量 `--add-exports` JVM 参数
-- `taotao-cloud-dependencies:2026.09` BOM 需私有仓库凭据
+- `taotao-cloud-dependencies:2026.10` BOM 需私有仓库凭据
 - 阿里云私有仓库发布需配置 `mavenUsernameNew` / `mavenPasswordNew`
 - 使用 `./gradlew` 而非 `gradle` 命令（Wrapper 确保版本一致）

@@ -1,7 +1,7 @@
 syntax = "proto3";
 
 package com.taotao.cloud.goods.api.grpc;
-
+import "dto.proto";
 option java_multiple_files = true;
 option java_package = "com.taotao.cloud.goods.api.grpc";
 option java_outer_classname = "GoodsSkuCommandGrpcServiceProto";
@@ -20,14 +20,5 @@ message UpdateGoodsSkuGrpcCommand {
     string id = 1;
 }
 
-message GoodsSkuGrpcResponse {
-  string id = 1;
-  string serialNum = 2;
-  string userNum = 3;
-  int32  status = 4;
-  int32  type = 5;
-  string address = 6;
-  string creatTime = 7;
-  string updateTime = 8;
-}
+
 
