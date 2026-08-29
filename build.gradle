@@ -94,7 +94,7 @@ buildscript {
         //代码混淆工具
         //https://github.com/Guardsquare/proguard
         //https://www.guardsquare.com/manual/quickstart
-        classpath "com.guardsquare:proguard-gradle:7.9.1"
+        classpath "com.guardsquare:proguard-gradle:7.10.0"
     }
 }
 
@@ -180,7 +180,7 @@ plugins {
 
     //https://github.com/diffplug/spotless/blob/main/plugin-gradle/README.md
     //https://plugins.gradle.org/plugin/com.diffplug.spotless
-    id "com.diffplug.spotless" version "8.10.0"
+    id "com.diffplug.spotless" version "8.10.1"
 
     //https://plugins.gradle.org/plugin/com.gorylenko.gradle-git-properties
     id "com.gorylenko.gradle-git-properties" version "4.0.1"
@@ -350,7 +350,7 @@ subprojects {
         annotationProcessor "org.mapstruct:mapstruct-processor:${mapstructProcessorVersion}"
         //https://github.com/entur/mapstruct-spi-protobuf
         //https://search.maven.org/artifact/no.entur.mapstruct.spi/protobuf-spi-impl
-        annotationProcessor "no.entur.mapstruct.spi:protobuf-spi-impl:1.66.0"
+        annotationProcessor "no.entur.mapstruct.spi:protobuf-spi-impl:1.67.0"
 
         annotationProcessor "org.springframework.boot:spring-boot-configuration-processor:${springBootVersion}"
     }
