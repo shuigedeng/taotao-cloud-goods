@@ -15,9 +15,7 @@ import java.math.BigDecimal;
  * @since 2026/8/15
  */
 @Data
-@Configuration
 @ConfigurationProperties(prefix = "taotao.cloud.goods.payment")
-@EnableConfigurationProperties({PaymentProperties.class})
 public class PaymentProperties {
 
 	private int maxRetryTimes;

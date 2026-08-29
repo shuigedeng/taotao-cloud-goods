@@ -52,7 +52,7 @@ jasypt:
 
 redisson:
   client-name: ${spring.application.name}   #在Redis节点里显示的客户端名称。
-  #password: taotao-cloud   #用于节点身份验证的密码
+  password: taotaocloud   #用于节点身份验证的密码
   lock-model: auto   #锁的模式.如果不设置, REENTRANT(可重入锁),FAIR(公平锁),MULTIPLE(联锁),REDLOCK(红锁),READ(读锁), WRITE(写锁)
   model: single   #集群模式:SINGLE(单例),SENTINEL(哨兵),MASTERSLAVE(主从),CLUSTER(集群),REPLICATED(云托管)
   codec: "com.zengtengpeng.codec.MyJsonJacksonCodec"   #Redisson的对象编码类是用于将对象进行序列化和反序列化，以实现对该对象在Redis里的读取和存储
@@ -600,7 +600,7 @@ spring:
       host: ${remote-ip}
       port: 6379
       database: 1
-      #password: ${TAOTAO_CLOUD_REDIS_PASSWORD:taotao-cloud}
+      password: ${TAOTAO_CLOUD_REDIS_PASSWORD:taotaocloud}
       connect-timeout: 60s
       #sentinel:
       #  master:
@@ -630,7 +630,7 @@ spring:
             # 命令重试发送时间间隔，单位：毫秒
             retryInterval: 1500
             # 密码，没有设置密码时，需要注释掉，否则会报错
-            password: taotao-cloud
+            password: taotaocloud
             # 单个连接最大订阅数量
             subscriptionsPerConnection: 5
             # 客户端名称

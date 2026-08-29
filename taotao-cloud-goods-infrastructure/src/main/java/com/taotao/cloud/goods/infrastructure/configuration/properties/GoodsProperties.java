@@ -13,9 +13,7 @@ import org.springframework.context.annotation.Configuration;
  * @since 2025-12-19 09:30:45
  */
 @Data
-@Configuration
 @ConfigurationProperties(prefix = "taotao.cloud.goods")
-@EnableConfigurationProperties({GoodsProperties.class})
 public class GoodsProperties {
 
 	private String no;

@@ -14,9 +14,7 @@ import org.springframework.context.annotation.Configuration;
  * @since 2025-12-19 09:30:45
  */
 @Data
-@Configuration
 @ConfigurationProperties(prefix = "taotao.cloud.goods.channel")
-@EnableConfigurationProperties({ChannelProperties.class})
 public class ChannelProperties {
 
 	private int id;
