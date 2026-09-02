@@ -14,9 +14,11 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.interfaces.grpc; /// *
+package com.taotao.cloud.goods.interfaces.grpc;
 
-import com.taotao.cloud.goods.api.grpc.CategoryQueryGrpcServiceGrpc;
+import com.taotao.cloud.goods.api.grpc.dto.query.CategoryGrpcQuery;
+import com.taotao.cloud.goods.api.grpc.dto.response.CategoryGrpcResponse;
+import com.taotao.cloud.goods.api.grpc.query.CategoryQueryGrpcServiceGrpc;
 import io.grpc.stub.StreamObserver;
 import lombok.RequiredArgsConstructor;
 import org.springframework.grpc.server.service.GrpcService;
@@ -24,5 +26,8 @@ import org.springframework.grpc.server.service.GrpcService;
 @GrpcService
 @RequiredArgsConstructor
 public class CategoryQueryGrpcServiceImpl extends CategoryQueryGrpcServiceGrpc.CategoryQueryGrpcServiceImplBase {
-
+	@Override
+	public void queryCategory(CategoryGrpcQuery request, StreamObserver<CategoryGrpcResponse> responseObserver) {
+		super.queryCategory(request, responseObserver);
+	}
 }

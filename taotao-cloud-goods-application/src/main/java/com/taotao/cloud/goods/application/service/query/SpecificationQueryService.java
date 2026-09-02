@@ -36,7 +36,7 @@ public interface SpecificationQueryService extends QueryService {
      *
      * @return 规格列表
      */
-    List<SpecificationResult> listAll();
+    List<SpecificationResult> queryAll();
 
     /**
      * 分页查询规格

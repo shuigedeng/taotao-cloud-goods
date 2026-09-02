@@ -148,7 +148,7 @@ public interface GoodsSkuQueryService extends QueryService {
      * @return {@link IPage }<{@link GoodsSkuSearchQuery }>
      * @since 2023-08-18 16:00:59
      */
-    PageResult<GoodsSkuSearchQuery> queryGoodsSkuDTOByPage(
+    PageResult<GoodsSkuSearchQuery> queryGoodsSkuSearchPage(
 		Page<GoodsSkuSearchQuery> page, Wrapper<GoodsSkuSearchQuery> queryWrapper);
 
     /**

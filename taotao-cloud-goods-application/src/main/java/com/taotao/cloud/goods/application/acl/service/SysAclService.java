@@ -21,6 +21,6 @@ import com.taotao.cloud.goods.application.acl.dto.sys.res.DictRes;
 
 public interface SysAclService {
 
-	DictRes findByCode(DictReq dictReq);
+	DictRes queryByCode(DictReq dictReq);
 
 }

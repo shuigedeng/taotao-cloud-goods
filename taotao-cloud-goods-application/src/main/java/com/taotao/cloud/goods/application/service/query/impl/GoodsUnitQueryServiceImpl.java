@@ -33,12 +33,12 @@ import org.springframework.stereotype.Service;
 public class GoodsUnitQueryServiceImpl implements GoodsUnitQueryService {
 
     @Override
-    public PageResult<GoodsUnitResult> queryByPage(PageQuery pageQuery) {
+    public PageResult<GoodsUnitResult> queryPage(PageQuery pageQuery) {
         return null;
     }
 
     @Override
-    public GoodsUnitResult getById(Long id) {
+    public GoodsUnitResult queryDetail(Long id) {
         return null;
     }
 }

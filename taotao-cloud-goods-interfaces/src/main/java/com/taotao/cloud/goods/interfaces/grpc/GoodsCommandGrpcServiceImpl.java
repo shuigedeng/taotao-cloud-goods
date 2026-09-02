@@ -16,7 +16,9 @@
 
 package com.taotao.cloud.goods.interfaces.grpc;
 
-import com.taotao.cloud.goods.api.grpc.GoodsCommandGrpcServiceGrpc;
+import com.taotao.cloud.goods.api.grpc.command.GoodsCommandGrpcServiceGrpc;
+import com.taotao.cloud.goods.api.grpc.dto.command.CreateGoodsGrpcCommand;
+import com.taotao.cloud.goods.api.grpc.dto.response.GoodsGrpcResponse;
 import io.grpc.stub.StreamObserver;
 import lombok.RequiredArgsConstructor;
 import org.springframework.grpc.server.service.GrpcService;
@@ -24,5 +26,8 @@ import org.springframework.grpc.server.service.GrpcService;
 @GrpcService
 @RequiredArgsConstructor
 public class GoodsCommandGrpcServiceImpl extends GoodsCommandGrpcServiceGrpc.GoodsCommandGrpcServiceImplBase {
-
+	@Override
+	public void createGoods(CreateGoodsGrpcCommand request, StreamObserver<GoodsGrpcResponse> responseObserver) {
+		super.createGoods(request, responseObserver);
+	}
 }

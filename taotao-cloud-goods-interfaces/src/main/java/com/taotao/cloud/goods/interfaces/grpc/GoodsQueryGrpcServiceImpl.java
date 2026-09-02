@@ -16,7 +16,9 @@
 
 package com.taotao.cloud.goods.interfaces.grpc;
 
-import com.taotao.cloud.goods.api.grpc.GoodsQueryGrpcServiceGrpc;
+import com.taotao.cloud.goods.api.grpc.dto.query.GoodsNumGrpcQuery;
+import com.taotao.cloud.goods.api.grpc.dto.response.GoodsNumGrpcResponse;
+import com.taotao.cloud.goods.api.grpc.query.GoodsQueryGrpcServiceGrpc;
 import io.grpc.stub.StreamObserver;
 import lombok.RequiredArgsConstructor;
 import org.springframework.grpc.server.service.GrpcService;
@@ -24,5 +26,8 @@ import org.springframework.grpc.server.service.GrpcService;
 @GrpcService
 @RequiredArgsConstructor
 public class GoodsQueryGrpcServiceImpl extends GoodsQueryGrpcServiceGrpc.GoodsQueryGrpcServiceImplBase {
-
+	@Override
+	public void countStoreGoodsNum(GoodsNumGrpcQuery request, StreamObserver<GoodsNumGrpcResponse> responseObserver) {
+		super.countStoreGoodsNum(request, responseObserver);
+	}
 }

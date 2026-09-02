@@ -36,7 +36,7 @@ public interface GoodsUnitQueryService extends QueryService {
      * @param pageQuery 分页参数
      * @return 计量单位分页结果
      */
-    PageResult<GoodsUnitResult> queryByPage(PageQuery pageQuery);
+    PageResult<GoodsUnitResult> queryPage(PageQuery pageQuery);
 
     /**
      * 根据id获取商品计量单位
@@ -44,5 +44,5 @@ public interface GoodsUnitQueryService extends QueryService {
      * @param id 计量单位id
      * @return 计量单位
      */
-    GoodsUnitResult getById(Long id);
+    GoodsUnitResult queryDetail(Long id);
 }

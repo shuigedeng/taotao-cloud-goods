@@ -28,7 +28,7 @@ public class SysInvoker {
 //    @DubboReference
 //    private final DictRpcService dictRpcService;
 
-    public GatewayResponse<DictQueryApiResponse> findByCode( GatewayRequest<DictApiQuery> gatewayRequest ) {
+    public GatewayResponse<DictQueryApiResponse> queryByCode(GatewayRequest<DictApiQuery> gatewayRequest ) {
         return new GatewayInvokeBuilder<DictApiQuery, DictQueryApiResponse>()
                 .description("sys系统-字典信息查询")
                 .gatewayRouter(param -> dictQueryApi.queryByCode(Request.from(param)))

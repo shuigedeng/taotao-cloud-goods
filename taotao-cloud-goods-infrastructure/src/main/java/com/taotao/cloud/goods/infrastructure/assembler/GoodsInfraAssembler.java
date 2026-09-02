@@ -64,7 +64,7 @@ public interface GoodsInfraAssembler extends BaseInfraAssembler, MarkerAssembler
 
 	GoodsResult toResult( GoodsDO source );
 
-	GoodsParam toParam( GoodsPageQuery goodsPageQuery );
+	GoodsParam toParam( GoodsPageQuery source );
 
 	GoodsAgg copyFrom( GoodsAgg source );
 

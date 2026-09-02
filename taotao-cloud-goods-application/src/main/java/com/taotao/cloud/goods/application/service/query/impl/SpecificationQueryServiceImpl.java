@@ -59,7 +59,7 @@ public class SpecificationQueryServiceImpl implements SpecificationQueryService 
     //	}
 
     @Override
-    public List<SpecificationResult> listAll() {
+    public List<SpecificationResult> queryAll() {
         return List.of();
     }
 

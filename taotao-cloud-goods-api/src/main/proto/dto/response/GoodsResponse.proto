@@ -1,0 +1,53 @@
+syntax = "proto3";
+
+package com.taotao.cloud.goods.api.grpc;
+
+option java_multiple_files = true;
+option java_package = "com.taotao.cloud.goods.api.grpc.dto.response";
+option java_outer_classname = "GoodsResponseProto";
+//option objc_class_prefix = "HLW";
+
+message CategoryGrpcResponse {
+  string id = 1;
+  string serialNum = 2;
+  string userNum = 3;
+  int32  status = 4;
+  int32  type = 5;
+  string address = 6;
+  string createtime = 7;
+  string updatetime = 8;
+}
+
+
+message GoodsSkuGrpcResponse {
+  string id = 1;
+  string serialNum = 2;
+  string userNum = 3;
+  int32  status = 4;
+  int32  type = 5;
+  string address = 6;
+  string createtime = 7;
+  string updatetime = 8;
+}
+
+message GoodsGrpcResponse {
+  string id = 1;
+  string serialNum = 2;
+  string userNum = 3;
+  int32  status = 4;
+  int32  type = 5;
+  string address = 6;
+  string createtime = 7;
+  string updatetime = 8;
+}
+
+message GoodsNumGrpcResponse {
+  string id = 1;
+  string serialNum = 2;
+  string userNum = 3;
+  int32  status = 4;
+  int32  type = 5;
+  string address = 6;
+  string createtime = 7;
+  string updatetime = 8;
+}

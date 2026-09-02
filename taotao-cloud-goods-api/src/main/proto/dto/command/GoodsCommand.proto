@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package com.taotao.cloud.goods.api.grpc;
+
+option java_multiple_files = true;
+option java_package = "com.taotao.cloud.goods.api.grpc.dto.command";
+option java_outer_classname = "GoodsCommandProto";
+//option objc_class_prefix = "HLW";
+
+message CreateCategoryGrpcCommand {
+  string id = 1;
+}
+
+message CreateGoodsGrpcCommand {
+  string id = 1;
+}
+
+message CreateGoodsSkuGrpcCommand {
+  string id = 1;
+}
+
+message UpdateGoodsSkuGrpcCommand {
+  string id = 1;
+}

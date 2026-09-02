@@ -50,8 +50,8 @@ public class GoodsSkuQueryServiceImpl implements GoodsSkuQueryService {
 	}
 
 	@Override
-	public PageResult<GoodsSkuSearchQuery> queryGoodsSkuDTOByPage( Page<GoodsSkuSearchQuery> page,
-		Wrapper<GoodsSkuSearchQuery> queryWrapper ) {
+	public PageResult<GoodsSkuSearchQuery> queryGoodsSkuSearchPage(Page<GoodsSkuSearchQuery> page,
+																   Wrapper<GoodsSkuSearchQuery> queryWrapper ) {
 		return null;
 	}
 

@@ -43,9 +43,9 @@ public class SysAclServiceImpl extends AclBaseService implements SysAclService ,
     private final SysInvoker sysInvoker;
 
     @Override
-    public DictRes findByCode( DictReq dictReq ) {
-        GatewayResponse<DictQueryApiResponse> gatewayResponse = sysInvoker.findByCode(
-                makeRequest(facadeAssembler.toQuery(dictReq)));
+    public DictRes queryByCode(DictReq dictReq ) {
+        GatewayResponse<DictQueryApiResponse> gatewayResponse = sysInvoker
+			.queryByCode(makeRequest(facadeAssembler.toQuery(dictReq)));
 		DictQueryApiResponse result = this.getResult(gatewayResponse);
 
 //		DictApiResponse dictApiResponse = dictClientProxy.findByCode();

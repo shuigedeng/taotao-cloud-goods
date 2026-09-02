@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package com.taotao.cloud.goods.api.grpc;
+
+import "dto/query/GoodsQuery.proto";
+import "dto/response/GoodsResponse.proto";
+
+option java_multiple_files = true;
+option java_package = "com.taotao.cloud.goods.api.grpc.query";
+option java_outer_classname = "GoodsQueryGrpcServiceProto";
+//option objc_class_prefix = "HLW";
+
+service GoodsQueryGrpcService {
+  rpc countStoreGoodsNum (GoodsNumGrpcQuery) returns (GoodsNumGrpcResponse){}
+}
+
+
+
+
+

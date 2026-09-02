@@ -45,7 +45,7 @@ class GoodsUnitQueryServiceTest extends TaoTaoCloudGoodsApplicationTests {
         @Test
         void shouldReturnPagedGoodsUnits() {
             assertThat(goodsUnitQueryService).isNotNull();
-            PageResult<GoodsUnitResult> page = goodsUnitQueryService.queryByPage(
+            PageResult<GoodsUnitResult> page = goodsUnitQueryService.queryPage(
                 PageQuery.builder().currentPage(1).pageSize(10).build());
             assertThat(page).isNotNull();
         }
@@ -56,7 +56,7 @@ class GoodsUnitQueryServiceTest extends TaoTaoCloudGoodsApplicationTests {
 
         @Test
         void shouldReturnGoodsUnitWhenExists() {
-            GoodsUnitResult result = goodsUnitQueryService.getById(1L);
+            GoodsUnitResult result = goodsUnitQueryService.queryDetail(1L);
             // Returns null if no data preloaded
         }
     }
