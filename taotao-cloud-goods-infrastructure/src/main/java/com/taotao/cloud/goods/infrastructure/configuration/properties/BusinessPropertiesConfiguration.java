@@ -11,11 +11,12 @@ import org.springframework.context.annotation.Configuration;
  * @since 2026/8/29
  */
 @Configuration
-@EnableConfigurationProperties({ChannelProperties.class,
+@EnableConfigurationProperties({
+	ChannelProperties.class,
 	GoodsProperties.class,
 	LinkProperties.class,
 	PaymentProperties.class
 })
-public class GoodsPropertiesConfiguration {
+public class BusinessPropertiesConfiguration {
 
 }
