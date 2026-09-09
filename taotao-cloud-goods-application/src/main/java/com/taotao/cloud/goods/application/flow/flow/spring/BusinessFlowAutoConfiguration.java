@@ -11,6 +11,8 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 @Configuration
 @ConditionalOnProperty(prefix = PluginUtil.PLUGIN_FLOW, name = "enabled", havingValue = "true")
@@ -53,11 +55,6 @@ public class BusinessFlowAutoConfiguration {
     public BusinessFlowCallbackDispatcher businessFlowCallbackDispatcher() {
         return new BusinessFlowCallbackDispatcher();
     }
-
-	@Bean
-	public BusinessFlowCallbackDispatcher businessFlowCallbackDispatcher() {
-		return new BusinessFlowCallbackDispatcher();
-	}
 
 	@Bean
 	public BusinessFlowCallbackBeanPostProcessor businessFlowCallbackBeanPostProcessor() {

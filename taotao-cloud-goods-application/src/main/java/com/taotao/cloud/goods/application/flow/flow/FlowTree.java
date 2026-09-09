@@ -78,7 +78,7 @@ public class FlowTree implements Flow {
 			}
 		}
 		PredictConditionFlow predictConditionFlow = new PredictConditionFlow();
-		predictConditionFlow.predictate = PredicateWithDesc.valueOf(condition, desc);
+		predictConditionFlow.predicate = PredicateWithDesc.valueOf(condition, desc);
 		predictConditionFlow.flow = flow;
 		predictConditionFlowList.add(predictConditionFlow);
 	}

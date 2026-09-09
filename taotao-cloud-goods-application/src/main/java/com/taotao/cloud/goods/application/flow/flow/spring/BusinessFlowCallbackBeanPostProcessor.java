@@ -1,15 +1,19 @@
 package com.taotao.cloud.goods.application.flow.flow.spring;
 
+import com.taotao.boot.common.utils.lang.StringUtils;
 import com.taotao.cloud.goods.application.flow.flow.*;
 import com.taotao.cloud.goods.application.flow.flow.ann.CallbackFlowCenterInst;
 import com.taotao.cloud.goods.application.flow.flow.ann.FlowNodeHandlerAsync;
 import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 
+import java.lang.reflect.Method;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 @Slf4j
 public class BusinessFlowCallbackBeanPostProcessor implements BeanPostProcessor, ApplicationContextAware {
@@ -30,7 +34,7 @@ public class BusinessFlowCallbackBeanPostProcessor implements BeanPostProcessor,
                     for (String businessType : businessTypeS) {
                         String[] tradeSubTypeS = gatewayCallbackInst.tradeSubType();
                         for (String tradeSubType : tradeSubTypeS) {
-                            CallbackConsumerInfo callbackConsumerInfo = new CallbackConsumerInfo();
+                            CallBackConsumerInfo callbackConsumerInfo = new CallBackConsumerInfo();
                             callbackConsumerInfo.setInvokeOpName(gatewayCallbackInst.invokeOpName());
                             callbackConsumerInfo.setTradeType(businessType);
                             callbackConsumerInfo.setTradeSubType(tradeSubType);
@@ -91,7 +95,7 @@ public class BusinessFlowCallbackBeanPostProcessor implements BeanPostProcessor,
 		flowTraceExtractMap.put(aClass, flowTraceExtract);
 	}
 
-	private synchronized void installCallbackFlowCenter(CallbackConsumerInfo info,
+	private synchronized void installCallbackFlowCenter(CallBackConsumerInfo info,
 		CallbackConsumerFlowCenter consumer) {
 		this.initCallbackDispatcher();
 
@@ -130,7 +134,7 @@ public class BusinessFlowCallbackBeanPostProcessor implements BeanPostProcessor,
 		private CallBackConsumerInfo callbackConsumerInfo;
 		private CallbackConsumerFlowCenter gatewayResCallbackConsumer;
 
-		public EmptyEventCallbackConsumer(CallbackConsumerInfo callbackConsumerInfo,
+		public EmptyEventCallbackConsumer(CallBackConsumerInfo callbackConsumerInfo,
 			CallbackConsumerFlowCenter gatewayResCallbackConsumer) {
 			this.callbackConsumerInfo = callbackConsumerInfo;
 			this.gatewayResCallbackConsumer = gatewayResCallbackConsumer;
@@ -180,7 +184,7 @@ public class BusinessFlowCallbackBeanPostProcessor implements BeanPostProcessor,
 		/**
 		 * callbackConsumerInfo
 		 */
-		private CallbackConsumerInfo callbackConsumerInfo;
+		private CallBackConsumerInfo callbackConsumerInfo;
 		/**
 		 * gatewayResCallbackConsumer
 		 */
@@ -190,7 +194,7 @@ public class BusinessFlowCallbackBeanPostProcessor implements BeanPostProcessor,
 		 * @param callbackConsumerInfo
 		 * @param gatewayResCallbackConsumer
 		 */
-		public EventCallbackConsumer(CallbackConsumerInfo callbackConsumerInfo, CallbackConsumerFlowCenter gatewayResCallbackConsumer) {
+		public EventCallbackConsumer(CallBackConsumerInfo callbackConsumerInfo, CallbackConsumerFlowCenter gatewayResCallbackConsumer) {
 			this.callbackConsumerInfo = callbackConsumerInfo;
 			this.gatewayResCallbackConsumer = gatewayResCallbackConsumer;
 		}
@@ -235,7 +239,14 @@ public class BusinessFlowCallbackBeanPostProcessor implements BeanPostProcessor,
 			}
 		}
 	}
-
+	/**
+	 * EventCallbackReq
+	 */
+	@Data
+	private static class EventCallbackReq<T> {
+		private FlowContext flowContext;
+		private T callbackReq;
+	}
 	/**
 	 * EventRouteCallbackConsumer
 	 */
@@ -294,14 +305,7 @@ public class BusinessFlowCallbackBeanPostProcessor implements BeanPostProcessor,
 			}
 		}
 
-		/**
-		 * EventCallbackReq
-		 */
-		@Data
-		private static class EventCallbackReq<T> {
-			private FlowContext flowContext;
-			private T callbackReq;
-		}
+
 
 		/**
 		 * 检查流程事件是否匹配消费者信息中的事件
@@ -367,7 +371,7 @@ public class BusinessFlowCallbackBeanPostProcessor implements BeanPostProcessor,
 		 * @param callbackConsumerInfo 回调消费者信息
 		 * @param callbackConsumer 回调消费者
 		 */
-		private void installCallbackConsumer(CallbackConsumerInfo callbackConsumerInfo, CallbackConsumer callbackConsumer) {
+		private void installCallbackConsumer(CallBackConsumerInfo callbackConsumerInfo, CallbackConsumer callbackConsumer) {
 			this.initCallbackDispatcher();
 			BusinessFlowCallbackDispatcher.registerConsumer(callbackConsumerInfo, callbackConsumer);
 		}
@@ -375,25 +379,27 @@ public class BusinessFlowCallbackBeanPostProcessor implements BeanPostProcessor,
 		/**
 		 * initCallbackDispatcher
 		 */
-		private synchronized void initCallbackDispatcher() {
-			if (BusinessFlowCallbackDispatcher.isInitialized()) {
-				return;  // 已初始化，跳过
-			}
 
-			ThreadPoolExecutor bean = null;
-			String property = applicationContext.getEnvironment()
-				.getProperty(PluginUtil.PLUGIN_FLOW_CALLBACK_DISPATCHER_THREAD);
+	}
 
-			if (StringUtils.hasText(property)) {
-				try {
-					bean = applicationContext.getBean(property, ThreadPoolExecutor.class);
-				} catch (BeansException e) {
-					log.warn("Failed to get ThreadPoolExecutor bean: {}, use default", property, e);
-				}
-			}
-
-			BusinessFlowCallbackDispatcher.init(bean);
+	private synchronized void initCallbackDispatcher() {
+		if (BusinessFlowCallbackDispatcher.isInitialized()) {
+			return;  // 已初始化，跳过
 		}
+
+		ThreadPoolExecutor bean = null;
+		String property = applicationContext.getEnvironment()
+			.getProperty(PluginUtil.PLUGIN_FLOW_CALLBACK_DISPATCHER_THREAD);
+
+		if (StringUtils.hasText(property)) {
+			try {
+				bean = applicationContext.getBean(property, ThreadPoolExecutor.class);
+			} catch (BeansException e) {
+				log.warn("Failed to get ThreadPoolExecutor bean: {}, use default", property, e);
+			}
+		}
+
+		BusinessFlowCallbackDispatcher.init(bean);
 	}
 	@Nullable
 	@Override

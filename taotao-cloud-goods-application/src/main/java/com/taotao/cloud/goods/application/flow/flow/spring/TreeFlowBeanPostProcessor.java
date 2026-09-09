@@ -4,11 +4,13 @@ import com.taotao.cloud.goods.application.flow.flow.*;
 import com.taotao.cloud.goods.application.flow.flow.ann.FlowBusinessHandlerInst;
 import com.taotao.cloud.goods.application.flow.flow.ann.FlowHandlerInst;
 import com.taotao.cloud.goods.application.flow.flow.ann.FlowNodeHandler;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -33,8 +35,8 @@ public class TreeFlowBeanPostProcessor implements BeanPostProcessor, Application
 	public void setApplicationContext( ApplicationContext applicationContext) throws BeansException {
 
 		this.applicationContext = applicationContext;
-		this.springFlowerHandler = applicationContext.getBean(SpringFlowerHandler.class);
-		this.springFlowerCenter = applicationContext.getBean(SpringFlowerCenter.class);
+		this.springFlowHandler = applicationContext.getBean(SpringFlowHandler.class);
+		this.springFlowCenter = applicationContext.getBean(SpringFlowCenter.class);
 
 		Map<String, FlowHandler.Handler> flowHandlerMap = this.applicationContext.getBeansOfType(FlowHandler.Handler.class);
 		if (flowHandlerMap.size() > 0) {
@@ -75,7 +77,7 @@ public class TreeFlowBeanPostProcessor implements BeanPostProcessor, Application
 						this.installFlowHandler(channel, singleFlowHandlerInfo, v);
 					}
 
-					Map<String, FlowCenter.BusinessHandler> businessHandlerMap = this.applicationContext.getBeansOfType(FlowCenter.BusinessHandler.class);
+					Map<String, BusinessHandler> businessHandlerMap = this.applicationContext.getBeansOfType(FlowCenter.BusinessHandler.class);
 					if (businessHandlerMap.size() > 0) {
 						businessHandlerMap.forEach((k, v) -> this.springFlowCenter.registerBusinessHandlerHandler(v));
 					}
@@ -203,7 +205,7 @@ public class TreeFlowBeanPostProcessor implements BeanPostProcessor, Application
 		}
 	}
 
-	private static class FlowBusinessHandlerAdapter implements FlowCenter.BusinessHandler {
+	private static class FlowBusinessHandlerAdapter implements BusinessHandler {
 		private FlowBusinessHandlerInst flowBusinessHandlerInst;
 		private String type;
 		private Object target;

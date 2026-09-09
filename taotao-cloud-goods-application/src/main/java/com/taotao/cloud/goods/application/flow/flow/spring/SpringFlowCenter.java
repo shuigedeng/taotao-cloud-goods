@@ -7,6 +7,8 @@ import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 
+import java.util.concurrent.ThreadPoolExecutor;
+
 public class SpringFlowCenter extends FlowCenter implements ApplicationContextAware {
     private ApplicationContext applicationContext;
 

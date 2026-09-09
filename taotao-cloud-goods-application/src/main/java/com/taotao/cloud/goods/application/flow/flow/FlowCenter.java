@@ -29,7 +29,7 @@ public class FlowCenter {
 		/**
 		 * advise
 		 */
-		Advice advise( FlowEventRecordInfo flowEventRecordInfo );
+		Advise advise( FlowEventRecordInfo flowEventRecordInfo );
 
 		/**
 		 * Advise
@@ -805,96 +805,9 @@ public class FlowCenter {
 		}
 
 
-		private Flow wrapContinueFlow( Flow flow ) {
-			return new Flow() {
-				@Override
-				public FlowInfo name() {
-					return flow.name();
-				}
 
-				@Override
-				public Flow search( FlowSearchInfo flowSearchInfo ) {
-					return flow.search(flowSearchInfo);
-				}
 
-				@Override
-				public Flow firstNode() {
-					return null;
-				}
 
-				@Override
-				public NextFlowInfo nextFlow( FlowContext flowContext ) {
-					// CAS更新订单状态为处理中
-					FlowEventRecordInfo flowEventRecordInfo = flowContext.getFlowEventRecordInfo();
-					boolean started = flowEventRecordInfoInterface.flowContinueStart(
-						flowEventRecordInfo.getStatus(),
-						BusinessFlowStatus.P,
-						flowEventRecordInfo.getRecordId(),
-						flowEventRecordInfo.getSplitNo()
-					);
-					if (!started) {
-						throw new RuntimeException("熔断流程继续失败");
-					}
-					return flow.nextFlow(flowContext);
-				}
-
-				@Override
-				public String generateRecordId() {
-					return flow.generateRecordId();
-				}
-
-				@Override
-				public String type() {
-					return flow.type();
-				}
-			};
-		}
-
-		private Flow wrapEndFlow( Flow flow ) {
-			return new Flow() {
-				@Override
-				public FlowInfo name() {
-					return flow.name();
-				}
-
-				@Override
-				public Flow search( FlowSearchInfo flowSearchInfo ) {
-					return null;
-				}
-
-				@Override
-				public Flow firstNode() {
-					return null;
-				}
-
-				@Override
-				public NextFlowInfo nextFlow( FlowContext flowContext ) {
-					// CAS更新订单状态为处理中
-					FlowEventRecordInfo flowEventRecordInfo = flowContext.getFlowEventRecordInfo();
-					boolean started = flowEventRecordInfoInterface.flowContinueStart(
-						flowEventRecordInfo.getStatus(),
-						BusinessFlowStatus.P,
-						flowEventRecordInfo.getRecordId(),
-						flowEventRecordInfo.getSplitNo()
-					);
-					if (!started) {
-						throw new RuntimeException("熔断流程结束失败");
-					}
-					NextFlowInfo nextFlowInfo = new NextFlowInfo();
-					return nextFlowInfo.end();
-				}
-
-				@Override
-				public String generateRecordId() {
-					return null;
-				}
-
-				@Override
-				public String type() {
-					return flow.type();
-				}
-			};
-		}
 
 
 
@@ -911,69 +824,147 @@ public class FlowCenter {
 
 			return null;
 		}
-
-
-
-		/**
-		 *
-		 */
-		public FlowEventRecordInfo getFlowEventRecordInfo( String recordId, String splitNo ) {
-			return flowEventRecordInfoInterface.getEventByRecordId(recordId, splitNo);
-		}
-
-		/**
-		 *
-		 */
-		public void asyncResponse( FlowContext flowContext ) {
-			// parentRecordS
-			String parentRecordId = flowContext.getFlowEventRecordInfo().getParentRecordId();
-			String parentSplitNo = flowContext.getFlowEventRecordInfo().getSplitNo();
-			while (!StringUtils.isEmpty(parentRecordId)) {
-				FlowEventRecordInfo flowEventRecordInfo = this.getFlowEventRecordInfo(parentRecordId, parentSplitNo);
-				flowContext.getFlowEventRecordDeque().addFirst(flowEventRecordInfo);
-				parentRecordId = flowEventRecordInfo.getParentRecordId();
-			}
-			// 获取flow
-			Flow flow = this.findFlow(flowContext);
-			// 解析
-			this.parse(flow, flowContext);
-			// 业务回调
-			this.checkOrCallbackToBusiness(flowContext);
-		}
-
-		public FlowEventRecordInfo getLatestFlowEvent(
-			String mainRecordId,
-			String splitNo,
-			String businessType,
-			String businessEvent,
-			String... businessSubTypeAndBusinessCode ) {
-
-			String businessSubType = FlowRegister.BUSINESS_SUB_TYPE_COMMON;
-			String businessCode = FlowRegister.BUSINESS_CODE_COMMON;
-			if (null != businessSubTypeAndBusinessCode) {
-				if (businessSubTypeAndBusinessCode.length >= 1) {
-					businessSubType = businessSubTypeAndBusinessCode[0];
-				}
-				if (businessSubTypeAndBusinessCode.length >= 2) {
-					businessCode = businessSubTypeAndBusinessCode[1];
-				}
-			}
-			return flowEventRecordInfoInterface.getLatestEvent(
-				mainRecordId,
-				businessType,
-				businessSubType,
-				businessCode,
-				businessEvent,
-				splitNo);
-		}
 	}
 
+	public FlowEventRecordInfo getFlowEventRecordInfo( String recordId, String splitNo ) {
+		return flowEventRecordInfoInterface.getEventByRecordId(recordId, splitNo);
+	}
 
-	/**
-	 *
-	 */
 	public void installExecuteThreadPool( ThreadPoolExecutor threadPoolExecutor ) {
 		this.threadPoolExecutor = threadPoolExecutor;
 	}
 
+	public void asyncResponse( FlowContext flowContext ) {
+		// parentRecordS
+		String parentRecordId = flowContext.getFlowEventRecordInfo().getParentRecordId();
+		String parentSplitNo = flowContext.getFlowEventRecordInfo().getSplitNo();
+		while (!StringUtils.isEmpty(parentRecordId)) {
+			FlowEventRecordInfo flowEventRecordInfo = this.getFlowEventRecordInfo(parentRecordId, parentSplitNo);
+			flowContext.getFlowEventRecordDeque().addFirst(flowEventRecordInfo);
+			parentRecordId = flowEventRecordInfo.getParentRecordId();
+		}
+		// 获取flow
+		Flow flow = this.findFlow(flowContext);
+		// 解析
+		this.parse(flow, flowContext);
+		// 业务回调
+		this.checkOrCallbackToBusiness(flowContext);
+	}
+
+	public FlowEventRecordInfo getLatestFlowEvent(
+		String mainRecordId,
+		String splitNo,
+		String businessType,
+		String businessEvent,
+		String... businessSubTypeAndBusinessCode ) {
+
+		String businessSubType = FlowRegister.BUSINESS_SUB_TYPE_COMMON;
+		String businessCode = FlowRegister.BUSINESS_CODE_COMMON;
+		if (null != businessSubTypeAndBusinessCode) {
+			if (businessSubTypeAndBusinessCode.length >= 1) {
+				businessSubType = businessSubTypeAndBusinessCode[0];
+			}
+			if (businessSubTypeAndBusinessCode.length >= 2) {
+				businessCode = businessSubTypeAndBusinessCode[1];
+			}
+		}
+		return flowEventRecordInfoInterface.getLatestEvent(
+			mainRecordId,
+			businessType,
+			businessSubType,
+			businessCode,
+			businessEvent,
+			splitNo);
+	}
+
+	private Flow wrapContinueFlow( Flow flow ) {
+		return new Flow() {
+			@Override
+			public FlowInfo name() {
+				return flow.name();
+			}
+
+			@Override
+			public Flow search( FlowSearchInfo flowSearchInfo ) {
+				return flow.search(flowSearchInfo);
+			}
+
+			@Override
+			public Flow firstNode() {
+				return null;
+			}
+
+			@Override
+			public NextFlowInfo nextFlow( FlowContext flowContext ) {
+				// CAS更新订单状态为处理中
+				FlowEventRecordInfo flowEventRecordInfo = flowContext.getFlowEventRecordInfo();
+				boolean started = flowEventRecordInfoInterface.flowContinueStart(
+					flowEventRecordInfo.getStatus(),
+					BusinessFlowStatus.P,
+					flowEventRecordInfo.getRecordId(),
+					flowEventRecordInfo.getSplitNo()
+				);
+				if (!started) {
+					throw new RuntimeException("熔断流程继续失败");
+				}
+				return flow.nextFlow(flowContext);
+			}
+
+			@Override
+			public String generateRecordId() {
+				return flow.generateRecordId();
+			}
+
+			@Override
+			public String type() {
+				return flow.type();
+			}
+		};
+	}
+
+	private Flow wrapEndFlow( Flow flow ) {
+		return new Flow() {
+			@Override
+			public FlowInfo name() {
+				return flow.name();
+			}
+
+			@Override
+			public Flow search( FlowSearchInfo flowSearchInfo ) {
+				return null;
+			}
+
+			@Override
+			public Flow firstNode() {
+				return null;
+			}
+
+			@Override
+			public NextFlowInfo nextFlow( FlowContext flowContext ) {
+				// CAS更新订单状态为处理中
+				FlowEventRecordInfo flowEventRecordInfo = flowContext.getFlowEventRecordInfo();
+				boolean started = flowEventRecordInfoInterface.flowContinueStart(
+					flowEventRecordInfo.getStatus(),
+					BusinessFlowStatus.P,
+					flowEventRecordInfo.getRecordId(),
+					flowEventRecordInfo.getSplitNo()
+				);
+				if (!started) {
+					throw new RuntimeException("熔断流程结束失败");
+				}
+				NextFlowInfo nextFlowInfo = new NextFlowInfo();
+				return nextFlowInfo.end();
+			}
+
+			@Override
+			public String generateRecordId() {
+				return null;
+			}
+
+			@Override
+			public String type() {
+				return flow.type();
+			}
+		};
+	}
 }

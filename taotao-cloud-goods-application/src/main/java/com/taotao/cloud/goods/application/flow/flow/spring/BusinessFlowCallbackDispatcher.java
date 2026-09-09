@@ -2,21 +2,23 @@ package com.taotao.cloud.goods.application.flow.flow.spring;
 
 import com.taotao.cloud.goods.application.flow.flow.CallBackConsumerInfo;
 import com.taotao.cloud.goods.application.flow.flow.CallbackConsumer;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.skywalking.apm.toolkit.trace.RunnableWrapper;
 import org.springframework.context.event.EventListener;
+import org.springframework.util.StringUtils;
 
+import java.util.Map;
 import java.util.Objects;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.RejectedExecutionException;
-import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.function.Consumer;
 
 @Slf4j
 public class BusinessFlowCallbackDispatcher {
 
     private static final String COMMON_BUSINESS_SUB_TYPE = "COMMON";
 
-    private static Map<String, CallbackConsumer> callbackconsumerMap = new ConcurrentHashMap<>();
+    private static Map<String, CallbackConsumer> callbackConsumerMap = new ConcurrentHashMap<>();
 
     private static ThreadPoolExecutor threadPoolExecutor;
 
@@ -233,7 +235,7 @@ public class BusinessFlowCallbackDispatcher {
 	 * @param info 回调消费者信息
 	 * @return 回调消费者，未找到返回 null
 	 */
-	public static CallbackConsumer getConsumer(CallbackConsumerInfo info) {
+	public static CallbackConsumer getConsumer(CallBackConsumerInfo info) {
 		// 使用与 registerConsumer 相同的分隔符
 		String key = String.join(":",
 			info.getInvokeOpName(),
