@@ -8,10 +8,12 @@ import com.taotao.cloud.goods.application.flow.flow.spring.service.SpringFlowCen
 import com.taotao.cloud.goods.application.flow.flow.spring.service.SpringFlowHandler;
 import com.taotao.cloud.goods.application.flow.flow.spring.service.SpringManualHandler;
 import com.taotao.cloud.goods.application.flow.flow.treeflow.FlowCenter;
+import com.taotao.cloud.goods.application.flow.flow.treeflow.service.DefaultFlowEventRecordInfoInterface;
 import com.taotao.cloud.goods.application.flow.flow.treeflow.service.FlowEventRecordInfoInterface;
 import com.taotao.cloud.goods.application.flow.flow.treeflow.FlowRegister;
 import com.taotao.cloud.goods.application.flow.flow.treeflow.channel.ManualHandler;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -27,6 +29,11 @@ import java.util.concurrent.TimeUnit;
 @ComponentScan("com.fmFinance.creditLoan.starterFlow")
 public class BusinessFlowAutoConfiguration {
 
+	@Bean
+	@ConditionalOnMissingBean
+	public FlowEventRecordInfoInterface flowEventRecordInfoInterface(){
+		return new DefaultFlowEventRecordInfoInterface();
+	}
     @Bean
     public FlowRegister flowRegister( FlowEventRecordInfoInterface flowEventRecordInfoInterface) {
         return new FlowRegister(flowEventRecordInfoInterface);
