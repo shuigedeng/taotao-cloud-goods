@@ -266,7 +266,7 @@ Maven:
 | Spring Security      | 7.1.1         |
 | Mybatis Plus         | 3.5.17        |
 | Hutool               | 5.8.47        |
-| Mysql                | 9.7.0         |
+| Mysql                | 26.7.0         |
 | Querydsl             | 5.1.0         |
 | Swagger              | 3.0.0         |
 | Knife4j              | 4.5.0         |
