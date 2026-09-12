@@ -16,13 +16,6 @@ public class GoodsKafkaConsumer extends MqConsumerBase {
 
 	private final GoodsCommandService goodsCommandService;
 
-
-	/**
-	 * 列表查询
-	 *
-	 * @param RECEIVED_TOPIC received_topic
-	 * @since 2022.03
-	 */
 	@KafkaListener(
 		topics = "GoodsTopic",
 		groupId = "taotao-cloud-GoodsTopic",

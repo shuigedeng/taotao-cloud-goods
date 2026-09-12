@@ -14,7 +14,10 @@ import java.util.List;
  * @since 2026/1/31
  */
 @RecordBuilder
-public record MarketAbleGoodsCommand(List<Long> goodsIds, GoodsStatusEnum goodsStatusEnum, String underReason) implements Command {
+public record MarketAbleGoodsCommand(
+	List<Long> goodsIds,
+	GoodsStatusEnum goodsStatusEnum,
+	String underReason) implements Command {
 
 	public MarketAbleGoodsCommand {
 		// 设置默认值

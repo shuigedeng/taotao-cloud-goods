@@ -50,7 +50,7 @@ public class GoodsJob extends XxlJobBase {
 	private final GoodsCommandService goodsCommandService;
 
 	@XxlJob("ThrowJobHandler")
-	public Response<String> throwJobHandler(String params) throws Exception {
+	public void throwJobHandler(String params) throws Exception {
 		XxlJobHelper.log("XXL-JOB, throwwwwwwwwwwwwww");
 
 		ScheduleAutoCreateGoodsCommand scheduleAutoCreateGoodsCommand = from(params, ScheduleAutoCreateGoodsCommand.class);
@@ -61,7 +61,7 @@ public class GoodsJob extends XxlJobBase {
 	}
 
 	@XxlJob("TestJobHandler")
-	public Response<String> testJobHandler() throws Exception {
+	public void testJobHandler() throws Exception {
 
 		long jobId = XxlJobHelper.getJobId();
 		String jobParam = XxlJobHelper.getJobParam();
@@ -85,12 +85,11 @@ public class GoodsJob extends XxlJobBase {
 			shardTotal,
 			jobLogFileName);
 
-		return Response.ofSuccess();
 	}
 
 	@XxlJob("UserJobHandler")
 	@XxlRegister(cron = "59 59 23 * * ?", author = "shuigedeng")
-	public Response<String> userJobHandler(String param) throws Exception {
+	public void userJobHandler(String param) throws Exception {
 		XxlJobHelper.log("XXL-JOB, Hello World.");
 		XxlJobHelper.log("XXL-JOB, Hello World.1");
 		XxlJobHelper.log("XXL-JOB, Hello World.2");
@@ -107,7 +106,6 @@ public class GoodsJob extends XxlJobBase {
 
 		// throw new RuntimeException("XXL-JOB测试异常");
 
-		return Response.ofFail();
 	}
 
 	/**

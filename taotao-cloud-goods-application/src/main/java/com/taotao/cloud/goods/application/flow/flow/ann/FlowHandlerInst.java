@@ -1,6 +1,6 @@
 package com.taotao.cloud.goods.application.flow.flow.ann;
 
-import com.taotao.cloud.goods.application.flow.flow.FlowRegister;
+import com.taotao.cloud.goods.application.flow.flow.treeflow.FlowRegister;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

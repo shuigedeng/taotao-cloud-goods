@@ -25,26 +25,26 @@ import java.util.Set;
 /**
  * 创建商品Command
  *
- * @param categoryId 所属分类ID
- * @param goodsName 商品名称
+ * @param categoryId      所属分类ID
+ * @param goodsName       商品名称
  * @param manufactureDate 生产日期
- * @param expirationDate 过期日期
- * @param goodsWeight 商品重量
+ * @param expirationDate  过期日期
+ * @param goodsWeight     商品重量
  * @param goodsWeightUnit 商品重量单位
- * @param goodsDesc 商品介绍
- * @param goodsPrice 商品价格
- * @param tagIds 商品标签ID集合
+ * @param goodsDesc       商品介绍
+ * @param goodsPrice      商品价格
+ * @param tagIds          商品标签ID集合
  */
 @RecordBuilder
 public record CreateGoodsCommand(
 	Long categoryId,
-                                 String goodsName,
-                                 LocalDate manufactureDate,
-                                 LocalDate expirationDate,
-                                 BigDecimal goodsWeight,
-                                 String goodsWeightUnit,
-                                 String goodsDesc,
-                                 BigDecimal goodsPrice,
-                                 Set<Long> tagIds) {
+	String goodsName,
+	LocalDate manufactureDate,
+	LocalDate expirationDate,
+	BigDecimal goodsWeight,
+	String goodsWeightUnit,
+	String goodsDesc,
+	BigDecimal goodsPrice,
+	Set<Long> tagIds) {
 
 }

@@ -19,13 +19,16 @@ package com.taotao.cloud.goods.application.dto.goods.command;
 import com.taotao.boot.common.model.ddd.types.Command;
 import io.soabase.recordbuilder.core.RecordBuilder;
 import io.swagger.v3.oas.annotations.media.Schema;
+
 import java.io.Serial;
 
 /**
  * 商品参数
  */
 @RecordBuilder
-public record GoodsIdCommand(	@Schema(description = "参数名称")
+public record GoodsIdCommand(
+
+	@Schema(description = "参数名称")
 	Long goodsId) implements Command {
 
 	@Serial

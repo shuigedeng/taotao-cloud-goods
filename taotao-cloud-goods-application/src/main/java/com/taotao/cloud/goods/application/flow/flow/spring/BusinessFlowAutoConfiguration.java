@@ -1,9 +1,16 @@
 package com.taotao.cloud.goods.application.flow.flow.spring;
 
-import com.taotao.cloud.goods.application.flow.flow.FlowCenter;
-import com.taotao.cloud.goods.application.flow.flow.FlowEventRecordInfoInterface;
-import com.taotao.cloud.goods.application.flow.flow.FlowRegister;
-import com.taotao.cloud.goods.application.flow.flow.ManualHandler;
+import com.taotao.cloud.goods.application.flow.flow.spring.processor.BusinessCallbackBeanPostProcessor;
+import com.taotao.cloud.goods.application.flow.flow.spring.processor.BusinessFlowCallbackBeanPostProcessor;
+import com.taotao.cloud.goods.application.flow.flow.spring.processor.TreeFlowBeanPostProcessor;
+import com.taotao.cloud.goods.application.flow.flow.spring.service.BusinessFlowCallbackDispatcher;
+import com.taotao.cloud.goods.application.flow.flow.spring.service.SpringFlowCenter;
+import com.taotao.cloud.goods.application.flow.flow.spring.service.SpringFlowHandler;
+import com.taotao.cloud.goods.application.flow.flow.spring.service.SpringManualHandler;
+import com.taotao.cloud.goods.application.flow.flow.treeflow.FlowCenter;
+import com.taotao.cloud.goods.application.flow.flow.treeflow.service.FlowEventRecordInfoInterface;
+import com.taotao.cloud.goods.application.flow.flow.treeflow.FlowRegister;
+import com.taotao.cloud.goods.application.flow.flow.treeflow.channel.ManualHandler;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
@@ -15,7 +22,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 @Configuration
-@ConditionalOnProperty(prefix = PluginUtil.PLUGIN_FLOW, name = "enabled", havingValue = "true")
+//@ConditionalOnProperty(prefix = PluginUtil.PLUGIN_FLOW, name = "enabled", havingValue = "true")
 @ConditionalOnClass(FlowCenter.class)
 @ComponentScan("com.fmFinance.creditLoan.starterFlow")
 public class BusinessFlowAutoConfiguration {
@@ -35,9 +42,9 @@ public class BusinessFlowAutoConfiguration {
     }
 
     @Bean
-    public SpringFlowCenter springFlowCenter(FlowRegister register, 
-            FlowEventRecordInfoInterface flowEventRecordInfoInterface,
-            ThreadPoolExecutor threadPoolExecutor) {
+    public SpringFlowCenter springFlowCenter(FlowRegister register,
+											 FlowEventRecordInfoInterface flowEventRecordInfoInterface,
+											 ThreadPoolExecutor threadPoolExecutor) {
         return new SpringFlowCenter(register, flowEventRecordInfoInterface, threadPoolExecutor);
     }
 
