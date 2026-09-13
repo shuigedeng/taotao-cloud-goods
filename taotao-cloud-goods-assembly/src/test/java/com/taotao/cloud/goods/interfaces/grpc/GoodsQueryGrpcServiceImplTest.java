@@ -19,6 +19,7 @@ package com.taotao.cloud.goods.interfaces.grpc;
 import com.taotao.cloud.goods.TaoTaoCloudGoodsApplicationTests;
 import com.taotao.cloud.goods.api.grpc.CountStoreGoodsNumGrpcQuery;
 import com.taotao.cloud.goods.api.grpc.CountStoreGoodsNumGrpcQueryResponse;
+import com.taotao.cloud.goods.interfaces.grpc.query.GoodsQueryGrpcServiceImpl;
 import io.grpc.stub.StreamObserver;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

@@ -14,20 +14,19 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.interfaces.grpc;
+package com.taotao.cloud.goods.interfaces.grpc.command;
 
-import com.taotao.cloud.goods.api.grpc.dto.query.GoodsSkuGrpcQuery;
-import com.taotao.cloud.goods.api.grpc.dto.response.GoodsSkuGrpcResponse;
-import com.taotao.cloud.goods.api.grpc.query.GoodsSkuQueryGrpcServiceGrpc;
+import com.taotao.cloud.goods.api.grpc.command.GoodsCommandGrpcServiceGrpc;
+import com.taotao.cloud.goods.api.grpc.dto.command.CreateGoodsGrpcCommand;
+import com.taotao.cloud.goods.api.grpc.dto.response.GoodsGrpcResponse;
 import io.grpc.stub.StreamObserver;
 import lombok.RequiredArgsConstructor;
 import org.springframework.grpc.server.service.GrpcService;
 
 @GrpcService
 @RequiredArgsConstructor
-public class GoodsSkuQueryGrpcServiceImpl extends GoodsSkuQueryGrpcServiceGrpc.GoodsSkuQueryGrpcServiceImplBase {
+public class GoodsCommandGrpcServiceImpl extends GoodsCommandGrpcServiceGrpc.GoodsCommandGrpcServiceImplBase {
 	@Override
-	public void queryGoodsSku(GoodsSkuGrpcQuery request, StreamObserver<GoodsSkuGrpcResponse> responseObserver) {
-		super.queryGoodsSku(request, responseObserver);
+	public void createGoods(CreateGoodsGrpcCommand request, StreamObserver<GoodsGrpcResponse> responseObserver) {
 	}
 }

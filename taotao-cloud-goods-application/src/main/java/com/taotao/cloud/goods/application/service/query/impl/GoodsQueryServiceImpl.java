@@ -126,7 +126,7 @@ public class GoodsQueryServiceImpl implements GoodsQueryService {
 	}
 
 	@Override
-	public GoodsRpcResponse queryGoodsByParams(GoodsRpcQuery order ) {
+	public GoodsRpcResponse queryGoods(GoodsRpcQuery order ) {
 		return null;
 	}
 

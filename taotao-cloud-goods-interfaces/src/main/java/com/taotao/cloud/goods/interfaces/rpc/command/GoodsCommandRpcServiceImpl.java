@@ -14,14 +14,15 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.interfaces.rpc;
+package com.taotao.cloud.goods.interfaces.rpc.command;
 
 import com.taotao.boot.common.model.request.Request;
 import com.taotao.boot.common.model.response.Response;
+import com.taotao.cloud.goods.api.rpc.command.GoodsCommandRpcService;
+import com.taotao.cloud.goods.api.rpc.dto.command.CreateGoodsRpcCommand;
 import com.taotao.cloud.goods.api.rpc.dto.query.GoodsRpcQuery;
+import com.taotao.cloud.goods.api.rpc.dto.response.CreateGoodsRpcResponse;
 import com.taotao.cloud.goods.api.rpc.dto.response.GoodsRpcResponse;
-import com.taotao.cloud.goods.api.rpc.query.GoodsQueryRpcService;
-import com.taotao.cloud.goods.application.service.query.GoodsQueryService;
 import lombok.RequiredArgsConstructor;
 //import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.stereotype.Service;
@@ -33,15 +34,13 @@ import org.springframework.stereotype.Service;
  * @version 2021.10
  * @since 2021-10-09 20:26:36
  */
-//@DubboService(interfaceClass = GoodsQueryRpcService.class, validation = "true")
+//@DubboService(interfaceClass = GoodsCommandRpcService.class, validation = "true")
 @Service
 @RequiredArgsConstructor
-public class GoodsQueryRpcServiceImpl implements GoodsQueryRpcService {
+public class GoodsCommandRpcServiceImpl implements GoodsCommandRpcService {
 
-	private final GoodsQueryService goodsQueryService;
-    @Override
-    public Response<GoodsRpcResponse> queryGoods(Request<GoodsRpcQuery> goodsQueryRpcRequest) {
-		GoodsRpcResponse response = goodsQueryService.queryGoodsByParams(goodsQueryRpcRequest.getOrder());
-        return Response.from(response);
-    }
+	@Override
+	public Response<CreateGoodsRpcResponse> createGoods(Request<CreateGoodsRpcCommand> createGoodsRpcCommandRequest) {
+		return null;
+	}
 }

@@ -14,20 +14,19 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.interfaces.grpc;
+package com.taotao.cloud.goods.interfaces.grpc.command;
 
-import com.taotao.cloud.goods.api.grpc.command.GoodsCommandGrpcServiceGrpc;
-import com.taotao.cloud.goods.api.grpc.dto.command.CreateGoodsGrpcCommand;
-import com.taotao.cloud.goods.api.grpc.dto.response.GoodsGrpcResponse;
+import com.taotao.cloud.goods.api.grpc.command.CategoryCommandGrpcServiceGrpc;
+import com.taotao.cloud.goods.api.grpc.dto.command.CreateCategoryGrpcCommand;
+import com.taotao.cloud.goods.api.grpc.dto.response.CategoryGrpcResponse;
 import io.grpc.stub.StreamObserver;
 import lombok.RequiredArgsConstructor;
 import org.springframework.grpc.server.service.GrpcService;
 
 @GrpcService
 @RequiredArgsConstructor
-public class GoodsCommandGrpcServiceImpl extends GoodsCommandGrpcServiceGrpc.GoodsCommandGrpcServiceImplBase {
+public class CategoryCommandGrpcServiceImpl extends CategoryCommandGrpcServiceGrpc.CategoryCommandGrpcServiceImplBase {
 	@Override
-	public void createGoods(CreateGoodsGrpcCommand request, StreamObserver<GoodsGrpcResponse> responseObserver) {
-		super.createGoods(request, responseObserver);
+	public void createCategory(CreateCategoryGrpcCommand request, StreamObserver<CategoryGrpcResponse> responseObserver) {
 	}
 }

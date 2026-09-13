@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.interfaces.grpc;
+package com.taotao.cloud.goods.interfaces.grpc.command;
 
 import com.taotao.cloud.goods.api.grpc.command.GoodsSkuCommandGrpcServiceGrpc;
 import com.taotao.cloud.goods.api.grpc.dto.command.CreateGoodsSkuGrpcCommand;
@@ -29,11 +29,9 @@ import org.springframework.grpc.server.service.GrpcService;
 public class GoodsSkuCommandGrpcServiceImpl extends GoodsSkuCommandGrpcServiceGrpc.GoodsSkuCommandGrpcServiceImplBase {
 	@Override
 	public void createGoods(CreateGoodsSkuGrpcCommand request, StreamObserver<GoodsSkuGrpcResponse> responseObserver) {
-		super.createGoods(request, responseObserver);
 	}
 
 	@Override
 	public void updateGoods(UpdateGoodsSkuGrpcCommand request, StreamObserver<GoodsSkuGrpcResponse> responseObserver) {
-		super.updateGoods(request, responseObserver);
 	}
 }
