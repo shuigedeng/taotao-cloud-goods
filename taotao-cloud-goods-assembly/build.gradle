@@ -129,6 +129,11 @@ tasks.register('bootJarProduction') {
     finalizedBy("bootJar")
 }
 
+
+//tasks.compileAotJava {
+//    enabled = false
+//}
+
 configurations {
     configureEach {
         resolutionStrategy.cacheChangingModulesFor 0, "seconds"

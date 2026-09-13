@@ -33,9 +33,9 @@ jobs:
         run: lsb_release -a
 
       #https://github.com/marketplace/actions/github-action-for-graalvm
-      - uses: graalvm/setup-graalvm@v1.5.6
+      - uses: graalvm/setup-graalvm@v1.6.6
         with:
-          java-version: '25'
+          java-version: '25.3'
           distribution: 'graalvm'
           github-token: ${{ secrets.TAOTAO_CLOUD_GITHUB_TOKEN }}
           native-image-job-reports: 'true'
@@ -58,8 +58,8 @@ jobs:
           echo "mavenPasswordNew=${{ secrets.TAOTAO_CLOUD_MAVEN_PASSWORD_NEW }}" >> gradle.properties
 
       #https://github.com/marketplace/actions/gradle-build-action  bootBuildImage
-      - name: Gradle nativeBuild monitor
-        run: gradle -p taotao-cloud-microservice/taotao-cloud-monitor nativeBuild
+      - name: Gradle nativeBuild goods
+        run: gradle -p taotao-cloud-goods-assembly nativeBuild
 
       #- name: Publish Docker Image taotao-cloud-demo
       #  uses: elgohr/Publish-Docker-Github-Action@v4
