@@ -83,5 +83,5 @@ public interface GoodsQueryService extends QueryService {
 	 */
 	Long queryCountStoreGoodsNum( Long storeId );
 
-    GoodsRpcResponse queryGoodsByParams(GoodsRpcQuery order );
+    GoodsRpcResponse queryGoods(GoodsRpcQuery order );
 }

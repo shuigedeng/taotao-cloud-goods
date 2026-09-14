@@ -19,6 +19,7 @@ package com.taotao.cloud.goods.interfaces.grpc;
 import com.taotao.cloud.goods.TaoTaoCloudGoodsApplicationTests;
 import com.taotao.cloud.goods.api.grpc.FirstCategoryGrpcQuery;
 import com.taotao.cloud.goods.api.grpc.FirstCategoryGrpcQueryResponse;
+import com.taotao.cloud.goods.interfaces.grpc.query.CategoryQueryGrpcServiceImpl;
 import io.grpc.stub.StreamObserver;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
