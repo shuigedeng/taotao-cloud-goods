@@ -28,6 +28,7 @@ import org.springframework.grpc.server.service.GrpcService;
 public class CategoryQueryGrpcServiceImpl extends CategoryQueryGrpcServiceGrpc.CategoryQueryGrpcServiceImplBase {
 	@Override
 	public void queryCategory(CategoryGrpcQuery request, StreamObserver<CategoryGrpcResponse> responseObserver) {
+
 		super.queryCategory(request, responseObserver);
 	}
 }
