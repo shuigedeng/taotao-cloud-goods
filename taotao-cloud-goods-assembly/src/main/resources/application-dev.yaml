@@ -1124,7 +1124,6 @@ taotao:
         enabled: false
       sentinel:
         enabled: true
-
     logger:
       enabled: true
       logging:
@@ -1194,7 +1193,6 @@ taotao:
           validate: local
           jwk:
             certificate: standard
-
 
 mybatis-plus:
   typeAliasesPackage: com.taotao.cloud.goods.infrastructure.persistent.persistence  #实体扫描 多个package用户逗号或者分号分割
