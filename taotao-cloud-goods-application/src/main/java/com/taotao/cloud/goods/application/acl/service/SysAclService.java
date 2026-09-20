@@ -16,11 +16,11 @@
 
 package com.taotao.cloud.goods.application.acl.service;
 
-import com.taotao.cloud.goods.application.acl.dto.sys.req.DictReq;
-import com.taotao.cloud.goods.application.acl.dto.sys.res.DictRes;
+import com.taotao.cloud.goods.application.acl.dto.sys.req.DictAclReq;
+import com.taotao.cloud.goods.application.acl.dto.sys.res.DictAclRes;
 
 public interface SysAclService {
 
-	DictRes queryByCode(DictReq dictReq);
+	DictAclRes queryByCode(DictAclReq dictAclReq);
 
 }

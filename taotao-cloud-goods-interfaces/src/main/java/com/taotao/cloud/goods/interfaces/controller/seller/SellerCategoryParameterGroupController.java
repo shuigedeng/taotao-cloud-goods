@@ -26,6 +26,8 @@ import com.taotao.cloud.goods.application.service.query.CategoryParameterGroupQu
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import java.util.List;
+
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
@@ -44,7 +46,6 @@ import org.springframework.web.bind.annotation.RestController;
  * @since 2022-04-20 16:59:38
  */
 @RequiredArgsConstructor
-@Validated
 @RestController
 @Tag(name = "商户端-分类绑定参数组API", description = "商户端-分类绑定参数组API")
 @RequestMapping("/seller/goods/category/parameters")
@@ -58,7 +59,7 @@ public class SellerCategoryParameterGroupController extends BusinessController {
     @RequestLogger("查询某分类下绑定的参数信息")
     @PreAuthorize("hasAuthority('dept:tree:data')")
     @GetMapping(value = "/query/category-id")
-    public Result<List<ParameterGroupResult>> queryByCategoryId( CategoryIdQuery categoryIdQuery) {
+    public Result<List<ParameterGroupResult>> queryByCategoryId(@Valid CategoryIdQuery categoryIdQuery) {
         return Result.success(categoryParameterGroupQueryService.queryCategoryParams(categoryIdQuery.categoryId()));
     }
 }

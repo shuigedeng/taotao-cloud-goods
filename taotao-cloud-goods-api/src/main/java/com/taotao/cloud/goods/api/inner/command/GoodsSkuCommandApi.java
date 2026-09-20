@@ -26,6 +26,7 @@ import com.taotao.cloud.goods.api.inner.dto.command.GoodsApiCommand;
 import com.taotao.cloud.goods.api.inner.dto.command.GoodsSkuSpecGalleryApiCommand;
 import com.taotao.cloud.goods.api.inner.dto.response.CategoryApiResponse;
 import com.taotao.cloud.goods.api.inner.dto.response.GoodsSkuSpecGalleryApiResponse;
+import jakarta.validation.Valid;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.service.annotation.HttpExchange;
@@ -37,7 +38,7 @@ import org.springframework.web.service.annotation.PostExchange;
  * @author shuigedeng
  * @since 2020/5/2 16:42
  */
-@HttpExchange(value = ServiceNameConstants.TAOTAO_CLOUD_GOODS)
+@HttpExchange
 public interface GoodsSkuCommandApi {
 
 	/**
@@ -47,7 +48,7 @@ public interface GoodsSkuCommandApi {
 	 */
 	@PostExchange(value = "/product/updateGoodsStuck")
 	Response<EmptyResponse> updateGoodsStuck(
-		@Validated @RequestBody Request<BatchRequest<GoodsSkuSpecGalleryApiCommand>> request );
+		 @RequestBody Request<BatchRequest<GoodsSkuSpecGalleryApiCommand>> request );
 
 	/**
 	 * updateBatchById
@@ -56,6 +57,6 @@ public interface GoodsSkuCommandApi {
 	 */
 	@PostExchange(value = "/product/updateBatchById")
 	Response<EmptyResponse> updateBatchById(
-		@Validated @RequestBody Request<BatchRequest<GoodsSkuSpecGalleryApiCommand>> request );
+		 @RequestBody Request<BatchRequest<GoodsSkuSpecGalleryApiCommand>> request );
 
 }

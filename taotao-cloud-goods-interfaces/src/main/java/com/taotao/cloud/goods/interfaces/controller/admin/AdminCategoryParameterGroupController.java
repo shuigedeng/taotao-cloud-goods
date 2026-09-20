@@ -30,6 +30,7 @@ import com.taotao.cloud.goods.application.service.query.CategoryParameterGroupQu
 import com.taotao.cloud.goods.application.service.query.ParametersQueryService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
@@ -48,7 +49,6 @@ import java.util.List;
  * @since 2022-04-20 16:59:38
  */
 @RequiredArgsConstructor
-@Validated
 @RestController
 @Tag(name = "平台管理端-分类绑定参数组API", description = "平台管理端-分类绑定参数组API")
 @RequestMapping("/admin/goods/category/parameters")
@@ -66,7 +66,7 @@ public class AdminCategoryParameterGroupController extends BusinessController {
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/category-id")
-	public Result<List<ParameterGroupResult>> queryByCategoryId( CategoryIdQuery categoryIdQuery ) {
+	public Result<List<ParameterGroupResult>> queryByCategoryId( @Valid CategoryIdQuery categoryIdQuery ) {
 		List<ParameterGroupResult> result = categoryParameterGroupQueryService.queryCategoryParams(categoryIdQuery.categoryId());
 		return Result.success(result);
 	}
@@ -75,7 +75,7 @@ public class AdminCategoryParameterGroupController extends BusinessController {
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/create")
-	public Result<Void> create( @RequestBody  CategoryParameterGroupCommand categoryParameterGroup ) {
+	public Result<Void> create( @Valid @RequestBody  CategoryParameterGroupCommand categoryParameterGroup ) {
 //		return Result.success(categoryParameterGroupCommandService.create(categoryParameterGroup));
 		return Result.success();
 	}
@@ -84,7 +84,7 @@ public class AdminCategoryParameterGroupController extends BusinessController {
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/update")
-	public Result<Void> update( @RequestBody CategoryParameterGroupCommand categoryParameterGroup ) {
+	public Result<Void> update( @Valid @RequestBody CategoryParameterGroupCommand categoryParameterGroup ) {
 //		return
 //			Result.success(categoryParameterGroupCommandService.updateById(categoryParameterGroup));
 		return Result.success();
@@ -94,7 +94,7 @@ public class AdminCategoryParameterGroupController extends BusinessController {
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/delete")
-	public Result<Void> delete( @RequestBody IdCommand idCommand ) {
+	public Result<Void> delete( @Valid @RequestBody IdCommand idCommand ) {
 //		// 删除参数
 //		parametersCommandService.remove(new QueryWrapper<ParametersPO>().eq("group_id", id));
 //		// 删除参数组

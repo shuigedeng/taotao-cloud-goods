@@ -29,6 +29,7 @@ import com.taotao.cloud.goods.application.service.query.CategorySpecificationQue
 import com.taotao.cloud.goods.application.service.query.SpecificationQueryService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
@@ -47,7 +48,6 @@ import java.util.List;
  * @since 2022-04-20 16:59:38
  */
 @RequiredArgsConstructor
-@Validated
 @RestController
 @Tag(name = "平台管理端-商品分类规格API", description = "平台管理端-商品分类规格API")
 @RequestMapping("/admin/goods/category/spec")
@@ -65,7 +65,7 @@ public class AdminCategorySpecificationController extends BusinessController {
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/category-id")
-	public Result<List<SpecificationResult>> getCategorySpec( CategoryIdQuery categoryIdQuery ) {
+	public Result<List<SpecificationResult>> getCategorySpec(@Valid CategoryIdQuery categoryIdQuery ) {
 		List<SpecificationResult> result = categorySpecificationQueryService.queryByCategoryId(categoryIdQuery.categoryId());
 		return Result.success(result);
 	}
@@ -74,7 +74,7 @@ public class AdminCategorySpecificationController extends BusinessController {
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/goods/category-id")
-	public Result<List<SpecificationResult>> getSpec( CategoryIdQuery categoryIdQuery) {
+	public Result<List<SpecificationResult>> getSpec( @Valid CategoryIdQuery categoryIdQuery) {
 //		return Result.success(specificationQueryService.list());
 		return null;
 	}
@@ -83,7 +83,7 @@ public class AdminCategorySpecificationController extends BusinessController {
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/create")
-	public Result<Void> create( @RequestBody AssignCategorySpecCommand categorySpecs ) {
+	public Result<Void> create( @Valid @RequestBody AssignCategorySpecCommand categorySpecs ) {
 //		return Result.success(
 //			specificationCommandService.saveCategoryBrand(categoryId, categorySpecs));
 		return Result.success();

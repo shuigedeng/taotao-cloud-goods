@@ -16,7 +16,7 @@ import lombok.ToString;
 @Setter
 @Getter
 @ToString
-public class DictReq {
+public class DictAclReq {
 
     private String code;
 

@@ -33,6 +33,7 @@ import com.taotao.cloud.goods.application.service.query.CategoryQueryService;
 import com.taotao.cloud.goods.application.service.query.GoodsQueryService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
@@ -51,7 +52,6 @@ import java.util.List;
  * @since 2022-04-25 16:16:38
  */
 @RequiredArgsConstructor
-@Validated
 @RestController
 @Tag(name = "平台管理端-商品分类API", description = "平台管理端-商品分类API")
 @RequestMapping("/admin/goods/category")
@@ -69,7 +69,7 @@ public class AdminCategoryController extends BusinessController {
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/children")
-	public Result<List<CategoryResult>> queryChildrenByParentId( CategoryTreeQuery parentIdQuery) {
+	public Result<List<CategoryResult>> queryChildrenByParentId(@Valid CategoryTreeQuery parentIdQuery) {
 //		List<CategoryPO> categories = this.categoryQueryService.childrenList(parentId);
 //		return Result.success(CategoryAssembler.INSTANCE.convert(categories));
 		return null;
@@ -87,7 +87,7 @@ public class AdminCategoryController extends BusinessController {
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/create")
-	public Result<Void> create( @RequestBody CreateCategoryCommand category ) {
+	public Result<Void> create( @Valid @RequestBody CreateCategoryCommand category ) {
 		//// 非顶级分类
 		// if (category.getParentId() != null && !Long.valueOf(0).equals(category.getParentId())) {
 		//    Category parent = categoryQueryService.getById(category.getParentId());
@@ -106,7 +106,7 @@ public class AdminCategoryController extends BusinessController {
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/update")
-	public Result<Void> update( @RequestBody CategoryTreeCommand category ) {
+	public Result<Void> update( @Valid @RequestBody CategoryTreeCommand category ) {
 		// CategoryPO catTemp = categoryQueryService.getById(category.getId());
 		// if (catTemp == null) {
 		//    throw new BusinessException(ResultEnum.CATEGORY_NOT_EXIST);
@@ -119,7 +119,7 @@ public class AdminCategoryController extends BusinessController {
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/delete")
-	public Result<Void> delete( @RequestBody IdCommand idCommand ) {
+	public Result<Void> delete( @Valid @RequestBody IdCommand idCommand ) {
 		// CategoryPO category = new CategoryPO();
 		// category.setParentId(id);
 		// List<CategoryPO> list = categoryQueryService.findByAllBySortOrder(category);
@@ -140,7 +140,7 @@ public class AdminCategoryController extends BusinessController {
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/disable")
-	public Result<Void> disable( @RequestBody DisableCommand disableCommand) {
+	public Result<Void> disable( @Valid @RequestBody DisableCommand disableCommand) {
 //		GoodsPO category = goodsQueryService.getById(id);
 //		if (category == null) {
 //			throw new BusinessException(ResultEnum.CATEGORY_NOT_EXIST);

@@ -26,8 +26,10 @@ import com.taotao.cloud.goods.api.inner.dto.response.GoodsApiResponse;
 import com.taotao.cloud.goods.api.inner.query.GoodsQueryApi;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -40,7 +42,6 @@ import org.springframework.web.bind.annotation.RestController;
  * @version 2021.9
  * @since 2021-10-09 14:24:19
  */
-@Validated
 @RequiredArgsConstructor
 @RestController
 @Tag(name = "内部服务端-商品API", description = "内部服务端-商品API")
@@ -49,30 +50,30 @@ public class InnerGoodsController extends InnerController implements GoodsComman
 	@Operation(summary = "根据父id获取商品分类列表", description = "根据父id获取商品分类列表111")
     @Override
 	@RequestLogger
-    public Response<GoodsApiResponse> updateStoreDetail(@Validated Request<GoodsApiCommand> id) {
+    public Response<GoodsApiResponse> updateStoreDetail(@Valid @RequestBody Request<GoodsApiCommand> id) {
         return null;
     }
 
 	@Operation(summary = "根据父id获取商品分类列表", description = "根据父id获取商品分类列表222")
     @Override
 	@RequestLogger
-    public Response<GoodsApiResponse> underStoreGoods(@Validated Request<GoodsApiCommand> id) {
+    public Response<GoodsApiResponse> underStoreGoods(@Valid @RequestBody Request<GoodsApiCommand> id) {
         return null;
     }
 
 
 	@Override
-	public Response<GoodsApiResponse> queryStoreDetail(Request<GoodsApiCommand> id ) {
+	public Response<GoodsApiResponse> queryStoreDetail(@Valid @RequestBody Request<GoodsApiCommand> id ) {
 		return null;
 	}
 
 	@Override
-	public Response<GoodsApiResponse> queryUnderStoreGoods(Request<GoodsApiCommand> id ) {
+	public Response<GoodsApiResponse> queryUnderStoreGoods(@Valid @RequestBody Request<GoodsApiCommand> id ) {
 		return null;
 	}
 
 	@Override
-	public Response<GoodsApiResponse> queryCountStoreGoodsNum(Request<GoodsApiCommand> storeId ) {
+	public Response<GoodsApiResponse> queryCountStoreGoodsNum(@Valid @RequestBody Request<GoodsApiCommand> storeId ) {
 		return null;
 	}
 }

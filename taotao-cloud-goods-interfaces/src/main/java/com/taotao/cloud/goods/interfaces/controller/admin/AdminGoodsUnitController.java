@@ -30,6 +30,7 @@ import com.taotao.cloud.goods.application.service.command.GoodsUnitCommandServic
 import com.taotao.cloud.goods.application.service.query.GoodsUnitQueryService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
@@ -46,7 +47,6 @@ import org.springframework.web.bind.annotation.*;
  * @since 2022-04-20 16:59:38
  */
 @RequiredArgsConstructor
-@Validated
 @RestController
 @Tag(name = "平台管理端-商品计量单位API", description = "平台管理端-商品计量单位API")
 @RequestMapping("/admin/goods/goods/unit")
@@ -79,7 +79,7 @@ public class AdminGoodsUnitController extends BusinessController {
 	@RequestLogger("添加商品计量单位")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/create")
-	public Result<Void> create( @RequestBody GoodsUnitCommand goodsUnit ) {
+	public Result<Void> create( @Valid @RequestBody GoodsUnitCommand goodsUnit ) {
 //		return Result.success(goodsUnitService.create(goodsUnit));
 		return Result.success();
 	}
@@ -88,7 +88,7 @@ public class AdminGoodsUnitController extends BusinessController {
 	@RequestLogger("编辑商品计量单位")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/commmand/update")
-	public Result<Void> update( @RequestBody GoodsUnitCommand goodsUnit ) {
+	public Result<Void> update( @Valid @RequestBody GoodsUnitCommand goodsUnit ) {
 //		return Result.success(goodsUnitService.updateById(goodsUnit));
 		return Result.success();
 	}
@@ -97,7 +97,7 @@ public class AdminGoodsUnitController extends BusinessController {
 	@RequestLogger("删除商品计量单位")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/commnad/del-batch")
-	public Result<Void> deleteBatch( @RequestBody IdsCommand idsCommand ) {
+	public Result<Void> deleteBatch( @Valid @RequestBody IdsCommand idsCommand ) {
 //		return Result.success(goodsUnitService.removeByIds(ids));
 		return Result.success();
 	}

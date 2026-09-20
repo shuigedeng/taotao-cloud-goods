@@ -26,6 +26,7 @@ import com.taotao.cloud.goods.application.service.command.ParametersCommandServi
 import com.taotao.cloud.goods.application.service.query.ParametersQueryService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
@@ -42,7 +43,6 @@ import org.springframework.web.bind.annotation.*;
  * @since 2022-04-20 16:59:38
  */
 @RequiredArgsConstructor
-@Validated
 @RestController
 @Tag(name = "平台管理端-参数API", description = "平台管理端-参数API")
 @RequestMapping("/admin/goods/parameters")
@@ -56,7 +56,7 @@ public class AdminParameterController extends BusinessController {
 	@RequestLogger("添加参数添加参数")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/create")
-	public Result<Void> create( @RequestBody CreateParametersCommand parametersDTO ) {
+	public Result<Void> create( @Valid @RequestBody CreateParametersCommand parametersDTO ) {
 //		Parameters parameters = ParametersConvert.INSTANCE.convert(parametersDTO);
 //		return Result.success(parametersService.create(parameters));
 		return Result.success();
@@ -66,7 +66,7 @@ public class AdminParameterController extends BusinessController {
 	@RequestLogger("编辑参数")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/update")
-	public Result<Void> update( @RequestBody CreateParametersCommand parametersDTO,
+	public Result<Void> update( @Valid @RequestBody CreateParametersCommand parametersDTO,
 		@PathVariable Long id ) {
 //		Parameters parameters = ParametersConvert.INSTANCE.convert(parametersDTO);
 //		parameters.setId(id);
@@ -78,7 +78,7 @@ public class AdminParameterController extends BusinessController {
 	@RequestLogger("根据id删除参数")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/delete")
-	public Result<Void> deleteById( @RequestBody IdCommand idCommand ) {
+	public Result<Void> deleteById( @Valid @RequestBody IdCommand idCommand ) {
 //		return Result.success(parametersService.removeById(id));
 		return Result.success();
 	}

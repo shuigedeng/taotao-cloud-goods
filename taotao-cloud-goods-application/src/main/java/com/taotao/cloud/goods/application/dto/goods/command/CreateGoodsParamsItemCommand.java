@@ -42,8 +42,8 @@ public record CreateGoodsParamsItemCommand(
 	@Schema(description = "是否必填，0 不显示 1 显示")
 	Integer required,
 	@Schema(description = "排序")
-	Integer sort)
-	implements Command {
+	Integer sort
+) implements Command {
 
 	@Serial
 	private static final long serialVersionUID = 4892783539320159200L;

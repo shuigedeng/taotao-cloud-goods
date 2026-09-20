@@ -45,6 +45,7 @@ public record CreateGoodsCommand(
 	String goodsWeightUnit,
 	String goodsDesc,
 	BigDecimal goodsPrice,
-	Set<Long> tagIds) {
+	Set<Long> tagIds
+) {
 
 }

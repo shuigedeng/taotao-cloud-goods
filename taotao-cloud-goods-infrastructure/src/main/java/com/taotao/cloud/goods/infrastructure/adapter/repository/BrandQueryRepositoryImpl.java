@@ -22,8 +22,8 @@ import com.taotao.boot.data.mybatis.mybatisplus.MpUtils;
 import com.taotao.cloud.goods.application.acl.service.SysAclService;
 import com.taotao.cloud.goods.application.dto.brand.query.BrandPageQuery;
 import com.taotao.cloud.goods.application.dto.brand.result.BrandResult;
-import com.taotao.cloud.goods.application.acl.dto.sys.req.DictReq;
-import com.taotao.cloud.goods.application.acl.dto.sys.res.DictRes;
+import com.taotao.cloud.goods.application.acl.dto.sys.req.DictAclReq;
+import com.taotao.cloud.goods.application.acl.dto.sys.res.DictAclRes;
 import com.taotao.cloud.goods.application.adapter.repository.BrandQueryRepository;
 import com.taotao.cloud.goods.infrastructure.assembler.BrandInfraAssembler;
 import com.taotao.cloud.goods.infrastructure.persistent.mapper.BrandMapper;
@@ -59,7 +59,7 @@ public class BrandQueryRepositoryImpl implements BrandQueryRepository {
     public BrandResult queryById( Long id ) {
         BrandPO brandPO = brandMapper.selectById(id);
 
-        DictRes dictRes = sysAclService.queryByCode(DictReq.builder().code("123").build());
+        DictAclRes dictAclRes = sysAclService.queryByCode(DictAclReq.builder().code("123").build());
 
         Optional<BrandPO> brandPOOptional = brandRepository.findById(id);
 

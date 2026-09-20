@@ -52,7 +52,6 @@ import java.util.Map;
  * @since 2022-04-20 16:59:38
  */
 @RequiredArgsConstructor
-@Validated
 @RestController
 @Tag(name = "买家端-商品API", description = "买家端-商品API")
 @RequestMapping("/buyer/goods")

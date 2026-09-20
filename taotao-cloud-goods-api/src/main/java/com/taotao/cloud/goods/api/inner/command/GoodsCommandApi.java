@@ -21,6 +21,7 @@ import com.taotao.boot.common.model.request.Request;
 import com.taotao.boot.common.model.response.Response;
 import com.taotao.cloud.goods.api.inner.dto.command.GoodsApiCommand;
 import com.taotao.cloud.goods.api.inner.dto.response.GoodsApiResponse;
+import jakarta.validation.Valid;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.service.annotation.HttpExchange;
@@ -32,7 +33,7 @@ import org.springframework.web.service.annotation.PostExchange;
  * @author shuigedeng
  * @since 2020/5/2 16:42
  */
-@HttpExchange(value = ServiceNameConstants.TAOTAO_CLOUD_GOODS)
+@HttpExchange
 public interface GoodsCommandApi {
 
 
@@ -43,7 +44,7 @@ public interface GoodsCommandApi {
 	 */
 	@PostExchange(value = "/inner/goods/command/store/detail")
 	Response<GoodsApiResponse> updateStoreDetail(
-		@Validated @RequestBody Request<GoodsApiCommand> request );
+		 @RequestBody Request<GoodsApiCommand> request );
 
 	/**
 	 * underStoreGoods
@@ -52,5 +53,5 @@ public interface GoodsCommandApi {
 	 */
 	@PostExchange(value = "/inner/goods/command/under-strore")
 	Response<GoodsApiResponse> underStoreGoods(
-		@Validated @RequestBody Request<GoodsApiCommand> request );
+		 @RequestBody Request<GoodsApiCommand> request );
 }

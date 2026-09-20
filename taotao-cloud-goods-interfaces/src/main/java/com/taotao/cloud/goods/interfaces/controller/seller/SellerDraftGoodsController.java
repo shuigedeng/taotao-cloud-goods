@@ -31,6 +31,7 @@ import com.taotao.cloud.goods.application.service.command.DraftGoodsCommandServi
 import com.taotao.cloud.goods.application.service.query.DraftGoodsQueryService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
@@ -47,7 +48,6 @@ import org.springframework.web.bind.annotation.*;
  * @since 2022-04-14 22:05:35
  */
 @RequiredArgsConstructor
-@Validated
 @RestController
 @Tag(name = "商户端-草稿商品API", description = "商户端-草稿商品API")
 @RequestMapping("/seller/goods/draft/goods")
@@ -61,7 +61,7 @@ public class SellerDraftGoodsController extends BusinessController {
 	@RequestLogger("分页获取草稿商品列表")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/page")
-	public Result<PageResult<DraftGoodsResult>> queryPage( DraftGoodsPageQuery draftGoodsPageQuery ) {
+	public Result<PageResult<DraftGoodsResult>> queryPage( @Valid DraftGoodsPageQuery draftGoodsPageQuery ) {
 //        Long storeId = SecurityUtils.getCurrentUser().getStoreId();
 //        draftGoodsPageQuery.setStoreId(storeId);
 //        IPage<DraftGoods> draftGoods = draftGoodsService.draftGoodsQueryPage(draftGoodsPageQuery);
@@ -73,7 +73,7 @@ public class SellerDraftGoodsController extends BusinessController {
 	@RequestLogger("获取草稿商品")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/detail")
-	public Result<DraftGoodsSkuParamsResult> queryDetail( IdQuery idQuery ) {
+	public Result<DraftGoodsSkuParamsResult> queryDetail(@Valid IdQuery idQuery ) {
 		DraftGoodsSkuParamsResult result = draftGoodsQueryService.queryDraftGoods(idQuery.getId());
 		return Result.success(result);
 	}
@@ -82,7 +82,7 @@ public class SellerDraftGoodsController extends BusinessController {
 	@RequestLogger("保存草稿商品")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/create")
-	public Result<Void> create( @RequestBody SaveDraftGoodsSkuParamsCommand draftGoodsSkuParamsDTO ) {
+	public Result<Void> create(@Valid @RequestBody SaveDraftGoodsSkuParamsCommand draftGoodsSkuParamsDTO ) {
 //        Long storeId = SecurityUtils.getCurrentUser().getStoreId();
 //        if (draftGoodsSkuParamsDTO.getStoreId() == null) {
 //            draftGoodsSkuParamsDTO.setStoreId(storeId);
@@ -98,7 +98,7 @@ public class SellerDraftGoodsController extends BusinessController {
 	@RequestLogger("删除草稿商品")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/del-batch")
-	public Result<Void> deleteBatch( @RequestBody IdsCommand id ) {
+	public Result<Void> deleteBatch(@Valid @RequestBody IdsCommand id ) {
 //        draftGoodsService.getDraftGoods(id);
 //        return Result.success(draftGoodsService.deleteGoodsDraft(id));
 		return Result.success();

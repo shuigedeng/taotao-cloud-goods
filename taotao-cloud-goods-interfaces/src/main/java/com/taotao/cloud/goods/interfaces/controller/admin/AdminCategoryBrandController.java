@@ -29,6 +29,8 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
 import java.util.List;
+
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
@@ -45,7 +47,6 @@ import org.springframework.web.bind.annotation.*;
  * @since 2022-04-20 16:59:38
  */
 @RequiredArgsConstructor
-@Validated
 @RestController
 @Tag(name = "平台管理端-分类品牌API", description = "平台管理端-分类品牌API")
 @RequestMapping("/admin/goods/category/brand")
@@ -59,7 +60,7 @@ public class AdminCategoryBrandController extends BusinessController {
     @RequestLogger
     @PreAuthorize("hasAuthority('dept:tree:data')")
     @GetMapping(value = "/query/category-id")
-    public Result<List<CategoryBrandResult>> queryByCategoryId( CategoryIdQuery categoryIdQuery ) {
+    public Result<List<CategoryBrandResult>> queryByCategoryId(@Valid CategoryIdQuery categoryIdQuery ) {
         return Result.success(categoryBrandQueryService.queryByCategoryId(categoryIdQuery.categoryId()));
     }
 
@@ -67,7 +68,7 @@ public class AdminCategoryBrandController extends BusinessController {
     @RequestLogger
     @PreAuthorize("hasAuthority('dept:tree:data')")
     @PostMapping(value = "/command/category/brands")
-    public Result<Void> saveCategoryBrand( @RequestBody AssignCategoryBrandsCommand categoryBrands) {
+    public Result<Void> saveCategoryBrand( @Valid @RequestBody AssignCategoryBrandsCommand categoryBrands) {
 //        return Result.success(
 //                categoryBrandCommandService.saveCategoryBrandList(categoryId, categoryBrands));
 		return Result.success();

@@ -48,7 +48,6 @@ import java.util.List;
  * @since 2022-04-20 16:59:38
  */
 @RequiredArgsConstructor
-@Validated
 @RestController
 @Tag(name = "平台管理端-商品规格API", description = "平台管理端-商品规格API")
 @RequestMapping("/admin/goods/spec")
@@ -72,7 +71,7 @@ public class AdminSpecificationController extends BusinessController {
 	@RequestLogger("搜索规格")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping("/query/page")
-	public Result<PageResult<SpecificationResult>> queryPage( SpecificationPageQuery specificationPageQuery ) {
+	public Result<PageResult<SpecificationResult>> queryPage(@Valid SpecificationPageQuery specificationPageQuery ) {
 //		IPage<SpecificationPO> specificationPage =
 //			specificationQueryService.getPage(specificationPageQuery);
 //		return Result.success(MpUtils.convertMpPage(specificationPage,
@@ -84,7 +83,7 @@ public class AdminSpecificationController extends BusinessController {
 	@RequestLogger("保存规格")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/create")
-	public Result<Void> create(  @RequestBody CreateSpecificationCommand specificationDTO ) {
+	public Result<Void> create(@Valid  @RequestBody CreateSpecificationCommand specificationDTO ) {
 //		SpecificationPO specification = SpecificationAssembler.INSTANCE.convert(specificationDTO);
 //		return Result.success(specificationCommandService.create(specification));
 		return Result.success();
@@ -106,7 +105,7 @@ public class AdminSpecificationController extends BusinessController {
 	@RequestLogger("批量删除")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/del-batch")
-	public Result<Void> deleteBatch( IdsCommand ids ) {
+	public Result<Void> deleteBatch(@Valid IdsCommand ids ) {
 		specificationCommandService.deleteSpecification(ids.getIds());
 		return Result.success();
 	}

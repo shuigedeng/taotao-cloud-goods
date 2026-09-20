@@ -14,7 +14,10 @@ import java.util.List;
  * @since 2026/1/31
  */
 @RecordBuilder
-public record AuditGoodsCommand(List<Long> goodsIds, GoodsAuthEnum goodsAuthEnum) implements Command {
+public record AuditGoodsCommand(
+	List<Long> goodsIds,
+	GoodsAuthEnum goodsAuthEnum
+) implements Command {
 
 
 }

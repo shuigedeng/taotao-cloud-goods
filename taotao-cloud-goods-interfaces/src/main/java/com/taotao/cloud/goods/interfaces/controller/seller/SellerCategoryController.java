@@ -28,6 +28,7 @@ import com.taotao.cloud.goods.application.service.query.CategoryBrandQueryServic
 import com.taotao.cloud.goods.application.service.query.CategoryQueryService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
@@ -48,7 +49,6 @@ import java.util.List;
  * @since 2022-04-25 16:17:12
  */
 @RequiredArgsConstructor
-@Validated
 @RestController
 @Tag(name = "商户端-商品分类API", description = "商户端-商品分类API")
 @RequestMapping("/seller/goods/category/store")
@@ -82,7 +82,7 @@ public class SellerCategoryController extends BusinessController {
 	@RequestLogger("获取所选分类关联的品牌信息")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/category-brands")
-	public Result<List<CategoryBrandResult>> queryBrandsByCategoryId( CategoryIdQuery categoryIdQuery ) {
+	public Result<List<CategoryBrandResult>> queryBrandsByCategoryId(@Valid CategoryIdQuery categoryIdQuery ) {
 		return Result.success(this.categoryBrandQueryService.queryByCategoryId(categoryIdQuery.categoryId()));
 	}
 }

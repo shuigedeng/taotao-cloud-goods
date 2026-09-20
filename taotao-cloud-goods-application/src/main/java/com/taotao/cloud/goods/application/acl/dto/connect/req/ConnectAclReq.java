@@ -7,6 +7,6 @@ package com.taotao.cloud.goods.application.acl.dto.connect.req;
  * @version 2026.04
  * @since 2025-12-19 09:30:45
  */
-public class ConnectReq {
+public class ConnectAclReq {
 
 }

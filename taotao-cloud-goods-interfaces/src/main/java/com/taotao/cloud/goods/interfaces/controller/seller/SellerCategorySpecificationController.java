@@ -25,6 +25,7 @@ import com.taotao.cloud.goods.application.service.command.CategorySpecificationC
 import com.taotao.cloud.goods.application.service.query.CategorySpecificationQueryService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
@@ -45,7 +46,6 @@ import java.util.List;
  * @since 2022-04-20 16:59:38
  */
 @RequiredArgsConstructor
-@Validated
 @RestController
 @Tag(name = "商户端-商品分类规格API", description = "商户端-商品分类规格API")
 @RequestMapping("/seller/goods/category/spec")
@@ -59,7 +59,7 @@ public class SellerCategorySpecificationController extends BusinessController {
 	@RequestLogger("查询某分类下绑定的规格信息")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/category-id")
-	public Result<List<SpecificationResult>> queryByCategoryId( CategoryIdQuery categoryIdQuery) {
+	public Result<List<SpecificationResult>> queryByCategoryId(@Valid CategoryIdQuery categoryIdQuery) {
 		List<SpecificationResult> result = categorySpecificationQueryService.queryByCategoryId(categoryIdQuery.categoryId());
 		return Result.success(result);
 	}

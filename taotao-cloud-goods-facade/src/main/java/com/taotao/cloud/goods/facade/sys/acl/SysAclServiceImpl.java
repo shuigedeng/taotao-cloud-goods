@@ -19,9 +19,9 @@ package com.taotao.cloud.goods.facade.sys.acl;
 import com.taotao.boot.client.gateway.service.GatewayRemoteCallBaseService;
 import com.taotao.boot.ddd.acl.AclBaseService;
 import com.taotao.boot.client.gateway.model.GatewayResponse;
+import com.taotao.cloud.goods.application.acl.dto.sys.res.DictAclRes;
 import com.taotao.cloud.goods.application.acl.service.SysAclService;
-import com.taotao.cloud.goods.application.acl.dto.sys.req.DictReq;
-import com.taotao.cloud.goods.application.acl.dto.sys.res.DictRes;
+import com.taotao.cloud.goods.application.acl.dto.sys.req.DictAclReq;
 import com.taotao.cloud.goods.facade.assembler.SysFacadeAssembler;
 import com.taotao.cloud.goods.facade.sys.invoker.SysInvoker;
 import com.taotao.cloud.sys.api.inner.dto.response.DictQueryApiResponse;
@@ -43,9 +43,9 @@ public class SysAclServiceImpl extends AclBaseService implements SysAclService ,
     private final SysInvoker sysInvoker;
 
     @Override
-    public DictRes queryByCode(DictReq dictReq ) {
+    public DictAclRes queryByCode(DictAclReq dictAclReq) {
         GatewayResponse<DictQueryApiResponse> gatewayResponse = sysInvoker
-			.queryByCode(makeRequest(facadeAssembler.toQuery(dictReq)));
+			.queryByCode(makeRequest(facadeAssembler.toQuery(dictAclReq)));
 		DictQueryApiResponse result = this.getResult(gatewayResponse);
 
 //		DictApiResponse dictApiResponse = dictClientProxy.findByCode();

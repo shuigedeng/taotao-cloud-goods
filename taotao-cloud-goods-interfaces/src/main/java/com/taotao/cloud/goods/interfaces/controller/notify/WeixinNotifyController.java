@@ -25,6 +25,7 @@ import com.taotao.cloud.goods.application.service.command.BrandCommandService;
 import com.taotao.cloud.goods.application.service.query.BrandQueryService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -40,7 +41,6 @@ import org.springframework.web.bind.annotation.*;
  * @since 2022-04-25 16:16:20
  */
 @RequiredArgsConstructor
-@Validated
 @RestController
 @Tag(name = "回调通知端-微信回调API", description = "回调通知端-微信回调API")
 @RequestMapping("/callback/goods/weixin")
@@ -53,7 +53,7 @@ public class WeixinNotifyController extends BusinessController {
 	@Operation(summary = "阿里支付状态通知", description = "阿里支付状态通知")
 	@RequestLogger
 	@PostMapping("/notify")
-	public Result<Void> notify(@Validated @RequestBody CreateBrandCommand brand) {
+	public Result<Void> notify(@Valid @RequestBody CreateBrandCommand brand) {
 		return Result.success();
 	}
 }

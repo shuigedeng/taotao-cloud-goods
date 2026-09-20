@@ -38,6 +38,7 @@ import com.taotao.cloud.goods.application.service.command.BrandCommandService;
 import com.taotao.cloud.goods.application.service.query.BrandQueryService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
@@ -56,7 +57,6 @@ import java.util.List;
  * @since 2022-04-25 16:16:20
  */
 @RequiredArgsConstructor
-@Validated
 @RestController
 @Tag(name = "平台管理端-品牌API", description = "平台管理端-品牌API")
 @RequestMapping("/admin/goods/brand")
@@ -70,7 +70,7 @@ public class AdminBrandController extends BusinessController {
 	@RequestLogger
 	@Operation(summary = "通过id获取", description = "通过id获取")
 	@GetMapping(value = "/query/detail")
-	public Result<BrandResult> queryDetail(IdQuery idQuery) {
+	public Result<BrandResult> queryDetail(@Valid IdQuery idQuery) {
 		BrandResult brandResult = brandQueryService.queryDetail(idQuery.getId());
 		return Result.success(brandResult);
 	}
@@ -88,7 +88,7 @@ public class AdminBrandController extends BusinessController {
 	@Operation(summary = "分页获取", description = "分页获取")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/page")
-	public Result<PageResult<BrandResult>> queryPage(BrandPageQuery page) {
+	public Result<PageResult<BrandResult>> queryPage(@Valid BrandPageQuery page) {
 		PageResult<BrandResult> brandPage = brandQueryService.queryPage(page);
 		return Result.success(brandPage);
 	}
@@ -102,7 +102,7 @@ public class AdminBrandController extends BusinessController {
 	@GuavaLimit
 	@SentinelResource("test")
 	@PostMapping("/command/create")
-	public Result<Void> createBrand(@RequestBody CreateBrandCommand brand) {
+	public Result<Void> createBrand(@Valid @RequestBody CreateBrandCommand brand) {
 		brandCommandService.createBrand(brand);
 		return Result.success();
 	}
@@ -111,7 +111,7 @@ public class AdminBrandController extends BusinessController {
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/update")
-	public Result<Void> updateBrand(@RequestBody UpdateBrandCommand brand) {
+	public Result<Void> updateBrand(@Valid @RequestBody UpdateBrandCommand brand) {
 		brandCommandService.updateBrand(brand);
 		return Result.success();
 	}
@@ -121,7 +121,7 @@ public class AdminBrandController extends BusinessController {
 	@PreventDuplicateSubmit
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/disable")
-	public Result<Void> disableById(@RequestBody DisableBrandCommand disableBrandCommand) {
+	public Result<Void> disableById(@Valid @RequestBody DisableBrandCommand disableBrandCommand) {
 		brandCommandService.disableBrand(disableBrandCommand);
 		return Result.success();
 	}
@@ -131,7 +131,7 @@ public class AdminBrandController extends BusinessController {
 	@PreventDuplicateSubmit
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/del-batch")
-	public Result<Void> deleteBatch(@RequestBody IdsCommand idsCommand) {
+	public Result<Void> deleteBatch(@Valid @RequestBody IdsCommand idsCommand) {
 		brandCommandService.deleteBrands(idsCommand);
 		return Result.success();
 	}

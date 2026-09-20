@@ -1,8 +1,8 @@
 package com.taotao.cloud.goods.application.acl.service;
 
-import com.taotao.cloud.goods.application.acl.dto.connect.req.ConnectReq;
-import com.taotao.cloud.goods.application.acl.dto.connect.res.ConnectRes;
+import com.taotao.cloud.goods.application.acl.dto.connect.req.ConnectAclReq;
+import com.taotao.cloud.goods.application.acl.dto.connect.res.ConnectAclRes;
 
 public interface ConnectAclService {
-	ConnectRes connect(ConnectReq connectReq);
+	ConnectAclRes connect(ConnectAclReq connectAclReq);
 }

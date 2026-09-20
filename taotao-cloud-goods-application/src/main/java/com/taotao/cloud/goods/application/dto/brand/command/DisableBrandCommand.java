@@ -20,6 +20,7 @@ import com.taotao.boot.common.model.ddd.types.Command;
 import io.soabase.recordbuilder.core.RecordBuilder;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 import java.io.Serial;
 
@@ -29,11 +30,11 @@ import java.io.Serial;
 @RecordBuilder
 @Schema(description = "品牌DTO")
 public record DisableBrandCommand(
-	@Schema(description = "id")
+	@Schema(description = "id") @NotBlank(message = "brandId不能为空")
 	Long brandId,
-	@Schema(description = "名称")
-	Boolean disable) implements
-	Command {
+	@Schema(description = "名称") @NotNull(message = "disable不能为空")
+	Boolean disable
+) implements Command {
 
 	@Serial
 	private static final long serialVersionUID = 3829199991161122317L;

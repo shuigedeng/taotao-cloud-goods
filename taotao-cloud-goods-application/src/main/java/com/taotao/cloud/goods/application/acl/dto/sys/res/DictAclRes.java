@@ -14,7 +14,7 @@ import lombok.ToString;
 @Setter
 @Getter
 @ToString
-public class DictRes {
+public class DictAclRes {
 
     private Long id;
 

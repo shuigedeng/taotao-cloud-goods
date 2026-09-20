@@ -22,6 +22,7 @@ import com.taotao.boot.common.model.response.BatchResponse;
 import com.taotao.boot.common.model.response.Response;
 import com.taotao.cloud.goods.api.inner.dto.command.CreateCategoryApiCommand;
 import com.taotao.cloud.goods.api.inner.dto.response.CategoryApiResponse;
+import jakarta.validation.Valid;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.service.annotation.HttpExchange;
@@ -33,10 +34,10 @@ import org.springframework.web.service.annotation.PostExchange;
  * @author shuigedeng
  * @since 2020/5/2 16:42
  */
-@HttpExchange(value = ServiceNameConstants.TAOTAO_CLOUD_GOODS)
+@HttpExchange
 public interface CategoryCommandApi {
 
 	@PostExchange(value = "/inner/goods/category/command/create")
 	Response<BatchResponse<CategoryApiResponse>> createCategory(
-		@Validated @RequestBody Request<CreateCategoryApiCommand> request);
+		 @RequestBody Request<CreateCategoryApiCommand> request);
 }

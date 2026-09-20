@@ -43,7 +43,8 @@ public record CreateGoodsInfoCommand(
 	@Schema(description = "价格2")
 	BigDecimal price2,
 	@Schema(description = "商品详情页的小程序路径")
-	String url) implements Command {
+	String url
+) implements Command {
 
 	// public GoodsInfo(Commodity commodity) {
 	//	BeanUtil.copyProperties(commodity, this);

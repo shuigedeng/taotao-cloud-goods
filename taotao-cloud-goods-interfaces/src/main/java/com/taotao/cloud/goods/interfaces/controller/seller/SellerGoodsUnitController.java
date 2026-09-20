@@ -26,6 +26,7 @@ import com.taotao.cloud.goods.application.service.command.GoodsUnitCommandServic
 import com.taotao.cloud.goods.application.service.query.GoodsUnitQueryService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
@@ -44,7 +45,6 @@ import org.springframework.web.bind.annotation.RestController;
  * @since 2022-04-14 21:05:11
  */
 @RequiredArgsConstructor
-@Validated
 @RestController
 @Tag(name = "商户端-商品计量单位API", description = "商户端-商品计量单位API")
 @RequestMapping("/seller/goods/unit")
@@ -58,7 +58,7 @@ public class SellerGoodsUnitController extends BusinessController {
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping("/query/page")
-	public Result<PageResult<GoodsUnitResult>> queryByPage( PageQuery pageQuery ) {
+	public Result<PageResult<GoodsUnitResult>> queryByPage(@Valid PageQuery pageQuery ) {
 //            IPage<GoodsUnitPO> page = goodsUnitQueryService.page(MpUtils.buildMpPage(pageQuery));
 //            return Result.success(MpUtils.convertMpPage(page,
 //     GoodsUnitAssembler.INSTANCE::convert));

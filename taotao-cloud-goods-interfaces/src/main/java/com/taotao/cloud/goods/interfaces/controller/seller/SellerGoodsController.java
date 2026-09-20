@@ -38,6 +38,7 @@ import com.taotao.cloud.goods.application.service.query.GoodsQueryService;
 import com.taotao.cloud.goods.application.service.query.GoodsSkuQueryService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
@@ -56,7 +57,6 @@ import java.util.List;
  * @since 2022-04-14 21:09:23
  */
 @RequiredArgsConstructor
-@Validated
 @RestController
 @Tag(name = "商户端-商品API", description = "商户端-商品API")
 @RequestMapping("/seller/goods")
@@ -76,7 +76,7 @@ public class SellerGoodsController extends BusinessController {
 	@RequestLogger("分页获取商品列表")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping("/query/page")
-	public Result<PageResult<GoodsResult>> queryPage( GoodsPageQuery goodsPageQuery ) {
+	public Result<PageResult<GoodsResult>> queryPage(@Valid GoodsPageQuery goodsPageQuery ) {
 		// 当前登录商家账号
 //		Long storeId = SecurityUtils.getCurrentUser().getStoreId();
 //		goodsPageQuery.setStoreId(storeId);
@@ -89,7 +89,7 @@ public class SellerGoodsController extends BusinessController {
 	@RequestLogger("分页获取商品Sku列表")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/sku/page")
-	public Result<PageResult<GoodsSkuResult>> querySkuPage( GoodsPageQuery goodsPageQuery ) {
+	public Result<PageResult<GoodsSkuResult>> querySkuPage(@Valid GoodsPageQuery goodsPageQuery ) {
 		// 当前登录商家账号
 //		Long storeId = SecurityUtils.getCurrentUser().getStoreId();
 //		goodsPageQuery.setStoreId(storeId);
@@ -102,7 +102,7 @@ public class SellerGoodsController extends BusinessController {
 	@RequestLogger("分页获取库存告警商品列表")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/stock-warning/page")
-	public Result<PageResult<StockWarningResult>> queryWarningStockPage( GoodsPageQuery goodsPageQuery ) {
+	public Result<PageResult<StockWarningResult>> queryWarningStockPage(@Valid GoodsPageQuery goodsPageQuery ) {
 		// 当前登录商家账号
 //		Long storeId = SecurityUtils.getCurrentUser().getStoreId();
 //		StoreDetailCO storeDetail = storeDetailApi.getStoreDetailVO(storeId);
@@ -124,7 +124,7 @@ public class SellerGoodsController extends BusinessController {
 	@RequestLogger("通过id获取")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/goods-id")
-	public Result<GoodsSkuParamsResult> queryByGoodsId( GoodsIdQuery goodsIdQuery ) {
+	public Result<GoodsSkuParamsResult> queryByGoodsId(@Valid GoodsIdQuery goodsIdQuery ) {
 		GoodsSkuParamsResult result = goodsQueryService.queryDetail(goodsIdQuery.goodsId());
 		return Result.success(result);
 	}
@@ -133,7 +133,7 @@ public class SellerGoodsController extends BusinessController {
 	@RequestLogger("新增商品")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/create")
-	public Result<Void> create( @RequestBody GoodsOperationCommand goodsOperationDTO ) {
+	public Result<Void> create(@Valid @RequestBody GoodsOperationCommand goodsOperationDTO ) {
 //		return Result.success(goodsService.addGoods(goodsOperationDTO));
 		return Result.success();
 	}
@@ -142,7 +142,7 @@ public class SellerGoodsController extends BusinessController {
 	@RequestLogger("修改商品")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/update")
-	public Result<Void> update( @RequestBody GoodsOperationCommand goodsOperationDTO ) {
+	public Result<Void> update( @Valid @RequestBody GoodsOperationCommand goodsOperationDTO ) {
 //		return Result.success(goodsService.editGoods(goodsOperationDTO, goodsId));
 		return Result.success();
 	}
@@ -151,7 +151,7 @@ public class SellerGoodsController extends BusinessController {
 	@RequestLogger("下架商品")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/under")
-	public Result<Void> under( @RequestBody IdsCommand idsCommand ) {
+	public Result<Void> under(@Valid @RequestBody IdsCommand idsCommand ) {
 //		return Result.success(goodsService.updateGoodsMarketAble(goodsId, GoodsStatusEnum.DOWN,
 //			"商家下架"));
 		return Result.success();
@@ -161,7 +161,7 @@ public class SellerGoodsController extends BusinessController {
 	@RequestLogger("上架商品")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/up")
-	public Result<Void> up( @RequestBody IdsCommand idsCommand ) {
+	public Result<Void> up( @Valid @RequestBody IdsCommand idsCommand ) {
 //		return Result.success(goodsService.updateGoodsMarketAble(goodsId, GoodsStatusEnum.UPPER,
 //			""));
 		return Result.success();
@@ -171,7 +171,7 @@ public class SellerGoodsController extends BusinessController {
 	@RequestLogger("删除商品")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/del-batch")
-	public Result<Void> deleteBatch( @RequestBody IdsCommand idsCommand) {
+	public Result<Void> deleteBatch(@Valid @RequestBody IdsCommand idsCommand) {
 //		return Result.success(goodsService.deleteGoods(goodsIds));
 		return Result.success();
 	}
@@ -180,7 +180,7 @@ public class SellerGoodsController extends BusinessController {
 	@RequestLogger("设置商品运费模板")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/freight")
-	public Result<Void> freight( @RequestBody FreightGoodsCommand freightCommand) {
+	public Result<Void> freight(@Valid @RequestBody FreightGoodsCommand freightCommand) {
 //		return Result.success(goodsService.freight(goodsId, templateId));
 		return Result.success();
 	}
@@ -189,7 +189,7 @@ public class SellerGoodsController extends BusinessController {
 	@RequestLogger("根据goodsId分页获取商品规格列表")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/sku-list")
-	public Result<List<GoodsSkuSpecGalleryResult>> getSkuByList( GoodsIdQuery goodsIdQuery ) {
+	public Result<List<GoodsSkuSpecGalleryResult>> getSkuByList( @Valid GoodsIdQuery goodsIdQuery ) {
 		List<GoodsSkuResult> skuResults = goodsSkuQueryService.queryGoodsListByGoodsId(goodsIdQuery.goodsId());
 		// 转换为 GoodsSkuSpecGalleryResult（此处需要根据实际转换逻辑补充）
 		return Result.success(List.of());
@@ -199,7 +199,7 @@ public class SellerGoodsController extends BusinessController {
 	@RequestLogger("修改商品库存")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/update-stocks")
-	public Result<Void> updateStocks( @RequestBody List<UpdateGoodsSkuStockCommand> updateStockList ) {
+	public Result<Void> updateStocks( @Valid @RequestBody List<UpdateGoodsSkuStockCommand> updateStockList ) {
 //		Long storeId = SecurityUtils.getCurrentUser().getStoreId();
 //		// 获取商品skuId集合
 //		List<Long> goodsSkuIds =
@@ -222,7 +222,7 @@ public class SellerGoodsController extends BusinessController {
 	@RequestLogger("冻结商品库存")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/freeze-stocks")
-	public Result<Void> freezeStocks( @RequestBody List<UpdateGoodsSkuStockCommand> updateStockList ) {
+	public Result<Void> freezeStocks( @Valid @RequestBody List<UpdateGoodsSkuStockCommand> updateStockList ) {
 		return Result.success();
 	}
 
@@ -230,7 +230,7 @@ public class SellerGoodsController extends BusinessController {
 	@RequestLogger("解冻商品库存")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/unfreeze-stocks")
-	public Result<Void> unfreezeStocks( @RequestBody List<UpdateGoodsSkuStockCommand> updateStockList ) {
+	public Result<Void> unfreezeStocks( @Valid @RequestBody List<UpdateGoodsSkuStockCommand> updateStockList ) {
 		return Result.success();
 	}
 
@@ -239,7 +239,7 @@ public class SellerGoodsController extends BusinessController {
 	@RequestLogger("扣减商品库存")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/deduct-stocks")
-	public Result<Void> deductStocks( @RequestBody List<UpdateGoodsSkuStockCommand> updateStockList ) {
+	public Result<Void> deductStocks( @Valid @RequestBody List<UpdateGoodsSkuStockCommand> updateStockList ) {
 		return Result.success();
 	}
 
@@ -248,7 +248,7 @@ public class SellerGoodsController extends BusinessController {
 	@RequestLogger("恢复商品库存")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/restore-stocks")
-	public Result<Void> restoreStocks( @RequestBody List<UpdateGoodsSkuStockCommand> updateStockList ) {
+	public Result<Void> restoreStocks( @Valid @RequestBody List<UpdateGoodsSkuStockCommand> updateStockList ) {
 		return Result.success();
 	}
 }
