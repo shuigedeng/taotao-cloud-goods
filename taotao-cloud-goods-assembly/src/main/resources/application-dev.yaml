@@ -597,6 +597,8 @@ spring:
           allow_jdbc_metadata_access: true
   data:
     redis:
+      repositories:
+        enabled: false
       host: ${remote-ip}
       port: 6379
       database: 1
