@@ -26,7 +26,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 草稿商品DTO
+ * 草稿商品Command
  */
 @RecordBuilder
 public record SaveDraftGoodsSkuParamsCommand(
@@ -44,6 +44,6 @@ public record SaveDraftGoodsSkuParamsCommand(
 
 	// @Valid
 	// @Schema(description = "商品参数")
-	// private List<GoodsParamsDTO> goodsParamsDTOList;
+	// private List<GoodsParamsCommand> goodsParamsCommandList;
 
 }

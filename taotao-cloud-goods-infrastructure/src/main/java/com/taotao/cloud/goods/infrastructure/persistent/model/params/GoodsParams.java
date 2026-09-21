@@ -14,19 +14,22 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.application.adapter.repository;
+package com.taotao.cloud.goods.infrastructure.persistent.model.params;
 
-import com.taotao.boot.common.model.result.PageResult;
-import com.taotao.cloud.goods.application.dto.brand.query.BrandPageQuery;
-import com.taotao.cloud.goods.application.dto.brand.result.BrandResult;
+import lombok.*;
 
-import java.util.List;
+/**
+ * GoodsParam
+ *
+ * @author shuigedeng
+ * @version 2026.04
+ * @since 2025-12-19 09:30:45
+ */
+@Setter
+@Getter
+@ToString
+public class GoodsParams {
 
-public interface BrandQueryRepository {
-
-    BrandResult queryById(Long id);
-
-	List<BrandResult> queryAllAvailable();
-
-	PageResult<BrandResult> queryPage(BrandPageQuery page);
+    private String name;
+    private String id;
 }

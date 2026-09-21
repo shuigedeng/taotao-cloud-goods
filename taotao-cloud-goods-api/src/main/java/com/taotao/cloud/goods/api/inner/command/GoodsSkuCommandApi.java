@@ -46,7 +46,7 @@ public interface GoodsSkuCommandApi {
 	 *
 	 * @return Response<EmptyResponse>
 	 */
-	@PostExchange(value = "/product/updateGoodsStuck")
+	@PostExchange(value = "/inner/goods/sku/command/updateGoodsStuck")
 	Response<EmptyResponse> updateGoodsStuck(
 		 @RequestBody Request<BatchRequest<GoodsSkuSpecGalleryApiCommand>> request );
 
@@ -55,7 +55,7 @@ public interface GoodsSkuCommandApi {
 	 *
 	 * @return Response<EmptyResponse>
 	 */
-	@PostExchange(value = "/product/updateBatchById")
+	@PostExchange(value = "/inner/goods/sku/command/updateBatchById")
 	Response<EmptyResponse> updateBatchById(
 		 @RequestBody Request<BatchRequest<GoodsSkuSpecGalleryApiCommand>> request );
 

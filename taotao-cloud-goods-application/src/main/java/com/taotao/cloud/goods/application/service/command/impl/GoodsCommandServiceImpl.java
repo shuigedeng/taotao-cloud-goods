@@ -59,7 +59,7 @@ public class GoodsCommandServiceImpl implements GoodsCommandService {
 	private final EventDispatcher eventDispatcher;
 	private final MybatisUtil mybatisUtil;
     @Override
-    public void underStoreGoods( StoreIdCommand storeIdCommand) {
+    public void underStoreGoods( UnderGoodsCommand storeIdCommand) {
     }
 
 	@Override
@@ -342,8 +342,8 @@ public class GoodsCommandServiceImpl implements GoodsCommandService {
     //
     //	// 参数非空则填写参数
     //	if (StrUtil.isNotEmpty(goods.getParams())) {
-    //		goodsSkuParamsCO.setGoodsParamsDTOList(JSONUtil.toList(goods.getParams(),
-    // GoodsParamsDTO.class));
+    //		goodsSkuParamsCO.setGoodsParamsCommandList(JSONUtil.toList(goods.getParams(),
+    // GoodsParamsCommand.class));
     //	}
     //
     //	redisRepository.set(CachePrefix.GOODS.getPrefix() + goodsId, goodsSkuParamsCO);

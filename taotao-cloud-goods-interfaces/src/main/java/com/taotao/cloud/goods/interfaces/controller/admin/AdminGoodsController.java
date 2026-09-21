@@ -94,14 +94,15 @@ public class AdminGoodsController extends BusinessController {
 //		return Result.success(MpUtils.convertMpPage(goodsPage, GoodsCO.class));
 		return null;
 	}
+
 	@Operation(summary = "管理员上架商品", description = "管理员上架商品")
 	@RequestLogger("管理员上架商品")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/create")
 	public Result<GoodsResult> create( @Valid @RequestBody CreateGoodsCommand goodsCreateCommand ) {
-		return Result.success(this.goodsCommandService.createGoods(goodsCreateCommand));
+		GoodsResult goodsResult = this.goodsCommandService.createGoods(goodsCreateCommand);
+		return Result.success(goodsResult);
 	}
-
 
 	//@PreAuthorize("hasAuthority('dept:tree:data')")
 	@Operation(summary = "管理员下架商品", description = "管理员下架商品")
@@ -109,9 +110,7 @@ public class AdminGoodsController extends BusinessController {
 	@NotAuth
 	@PostMapping(value = "/command/under")
 	public Result<Void> underGoods( @Valid @RequestBody UnderGoodsCommand underCommand){
-//		return Result.success(
-//			goodsCommandService.managerUpdateGoodsMarketAble(
-//				goodsIds, GoodsStatusEnum.DOWN, reason));
+		goodsCommandService.underStoreGoods(underCommand);
 		return Result.success();
 	}
 
@@ -152,6 +151,7 @@ public class AdminGoodsController extends BusinessController {
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/detail")
 	public Result<GoodsSkuParamsResult> queryDetail(@Valid IdQuery idQuery ) {
-		return Result.success(goodsQueryService.queryDetail(idQuery.getId()));
+		GoodsSkuParamsResult goodsSkuParamsResult = goodsQueryService.queryDetail(idQuery.getId());
+		return Result.success(goodsSkuParamsResult);
 	}
 }

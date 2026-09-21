@@ -17,7 +17,7 @@
 package com.taotao.cloud.goods.application.service.query.impl;
 
 import com.taotao.cloud.goods.application.dto.specification.result.SpecificationResult;
-import com.taotao.cloud.goods.application.adapter.repository.CategorySpecificationQueryRepository;
+import com.taotao.cloud.goods.application.adapter.CategorySpecificationQueryPort;
 import com.taotao.cloud.goods.application.service.query.CategorySpecificationQueryService;
 import jakarta.annotation.Resource;
 import lombok.RequiredArgsConstructor;
@@ -37,11 +37,11 @@ import java.util.List;
 public class CategorySpecificationQueryServiceImpl implements CategorySpecificationQueryService {
 
 	@Resource
-	private CategorySpecificationQueryRepository categorySpecificationQueryRepository;
+	private CategorySpecificationQueryPort categorySpecificationQueryPort;
 
 	@Override
 	public List<SpecificationResult> queryByCategoryId( Long categoryId ) {
-		return categorySpecificationQueryRepository.queryCategorySpecList(categoryId);
+		return categorySpecificationQueryPort.queryCategorySpecList(categoryId);
 	}
 
 	//	@Override

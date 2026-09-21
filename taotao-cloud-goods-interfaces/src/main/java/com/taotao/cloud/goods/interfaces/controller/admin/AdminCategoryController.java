@@ -24,6 +24,7 @@ import com.taotao.boot.webagg.controller.BusinessController;
 import com.taotao.cloud.goods.application.dto.category.command.CreateCategoryCommand;
 import com.taotao.cloud.goods.application.dto.category.command.CategoryTreeCommand;
 import com.taotao.cloud.goods.application.dto.category.command.DisableCommand;
+import com.taotao.cloud.goods.application.dto.category.command.UpdateCategoryCommand;
 import com.taotao.cloud.goods.application.dto.category.query.CategoryTreeQuery;
 import com.taotao.cloud.goods.application.dto.category.result.CategoryResult;
 import com.taotao.cloud.goods.application.dto.category.result.CategoryTreeResult;
@@ -69,10 +70,9 @@ public class AdminCategoryController extends BusinessController {
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/children")
-	public Result<List<CategoryResult>> queryChildrenByParentId(@Valid CategoryTreeQuery parentIdQuery) {
-//		List<CategoryPO> categories = this.categoryQueryService.childrenList(parentId);
-//		return Result.success(CategoryAssembler.INSTANCE.convert(categories));
-		return null;
+	public Result<List<CategoryResult>> queryChildrenByParentId(@Valid CategoryTreeQuery categoryTreeQuery) {
+		List<CategoryResult> results = this.categoryQueryService.childrenList(categoryTreeQuery.parentId());
+		return Result.success(results);
 	}
 
 	@Operation(summary = "查询全部分类列表", description = "查询全部分类列表")
@@ -80,14 +80,15 @@ public class AdminCategoryController extends BusinessController {
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/tree/all")
 	public Result<List<CategoryTreeResult>> queryCategoryTreeResult() {
-		return Result.success(this.categoryQueryService.queryCategoryTreeResult());
+		List<CategoryTreeResult> results = this.categoryQueryService.queryCategoryTreeResult();
+		return Result.success(results);
 	}
 
 	@Operation(summary = "添加商品分类", description = "添加商品分类")
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/create")
-	public Result<Void> create( @Valid @RequestBody CreateCategoryCommand category ) {
+	public Result<Void> create( @Valid @RequestBody CreateCategoryCommand createCategoryCommand ) {
 		//// 非顶级分类
 		// if (category.getParentId() != null && !Long.valueOf(0).equals(category.getParentId())) {
 		//    Category parent = categoryQueryService.getById(category.getParentId());
@@ -98,7 +99,7 @@ public class AdminCategoryController extends BusinessController {
 		//        throw new BusinessException(ResultEnum.CATEGORY_BEYOND_THREE);
 		//    }
 		// }
-		// return Result.success(categoryCommandService.saveCategory(category));
+		categoryCommandService.saveCategory(createCategoryCommand);
 		return Result.success();
 	}
 
@@ -106,12 +107,12 @@ public class AdminCategoryController extends BusinessController {
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/update")
-	public Result<Void> update( @Valid @RequestBody CategoryTreeCommand category ) {
+	public Result<Void> update( @Valid @RequestBody UpdateCategoryCommand updateCategoryCommand ) {
 		// CategoryPO catTemp = categoryQueryService.getById(category.getId());
 		// if (catTemp == null) {
 		//    throw new BusinessException(ResultEnum.CATEGORY_NOT_EXIST);
 		// }
-		// return Result.success(categoryCommandService.updateCategory(catTemp));
+		categoryCommandService.updateCategory(updateCategoryCommand);
 		return Result.success();
 	}
 
@@ -132,7 +133,7 @@ public class AdminCategoryController extends BusinessController {
 		// if (count > 0) {
 		//    throw new BusinessException(ResultEnum.CATEGORY_HAS_GOODS);
 		// }
-		// return Result.success(categoryCommandService.delete(id));
+		categoryCommandService.delete(idCommand.getId());
 		return Result.success();
 	}
 
@@ -145,8 +146,7 @@ public class AdminCategoryController extends BusinessController {
 //		if (category == null) {
 //			throw new BusinessException(ResultEnum.CATEGORY_NOT_EXIST);
 //		}
-//		//return Result.success(categoryCommandService.updateCategoryStatus(id,
-//		enableOperations));
+		categoryCommandService.updateCategoryStatus(disableCommand);
 		return Result.success();
 	}
 }

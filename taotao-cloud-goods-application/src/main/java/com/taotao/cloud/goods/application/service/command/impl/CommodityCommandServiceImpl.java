@@ -115,13 +115,13 @@ public class CommodityCommandServiceImpl implements CommodityCommandService {
     //		// 同步状态
     //		JSONObject json = wechatLivePlayerUtil.getGoodsWareHouse(goodsIdList);
     //		// 修改状态
-    //		List<CommodityDTO> commodityDTOList = JSONUtil.toList((JSONArray) json.get("goods"),
-    //			CommodityDTO.class);
-    //		for (CommodityDTO commodityDTO : commodityDTOList) {
+    //		List<CommodityCommand> commodityCommandList = JSONUtil.toList((JSONArray) json.get("goods"),
+    //			CommodityCommand.class);
+    //		for (CommodityCommand commodityCommand : commodityCommandList) {
     //			// 修改审核状态
     //			this.update(new LambdaUpdateWrapper<CommodityPO>()
-    //				.eq(CommodityPO::getLiveGoodsId, commodityDTO.getGoodsId())
-    //				.set(CommodityPO::getAuditStatus, commodityDTO.getAuditStatus()));
+    //				.eq(CommodityPO::getLiveGoodsId, commodityCommand.getGoodsId())
+    //				.set(CommodityPO::getAuditStatus, commodityCommand.getAuditStatus()));
     //		}
     //	}
     //	return true;

@@ -17,6 +17,7 @@
 package com.taotao.cloud.goods.application.service.command;
 
 import com.taotao.boot.ddd.model.application.service.CommandService;
+import com.taotao.cloud.goods.application.dto.category.command.AssignCategoryBrandsCommand;
 import com.taotao.cloud.goods.application.dto.category.command.CategoryIdBrandCommand;
 import com.taotao.cloud.goods.application.dto.category.command.CategoryIdCommand;
 
@@ -43,9 +44,9 @@ public interface CategoryBrandCommandService extends CommandService {
     /**
      * 保存分类品牌关系
      *
-     * @param categoryIdBrandCommand 分类id
+     * @param assignCategoryBrandsCommand 分类id
      * @return {@link boolean }
      * @since 2022-04-27 16:59:19
      */
-    boolean saveCategoryBrandList( CategoryIdBrandCommand categoryIdBrandCommand );
+    boolean saveCategoryBrandList( AssignCategoryBrandsCommand assignCategoryBrandsCommand );
 }

@@ -133,8 +133,8 @@ public class SellerGoodsController extends BusinessController {
 	@RequestLogger("新增商品")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/create")
-	public Result<Void> create(@Valid @RequestBody GoodsOperationCommand goodsOperationDTO ) {
-//		return Result.success(goodsService.addGoods(goodsOperationDTO));
+	public Result<Void> create(@Valid @RequestBody GoodsOperationCommand goodsOperationCommand ) {
+//		return Result.success(goodsService.addGoods(goodsOperationCommand));
 		return Result.success();
 	}
 
@@ -142,8 +142,8 @@ public class SellerGoodsController extends BusinessController {
 	@RequestLogger("修改商品")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/update")
-	public Result<Void> update( @Valid @RequestBody GoodsOperationCommand goodsOperationDTO ) {
-//		return Result.success(goodsService.editGoods(goodsOperationDTO, goodsId));
+	public Result<Void> update( @Valid @RequestBody GoodsOperationCommand goodsOperationCommand ) {
+//		return Result.success(goodsService.editGoods(goodsOperationCommand, goodsId));
 		return Result.success();
 	}
 
@@ -203,7 +203,7 @@ public class SellerGoodsController extends BusinessController {
 //		Long storeId = SecurityUtils.getCurrentUser().getStoreId();
 //		// 获取商品skuId集合
 //		List<Long> goodsSkuIds =
-//			updateStockList.stream().map(GoodsSkuStockDTO::getSkuId).toList();
+//			updateStockList.stream().map(GoodsSkuStockCommand::getSkuId).toList();
 //		// 根据skuId集合查询商品信息
 //		List<GoodsSku> goodsSkuList = goodsSkuService.list(new LambdaQueryWrapper<GoodsSku>()
 //			.in(GoodsSku::getId, goodsSkuIds)
@@ -211,7 +211,7 @@ public class SellerGoodsController extends BusinessController {
 //		// 过滤不符合当前店铺的商品
 //		List<Long> filterGoodsSkuIds =
 //			goodsSkuList.stream().map(GoodsSku::getId).toList();
-//		List<GoodsSkuStockDTO> collect = updateStockList.stream()
+//		List<GoodsSkuStockCommand> collect = updateStockList.stream()
 //			.filter(i -> filterGoodsSkuIds.contains(i.getSkuId()))
 //			.toList();
 //		return Result.success(goodsSkuService.updateStocks(collect));
@@ -233,7 +233,6 @@ public class SellerGoodsController extends BusinessController {
 	public Result<Void> unfreezeStocks( @Valid @RequestBody List<UpdateGoodsSkuStockCommand> updateStockList ) {
 		return Result.success();
 	}
-
 
 	@Operation(summary = "扣减商品库存", description = "扣减商品库存")
 	@RequestLogger("扣减商品库存")

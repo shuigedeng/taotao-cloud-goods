@@ -47,24 +47,23 @@ import java.util.List;
  * @version 2022.04
  * @since 2022-04-20 16:59:38
  */
-@RequiredArgsConstructor
 @RestController
-@Tag(name = "平台管理端-商品规格API", description = "平台管理端-商品规格API")
+@RequiredArgsConstructor
 @RequestMapping("/admin/goods/spec")
+@Tag(name = "平台管理端-商品规格API", description = "平台管理端-商品规格API")
 public class AdminSpecificationController extends BusinessController {
 
 	private final SpecificationQueryService specificationQueryService;
 
 	private final SpecificationCommandService specificationCommandService;
 
-	@Operation(summary = "获取所有可用规格", description = "获取所有可用规格")
+	@GetMapping("/query/all")
 	@RequestLogger("获取所有可用规格")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@GetMapping("/query/all")
+	@Operation(summary = "获取所有可用规格", description = "获取所有可用规格")
 	public Result<List<SpecificationResult>> queryAll() {
-//		List<SpecificationPO> specifications = specificationQueryService.list();
-//		return Result.success(SpecificationAssembler.INSTANCE.convert(specifications));
-		return null;
+		List<SpecificationResult> specifications = specificationQueryService.queryAll();
+		return Result.success(specifications);
 	}
 
 	@Operation(summary = "搜索规格", description = "搜索规格")
@@ -72,19 +71,16 @@ public class AdminSpecificationController extends BusinessController {
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping("/query/page")
 	public Result<PageResult<SpecificationResult>> queryPage(@Valid SpecificationPageQuery specificationPageQuery ) {
-//		IPage<SpecificationPO> specificationPage =
-//			specificationQueryService.getPage(specificationPageQuery);
-//		return Result.success(MpUtils.convertMpPage(specificationPage,
-//			SpecificationAssembler.INSTANCE::convert));
-		return null;
+		PageResult<SpecificationResult> pageResult = specificationQueryService.queryPage(specificationPageQuery);
+		return Result.success(pageResult);
 	}
 
 	@Operation(summary = "保存规格", description = "保存规格")
 	@RequestLogger("保存规格")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/create")
-	public Result<Void> create(@Valid  @RequestBody CreateSpecificationCommand specificationDTO ) {
-//		SpecificationPO specification = SpecificationAssembler.INSTANCE.convert(specificationDTO);
+	public Result<Void> create(@Valid  @RequestBody CreateSpecificationCommand specificationCommand ) {
+//		SpecificationPO specification = SpecificationAssembler.INSTANCE.convert(specificationCommand);
 //		return Result.success(specificationCommandService.create(specification));
 		return Result.success();
 	}
@@ -93,10 +89,9 @@ public class AdminSpecificationController extends BusinessController {
 	@RequestLogger("更改规格")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/update")
-	public Result<Void> update( @Valid @RequestBody CreateSpecificationCommand specificationDTO ) {
-//		SpecificationPO specification = SpecificationAssembler.INSTANCE.convert(specificationDTO);
+	public Result<Void> update( @Valid @RequestBody CreateSpecificationCommand specificationCommand ) {
+//		SpecificationPO specification = SpecificationAssembler.INSTANCE.convert(specificationCommand);
 //		specification.setId(id);
-//
 //		return Result.success(specificationCommandService.saveOrUpdate(specification));
 		return Result.success();
 	}
@@ -105,7 +100,7 @@ public class AdminSpecificationController extends BusinessController {
 	@RequestLogger("批量删除")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/del-batch")
-	public Result<Void> deleteBatch(@Valid IdsCommand ids ) {
+	public Result<Void> deleteBatch(@Valid @RequestBody IdsCommand ids ) {
 		specificationCommandService.deleteSpecification(ids.getIds());
 		return Result.success();
 	}

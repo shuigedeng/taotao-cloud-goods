@@ -14,27 +14,19 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.facade.assembler;
+package com.taotao.cloud.goods.application.adapter;
 
-import org.mapstruct.Mapper;
-import org.mapstruct.MappingConstants;
-import org.mapstruct.factory.Mappers;
+import com.taotao.boot.common.model.result.PageResult;
+import com.taotao.cloud.goods.application.dto.brand.query.BrandPageQuery;
+import com.taotao.cloud.goods.application.dto.brand.result.BrandResult;
 
-/**
- * 订单门面装配器
- * <p>
- * 负责订单模块 Command 与应用层对象之间的转换
- * </p>
- *
- * @author shuigedeng
- * @version 2022.04
- * @since 2022-04-27 16:58:27
- */
-@Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
-public interface OrderFacadeAssembler {
+import java.util.List;
 
-    /** 实例 */
-    OrderFacadeAssembler INSTANCE = Mappers.getMapper(OrderFacadeAssembler.class);
+public interface BrandQueryPort {
 
+    BrandResult queryDetail(Long id);
 
+	List<BrandResult> queryAllAvailable();
+
+	PageResult<BrandResult> queryPage(BrandPageQuery page);
 }

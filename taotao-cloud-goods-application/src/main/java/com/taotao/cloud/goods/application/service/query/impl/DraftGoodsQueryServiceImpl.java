@@ -66,7 +66,7 @@ public class DraftGoodsQueryServiceImpl implements DraftGoodsQueryService {
     // public boolean addGoodsDraft(DraftGoodsSkuParamsAddCmd draftGoods) {
     //	draftGoods.setGoodsGalleryListJson(JSONUtil.toJsonStr(draftGoods.getGoodsGalleryList()));
     //	draftGoods.setSkuListJson(JSONUtil.toJsonStr(draftGoods.getSkuList()));
-    //	draftGoods.setGoodsParamsListJson(JSONUtil.toJsonStr(draftGoods.getGoodsParamsDTOList()));
+    //	draftGoods.setGoodsParamsListJson(JSONUtil.toJsonStr(draftGoods.getGoodsParamsCommandList()));
     //
     //	return this.save(DraftGoodsConvert.INSTANCE.convert(draftGoods));
     // }
@@ -75,7 +75,7 @@ public class DraftGoodsQueryServiceImpl implements DraftGoodsQueryService {
     // public boolean updateGoodsDraft(DraftGoodsSkuParamsAddCmd draftGoods) {
     //	draftGoods.setGoodsGalleryListJson(JSONUtil.toJsonStr(draftGoods.getGoodsGalleryList()));
     //	draftGoods.setSkuListJson(JSONUtil.toJsonStr(draftGoods.getSkuList()));
-    //	draftGoods.setGoodsParamsListJson(JSONUtil.toJsonStr(draftGoods.getGoodsParamsDTOList()));
+    //	draftGoods.setGoodsParamsListJson(JSONUtil.toJsonStr(draftGoods.getGoodsParamsCommandList()));
     //
     //	DraftGoodsPO draftGoodsPO1 = DraftGoodsConvert.INSTANCE.convert(draftGoods);
     //	// todo 此处需要修改
@@ -96,7 +96,7 @@ public class DraftGoodsQueryServiceImpl implements DraftGoodsQueryService {
     //	}
     //	draftGoods.setGoodsGalleryListJson(JSONUtil.toJsonStr(draftGoods.getGoodsGalleryList()));
     //	draftGoods.setSkuListJson(JSONUtil.toJsonStr(this.getGoodsSkuList(draftGoods.getSkuList())));
-    //	draftGoods.setGoodsParamsListJson(JSONUtil.toJsonStr(draftGoods.getGoodsParamsDTOList()));
+    //	draftGoods.setGoodsParamsListJson(JSONUtil.toJsonStr(draftGoods.getGoodsParamsCommandList()));
     //
     //	return this.saveOrUpdate(DraftGoodsConvert.INSTANCE.convert(draftGoods));
     // }
@@ -120,7 +120,7 @@ public class DraftGoodsQueryServiceImpl implements DraftGoodsQueryService {
     //		categoryName.add(category.getName());
     //	}
     //	draftGoodsSkuParamsCO.setCategoryName(categoryName);
-    //	draftGoodsSkuParamsCO.setGoodsParamsDTOList(
+    //	draftGoodsSkuParamsCO.setGoodsParamsCommandList(
     //		JSONUtil.toList(JSONUtil.parseArray(draftGoodsPO.getGoodsParamsListJson()),
     // GoodsParamsAddCmd.class));
     //	draftGoodsSkuParamsCO.setGoodsGalleryList(

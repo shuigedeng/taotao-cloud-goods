@@ -49,9 +49,9 @@ public interface ParametersInfraAssembler extends MarkerAssembler {
     /// **
     // * 参数dtoto参数
     // *
-    // * @param parametersDTO 参数dto
+    // * @param parametersCommand 参数dto
     // * @return {@link Parameters }
     // * @since 2022-04-27 16:58:27
     // */
-    // Parameters convert(ParametersDTO parametersDTO);
+    // Parameters convert(ParametersCommand parametersCommand);
 }

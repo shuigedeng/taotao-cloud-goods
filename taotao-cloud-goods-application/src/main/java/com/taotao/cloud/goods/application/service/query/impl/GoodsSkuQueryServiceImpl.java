@@ -115,7 +115,7 @@ public class GoodsSkuQueryServiceImpl implements GoodsSkuQueryService {
     //	}
     //
     //	@Override
-    //	public IPage<GoodsSkuSearchQry> getGoodsSkuDTOByPage(Page<GoodsSkuSearchQry> page,
+    //	public IPage<GoodsSkuSearchQry> getGoodsSkuCommandByPage(Page<GoodsSkuSearchQry> page,
     // Wrapper<GoodsSkuSearchQry>
     // queryWrapper) {
     //		return null;
@@ -330,7 +330,7 @@ public class GoodsSkuQueryServiceImpl implements GoodsSkuQueryService {
     //	EsGoodsIndex goodsIndex = goodsIndexService.findById(skuId);
     //	if (goodsIndex == null) {
     //		goodsIndex = goodsIndexService.getResetEsGoodsIndex(goodsSkuPO,
-    //			goodsSkuParamsCO.getGoodsParamsDTOList());
+    //			goodsSkuParamsCO.getGoodsParamsCommandList());
     //	}
     //
     //	// 商品规格
@@ -396,9 +396,9 @@ public class GoodsSkuQueryServiceImpl implements GoodsSkuQueryService {
     //	map.put("promotionMap", promotionMap);
     //
     //	// 获取参数信息
-    //	if (goodsSkuParamsCO.getGoodsParamsDTOList() != null
-    //		&& !goodsSkuParamsCO.getGoodsParamsDTOList().isEmpty()) {
-    //		map.put("goodsParamsDTOList", goodsSkuParamsCO.getGoodsParamsDTOList());
+    //	if (goodsSkuParamsCO.getGoodsParamsCommandList() != null
+    //		&& !goodsSkuParamsCO.getGoodsParamsCommandList().isEmpty()) {
+    //		map.put("goodsParamsCommandList", goodsSkuParamsCO.getGoodsParamsCommandList());
     //	}
     //
     //	// 记录用户足迹

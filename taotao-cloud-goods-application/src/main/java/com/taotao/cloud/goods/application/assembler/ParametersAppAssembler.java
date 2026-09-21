@@ -24,7 +24,7 @@ import org.mapstruct.factory.Mappers;
 /**
  * 参数应用层装配器
  * <p>
- * 负责将参数领域对象转换为应用层DTO，供接口层返回
+ * 负责将参数领域对象转换为应用层Command，供接口层返回
  * </p>
  *
  * @author shuigedeng

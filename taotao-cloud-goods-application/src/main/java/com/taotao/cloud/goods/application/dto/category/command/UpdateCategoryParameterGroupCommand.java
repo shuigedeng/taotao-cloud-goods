@@ -14,25 +14,23 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.infrastructure.persistent.model.params;
+package com.taotao.cloud.goods.application.dto.category.command;
 
-import com.taotao.boot.common.model.ddd.query.PageQuery;
-import lombok.*;
-import lombok.EqualsAndHashCode;
+import com.taotao.boot.common.model.ddd.types.Command;
+import io.soabase.recordbuilder.core.RecordBuilder;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 /**
- * BrandPageParam
+ * CategoryParameterGroupAddCommand
  *
  * @author shuigedeng
  * @version 2026.04
  * @since 2025-12-19 09:30:45
  */
-@Setter
-@Getter
-@ToString
-public class BrandPageParam extends PageQuery {
+@RecordBuilder
+@Schema(description = "分类品牌CO")
+public record UpdateCategoryParameterGroupCommand(
+	String id) implements Command {
 
-    // 品牌名称
-    private String name;
 
 }

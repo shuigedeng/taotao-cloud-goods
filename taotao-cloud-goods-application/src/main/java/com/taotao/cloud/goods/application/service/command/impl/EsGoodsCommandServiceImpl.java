@@ -95,7 +95,7 @@ public class EsGoodsCommandServiceImpl implements EsGoodsCommandService {
     //
     //		ThreadUtil.execAsync(() -> {
     //			try {
-    //				QueryWrapper<GoodsSkuDTO> skuQueryWrapper = new QueryWrapper<>();
+    //				QueryWrapper<GoodsSkuCommand> skuQueryWrapper = new QueryWrapper<>();
     //				skuQueryWrapper.eq("gs.auth_flag", GoodsAuthEnum.PASS.name());
     //				skuQueryWrapper.eq("gs.market_enable", GoodsStatusEnum.UPPER.name());
     //				skuQueryWrapper.eq("gs.delete_flag", false);
@@ -120,16 +120,16 @@ public class EsGoodsCommandServiceImpl implements EsGoodsCommandService {
     //
     //				for (int i = 1; ; i++) {
     //					List<EsGoodsIndex> esGoodsIndices = new ArrayList<>();
-    //					Page<GoodsSkuDTO> skuPage = new Page<>(i, 2000);
-    //					IPage<GoodsSkuDTO> skuIPage = goodsSkuService.getGoodsSkuDTOByPage(skuPage,
+    //					Page<GoodsSkuCommand> skuPage = new Page<>(i, 2000);
+    //					IPage<GoodsSkuCommand> skuIPage = goodsSkuService.getGoodsSkuCommandByPage(skuPage,
     // skuQueryWrapper);
     //
     //					if (skuIPage == null || CollUtil.isEmpty(skuIPage.getRecords())) {
     //						break;
     //					}
-    //					List<GoodsSkuDTO> skus = skuIPage.getRecords();
-    //					List<String> categories = skus.stream().map(GoodsSkuDTO::getCategoryPath).toList();
-    //					List<String> skuIds = skus.stream().map(GoodsSkuDTO::getId).toList();
+    //					List<GoodsSkuCommand> skus = skuIPage.getRecords();
+    //					List<String> categories = skus.stream().map(GoodsSkuCommand::getCategoryPath).toList();
+    //					List<String> skuIds = skus.stream().map(GoodsSkuCommand::getId).toList();
     //					List<PromotionGoodsCO> skuValidPromotions =
     // promotionGoodsApi.findSkuValidPromotions(categories, skuIds);
     //
@@ -137,16 +137,16 @@ public class EsGoodsCommandServiceImpl implements EsGoodsCommandService {
     //					List<String> categoryPaths = new ArrayList<>();
     //					List<String> storeCategoryPaths = new ArrayList<>();
     //
-    //					for (GoodsSkuDTO goodsSkuDTO : skuIPage.getRecords()) {
-    //						if (CharSequenceUtil.isNotEmpty(goodsSkuDTO.getBrandId())) {
-    //							brandIds.add(goodsSkuDTO.getBrandId());
+    //					for (GoodsSkuCommand goodsSkuCommand : skuIPage.getRecords()) {
+    //						if (CharSequenceUtil.isNotEmpty(goodsSkuCommand.getBrandId())) {
+    //							brandIds.add(goodsSkuCommand.getBrandId());
     //						}
-    //						if (CharSequenceUtil.isNotEmpty(goodsSkuDTO.getStoreCategoryPath())) {
+    //						if (CharSequenceUtil.isNotEmpty(goodsSkuCommand.getStoreCategoryPath())) {
     //
-    //	storeCategoryPaths.addAll(Arrays.asList(goodsSkuDTO.getStoreCategoryPath().split(",")));
+    //	storeCategoryPaths.addAll(Arrays.asList(goodsSkuCommand.getStoreCategoryPath().split(",")));
     //						}
-    //						if (CharSequenceUtil.isNotEmpty((goodsSkuDTO.getCategoryPath()))) {
-    //							categoryPaths.addAll(Arrays.asList(goodsSkuDTO.getCategoryPath().split(",")));
+    //						if (CharSequenceUtil.isNotEmpty((goodsSkuCommand.getCategoryPath()))) {
+    //							categoryPaths.addAll(Arrays.asList(goodsSkuCommand.getCategoryPath().split(",")));
     //						}
     //					}
     //
@@ -167,7 +167,7 @@ public class EsGoodsCommandServiceImpl implements EsGoodsCommandService {
     // "id,label_name");
     //					}
     //
-    //					for (GoodsSkuDTO goodsSku : skuIPage.getRecords()) {
+    //					for (GoodsSkuCommand goodsSku : skuIPage.getRecords()) {
     //						int skuSource = 100;
     //						EsGoodsIndex esGoodsIndex = wrapperEsGoodsIndex(goodsSku, brandList, categoryList,
     // storeCategoryList);
@@ -571,18 +571,18 @@ public class EsGoodsCommandServiceImpl implements EsGoodsCommandService {
     //			PageCO pageCO = new PageCO();
     //			pageCO.setPageNumber(i);
     //			pageCO.setPageSize(1000);
-    //			EsGoodsSearchDTO searchDTO = new EsGoodsSearchDTO();
+    //			EsGoodsSearchCommand searchCommand = new EsGoodsSearchCommand();
     //			if (PromotionTools.isPromotionsTypeNeedsToChecked(key)) {
-    //				searchDTO.setSalesModel(GoodsSalesModeEnum.RETAIL.name());
+    //				searchCommand.setSalesModel(GoodsSalesModeEnum.RETAIL.name());
     //			}
     //			// 如果storeId不为空，则表示是店铺活动
     //			if (promotion.getStoreId() != null &&
     // !promotion.getStoreId().equals(PromotionTools.PLATFORM_ID)) {
-    //				searchDTO.setStoreId(promotion.getStoreId());
+    //				searchCommand.setStoreId(promotion.getStoreId());
     //			}
     //
     //			// 查询出店铺商品
-    //			SearchPage<EsGoodsIndex> esGoodsIndices = goodsSearchService.searchGoods(searchDTO,
+    //			SearchPage<EsGoodsIndex> esGoodsIndices = goodsSearchService.searchGoods(searchCommand,
     // pageCO);
     //
     //			skuIds = esGoodsIndices.isEmpty() ? new ArrayList<>() :
@@ -754,13 +754,13 @@ public class EsGoodsCommandServiceImpl implements EsGoodsCommandService {
     //	 * 获取重置的商品索引
     //	 *
     //	 * @param goodsSku       商品sku信息
-    //	 * @param goodsParamDTOS 商品参数
+    //	 * @param goodsParamCommandS 商品参数
     //	 * @return 商品索引
     //	 */
     //	@Override
-    //	public EsGoodsIndex getResetEsGoodsIndex(GoodsSku goodsSku, List<GoodsParamsDTO>
-    // goodsParamDTOS) {
-    //		EsGoodsIndex index = new EsGoodsIndex(goodsSku, goodsParamDTOS);
+    //	public EsGoodsIndex getResetEsGoodsIndex(GoodsSku goodsSku, List<GoodsParamsCommand>
+    // goodsParamCommandS) {
+    //		EsGoodsIndex index = new EsGoodsIndex(goodsSku, goodsParamCommandS);
     //		// 获取活动信息
     //		Map<String, Object> goodsCurrentPromotionMap =
     // promotionApi.getGoodsSkuPromotionMap(index.getStoreId(),
@@ -885,16 +885,16 @@ public class EsGoodsCommandServiceImpl implements EsGoodsCommandService {
     //		return elasticsearchProperties.getIndexPrefix() + "_" + EsSuffix.GOODS_INDEX_NAME;
     //	}
     //
-    //	private EsGoodsIndex wrapperEsGoodsIndex(GoodsSkuDTO goodsSku, List<Map<String, Object>>
+    //	private EsGoodsIndex wrapperEsGoodsIndex(GoodsSkuCommand goodsSku, List<Map<String, Object>>
     // brandList,
     // List<Map<String, Object>> categoryList, List<Map<String, Object>> storeCategoryList) {
     //		EsGoodsIndex index = new EsGoodsIndex(goodsSku);
     //
     //		// 商品参数索引
     //		if (CharSequenceUtil.isNotEmpty(goodsSku.getParams())) {
-    //			List<GoodsParamsDTO> goodsParamDTOS = JSONUtil.toList(goodsSku.getParams(),
-    // GoodsParamsDTO.class);
-    //			index = new EsGoodsIndex(goodsSku, goodsParamDTOS);
+    //			List<GoodsParamsCommand> goodsParamCommandS = JSONUtil.toList(goodsSku.getParams(),
+    // GoodsParamsCommand.class);
+    //			index = new EsGoodsIndex(goodsSku, goodsParamCommandS);
     //		}
     //		// 商品分类索引
     //		if (CollUtil.isNotEmpty(categoryList) &&

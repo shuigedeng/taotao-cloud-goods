@@ -36,7 +36,7 @@ public interface StoreGoodsLabelCommandApi {
 	 *
 	 * @return Response<BatchResponse<StoreGoodsLabelCommandApiResponse>>
 	 */
-	@PostExchange(value = "/store/create")
+	@PostExchange(value = "/inner/goods/command/store/create")
 	Response<BatchResponse<StoreGoodsLabelApiResponse>> createGoods(
 		 @RequestBody Request<GoodsApiCommand> request );
 }

@@ -3,10 +3,11 @@ package com.taotao.cloud.goods.common.enums;
 import static com.taotao.cloud.goods.common.constant.GoodsConstants.CATEGORY_CODE;
 import static com.taotao.cloud.goods.common.constant.GoodsConstants.SYSTEM_CODE;
 
+import com.taotao.boot.common.enums.base.CodeEnum;
 import com.taotao.boot.common.enums.base.CommonEnum;
 import com.taotao.boot.common.model.Code;
 
-public enum ErrorCodeEnum implements CommonEnum {
+public enum ErrorCodeEnum implements CodeEnum {
 
 	NOTICE_NOT_EXIST(code("514001"), "当前消息模板不存在"),
 	NOTICE_ERROR(code("514002"), "修改站内信异常，请稍后重试"),
@@ -39,30 +40,24 @@ public enum ErrorCodeEnum implements CommonEnum {
 		this.desc = desc;
 	}
 
-	;
 
-	/**
-	 * 编码
-	 *
-	 * @return 编码
-	 * @since 2022.03
-	 */
-	public Code code() {
+	@Override
+	public Code coder() {
 		return code;
 	}
 
 	@Override
-	public int getCode() {
-		return code.hashCode();
-	}
-
-	@Override
-	public String codeDesc() {
+	public String code() {
 		return code.getCode();
 	}
 
 	@Override
-	public String getDesc() {
+	public String desc() {
 		return desc;
+	}
+
+	@Override
+	public String value() {
+		return "";
 	}
 }

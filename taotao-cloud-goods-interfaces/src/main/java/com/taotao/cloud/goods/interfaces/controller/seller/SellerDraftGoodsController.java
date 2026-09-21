@@ -82,15 +82,15 @@ public class SellerDraftGoodsController extends BusinessController {
 	@RequestLogger("保存草稿商品")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/create")
-	public Result<Void> create(@Valid @RequestBody SaveDraftGoodsSkuParamsCommand draftGoodsSkuParamsDTO ) {
+	public Result<Void> create(@Valid @RequestBody SaveDraftGoodsSkuParamsCommand draftGoodsSkuParamsCommand ) {
 //        Long storeId = SecurityUtils.getCurrentUser().getStoreId();
-//        if (draftGoodsSkuParamsDTO.getStoreId() == null) {
-//            draftGoodsSkuParamsDTO.setStoreId(storeId);
-//        } else if (draftGoodsSkuParamsDTO.getStoreId() != null
-//                && !storeId.equals(draftGoodsSkuParamsDTO.getStoreId())) {
+//        if (draftGoodsSkuParamsCommand.getStoreId() == null) {
+//            draftGoodsSkuParamsCommand.setStoreId(storeId);
+//        } else if (draftGoodsSkuParamsCommand.getStoreId() != null
+//                && !storeId.equals(draftGoodsSkuParamsCommand.getStoreId())) {
 //            throw new BusinessException(ResultEnum.USER_AUTHORITY_ERROR);
 //        }
-//        return Result.success(draftGoodsService.saveGoodsDraft(draftGoodsSkuParamsDTO));
+//        return Result.success(draftGoodsService.saveGoodsDraft(draftGoodsSkuParamsCommand));
 		return Result.success();
 	}
 

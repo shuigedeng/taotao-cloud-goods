@@ -75,17 +75,16 @@ public class AdminCategorySpecificationController extends BusinessController {
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/goods/category-id")
 	public Result<List<SpecificationResult>> getSpec( @Valid CategoryIdQuery categoryIdQuery) {
-//		return Result.success(specificationQueryService.list());
-		return null;
+		List<SpecificationResult> specificationResults = categorySpecificationQueryService.queryByCategoryId(categoryIdQuery.categoryId());
+		return Result.success(specificationResults);
 	}
 
 	@Operation(summary = "保存某分类下绑定的规格信息", description = "保存某分类下绑定的规格信息")
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/create")
-	public Result<Void> create( @Valid @RequestBody AssignCategorySpecCommand categorySpecs ) {
-//		return Result.success(
-//			specificationCommandService.saveCategoryBrand(categoryId, categorySpecs));
+	public Result<Void> create( @Valid @RequestBody AssignCategorySpecCommand assignCategorySpecCommand ) {
+		specificationCommandService.saveCategoryBrand(assignCategorySpecCommand);
 		return Result.success();
 	}
 }

@@ -48,7 +48,6 @@ public class GoodsDomainRepositoryImpl implements GoodsDomainRepository {
     private final GoodsSkuMapper goodsSkuMapper;
     private final GoodsInfraAssembler goodsInfraAssembler;
 
-
 	@Override
     public int save( GoodsAgg goods, boolean skipNull ) {
         GoodsPO goodsPo = goodsInfraAssembler.toPo(goods);
@@ -56,36 +55,8 @@ public class GoodsDomainRepositoryImpl implements GoodsDomainRepository {
     }
 
     @Override
-    public Integer countByIdIn( Collection<BizId> ids ) {
-        return 0;
-    }
-
-    @Override
-    public Boolean existsByCategoryIdIn( Collection<BizId> categoryIds ) {
-        return null;
-    }
-
-    @Override
-    public Boolean existsByIdInAndGoodsStatus( Collection<BizId> goodsIds, GoodsStatusEnum goodsStatus ) {
-        return null;
-    }
-
-    @Override
-    public Boolean existsShelvedGoodsByIdIn( Collection<BizId> goodsIds ) {
-        return null;
-    }
-
-    @Override
-    public void batchModifyGoodsStatus( Collection<BizId> goodsIds, GoodsStatusEnum goodsStatus ) {
-    }
-
-    @Override
     public GoodsAgg findGoodsWithNameById( Long id ) {
         return null;
     }
 
-    @Override
-    public Boolean existsByTagIds( Collection<Long> tagIds ) {
-        return null;
-    }
 }

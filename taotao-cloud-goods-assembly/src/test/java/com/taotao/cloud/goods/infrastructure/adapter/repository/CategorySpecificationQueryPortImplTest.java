@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.infrastructure.adapter.config;
+package com.taotao.cloud.goods.infrastructure.adapter.repository;
 
 import com.taotao.cloud.goods.TaoTaoCloudGoodsApplicationTests;
-import com.taotao.cloud.goods.application.adapter.config.PaymentConfigRepository;
+import com.taotao.cloud.goods.application.adapter.CategorySpecificationQueryPort;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,34 +25,28 @@ import org.springframework.beans.factory.annotation.Autowired;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
- * 支付配置仓储实现集成测试
+ * 商品分类规格查询仓储实现集成测试
  *
  * @author shuigedeng
- * @since 2022-04-27 17:00:00
+ * @version 2022.05
+ * @since 2026/4/12
  */
-@DisplayName("支付配置仓储实现集成测试")
-class PaymentConfigRepositoryImplTest extends TaoTaoCloudGoodsApplicationTests {
+@DisplayName("商品分类规格查询仓储实现集成测试")
+class CategorySpecificationQueryPortImplTest extends TaoTaoCloudGoodsApplicationTests {
 
     @Autowired
-    private PaymentConfigRepository paymentConfigRepository;
+    private CategorySpecificationQueryPort categorySpecificationQueryPort;
 
     @Test
     @DisplayName("仓储可以正常注入")
     void shouldInjectRepository() {
-        assertThat(paymentConfigRepository).isNotNull();
+        assertThat(categorySpecificationQueryPort).isNotNull();
     }
 
     @Test
-    @DisplayName("获取最大重试次数")
-    void shouldGetMaxRetryTimes() {
-        int result = paymentConfigRepository.getMaxRetryTimes();
-        assertThat(result).isGreaterThanOrEqualTo(0);
-    }
-
-    @Test
-    @DisplayName("获取折扣率")
-    void shouldGetDiscountRate() {
-        var result = paymentConfigRepository.getDiscountRate();
+    @DisplayName("查询分类规格列表")
+    void shouldQueryCategorySpecList() {
+        var result = categorySpecificationQueryPort.queryCategorySpecList(1L);
         assertThat(result).isNotNull();
     }
 }

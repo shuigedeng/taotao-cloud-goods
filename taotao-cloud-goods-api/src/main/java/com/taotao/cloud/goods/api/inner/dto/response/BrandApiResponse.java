@@ -26,7 +26,7 @@ import java.io.Serial;
  * 品牌VO
  */
 @RecordBuilder
-@Schema(description = "品牌VO")
+@Schema(description = "品牌响应对象")
 public record BrandApiResponse(
 	@Schema(description = "id")
 	String id,

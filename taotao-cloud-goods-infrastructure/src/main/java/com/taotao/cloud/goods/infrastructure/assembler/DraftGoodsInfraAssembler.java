@@ -37,5 +37,5 @@ public interface DraftGoodsInfraAssembler extends MarkerAssembler {
     /** 实例 */
     DraftGoodsInfraAssembler INSTANCE = Mappers.getMapper(DraftGoodsInfraAssembler.class);
 
-    // DraftGoods convert(DraftGoodsSkuParamsDTO draftGoodsSkuParamsDTO);
+    // DraftGoods convert(DraftGoodsSkuParamsCommand draftGoodsSkuParamsCommand);
 }

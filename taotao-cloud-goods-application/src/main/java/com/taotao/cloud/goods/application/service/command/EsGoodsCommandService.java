@@ -205,8 +205,8 @@ public interface EsGoodsCommandService extends CommandService {
     // * 获取重置的商品索引
     // *
     // * @param goodsSku       商品sku信息
-    // * @param goodsParamDTOS 商品参数
+    // * @param goodsParamCommandS 商品参数
     // * @return 商品索引
     // */
-    // EsGoodsIndex getResetEsGoodsIndex(GoodsSku goodsSku, List<GoodsParamsDTO> goodsParamDTOS);
+    // EsGoodsIndex getResetEsGoodsIndex(GoodsSku goodsSku, List<GoodsParamsCommand> goodsParamCommandS);
 }

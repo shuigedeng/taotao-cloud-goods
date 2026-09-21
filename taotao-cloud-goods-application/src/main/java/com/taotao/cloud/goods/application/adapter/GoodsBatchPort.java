@@ -14,24 +14,26 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.application.adapter.repository;
+package com.taotao.cloud.goods.application.adapter;
 
 import com.taotao.boot.common.model.result.PageResult;
-import com.taotao.cloud.goods.application.dto.brand.result.BrandResult;
+import com.taotao.boot.ddd.model.val.BizId;
 import com.taotao.cloud.goods.application.dto.goods.query.GoodsPageQuery;
 import com.taotao.cloud.goods.application.dto.goods.result.GoodsResult;
+import com.taotao.cloud.goods.domain.valobj.GoodsStatusEnum;
 
+import java.util.Collection;
 import java.util.List;
 
-public interface GoodsQueryRepository {
+public interface GoodsBatchPort {
 
-	PageResult<GoodsResult> queryGoodsPage( GoodsPageQuery goodsPageQuery );
+	/**
+	 * 批量更新商品状态
+	 *
+	 * @param goodsIds    商品ID列表
+	 * @param goodsStatus 商品状态
+	 */
+	void batchModifyGoodsStatus(Collection<Long> goodsIds, GoodsStatusEnum goodsStatus);
 
-	PageResult<GoodsResult> queryMutilTalbePage( GoodsPageQuery goodsPageQuery );
 
-	List<GoodsResult> queryByBrandIds( List<Long> brandIds );
-
-	GoodsResult queryById( Long goodsId );
-
-	Long queryCountStoreGoodsNum( Long storeId );
 }

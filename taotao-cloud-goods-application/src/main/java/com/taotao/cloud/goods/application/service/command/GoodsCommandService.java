@@ -40,7 +40,7 @@ public interface GoodsCommandService extends CommandService {
      * @param storeIdCommand 店铺ID
      * @since 2022-04-27 17:00:15
      */
-    void underStoreGoods( StoreIdCommand storeIdCommand);
+    void underStoreGoods( UnderGoodsCommand storeIdCommand);
 
     /**
      * 更新商品参数

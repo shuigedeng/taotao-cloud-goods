@@ -61,7 +61,7 @@ public class ParametersCommandServiceImpl implements ParametersCommandService {
     //					.filter(i -> i.getGroupId() != null && i.getGroupId()
     //						.equals(parametersPO.groupId()))
     //					.toList();
-    //				this.setGoodsItemDTOList(goodsParamsAddCmdList, parametersPO);
+    //				this.setGoodsItemCommandList(goodsParamsAddCmdList, parametersPO);
     //				this.goodsService.updateGoodsParams(
     //					Convert.toLong(goods.get("id")), JSONUtil.toJsonStr(goodsParamsAddCmds));
     //				goodsIds.add(goods.get("id").toString());
@@ -86,7 +86,7 @@ public class ParametersCommandServiceImpl implements ParametersCommandService {
     //	 * @param goodsParamsAddCmdList 商品参数项列表
     //	 * @param parametersPO          参数信息
     //	 */
-    //	private void setGoodsItemDTOList(List<GoodsParamsAddCmd> goodsParamsAddCmdList,
+    //	private void setGoodsItemCommandList(List<GoodsParamsAddCmd> goodsParamsAddCmdList,
     //									 ParametersPO parametersPO) {
     //		for (GoodsParamsAddCmd goodsParamsAddCmd : goodsParamsAddCmdList) {
     //			List<GoodsParamsItemAddCmd> goodsParamsItemAddCmdList =
@@ -95,7 +95,7 @@ public class ParametersCommandServiceImpl implements ParametersCommandService {
     //				.filter(i -> i.paramId() != null && i.paramId().equals(parametersPO.getId()))
     //				.toList();
     //			for (GoodsParamsItemAddCmd goodsParamsItemAddCmd : goodsParamsItemAddCmdList) {
-    //				this.setGoodsItemDTO(goodsParamsItemAddCmd, parametersPO);
+    //				this.setGoodsItemCommand(goodsParamsItemAddCmd, parametersPO);
     //			}
     //		}
     //	}
@@ -106,7 +106,7 @@ public class ParametersCommandServiceImpl implements ParametersCommandService {
     //	 * @param goodsParamsItemAddCmd 商品参数项信息
     //	 * @param parametersPO          参数信息
     //	 */
-    //	private void setGoodsItemDTO(GoodsParamsItemAddCmd goodsParamsItemAddCmd, ParametersPO
+    //	private void setGoodsItemCommand(GoodsParamsItemAddCmd goodsParamsItemAddCmd, ParametersPO
     // parametersPO) {
     //		if (goodsParamsItemAddCmd.paramId().equals(parametersPO.getId())) {
     //			goodsParamsItemAddCmd.paramId(parametersPO.getId());

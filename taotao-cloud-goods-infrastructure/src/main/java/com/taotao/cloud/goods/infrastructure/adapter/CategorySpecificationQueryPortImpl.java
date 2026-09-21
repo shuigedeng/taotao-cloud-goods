@@ -1,7 +1,7 @@
-package com.taotao.cloud.goods.infrastructure.adapter.repository;
+package com.taotao.cloud.goods.infrastructure.adapter;
 
 import com.taotao.cloud.goods.application.dto.specification.result.SpecificationResult;
-import com.taotao.cloud.goods.application.adapter.repository.CategorySpecificationQueryRepository;
+import com.taotao.cloud.goods.application.adapter.CategorySpecificationQueryPort;
 import com.taotao.cloud.goods.infrastructure.assembler.SpecificationInfraAssembler;
 import com.taotao.cloud.goods.infrastructure.persistent.mapper.CategorySpecificationMapper;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.SpecificationPO;
@@ -22,7 +22,7 @@ import java.util.List;
  */
 @Service
 @RequiredArgsConstructor
-public class CategorySpecificationQueryRepositoryImpl implements CategorySpecificationQueryRepository {
+public class CategorySpecificationQueryPortImpl implements CategorySpecificationQueryPort {
 
 	private final CategorySpecificationMapper categorySpecificationMapper;
 	private final SpecificationInfraAssembler specificationInfraAssembler;

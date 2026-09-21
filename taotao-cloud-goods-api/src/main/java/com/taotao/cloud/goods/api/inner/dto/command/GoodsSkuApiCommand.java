@@ -35,7 +35,7 @@ import java.math.BigDecimal;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
-@Schema(description = "商品sku基础VO")
+@Schema(description = "商品sku基础响应对象")
 public class GoodsSkuApiCommand implements Command {
 
     @Serial

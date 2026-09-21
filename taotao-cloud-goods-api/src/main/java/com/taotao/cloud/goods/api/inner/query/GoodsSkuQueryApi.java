@@ -47,7 +47,7 @@ public interface GoodsSkuQueryApi {
 	 *
 	 * @return Response<BatchResponse<GoodsSkuSpecGalleryCommandApiResponse>>
 	 */
-	@PostExchange(value = "/product/getGoodsSkuByIdFromCache/sku-ids")
+	@PostExchange(value = "/inner/goods/getGoodsSkuByIdFromCache/sku-ids")
 	Response<BatchResponse<GoodsSkuSpecGalleryApiResponse>> getGoodsSkuByIdFromCache(
 		 @RequestBody Request<GoodsApiCommand> request );
 
@@ -56,7 +56,7 @@ public interface GoodsSkuQueryApi {
 	 *
 	 * @return Response<CategoryCommandApiResponse>
 	 */
-	@PostExchange(value = "/product/getStock")
+	@PostExchange(value = "/inner/goods/category/query/getStock")
 	Response<CategoryApiResponse> getStock(
 		 @RequestBody Request<GoodsApiCommand> request );
 }

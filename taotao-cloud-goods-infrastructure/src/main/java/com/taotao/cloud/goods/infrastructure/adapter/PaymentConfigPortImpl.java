@@ -1,6 +1,6 @@
-package com.taotao.cloud.goods.infrastructure.adapter.config;
+package com.taotao.cloud.goods.infrastructure.adapter;
 
-import com.taotao.cloud.goods.application.adapter.config.PaymentConfigRepository;
+import com.taotao.cloud.goods.application.adapter.PaymentConfigPort;
 import com.taotao.cloud.goods.infrastructure.configuration.properties.PaymentProperties;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -9,7 +9,7 @@ import java.math.BigDecimal;
 
 @Component
 @RequiredArgsConstructor
-public class PaymentConfigRepositoryImpl implements PaymentConfigRepository {
+public class PaymentConfigPortImpl implements PaymentConfigPort {
     private final PaymentProperties properties;
     
     @Override

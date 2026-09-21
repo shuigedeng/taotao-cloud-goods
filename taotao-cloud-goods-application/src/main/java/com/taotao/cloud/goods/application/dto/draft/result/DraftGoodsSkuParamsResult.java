@@ -41,6 +41,6 @@ public record DraftGoodsSkuParamsResult(
 	private static final long serialVersionUID = 6377623919990713567L;
 
 	// @Schema(description = "商品参数")
-	// private List<GoodsParamsDTO> goodsParamsDTOList;
+	// private List<GoodsParamsCommand> goodsParamsCommandList;
 
 }

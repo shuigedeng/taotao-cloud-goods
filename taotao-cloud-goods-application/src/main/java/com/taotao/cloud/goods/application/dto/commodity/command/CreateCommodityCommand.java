@@ -21,7 +21,7 @@ import io.soabase.recordbuilder.core.RecordBuilder;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 /**
- * 直播商品DTO 用于获取直播商品状态时使用
+ * 直播商品Command 用于获取直播商品状态时使用
  */
 @RecordBuilder
 public record CreateCommodityCommand(

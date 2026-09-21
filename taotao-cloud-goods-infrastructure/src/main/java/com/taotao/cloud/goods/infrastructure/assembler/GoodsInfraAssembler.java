@@ -17,13 +17,12 @@
 package com.taotao.cloud.goods.infrastructure.assembler;
 
 import com.taotao.boot.common.model.ddd.types.MarkerAssembler;
-import com.taotao.boot.ddd.model.val.BizId;
 import com.taotao.cloud.goods.application.dto.goods.query.GoodsPageQuery;
 import com.taotao.cloud.goods.application.dto.goods.result.GoodsResult;
 import com.taotao.cloud.goods.domain.aggregate.GoodsAgg;
 import com.taotao.cloud.goods.domain.valobj.GoodsName;
 import com.taotao.cloud.goods.infrastructure.persistent.model.dos.GoodsDO;
-import com.taotao.cloud.goods.infrastructure.persistent.model.params.GoodsParam;
+import com.taotao.cloud.goods.infrastructure.persistent.model.params.GoodsParams;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsPO;
 import org.mapstruct.*;
 import org.mapstruct.factory.Mappers;
@@ -33,7 +32,7 @@ import java.util.List;
 /**
  * 商品基础设施装配器
  * <p>
- * 负责 GoodsPO/GoodsDO 与聚合根 GoodsAgg、DTO 之间的转换
+ * 负责 GoodsPO/GoodsDO 与聚合根 GoodsAgg、Command 之间的转换
  * </p>
  *
  * @author shuigedeng
@@ -64,7 +63,7 @@ public interface GoodsInfraAssembler extends BaseInfraAssembler, MarkerAssembler
 
 	GoodsResult toResult( GoodsDO source );
 
-	GoodsParam toParam( GoodsPageQuery source );
+	GoodsParams toParam(GoodsPageQuery source );
 
 	GoodsAgg copyFrom( GoodsAgg source );
 

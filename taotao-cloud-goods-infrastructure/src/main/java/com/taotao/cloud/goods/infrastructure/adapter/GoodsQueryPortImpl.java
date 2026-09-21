@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.infrastructure.adapter.repository;
+package com.taotao.cloud.goods.infrastructure.adapter;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
@@ -23,16 +23,17 @@ import com.taotao.boot.common.utils.lang.StringUtils;
 import com.taotao.boot.data.mybatis.mybatisplus.MpUtils;
 import com.taotao.cloud.goods.application.dto.goods.query.GoodsPageQuery;
 import com.taotao.cloud.goods.application.dto.goods.result.GoodsResult;
-import com.taotao.cloud.goods.application.adapter.repository.GoodsQueryRepository;
+import com.taotao.cloud.goods.application.adapter.GoodsQueryPort;
 import com.taotao.cloud.goods.domain.valobj.GoodsStatusEnum;
 import com.taotao.cloud.goods.infrastructure.assembler.GoodsInfraAssembler;
 import com.taotao.cloud.goods.infrastructure.persistent.model.dos.GoodsDO;
-import com.taotao.cloud.goods.infrastructure.persistent.model.params.GoodsParam;
+import com.taotao.cloud.goods.infrastructure.persistent.model.params.GoodsParams;
 import com.taotao.cloud.goods.infrastructure.persistent.mapper.GoodsMapper;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsPO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 
@@ -48,7 +49,7 @@ import java.util.Objects;
  */
 @Service
 @RequiredArgsConstructor
-public class GoodsQueryRepositoryImpl implements GoodsQueryRepository {
+public class GoodsQueryPortImpl implements GoodsQueryPort {
 
 	private final GoodsMapper goodsMapper;
 	private final GoodsInfraAssembler goodsInfraAssembler;
@@ -68,9 +69,9 @@ public class GoodsQueryRepositoryImpl implements GoodsQueryRepository {
 	public PageResult<GoodsResult> queryMutilTalbePage( GoodsPageQuery goodsPageQuery ) {
 		IPage<GoodsDO> page = MpUtils.buildMpPage(goodsPageQuery.page());
 
-		GoodsParam param = goodsInfraAssembler.toParam(goodsPageQuery);
+		GoodsParams param = goodsInfraAssembler.toParam(goodsPageQuery);
 
-		IPage<GoodsDO> goodsSkuPage = goodsMapper.selectGoodsByGoodsParam(page, param);
+		IPage<GoodsDO> goodsSkuPage = goodsMapper.selectGoodsPage(page, param);
 
 		return MpUtils.convertMpPage(goodsSkuPage, goodsInfraAssembler::toResult);
 	}
@@ -106,5 +107,30 @@ public class GoodsQueryRepositoryImpl implements GoodsQueryRepository {
 			.ge(Objects.nonNull(query.endGoodsPrice()), GoodsPO::getPrice, query.endGoodsPrice())
 			.le(Objects.nonNull(query.endGoodsPrice()), GoodsPO::getPrice, query.endGoodsPrice())
 			.orderByDesc(GoodsPO::getCreateTime);
+	}
+
+	@Override
+	public Integer countByIdIn( Collection<Long> ids ) {
+		return 0;
+	}
+
+	@Override
+	public Boolean existsByCategoryIdIn( Collection<Long> categoryIds ) {
+		return null;
+	}
+
+	@Override
+	public Boolean existsByIdInAndGoodsStatus( Collection<Long> goodsIds, GoodsStatusEnum goodsStatus ) {
+		return null;
+	}
+
+	@Override
+	public Boolean existsShelvedGoodsByIdIn( Collection<Long> goodsIds ) {
+		return null;
+	}
+
+	@Override
+	public Boolean existsByTagIds( Collection<Long> tagIds ) {
+		return null;
 	}
 }

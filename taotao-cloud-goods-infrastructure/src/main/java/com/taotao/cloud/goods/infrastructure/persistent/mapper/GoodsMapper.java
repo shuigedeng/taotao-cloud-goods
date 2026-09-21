@@ -19,7 +19,7 @@ package com.taotao.cloud.goods.infrastructure.persistent.mapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.taotao.boot.data.mybatis.mybatisplus.base.mapper.BaseMapper;
 import com.taotao.cloud.goods.infrastructure.persistent.model.dos.GoodsDO;
-import com.taotao.cloud.goods.infrastructure.persistent.model.params.GoodsParam;
+import com.taotao.cloud.goods.infrastructure.persistent.model.params.GoodsParams;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.GoodsPO;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -49,14 +49,14 @@ public interface GoodsMapper extends BaseMapper<GoodsPO> {
 			FROM ttc_goods tg
 			left join ttc_goods_sku tgs on tg.id = tgs.goods_id
 			<where>
-			   <if test="goodsParam != null and goodsParam.name != null">
-				   AND tgs.goodsName = #{goodsParam.name}
+			   <if test="goodsParams != null and goodsParams.name != null">
+				   AND tgs.goodsName = #{goodsParams.name}
 			   </if>
 			   </where>
 			</script>
 			"""
 	)
-	IPage<GoodsDO> selectGoodsByGoodsParam( IPage<GoodsDO> page, @Param("goodsParam") GoodsParam goodsParam );
+	IPage<GoodsDO> selectGoodsPage(IPage<GoodsDO> page, @Param("goodsParams") GoodsParams goodsParams);
 
 	/**
 	 * 根据店铺ID获取商品ID列表
@@ -71,7 +71,7 @@ public interface GoodsMapper extends BaseMapper<GoodsPO> {
 			FROM ttc_goods
 			WHERE store_id = #{storeId}
 			""")
-	List<Long> selectGoodsIdByStoreId( @Param("storeId") Long storeId );
+	List<Long> selectGoodsId( @Param("storeId") Long storeId );
 
 	/**
 	 * 添加商品评价数量

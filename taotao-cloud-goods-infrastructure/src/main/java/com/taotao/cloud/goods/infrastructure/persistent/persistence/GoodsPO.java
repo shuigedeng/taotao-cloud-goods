@@ -269,34 +269,34 @@ public class GoodsPO extends BasePO<GoodsPO> {
 
 
 	//
-	// public GoodsPO(GoodsOperationDTO goodsOperationDTO) {
-	//    this.goodsName = goodsOperationDTO.getGoodsName();
-	//    this.categoryPath = goodsOperationDTO.getCategoryPath();
-	//    this.storeCategoryPath = goodsOperationDTO.getStoreCategoryPath();
-	//    this.brandId = goodsOperationDTO.getBrandId();
-	//    this.templateId = goodsOperationDTO.getTemplateId();
-	//    this.recommend = goodsOperationDTO.getRecommend();
-	//    this.sellingPoint = goodsOperationDTO.getSellingPoint();
-	//    this.salesModel = goodsOperationDTO.getSalesModel();
-	//    this.goodsUnit = goodsOperationDTO.getGoodsUnit();
-	//    this.intro = goodsOperationDTO.getIntro();
-	//    this.mobileIntro = goodsOperationDTO.getMobileIntro();
-	//    this.goodsVideo = goodsOperationDTO.getGoodsVideo();
-	//    this.price = goodsOperationDTO.getPrice();
-	//    if (goodsOperationDTO.getGoodsParamsDTOList() != null
-	//            && goodsOperationDTO.getGoodsParamsDTOList().isEmpty()) {
-	//        this.params = JSONUtil.toJsonStr(goodsOperationDTO.getGoodsParamsDTOList());
+	// public GoodsPO(GoodsOperationCommand goodsOperationCommand) {
+	//    this.goodsName = goodsOperationCommand.getGoodsName();
+	//    this.categoryPath = goodsOperationCommand.getCategoryPath();
+	//    this.storeCategoryPath = goodsOperationCommand.getStoreCategoryPath();
+	//    this.brandId = goodsOperationCommand.getBrandId();
+	//    this.templateId = goodsOperationCommand.getTemplateId();
+	//    this.recommend = goodsOperationCommand.getRecommend();
+	//    this.sellingPoint = goodsOperationCommand.getSellingPoint();
+	//    this.salesModel = goodsOperationCommand.getSalesModel();
+	//    this.goodsUnit = goodsOperationCommand.getGoodsUnit();
+	//    this.intro = goodsOperationCommand.getIntro();
+	//    this.mobileIntro = goodsOperationCommand.getMobileIntro();
+	//    this.goodsVideo = goodsOperationCommand.getGoodsVideo();
+	//    this.price = goodsOperationCommand.getPrice();
+	//    if (goodsOperationCommand.getGoodsParamsCommandList() != null
+	//            && goodsOperationCommand.getGoodsParamsCommandList().isEmpty()) {
+	//        this.params = JSONUtil.toJsonStr(goodsOperationCommand.getGoodsParamsCommandList());
 	//    }
 	//
 	//    // 如果立即上架则
-	//    this.marketEnable = Boolean.TRUE.equals(goodsOperationDTO.getRelease())
+	//    this.marketEnable = Boolean.TRUE.equals(goodsOperationCommand.getRelease())
 	//            ? GoodsStatusEnum.UPPER.name()
 	//            : GoodsStatusEnum.DOWN.name();
-	//    this.goodsType = goodsOperationDTO.getGoodsType();
+	//    this.goodsType = goodsOperationCommand.getGoodsType();
 	//    this.grade = BigDecimal.valueOf(100);
 	//
 	//    // 循环sku，判定sku是否有效
-	//    for (Map<String, Object> sku : goodsOperationDTO.getSkuList()) {
+	//    for (Map<String, Object> sku : goodsOperationCommand.getSkuList()) {
 	//        // 判定参数不能为空
 	//        if (sku.get("sn") == null) {
 	//            throw new BusinessException(ResultEnum.GOODS_SKU_SN_ERROR);

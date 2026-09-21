@@ -35,8 +35,8 @@ import org.springframework.stereotype.Service;
  * @version 2026.04
  * @since 2025-12-19 09:30:45
  */
-@RequiredArgsConstructor
 @Service
+@RequiredArgsConstructor
 public class SysAclServiceImpl extends AclBaseService implements SysAclService , GatewayRemoteCallBaseService {
 
     private final SysFacadeAssembler facadeAssembler;

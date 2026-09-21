@@ -29,7 +29,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 商品编辑DTO
+ * 商品编辑Command
  */
 @RecordBuilder
 public record SaveGoodsCommand(

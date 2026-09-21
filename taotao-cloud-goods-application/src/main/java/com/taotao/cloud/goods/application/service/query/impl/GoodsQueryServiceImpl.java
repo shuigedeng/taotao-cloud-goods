@@ -26,7 +26,7 @@ import com.taotao.cloud.goods.application.assembler.GoodsAppAssembler;
 import com.taotao.cloud.goods.application.dto.goods.query.GoodsPageQuery;
 import com.taotao.cloud.goods.application.dto.goods.result.GoodsResult;
 import com.taotao.cloud.goods.application.dto.goods.result.GoodsSkuParamsResult;
-import com.taotao.cloud.goods.application.adapter.repository.GoodsQueryRepository;
+import com.taotao.cloud.goods.application.adapter.GoodsQueryPort;
 import com.taotao.cloud.goods.application.service.query.GoodsGalleryQueryService;
 import com.taotao.cloud.goods.application.service.query.GoodsQueryService;
 import lombok.RequiredArgsConstructor;
@@ -38,7 +38,7 @@ import java.util.List;
  * 商品查询服务实现
  * <p>
  * 实现 GoodsQueryService 接口，处理商品的查询操作。
- * 使用 GoodsAppAssembler 进行领域对象与DTO的转换。
+ * 使用 GoodsAppAssembler 进行领域对象与Command的转换。
  * </p>
  *
  * @author shuigedeng
@@ -49,14 +49,14 @@ import java.util.List;
 @RequiredArgsConstructor
 public class GoodsQueryServiceImpl implements GoodsQueryService {
 
-	private final GoodsQueryRepository goodsQueryRepository;
+	private final GoodsQueryPort goodsQueryPort;
 	private final RedisRepository redisRepository;
 	private final GoodsAppAssembler goodsAppAssembler;
 	private final GoodsGalleryQueryService goodsGalleryQueryService;
 
 	@Override
 	public List<GoodsResult> queryByBrandIds( List<Long> brandIds ) {
-		return goodsQueryRepository.queryByBrandIds(brandIds);
+		return goodsQueryPort.queryByBrandIds(brandIds);
 	}
 
 	@Override
@@ -68,7 +68,7 @@ public class GoodsQueryServiceImpl implements GoodsQueryService {
 		}
 
 		// 查询商品信息
-		GoodsResult goods = goodsQueryRepository.queryById(goodsId);
+		GoodsResult goods = goodsQueryPort.queryById(goodsId);
 		if (goods == null) {
 			LogUtils.error("商品ID为" + goodsId + "的商品不存在");
 			throw new BusinessException("商品ID为" + goodsId + "的商品不存在");
@@ -102,8 +102,8 @@ public class GoodsQueryServiceImpl implements GoodsQueryService {
 //
 //		// 参数非空则填写参数
 //		if (StrUtil.isNotEmpty(goods.params())) {
-//			goodsSkuParamsResult.setGoodsParamsDTOList(JSONUtil.toList(goods.params(),
-//				GoodsParamsDTO.class));
+//			goodsSkuParamsResult.setGoodsParamsCommandList(JSONUtil.toList(goods.params(),
+//				GoodsParamsCommand.class));
 //		}
 
 		redisRepository.set("xxx" + goodsId, goodsSkuParamsResult);
@@ -112,7 +112,7 @@ public class GoodsQueryServiceImpl implements GoodsQueryService {
 
 	@Override
 	public PageResult<GoodsResult> queryGoodsPage( GoodsPageQuery goodsPageQuery ) {
-		return goodsQueryRepository.queryGoodsPage(goodsPageQuery);
+		return goodsQueryPort.queryGoodsPage(goodsPageQuery);
 	}
 
 	@Override
@@ -122,7 +122,7 @@ public class GoodsQueryServiceImpl implements GoodsQueryService {
 
 	@Override
 	public Long queryCountStoreGoodsNum( Long storeId ) {
-		return goodsQueryRepository.queryCountStoreGoodsNum(storeId);
+		return goodsQueryPort.queryCountStoreGoodsNum(storeId);
 	}
 
 	@Override
@@ -250,8 +250,8 @@ public class GoodsQueryServiceImpl implements GoodsQueryService {
 	//
 	//	// 参数非空则填写参数
 	//	if (StrUtil.isNotEmpty(goods.getParams())) {
-	//		goodsSkuParamsCO.setGoodsParamsDTOList(JSONUtil.toList(goods.getParams(),
-	// GoodsParamsDTO.class));
+	//		goodsSkuParamsCO.setGoodsParamsCommandList(JSONUtil.toList(goods.getParams(),
+	// GoodsParamsCommand.class));
 	//	}
 	//
 	//	redisRepository.set(CachePrefix.GOODS.getPrefix() + goodsId, goodsSkuParamsCO);

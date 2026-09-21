@@ -43,5 +43,5 @@ public interface SpecificationInfraAssembler extends MarkerAssembler {
 
     SpecificationResult toResult(SpecificationPO specification);
 
-    // SpecificationPO convert(SpecificationDTO specificationDTO);
+    // SpecificationPO convert(SpecificationCommand specificationCommand);
 }

@@ -17,6 +17,7 @@
 package com.taotao.cloud.goods.application.service.command.impl;
 
 import com.taotao.cloud.goods.application.dto.category.command.CreateCategoryParameterGroupCommand;
+import com.taotao.cloud.goods.application.dto.category.command.UpdateCategoryParameterGroupCommand;
 import com.taotao.cloud.goods.application.service.command.CategoryParameterGroupCommandService;
 import com.taotao.cloud.goods.application.service.command.GoodsCommandService;
 import com.taotao.cloud.goods.application.service.command.ParametersCommandService;
@@ -32,8 +33,7 @@ import org.springframework.stereotype.Service;
  */
 @RequiredArgsConstructor
 @Service
-public class CategoryParameterGroupCommandServiceImpl
-        implements CategoryParameterGroupCommandService {
+public class CategoryParameterGroupCommandServiceImpl implements CategoryParameterGroupCommandService {
 
     /**
      * 商品参数服务
@@ -45,17 +45,23 @@ public class CategoryParameterGroupCommandServiceImpl
      */
     private final GoodsCommandService goodsService;
 
-    @Override
-    public boolean updateCategoryGroup( CreateCategoryParameterGroupCommand categoryParameterGroupAddCmd) {
-        return false;
-    }
+	@Override
+	public void updateCategoryGroup(UpdateCategoryParameterGroupCommand updateCategoryParameterGroupCommand) {
 
-    @Override
-    public boolean deleteByCategoryId(Long categoryId) {
-        return false;
-    }
+	}
 
-    // @Override
+	@Override
+	public void createCategoryGroup(CreateCategoryParameterGroupCommand createCategoryParameterGroupCommand) {
+
+	}
+
+	@Override
+	public void deleteByCategoryId(Long categoryId) {
+
+	}
+
+
+	// @Override
     // @Transactional(rollbackFor = Exception.class)
     // public boolean updateCategoryGroup(CategoryParameterGroupPO categoryParameterGroupPO) {
     //	CategoryParameterGroupPO origin = this.getById(categoryParameterGroupPO.getId());
@@ -70,16 +76,16 @@ public class CategoryParameterGroupCommandServiceImpl
     //
     //	for (Map<String, Object> goods : goodsList) {
     //		String params = (String) goods.get("params");
-    //		List<GoodsParamsDTO> goodsParamsDTOS = JSONUtil.toList(params, GoodsParamsDTO.class);
-    //		List<GoodsParamsDTO> goodsParamsDTOList = goodsParamsDTOS.stream()
+    //		List<GoodsParamsCommand> goodsParamsCommandS = JSONUtil.toList(params, GoodsParamsCommand.class);
+    //		List<GoodsParamsCommand> goodsParamsCommandList = goodsParamsCommandS.stream()
     //			.filter(i -> i.getGroupId() != null && i.getGroupId().equals(origin.getId()))
     //			.toList();
-    //		for (GoodsParamsDTO goodsParamsDTO : goodsParamsDTOList) {
-    //			goodsParamsDTO.setGroupName(categoryParameterGroupPO.getGroupName());
+    //		for (GoodsParamsCommand goodsParamsCommand : goodsParamsCommandList) {
+    //			goodsParamsCommand.setGroupName(categoryParameterGroupPO.getGroupName());
     //		}
     //
     //		this.goodsService.updateGoodsParams(
-    //			Long.valueOf(goods.get("id").toString()), JSONUtil.toJsonStr(goodsParamsDTOS));
+    //			Long.valueOf(goods.get("id").toString()), JSONUtil.toJsonStr(goodsParamsCommandS));
     //	}
     //
     //	return this.updateById(categoryParameterGroupPO);

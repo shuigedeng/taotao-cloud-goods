@@ -39,8 +39,7 @@ public class StoreGoodsLabelCommandServiceImpl implements StoreGoodsLabelCommand
     private final RedisRepository redisRepository;
 
     @Override
-    public boolean removeStoreGoodsLabel(Long storeLabelId) {
-        return false;
+    public void removeStoreGoodsLabel(Long storeLabelId) {
     }
 
     //	@Override

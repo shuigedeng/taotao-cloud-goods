@@ -25,10 +25,10 @@ import jakarta.validation.constraints.NotNull;
 import java.io.Serial;
 
 /**
- * 品牌DTO
+ * 品牌Command
  */
 @RecordBuilder
-@Schema(description = "品牌DTO")
+@Schema(description = "品牌Command")
 public record DisableBrandCommand(
 	@Schema(description = "id") @NotBlank(message = "brandId不能为空")
 	Long brandId,

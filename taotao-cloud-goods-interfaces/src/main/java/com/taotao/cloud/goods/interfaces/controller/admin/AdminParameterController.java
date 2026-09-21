@@ -56,8 +56,8 @@ public class AdminParameterController extends BusinessController {
 	@RequestLogger("添加参数添加参数")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/create")
-	public Result<Void> create( @Valid @RequestBody CreateParametersCommand parametersDTO ) {
-//		Parameters parameters = ParametersConvert.INSTANCE.convert(parametersDTO);
+	public Result<Void> create( @Valid @RequestBody CreateParametersCommand parametersCommand ) {
+//		Parameters parameters = ParametersConvert.INSTANCE.convert(parametersCommand);
 //		return Result.success(parametersService.create(parameters));
 		return Result.success();
 	}
@@ -66,9 +66,9 @@ public class AdminParameterController extends BusinessController {
 	@RequestLogger("编辑参数")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/update")
-	public Result<Void> update( @Valid @RequestBody CreateParametersCommand parametersDTO,
+	public Result<Void> update( @Valid @RequestBody CreateParametersCommand parametersCommand,
 		@PathVariable Long id ) {
-//		Parameters parameters = ParametersConvert.INSTANCE.convert(parametersDTO);
+//		Parameters parameters = ParametersConvert.INSTANCE.convert(parametersCommand);
 //		parameters.setId(id);
 //		return Result.success(parametersService.updateParameter(parameters));
 		return Result.success();

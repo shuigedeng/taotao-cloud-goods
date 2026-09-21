@@ -26,15 +26,27 @@ public class SysInterceptor<T> implements GatewayPostInterceptor<T> {
 	public static <T> SysInterceptor<T> getInstance() {
 		return (SysInterceptor<T>) INSTANCE;
 	}
+
+	@SuppressWarnings("unchecked")
     @Override
     public void postIntercept( GatewayResponse<T> response, GatewayContext context ) {
 		response.setGatewayRecord(context.getGatewayRecord());
 		Object rawResponse = context.getRawResponse();
-		if(rawResponse instanceof Response<?> response1){
+
+		if(rawResponse == null){
+			response.setStatus(GatewayResponseStatus.F);
+			response.setFailCode("99999");
+			response.setFailMsg("RPC数据响应为空");
+		}
+
+		Response<?> responseData = (Response<?>)rawResponse;
+		if(responseData.success()){
 			response.setStatus(GatewayResponseStatus.S);
-			response.setResult((T) response1.getResult());
+			response.setResult((T) responseData.getResult());
 		}else {
-			response.setResult((T) context.getRawResponse());
+			response.setStatus(GatewayResponseStatus.F);
+			response.setFailCode(responseData.getCode());
+			response.setFailMsg(responseData.getMessage());
 		}
     }
 

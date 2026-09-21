@@ -18,6 +18,7 @@ package com.taotao.cloud.goods.application.service.command.impl;
 
 import com.taotao.boot.cache.redis.repository.RedisRepository;
 import com.taotao.cloud.goods.application.dto.category.command.CreateCategoryCommand;
+import com.taotao.cloud.goods.application.dto.category.command.DisableCommand;
 import com.taotao.cloud.goods.application.dto.category.command.UpdateCategoryCommand;
 import com.taotao.cloud.goods.application.service.command.CategoryCommandService;
 import lombok.RequiredArgsConstructor;
@@ -60,7 +61,7 @@ public class CategoryCommandServiceImpl implements CategoryCommandService {
     }
 
     @Override
-    public void updateCategoryStatus(Long categoryId, boolean enableOperations) {
+    public void updateCategoryStatus(DisableCommand disableCommand) {
         // categoryUpdateCmdExe.updateCategoryStatus(categoryId, enableOperations);
     }
 }

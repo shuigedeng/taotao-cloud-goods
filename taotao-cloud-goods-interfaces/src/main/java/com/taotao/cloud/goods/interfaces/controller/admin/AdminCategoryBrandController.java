@@ -61,16 +61,16 @@ public class AdminCategoryBrandController extends BusinessController {
     @PreAuthorize("hasAuthority('dept:tree:data')")
     @GetMapping(value = "/query/category-id")
     public Result<List<CategoryBrandResult>> queryByCategoryId(@Valid CategoryIdQuery categoryIdQuery ) {
-        return Result.success(categoryBrandQueryService.queryByCategoryId(categoryIdQuery.categoryId()));
+		List<CategoryBrandResult> results = categoryBrandQueryService.queryByCategoryId(categoryIdQuery.categoryId());
+		return Result.success(results);
     }
 
     @Operation(summary = "保存某分类下绑定的品牌信息", description = "保存某分类下绑定的品牌信息")
     @RequestLogger
     @PreAuthorize("hasAuthority('dept:tree:data')")
     @PostMapping(value = "/command/category/brands")
-    public Result<Void> saveCategoryBrand( @Valid @RequestBody AssignCategoryBrandsCommand categoryBrands) {
-//        return Result.success(
-//                categoryBrandCommandService.saveCategoryBrandList(categoryId, categoryBrands));
+    public Result<Void> saveCategoryBrand( @Valid @RequestBody AssignCategoryBrandsCommand assignCategoryBrandsCommand) {
+		categoryBrandCommandService.saveCategoryBrandList(assignCategoryBrandsCommand);
 		return Result.success();
     }
 }

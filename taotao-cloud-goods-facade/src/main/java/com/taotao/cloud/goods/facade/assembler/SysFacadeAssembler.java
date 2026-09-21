@@ -27,7 +27,7 @@ import org.mapstruct.factory.Mappers;
 /**
  * 系统门面装配器
  * <p>
- * 负责系统模块 DTO 与应用层对象之间的转换
+ * 负责系统模块 Command 与应用层对象之间的转换
  * </p>
  *
  * @author shuigedeng

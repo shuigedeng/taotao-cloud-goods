@@ -33,7 +33,7 @@ import org.mapstruct.factory.Mappers;
 /**
  * 商品分类基础设施装配器
  * <p>
- * 负责 CategoryPO 与领域实体 Category、DTO 之间的转换
+ * 负责 CategoryPO 与领域实体 Category、Command 之间的转换
  * </p>
  *
  * @author shuigedeng

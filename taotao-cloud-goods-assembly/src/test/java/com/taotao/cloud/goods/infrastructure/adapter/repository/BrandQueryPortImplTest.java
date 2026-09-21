@@ -17,7 +17,7 @@
 package com.taotao.cloud.goods.infrastructure.adapter.repository;
 
 import com.taotao.cloud.goods.TaoTaoCloudGoodsApplicationTests;
-import com.taotao.cloud.goods.application.adapter.repository.CategorySpecificationQueryRepository;
+import com.taotao.cloud.goods.application.adapter.BrandQueryPort;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,28 +25,35 @@ import org.springframework.beans.factory.annotation.Autowired;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
- * 商品分类规格查询仓储实现集成测试
+ * 品牌查询仓储实现集成测试
  *
  * @author shuigedeng
- * @version 2022.05
- * @since 2026/4/12
+ * @version 2026.04
+ * @since 2025-12-19 09:30:45
  */
-@DisplayName("商品分类规格查询仓储实现集成测试")
-class CategorySpecificationQueryRepositoryImplTest extends TaoTaoCloudGoodsApplicationTests {
+@DisplayName("品牌查询仓储实现集成测试")
+class BrandQueryPortImplTest extends TaoTaoCloudGoodsApplicationTests {
 
     @Autowired
-    private CategorySpecificationQueryRepository categorySpecificationQueryRepository;
+    private BrandQueryPort brandQueryPort;
 
     @Test
     @DisplayName("仓储可以正常注入")
     void shouldInjectRepository() {
-        assertThat(categorySpecificationQueryRepository).isNotNull();
+        assertThat(brandQueryPort).isNotNull();
     }
 
     @Test
-    @DisplayName("查询分类规格列表")
-    void shouldQueryCategorySpecList() {
-        var result = categorySpecificationQueryRepository.queryCategorySpecList(1L);
+    @DisplayName("根据ID查询品牌")
+    void shouldQueryById() {
+        var result = brandQueryPort.queryDetail(1L);
+        assertThat(result).isNotNull();
+    }
+
+    @Test
+    @DisplayName("查询所有可用品牌")
+    void shouldQueryAllAvailable() {
+        var result = brandQueryPort.queryAllAvailable();
         assertThat(result).isNotNull();
     }
 }

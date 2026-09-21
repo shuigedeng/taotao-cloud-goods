@@ -8,7 +8,7 @@ import lombok.Setter;
 import java.io.Serializable;
 
 /**
- * DTO for {@link String}
+ * Command for {@link String}
  */
 @Getter
 @Setter

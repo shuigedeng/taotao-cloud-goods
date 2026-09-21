@@ -18,6 +18,7 @@ package com.taotao.cloud.goods.application.service.command;
 
 import com.taotao.boot.ddd.model.application.service.CommandService;
 import com.taotao.cloud.goods.application.dto.category.command.CreateCategoryParameterGroupCommand;
+import com.taotao.cloud.goods.application.dto.category.command.UpdateCategoryParameterGroupCommand;
 
 /**
  * 分类绑定参数组业务层
@@ -35,7 +36,9 @@ public interface CategoryParameterGroupCommandService extends CommandService {
      * @return {@link boolean }
      * @since 2022-04-27 16:59:23
      */
-    boolean updateCategoryGroup( CreateCategoryParameterGroupCommand categoryParameterGroupAddCmd);
+    void updateCategoryGroup( UpdateCategoryParameterGroupCommand updateCategoryParameterGroupCommand);
+
+    void createCategoryGroup( CreateCategoryParameterGroupCommand createCategoryParameterGroupCommand);
 
     /**
      * 通过分类ID删除关联品牌
@@ -44,5 +47,5 @@ public interface CategoryParameterGroupCommandService extends CommandService {
      * @return {@link boolean }
      * @since 2022-04-27 16:59:23
      */
-    boolean deleteByCategoryId(Long categoryId);
+    void deleteByCategoryId(Long categoryId);
 }

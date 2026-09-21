@@ -18,6 +18,7 @@ package com.taotao.cloud.goods.application.service.command;
 
 import com.taotao.boot.ddd.model.application.service.CommandService;
 import com.taotao.cloud.goods.application.dto.category.command.CreateCategoryCommand;
+import com.taotao.cloud.goods.application.dto.category.command.DisableCommand;
 import com.taotao.cloud.goods.application.dto.category.command.UpdateCategoryCommand;
 
 /**
@@ -55,8 +56,6 @@ public interface CategoryCommandService extends CommandService {
     /**
      * 分类状态的更改
      *
-     * @param categoryId       商品分类ID
-     * @param enableOperations 是否可用
      */
-    void updateCategoryStatus(Long categoryId, boolean enableOperations);
+    void updateCategoryStatus(DisableCommand disableCommand);
 }

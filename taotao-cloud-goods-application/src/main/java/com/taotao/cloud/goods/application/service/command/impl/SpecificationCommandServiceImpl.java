@@ -16,6 +16,7 @@
 
 package com.taotao.cloud.goods.application.service.command.impl;
 
+import com.taotao.cloud.goods.application.dto.category.command.AssignCategorySpecCommand;
 import com.taotao.cloud.goods.application.service.command.CategoryCommandService;
 import com.taotao.cloud.goods.application.service.command.CategorySpecificationCommandService;
 import com.taotao.cloud.goods.application.service.command.SpecificationCommandService;
@@ -45,13 +46,11 @@ public class SpecificationCommandServiceImpl implements SpecificationCommandServ
     private final CategoryCommandService categoryService;
 
     @Override
-    public boolean deleteSpecification(List<Long> ids) {
-        return false;
+    public void deleteSpecification(List<Long> ids) {
     }
 
     @Override
-    public boolean saveCategoryBrand(Long categoryId, String[] categorySpecs) {
-        return false;
+    public void saveCategoryBrand(AssignCategorySpecCommand assignCategorySpecCommand) {
     }
     //
     //	@Override

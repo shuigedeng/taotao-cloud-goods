@@ -28,7 +28,7 @@ import java.math.BigDecimal;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
-@Schema(description = "商品分类VO")
+@Schema(description = "商品分类响应对象")
 public class CategoryApiResponse implements MarkerResponse  {
 
 	@Schema(description = "id")

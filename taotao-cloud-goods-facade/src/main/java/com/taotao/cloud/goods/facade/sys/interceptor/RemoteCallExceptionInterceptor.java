@@ -17,9 +17,7 @@ import java.net.ConnectException;
 import java.net.SocketTimeoutException;
 import java.net.UnknownHostException;
 
-/**
- * @author 1
- */
+
 public class RemoteCallExceptionInterceptor<T> implements GatewayPostInterceptor<T> {
 
 	@SuppressWarnings("rawtypes")

@@ -22,7 +22,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import java.math.BigDecimal;
 
 /**
- * 微信小程序直播商品DTO
+ * 微信小程序直播商品Command
  *
  * @param priceType 1：一口价（只需要传入price，price2不传）
  *

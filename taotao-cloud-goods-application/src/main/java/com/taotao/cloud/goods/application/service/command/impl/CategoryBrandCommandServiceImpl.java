@@ -16,6 +16,7 @@
 
 package com.taotao.cloud.goods.application.service.command.impl;
 
+import com.taotao.cloud.goods.application.dto.category.command.AssignCategoryBrandsCommand;
 import com.taotao.cloud.goods.application.dto.category.command.CategoryIdBrandCommand;
 import com.taotao.cloud.goods.application.dto.category.command.CategoryIdCommand;
 import com.taotao.cloud.goods.application.service.command.CategoryBrandCommandService;
@@ -40,7 +41,7 @@ public class CategoryBrandCommandServiceImpl implements CategoryBrandCommandServ
     }
 
     @Override
-    public boolean saveCategoryBrandList( CategoryIdBrandCommand categoryIdBrandCommand) {
+    public boolean saveCategoryBrandList( AssignCategoryBrandsCommand assignCategoryBrandsCommand) {
         return false;
     }
 

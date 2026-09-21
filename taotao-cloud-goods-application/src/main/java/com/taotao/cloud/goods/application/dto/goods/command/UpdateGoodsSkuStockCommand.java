@@ -21,7 +21,7 @@ import io.soabase.recordbuilder.core.RecordBuilder;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 /**
- * 商品库存DTO
+ * 商品库存Command
  */
 @RecordBuilder
 public record UpdateGoodsSkuStockCommand(

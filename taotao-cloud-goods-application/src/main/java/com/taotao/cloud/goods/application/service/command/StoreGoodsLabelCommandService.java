@@ -48,5 +48,5 @@ public interface StoreGoodsLabelCommandService extends CommandService {
      *
      * @param storeLabelId 店铺 分类 ID
      */
-    boolean removeStoreGoodsLabel(Long storeLabelId);
+    void removeStoreGoodsLabel(Long storeLabelId);
 }

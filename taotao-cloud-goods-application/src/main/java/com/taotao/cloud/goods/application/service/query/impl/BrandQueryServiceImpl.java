@@ -19,10 +19,7 @@ package com.taotao.cloud.goods.application.service.query.impl;
 import com.taotao.boot.common.model.result.PageResult;
 import com.taotao.cloud.goods.application.dto.brand.query.BrandPageQuery;
 import com.taotao.cloud.goods.application.dto.brand.result.BrandResult;
-import com.taotao.cloud.goods.application.adapter.repository.BrandQueryRepository;
-import com.taotao.cloud.goods.application.service.command.CategoryBrandCommandService;
-import com.taotao.cloud.goods.application.service.command.CategoryCommandService;
-import com.taotao.cloud.goods.application.service.command.GoodsCommandService;
+import com.taotao.cloud.goods.application.adapter.BrandQueryPort;
 import com.taotao.cloud.goods.application.service.query.BrandQueryService;
 
 import java.util.List;
@@ -42,7 +39,7 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class BrandQueryServiceImpl implements BrandQueryService {
 
-	private final BrandQueryRepository brandQueryRepository;
+	private final BrandQueryPort brandQueryPort;
 
 	@Override
 	public List<Map<String, Object>> queryBrandsMapsByCategory(List<Long> categoryIds, String columns) {
@@ -51,7 +48,7 @@ public class BrandQueryServiceImpl implements BrandQueryService {
 
 	@Override
 	public BrandResult queryDetail(Long id) {
-		return brandQueryRepository.queryById(id);
+		return brandQueryPort.queryDetail(id);
 	}
 
 	//	private final BrandMapper brandMapper;
@@ -100,7 +97,7 @@ public class BrandQueryServiceImpl implements BrandQueryService {
 	//
 	@Override
 	public List<BrandResult> queryAllAvailable() {
-		return brandQueryRepository.queryAllAvailable();
+		return brandQueryPort.queryAllAvailable();
 
 	}
 
@@ -111,7 +108,7 @@ public class BrandQueryServiceImpl implements BrandQueryService {
 
 	@Override
 	public PageResult<BrandResult> queryPage(BrandPageQuery page) {
-		return brandQueryRepository.queryPage(page);
+		return brandQueryPort.queryPage(page);
 	}
 	//
 	//

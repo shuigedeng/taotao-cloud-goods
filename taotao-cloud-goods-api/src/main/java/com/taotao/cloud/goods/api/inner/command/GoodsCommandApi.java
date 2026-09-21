@@ -16,13 +16,10 @@
 
 package com.taotao.cloud.goods.api.inner.command;
 
-import com.taotao.boot.common.constant.ServiceNameConstants;
 import com.taotao.boot.common.model.request.Request;
 import com.taotao.boot.common.model.response.Response;
 import com.taotao.cloud.goods.api.inner.dto.command.GoodsApiCommand;
 import com.taotao.cloud.goods.api.inner.dto.response.GoodsApiResponse;
-import jakarta.validation.Valid;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.service.annotation.HttpExchange;
 import org.springframework.web.service.annotation.PostExchange;
@@ -42,8 +39,8 @@ public interface GoodsCommandApi {
 	 *
 	 * @return Response<GoodsCommandApiResponse>
 	 */
-	@PostExchange(value = "/inner/goods/command/store/detail")
-	Response<GoodsApiResponse> updateStoreDetail(
+	@PostExchange(value = "/inner/goods/command/update")
+	Response<GoodsApiResponse> updateGoods(
 		 @RequestBody Request<GoodsApiCommand> request );
 
 	/**

@@ -83,6 +83,7 @@ public class SellerCategoryController extends BusinessController {
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/category-brands")
 	public Result<List<CategoryBrandResult>> queryBrandsByCategoryId(@Valid CategoryIdQuery categoryIdQuery ) {
-		return Result.success(this.categoryBrandQueryService.queryByCategoryId(categoryIdQuery.categoryId()));
+		List<CategoryBrandResult> results = this.categoryBrandQueryService.queryByCategoryId(categoryIdQuery.categoryId());
+		return Result.success(results);
 	}
 }

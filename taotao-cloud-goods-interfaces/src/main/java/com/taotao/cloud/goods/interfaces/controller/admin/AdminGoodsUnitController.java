@@ -32,6 +32,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import lombok.val;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -60,19 +61,18 @@ public class AdminGoodsUnitController extends BusinessController {
 	@RequestLogger("分页获取商品计量单位")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/page")
-	public Result<PageResult<GoodsUnitResult>> queryByPage( PageQuery pageQuery ) {
-//		IPage<GoodsUnit> page = goodsUnitService.page(pageQuery.buildMpPage());
-//		return Result.success(MpUtils.convertMpPage(page, GoodsUnit.class));
-		return null;
+	public Result<PageResult<GoodsUnitResult>> queryByPage(@Valid PageQuery pageQuery ) {
+		PageResult<GoodsUnitResult> pageResult = goodsUnitQueryService.queryPage(pageQuery);
+		return Result.success(pageResult);
 	}
 
 	@Operation(summary = "获取商品计量单位", description = "获取商品计量单位")
 	@RequestLogger("获取商品计量单位")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping("/query")
-	public Result<GoodsUnitResult> getById( IdQuery idQuery ) {
-//		return Result.success(goodsUnitService.getById(id));
-		return null;
+	public Result<GoodsUnitResult> queryDetail( @Valid IdQuery idQuery ) {
+		GoodsUnitResult goodsUnitResult = goodsUnitQueryService.queryDetail(idQuery.getId());
+		return Result.success(goodsUnitResult);
 	}
 
 	@Operation(summary = "添加商品计量单位", description = "添加商品计量单位")

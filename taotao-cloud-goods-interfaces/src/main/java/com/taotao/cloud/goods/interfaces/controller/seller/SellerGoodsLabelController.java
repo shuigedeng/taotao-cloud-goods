@@ -66,7 +66,8 @@ public class SellerGoodsLabelController extends BusinessController {
 	@GetMapping("/query/list")
 	public Result<List<StoreGoodsLabelResult>> queryList() {
 		Long storeId = SecurityUtils.getCurrentUser().getStoreId();
-		return Result.success(storeGoodsLabelQueryService.queryByStoreId(storeId));
+		List<StoreGoodsLabelResult> results = storeGoodsLabelQueryService.queryByStoreId(storeId);
+		return Result.success(results);
 	}
 
 	@Operation(summary = "获取店铺商品分类详情", description = "获取店铺商品分类详情")
@@ -83,9 +84,9 @@ public class SellerGoodsLabelController extends BusinessController {
 	@RequestLogger("添加店铺商品分类")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/create")
-	public Result<Void> create( @Valid @RequestBody CreateStoreGoodsLabelCommand storeGoodsLabelDTO ) {
+	public Result<Void> create( @Valid @RequestBody CreateStoreGoodsLabelCommand storeGoodsLabelCommand ) {
 //		StoreGoodsLabelPO storeGoodsLabel =
-//			GoodsLabelStoreAssembler.INSTANCE.convert(storeGoodsLabelDTO);
+//			GoodsLabelStoreAssembler.INSTANCE.convert(storeGoodsLabelCommand);
 //		return Result.success(storeGoodsLabelCommandService.addStoreGoodsLabel(storeGoodsLabel));
 		return Result.success();
 	}
@@ -94,9 +95,9 @@ public class SellerGoodsLabelController extends BusinessController {
 	@RequestLogger("修改店铺商品分类")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/edit")
-	public Result<Void> update( @Valid @RequestBody UpdateStoreGoodsLabelCommand storeGoodsLabelDTO ) {
+	public Result<Void> update( @Valid @RequestBody UpdateStoreGoodsLabelCommand storeGoodsLabelCommand ) {
 //		StoreGoodsLabelPO storeGoodsLabel =
-//			GoodsLabelStoreAssembler.INSTANCE.convert(storeGoodsLabelDTO);
+//			GoodsLabelStoreAssembler.INSTANCE.convert(storeGoodsLabelCommand);
 //		storeGoodsLabel.setId(id);
 //		return Result.success(storeGoodsLabelCommandService.editStoreGoodsLabel(storeGoodsLabel));
 		return Result.success();
@@ -107,7 +108,7 @@ public class SellerGoodsLabelController extends BusinessController {
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/delete")
 	public Result<Void> delete( @Valid @RequestBody IdCommand id ) {
-//		return Result.success(storeGoodsLabelCommandService.removeStoreGoodsLabel(id));
+		storeGoodsLabelCommandService.removeStoreGoodsLabel(id.getId());
 		return Result.success();
 	}
 }

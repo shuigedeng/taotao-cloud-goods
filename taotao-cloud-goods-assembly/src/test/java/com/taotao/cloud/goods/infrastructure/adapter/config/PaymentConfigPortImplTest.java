@@ -14,47 +14,45 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.infrastructure.adapter.repository;
+package com.taotao.cloud.goods.infrastructure.adapter.config;
 
 import com.taotao.cloud.goods.TaoTaoCloudGoodsApplicationTests;
-import com.taotao.cloud.goods.application.adapter.repository.BrandQueryRepository;
+import com.taotao.cloud.goods.application.adapter.PaymentConfigPort;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatNoException;
 
 /**
- * 品牌查询仓储实现集成测试
+ * 支付配置仓储实现集成测试
  *
  * @author shuigedeng
- * @version 2026.04
- * @since 2025-12-19 09:30:45
+ * @since 2022-04-27 17:00:00
  */
-@DisplayName("品牌查询仓储实现集成测试")
-class BrandQueryRepositoryImplTest extends TaoTaoCloudGoodsApplicationTests {
+@DisplayName("支付配置仓储实现集成测试")
+class PaymentConfigPortImplTest extends TaoTaoCloudGoodsApplicationTests {
 
     @Autowired
-    private BrandQueryRepository brandQueryRepository;
+    private PaymentConfigPort paymentConfigPort;
 
     @Test
     @DisplayName("仓储可以正常注入")
     void shouldInjectRepository() {
-        assertThat(brandQueryRepository).isNotNull();
+        assertThat(paymentConfigPort).isNotNull();
     }
 
     @Test
-    @DisplayName("根据ID查询品牌")
-    void shouldQueryById() {
-        var result = brandQueryRepository.queryById(1L);
-        assertThat(result).isNotNull();
+    @DisplayName("获取最大重试次数")
+    void shouldGetMaxRetryTimes() {
+        int result = paymentConfigPort.getMaxRetryTimes();
+        assertThat(result).isGreaterThanOrEqualTo(0);
     }
 
     @Test
-    @DisplayName("查询所有可用品牌")
-    void shouldQueryAllAvailable() {
-        var result = brandQueryRepository.queryAllAvailable();
+    @DisplayName("获取折扣率")
+    void shouldGetDiscountRate() {
+        var result = paymentConfigPort.getDiscountRate();
         assertThat(result).isNotNull();
     }
 }

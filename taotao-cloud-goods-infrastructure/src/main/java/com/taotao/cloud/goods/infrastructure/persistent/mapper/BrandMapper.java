@@ -22,7 +22,6 @@ import com.taotao.boot.common.enums.DelFlagEnum;
 import com.taotao.boot.common.utils.lang.StringUtils;
 import com.taotao.boot.data.mybatis.mybatisplus.base.mapper.BaseMapper;
 import com.taotao.cloud.goods.application.dto.brand.query.BrandPageQuery;
-import com.taotao.cloud.goods.infrastructure.persistent.model.params.BrandPageParam;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.BrandPO;
 
 import java.util.List;
@@ -46,7 +45,7 @@ public interface BrandMapper extends BaseMapper<BrandPO> {
 
 	default List<BrandPO> queryAllAvailable(){
 		LambdaQueryWrapper<BrandPO> lambdaQueryWrapper = new LambdaQueryWrapper<>();
-		lambdaQueryWrapper.eq(BrandPO::getDelFlag, DelFlagEnum.NORMAL.getCode());
+		lambdaQueryWrapper.eq(BrandPO::getDelFlag, DelFlagEnum.NORMAL.value());
 		return selectList(lambdaQueryWrapper);
 	}
 }

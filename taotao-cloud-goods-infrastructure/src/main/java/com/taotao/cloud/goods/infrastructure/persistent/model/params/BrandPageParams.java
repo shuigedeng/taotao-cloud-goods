@@ -16,10 +16,11 @@
 
 package com.taotao.cloud.goods.infrastructure.persistent.model.params;
 
+import com.taotao.boot.common.model.ddd.query.PageQuery;
 import lombok.*;
 
 /**
- * GoodsParam
+ * BrandPageParam
  *
  * @author shuigedeng
  * @version 2026.04
@@ -28,8 +29,9 @@ import lombok.*;
 @Setter
 @Getter
 @ToString
-public class GoodsParam {
+public class BrandPageParams extends PageQuery {
 
+    // 品牌名称
     private String name;
-    private String id;
+
 }

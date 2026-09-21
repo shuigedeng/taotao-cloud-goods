@@ -1,0 +1,79 @@
+/*
+ * Copyright (c) 2020-2030, Shuigedeng (981376577@qq.com & https://blog.taotaocloud.top/).
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package com.taotao.cloud.goods.application.adapter;
+
+import com.taotao.boot.common.model.result.PageResult;
+import com.taotao.cloud.goods.application.dto.goods.query.GoodsPageQuery;
+import com.taotao.cloud.goods.application.dto.goods.result.GoodsResult;
+import com.taotao.cloud.goods.domain.valobj.GoodsStatusEnum;
+
+import java.util.Collection;
+import java.util.List;
+
+public interface GoodsQueryPort {
+
+	PageResult<GoodsResult> queryGoodsPage( GoodsPageQuery goodsPageQuery );
+
+	PageResult<GoodsResult> queryMutilTalbePage( GoodsPageQuery goodsPageQuery );
+
+	List<GoodsResult> queryByBrandIds( List<Long> brandIds );
+
+	GoodsResult queryById( Long goodsId );
+
+	Long queryCountStoreGoodsNum( Long storeId );
+
+	/**
+	 * 查询指定商品ID集合对应的商品数量
+	 *
+	 * @param ids 商品ID集合
+	 * @return 存在的商品数量
+	 */
+	Integer countByIdIn(Collection<Long> ids);
+
+	/**
+	 * 分类下是否存在商品
+	 *
+	 * @param categoryIds 分类ID列表
+	 * @return 是否存在
+	 */
+	Boolean existsByCategoryIdIn(Collection<Long> categoryIds);
+
+	/**
+	 * 是否存在指定状态（上架、下架）的商品
+	 *
+	 * @param goodsIds    商品ID列表
+	 * @param goodsStatus 商品状态
+	 * @return 是否存在
+	 */
+	Boolean existsByIdInAndGoodsStatus(Collection<Long> goodsIds, GoodsStatusEnum goodsStatus);
+
+	/**
+	 * 是否存在已上架的商品
+	 *
+	 * @param goodsIds 商品ID列表
+	 * @return 是否存在
+	 */
+	Boolean existsShelvedGoodsByIdIn(Collection<Long> goodsIds);
+
+	/**
+	 * 标签下是否存在商品
+	 *
+	 * @param tagIds 标签ID列表
+	 * @return 是否存在
+	 */
+	Boolean existsByTagIds(Collection<Long> tagIds);
+}

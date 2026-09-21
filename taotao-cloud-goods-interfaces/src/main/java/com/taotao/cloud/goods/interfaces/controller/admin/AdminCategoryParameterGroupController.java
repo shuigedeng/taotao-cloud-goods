@@ -22,6 +22,8 @@ import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
 import com.taotao.cloud.goods.application.dto.category.command.CategoryParameterGroupCommand;
+import com.taotao.cloud.goods.application.dto.category.command.CreateCategoryParameterGroupCommand;
+import com.taotao.cloud.goods.application.dto.category.command.UpdateCategoryParameterGroupCommand;
 import com.taotao.cloud.goods.application.dto.category.query.CategoryIdQuery;
 import com.taotao.cloud.goods.application.dto.parameter.result.ParameterGroupResult;
 import com.taotao.cloud.goods.application.service.command.CategoryParameterGroupCommandService;
@@ -75,8 +77,8 @@ public class AdminCategoryParameterGroupController extends BusinessController {
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/create")
-	public Result<Void> create( @Valid @RequestBody  CategoryParameterGroupCommand categoryParameterGroup ) {
-//		return Result.success(categoryParameterGroupCommandService.create(categoryParameterGroup));
+	public Result<Void> create( @Valid @RequestBody CreateCategoryParameterGroupCommand createCategoryParameterGroupCommand ) {
+		categoryParameterGroupCommandService.createCategoryGroup(createCategoryParameterGroupCommand);
 		return Result.success();
 	}
 
@@ -84,9 +86,8 @@ public class AdminCategoryParameterGroupController extends BusinessController {
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/update")
-	public Result<Void> update( @Valid @RequestBody CategoryParameterGroupCommand categoryParameterGroup ) {
-//		return
-//			Result.success(categoryParameterGroupCommandService.updateById(categoryParameterGroup));
+	public Result<Void> update( @Valid @RequestBody UpdateCategoryParameterGroupCommand updateCategoryParameterGroupCommand ) {
+		categoryParameterGroupCommandService.updateCategoryGroup(updateCategoryParameterGroupCommand);
 		return Result.success();
 	}
 
@@ -99,6 +100,7 @@ public class AdminCategoryParameterGroupController extends BusinessController {
 //		parametersCommandService.remove(new QueryWrapper<ParametersPO>().eq("group_id", id));
 //		// 删除参数组
 //		return Result.success(categoryParameterGroupCommandService.removeById(id));
+		categoryParameterGroupCommandService.deleteByCategoryId(idCommand.getId());
 		return Result.success();
 	}
 }

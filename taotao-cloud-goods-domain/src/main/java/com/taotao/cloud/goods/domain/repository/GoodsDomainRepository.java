@@ -36,47 +36,6 @@ public interface GoodsDomainRepository extends DomainRepository<BizId,GoodsAgg> 
 
 
     /**
-     * 查询指定商品ID集合对应的商品数量
-     *
-     * @param ids 商品ID集合
-     * @return 存在的商品数量
-     */
-    Integer countByIdIn(Collection<BizId> ids);
-
-    /**
-     * 分类下是否存在商品
-     *
-     * @param categoryIds 分类ID列表
-     * @return 是否存在
-     */
-    Boolean existsByCategoryIdIn(Collection<BizId> categoryIds);
-
-    /**
-     * 是否存在指定状态（上架、下架）的商品
-     *
-     * @param goodsIds    商品ID列表
-     * @param goodsStatus 商品状态
-     * @return 是否存在
-     */
-    Boolean existsByIdInAndGoodsStatus(Collection<BizId> goodsIds, GoodsStatusEnum goodsStatus);
-
-    /**
-     * 是否存在已上架的商品
-     *
-     * @param goodsIds 商品ID列表
-     * @return 是否存在
-     */
-    Boolean existsShelvedGoodsByIdIn(Collection<BizId> goodsIds);
-
-    /**
-     * 批量更新商品状态
-     *
-     * @param goodsIds    商品ID列表
-     * @param goodsStatus 商品状态
-     */
-    void batchModifyGoodsStatus(Collection<BizId> goodsIds, GoodsStatusEnum goodsStatus);
-
-    /**
      * 根据ID查询商品详情
      *
      * @param id 商品ID
@@ -84,12 +43,6 @@ public interface GoodsDomainRepository extends DomainRepository<BizId,GoodsAgg> 
      */
     GoodsAgg findGoodsWithNameById(Long id);
 
-    /**
-     * 标签下是否存在商品
-     *
-     * @param tagIds 标签ID列表
-     * @return 是否存在
-     */
-    Boolean existsByTagIds(Collection<Long> tagIds);
+
 
 }

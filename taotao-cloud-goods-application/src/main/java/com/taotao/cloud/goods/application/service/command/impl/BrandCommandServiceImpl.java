@@ -88,27 +88,27 @@ public class BrandCommandServiceImpl implements BrandCommandService {
     }
 
     //	@Override
-    //	public boolean addBrand(BrandAddCmd brandDTO) {
+    //	public boolean addBrand(BrandAddCmd brandCommand) {
     //		LambdaQueryWrapper<BrandPO> lambdaQueryWrapper = new LambdaQueryWrapper<>();
-    //		lambdaQueryWrapper.eq(BrandPO::getName, brandDTO.name());
+    //		lambdaQueryWrapper.eq(BrandPO::getName, brandCommand.name());
     //		if (getOne(lambdaQueryWrapper) != null) {
     //			throw new BusinessException(ResultEnum.BRAND_NAME_EXIST_ERROR);
     //		}
-    //		return this.save(BrandAssembler.INSTANCE.convert(brandDTO));
+    //		return this.save(BrandAssembler.INSTANCE.convert(brandCommand));
     //	}
     //
     //	@Override
-    //	public boolean updateBrand(BrandUpdateCmd brandDTO) {
-    //		this.checkExist(brandDTO.id());
+    //	public boolean updateBrand(BrandUpdateCmd brandCommand) {
+    //		this.checkExist(brandCommand.id());
     //
     //		if (getOne(new LambdaQueryWrapper<BrandPO>()
-    //			.eq(BrandPO::getName, brandDTO.name())
-    //			.ne(BrandPO::getId, brandDTO.id()))
+    //			.eq(BrandPO::getName, brandCommand.name())
+    //			.ne(BrandPO::getId, brandCommand.id()))
     //			!= null) {
     //			throw new BusinessException(ResultEnum.BRAND_NAME_EXIST_ERROR);
     //		}
     //
-    //		return this.updateById(BeanUtils.copy(brandDTO, BrandPO.class));
+    //		return this.updateById(BeanUtils.copy(brandCommand, BrandPO.class));
     //	}
     //
     //	@Override

@@ -19,6 +19,7 @@ package com.taotao.cloud.goods.application.dto.specification.command;
 import com.taotao.boot.common.model.ddd.types.Command;
 import io.soabase.recordbuilder.core.RecordBuilder;
 import io.swagger.v3.oas.annotations.media.Schema;
+
 import java.io.Serial;
 
 /**
@@ -32,7 +33,8 @@ import java.io.Serial;
 @Schema(description = "规格查询参数")
 public record CreateSpecificationCommand(
 	@Schema(description = "名称")
-	String specName) implements Command {
+	String specName
+) implements Command {
 
 	@Serial
 	private static final long serialVersionUID = 8906820486037326039L;

@@ -60,6 +60,7 @@ public class SellerCategoryParameterGroupController extends BusinessController {
     @PreAuthorize("hasAuthority('dept:tree:data')")
     @GetMapping(value = "/query/category-id")
     public Result<List<ParameterGroupResult>> queryByCategoryId(@Valid CategoryIdQuery categoryIdQuery) {
-        return Result.success(categoryParameterGroupQueryService.queryCategoryParams(categoryIdQuery.categoryId()));
+		List<ParameterGroupResult> results = categoryParameterGroupQueryService.queryCategoryParams(categoryIdQuery.categoryId());
+		return Result.success(results);
     }
 }

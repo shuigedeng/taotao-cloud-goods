@@ -17,6 +17,8 @@
 package com.taotao.cloud.goods.application.service.command;
 
 import com.taotao.boot.ddd.model.application.service.CommandService;
+import com.taotao.cloud.goods.application.dto.category.command.AssignCategorySpecCommand;
+
 import java.util.List;
 
 /**
@@ -35,7 +37,7 @@ public interface SpecificationCommandService extends CommandService {
      * @return {@link boolean }
      * @since 2022-04-27 17:01:01
      */
-    boolean deleteSpecification(List<Long> ids);
+    void deleteSpecification(List<Long> ids);
 
-    boolean saveCategoryBrand(Long categoryId, String[] categorySpecs);
+    void saveCategoryBrand(AssignCategorySpecCommand assignCategorySpecCommand);
 }

@@ -111,7 +111,7 @@ public class EsGoodsQueryServiceImpl implements EsGoodsQueryService {
     // }
     //
     // @Override
-    // public boolean setHotWords(HotWordsDTO hotWords) {
+    // public boolean setHotWords(HotWordsCommand hotWords) {
     //    redisRepository.hincr(
     //            CachePrefix.HOT_WORD.getPrefix(), hotWords.getKeywords(),
     // Double.valueOf(hotWords.getPoint()));
@@ -477,51 +477,51 @@ public class EsGoodsQueryServiceImpl implements EsGoodsQueryService {
     // * 查询属性处理
     // *
     // * @param filterBuilder 过滤构造器
-    // * @param searchDTO 查询参数
+    // * @param searchCommand 查询参数
     // */
     /// **
     // * 查询属性处理
     // *
     // * @param filterBuilder 过滤构造器
-    // * @param searchDTO 查询参数
+    // * @param searchCommand 查询参数
     // */
-    // private void commonSearch(BoolQueryBuilder filterBuilder, EsGoodsSearchDTO searchDTO) {
+    // private void commonSearch(BoolQueryBuilder filterBuilder, EsGoodsSearchCommand searchCommand) {
     //    // 品牌判定
-    //    if (CharSequenceUtil.isNotEmpty(searchDTO.getBrandId())) {
-    //        String[] brands = searchDTO.getBrandId().split("@");
+    //    if (CharSequenceUtil.isNotEmpty(searchCommand.getBrandId())) {
+    //        String[] brands = searchCommand.getBrandId().split("@");
     //        filterBuilder.must(QueryBuilders.termsQuery(ATTR_BRAND_ID, brands));
     //    }
-    //    if (searchDTO.getRecommend() != null) {
-    //        filterBuilder.filter(QueryBuilders.termQuery("recommend", searchDTO.getRecommend()));
+    //    if (searchCommand.getRecommend() != null) {
+    //        filterBuilder.filter(QueryBuilders.termQuery("recommend", searchCommand.getRecommend()));
     //    }
     //    // 规格项判定
-    //    if (searchDTO.getNameIds() != null && !searchDTO.getNameIds().isEmpty()) {
+    //    if (searchCommand.getNameIds() != null && !searchCommand.getNameIds().isEmpty()) {
     //        filterBuilder.must(QueryBuilders.nestedQuery(
     //                ATTR_PATH, QueryBuilders.termsQuery("attrList.nameId",
-    // searchDTO.getNameIds()), ScoreMode.None));
+    // searchCommand.getNameIds()), ScoreMode.None));
     //    }
     //    // 分类判定
-    //    if (CharSequenceUtil.isNotEmpty(searchDTO.getCategoryId())) {
+    //    if (CharSequenceUtil.isNotEmpty(searchCommand.getCategoryId())) {
     //        filterBuilder.must(QueryBuilders.wildcardQuery("categoryPath", "*" +
-    // searchDTO.getCategoryId() + "*"));
+    // searchCommand.getCategoryId() + "*"));
     //    }
     //    // 店铺分类判定
-    //    if (CharSequenceUtil.isNotEmpty(searchDTO.getStoreCatId())) {
+    //    if (CharSequenceUtil.isNotEmpty(searchCommand.getStoreCatId())) {
     //        filterBuilder.must(QueryBuilders.wildcardQuery("storeCategoryPath", "*" +
-    // searchDTO.getStoreCatId() +
+    // searchCommand.getStoreCatId() +
     // "*"));
     //    }
     //    // 店铺判定
-    //    if (CharSequenceUtil.isNotEmpty(searchDTO.getStoreId())) {
-    //        filterBuilder.filter(QueryBuilders.termQuery("storeId", searchDTO.getStoreId()));
+    //    if (CharSequenceUtil.isNotEmpty(searchCommand.getStoreId())) {
+    //        filterBuilder.filter(QueryBuilders.termQuery("storeId", searchCommand.getStoreId()));
     //    }
     //    // 属性判定
-    //    if (CharSequenceUtil.isNotEmpty(searchDTO.getProp())) {
-    //        this.propSearch(filterBuilder, searchDTO);
+    //    if (CharSequenceUtil.isNotEmpty(searchCommand.getProp())) {
+    //        this.propSearch(filterBuilder, searchCommand);
     //    }
     //    // 价格区间判定
-    //    if (CharSequenceUtil.isNotEmpty(searchDTO.getPrice())) {
-    //        String[] prices = searchDTO.getPrice().split("_");
+    //    if (CharSequenceUtil.isNotEmpty(searchCommand.getPrice())) {
+    //        String[] prices = searchCommand.getPrice().split("_");
     //        if (prices.length == 0) {
     //            return;
     //        }
@@ -552,10 +552,10 @@ public class EsGoodsQueryServiceImpl implements EsGoodsQueryService {
     // * 商品参数查询处理
     // *
     // * @param filterBuilder 过滤构造器
-    // * @param searchDTO 查询参数
+    // * @param searchCommand 查询参数
     // */
-    // private void propSearch(BoolQueryBuilder filterBuilder, EsGoodsSearchQuery searchDTO) {
-    //    String[] props = searchDTO.getProp().split("@");
+    // private void propSearch(BoolQueryBuilder filterBuilder, EsGoodsSearchQuery searchCommand) {
+    //    String[] props = searchCommand.getProp().split("@");
     //    List<String> nameList = new ArrayList<>();
     //    List<String> valueList = new ArrayList<>();
     //    Map<String, List<String>> valueMap = new HashMap<>(16);
@@ -592,8 +592,8 @@ public class EsGoodsQueryServiceImpl implements EsGoodsQueryService {
     //        }
     //        filterBuilder.must(shouldBuilder);
     //    }
-    //    searchDTO.getNotShowCol().put(ATTR_NAME_KEY, nameList);
-    //    searchDTO.getNotShowCol().put(ATTR_VALUE_KEY, valueList);
+    //    searchCommand.getNotShowCol().put(ATTR_NAME_KEY, nameList);
+    //    searchCommand.getNotShowCol().put(ATTR_VALUE_KEY, valueList);
     // }
     //
     /// **

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.infrastructure.adapter.repository;
+package com.taotao.cloud.goods.infrastructure.adapter;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.taotao.boot.common.model.result.PageResult;
@@ -24,7 +24,7 @@ import com.taotao.cloud.goods.application.dto.brand.query.BrandPageQuery;
 import com.taotao.cloud.goods.application.dto.brand.result.BrandResult;
 import com.taotao.cloud.goods.application.acl.dto.sys.req.DictAclReq;
 import com.taotao.cloud.goods.application.acl.dto.sys.res.DictAclRes;
-import com.taotao.cloud.goods.application.adapter.repository.BrandQueryRepository;
+import com.taotao.cloud.goods.application.adapter.BrandQueryPort;
 import com.taotao.cloud.goods.infrastructure.assembler.BrandInfraAssembler;
 import com.taotao.cloud.goods.infrastructure.persistent.mapper.BrandMapper;
 import com.taotao.cloud.goods.infrastructure.persistent.persistence.BrandPO;
@@ -48,7 +48,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 @RequiredArgsConstructor
-public class BrandQueryRepositoryImpl implements BrandQueryRepository {
+public class BrandQueryPortImpl implements BrandQueryPort {
 
     private final BrandMapper brandMapper;
     private final SysAclService sysAclService;
@@ -56,7 +56,7 @@ public class BrandQueryRepositoryImpl implements BrandQueryRepository {
     private final BrandInfraAssembler brandInfraAssembler;
 
     @Override
-    public BrandResult queryById( Long id ) {
+    public BrandResult queryDetail(Long id ) {
         BrandPO brandPO = brandMapper.selectById(id);
 
         DictAclRes dictAclRes = sysAclService.queryByCode(DictAclReq.builder().code("123").build());

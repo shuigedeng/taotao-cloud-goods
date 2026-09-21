@@ -17,8 +17,7 @@
 package com.taotao.cloud.goods.infrastructure.adapter.repository;
 
 import com.taotao.cloud.goods.TaoTaoCloudGoodsApplicationTests;
-import com.taotao.cloud.goods.application.adapter.repository.GoodsQueryRepository;
-import com.taotao.cloud.goods.application.dto.goods.query.GoodsPageQuery;
+import com.taotao.cloud.goods.application.adapter.GoodsQueryPort;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -36,15 +35,15 @@ import static org.assertj.core.api.Assertions.assertThat;
  * @since 2025-12-19 09:30:45
  */
 @DisplayName("商品查询仓储实现集成测试")
-class GoodsQueryRepositoryImplTest extends TaoTaoCloudGoodsApplicationTests {
+class GoodsQueryPortImplTest extends TaoTaoCloudGoodsApplicationTests {
 
     @Autowired
-    private GoodsQueryRepository goodsQueryRepository;
+    private GoodsQueryPort goodsQueryPort;
 
     @Test
     @DisplayName("仓储可以正常注入")
     void shouldInjectRepository() {
-        assertThat(goodsQueryRepository).isNotNull();
+        assertThat(goodsQueryPort).isNotNull();
     }
 
     @Nested
@@ -82,7 +81,7 @@ class GoodsQueryRepositoryImplTest extends TaoTaoCloudGoodsApplicationTests {
         @Test
         @DisplayName("正常根据品牌ID查询")
         void shouldQueryByBrandIds() {
-            var result = goodsQueryRepository.queryByBrandIds(List.of(1L));
+            var result = goodsQueryPort.queryByBrandIds(List.of(1L));
             assertThat(result).isNotNull();
         }
     }
@@ -94,7 +93,7 @@ class GoodsQueryRepositoryImplTest extends TaoTaoCloudGoodsApplicationTests {
         @Test
         @DisplayName("正常根据ID查询")
         void shouldQueryById() {
-            var result = goodsQueryRepository.queryById(1L);
+            var result = goodsQueryPort.queryById(1L);
             assertThat(result).isNotNull();
         }
     }
@@ -106,7 +105,7 @@ class GoodsQueryRepositoryImplTest extends TaoTaoCloudGoodsApplicationTests {
         @Test
         @DisplayName("正常统计店铺商品数量")
         void shouldQueryCountStoreGoodsNum() {
-            Long result = goodsQueryRepository.queryCountStoreGoodsNum(1L);
+            Long result = goodsQueryPort.queryCountStoreGoodsNum(1L);
             assertThat(result).isNotNull();
         }
     }

@@ -39,8 +39,8 @@ public interface GoodsSkuMapper extends BaseMapper<GoodsSkuPO> {
 	/**
 	 * 根据商品id获取全部skuId的集合
 	 *
-	 * @param goodsId goodsId
-	 * @return {@link List }<{@link String }>
+	 * @param goodsId 商品id
+	 * @return {@link List }<{@link String }> 返回对象
 	 * @since 2022-04-27 16:57:22
 	 */
 	@Select("""
