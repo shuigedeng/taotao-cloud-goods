@@ -48,7 +48,7 @@ public enum ErrorCodeEnum implements CodeEnum {
 
 	@Override
 	public String code() {
-		return code.getCode();
+		return code.code();
 	}
 
 	@Override
