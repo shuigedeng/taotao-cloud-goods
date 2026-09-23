@@ -60,7 +60,7 @@ import org.hibernate.Hibernate;
 	indexes = {
 		@Index(name = "idx_goods_name", columnList = "goods_name"),
 		@Index(name = "idx_gn_bi_gu", columnList = "goods_name,brand_id,goods_unit"),
-		@Index(name = "idx_create_time", columnList = "`create_time`"),
+		@Index(name = "idx_create_time", columnList = "create_time"),
 	})
 @TableName(GoodsPO.TABLE_NAME)
 @org.springframework.data.relational.core.mapping.Table(name = GoodsPO.TABLE_NAME)
