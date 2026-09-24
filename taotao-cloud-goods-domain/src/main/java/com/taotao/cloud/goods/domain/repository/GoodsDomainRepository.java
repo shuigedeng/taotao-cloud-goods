@@ -19,9 +19,6 @@ package com.taotao.cloud.goods.domain.repository;
 import com.taotao.boot.ddd.model.domain.repository.DomainRepository;
 import com.taotao.boot.ddd.model.val.BizId;
 import com.taotao.cloud.goods.domain.aggregate.GoodsAgg;
-import com.taotao.cloud.goods.domain.valobj.GoodsStatusEnum;
-
-import java.util.Collection;
 
 /**
  * 商品领域仓储接口
@@ -41,7 +38,7 @@ public interface GoodsDomainRepository extends DomainRepository<BizId,GoodsAgg> 
      * @param id 商品ID
      * @return 商品详情
      */
-    GoodsAgg findGoodsWithNameById(Long id);
+    GoodsAgg findGoods(String goodsNo);
 
 
 

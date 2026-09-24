@@ -22,6 +22,7 @@ import com.taotao.boot.common.model.request.Request;
 import com.taotao.boot.common.model.response.BatchResponse;
 import com.taotao.boot.common.model.response.EmptyResponse;
 import com.taotao.boot.common.model.response.Response;
+import com.taotao.boot.common.model.result.Result;
 import com.taotao.cloud.goods.api.inner.dto.command.GoodsApiCommand;
 import com.taotao.cloud.goods.api.inner.dto.command.GoodsSkuSpecGalleryApiCommand;
 import com.taotao.cloud.goods.api.inner.dto.response.CategoryApiResponse;
@@ -41,11 +42,10 @@ import org.springframework.web.service.annotation.PostExchange;
 @HttpExchange
 public interface GoodsSkuQueryApi {
 
-
 	/**
 	 * getGoodsSkuByIdFromCache
 	 *
-	 * @return Response<BatchResponse<GoodsSkuSpecGalleryCommandApiResponse>>
+	 * @return {@link Response }<{@link BatchResponse }<{@link GoodsSkuSpecGalleryApiResponse }>> 结果
 	 */
 	@PostExchange(value = "/inner/goods/getGoodsSkuByIdFromCache/sku-ids")
 	Response<BatchResponse<GoodsSkuSpecGalleryApiResponse>> getGoodsSkuByIdFromCache(

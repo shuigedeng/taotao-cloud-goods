@@ -71,8 +71,8 @@ public class AdminBrandController extends BusinessController {
 	@Operation(summary = "通过id获取", description = "通过id获取")
 	@GetMapping(value = "/query/detail")
 	public Result<BrandResult> queryDetail(@Valid IdQuery idQuery) {
-		BrandResult brandResult = brandQueryService.queryDetail(idQuery.getId());
-		return Result.success(brandResult);
+		BrandResult result = brandQueryService.queryDetail(idQuery.getId());
+		return Result.success(result);
 	}
 
 	@RequestLogger

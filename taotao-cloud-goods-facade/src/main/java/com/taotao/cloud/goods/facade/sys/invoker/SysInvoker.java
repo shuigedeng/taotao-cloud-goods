@@ -7,7 +7,7 @@ import com.taotao.boot.client.gateway.model.GatewayResponse;
 import com.taotao.cloud.goods.facade.sys.interceptor.RemoteCallExceptionInterceptor;
 import com.taotao.cloud.goods.facade.sys.interceptor.SysInterceptor;
 import com.taotao.cloud.sys.api.inner.dto.query.DictApiQuery;
-import com.taotao.cloud.sys.api.inner.dto.response.DictQueryApiResponse;
+import com.taotao.cloud.sys.api.inner.dto.response.DictApiResponse;
 import com.taotao.cloud.sys.api.inner.query.DictQueryApi;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -28,10 +28,15 @@ public class SysInvoker {
 //    @DubboReference
 //    private final DictRpcService dictRpcService;
 
-    public GatewayResponse<DictQueryApiResponse> queryByCode(GatewayRequest<DictApiQuery> gatewayRequest ) {
-        return new GatewayInvokeBuilder<DictApiQuery, DictQueryApiResponse>()
+    public GatewayResponse<DictApiResponse> queryByCode(GatewayRequest<DictApiQuery> gatewayRequest ) {
+        return new GatewayInvokeBuilder<DictApiQuery, DictApiResponse>()
                 .description("sys系统-字典信息查询")
-                .gatewayRouter(param -> dictQueryApi.queryByCode(Request.from(param)))
+                .gatewayRouter(query -> {
+					Request<DictApiQuery> request = Request.from(query);
+					request.setBizNo("1111");
+					request.setOrderNo("1111");
+					return dictQueryApi.queryByCode(request);
+				})
                 .addLast(RemoteCallExceptionInterceptor.getInstance())
                 .addLast(SysInterceptor.getInstance())
                 .build()

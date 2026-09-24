@@ -51,21 +51,20 @@ import org.springframework.stereotype.Service;
 public class BrandQueryPortImpl implements BrandQueryPort {
 
     private final BrandMapper brandMapper;
-    private final SysAclService sysAclService;
+
     private final BrandRepository brandRepository;
     private final BrandInfraAssembler brandInfraAssembler;
 
     @Override
     public BrandResult queryDetail(Long id ) {
-        BrandPO brandPO = brandMapper.selectById(id);
-
-        DictAclRes dictAclRes = sysAclService.queryByCode(DictAclReq.builder().code("123").build());
+        BrandPO brandPo = brandMapper.selectById(id);
 
         Optional<BrandPO> brandPOOptional = brandRepository.findById(id);
+		BrandPO brandPo1 = brandPOOptional.orElse(null);
 
-        brandRepository.test();
+		brandRepository.test();
 
-        return brandInfraAssembler.toResult(brandMapper.selectById(id));
+        return brandInfraAssembler.toResult(brandPo);
     }
 
 	@Override

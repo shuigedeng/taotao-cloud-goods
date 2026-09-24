@@ -242,7 +242,6 @@ public class SellerGoodsController extends BusinessController {
 		return Result.success();
 	}
 
-
 	@Operation(summary = "恢复商品库存", description = "恢复商品库存")
 	@RequestLogger("恢复商品库存")
 	@PreAuthorize("hasAuthority('dept:tree:data')")

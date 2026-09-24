@@ -13,26 +13,13 @@ public enum ErrorCodeEnum implements CodeEnum {
 	NOTICE_ERROR(code("514002"), "修改站内信异常，请稍后重试"),
 	NOTICE_SEND_ERROR(code("514003"), "发送站内信异常，请检查系统日志");
 
-	/**
-	 * 编码
-	 *
-	 * @param code 编码
-	 * @return 编码
-	 * @since 2022.03
-	 */
-	public static Code code(String code) {
+	private static Code code(String code) {
 		return Code.code(SYSTEM_CODE, CATEGORY_CODE).apply(code);
 	}
 
 	;
-	/**
-	 * 返回码
-	 */
 	private final Code code;
 
-	/**
-	 * 描述
-	 */
 	private final String desc;
 
 	ErrorCodeEnum(Code code, String desc) {

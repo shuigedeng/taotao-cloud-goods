@@ -35,14 +35,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class CategoryParameterGroupCommandServiceImpl implements CategoryParameterGroupCommandService {
 
-    /**
-     * 商品参数服务
-     */
     private final ParametersCommandService parametersService;
 
-    /**
-     * 商品服务
-     */
     private final GoodsCommandService goodsService;
 
 	@Override

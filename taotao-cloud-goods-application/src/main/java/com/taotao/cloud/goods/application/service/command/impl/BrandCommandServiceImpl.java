@@ -44,23 +44,14 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class BrandCommandServiceImpl implements BrandCommandService {
 
-    /**
-     * 分类品牌绑定服务
-     */
     private final CategoryBrandCommandService categoryBrandCommandService;
 
     private final CategoryBrandQueryService categoryBrandQueryService;
 
-    /**
-     * 分类服务
-     */
     private final CategoryCommandService categoryCommandService;
 
     private final CategoryQueryService categoryQueryService;
 
-    /**
-     * 商品服务
-     */
     private final GoodsCommandService goodsCommandService;
 
     private final GoodsQueryService goodsQueryService;

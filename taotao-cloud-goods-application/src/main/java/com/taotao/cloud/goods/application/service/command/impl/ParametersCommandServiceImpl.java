@@ -32,9 +32,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class ParametersCommandServiceImpl implements ParametersCommandService {
 
-    /**
-     * 商品服务
-     */
+
     private final GoodsCommandService goodsService;
 
 

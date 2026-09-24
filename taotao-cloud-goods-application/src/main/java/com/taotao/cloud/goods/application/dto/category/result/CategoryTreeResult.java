@@ -28,7 +28,6 @@ import lombok.*;
 @Setter
 @Getter
 @ToString(callSuper = true)
-
 @AllArgsConstructor
 @NoArgsConstructor
 public class CategoryTreeResult extends CategoryResult {

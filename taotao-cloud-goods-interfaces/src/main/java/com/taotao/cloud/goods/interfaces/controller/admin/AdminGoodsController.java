@@ -64,6 +64,15 @@ public class AdminGoodsController extends BusinessController {
 
 	private final GoodsSkuCommandService goodsSkuCommandService;
 
+	@Operation(summary = "通过id获取商品详情", description = "通过id获取商品详情")
+	@RequestLogger("通过id获取商品详情")
+	@PreAuthorize("hasAuthority('dept:tree:data')")
+	@GetMapping(value = "/query/detail")
+	public Result<GoodsSkuParamsResult> queryDetail(@Valid IdQuery idQuery ) {
+		GoodsSkuParamsResult goodsSkuParamsResult = goodsQueryService.queryDetail(idQuery.getId());
+		return Result.success(goodsSkuParamsResult);
+	}
+
 	//@PreAuthorize("hasAuthority('dept:tree:data')")
 	@Operation(summary = "分页获取商品列表", description = "分页获取商品列表")
 	@RequestLogger("分页获取商品列表")
@@ -146,12 +155,5 @@ public class AdminGoodsController extends BusinessController {
 		return Result.success();
 	}
 
-	@Operation(summary = "通过id获取商品详情", description = "通过id获取商品详情")
-	@RequestLogger("通过id获取商品详情")
-	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@GetMapping(value = "/query/detail")
-	public Result<GoodsSkuParamsResult> queryDetail(@Valid IdQuery idQuery ) {
-		GoodsSkuParamsResult goodsSkuParamsResult = goodsQueryService.queryDetail(idQuery.getId());
-		return Result.success(goodsSkuParamsResult);
-	}
+
 }

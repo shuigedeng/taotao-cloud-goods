@@ -55,7 +55,7 @@ public class GoodsDomainRepositoryImpl implements GoodsDomainRepository {
     }
 
     @Override
-    public GoodsAgg findGoodsWithNameById( Long id ) {
+    public GoodsAgg findGoods(String goodsNo ) {
         return null;
     }
 

@@ -36,9 +36,6 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class StoreGoodsLabelQueryServiceImpl implements StoreGoodsLabelQueryService {
 
-    /**
-     * 缓存
-     */
     private final RedisRepository redisRepository;
 
 	@Override

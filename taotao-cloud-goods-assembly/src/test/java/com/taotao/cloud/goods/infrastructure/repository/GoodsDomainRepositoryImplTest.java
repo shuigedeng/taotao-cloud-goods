@@ -76,7 +76,7 @@ class GoodsDomainRepositoryImplTest extends TaoTaoCloudGoodsApplicationTests {
     @Test
     @DisplayName("根据ID查找商品")
     void shouldFindGoodsWithNameById() {
-        var result = goodsDomainRepository.findGoodsWithNameById(1L);
+        var result = goodsDomainRepository.findGoods(1L);
         assertThat(result).isNull();
     }
 
