@@ -39,6 +39,7 @@ import org.springframework.stereotype.Service;
 public class GoodsQueryRpcServiceImpl implements GoodsQueryRpcService {
 
 	private final GoodsQueryService goodsQueryService;
+
     @Override
     public Response<GoodsRpcResponse> queryGoods(Request<GoodsRpcQuery> goodsQueryRpcRequest) {
 		GoodsRpcResponse response = goodsQueryService.queryGoods(goodsQueryRpcRequest.getOrder());

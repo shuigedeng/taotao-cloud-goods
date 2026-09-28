@@ -6,9 +6,9 @@ import com.taotao.boot.client.gateway.model.GatewayRequest;
 import com.taotao.boot.client.gateway.model.GatewayResponse;
 import com.taotao.cloud.goods.facade.sys.interceptor.RemoteCallExceptionInterceptor;
 import com.taotao.cloud.goods.facade.sys.interceptor.SysInterceptor;
-import com.taotao.cloud.sys.api.inner.dto.query.DictApiQuery;
-import com.taotao.cloud.sys.api.inner.dto.response.DictApiResponse;
-import com.taotao.cloud.sys.api.inner.query.DictQueryApi;
+import com.taotao.cloud.sys.api.internal.dto.query.DictApiQuery;
+import com.taotao.cloud.sys.api.internal.dto.response.DictApiResponse;
+import com.taotao.cloud.sys.api.internal.query.DictQueryApi;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

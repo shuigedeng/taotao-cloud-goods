@@ -58,8 +58,8 @@ dependencies {
     api project(":taotao-cloud-goods-common")
 
     //cloud
-    //api "io.github.shuigedeng:taotao-cloud-starter-alibaba"
-    //api "io.github.shuigedeng:taotao-cloud-starter-sentinel"
+    api "io.github.shuigedeng:taotao-cloud-starter-alibaba"
+    api "io.github.shuigedeng:taotao-cloud-starter-sentinel"
     //api "io.github.shuigedeng:taotao-cloud-starter-stream"
     //api "io.github.shuigedeng:taotao-cloud-starter-seata"
 
@@ -80,7 +80,7 @@ dependencies {
     api "io.github.shuigedeng:taotao-boot-starter-job-xxl"
     api "io.github.shuigedeng:taotao-boot-starter-job-schedule"
     api "io.github.shuigedeng:taotao-boot-starter-job-quartz"
-    api "io.github.shuigedeng:taotao-boot-starter-oss-minio"
+    api "io.github.shuigedeng:taotao-boot-starter-oss-rustfs"
     api "io.github.shuigedeng:taotao-boot-starter-mq-rocketmq"
     api "io.github.shuigedeng:taotao-boot-starter-mq-kafka"
 

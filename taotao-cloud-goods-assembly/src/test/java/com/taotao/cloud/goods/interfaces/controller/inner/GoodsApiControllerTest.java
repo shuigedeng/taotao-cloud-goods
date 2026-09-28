@@ -19,6 +19,7 @@ package com.taotao.cloud.goods.interfaces.controller.inner;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import com.taotao.cloud.goods.interfaces.controller.internal.command.GoodsCommandApiController;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +27,7 @@ import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
-@WebMvcTest(InnerGoodsController.class)
+@WebMvcTest(GoodsCommandApiController.class)
 public class GoodsApiControllerTest {
 
 	@Autowired
@@ -37,7 +38,7 @@ public class GoodsApiControllerTest {
 
 		@Test
 		void shouldCallUpdateStoreDetail() throws Exception {
-			mockMvc.perform(post("/inner/goods/command/store/detail")
+			mockMvc.perform(post("/internal/goods/command/store/detail")
 					.contentType(MediaType.APPLICATION_JSON)
 					.content("{\"id\":1}"))
 				.andExpect(status().isOk());
@@ -49,7 +50,7 @@ public class GoodsApiControllerTest {
 
 		@Test
 		void shouldCallUnderStoreGoods() throws Exception {
-			mockMvc.perform(post("/inner/goods/command/strore/goods")
+			mockMvc.perform(post("/internal/goods/command/strore/goods")
 					.contentType(MediaType.APPLICATION_JSON)
 					.content("{\"id\":1}"))
 				.andExpect(status().isOk());
@@ -61,7 +62,7 @@ public class GoodsApiControllerTest {
 
 		@Test
 		void shouldCallCountStoreGoodsNum() throws Exception {
-			mockMvc.perform(post("/inner/goods/command/strore/goods/num")
+			mockMvc.perform(post("/internal/goods/command/strore/goods/num")
 					.contentType(MediaType.APPLICATION_JSON)
 					.content("{\"storeId\":1}"))
 				.andExpect(status().isOk());

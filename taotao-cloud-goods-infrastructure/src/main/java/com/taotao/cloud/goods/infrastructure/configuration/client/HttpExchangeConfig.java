@@ -37,7 +37,7 @@ public class HttpExchangeConfig {
 			Set<String> annotationTypes = importingClassMetadata.getAnnotationTypes();
 
 			registry.forGroup("taotao-cloud-sys")
-				.detectInBasePackages("com.taotao.cloud.sys.api.inner");
+				.detectInBasePackages("com.taotao.cloud.sys.api.internal");
 
 			registry.forGroup("stackoverflow")
 				.detectInBasePackages("com.taotao.cloud.goods.facade.stackoverflow");
