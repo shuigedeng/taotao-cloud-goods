@@ -19,7 +19,7 @@ package com.taotao.cloud.goods.interfaces.controller.internal.command;
 import com.taotao.boot.common.model.request.Request;
 import com.taotao.boot.common.model.response.Response;
 import com.taotao.boot.web.request.annotation.RequestLogger;
-import com.taotao.boot.webagg.controller.InnerController;
+import com.taotao.boot.webagg.controller.InternalController;
 import com.taotao.cloud.goods.api.internal.command.GoodsCommandApi;
 import com.taotao.cloud.goods.api.internal.dto.command.GoodsApiCommand;
 import com.taotao.cloud.goods.api.internal.dto.response.GoodsApiResponse;
@@ -43,7 +43,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 @RestController
 @Tag(name = "内部服务端-商品CommandAPI", description = "内部服务端-商品CommandAPI")
-public class GoodsCommandApiController extends InnerController implements GoodsCommandApi {
+public class GoodsCommandApiController extends InternalController implements GoodsCommandApi {
 
     @Override
 	@Operation(summary = "根据父id获取商品分类列表", description = "根据父id获取商品分类列表111")

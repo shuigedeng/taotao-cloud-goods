@@ -20,7 +20,7 @@ import com.taotao.boot.common.model.request.Request;
 import com.taotao.boot.common.model.response.Response;
 import com.taotao.boot.security.spring.annotation.NotAuth;
 import com.taotao.boot.web.request.annotation.RequestLogger;
-import com.taotao.boot.webagg.controller.InnerController;
+import com.taotao.boot.webagg.controller.InternalController;
 import com.taotao.cloud.goods.api.internal.dto.query.GoodsApiQuery;
 import com.taotao.cloud.goods.api.internal.dto.response.GoodsApiResponse;
 import com.taotao.cloud.goods.api.internal.query.GoodsQueryApi;
@@ -44,7 +44,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 @RestController
 @Tag(name = "内部服务端-商品QueryAPI", description = "内部服务端-商品QueryAPI")
-public class GoodsQueryApiController extends InnerController implements  GoodsQueryApi {
+public class GoodsQueryApiController extends InternalController implements  GoodsQueryApi {
 
 
 	@Override
