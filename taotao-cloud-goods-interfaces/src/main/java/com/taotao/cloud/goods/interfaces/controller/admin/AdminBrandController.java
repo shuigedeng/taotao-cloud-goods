@@ -80,8 +80,8 @@ public class AdminBrandController extends BusinessController {
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/all-available")
 	public Result<List<BrandResult>> queryAllAvailable() {
-		List<BrandResult> list = brandQueryService.queryAllAvailable();
-		return Result.success(list);
+		List<BrandResult> result = brandQueryService.queryAllAvailable();
+		return Result.success(result);
 	}
 
 	@RequestLogger
@@ -89,8 +89,8 @@ public class AdminBrandController extends BusinessController {
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/page")
 	public Result<PageResult<BrandResult>> queryPage(@Valid BrandPageQuery page) {
-		PageResult<BrandResult> brandPage = brandQueryService.queryPage(page);
-		return Result.success(brandPage);
+		PageResult<BrandResult> result = brandQueryService.queryPage(page);
+		return Result.success(result);
 	}
 
 	//@PreAuthorize("hasAuthority('dept:tree:data')")

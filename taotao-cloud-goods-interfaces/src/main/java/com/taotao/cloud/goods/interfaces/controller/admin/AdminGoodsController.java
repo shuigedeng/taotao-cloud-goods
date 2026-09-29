@@ -69,8 +69,8 @@ public class AdminGoodsController extends BusinessController {
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/detail")
 	public Result<GoodsSkuParamsResult> queryDetail(@Valid IdQuery idQuery ) {
-		GoodsSkuParamsResult goodsSkuParamsResult = goodsQueryService.queryDetail(idQuery.getId());
-		return Result.success(goodsSkuParamsResult);
+		GoodsSkuParamsResult result = goodsQueryService.queryDetail(idQuery.getId());
+		return Result.success(result);
 	}
 
 	//@PreAuthorize("hasAuthority('dept:tree:data')")
@@ -79,8 +79,8 @@ public class AdminGoodsController extends BusinessController {
 	@NotAuth
 	@GetMapping(value = "/query/page")
 	public Result<PageResult<GoodsResult>> queryPage( @Valid GoodsPageQuery goodsPageQuery ) {
-		PageResult<GoodsResult> goodsPage = goodsQueryService.queryGoodsPage(goodsPageQuery);
-		return Result.success(goodsPage);
+		PageResult<GoodsResult> result = goodsQueryService.queryGoodsPage(goodsPageQuery);
+		return Result.success(result);
 	}
 
 	//@PreAuthorize("hasAuthority('dept:tree:data')")
@@ -109,8 +109,8 @@ public class AdminGoodsController extends BusinessController {
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/create")
 	public Result<GoodsResult> create( @Valid @RequestBody CreateGoodsCommand goodsCreateCommand ) {
-		GoodsResult goodsResult = this.goodsCommandService.createGoods(goodsCreateCommand);
-		return Result.success(goodsResult);
+		GoodsResult result = this.goodsCommandService.createGoods(goodsCreateCommand);
+		return Result.success(result);
 	}
 
 	//@PreAuthorize("hasAuthority('dept:tree:data')")

@@ -56,7 +56,7 @@ public class AdminParameterController extends BusinessController {
 	@RequestLogger("添加参数添加参数")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/create")
-	public Result<Void> create( @Valid @RequestBody CreateParametersCommand parametersCommand ) {
+	public Result<Void> create( @Valid @RequestBody CreateParametersCommand command ) {
 //		Parameters parameters = ParametersConvert.INSTANCE.convert(parametersCommand);
 //		return Result.success(parametersService.create(parameters));
 		return Result.success();
@@ -66,8 +66,7 @@ public class AdminParameterController extends BusinessController {
 	@RequestLogger("编辑参数")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/update")
-	public Result<Void> update( @Valid @RequestBody CreateParametersCommand parametersCommand,
-		@PathVariable Long id ) {
+	public Result<Void> update( @Valid @RequestBody CreateParametersCommand command) {
 //		Parameters parameters = ParametersConvert.INSTANCE.convert(parametersCommand);
 //		parameters.setId(id);
 //		return Result.success(parametersService.updateParameter(parameters));
@@ -78,7 +77,7 @@ public class AdminParameterController extends BusinessController {
 	@RequestLogger("根据id删除参数")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/delete")
-	public Result<Void> deleteById( @Valid @RequestBody IdCommand idCommand ) {
+	public Result<Void> deleteById( @Valid @RequestBody IdCommand command ) {
 //		return Result.success(parametersService.removeById(id));
 		return Result.success();
 	}

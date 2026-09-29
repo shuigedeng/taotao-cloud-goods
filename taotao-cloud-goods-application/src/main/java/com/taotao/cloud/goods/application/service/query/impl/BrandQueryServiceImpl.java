@@ -17,9 +17,9 @@
 package com.taotao.cloud.goods.application.service.query.impl;
 
 import com.taotao.boot.common.model.result.PageResult;
-import com.taotao.cloud.goods.application.acl.dto.sys.req.DictAclReq;
-import com.taotao.cloud.goods.application.acl.dto.sys.res.DictAclRes;
-import com.taotao.cloud.goods.application.acl.service.SysAclService;
+import com.taotao.cloud.goods.application.acl.sys.dto.req.DictAclReq;
+import com.taotao.cloud.goods.application.acl.sys.dto.res.DictAclRes;
+import com.taotao.cloud.goods.application.acl.sys.service.SysAclService;
 import com.taotao.cloud.goods.application.dto.brand.query.BrandPageQuery;
 import com.taotao.cloud.goods.application.dto.brand.result.BrandResult;
 import com.taotao.cloud.goods.application.adapter.BrandQueryPort;
@@ -54,7 +54,11 @@ public class BrandQueryServiceImpl implements BrandQueryService {
 	public BrandResult queryDetail(Long id) {
 		BrandResult result = brandQueryPort.queryDetail(id);
 
-		DictAclRes dictAclRes = sysAclService.queryByCode(DictAclReq.builder().code("123").build());
+		try {
+			DictAclRes dictAclRes = sysAclService.queryByCode(DictAclReq.builder().code("123").build());
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
 
 		return result;
 	}

@@ -20,10 +20,10 @@ import com.taotao.boot.client.gateway.model.GatewayRequest;
 import com.taotao.boot.client.gateway.service.GatewayRemoteCallBaseService;
 import com.taotao.boot.ddd.acl.AclBaseService;
 import com.taotao.boot.client.gateway.model.GatewayResponse;
-import com.taotao.cloud.goods.application.acl.dto.sys.res.DictAclRes;
-import com.taotao.cloud.goods.application.acl.service.SysAclService;
-import com.taotao.cloud.goods.application.acl.dto.sys.req.DictAclReq;
-import com.taotao.cloud.goods.facade.assembler.SysFacadeAssembler;
+import com.taotao.cloud.goods.application.acl.sys.dto.req.DictAclReq;
+import com.taotao.cloud.goods.application.acl.sys.dto.res.DictAclRes;
+import com.taotao.cloud.goods.application.acl.sys.service.SysAclService;
+import com.taotao.cloud.goods.facade.sys.assembler.SysFacadeAssembler;
 import com.taotao.cloud.goods.facade.sys.invoker.SysInvoker;
 import com.taotao.cloud.sys.api.internal.dto.query.DictApiQuery;
 import com.taotao.cloud.sys.api.internal.dto.response.DictApiResponse;
@@ -39,7 +39,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 @RequiredArgsConstructor
-public class SysAclServiceImpl extends AclBaseService implements SysAclService , GatewayRemoteCallBaseService {
+public class SysAclServiceImpl extends AclBaseService implements SysAclService, GatewayRemoteCallBaseService {
 
     private final SysFacadeAssembler facadeAssembler;
     private final SysInvoker sysInvoker;

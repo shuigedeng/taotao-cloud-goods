@@ -28,6 +28,8 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
 import java.util.List;
+
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -58,7 +60,7 @@ public class BuyerCategoryController extends BusinessController {
     @NotAuth
     @RequestLogger
     @GetMapping(value = "/query/tree")
-    public Result<List<CategoryTreeResult>> queryCategoryTree( CategoryTreeQuery categoryTreeQuery) {
+    public Result<List<CategoryTreeResult>> queryCategoryTree(@Valid CategoryTreeQuery categoryTreeQuery) {
 		List<CategoryTreeResult> result = categoryQueryService.queryCategoryTree(categoryTreeQuery.parentId());
 		return Result.success(result);
     }

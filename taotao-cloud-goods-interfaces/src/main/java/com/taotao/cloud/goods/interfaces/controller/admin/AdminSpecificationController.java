@@ -62,8 +62,8 @@ public class AdminSpecificationController extends BusinessController {
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@Operation(summary = "获取所有可用规格", description = "获取所有可用规格")
 	public Result<List<SpecificationResult>> queryAll() {
-		List<SpecificationResult> specifications = specificationQueryService.queryAll();
-		return Result.success(specifications);
+		List<SpecificationResult> results = specificationQueryService.queryAll();
+		return Result.success(results);
 	}
 
 	@Operation(summary = "搜索规格", description = "搜索规格")

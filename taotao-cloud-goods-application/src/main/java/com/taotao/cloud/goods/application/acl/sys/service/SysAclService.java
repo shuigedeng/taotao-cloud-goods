@@ -14,29 +14,14 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.application.service.command;
+package com.taotao.cloud.goods.application.acl.sys.service;
 
-import com.taotao.boot.ddd.model.application.service.CommandService;
-import com.taotao.cloud.goods.application.dto.category.command.AssignCategorySpecCommand;
 
-import java.util.List;
+import com.taotao.cloud.goods.application.acl.sys.dto.req.DictAclReq;
+import com.taotao.cloud.goods.application.acl.sys.dto.res.DictAclRes;
 
-/**
- * 规格业务层
- *
- * @author shuigedeng
- * @version 2022.04
- * @since 2022-04-27 17:01:01
- */
-public interface SpecificationCommandService extends CommandService {
+public interface SysAclService {
 
-    /**
-     * 删除规格
-     *
-     * @param ids 规格ID
-     * @since 2022-04-27 17:01:01
-     */
-    void deleteSpecification(List<Long> ids);
+	DictAclRes queryByCode(DictAclReq dictAclReq);
 
-    void saveCategoryBrand(AssignCategorySpecCommand assignCategorySpecCommand);
 }

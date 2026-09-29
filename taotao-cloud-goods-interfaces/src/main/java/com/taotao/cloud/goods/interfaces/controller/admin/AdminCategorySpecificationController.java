@@ -75,8 +75,8 @@ public class AdminCategorySpecificationController extends BusinessController {
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/goods/category-id")
 	public Result<List<SpecificationResult>> getSpec( @Valid CategoryIdQuery categoryIdQuery) {
-		List<SpecificationResult> specificationResults = categorySpecificationQueryService.queryByCategoryId(categoryIdQuery.categoryId());
-		return Result.success(specificationResults);
+		List<SpecificationResult> result = categorySpecificationQueryService.queryByCategoryId(categoryIdQuery.categoryId());
+		return Result.success(result);
 	}
 
 	@Operation(summary = "保存某分类下绑定的规格信息", description = "保存某分类下绑定的规格信息")

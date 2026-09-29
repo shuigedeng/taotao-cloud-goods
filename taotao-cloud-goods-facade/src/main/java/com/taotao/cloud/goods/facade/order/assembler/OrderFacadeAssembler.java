@@ -14,29 +14,27 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.application.service.command;
+package com.taotao.cloud.goods.facade.order.assembler;
 
-import com.taotao.boot.ddd.model.application.service.CommandService;
-import com.taotao.cloud.goods.application.dto.category.command.AssignCategorySpecCommand;
-
-import java.util.List;
+import org.mapstruct.Mapper;
+import org.mapstruct.MappingConstants;
+import org.mapstruct.factory.Mappers;
 
 /**
- * 规格业务层
+ * 订单门面装配器
+ * <p>
+ * 负责订单模块 Command 与应用层对象之间的转换
+ * </p>
  *
  * @author shuigedeng
  * @version 2022.04
- * @since 2022-04-27 17:01:01
+ * @since 2022-04-27 16:58:27
  */
-public interface SpecificationCommandService extends CommandService {
+@Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
+public interface OrderFacadeAssembler {
 
-    /**
-     * 删除规格
-     *
-     * @param ids 规格ID
-     * @since 2022-04-27 17:01:01
-     */
-    void deleteSpecification(List<Long> ids);
+    /** 实例 */
+    OrderFacadeAssembler INSTANCE = Mappers.getMapper(OrderFacadeAssembler.class);
 
-    void saveCategoryBrand(AssignCategorySpecCommand assignCategorySpecCommand);
+
 }

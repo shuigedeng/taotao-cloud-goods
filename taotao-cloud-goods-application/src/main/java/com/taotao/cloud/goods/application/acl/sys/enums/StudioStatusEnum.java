@@ -14,29 +14,37 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.application.service.command;
-
-import com.taotao.boot.ddd.model.application.service.CommandService;
-import com.taotao.cloud.goods.application.dto.category.command.AssignCategorySpecCommand;
-
-import java.util.List;
+package com.taotao.cloud.goods.application.acl.sys.enums;
 
 /**
- * 规格业务层
+ * 直播间状态
  *
  * @author shuigedeng
  * @version 2022.04
- * @since 2022-04-27 17:01:01
+ * @since 2022-04-25 16:32:28
  */
-public interface SpecificationCommandService extends CommandService {
+public enum StudioStatusEnum {
+
+    /** 新建 */
+    NEW("新建"),
+    /** 开始 */
+    START("开始"),
+    /** 结束 */
+    END("结束");
+
+    private final String clientName;
+
+    StudioStatusEnum(String des) {
+        this.clientName = des;
+    }
 
     /**
-     * 删除规格
+     * clientName 方法
      *
-     * @param ids 规格ID
-     * @since 2022-04-27 17:01:01
+     * @return 字符串
+     * @since 2022.03
      */
-    void deleteSpecification(List<Long> ids);
-
-    void saveCategoryBrand(AssignCategorySpecCommand assignCategorySpecCommand);
+    public String clientName() {
+        return this.clientName;
+    }
 }

@@ -62,8 +62,8 @@ public class AdminGoodsUnitController extends BusinessController {
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/page")
 	public Result<PageResult<GoodsUnitResult>> queryByPage(@Valid PageQuery pageQuery ) {
-		PageResult<GoodsUnitResult> pageResult = goodsUnitQueryService.queryPage(pageQuery);
-		return Result.success(pageResult);
+		PageResult<GoodsUnitResult> result = goodsUnitQueryService.queryPage(pageQuery);
+		return Result.success(result);
 	}
 
 	@Operation(summary = "获取商品计量单位", description = "获取商品计量单位")
@@ -71,8 +71,8 @@ public class AdminGoodsUnitController extends BusinessController {
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping("/query")
 	public Result<GoodsUnitResult> queryDetail( @Valid IdQuery idQuery ) {
-		GoodsUnitResult goodsUnitResult = goodsUnitQueryService.queryDetail(idQuery.getId());
-		return Result.success(goodsUnitResult);
+		GoodsUnitResult result = goodsUnitQueryService.queryDetail(idQuery.getId());
+		return Result.success(result);
 	}
 
 	@Operation(summary = "添加商品计量单位", description = "添加商品计量单位")

@@ -34,53 +34,53 @@ import com.taotao.cloud.goods.application.dto.goods.result.GoodsResult;
  */
 public interface GoodsCommandService extends CommandService {
 
-    /**
-     * 下架所有商家商品
-     *
-     * @param storeIdCommand 店铺ID
-     * @since 2022-04-27 17:00:15
-     */
-    void underStoreGoods( UnderGoodsCommand storeIdCommand);
+	/**
+	 * 下架所有商家商品
+	 *
+	 * @param command 店铺ID
+	 * @since 2022-04-27 17:00:15
+	 */
+	void underStoreGoods(UnderGoodsCommand command);
 
-    /**
-     * 更新商品参数
-     *
-     * @param updateStoreParamsCommand 商品id
-     * @since 2022-04-27 17:00:15
-     */
-    void updateGoodsParams( UpdateStoreParamsCommand updateStoreParamsCommand);
+	/**
+	 * 更新商品参数
+	 *
+	 * @param command 商品id
+	 * @since 2022-04-27 17:00:15
+	 */
+	void updateGoodsParams(UpdateStoreParamsCommand command);
 
-    /**
-     * 添加商品
-     *
-     * @param goodsAddCmd 商品查询条件
-     * @since 2022-04-27 17:00:15
-     */
-    void addGoods( SaveGoodsCommand goodsAddCmd);
+	/**
+	 * 添加商品
+	 *
+	 * @param command 商品查询条件
+	 * @since 2022-04-27 17:00:15
+	 */
+	void addGoods(SaveGoodsCommand command);
 
-    /**
-     * 修改商品
-     *
-     * @param goodsAddCmd 商品查询条件
-     * @since 2022-04-27 17:00:15
-     */
-    void editGoods( SaveGoodsCommand goodsAddCmd);
+	/**
+	 * 修改商品
+	 *
+	 * @param command 商品查询条件
+	 * @since 2022-04-27 17:00:15
+	 */
+	void editGoods(SaveGoodsCommand command);
 
-    /**
+	/**
 	 * 批量审核商品
 	 *
-	 * @param auditGoodsCommand 商品id列表
+	 * @param command 商品id列表
 	 * @since 2022-04-27 17:00:16
 	 */
-    void auditGoods( AuditGoodsCommand auditGoodsCommand );
+	void auditGoods(AuditGoodsCommand command);
 
-    /**
-     * 更新商品上架状态状态
-     *
-     * @param marketAbleGoodsCommand 更新的商品状态
-     * @since 2022-04-27 17:00:16
-     */
-    void updateGoodsMarketAble( MarketAbleGoodsCommand marketAbleGoodsCommand );
+	/**
+	 * 更新商品上架状态状态
+	 *
+	 * @param command 更新的商品状态
+	 * @since 2022-04-27 17:00:16
+	 */
+	void updateGoodsMarketAble(MarketAbleGoodsCommand command);
 //
 //    /**
 //	 * 更新商品上架状态状态
@@ -90,62 +90,60 @@ public interface GoodsCommandService extends CommandService {
 //	 */
 //    void updateGoodsMarketAble(MarketAbleGoodsCommand marketAbleGoodsCommand );
 
-    /**
-     * 删除商品
-     *
-     * @param goodsIdsCommand 商品ID
-     * @since 2022-04-27 17:00:16
-     */
-    void deleteGoods(GoodsIdsCommand goodsIdsCommand);
-
-    /**
-	 * 设置商品运费模板
+	/**
+	 * 删除商品
 	 *
-	 * @param freightGoodsCommand 商品列表
+	 * @param command 商品ID
 	 * @since 2022-04-27 17:00:16
 	 */
-    void freight(FreightGoodsCommand freightGoodsCommand);
-
-    /**
-	 * 修改商品库存数量
-	 *
-	 * @param updateStockGoodsCommand 商品ID
-	 * @since 2022-04-27 17:00:16
-	 */
-
-    void updateStock(UpdateStockGoodsCommand updateStockGoodsCommand);
-
-    /**
-     * 更新商品评价数量
-     *
-     * @param goodsIdCommand 商品ID
-     * @since 2022-04-27 17:00:16
-     */
-    void updateGoodsCommentNum(GoodsIdCommand goodsIdCommand);
-
-    /**
-	 * 更新商品的购买数量
-	 *
-	 * @param updateGoodsBuyCountCommand 商品ID
-	 * @since 2022-04-27 17:00:16
-	 */
-    void updateGoodsBuyCount(UpdateGoodsBuyCountCommand updateGoodsBuyCountCommand);
-
-    GoodsResult createGoods( CreateGoodsCommand goodsCreateCommand);
-
-
-
-    void handleKafkaNotify( NotifyGoodsCommand notifyGoodsCommand );
-
-	void scheduleAutoCreateGoods( ScheduleAutoCreateGoodsCommand scheduleAutoCreateGoodsCommand );
-
-	void handleGoodsCreatedEvent( GoodsCreatedHandleCommand build );
+	void deleteGoods(GoodsIdsCommand command);
 
 	/**
-     * 批量更新商品的店铺信息
-     *
-     * @param store
-     */
-    // boolean updateStoreDetail(Store store);
+	 * 设置商品运费模板
+	 *
+	 * @param command 商品列表
+	 * @since 2022-04-27 17:00:16
+	 */
+	void freight(FreightGoodsCommand command);
+
+	/**
+	 * 修改商品库存数量
+	 *
+	 * @param command 商品ID
+	 * @since 2022-04-27 17:00:16
+	 */
+	void updateStock(UpdateStockGoodsCommand command);
+
+	/**
+	 * 更新商品评价数量
+	 *
+	 * @param command 商品ID
+	 * @since 2022-04-27 17:00:16
+	 */
+	void updateGoodsCommentNum(GoodsIdCommand command);
+
+	/**
+	 * 更新商品的购买数量
+	 *
+	 * @param command 商品ID
+	 * @since 2022-04-27 17:00:16
+	 */
+	void updateGoodsBuyCount(UpdateGoodsBuyCountCommand command);
+
+	GoodsResult createGoods(CreateGoodsCommand command);
+
+
+	void handleKafkaNotify(NotifyGoodsCommand command);
+
+	void scheduleAutoCreateGoods(ScheduleAutoCreateGoodsCommand command);
+
+	void handleGoodsCreatedEvent(GoodsCreatedHandleCommand command);
+
+	/**
+	 * 批量更新商品的店铺信息
+	 *
+	 * @param store
+	 */
+	// boolean updateStoreDetail(Store store);
 
 }

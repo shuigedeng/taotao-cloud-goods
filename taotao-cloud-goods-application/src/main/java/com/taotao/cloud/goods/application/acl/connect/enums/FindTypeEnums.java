@@ -14,29 +14,10 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.application.service.command;
+package com.taotao.cloud.goods.application.acl.connect.enums;
 
-import com.taotao.boot.ddd.model.application.service.CommandService;
-import com.taotao.cloud.goods.application.dto.category.command.AssignCategorySpecCommand;
-
-import java.util.List;
-
-/**
- * 规格业务层
- *
- * @author shuigedeng
- * @version 2022.04
- * @since 2022-04-27 17:01:01
- */
-public interface SpecificationCommandService extends CommandService {
-
-    /**
-     * 删除规格
-     *
-     * @param ids 规格ID
-     * @since 2022-04-27 17:01:01
-     */
-    void deleteSpecification(List<Long> ids);
-
-    void saveCategoryBrand(AssignCategorySpecCommand assignCategorySpecCommand);
+public enum FindTypeEnums {
+    LIST,
+    TREE_LIST,
+    USER_TREE_LIST
 }

@@ -32,6 +32,7 @@ import com.taotao.cloud.goods.application.service.query.GoodsQueryService;
 import com.taotao.cloud.goods.application.service.query.GoodsSkuQueryService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
@@ -71,7 +72,7 @@ public class BuyerGoodsController extends BusinessController {
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/detail")
-	public Result<GoodsSkuParamsResult> queryByGoodsId( Long goodsId) {
+	public Result<GoodsSkuParamsResult> queryByGoodsId(@Valid Long goodsId) {
 		GoodsSkuParamsResult result = goodsQueryService.queryDetail(goodsId);
 		return Result.success(result);
 	}
@@ -81,7 +82,7 @@ public class BuyerGoodsController extends BusinessController {
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/goods-sku-detail")
-	public Result<Map<String, Object>> querySkuById( GoodsSkuQuery goodsSkuQuery) {
+	public Result<Map<String, Object>> querySkuById(@Valid  GoodsSkuQuery goodsSkuQuery) {
 		Map<String, Object> map = goodsSkuQueryService.queryGoodsSkuDetail(goodsSkuQuery.goodsId(), goodsSkuQuery.skuId());
 		return Result.success(map);
 	}
@@ -99,7 +100,7 @@ public class BuyerGoodsController extends BusinessController {
 	@Operation(summary = "从ES中获取商品信息", description = "从ES中获取商品信息")
 	@RequestLogger
 	@GetMapping("/query/es")
-	public Result<PageResult<EsGoodsResult>> queryEs( EsGoodsSearchQuery esGoodsSearchQuery ) {
+	public Result<PageResult<EsGoodsResult>> queryEs(@Valid  EsGoodsSearchQuery esGoodsSearchQuery ) {
 //		SearchPage<EsGoodsIndex> esGoodsIndices = esGoodsQueryService.searchGoods(goodsSearchParams);
 //		return Result.success(esGoodsIndices);
 		return null;
@@ -120,7 +121,7 @@ public class BuyerGoodsController extends BusinessController {
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping("/query/hotwords")
-	public Result<List<String>> queryHotWords( HotWordsQuery hotwordsQuery ) {
+	public Result<List<String>> queryHotWords( @Valid  HotWordsQuery hotwordsQuery ) {
 		// List<String> hotWords = esGoodsQueryService.getHotWords(count);
 		return Result.success(new ArrayList<>());
 	}
