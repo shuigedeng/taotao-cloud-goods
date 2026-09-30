@@ -35,7 +35,7 @@ public class SysInvoker {
 					Request<DictApiQuery> request = Request.from(query);
 					request.setBizNo("1111");
 					request.setOrderNo("1111");
-					return dictQueryApi.queryByCode(request);
+					return dictQueryApi.query(request);
 				})
                 .addLast(RemoteCallExceptionInterceptor.getInstance())
                 .addLast(SysInterceptor.getInstance())
