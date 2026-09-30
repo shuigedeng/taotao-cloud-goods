@@ -59,20 +59,20 @@ public interface GoodsQueryService extends QueryService {
 	/**
 	 * 商品查询
 	 *
-	 * @param goodsPageQuery 查询参数
+	 * @param query 查询参数
 	 * @return {@link PageResult }<{@link GoodsResult }>
 	 * @since 2022-04-27 17:00:16
 	 */
-	PageResult<GoodsResult> queryGoodsPage( GoodsPageQuery goodsPageQuery );
+	PageResult<GoodsResult> queryGoodsPage( GoodsPageQuery query );
 
 	/**
 	 * 商品查询
 	 *
-	 * @param goodsPageQuery 查询参数
+	 * @param query 查询参数
 	 * @return {@link List }<{@link GoodsResult }>
 	 * @since 2022-04-27 17:00:16
 	 */
-	List<GoodsResult> queryListByParams( GoodsPageQuery goodsPageQuery );
+	List<GoodsResult> queryListByParams( GoodsPageQuery query );
 
 	/**
 	 * 统计店铺的商品数量
@@ -83,5 +83,5 @@ public interface GoodsQueryService extends QueryService {
 	 */
 	Long queryCountStoreGoodsNum( Long storeId );
 
-    GoodsRpcResponse queryGoods(GoodsRpcQuery order );
+    GoodsRpcResponse queryGoods(GoodsRpcQuery query );
 }

@@ -58,7 +58,7 @@ public class StoreGoodsLabelCommandServiceImpl implements StoreGoodsLabelCommand
     //	}
 
     // @Override
-    // @Transactional(rollbackFor = Exception.class)
+
     // public boolean addStoreGoodsLabel(StoreGoodsLabelPO storeGoodsLabelPO) {
     //	// 获取当前登录商家账号
     //	SecurityUser tokenUser = SecurityUtils.getCurrentUser();
@@ -71,7 +71,7 @@ public class StoreGoodsLabelCommandServiceImpl implements StoreGoodsLabelCommand
     // }
     //
     // @Override
-    // @Transactional(rollbackFor = Exception.class)
+
     // public boolean editStoreGoodsLabel(StoreGoodsLabelPO storeGoodsLabelPO) {
     //	// 修改当前店铺的商品分类
     //	SecurityUser tokenUser = SecurityUtils.getCurrentUser();

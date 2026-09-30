@@ -49,7 +49,7 @@ public class CommodityCommandServiceImpl implements CommodityCommandService {
     }
 
     // @Override
-    // @Transactional(rollbackFor = Exception.class)
+
     // public boolean addCommodity(List<CommodityPO> commodityPOList) {
     //	Long storeId = SecurityUtils.getCurrentUser().getStoreId();
     //	for (CommodityPO commodityPO : commodityPOList) {
@@ -107,7 +107,7 @@ public class CommodityCommandServiceImpl implements CommodityCommandService {
     // }
     //
     // @Override
-    // @Transactional(rollbackFor = Exception.class)
+
     // public boolean getGoodsWareHouse() {
     //	// 查询审核中的商品
     //	List<String> goodsIdList = this.baseMapper.getAuditCommodity();

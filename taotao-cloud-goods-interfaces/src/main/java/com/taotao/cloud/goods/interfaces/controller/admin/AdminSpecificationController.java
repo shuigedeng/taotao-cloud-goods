@@ -70,8 +70,8 @@ public class AdminSpecificationController extends BusinessController {
 	@RequestLogger("搜索规格")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping("/query/page")
-	public Result<PageResult<SpecificationResult>> queryPage(@Valid SpecificationPageQuery specificationPageQuery ) {
-		PageResult<SpecificationResult> pageResult = specificationQueryService.queryPage(specificationPageQuery);
+	public Result<PageResult<SpecificationResult>> queryPage(@Valid SpecificationPageQuery query ) {
+		PageResult<SpecificationResult> pageResult = specificationQueryService.queryPage(query);
 		return Result.success(pageResult);
 	}
 
@@ -79,7 +79,7 @@ public class AdminSpecificationController extends BusinessController {
 	@RequestLogger("保存规格")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/create")
-	public Result<Void> create(@Valid  @RequestBody CreateSpecificationCommand specificationCommand ) {
+	public Result<Void> create(@Valid  @RequestBody CreateSpecificationCommand command ) {
 //		SpecificationPO specification = SpecificationAssembler.INSTANCE.convert(specificationCommand);
 //		return Result.success(specificationCommandService.create(specification));
 		return Result.success();

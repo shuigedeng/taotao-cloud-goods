@@ -68,8 +68,8 @@ public class AdminCategoryParameterGroupController extends BusinessController {
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/category-id")
-	public Result<List<ParameterGroupResult>> queryByCategoryId( @Valid CategoryIdQuery categoryIdQuery ) {
-		List<ParameterGroupResult> result = categoryParameterGroupQueryService.queryCategoryParams(categoryIdQuery.categoryId());
+	public Result<List<ParameterGroupResult>> queryByCategoryId( @Valid CategoryIdQuery query ) {
+		List<ParameterGroupResult> result = categoryParameterGroupQueryService.queryCategoryParams(query.categoryId());
 		return Result.success(result);
 	}
 
@@ -77,8 +77,8 @@ public class AdminCategoryParameterGroupController extends BusinessController {
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/create")
-	public Result<Void> create( @Valid @RequestBody CreateCategoryParameterGroupCommand createCategoryParameterGroupCommand ) {
-		categoryParameterGroupCommandService.createCategoryGroup(createCategoryParameterGroupCommand);
+	public Result<Void> create( @Valid @RequestBody CreateCategoryParameterGroupCommand command ) {
+		categoryParameterGroupCommandService.createCategoryGroup(command);
 		return Result.success();
 	}
 
@@ -86,8 +86,8 @@ public class AdminCategoryParameterGroupController extends BusinessController {
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/update")
-	public Result<Void> update( @Valid @RequestBody UpdateCategoryParameterGroupCommand updateCategoryParameterGroupCommand ) {
-		categoryParameterGroupCommandService.updateCategoryGroup(updateCategoryParameterGroupCommand);
+	public Result<Void> update( @Valid @RequestBody UpdateCategoryParameterGroupCommand command ) {
+		categoryParameterGroupCommandService.updateCategoryGroup(command);
 		return Result.success();
 	}
 
@@ -95,12 +95,12 @@ public class AdminCategoryParameterGroupController extends BusinessController {
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/delete")
-	public Result<Void> delete( @Valid @RequestBody IdCommand idCommand ) {
+	public Result<Void> delete( @Valid @RequestBody IdCommand command ) {
 //		// 删除参数
 //		parametersCommandService.remove(new QueryWrapper<ParametersPO>().eq("group_id", id));
 //		// 删除参数组
 //		return Result.success(categoryParameterGroupCommandService.removeById(id));
-		categoryParameterGroupCommandService.deleteByCategoryId(idCommand.getId());
+		categoryParameterGroupCommandService.deleteByCategoryId(command.getId());
 		return Result.success();
 	}
 }

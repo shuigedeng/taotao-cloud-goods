@@ -65,7 +65,7 @@ public class CustomWordsQueryServiceImpl implements CustomWordsQueryService {
     // }
     //
     // @Override
-    // @Transactional(rollbackFor = Exception.class)
+
     // public boolean addCustomWords(CustomWordsCO customWordsCO) {
     //	LambdaQueryWrapper<CustomWordsPO> queryWrapper =
     //		new LambdaQueryWrapper<CustomWordsPO>().eq(CustomWordsPO::getName,
@@ -81,7 +81,7 @@ public class CustomWordsQueryServiceImpl implements CustomWordsQueryService {
     // }
     //
     // @Override
-    // @Transactional(rollbackFor = Exception.class)
+
     // public boolean deleteCustomWords(Long id) {
     //	if (this.getById(id) == null) {
     //		throw new BusinessException(ResultEnum.CUSTOM_WORDS_NOT_EXIST_ERROR);

@@ -33,18 +33,18 @@ public interface CategoryCommandService extends CommandService {
     /**
      * 添加商品分类
      *
-     * @param createCategoryCommand 商品分类信息
+     * @param command 商品分类信息
      * @return 添加结果
      */
-    boolean saveCategory( CreateCategoryCommand createCategoryCommand);
+    boolean saveCategory( CreateCategoryCommand command);
 
     /**
      * 修改商品分类
      *
-     * @param category 商品分类信息
+     * @param command 商品分类信息
      * @return 修改结果
      */
-    boolean updateCategory( UpdateCategoryCommand category);
+    boolean updateCategory( UpdateCategoryCommand command);
 
     /**
      * 批量删除分类
@@ -57,5 +57,5 @@ public interface CategoryCommandService extends CommandService {
      * 分类状态的更改
      *
      */
-    void updateCategoryStatus(DisableCommand disableCommand);
+    void updateCategoryStatus(DisableCommand command);
 }

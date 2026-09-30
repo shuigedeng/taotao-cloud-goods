@@ -60,8 +60,8 @@ public class AdminCategoryBrandController extends BusinessController {
     @RequestLogger
     @PreAuthorize("hasAuthority('dept:tree:data')")
     @GetMapping(value = "/query/category-id")
-    public Result<List<CategoryBrandResult>> queryByCategoryId(@Valid CategoryIdQuery categoryIdQuery ) {
-		List<CategoryBrandResult> results = categoryBrandQueryService.queryByCategoryId(categoryIdQuery.categoryId());
+    public Result<List<CategoryBrandResult>> queryByCategoryId(@Valid CategoryIdQuery query ) {
+		List<CategoryBrandResult> results = categoryBrandQueryService.queryByCategoryId(query.categoryId());
 		return Result.success(results);
     }
 
@@ -69,8 +69,8 @@ public class AdminCategoryBrandController extends BusinessController {
     @RequestLogger
     @PreAuthorize("hasAuthority('dept:tree:data')")
     @PostMapping(value = "/command/category/brands")
-    public Result<Void> saveCategoryBrand( @Valid @RequestBody AssignCategoryBrandsCommand assignCategoryBrandsCommand) {
-		categoryBrandCommandService.saveCategoryBrandList(assignCategoryBrandsCommand);
+    public Result<Void> saveCategoryBrand( @Valid @RequestBody AssignCategoryBrandsCommand command) {
+		categoryBrandCommandService.saveCategoryBrandList(command);
 		return Result.success();
     }
 }

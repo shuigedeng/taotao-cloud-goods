@@ -2,13 +2,13 @@ syntax = "proto3";
 
 package com.taotao.cloud.goods.api.grpc;
 
-import "dto/command/GoodsCommand.proto";
-import "dto/response/GoodsResponse.proto";
-
 option java_multiple_files = true;
 option java_package = "com.taotao.cloud.goods.api.grpc.command";
 option java_outer_classname = "GoodsSkuCommandGrpcServiceProto";
 //option objc_class_prefix = "HLW";
+
+import "dto/command/GoodsCommand.proto";
+import "dto/response/GoodsResponse.proto";
 
 service GoodsSkuCommandGrpcService {
   rpc createGoods (CreateGoodsSkuGrpcCommand) returns (GoodsSkuGrpcResponse){}

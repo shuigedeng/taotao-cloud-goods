@@ -65,8 +65,8 @@ public class AdminCategorySpecificationController extends BusinessController {
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/category-id")
-	public Result<List<SpecificationResult>> getCategorySpec(@Valid CategoryIdQuery categoryIdQuery ) {
-		List<SpecificationResult> result = categorySpecificationQueryService.queryByCategoryId(categoryIdQuery.categoryId());
+	public Result<List<SpecificationResult>> getCategorySpec(@Valid CategoryIdQuery query ) {
+		List<SpecificationResult> result = categorySpecificationQueryService.queryByCategoryId(query.categoryId());
 		return Result.success(result);
 	}
 
@@ -74,8 +74,8 @@ public class AdminCategorySpecificationController extends BusinessController {
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/goods/category-id")
-	public Result<List<SpecificationResult>> getSpec( @Valid CategoryIdQuery categoryIdQuery) {
-		List<SpecificationResult> result = categorySpecificationQueryService.queryByCategoryId(categoryIdQuery.categoryId());
+	public Result<List<SpecificationResult>> getSpec( @Valid CategoryIdQuery query) {
+		List<SpecificationResult> result = categorySpecificationQueryService.queryByCategoryId(query.categoryId());
 		return Result.success(result);
 	}
 
@@ -83,8 +83,8 @@ public class AdminCategorySpecificationController extends BusinessController {
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/create")
-	public Result<Void> create( @Valid @RequestBody AssignCategorySpecCommand assignCategorySpecCommand ) {
-		specificationCommandService.saveCategoryBrand(assignCategorySpecCommand);
+	public Result<Void> create( @Valid @RequestBody AssignCategorySpecCommand command ) {
+		specificationCommandService.saveCategoryBrand(command);
 		return Result.success();
 	}
 }

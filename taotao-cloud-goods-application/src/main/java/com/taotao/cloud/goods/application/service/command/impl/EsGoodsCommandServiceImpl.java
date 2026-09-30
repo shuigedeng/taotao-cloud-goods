@@ -42,9 +42,9 @@ public class EsGoodsCommandServiceImpl implements EsGoodsCommandService {
     //	@Autowired
     //	private IEsGoodsSearchService goodsSearchService;
     //	@Autowired
-    //	private IFeignPromotionApi promotionApi;
+    //	private AclServicePromotionApi promotionApi;
     //	@Autowired
-    //	private IFeignPromotionGoodsApi promotionGoodsApi;
+    //	private AclServicePromotionGoodsApi promotionGoodsApi;
     //	@Autowired
     //	private CustomWordsCommandService customWordsService;
     //	@Autowired

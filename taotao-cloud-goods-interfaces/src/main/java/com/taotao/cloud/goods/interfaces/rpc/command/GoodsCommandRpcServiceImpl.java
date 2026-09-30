@@ -40,7 +40,7 @@ import org.springframework.stereotype.Service;
 public class GoodsCommandRpcServiceImpl implements GoodsCommandRpcService {
 
 	@Override
-	public Response<CreateGoodsRpcResponse> createGoods(Request<CreateGoodsRpcCommand> createGoodsRpcCommandRequest) {
+	public Response<CreateGoodsRpcResponse> createGoods(Request<CreateGoodsRpcCommand> request) {
 		return null;
 	}
 }

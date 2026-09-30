@@ -79,7 +79,7 @@ public class AdminGoodsUnitController extends BusinessController {
 	@RequestLogger("添加商品计量单位")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/create")
-	public Result<Void> create( @Valid @RequestBody GoodsUnitCommand goodsUnit ) {
+	public Result<Void> create( @Valid @RequestBody GoodsUnitCommand command ) {
 //		return Result.success(goodsUnitService.create(goodsUnit));
 		return Result.success();
 	}
@@ -88,7 +88,7 @@ public class AdminGoodsUnitController extends BusinessController {
 	@RequestLogger("编辑商品计量单位")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/commmand/update")
-	public Result<Void> update( @Valid @RequestBody GoodsUnitCommand goodsUnit ) {
+	public Result<Void> update( @Valid @RequestBody GoodsUnitCommand command ) {
 //		return Result.success(goodsUnitService.updateById(goodsUnit));
 		return Result.success();
 	}
@@ -97,7 +97,7 @@ public class AdminGoodsUnitController extends BusinessController {
 	@RequestLogger("删除商品计量单位")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/commnad/del-batch")
-	public Result<Void> deleteBatch( @Valid @RequestBody IdsCommand idsCommand ) {
+	public Result<Void> deleteBatch( @Valid @RequestBody IdsCommand command ) {
 //		return Result.success(goodsUnitService.removeByIds(ids));
 		return Result.success();
 	}

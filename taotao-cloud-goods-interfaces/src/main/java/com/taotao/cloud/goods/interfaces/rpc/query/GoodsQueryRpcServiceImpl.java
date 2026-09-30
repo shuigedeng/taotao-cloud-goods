@@ -41,8 +41,8 @@ public class GoodsQueryRpcServiceImpl implements GoodsQueryRpcService {
 	private final GoodsQueryService goodsQueryService;
 
     @Override
-    public Response<GoodsRpcResponse> queryGoods(Request<GoodsRpcQuery> goodsQueryRpcRequest) {
-		GoodsRpcResponse response = goodsQueryService.queryGoods(goodsQueryRpcRequest.getOrder());
+    public Response<GoodsRpcResponse> queryGoods(Request<GoodsRpcQuery> request) {
+		GoodsRpcResponse response = goodsQueryService.queryGoods(request.getOrder());
         return Response.from(response);
     }
 }

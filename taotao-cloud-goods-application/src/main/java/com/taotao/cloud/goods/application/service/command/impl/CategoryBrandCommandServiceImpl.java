@@ -54,7 +54,7 @@ public class CategoryBrandCommandServiceImpl implements CategoryBrandCommandServ
     //
     //
     //	@Override
-    //	@Transactional(rollbackFor = Exception.class)
+
     //	public boolean saveCategoryBrandList(Long categoryId, List<Long> brandIds) {
     //		// 删除分类品牌绑定信息
     //		deleteByCategoryId(categoryId);

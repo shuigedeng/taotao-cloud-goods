@@ -141,11 +141,11 @@ public class GoodsSkuCommandServiceImpl implements GoodsSkuCommandService {
     /// **
     // * 会员评价服务
     // */
-    // private final IFeignMemberEvaluationApi memberEvaluationApi;
+    // private final AclServiceMemberEvaluationApi memberEvaluationApi;
     /// **
     // * 促销活动商品服务
     // */
-    // private final IFeignPromotionGoodsApi promotionGoodsApi;
+    // private final AclServicePromotionGoodsApi promotionGoodsApi;
     //
     /// **
     // * 缓存服务
@@ -157,7 +157,7 @@ public class GoodsSkuCommandServiceImpl implements GoodsSkuCommandService {
     // private final ApplicationEventPublisher applicationEventPublisher;
     //
     // @Override
-    // @Transactional(rollbackFor = Exception.class)
+
     // public boolean add(List<Map<String, Object>> skuList, GoodsPO goods) {
     //	// 检查是否需要生成索引
     //	List<GoodsSkuPO> newSkuList;
@@ -177,7 +177,7 @@ public class GoodsSkuCommandServiceImpl implements GoodsSkuCommandService {
     // }
     //
     // @Override
-    // @Transactional(rollbackFor = Exception.class)
+
     // public boolean update(List<Map<String, Object>> skuList, GoodsPO goods,
     //					  boolean regeneratorSkuFlag) {
     //	// 是否存在规格
@@ -234,7 +234,7 @@ public class GoodsSkuCommandServiceImpl implements GoodsSkuCommandService {
     // }
     //
     // @Override
-    // @Transactional(rollbackFor = Exception.class)
+
     // public boolean update(GoodsSkuPO goodsSkuPO) {
     //	this.updateById(goodsSkuPO);
     //	redisRepository.del(getCacheKeys(goodsSkuPO.getId()));
@@ -251,7 +251,7 @@ public class GoodsSkuCommandServiceImpl implements GoodsSkuCommandService {
     //
     //
     // @Override
-    // @Transactional(rollbackFor = Exception.class)
+
     // public boolean updateGoodsSkuStatus(GoodsPO goods) {
     //	LambdaUpdateWrapper<GoodsSkuPO> updateWrapper = new LambdaUpdateWrapper<>();
     //	updateWrapper.eq(GoodsSkuPO::getGoodsId, goods.getId());
@@ -274,7 +274,7 @@ public class GoodsSkuCommandServiceImpl implements GoodsSkuCommandService {
     //
     //
     // @Override
-    // @Transactional(rollbackFor = Exception.class)
+
     // public boolean updateStocks(List<GoodsSkuStockUpdateCmd> goodsSkuStockUpdateCmds) {
     //	for (GoodsSkuStockUpdateCmd goodsSkuStockUpdateCmd : goodsSkuStockUpdateCmds) {
     //		this.updateStock(goodsSkuStockUpdateCmd.getSkuId(), goodsSkuStockUpdateCmd.getQuantity());
@@ -283,7 +283,7 @@ public class GoodsSkuCommandServiceImpl implements GoodsSkuCommandService {
     // }
     //
     // @Override
-    // @Transactional(rollbackFor = Exception.class)
+
     // public boolean updateStock(Long skuId, Integer quantity) {
     //	GoodsSkuPO goodsSkuPO = getGoodsSkuByIdFromCache(skuId);
     //	if (goodsSkuPO != null) {
@@ -310,7 +310,7 @@ public class GoodsSkuCommandServiceImpl implements GoodsSkuCommandService {
     //
     //
     // @Override
-    // @Transactional(rollbackFor = Exception.class)
+
     // public boolean updateGoodsStuck(List<GoodsSkuPO> goodsSkusPOS) {
     //	// 商品id集合 hashset 去重复
     //	Set<Long> goodsIds = new HashSet<>();
@@ -338,7 +338,7 @@ public class GoodsSkuCommandServiceImpl implements GoodsSkuCommandService {
     // }
     //
     // @Override
-    // @Transactional(rollbackFor = Exception.class)
+
     // public boolean updateGoodsSkuCommentNum(Long skuId) {
     //	// 获取商品信息
     //	GoodsSkuPO goodsSkuPO = this.getGoodsSkuByIdFromCache(skuId);

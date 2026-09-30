@@ -37,7 +37,7 @@ public class ParametersCommandServiceImpl implements ParametersCommandService {
 
 
     //	@Override
-    //	@Transactional(rollbackFor = Exception.class)
+
     //	public boolean updateParameter(ParametersPO parametersPO) {
     //		ParametersPO origin = this.getById(parametersPO.getId());
     //		if (origin == null) {

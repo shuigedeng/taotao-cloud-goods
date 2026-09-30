@@ -40,10 +40,10 @@ public class GoodsGalleryCommandServiceImpl implements GoodsGalleryCommandServic
     // * 设置
     // */
     // @Autowired
-    // private IFeignSettingApi settingApi;
+    // private AclServiceSettingApi settingApi;
     //
     // @Override
-    // @Transactional(rollbackFor = Exception.class)
+
     // public boolean add(List<String> goodsGalleryList, Long goodsId) {
     //	// 删除原来商品相册信息
     //	this.baseMapper.delete(new UpdateWrapper<GoodsGalleryPO>().eq("goods_id", goodsId));

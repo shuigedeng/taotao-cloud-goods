@@ -56,7 +56,7 @@ public class CategoryParameterGroupCommandServiceImpl implements CategoryParamet
 
 
 	// @Override
-    // @Transactional(rollbackFor = Exception.class)
+
     // public boolean updateCategoryGroup(CategoryParameterGroupPO categoryParameterGroupPO) {
     //	CategoryParameterGroupPO origin = this.getById(categoryParameterGroupPO.getId());
     //	if (origin == null) {

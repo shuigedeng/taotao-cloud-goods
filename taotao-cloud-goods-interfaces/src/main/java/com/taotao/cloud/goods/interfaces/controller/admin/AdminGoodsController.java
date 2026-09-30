@@ -68,8 +68,8 @@ public class AdminGoodsController extends BusinessController {
 	@RequestLogger("通过id获取商品详情")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/detail")
-	public Result<GoodsSkuParamsResult> queryDetail(@Valid IdQuery idQuery ) {
-		GoodsSkuParamsResult result = goodsQueryService.queryDetail(idQuery.getId());
+	public Result<GoodsSkuParamsResult> queryDetail(@Valid IdQuery query ) {
+		GoodsSkuParamsResult result = goodsQueryService.queryDetail(query.getId());
 		return Result.success(result);
 	}
 
@@ -78,8 +78,8 @@ public class AdminGoodsController extends BusinessController {
 	@RequestLogger("分页获取商品列表")
 	@NotAuth
 	@GetMapping(value = "/query/page")
-	public Result<PageResult<GoodsResult>> queryPage( @Valid GoodsPageQuery goodsPageQuery ) {
-		PageResult<GoodsResult> result = goodsQueryService.queryGoodsPage(goodsPageQuery);
+	public Result<PageResult<GoodsResult>> queryPage( @Valid GoodsPageQuery query ) {
+		PageResult<GoodsResult> result = goodsQueryService.queryGoodsPage(query);
 		return Result.success(result);
 	}
 
@@ -87,7 +87,7 @@ public class AdminGoodsController extends BusinessController {
 	@Operation(summary = "分页获取商品SKU列表", description = "分页获取商品SKU列表")
 	@RequestLogger("分页获取商品SKU列表")
 	@GetMapping(value = "/query/sku/page")
-	public Result<PageResult<GoodsSkuResult>> querySkuPage(@Valid GoodsPageQuery goodsPageQuery ) {
+	public Result<PageResult<GoodsSkuResult>> querySkuPage(@Valid GoodsPageQuery query ) {
 //		IPage<GoodsSkuPO> goodsSkuPage = goodsSkuQueryService.goodsSkuQueryPage(goodsPageQuery);
 //		return Result.success(MpUtils.convertMpPage(goodsSkuPage,
 //			GoodsSkuConvert.INSTANCE::convert));
@@ -97,7 +97,7 @@ public class AdminGoodsController extends BusinessController {
 	@RequestLogger("分页获取待审核商品")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/auth/page")
-	public Result<PageResult<GoodsResult>> queryAuthPage(@Valid  GoodsPageQuery goodsPageQuery ) {
+	public Result<PageResult<GoodsResult>> queryAuthPage(@Valid  GoodsPageQuery query ) {
 //		goodsPageQuery.setAuthFlag(GoodsAuthEnum.TOBEAUDITED.name());
 //		IPage<GoodsPO> goodsPage = goodsQueryService.goodsQueryPage(goodsPageQuery);
 //		return Result.success(MpUtils.convertMpPage(goodsPage, GoodsCO.class));
@@ -108,8 +108,8 @@ public class AdminGoodsController extends BusinessController {
 	@RequestLogger("管理员上架商品")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/create")
-	public Result<GoodsResult> create( @Valid @RequestBody CreateGoodsCommand goodsCreateCommand ) {
-		GoodsResult result = this.goodsCommandService.createGoods(goodsCreateCommand);
+	public Result<GoodsResult> create( @Valid @RequestBody CreateGoodsCommand command ) {
+		GoodsResult result = this.goodsCommandService.createGoods(command);
 		return Result.success(result);
 	}
 
@@ -118,8 +118,8 @@ public class AdminGoodsController extends BusinessController {
 	@RequestLogger("管理员下架商品")
 	@NotAuth
 	@PostMapping(value = "/command/under")
-	public Result<Void> underGoods( @Valid @RequestBody UnderGoodsCommand underCommand){
-		goodsCommandService.underStoreGoods(underCommand);
+	public Result<Void> underGoods( @Valid @RequestBody UnderGoodsCommand command){
+		goodsCommandService.underStoreGoods(command);
 		return Result.success();
 	}
 
@@ -128,7 +128,7 @@ public class AdminGoodsController extends BusinessController {
 	@RequestLogger("管理员下架商品xxx")
 	@NotAuth
 	@PostMapping(value = "/command/underxx")
-	public Result<Void> underGoodsxx( @Valid @RequestBody CreateGoodsParamsCommand underCommand){
+	public Result<Void> underGoodsxx( @Valid @RequestBody CreateGoodsParamsCommand command){
 //		return Result.success(
 //			goodsCommandService.managerUpdateGoodsMarketAble(
 //				goodsIds, GoodsStatusEnum.DOWN, reason));
@@ -139,7 +139,7 @@ public class AdminGoodsController extends BusinessController {
 	@RequestLogger("管理员审核商品")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/auth")
-	public Result<Void> authGoods( @Valid @RequestBody AuthCommand authCommand) {
+	public Result<Void> authGoods( @Valid @RequestBody AuthCommand command) {
 		// 校验商品是否存在
 //		return Result.success(
 //			goodsCommandService.auditGoods(goodsIds, GoodsAuthEnum.valueOf(authFlag)));
@@ -150,8 +150,8 @@ public class AdminGoodsController extends BusinessController {
 	@RequestLogger("管理员上架商品")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/up")
-	public Result<Void> unpGoods( @Valid @RequestBody MarketAbleGoodsCommand marketAbleGoodsCommand ) {
-		goodsCommandService.updateGoodsMarketAble(marketAbleGoodsCommand);
+	public Result<Void> unpGoods( @Valid @RequestBody MarketAbleGoodsCommand command ) {
+		goodsCommandService.updateGoodsMarketAble(command);
 		return Result.success();
 	}
 

@@ -70,8 +70,8 @@ public class AdminBrandController extends BusinessController {
 	@RequestLogger
 	@Operation(summary = "通过id获取", description = "通过id获取")
 	@GetMapping(value = "/query/detail")
-	public Result<BrandResult> queryDetail(@Valid IdQuery idQuery) {
-		BrandResult result = brandQueryService.queryDetail(idQuery.getId());
+	public Result<BrandResult> queryDetail(@Valid IdQuery query) {
+		BrandResult result = brandQueryService.queryDetail(query.getId());
 		return Result.success(result);
 	}
 
@@ -88,8 +88,8 @@ public class AdminBrandController extends BusinessController {
 	@Operation(summary = "分页获取", description = "分页获取")
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/page")
-	public Result<PageResult<BrandResult>> queryPage(@Valid BrandPageQuery page) {
-		PageResult<BrandResult> result = brandQueryService.queryPage(page);
+	public Result<PageResult<BrandResult>> queryPage(@Valid BrandPageQuery query) {
+		PageResult<BrandResult> result = brandQueryService.queryPage(query);
 		return Result.success(result);
 	}
 
@@ -102,8 +102,8 @@ public class AdminBrandController extends BusinessController {
 	@GuavaLimit
 	@SentinelResource("test")
 	@PostMapping("/command/create")
-	public Result<Void> createBrand(@Valid @RequestBody CreateBrandCommand brand) {
-		brandCommandService.createBrand(brand);
+	public Result<Void> createBrand(@Valid @RequestBody CreateBrandCommand command) {
+		brandCommandService.createBrand(command);
 		return Result.success();
 	}
 
@@ -111,8 +111,8 @@ public class AdminBrandController extends BusinessController {
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/update")
-	public Result<Void> updateBrand(@Valid @RequestBody UpdateBrandCommand brand) {
-		brandCommandService.updateBrand(brand);
+	public Result<Void> updateBrand(@Valid @RequestBody UpdateBrandCommand command) {
+		brandCommandService.updateBrand(command);
 		return Result.success();
 	}
 
@@ -121,8 +121,8 @@ public class AdminBrandController extends BusinessController {
 	@PreventDuplicateSubmit
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/disable")
-	public Result<Void> disableById(@Valid @RequestBody DisableBrandCommand disableBrandCommand) {
-		brandCommandService.disableBrand(disableBrandCommand);
+	public Result<Void> disableById(@Valid @RequestBody DisableBrandCommand command) {
+		brandCommandService.disableBrand(command);
 		return Result.success();
 	}
 
@@ -131,8 +131,8 @@ public class AdminBrandController extends BusinessController {
 	@PreventDuplicateSubmit
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/del-batch")
-	public Result<Void> deleteBatch(@Valid @RequestBody IdsCommand idsCommand) {
-		brandCommandService.deleteBrands(idsCommand);
+	public Result<Void> deleteBatch(@Valid @RequestBody IdsCommand command) {
+		brandCommandService.deleteBrands(command);
 		return Result.success();
 	}
 }

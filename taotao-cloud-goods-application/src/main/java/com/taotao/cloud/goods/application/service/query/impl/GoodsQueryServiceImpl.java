@@ -148,19 +148,19 @@ public class GoodsQueryServiceImpl implements GoodsQueryService {
 	/// **
 	// * 设置
 	// */
-	// private final IFeignSettingApi settingApi;
+	// private final AclServiceSettingApi settingApi;
 	/// **
 	// * 店铺详情
 	// */
-	// private final IFeignStoreApi storeApi;
+	// private final AclServiceStoreApi storeApi;
 	/// **
 	// * 运费模板
 	// */
-	// private final IFeignFreightTemplateApi freightTemplateApi;
+	// private final AclServiceFreightTemplateApi freightTemplateApi;
 	/// **
 	// * 会员评价
 	// */
-	// private final IFeignMemberEvaluationApi memberEvaluationApi;
+	// private final AclServiceMemberEvaluationApi memberEvaluationApi;
 	/// **
 	// * rocketMq
 	// */
@@ -270,7 +270,7 @@ public class GoodsQueryServiceImpl implements GoodsQueryService {
 	// }
 	//
 	//// @Override
-	//// @Transactional(rollbackFor = Exception.class)
+
 	//// public boolean updateStoreDetail(Store store) {
 	////	UpdateWrapper updateWrapper = new UpdateWrapper<>()
 	////		.eq("store_id", store.getId())

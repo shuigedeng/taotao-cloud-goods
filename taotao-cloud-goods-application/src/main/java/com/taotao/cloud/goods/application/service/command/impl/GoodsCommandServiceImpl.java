@@ -175,19 +175,19 @@ public class GoodsCommandServiceImpl implements GoodsCommandService {
     /// **
     // * 设置
     // */
-    // private final IFeignSettingApi settingApi;
+    // private final AclServiceSettingApi settingApi;
     /// **
     // * 店铺详情
     // */
-    // private final IFeignStoreApi storeApi;
+    // private final AclServiceStoreApi storeApi;
     /// **
     // * 运费模板
     // */
-    // private final IFeignFreightTemplateApi freightTemplateApi;
+    // private final AclServiceFreightTemplateApi freightTemplateApi;
     /// **
     // * 会员评价
     // */
-    // private final IFeignMemberEvaluationApi memberEvaluationApi;
+    // private final AclServiceMemberEvaluationApi memberEvaluationApi;
     /// **
     // * rocketMq
     // */
@@ -207,7 +207,7 @@ public class GoodsCommandServiceImpl implements GoodsCommandService {
     // }
     //
     // @Override
-    // @Transactional(rollbackFor = Exception.class)
+
     // public boolean underStoreGoods(Long storeId) {
     //	// 获取商品ID列表
     //	List<Long> list = this.baseMapper.getGoodsIdByStoreId(storeId);
@@ -223,7 +223,7 @@ public class GoodsCommandServiceImpl implements GoodsCommandService {
     // * @param params  商品参数
     // */
     // @Override
-    // @Transactional(rollbackFor = Exception.class)
+
     // public boolean updateGoodsParams(Long goodsId, String params) {
     //	LambdaUpdateWrapper<GoodsPO> updateWrapper = new LambdaUpdateWrapper<>();
     //	updateWrapper.eq(GoodsPO::getId, goodsId);
@@ -240,7 +240,7 @@ public class GoodsCommandServiceImpl implements GoodsCommandService {
     // }
     //
     // @Override
-    // @Transactional(rollbackFor = Exception.class)
+
     // public boolean addGoods(GoodsAddCmd goodsAddCmd) {
     //	GoodsPO goods = new GoodsPO(goodsAddCmd);
     //	// 检查商品
@@ -266,7 +266,7 @@ public class GoodsCommandServiceImpl implements GoodsCommandService {
     // }
     //
     // @Override
-    // @Transactional(rollbackFor = Exception.class)
+
     // public boolean editGoods(GoodsAddCmd goodsAddCmd, Long goodsId) {
     //	GoodsPO goods = new GoodsPO(goodsAddCmd);
     //	goods.setId(goodsId);
@@ -362,7 +362,7 @@ public class GoodsCommandServiceImpl implements GoodsCommandService {
     // }
     //
     // @Override
-    // @Transactional(rollbackFor = Exception.class)
+
     // public boolean auditGoods(List<Long> goodsIds, GoodsAuthEnum goodsAuthEnum) {
     //	boolean result = false;
     //	for (Long goodsId : goodsIds) {
@@ -383,7 +383,7 @@ public class GoodsCommandServiceImpl implements GoodsCommandService {
     // }
     //
     // @Override
-    // @Transactional(rollbackFor = Exception.class)
+
     // public boolean updateGoodsMarketAble(List<Long> goodsIds, GoodsStatusEnum goodsStatusEnum,
     // String underReason) {
     //	boolean result;
@@ -414,7 +414,7 @@ public class GoodsCommandServiceImpl implements GoodsCommandService {
     // }
     //
     // @Override
-    // @Transactional(rollbackFor = Exception.class)
+
     // public boolean managerUpdateGoodsMarketAble(
     //	List<Long> goodsIds, GoodsStatusEnum goodsStatusEnum, String underReason) {
     //	boolean result;
@@ -447,7 +447,7 @@ public class GoodsCommandServiceImpl implements GoodsCommandService {
     // }
     //
     // @Override
-    // @Transactional(rollbackFor = Exception.class)
+
     // public boolean deleteGoods(List<Long> goodsIds) {
     //	LambdaUpdateWrapper<GoodsPO> updateWrapper = this.getUpdateWrapperByStoreAuthority();
     //	updateWrapper.set(GoodsPO::getMarketEnable, GoodsStatusEnum.DOWN.name());
@@ -469,7 +469,7 @@ public class GoodsCommandServiceImpl implements GoodsCommandService {
     // }
     //
     // @Override
-    // @Transactional(rollbackFor = Exception.class)
+
     // public boolean freight(List<Long> goodsIds, Long templateId) {
     //	SecurityUser authUser = this.checkStoreAuthority();
     //
@@ -524,7 +524,7 @@ public class GoodsCommandServiceImpl implements GoodsCommandService {
     // }
     //
     //// @Override
-    //// @Transactional(rollbackFor = Exception.class)
+
     //// public boolean updateStoreDetail(Store store) {
     ////	UpdateWrapper updateWrapper = new UpdateWrapper<>()
     ////		.eq("store_id", store.getId())

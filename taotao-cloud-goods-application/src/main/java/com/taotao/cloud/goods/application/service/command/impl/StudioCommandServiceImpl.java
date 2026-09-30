@@ -74,7 +74,7 @@ public class StudioCommandServiceImpl implements StudioCommandService {
     // private GoodsCommandService goodsService;
     //
     // @Override
-    // @Transactional(rollbackFor = Exception.class)
+
     // public boolean create(StudioPO studioPO) {
     //    studioPO.setStoreId(SecurityUtils.getCurrentUser().getStoreId());
     //    // 创建小程序直播
@@ -116,7 +116,7 @@ public class StudioCommandServiceImpl implements StudioCommandService {
     // }
     //
     // @Override
-    // @Transactional(rollbackFor = Exception.class)
+
     // public boolean edit(StudioPO studioPO) {
     //    StudioPO oldStudioPO = this.getById(studioPO.getId());
     //    wechatLivePlayerUtil.editRoom(studioPO);
@@ -184,7 +184,7 @@ public class StudioCommandServiceImpl implements StudioCommandService {
     // }
     //
     // @Override
-    // @Transactional(rollbackFor = Exception.class)
+
     // public boolean push(Integer roomId, Long goodsId, Long storeId) {
     //    // 判断直播间是否已添加商品
     //    if (studioCommodityService.getOne(new LambdaQueryWrapper<StudioCommodityPO>()
@@ -219,7 +219,7 @@ public class StudioCommandServiceImpl implements StudioCommandService {
     // }
     //
     // @Override
-    // @Transactional(rollbackFor = Exception.class)
+
     // public boolean goodsDeleteInRoom(Integer roomId, Long goodsId, Long storeId) {
     //    GoodsPO goods = goodsService.getOne(
     //            new LambdaQueryWrapper<GoodsPO>().eq(GoodsPO::getId,

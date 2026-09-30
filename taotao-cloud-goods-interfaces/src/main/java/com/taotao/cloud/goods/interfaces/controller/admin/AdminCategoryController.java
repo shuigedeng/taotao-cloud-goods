@@ -70,8 +70,8 @@ public class AdminCategoryController extends BusinessController {
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/query/children")
-	public Result<List<CategoryResult>> queryChildrenByParentId(@Valid CategoryTreeQuery categoryTreeQuery) {
-		List<CategoryResult> results = this.categoryQueryService.childrenList(categoryTreeQuery.parentId());
+	public Result<List<CategoryResult>> queryChildrenByParentId(@Valid CategoryTreeQuery query) {
+		List<CategoryResult> results = this.categoryQueryService.childrenList(query.parentId());
 		return Result.success(results);
 	}
 
@@ -88,7 +88,7 @@ public class AdminCategoryController extends BusinessController {
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/create")
-	public Result<Void> create( @Valid @RequestBody CreateCategoryCommand createCategoryCommand ) {
+	public Result<Void> create( @Valid @RequestBody CreateCategoryCommand command ) {
 		//// 非顶级分类
 		// if (category.getParentId() != null && !Long.valueOf(0).equals(category.getParentId())) {
 		//    Category parent = categoryQueryService.getById(category.getParentId());
@@ -99,7 +99,7 @@ public class AdminCategoryController extends BusinessController {
 		//        throw new BusinessException(ResultEnum.CATEGORY_BEYOND_THREE);
 		//    }
 		// }
-		categoryCommandService.saveCategory(createCategoryCommand);
+		categoryCommandService.saveCategory(command);
 		return Result.success();
 	}
 
@@ -107,12 +107,12 @@ public class AdminCategoryController extends BusinessController {
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/command/update")
-	public Result<Void> update( @Valid @RequestBody UpdateCategoryCommand updateCategoryCommand ) {
+	public Result<Void> update( @Valid @RequestBody UpdateCategoryCommand command ) {
 		// CategoryPO catTemp = categoryQueryService.getById(category.getId());
 		// if (catTemp == null) {
 		//    throw new BusinessException(ResultEnum.CATEGORY_NOT_EXIST);
 		// }
-		categoryCommandService.updateCategory(updateCategoryCommand);
+		categoryCommandService.updateCategory(command);
 		return Result.success();
 	}
 
@@ -120,7 +120,7 @@ public class AdminCategoryController extends BusinessController {
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/delete")
-	public Result<Void> delete( @Valid @RequestBody IdCommand idCommand ) {
+	public Result<Void> delete( @Valid @RequestBody IdCommand command ) {
 		// CategoryPO category = new CategoryPO();
 		// category.setParentId(id);
 		// List<CategoryPO> list = categoryQueryService.findByAllBySortOrder(category);
@@ -133,7 +133,7 @@ public class AdminCategoryController extends BusinessController {
 		// if (count > 0) {
 		//    throw new BusinessException(ResultEnum.CATEGORY_HAS_GOODS);
 		// }
-		categoryCommandService.delete(idCommand.getId());
+		categoryCommandService.delete(command.getId());
 		return Result.success();
 	}
 
@@ -141,12 +141,12 @@ public class AdminCategoryController extends BusinessController {
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/command/disable")
-	public Result<Void> disable( @Valid @RequestBody DisableCommand disableCommand) {
+	public Result<Void> disable( @Valid @RequestBody DisableCommand command) {
 //		GoodsPO category = goodsQueryService.getById(id);
 //		if (category == null) {
 //			throw new BusinessException(ResultEnum.CATEGORY_NOT_EXIST);
 //		}
-		categoryCommandService.updateCategoryStatus(disableCommand);
+		categoryCommandService.updateCategoryStatus(command);
 		return Result.success();
 	}
 }

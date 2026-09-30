@@ -81,14 +81,6 @@ public interface GoodsCommandService extends CommandService {
 	 * @since 2022-04-27 17:00:16
 	 */
 	void updateGoodsMarketAble(MarketAbleGoodsCommand command);
-//
-//    /**
-//	 * 更新商品上架状态状态
-//	 *
-//	 * @param marketAbleGoodsCommand 商品ID集合
-//	 * @since 2022-04-27 17:00:16
-//	 */
-//    void updateGoodsMarketAble(MarketAbleGoodsCommand marketAbleGoodsCommand );
 
 	/**
 	 * 删除商品
@@ -126,24 +118,40 @@ public interface GoodsCommandService extends CommandService {
 	 * 更新商品的购买数量
 	 *
 	 * @param command 商品ID
-	 * @since 2022-04-27 17:00:16
 	 */
 	void updateGoodsBuyCount(UpdateGoodsBuyCountCommand command);
 
+	/**
+	 * 创建商品
+	 *
+	 * @param command 商品
+	 * @since 2022-04-27 17:00:16
+	 */
 	GoodsResult createGoods(CreateGoodsCommand command);
 
-
+	/**
+	 * 处理kafka回调
+	 *
+	 * @param command 商品
+	 * @since 2022-04-27 17:00:16
+	 */
 	void handleKafkaNotify(NotifyGoodsCommand command);
 
+	/**
+	 * 轮训商品自动创建
+	 *
+	 * @param command 商品
+	 * @since 2022-04-27 17:00:16
+	 */
 	void scheduleAutoCreateGoods(ScheduleAutoCreateGoodsCommand command);
 
+	/**
+	 * 处理商品创建事件
+	 *
+	 * @param command 商品
+	 * @since 2022-04-27 17:00:16
+	 */
 	void handleGoodsCreatedEvent(GoodsCreatedHandleCommand command);
 
-	/**
-	 * 批量更新商品的店铺信息
-	 *
-	 * @param store
-	 */
-	// boolean updateStoreDetail(Store store);
 
 }
