@@ -30,7 +30,7 @@ com.taotao.cloud.goods.{layer}.{subdomain}
 | 值对象 | 描述性名词 | `GoodsWeight`, `GoodsStatus`, `GoodsName` |
 | 领域事件 | `{名词}{过去式}Event` | `GoodsCreatedEvent`, `CategoryCreateEvent` |
 | 仓储接口 | `{Entity}DomainRepository` | `GoodsDomainRepository` |
-| 领域服务 | `{Entity}DomainService` | `GoodsDomainService` |
+| 领域服务 | `{Entity}DomainService` | `GoodsCheckDomainService` |
 | 命令 DTO | `{动词}{名词}Command` | `CreateGoodsCommand` |
 | 查询 DTO | `{名词}PageQuery` | `GoodsPageQuery` |
 | 结果 DTO | `{名词}Result` | `GoodsDetailResult` |

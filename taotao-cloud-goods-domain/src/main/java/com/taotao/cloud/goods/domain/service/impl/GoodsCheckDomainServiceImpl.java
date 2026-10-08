@@ -14,19 +14,25 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.domain.factory;
+package com.taotao.cloud.goods.domain.service.impl;
 
-import com.taotao.boot.common.model.ddd.types.MarkerFactory;
-import org.springframework.stereotype.Component;
+import com.taotao.cloud.goods.domain.service.GoodsCheckDomainService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
 /**
- * DraftGoodsFactory
+ * 商品领域服务实现
+ * <p>
+ * 实现跨越多个聚合根的领域业务逻辑
+ * </p>
  *
  * @author shuigedeng
  * @version 2026.04
  * @since 2025-12-19 09:30:45
  */
-@Component
-public class DraftGoodsFactory implements MarkerFactory {
+@Service
+@RequiredArgsConstructor
+public class GoodsCheckDomainServiceImpl implements GoodsCheckDomainService {
+
 
 }

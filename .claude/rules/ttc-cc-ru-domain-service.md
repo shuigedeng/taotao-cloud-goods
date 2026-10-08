@@ -49,7 +49,7 @@ public class GoodsDomainService {
 {Entity}DomainService
 ```
 
-示例：`GoodsDomainService`, `CategoryDomainService`
+示例：`GoodsCheckDomainService`, `CategoryDomainService`
 
 ## 禁止做法
 ```java

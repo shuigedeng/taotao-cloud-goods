@@ -30,10 +30,9 @@ import org.hibernate.validator.constraints.Length;
  * @since 2023-01-04 13:21
  */
 @RecordBuilder
-public record CategoryName(	@NotBlank
-	@Length(min = 1, max = 64)
-	String value)
-	implements ValueObject<CategoryName> {
+public record CategoryName(
+	String value
+) implements ValueObject<CategoryName> {
 
 	/**
 	 * of 方法
@@ -42,13 +41,13 @@ public record CategoryName(	@NotBlank
 	 * @return 分类名称
 	 * @since 2022.03
 	 */
-	public static CategoryName of( String value ) {
+	public static CategoryName of(String value) {
 		return new CategoryName(value).validateThis();
 	}
 
 
 	@Override
-	public boolean sameValueAs( CategoryName other ) {
+	public boolean sameValueAs(CategoryName other) {
 		return this.equals(other);
 	}
 

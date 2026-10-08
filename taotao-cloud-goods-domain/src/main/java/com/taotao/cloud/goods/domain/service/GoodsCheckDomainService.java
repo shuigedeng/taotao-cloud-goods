@@ -14,15 +14,19 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.goods.domain.factory;
+package com.taotao.cloud.goods.domain.service;
 
-import com.taotao.boot.common.model.ddd.types.MarkerFactory;
-import org.springframework.stereotype.Component;
+import com.taotao.boot.ddd.model.domain.service.DomainService;
 
 /**
- * 分类创建工厂<br/> 注：领域对象创建工厂，强调初始创建领域对象的操作（区别于技术层面的构造函数）
+ * 商品领域服务接口
+ * <p>
+ * 定义跨越多个聚合根的领域业务逻辑
+ * </p>
+ *
+ * @author shuigedeng
+ * @since 2025-12-19
  */
-@Component
-public class CategoryFactory implements MarkerFactory {
+public interface GoodsCheckDomainService extends DomainService {
 
 }

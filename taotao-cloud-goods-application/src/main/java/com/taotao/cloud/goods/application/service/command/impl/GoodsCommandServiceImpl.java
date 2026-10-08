@@ -129,13 +129,16 @@ public class GoodsCommandServiceImpl implements GoodsCommandService {
 
 
 	@Override
-    public GoodsResult createGoods( CreateGoodsCommand goodsCreateCommand) {
+    public GoodsResult createGoods( CreateGoodsCommand command) {
         // 创建商品实体
-        GoodsAgg goods = GoodsFactory.createGoods(goodsCreateCommand);
+        GoodsAgg goods = GoodsFactory.createGoods(command);
+
         // 验证新增商品分类是否存在
 //        this.categoryDomainRepository.isSatisfiedBy(goods.getCategory());
+
         // 验证商品标签是否存在
 //        this.goodsTagDomainRepository.isSatisfiedBy(goods.getTags());
+
         // 保存商品
         goodsDomainRepository.save(goods, Boolean.TRUE);
         // 转换GoodsDto
