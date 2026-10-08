@@ -22,7 +22,7 @@ import com.taotao.boot.common.model.ddd.query.IdQuery;
 
 import com.taotao.boot.common.model.result.PageResult;
 import com.taotao.boot.common.model.result.Result;
-import com.taotao.boot.idempotent.annotation.Idempotent;
+import com.taotao.boot.idempotent.standard.annotation.Idempotent;
 import com.taotao.boot.ratelimit.ratelimitguava.GuavaLimit;
 import com.taotao.boot.ratelimit.ratelimitguava.Limit;
 import com.taotao.boot.repeat.submit.duplicate.PreventDuplicateSubmit;
