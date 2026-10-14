@@ -1,7 +1,7 @@
 package com.taotao.cloud.goods.application.flow.precredit;
 
-import com.taotao.boot.flowengine.flow.FlowDefinition;
-import com.taotao.boot.flowengine.flow.FlowDsl;
+import com.taotao.boot.flowengine.flowdsl.FlowDefinition;
+import com.taotao.boot.flowengine.flowdsl.FlowDsl;
 import com.taotao.cloud.goods.application.dto.goods.result.GoodsResult;
 import com.taotao.cloud.goods.application.dto.goods.result.GoodsResultBuilder;
 import org.springframework.stereotype.Service;

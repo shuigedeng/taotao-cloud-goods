@@ -1,7 +1,7 @@
 package com.taotao.cloud.goods.infrastructure.event.subscribe.greenrobot;
 
 import com.taotao.boot.common.utils.log.LogUtils;
-import com.taotao.boot.eventbus.model.EventModel;
+import com.taotao.boot.eventbus.standard.model.EventModel;
 import org.greenrobot.eventbus.ThreadMode;
 
 public class GreenrobotEventSubscriber {
