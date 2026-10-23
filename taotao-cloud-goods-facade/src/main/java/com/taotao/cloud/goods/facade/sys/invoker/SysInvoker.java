@@ -1,5 +1,6 @@
 package com.taotao.cloud.goods.facade.sys.invoker;
 
+import com.taotao.boot.client.gateway.interceptor.LogInterceptor;
 import com.taotao.boot.common.model.request.Request;
 import com.taotao.boot.client.gateway.invoker.GatewayInvokeBuilder;
 import com.taotao.boot.client.gateway.model.GatewayRequest;
@@ -28,15 +29,10 @@ public class SysInvoker {
 //    @DubboReference
 //    private final DictRpcService dictRpcService;
 
-    public GatewayResponse<DictApiResponse> queryByCode(GatewayRequest<DictApiQuery> gatewayRequest ) {
-        return new GatewayInvokeBuilder<DictApiQuery, DictApiResponse>()
+    public GatewayResponse<DictApiResponse> queryByCode(GatewayRequest<Request<DictApiQuery>> gatewayRequest ) {
+        return new GatewayInvokeBuilder<Request<DictApiQuery>, DictApiResponse>()
                 .description("sys系统-字典信息查询")
-                .gatewayRouter(query -> {
-					Request<DictApiQuery> request = Request.from(query);
-					request.setBizNo("1111");
-					request.setOrderNo("1111");
-					return dictQueryApi.query(request);
-				})
+                .gatewayRouter(dictQueryApi::query)
                 .addLast(RemoteCallExceptionInterceptor.getInstance())
                 .addLast(SysInterceptor.getInstance())
                 .build()

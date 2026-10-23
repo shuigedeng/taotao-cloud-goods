@@ -18,6 +18,7 @@ package com.taotao.cloud.goods.facade.sys.acl;
 
 import com.taotao.boot.client.gateway.model.GatewayRequest;
 import com.taotao.boot.client.gateway.service.GatewayRemoteCallBaseService;
+import com.taotao.boot.common.model.request.Request;
 import com.taotao.boot.ddd.acl.AclBaseService;
 import com.taotao.boot.client.gateway.model.GatewayResponse;
 import com.taotao.cloud.goods.application.acl.sys.dto.req.DictAclReq;
@@ -41,17 +42,20 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class SysAclServiceImpl extends AclBaseService implements SysAclService, GatewayRemoteCallBaseService {
 
-    private final SysFacadeAssembler facadeAssembler;
-    private final SysInvoker sysInvoker;
+	private final SysFacadeAssembler facadeAssembler;
+	private final SysInvoker sysInvoker;
 
-    @Override
-    public DictAclRes queryByCode(DictAclReq dictAclReq) {
-		GatewayRequest<DictApiQuery> request = makeRequest(facadeAssembler.toQuery(dictAclReq));
+	@Override
+	public DictAclRes queryByCode(DictAclReq dictAclReq) {
 
-		GatewayResponse<DictApiResponse> response = sysInvoker.queryByCode(request);
+		Request<DictApiQuery> request = Request.from(facadeAssembler.toQuery(dictAclReq));
+		request.setBizNo("1111");
+		request.setOrderNo("1111");
+
+		GatewayResponse<DictApiResponse> response = sysInvoker.queryByCode(makeRequest(request));
 
 		DictApiResponse result = this.getResult(response);
 
 		return facadeAssembler.toRes(result);
-    }
+	}
 }
