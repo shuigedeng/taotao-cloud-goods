@@ -980,7 +980,7 @@ taotao:
           username: admin
           password: 123456
         executor:
-          access-token: 123456
+          access-token: default_token
           appname: ttc-goods
           title: ttc-goods
     sensitive:
@@ -1253,7 +1253,10 @@ management:
     web:
       exposure:
         include: '*'
+        exclude: dynamic-datasource
   endpoint:
+    dynamic-datasource:
+      access: NONE
     threaddump:
       access: unrestricted
     metrics:
