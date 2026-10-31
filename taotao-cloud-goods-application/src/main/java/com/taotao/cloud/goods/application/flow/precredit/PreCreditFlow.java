@@ -7,7 +7,7 @@ import com.taotao.cloud.goods.application.dto.goods.result.GoodsResultBuilder;
 import org.springframework.stereotype.Service;
 
 @Service
-public class PreCreditFlow implements FlowDsl<PreCreditContext, GoodsResult> {
+public class PreCreditFlow implements FlowDsl<PreCreditContext> {
 
 	static void main() {
 		PreCreditFlow preCreditFlow = new PreCreditFlow();
@@ -16,10 +16,10 @@ public class PreCreditFlow implements FlowDsl<PreCreditContext, GoodsResult> {
 	public  void start(){
 		PreCreditContext preCreditContext = new PreCreditContext();
 		preCreditContext.setGoodsResult(GoodsResultBuilder.builder().build());
-		GoodsResult result = this.definition().execute(preCreditContext).getResult();
+		GoodsResult result = this.definition().execute(preCreditContext).getResult().getGoodsResult();
 	}
 	@Override
-	public FlowDefinition<PreCreditContext, GoodsResult> definition() {
+	public FlowDefinition<PreCreditContext> definition() {
 //		return start("xxxx")
 //			.step("xxx").invoke(this::test)
 //			.step("xxx").predicate(ctx -> ctx.isCredit()).invoke(this::test1)
@@ -55,8 +55,8 @@ public class PreCreditFlow implements FlowDsl<PreCreditContext, GoodsResult> {
 		System.out.println("steppotherwise1");
 	}
 
-	public GoodsResult stepend(PreCreditContext  creditContext) {
+	public PreCreditContext stepend(PreCreditContext  creditContext) {
 		System.out.println("stepend");
-	return creditContext.getGoodsResult();
+	return creditContext;
 	}
 }
