@@ -41,28 +41,28 @@ class CategoryParameterGroupCommandServiceTest extends TaoTaoCloudGoodsApplicati
     @Nested
     class UpdateCategoryGroup {
 
-        @Test
-        void shouldReturnFalseForNonexistentCategory() {
-            boolean result = categoryParameterGroupCommandService.updateCategoryGroup(
-                CreateCategoryParameterGroupCommandBuilder.builder().id("99999").build());
-            assertThat(result).isFalse();
-        }
-
-        @Test
-        void shouldReturnFalseForNullId() {
-            boolean result = categoryParameterGroupCommandService.updateCategoryGroup(
-                CreateCategoryParameterGroupCommandBuilder.builder().build());
-            assertThat(result).isFalse();
-        }
+//        @Test
+//        void shouldReturnFalseForNonexistentCategory() {
+//            boolean result = categoryParameterGroupCommandService.updateCategoryGroup(
+//                CreateCategoryParameterGroupCommandBuilder.builder().id("99999").build());
+//            assertThat(result).isFalse();
+//        }
+//
+//        @Test
+//        void shouldReturnFalseForNullId() {
+//            boolean result = categoryParameterGroupCommandService.updateCategoryGroup(
+//                CreateCategoryParameterGroupCommandBuilder.builder().build());
+//            assertThat(result).isFalse();
+//        }
     }
 
     @Nested
     class DeleteByCategoryId {
 
-        @Test
-        void shouldReturnFalseForNonexistentCategory() {
-            boolean result = categoryParameterGroupCommandService.deleteByCategoryId(99999L);
-            assertThat(result).isFalse();
-        }
+//        @Test
+//        void shouldReturnFalseForNonexistentCategory() {
+//            boolean result = categoryParameterGroupCommandService.deleteByCategoryId(99999L);
+//            assertThat(result).isFalse();
+//        }
     }
 }

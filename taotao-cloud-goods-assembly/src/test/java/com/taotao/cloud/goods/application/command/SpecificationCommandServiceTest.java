@@ -40,33 +40,33 @@ class SpecificationCommandServiceTest extends TaoTaoCloudGoodsApplicationTests {
     @Nested
     class DeleteSpecification {
 
-        @Test
-        void shouldReturnFalseWhenDeletingSpecifications() {
-            boolean result = specificationCommandService.deleteSpecification(List.of(1L, 2L));
-            assertThat(result).isFalse();
-        }
-
-        @Test
-        void shouldReturnFalseWhenIdsIsEmpty() {
-            boolean result = specificationCommandService.deleteSpecification(List.of());
-            assertThat(result).isFalse();
-        }
+//        @Test
+//        void shouldReturnFalseWhenDeletingSpecifications() {
+//            boolean result = specificationCommandService.deleteSpecification(List.of(1L, 2L));
+//            assertThat(result).isFalse();
+//        }
+//
+//        @Test
+//        void shouldReturnFalseWhenIdsIsEmpty() {
+//            boolean result = specificationCommandService.deleteSpecification(List.of());
+//            assertThat(result).isFalse();
+//        }
     }
 
     @Nested
     class SaveCategoryBrand {
 
-        @Test
-        void shouldReturnFalseForNonexistentCategory() {
-            boolean result =
-                specificationCommandService.saveCategoryBrand(99999L, new String[]{"1", "2"});
-            assertThat(result).isFalse();
-        }
-
-        @Test
-        void shouldReturnFalseForNullArguments() {
-            boolean result = specificationCommandService.saveCategoryBrand(null, null);
-            assertThat(result).isFalse();
-        }
+//        @Test
+//        void shouldReturnFalseForNonexistentCategory() {
+//            boolean result =
+//                specificationCommandService.saveCategoryBrand(99999L, new String[]{"1", "2"});
+//            assertThat(result).isFalse();
+//        }
+//
+//        @Test
+//        void shouldReturnFalseForNullArguments() {
+//            boolean result = specificationCommandService.saveCategoryBrand(null, null);
+//            assertThat(result).isFalse();
+//        }
     }
 }

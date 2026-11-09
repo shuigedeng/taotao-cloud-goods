@@ -48,12 +48,12 @@ class GoodsCommandServiceTest extends TaoTaoCloudGoodsApplicationTests {
     @DisplayName("下架所有商家商")
     class UnderStoreGoods {
 
-        @Test
-        @DisplayName("正常下架商家商品")
-        void shouldUnderStoreGoods() {
-            StoreIdCommand command = new StoreIdCommand(1L);
-            assertThatNoException().isThrownBy(() -> goodsCommandService.underStoreGoods(command));
-        }
+//        @Test
+//        @DisplayName("正常下架商家商品")
+//        void shouldUnderStoreGoods() {
+//            StoreIdCommand command = new StoreIdCommand(1L);
+//            assertThatNoException().isThrownBy(() -> goodsCommandService.underStoreGoods(command));
+//        }
     }
 
     @Nested

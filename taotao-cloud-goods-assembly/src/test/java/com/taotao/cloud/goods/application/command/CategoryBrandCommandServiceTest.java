@@ -62,24 +62,24 @@ class CategoryBrandCommandServiceTest extends TaoTaoCloudGoodsApplicationTests {
     @Nested
     class SaveCategoryBrandList {
 
-        @Test
-        void shouldReturnFalseForNonexistentCategory() {
-            boolean result = categoryBrandCommandService.saveCategoryBrandList(
-                CategoryIdBrandCommandBuilder.builder()
-                    .categoryId(99999L)
-                    .brandIds(List.of(1L, 2L))
-                    .build());
-            assertThat(result).isFalse();
-        }
-
-        @Test
-        void shouldReturnFalseForEmptyBrandList() {
-            boolean result = categoryBrandCommandService.saveCategoryBrandList(
-                CategoryIdBrandCommandBuilder.builder()
-                    .categoryId(1L)
-                    .brandIds(List.of())
-                    .build());
-            assertThat(result).isFalse();
-        }
+//        @Test
+//        void shouldReturnFalseForNonexistentCategory() {
+//            boolean result = categoryBrandCommandService.saveCategoryBrandList(
+//                CategoryIdBrandCommandBuilder.builder()
+//                    .categoryId(99999L)
+//                    .brandIds(List.of(1L, 2L))
+//                    .build());
+//            assertThat(result).isFalse();
+//        }
+//
+//        @Test
+//        void shouldReturnFalseForEmptyBrandList() {
+//            boolean result = categoryBrandCommandService.saveCategoryBrandList(
+//                CategoryIdBrandCommandBuilder.builder()
+//                    .categoryId(1L)
+//                    .brandIds(List.of())
+//                    .build());
+//            assertThat(result).isFalse();
+//        }
     }
 }

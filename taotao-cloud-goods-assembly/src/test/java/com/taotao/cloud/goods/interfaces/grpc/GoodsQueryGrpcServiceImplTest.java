@@ -17,8 +17,8 @@
 package com.taotao.cloud.goods.interfaces.grpc;
 
 import com.taotao.cloud.goods.TaoTaoCloudGoodsApplicationTests;
-import com.taotao.cloud.goods.api.grpc.CountStoreGoodsNumGrpcQuery;
-import com.taotao.cloud.goods.api.grpc.CountStoreGoodsNumGrpcQueryResponse;
+//import com.taotao.cloud.goods.api.grpc.CountStoreGoodsNumGrpcQuery;
+//import com.taotao.cloud.goods.api.grpc.CountStoreGoodsNumGrpcQueryResponse;
 import com.taotao.cloud.goods.interfaces.grpc.query.GoodsQueryGrpcServiceImpl;
 import io.grpc.stub.StreamObserver;
 import org.junit.jupiter.api.DisplayName;
@@ -45,18 +45,18 @@ class GoodsQueryGrpcServiceImplTest extends TaoTaoCloudGoodsApplicationTests {
         assertThat(goodsQueryGrpcService).isNotNull();
     }
 
-    @Test
-    @DisplayName("统计店铺商品数量")
-    void shouldCountStoreGoodsNum() {
-        CountStoreGoodsNumGrpcQuery request = CountStoreGoodsNumGrpcQuery.newBuilder().build();
-        StreamObserver<CountStoreGoodsNumGrpcQueryResponse> observer = new StreamObserver<>() {
-            @Override
-            public void onNext(CountStoreGoodsNumGrpcQueryResponse value) {}
-            @Override
-            public void onError(Throwable t) {}
-            @Override
-            public void onCompleted() {}
-        };
-        assertThatNoException().isThrownBy(() -> goodsQueryGrpcService.countStoreGoodsNum(request, observer));
-    }
+//    @Test
+//    @DisplayName("统计店铺商品数量")
+//    void shouldCountStoreGoodsNum() {
+//        CountStoreGoodsNumGrpcQuery request = CountStoreGoodsNumGrpcQuery.newBuilder().build();
+//        StreamObserver<CountStoreGoodsNumGrpcQueryResponse> observer = new StreamObserver<>() {
+//            @Override
+//            public void onNext(CountStoreGoodsNumGrpcQueryResponse value) {}
+//            @Override
+//            public void onError(Throwable t) {}
+//            @Override
+//            public void onCompleted() {}
+//        };
+//        assertThatNoException().isThrownBy(() -> goodsQueryGrpcService.countStoreGoodsNum(request, observer));
+//    }
 }

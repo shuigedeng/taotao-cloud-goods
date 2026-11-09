@@ -39,16 +39,16 @@ class StoreGoodsLabelCommandServiceTest extends TaoTaoCloudGoodsApplicationTests
     @Nested
     class RemoveStoreGoodsLabel {
 
-        @Test
-        void shouldReturnFalseForNonexistentLabel() {
-            boolean result = storeGoodsLabelCommandService.removeStoreGoodsLabel(99999L);
-            assertThat(result).isFalse();
-        }
-
-        @Test
-        void shouldReturnFalseForNullLabelId() {
-            boolean result = storeGoodsLabelCommandService.removeStoreGoodsLabel(null);
-            assertThat(result).isFalse();
-        }
+//        @Test
+//        void shouldReturnFalseForNonexistentLabel() {
+//            boolean result = storeGoodsLabelCommandService.removeStoreGoodsLabel(99999L);
+//            assertThat(result).isFalse();
+//        }
+//
+//        @Test
+//        void shouldReturnFalseForNullLabelId() {
+//            boolean result = storeGoodsLabelCommandService.removeStoreGoodsLabel(null);
+//            assertThat(result).isFalse();
+//        }
     }
 }

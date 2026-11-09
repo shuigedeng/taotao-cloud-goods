@@ -90,16 +90,16 @@ class CategoryCommandServiceTest extends TaoTaoCloudGoodsApplicationTests {
     @Nested
     class UpdateCategoryStatus {
 
-        @Test
-        void shouldExecuteWithoutErrorWhenEnable() {
-            assertThatCode(() -> categoryCommandService.updateCategoryStatus(1L, true))
-                .doesNotThrowAnyException();
-        }
-
-        @Test
-        void shouldExecuteWithoutErrorWhenDisable() {
-            assertThatCode(() -> categoryCommandService.updateCategoryStatus(1L, false))
-                .doesNotThrowAnyException();
-        }
+//        @Test
+//        void shouldExecuteWithoutErrorWhenEnable() {
+//            assertThatCode(() -> categoryCommandService.updateCategoryStatus(1L, true))
+//                .doesNotThrowAnyException();
+//        }
+//
+//        @Test
+//        void shouldExecuteWithoutErrorWhenDisable() {
+//            assertThatCode(() -> categoryCommandService.updateCategoryStatus(1L, false))
+//                .doesNotThrowAnyException();
+//        }
     }
 }

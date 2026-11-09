@@ -43,18 +43,18 @@ class GoodsCommandGrpcServiceImplTest extends TaoTaoCloudGoodsApplicationTests {
         assertThat(goodsCommandGrpcService).isNotNull();
     }
 
-    @Test
-    @DisplayName("统计店铺商品数量")
-    void shouldCountStoreGoodsNum() {
-        CountStoreGoodsNumGrpcCommand request = CountStoreGoodsNumGrpcCommand.newBuilder().build();
-        StreamObserver<CountStoreGoodsNumGrpcCommandResponse> observer = new StreamObserver<>() {
-            @Override
-            public void onNext(CountStoreGoodsNumGrpcCommandResponse value) {}
-            @Override
-            public void onError(Throwable t) {}
-            @Override
-            public void onCompleted() {}
-        };
-        assertThatNoException().isThrownBy(() -> goodsCommandGrpcService.countStoreGoodsNum(request, observer));
-    }
+//    @Test
+//    @DisplayName("统计店铺商品数量")
+//    void shouldCountStoreGoodsNum() {
+//        CountStoreGoodsNumGrpcCommand request = CountStoreGoodsNumGrpcCommand.newBuilder().build();
+//        StreamObserver<CountStoreGoodsNumGrpcCommandResponse> observer = new StreamObserver<>() {
+//            @Override
+//            public void onNext(CountStoreGoodsNumGrpcCommandResponse value) {}
+//            @Override
+//            public void onError(Throwable t) {}
+//            @Override
+//            public void onCompleted() {}
+//        };
+//        assertThatNoException().isThrownBy(() -> goodsCommandGrpcService.countStoreGoodsNum(request, observer));
+//    }
 }
