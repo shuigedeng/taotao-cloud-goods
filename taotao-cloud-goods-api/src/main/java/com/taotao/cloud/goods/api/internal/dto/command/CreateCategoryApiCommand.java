@@ -41,8 +41,7 @@ public record CreateCategoryApiCommand(
 	String name,
 	@Schema(description = "企业全称")
 	String fullName,
-	@Schema(description = "信用代码")
-	@Pattern(regexp = "^|[a-zA-Z0-9]{18}$", message = "信用代码格式错误")
+	@Schema(description = "信用代码") @Pattern(regexp = "^|[a-zA-Z0-9]{18}$", message = "信用代码格式错误")
 	String creditCode,
 	@Schema(description = "邮箱")
 	String email,
@@ -59,7 +58,8 @@ public record CreateCategoryApiCommand(
 	@Schema(description = "所在地区")
 	String regionInfo,
 	@Schema(description = "公司类型")
-	Integer type) implements Command {
+	Integer type
+) implements Command {
 
 	@Serial
 	private static final long serialVersionUID = -4132785717179910025L;
