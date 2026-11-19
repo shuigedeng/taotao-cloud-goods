@@ -1,6 +1,6 @@
-package com.taotao.cloud.goods.api.dto;
+package com.taotao.cloud.goods.application.dto;
 
-import com.taotao.boot.common.model.ddd.types.MarkerResponse;
+import com.taotao.boot.common.model.ddd.types.Input;
 import lombok.Data;
 
 import java.io.Serial;
@@ -9,10 +9,10 @@ import java.time.LocalDate;
 /**
  * @author shuigedeng
  */
-public final class BaseResponse {
+public final class Inputs {
 
 	@Data
-	public static class CreditLimitInfo implements MarkerResponse {
+	public static class CreditLimitInput implements Input {
 
 		@Serial
 		private static final long serialVersionUID = -4132785717179910025L;
@@ -21,7 +21,7 @@ public final class BaseResponse {
 	}
 
 	@Data
-	public static class AdjustLimitInfo implements MarkerResponse {
+	public static class AdjustLimitInput implements Input {
 
 		@Serial
 		private static final long serialVersionUID = -4132785717179910025L;
@@ -30,7 +30,7 @@ public final class BaseResponse {
 	}
 
 	@Data
-	public static class CapitalInfo implements MarkerResponse {
+	public static class CapitalInput implements Input {
 
 		@Serial
 		private static final long serialVersionUID = -4132785717179910025L;

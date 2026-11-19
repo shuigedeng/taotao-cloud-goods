@@ -1,5 +1,7 @@
 package com.taotao.cloud.goods.common.info;
 
+import com.taotao.boot.common.model.ddd.types.Info;
+
 /**
  * ApplyInfo
  *
@@ -7,6 +9,6 @@ package com.taotao.cloud.goods.common.info;
  * @version 2026.04
  * @since 2025-12-19 09:30:45
  */
-public class ApplyInfo {
+public class ApplyInfo implements Info {
 
 }

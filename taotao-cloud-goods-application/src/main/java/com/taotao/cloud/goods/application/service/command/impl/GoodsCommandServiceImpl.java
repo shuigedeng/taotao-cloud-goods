@@ -101,6 +101,7 @@ public class GoodsCommandServiceImpl implements GoodsCommandService {
 		//		throw new BusinessException(ResultEnum.USER_AUTHORITY_ERROR);
 		//	}
 		List<Long> goodsIds = freightGoodsCommand.goodsId();
+
 		transactionWrapper.doInTransaction(()->{
 			List<GoodsAgg> goodsAggs = goodsDomainRepository.findUsingIdCols(goodsIds, true);
 
@@ -141,6 +142,7 @@ public class GoodsCommandServiceImpl implements GoodsCommandService {
 
         // 保存商品
         goodsDomainRepository.save(goods, Boolean.TRUE);
+
         // 转换GoodsDto
         return goodsAppAssembler.toResult(goods);
     }

@@ -1,16 +1,11 @@
 package com.taotao.cloud.goods.api.dto;
 
-import com.taotao.boot.common.model.ddd.types.Command;
 import com.taotao.boot.common.model.ddd.types.Info;
-import lombok.Data;
-
-import java.io.Serial;
-import java.time.LocalDate;
 
 /**
  * @author shuigedeng
  */
-public final class BaseInfo {
+public final class Infos {
 
 	public static final String LIMIT_TYPE = "01";
 
