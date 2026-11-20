@@ -1257,6 +1257,8 @@ management:
   endpoint:
     dynamic-datasource:
       access: NONE
+    scalar:
+      access: NONE
     threaddump:
       access: unrestricted
     metrics:
