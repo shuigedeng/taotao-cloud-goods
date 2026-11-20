@@ -66,7 +66,6 @@ dependencies {
     //boot
     //api "io.github.shuigedeng:taotao-boot-starter-apollo"
     //api "io.github.shuigedeng:taotao-boot-starter-dubbo"
-    api "commons-logging:commons-logging"
     api "io.github.shuigedeng:taotao-boot-starter-grpc"
     api "io.github.shuigedeng:taotao-boot-starter-eventbus"
     api "io.github.shuigedeng:taotao-boot-starter-lock"
